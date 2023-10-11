@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/tables.css" />
+  </head>
+  <body>
+    <a class="home-link" href="../index.html">На головну</a>
+
+    <h1 class="page-title">Стилі шрифтів</h1>
+
+    <table class="font-table">
+      <thead>
+        <tr>
+          <th class="name">Опис</th>
+          <th class="property">Властивість</th>
+          <th class="value">Значення</th>
+          <th class="note">Примітка</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="8">
+            колір фону елемента, <br /><br />
+            колір тексту елемента
+          </td>
+          <td rowspan="8">background-color<br /><br />color</td>
+          <td>white;</td>
+          <td>ключове слово</td>
+        </tr>
+        <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        <tr>
+          <td>rgb(255, 0, 0);</td>
+          <td>RGB (red, green, blue)</td>
+        </tr>
+        <tr>
+          <td>rgb(100%, 0%, 0%);</td>
+          <td>RGB (red, green, blue)</td>
+        </tr>
+        <tr>
+          <td>rgba(255, 0, 0, 0.3);</td>
+          <td>RGBА (red, green, blue, alfa-chanal) - Прозорість кольору</td>
+        </tr>
+        <tr>
+          <td>#ff0000;</td>
+          <td>Hexadecimal</td>
+        </tr>
+        <tr>
+          <td>transparent</td>
+          <td>
+            прозорий (тільки для background-color, значення за замовчуванням)
+          </td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>наслідування стилю предка</td>
+        </tr>
+        <tr>
+          <td>currentColor;</td>
+          <td>
+            наслідування стилю предка (використовується тільки для посилань)
+          </td>
+        </tr>
+        <tr>
+          <td>сімейство шрифту</td>
+          <td>font-family</td>
+          <td>'Roboto'</td>
+          <td>в кінці обов'язково вказувати сімейство шрифтів</td>
+        </tr>
+        <tr>
+          <td>розмір шрифту</td>
+          <td>font-size</td>
+          <td>20px</td>
+          <td>за замовчуванням 16px</td>
+        </tr>
+        <tr>
+          <td>товщина шрифту</td>
+          <td>font-weight</td>
+          <td>700</td>
+          <td>
+            діапазон 100-900 (400 - normal,
+            <span style="font-weight: 700">700 - bold</span>)
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="5">стиль (накреслення) шрифту</td>
+          <td rowspan="5">font-style</td>
+          <td>normal</td>
+          <td class="italic">за замовчуванням</td>
+        </tr>
+        <tr>
+          <td>italic</td>
+          <td style="font-style: italic">текст курсивом (з нахилом)</td>
+        </tr>
+        <tr>
+          <td>oblique</td>
+          <td style="font-style: oblique"></td>
+        </tr>
+        <tr>
+          <td>initial</td>
+          <td style="font-style: initial"></td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>наслідування стилю предка</td>
+        </tr>
+        <tr>
+          <td rowspan="4">оформлення тексту</td>
+          <td rowspan="4">text-decoration</td>
+          <td>none</td>
+          <td>без підкреслювання</td>
+        </tr>
+        <tr>
+          <td>underline</td>
+          <td style="text-decoration: underline">текст підкресленний</td>
+        </tr>
+        <tr>
+          <td>line-through</td>
+          <td style="text-decoration: line-through">
+            лінія проходить крізь текст
+          </td>
+        </tr>
+        <tr>
+          <td>overline</td>
+          <td style="text-decoration: overline">лінія проходить над текстом</td>
+        </tr>
+        <tr>
+          <td rowspan="4">регістр символів у тексті</td>
+          <td rowspan="4">text-transform</td>
+          <td>none</td>
+          <td>(за замовчуванням)</td>
+        </tr>
+        <tr>
+          <td>uppercase</td>
+          <td style="text-transform: uppercase">усі литери великі</td>
+        </tr>
+        <tr>
+          <td>lowercase</td>
+          <td style="text-transform: lowercase">усі литери маленькі</td>
+        </tr>
+        <tr>
+          <td>capitalize</td>
+          <td style="text-transform: capitalize">
+            кожне слово починається з великої літери
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4">вирівнюванням текстового вмісту</td>
+          <td rowspan="4">text-align</td>
+          <td>left</td>
+          <td>вирівнювання по лівому краю (за замовчуванням)</td>
+        </tr>
+        <tr>
+          <td>right</td>
+          <td>вирівнювання по правому краю</td>
+        </tr>
+        <tr>
+          <td>center</td>
+          <td>вирівнювання по центру</td>
+        </tr>
+        <tr>
+          <td>justify</td>
+          <td>
+            вирівнювання по лівому і правому краям, з розтяшуванням пробілів
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="5">
+            міжрядковий інтервал (інтерліньяж, висоту рядка) тексту
+          </td>
+          <td rowspan="5">line-height</td>
+          <td>множник</td>
+          <td>інтерліньяж 24px / розмір шрифту 16px = 1.5</td>
+        </tr>
+        <tr>
+          <td>значення</td>
+          <td>16px</td>
+        </tr>
+        <tr>
+          <td>відсотки</td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">інтервал між символами</td>
+          <td rowspan="3">letter-spacing</td>
+          <td>значення</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>normal</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">
+            величинf відступу першого рядка текстового блоку (абзац)
+          </td>
+          <td rowspan="3">text-indent</td>
+          <td>значення</td>
+          <td>16px</td>
+        </tr>
+        <tr>
+          <td>відсотки</td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>inherit</td>
+          <td>наслідування стилю предка</td>
+        </tr>
+        <tr>
+          <td rowspan="5">тінь тексту</td>
+          <td rowspan="4">text-shadow</td>
+          <td>зміщення по x</td>
+          <td>2px</td>
+        </tr>
+        <tr>
+          <td>зміщення по y</td>
+          <td>2px</td>
+        </tr>
+        <tr>
+          <td>радіус розмиття</td>
+          <td>4px</td>
+        </tr>
+        <tr>
+          <td>колір</td>
+          <td>black</td>
+        </tr>
+        <tr>
+          <td colspan="3">text-shadow: 2px 2px 4px black</td>
+        </tr>
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
+      </tbody>
+    </table>
+    <!-- <div class="underspace"></div> -->
+  </body>
+</html>

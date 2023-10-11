@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tables.css">
+  </head>
+  <body>
+    <a class="home-link" href="../index.html">На головну</a>
+
+
+    <h1>Стилі (загальна інформація)</h1>
+
+    <table class="connecting">
+      <caption>
+        Підключення стилів
+      </caption>
+      <thead>
+        <tr>
+          <th>Підключення стилів</th>
+          <th>Використання</th>
+          <th>Засіб підключення</th>
+          <th colspan="2">Нотатка</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>вбудовані стилі</td>
+                <td>для динамічних стилів, які встановлюються під час виконання JavaScript-коду, коли заздалегідь не можемо знати, яке буде значення властивості</td>
+                <td>підключення за допомогою атрибуту style, безпосередньо в тезі</td>
+                <td>атрибут style</td>
+                <td>style="color: tomato;"</td>
+            </tr>
+            <tr>
+                <td>вбудована таблиця стилів</td>
+                <td>для попереднього завантаження загальних стилів при відкритті сторінки</td>
+                <td>правила додаються всередину тега style, що розміщується в head, після title</td>
+                <td>тег style</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>зовнішня таблиця стилів</td>
+                <td>стандарт додавання стилів</td>
+                <td>правила додаються у створенний файл *.css, підключається через тег link в head</td>
+                <td>файл *.css</td>
+                <td></td>
+            </tr>
+        </tbody>
+      </thead>
+    </table>
+
+    <table class="selectors">
+      <caption>
+        Селектори
+      </caption>
+      <thead>
+        <th>Селектор</th>
+        <th>Позначення</th>
+        <th>Опис</th>
+        <th>Нотатка</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Селектор за типом елемента</td>
+        <td>X</td>
+        <td>визначає, до якого типу елементів буде застосовано CSS-правило</td>
+        <td>body, h1, p, li, a</td>
+      </tr>
+      <tr>
+        <td>Селектор ідентифікатора</td>
+        <td>#X</td>
+        <td>визначає, до якого елементу із атрібутом індентифікатора буде застосовано CSS-правило</td>
+        <td>#title</td>
+      </tr>
+      <tr>
+        <td>Селектор класу</td>
+        <td>.X</td>
+        <td>визначає, до якого елементу із атрібутом class буде застосовано CSS-правило</td>
+        <td>.title</td>
+      </tr>
+      <tr>
+        <td>Селектор нащадка</td>
+        <td>X Y</td>
+        <td>застосовується до нащадку Y, що знаходиться на будьякому рівні вклденності предка X</td>
+        <td>.section .text</td>
+      </tr>
+      <tr>
+        <td>Cелектор дитини</td>
+        <td>X > Y</td>
+        <td>застосовується до дочірнього елементу Y, що знаходиться на першому рівні вклденності предка X</td>
+        <td>.section > .title</td>
+        
+      </tr>
+      <tr>
+        <td>Селектори стану (псевдокласу)</td>
+        <td>X:state</td>
+        <td>застосовується для стилізування інтерактивних елементів при певній події</td>
+        <td>.link:hover</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr></tbody>
+    </table>
+
+    <table>
+      <caption>Псевдокласи</caption>
+      <thead>
+        <tr>
+          <th>Псевдоклас</th>
+          <th>Опис</th>
+          <th>Приклад</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>:hover</td>
+          <td>активується, коли курсор миші знаходиться в межах елемента</td>
+          <td>.link:hover</td>
+        </tr>
+        <tr>
+          <td>:focus</td>
+          <td>активується, коли інтерактивний елемент (посилання, кнопка, поле форми) отримує фокус при натисканні на нього мишкою або при навігації по сторінці клавіатурою (клавішею Tab)</td>
+          <td>.form:focus</td>
+        </tr>
+        <tr>
+          <td>:active</td>
+          <td>ініціюється, коли взаємодієте з елементами
+            <ul>
+              <li>утримання лівої кнопки миші на елементі.</li>
+              <li>утримання кнопки пробілу (на елементах button).</li>
+            </ul>
+
+
+          </td>
+          <td>.button:active</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+<table>
+  <caption>Специфічність селекторів
+</caption>
+
+<thead>
+  <tr><th>Вага селектору</th>
+  <th>Опис</th>
+  <th>Нотатка</th></tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>1
+  </td>
+    <td>елементи, псевдоелементи
+  </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10
+  </td>
+    <td>класи, атрібути, псевдокласи (:hover, :active, :focus тощо)
+  </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>100
+  </td>
+    <td>ідентификатор (id)
+  </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>вбудовані стилі
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>!important</td>
+    <td>color: orange !important;
+</td>
+  </tr>
+</tbody>
+</table>
+
+  </body>
+</html>
