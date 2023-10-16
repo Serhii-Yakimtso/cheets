@@ -2,8 +2,276 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
-  <body></body>
+  <body>
+    <a class="home-link" href="../index.html">На головну</a>
+
+    <h1>Стили. Геометрия</h1>
+
+    <div class="geometry-common">
+      <img src="../images/block-model.png" alt="блоковая модель" width="400" />
+
+      <ul>
+        <li>
+          <span class="accent">Область вмісту (content)</span> — це контент
+          елемента, наприклад текст, зображення, відео чи вкладені елементи. За
+          замовчуванням висота (height) області вмісту визначається контентом,
+          ширина (width) — типом елемента (блоковий або рядковий).
+        </li>
+        <li>
+          <span class="accent">Падінг (англ. padding, внутрішнє поле)</span> —
+          це відстань між контентом елемента і його рамкою (border).
+          Використовується для декоративних ефектів. Не можна вказувати
+          негативні значення.
+        </li>
+        <li>
+          <span class="accent">Рамка (border)</span> — межа елемента. За
+          замовчуванням її ширина дорівнює нулю. Якщо колір рамки не
+          встановлено, вона приймає колір основного вмісту, наприклад тексту.
+        </li>
+        <li>
+          <span class="accent">Маржин (англ. margin, зовнішній відступ)</span> —
+          додає відступ ззовні елемента, від зовнішньої межі (рамки) до сусідніх
+          елементів, тим самим розділяючи їх на сторінці. Маржину можна
+          вказувати негативне значення. Фон елемента на зовнішній відступ не
+          поширюється.
+        </li>
+      </ul>
+    </div>
+
+    <table>
+      <caption></caption>
+      <thead>
+        <tr>
+          <th class="name">Опис</th>
+          <th class="property">Властивість</th>
+          <th class="value">Значення</th>
+          <th class="note">Примітка</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="10">
+            зовнішні відступи /<br />
+            внутрішні відступи
+          </td>
+          <td rowspan="4">
+            margin /<br />
+            padding
+          </td>
+          <td>20px</td>
+          <td>Однакові поля по 20px з усіх боків</td>
+        </tr>
+        <tr>
+          <td>10px 20px</td>
+          <td>Поля зверху та знизу по 10px, зліва та праворуч по 20px</td>
+        </tr>
+        <tr>
+          <td>10px 20px 5px</td>
+          <td>Поле зверху 10px, ліворуч і праворуч по 20px, знизу 5px</td>
+        </tr>
+        <tr>
+          <td>10px 15px 20px 25px</td>
+          <td>Поле зверху 10px, праворуч 15px, знизу 20px, ліворуч 25px</td>
+        </tr>
+
+        <tr>
+          <td>margin-top</td>
+          <td>10px</td>
+          <td>верхній відступ (так само і для padding)</td>
+        </tr>
+        <tr>
+          <td rowspan="2">margin-right</td>
+          <td>10px</td>
+          <td>правий відступ (так само і для padding)</td>
+        </tr>
+        <tr>
+          <td>auto</td>
+          <td>притиснути до лівого краю (тільки для margin)</td>
+        </tr>
+        <tr>
+          <td>margin-bottom</td>
+          <td>10px</td>
+          <td>нижный відступ (так само і для padding)</td>
+        </tr>
+        <tr>
+          <td rowspan="2">margin-left</td>
+          <td>10px</td>
+          <td>лывий відступ (так само і для padding)</td>
+        </tr>
+        <tr>
+          <td>auto</td>
+          <td>притиснути до правого краю (тільки для margin)</td>
+        </tr>
+        <tr>
+          <td rowspan="19">рамка</td>
+          <td>border</td>
+          <td>5px solid red</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>border-width</td>
+          <td>10px</td>
+          <td>ширина</td>
+        </tr>
+        <tr>
+          <td rowspan="10">border-style</td>
+          <td>solid</td>
+          <td>суцільна лінія</td>
+        </tr>
+        <tr>
+          <td>dashed</td>
+          <td>пунктирна лінія</td>
+        </tr>
+        <tr>
+          <td>dotted</td>
+          <td>лінія з точок</td>
+        </tr>
+        <tr>
+          <td>none</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>hidden</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>groove</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ridge</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>inset</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>outset</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>double</td>
+          <td>подвійна лінія</td>
+        </tr>
+        <tr>
+          <td rowspan="2">border-color</td>
+          <td>RGB</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>HEX</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>border-top</td>
+          <td>5px solid red</td>
+          <td>верхня рамка</td>
+        </tr>
+        <tr>
+          <td>border-right</td>
+          <td>5px solid red</td>
+          <td>права рамка</td>
+        </tr>
+        <tr>
+          <td>border-bottom</td>
+          <td>5px solid red</td>
+          <td>нижня рамка</td>
+        </tr>
+        <tr>
+          <td>border-left</td>
+          <td>5px solid red</td>
+          <td>ліва рамка</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">ширина елементу</td>
+          <td rowspan="2">width</td>
+          <td>10px</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>50%</td>
+          <td>відсоток від ширини батьківського елемента</td>
+        </tr>
+
+        <tr>
+          <td>висота елементу</td>
+          <td>height</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td rowspan="3">
+            тип блокової моделі елемента (алгоритм розрахунку його розмірів)
+          </td>
+          <td rowspan="3">box-sizing</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>content-box</td>
+          <td>
+            властивості width іheight задають ширину і висоту області вмісту і
+            не включають розміри полів (padding), рамок (border) і відступів
+            (margin). Це значення за замовчуванням <br />
+            Ширина = width + padding-left + padding-right + border-left +
+            border-right<br />
+            Висота = height + padding-top + padding-bottom + border-top +
+            border-bottom
+          </td>
+        </tr>
+        <tr>
+          <td>border-box</td>
+          <td>
+            властивості width іheight задають кінцевий розмір елемента і
+            включають значення полів (padding), рамок (border), але не зовнішніх
+            відступів (margin)<br />
+            Ширина = width<br />
+            Висота = height
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>inherit</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
