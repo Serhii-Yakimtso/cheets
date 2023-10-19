@@ -4,8 +4,301 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <a class="home-link" href="../index.html">На головну</a>
+    <h1>Flexbox</h1>
+
+    <div class="flex-common">
+      <img src="../images/flex-axis.jpg" alt="flex axis" width="400" />
+      <ul>
+        <li>
+          <p>
+            <span class="accent">Main axis</span> — головна вісь
+            flex-контейнера, вздовж якої розміщуються елементи
+          </p>
+        </li>
+        <li>
+          <p>
+            <span class="accent">Cross axis</span> - поперечна вісь, яка завжди
+            перпендикулярна головній осі
+          </p>
+        </li>
+        <li>
+          <p>
+            <span class="accent">main-start</span> і
+            <span class="accent">main-end</span> — елементи в контейнері завжди
+            розташовуються від main-start (початок головної осі) і до main-end
+            (кінець головної осі).
+          </p>
+        </li>
+        <li>
+          <p>
+            <span class="accent">cross-start</span> і
+            <span class="accent">cross-end</span> - початок і кінець поперечної
+            осі cross axis вздовж якої розташовані рядки елементів
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <table>
+      <caption>
+        Властивості Flex-контейнера
+      </caption>
+      <thead>
+        <tr>
+          <th class="name">Опис</th>
+          <th class="property">Властивість</th>
+          <th class="value">Значення</th>
+          <th class="note">Примітка</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">Створення flex-контейнера</td>
+          <td rowspan="2">display</td>
+          <td>flex</td>
+          <td>блоковий контейнер</td>
+        </tr>
+        <tr>
+          <td>flex</td>
+          <td>рядково-блоковий контейнер</td>
+        </tr>
+        <tr>
+          <td rowspan="4">напрямок головної осі</td>
+          <td rowspan="4">flex-direction</td>
+          <td>row</td>
+          <td>
+            вісь починається зліва й закінчується праворуч (за замовчуванням)
+          </td>
+        </tr>
+
+        <tr>
+          <td>row-reverse</td>
+          <td>вісь починається праворуч й закінчується ліворуч</td>
+        </tr>
+        <tr>
+          <td>column</td>
+          <td>головна вісь стає вертикально, початок зверху та кінець знизу</td>
+        </tr>
+        <tr>
+          <td>column-reverse</td>
+          <td>
+            головна вісь розташовується вертикально, початок знизу, кінець
+            зверху
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="3">проміжок між flex-елементами</td>
+          <td>gap</td>
+          <td>8px</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>row-gap</td>
+          <td>8px</td>
+          <td>проміжки між рядками</td>
+        </tr>
+        <tr>
+          <td>column-gap</td>
+          <td>8px</td>
+          <td>проміжки між стовпцями</td>
+        </tr>
+
+        <tr>
+          <td rowspan="6">позиціонуванням елементів на main axis</td>
+          <td rowspan="6">justify-content</td>
+          <td>flex-start</td>
+          <td rowspan="6">
+            <img
+              src="../images/justify-content.png"
+              alt="justify-content"
+              height="200"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>flex-end</td>
+        </tr>
+        <tr>
+          <td>center</td>
+        </tr>
+        <tr>
+          <td>space-between</td>
+        </tr>
+        <tr>
+          <td>space-around</td>
+        </tr>
+        <tr>
+          <td>space-evenly</td>
+        </tr>
+        <tr>
+          <td rowspan="5">позиціонуванням елементів на cross axis</td>
+          <td rowspan="5">align-items</td>
+          <td>flex-start</td>
+          <td rowspan="5">
+            <img
+              src="../images/align-items.png"
+              alt="align-items"
+              height="160"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>flex-end</td>
+        </tr>
+        <tr>
+          <td>center</td>
+        </tr>
+        <tr>
+          <td>stretch</td>
+        </tr>
+        <tr>
+          <td>baseline</td>
+        </tr>
+        <tr>
+          <td rowspan="3">перенос елементів</td>
+          <td rowspan="3">flex-wrap</td>
+          <td>nowrap</td>
+          <td>усі елементи будуть на одному рядку (за замовчуванням)</td>
+        </tr>
+        <tr>
+          <td>wrap</td>
+          <td>
+            дозволяє елементам перестрибувати на інші рядки, які за
+            замовчуванням розташовуються зверху вниз (уздовж cross axis)
+          </td>
+        </tr>
+        <tr>
+          <td>wrap-reverse</td>
+          <td>
+            дозволяє елементам перестрибувати на інші рядки, які розташовуються
+            знизу вгору (уздовж cross axis).
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="7">
+            вирівнювання усіх рядків багаторядкового контейнера уздовж cross
+            axis
+          </td>
+          <td rowspan="7">align-content</td>
+          <td>flex-start</td>
+          <td>рядки притискаються до старту cross axis</td>
+        </tr>
+        <tr>
+          <td>flex-end</td>
+          <td>рядки притискаються до кінця cross axis</td>
+        </tr>
+        <tr>
+          <td>center</td>
+        </tr>
+        <tr>
+          <td>space-between</td>
+        </tr>
+        <tr>
+          <td>space-around</td>
+        </tr>
+        <tr>
+          <td>space-evenly</td>
+        </tr>
+        <tr>
+          <td>stretch</td>
+          <td>
+            рядки рівномірно розтягуються, щоб зайняти все місце (за
+            замовчуванням)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>
+        Властивості Flex-елементів
+      </caption>
+      <tr>
+        <th class="name">Опис</th>
+        <th class="property">Властивість</th>
+        <th class="value">Значення</th>
+        <th class="note">Примітка</th>
+      </tr>
+      <tbody>
+        <tr>
+          <td rowspan="4">початковий розмір flex-елемента у flex-контейнері</td>
+          <td rowspan="3">flex-basis</td>
+          <td>auto</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>значення</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>відсоток</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <ul>
+              <li>
+                Якщо застосовано обидві властивості, flex-basis і width, то
+                властивість width ігнорується.
+              </li>
+              <li>
+                Властивість flex-basis може визначати висоту, а не ширину
+                елемента. Це відбувається, коли напрямок головної осі
+                вертикальний
+              </li>
+              <li>
+                Властивості min-width і max-width працюють, як обмежувачі
+                розміру елемента, навіть якщо у нього вказано flex-basis
+              </li>
+              <li>
+                Властивість flex-basis — це не фінальний розмір елемента, а
+                розмір до розподілу вільного простору, який регулюється
+                властивостями flex-grow і flex-shrink
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>flex-grow</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
