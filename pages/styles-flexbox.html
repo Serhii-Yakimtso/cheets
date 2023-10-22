@@ -43,16 +43,16 @@
       </ul>
     </div>
 
-    <table>
+    <table class="flex-container-table">
       <caption>
         Властивості Flex-контейнера
       </caption>
       <thead>
         <tr>
-          <th class="name">Опис</th>
-          <th class="property">Властивість</th>
-          <th class="value">Значення</th>
-          <th class="note">Примітка</th>
+          <th class="head-name">Опис</th>
+          <th class="head-property">Властивість</th>
+          <th class="head-value">Значення</th>
+          <th class="head-note">Примітка</th>
         </tr>
       </thead>
       <tbody>
@@ -107,7 +107,7 @@
           <td>проміжки між стовпцями</td>
         </tr>
 
-        <tr>
+        <tr class="justify-content">
           <td rowspan="6">позиціонуванням елементів на main axis</td>
           <td rowspan="6">justify-content</td>
           <td>flex-start</td>
@@ -119,19 +119,19 @@
             />
           </td>
         </tr>
-        <tr>
+        <tr class="justify-content">
           <td>flex-end</td>
         </tr>
-        <tr>
+        <tr class="justify-content">
           <td>center</td>
         </tr>
-        <tr>
+        <tr class="justify-content">
           <td>space-between</td>
         </tr>
-        <tr>
+        <tr class="justify-content">
           <td>space-around</td>
         </tr>
-        <tr>
+        <tr class="justify-content">
           <td>space-evenly</td>
         </tr>
         <tr>
@@ -213,15 +213,15 @@
       </tbody>
     </table>
 
-    <table>
+    <table class="flex-element-table">
       <caption>
         Властивості Flex-елементів
       </caption>
       <tr>
-        <th class="name">Опис</th>
-        <th class="property">Властивість</th>
-        <th class="value">Значення</th>
-        <th class="note">Примітка</th>
+        <th class="head-name">Опис</th>
+        <th class="head-property">Властивість</th>
+        <th class="head-value">Значення</th>
+        <th class="head-note">Примітка</th>
       </tr>
       <tbody>
         <tr>
@@ -263,34 +263,65 @@
           </td>
         </tr>
         <tr>
-          <td></td>
+          <td>
+            здатність елемента займати більше місця (рости), ніж початковий
+            розмір
+          </td>
           <td>flex-grow</td>
-          <td></td>
+          <td>частка</td>
+          <td>
+            За замовчуванням 0. Керує пропорціями елементів щодо один одного
+          </td>
+        </tr>
+        <tr>
+          <td>
+            здатність елемента займати менше місця (стискатися), ніж початковий
+            розмір
+          </td>
+          <td>flex-shrink</td>
+          <td>частка</td>
+          <td>
+            За замовчуванням - 1. 0 заборонить елементу стискатися. Негативні
+            значення задавати не можна
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="6">зміна свого розташування на cross axis</td>
+          <td rowspan="6">align-self</td>
+          <td>auto</td>
           <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>flex-start</td>
           <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>flex-end</td>
           <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>center</td>
           <td></td>
         </tr>
         <tr>
+          <td>baseline</td>
           <td></td>
+        </tr>
+        <tr>
+          <td>stretch</td>
           <td></td>
-          <td></td>
-          <td></td>
+        </tr>
+        <tr>
+          <td>
+            візуально змінити порядок розташування елементів уздовж main axis
+          </td>
+          <td>order</td>
+          <td>позиція</td>
+          <td>
+            астосовується вкрай рідко через те, що порушує зв'язок між
+            візуальним порядком елементів і тим, як їх бачить браузер і
+            асистивні технології
+          </td>
         </tr>
         <tr>
           <td></td>

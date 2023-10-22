@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/tables.css">
   </head>
   <body>
     <a class="home-link" href="../index.html">На головну</a>
@@ -14,52 +13,49 @@
 
     <h1>Стилі (загальна інформація)</h1>
 
-    <table class="connecting">
+    <table class="connecting-table">
       <caption>
         Підключення стилів
       </caption>
       <thead>
         <tr>
-          <th>Підключення стилів</th>
-          <th>Використання</th>
-          <th>Засіб підключення</th>
-          <th colspan="2">Нотатка</th>
+          <th class="head-connecting">Підключення стилів</th>
+          <th class="head-use">Використання</th>
+          <th class="head-connect">Засіб підключення</th>
+          <th class="head-note">Нотатка</th>
         </tr>
         <tbody>
             <tr>
                 <td>вбудовані стилі</td>
                 <td>для динамічних стилів, які встановлюються під час виконання JavaScript-коду, коли заздалегідь не можемо знати, яке буде значення властивості</td>
                 <td>підключення за допомогою атрибуту style, безпосередньо в тезі</td>
-                <td>атрибут style</td>
-                <td>style="color: tomato;"</td>
+                <td>атрибут style <br>style="color: tomato;"</td>
             </tr>
             <tr>
                 <td>вбудована таблиця стилів</td>
                 <td>для попереднього завантаження загальних стилів при відкритті сторінки</td>
                 <td>правила додаються всередину тега style, що розміщується в head, після title</td>
                 <td>тег style</td>
-                <td></td>
             </tr>
             <tr>
                 <td>зовнішня таблиця стилів</td>
                 <td>стандарт додавання стилів</td>
                 <td>правила додаються у створенний файл *.css, підключається через тег link в head</td>
                 <td>файл *.css</td>
-                <td></td>
             </tr>
         </tbody>
       </thead>
     </table>
 
-    <table class="selectors">
+    <table class="selectors-table">
       <caption>
         Селектори
       </caption>
       <thead>
-        <th>Селектор</th>
-        <th>Позначення</th>
-        <th>Опис</th>
-        <th>Нотатка</th>
+        <th class="head-selector">Селектор</th>
+        <th class="head-glif">Позначення</th>
+        <th class="head-discription">Опис</th>
+        <th class="head-note">Нотатка</th>
       </thead>
       <tbody>
         <tr>
@@ -99,7 +95,7 @@
           <td>застосовується для стилізування інтерактивних елементів при певній події</td>
           <td>.link:hover</td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td></td>
           <td></td>
           <td></td>
@@ -122,17 +118,17 @@
           <td></td>
           <td></td>
           <td></td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
 
-    <table>
+    <table class="pseudoclass-table">
       <caption>Псевдокласи</caption>
       <thead>
         <tr>
-          <th>Псевдоклас</th>
-          <th>Опис</th>
-          <th>Приклад</th>
+          <th class="head-pseudoclass">Псевдоклас</th>
+          <th class="head-discription">Опис</th>
+          <th class="head-note">Приклад</th>
         </tr>
       </thead>
       <tbody>
@@ -153,42 +149,54 @@
               <li>утримання лівої кнопки миші на елементі.</li>
               <li>утримання кнопки пробілу (на елементах button).</li>
             </ul>
-
-
           </td>
           <td>.button:active</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>:first-child</td>
+          <td>застосовання стилю лише до першого елемента в колекції сусідніх елементів</td>
+          <td>.list-item:first-child</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>:last-child</td>
+          <td>застосовання стилю лише до останнього елемента в колекції сусідніх елементів</td>
+          <td>.list-item:last-child</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>:not(selector)</td>
+          <td>застосовання стилю до всіх елементів, що не підходять під критерій</td>
+          <td>.list-item:not(:last-child)</td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
+          <td>:nth-child(an + b)</td>
+          <td>
+            <p>вибирає елементи в колекції сусідів за номером</p>
+            <ul>
+              <li>a — період циклу, довільне число</li>
+              <li>n — лічильник циклу, починається з нуля та збільшується на одиницю на кожній ітерації.</li>
+              <li>b — зміщення. Довільне число.</li>
+            </ul>
+          </td>
           <td></td>
         </tr>
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr> -->
       </tbody>
     </table>
 
-    <table>
+    <table class="specific-table">
       <caption>Специфічність селекторів
       </caption>
 
       <thead>
-        <tr><th>Вага селектору</th>
-        <th>Опис</th>
-        <th>Нотатка</th></tr>
+        <tr>
+          <th class="head-rang">Вага селектору</th>
+          <th class="head-discription">Опис</th>
+          <th class="head-note">Нотатка</th>
+        </tr>
       </thead>
 
       <tbody>
