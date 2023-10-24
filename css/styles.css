@@ -27,6 +27,12 @@ ol {
   margin: 0;
   padding-left: 0;
 }
+
+ul.list-style,
+ol.list-style {
+  list-style: inside;
+}
+
 table {
   /* border: 1px solid black; */
   border-collapse: collapse;
@@ -66,6 +72,23 @@ tr {
   width: 100px;
   height: 100px;
   border: 2px dotted red;
+  background-color: green;
+}
+
+.bcg-box {
+  padding: 8px 15px;
+  margin: 0 auto;
+  max-width: max-content;
+  border-radius: 4px;
+  background-color: lightgray;
+}
+
+.m-bottom {
+  margin-bottom: 20px;
+}
+
+.box:hover {
+  background-color: blue;
 }
 
 /* ===== Стилі (загальна інформація) ===== */

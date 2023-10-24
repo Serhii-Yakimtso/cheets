@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="home-link" href="../index.html">На головну</a>
+
+    <section class="designation m-bottom">
+      <h2 class="m-bottom">Фон елемента</h2>
+      <ul class="m-bottom">
+        <li>
+          <p>
+            <span class="accent">Контентні зображення</span> - несуть смислове
+            навантаження, відносяться до вмісту сторінки та допомагають донести
+            до користувача корисну інформацію. Додаються в HTML-розмітці за
+            допомогою тега <span class="accent">img</span> (фотографія продукту
+            на картці товару в інтернет-магазині; фотографії членів команди;
+            логотип компанії; рекламні банери; карти з локацією; картинки
+            слайдера).
+          </p>
+        </li>
+        <li>
+          <p>
+            <span class="accent">Декоративні зображення</span> -
+            використовуються для додаткового оформлення. Вони не несуть корисної
+            інформації та є елементами дизайну. Додаються через CSS як фон
+            елемента або, у випадку векторної графіки, розмічаються в HTML тегом
+            <span class="accent">svg</span> (кастомні маркери списків; допоміжні
+            іконки; плашки; фонові зображення блоків).
+          </p>
+        </li>
+      </ul>
+
+      <table class="backgraund-element-table">
+        <caption>
+          Фон елемента
+        </caption>
+        <thead>
+          <tr>
+            <th class="head-name">Опис</th>
+            <th class="head-property">Властивість</th>
+            <th class="head-value">Значення</th>
+            <th class="head-note">Примітка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>фонове зображення елемента</td>
+            <td>background-image</td>
+            <td>url()</td>
+            <td>url(шлях до зображення)</td>
+          </tr>
+          <tr>
+            <td rowspan="4">повторення фонового зображення</td>
+            <td rowspan="4">background-repeat</td>
+            <td>repeat</td>
+            <td>повторювати X і Y (за замовчуванням).</td>
+          </tr>
+          <tr>
+            <td>repeat-x</td>
+            <td>повторювати тільки X, тобто по горизонталі</td>
+          </tr>
+          <tr>
+            <td>repeat-y</td>
+            <td>повторювати тільки Y, тобто по вертикалі.</td>
+          </tr>
+          <tr>
+            <td>no-repeat</td>
+            <td>
+              без повторення.<br />
+              <span class="accent"
+                >Бажано додавати, щоб унеможливити повторення.</span
+              >
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="4">
+              положення фонового зображення відносно рамки елемента по
+              координатам Х та У (позиціонується відносно верхнього лівого кута
+              елемента)
+            </td>
+            <td rowspan="4">background-position</td>
+            <td>значення</td>
+            <td>100px 200px</td>
+          </tr>
+          <tr>
+            <td>відсоток</td>
+            <td>50% 50%</td>
+          </tr>
+          <tr>
+            <td>ключові слова</td>
+            <td>top, bottom, right, left, center</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              кщо необхідно розташувати фон у нижньому правому куті елемента
+              довільних розмірів таким чином, щоб фон відставав від меж на 30px
+              справа і 20px знизу <br />backrgound-position: right 30px bottom
+              20px;
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="4">коригування розмірів зображення</td>
+            <td rowspan="4">background-size</td>
+            <td>auto</td>
+            <td>за замовчуванням</td>
+          </tr>
+          <tr>
+            <td>значення</td>
+            <td>
+              200px - ширина 200px, висота буде пропорційна <br />200px 300px -
+              ширина 200px, висота 300px
+            </td>
+          </tr>
+          <tr>
+            <td>cover</td>
+            <td>максимально вмістити, обрізавши зайве</td>
+          </tr>
+          <tr>
+            <td>contain</td>
+            <td>максимально вмістити, з утворенням порожнього простору</td>
+          </tr>
+          <tr>
+            <td rowspan="3">закріплення фонового зображення</td>
+            <td rowspan="3">background-attachment</td>
+            <td>scroll</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>fixed</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>local</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Лінійний градієнт</td>
+            <td>background-image</td>
+            <td>linear-gradient (напрямок, колір-1, колір-2, колір-3)</td>
+            <td>
+              напрямок (to top, to right, to bottom, to left, deg (10deg))
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="6">
+              Властивість background для одночасного встановлення значень всіх
+              властивостей
+            </td>
+            <td rowspan="6">background</td>
+            <td>background-color</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>background-image</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>background-repeat</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>background-position</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>background-attachment</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>background-size</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan="4">Багатошаровий фон</td>
+            <td colspan="3">
+              background-image: url(шлях до зображення 1), url(шлях до
+              зображення 2);
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">background-size: 100px, cover;</td>
+          </tr>
+          <tr>
+            <td colspan="3">background-position: top right, center;</td>
+          </tr>
+          <tr>
+            <td colspan="3">background-repeat: repeat-x, no-repeat;</td>
+          </tr>
+          <tr>
+            <td rowspan="7">тінь елемента</td>
+            <td rowspan="7">box-shadow</td>
+            <td>x-offset</td>
+            <td>
+              горизонтальне зміщення. Позитивне значення зміщує тінь праворуч
+              від блоку, негативне – ліворуч. Обов'язкове значення
+            </td>
+          </tr>
+          <tr>
+            <td>y-offset</td>
+            <td>
+              вертикальне зміщення. Позитивне значення зміщує тінь вниз,
+              негативне - вгору. Обов'язкове значення.
+            </td>
+          </tr>
+          <tr>
+            <td>blur</td>
+            <td>
+              радіус розмиття. Чим більше значення, тим сильніше розмита тінь.
+              Необов'язкове значення
+            </td>
+          </tr>
+          <tr>
+            <td>spread</td>
+            <td>
+              радіус поширення. Позитивне значення збільшує тінь, негативне —
+              зменшує. Необов'язкове значення
+            </td>
+          </tr>
+          <tr>
+            <td>color</td>
+            <td>
+              колір тіні. Можна використовувати будь-який формат запису кольору.
+              Необов'язкове значення.
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">box-shadow: x-offset y-offset blur spread color</td>
+          </tr>
+          <tr>
+            <td>inset</td>
+            <td>
+              Внутрішня тінь, додаэться попереду усых ынших значень<br />box-shadow:
+              inset x-offset y-offset blur spread color
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="vector-grafik">
+      <h2 class="m-bottom">Векторна графіка</h2>
+
+      <p class="m-bottom">
+        <span class="accent">SVG (Scalable Vector Graphics)</span> — формат
+        графіки та мова для опису векторних зображень.
+      </p>
+      <p>Переваги</p>
+      <ul class="list-style m-bottom">
+        <li>
+          <span class="accent">масштабування</span> — на відміну від растрової
+          графіки, SVG не втрачає якості при масштабуванні
+        </li>
+        <li>
+          <span class="accent">розмір файла</span> — векторні зображення важать
+          набагато менше растрових, якщо використовуються для іконок або іншої
+          абстрактної графіки. Використання вектора для фотореалістичних
+          зображень навпаки веде до великого розміру файла.
+        </li>
+        <li>
+          <span class="accent">динамічність</span> — за допомогою CSS і
+          JavaScript можна змінювати параметри векторного зображення, наприклад,
+          колір або рамки
+        </li>
+      </ul>
+
+      <p>Застосування</p>
+      <ul class="list-style">
+        <li>
+          тег <span class="accent">img</span> - іконки, для яких не потрібно
+          додавати ефект ховеру або фокусу.
+        </li>
+        <li>
+          властивість <span class="accent">background-image</span> - абстрактний
+          фон
+        </li>
+        <li>
+          тег <span class="accent">svg</span> ("вбудований SVG" (inline svg)) -
+          іконки, для яких потрібно динамічно змінити колір або інші
+          характеристики векторного зображення з CSS
+        </li>
+      </ul>
+
+      <table class="m-bottom">
+        <caption></caption>
+        <thead>
+          <tr>
+            <th class="head-name">Опис</th>
+            <th class="head-property">Властивість</th>
+            <th class="head-value">Значення</th>
+            <th class="head-note">Примітка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="4">колір заливки</td>
+            <td rowspan="4">fill</td>
+            <td>ключове слово</td>
+            <td>red</td>
+          </tr>
+          <tr>
+            <td>RGB</td>
+            <td>rgb(255, 0, 0);</td>
+          </tr>
+          <tr>
+            <td>RGBА</td>
+            <td>rgba(255, 0, 0, 0.3)</td>
+          </tr>
+          <tr>
+            <td>HEX</td>
+            <td>#ff0000</td>
+          </tr>
+          <tr>
+            <td>колір обводки</td>
+            <td>stroke</td>
+            <td colspan="2">те саме що й для fill</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <span class="accent">SVG-спрайт</span> (<a href="https://icomoon.io/"
+          >посилання</a
+        >) - збирання усіх файлів іконок до одного svg файлу. При доєднанні
+        файлу до проекту, необхідно його перейменувати на
+        <span class="accent">sprite.svg</span>.
+      </p>
+      <p>
+        Усі вектору у спрайті записані через тег symbol та індентифіковані. Щоб
+        звернутись до певного вектору треба вказати шлях
+      </p>
+      <div class="bcg-box">
+        <p>
+          svg <br />
+          use href="../images/sprite.svg#ідентифікатор" /use <br />
+          /svg
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Псевдоелементи</h2>
+
+      <p>
+        <span class="accent">Псевдоелементи</span> - використовуються для
+        додавання декоративних ефектів без необхідності створення додаткових
+        порожніх тегів у розмітці. За замовчуванням — це рядкові елементи.
+      </p>
+
+      <ul class="m-bottom">
+        <li>
+          <span class="accent">::before</span> - створює псевдоелемент перед
+          всім вмістом елемента (на початку)
+        </li>
+        <li>
+          <span class="accent">::after</span> - створює псевдоелемент після
+          всього вмісту елемента (наприкінці).
+        </li>
+      </ul>
+
+      <p>
+        Властивість content дозволяє додати текстовий контент всередину
+        псевдоелемента - обов'язкова властивість. Якщо за макетом текстовий
+        контент не потрібний, його значенням необхідно поставити порожній рядок
+      </p>
+
+      <p>
+        У селекторі можна використовувати лише один псевдоелемент, який має
+        додаватись після простого селектора (тега, класу, ідентифікатора)
+      </p>
+
+      <p>Приклад використання псевдоелементу із псевдокласом</p>
+      <div class="bcg-box">
+        <p>.box:hover::after {}</p>
+      </div>
+    </section>
+  </body>
+</html>

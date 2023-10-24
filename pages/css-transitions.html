@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="home-link" href="../index.html">На головну</a>
+
+    <h2 class="m-bottom">CSS-переходи</h2>
+
+    <p>Все, що необхідно зробити для налаштування переходу, це:</p>
+    <ul class="list-style">
+      <li>
+        Вказати початкові значення властивостей, що анімуються, і значення
+        властивостей переходу
+      </li>
+      <li>
+        Після чого при події, наприклад, :hover, задати нові значення
+        властивостей, до яких ми хочемо анімувати елемент
+      </li>
+    </ul>
+
+    <div class="bcg-box m-bottom">
+      <p>
+        .box {<br />
+        transition-property: background-color, transform;<br />
+        transition-duration: 500ms;<br />
+        transition-timing-function: linear;<br />
+        transition-delay: 0;<br />
+        }<br /><br />
+
+        .box:hover {<br />
+        background-color: teal;<br />
+        transform: rotate(180deg);<br />
+        }
+      </p>
+    </div>
+
+    <table>
+      <caption></caption>
+      <thead>
+        <tr>
+          <th class="head-name">Опис</th>
+          <th class="head-property">Властивість</th>
+          <th class="head-value">Значення</th>
+          <th class="head-note">Примітка</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>задає властивості, до яких буде застосовано ефект переходу</td>
+          <td>transition-property</td>
+          <td>властивість</td>
+          <td>
+            одна чи список властивостей через кому (за замовчуванням — all)
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2">
+            задає проміжок часу, протягом якого має здійснитися перехід
+          </td>
+          <td rowspan="2">transition-duration</td>
+          <td>секунди (0.5s)</td>
+          <td rowspan="2">
+            Якщо різні властивості мають різні значення часу переходу, всі вони
+            перераховуються через кому
+          </td>
+        </tr>
+        <tr>
+          <td>мілісекунди (500ms)</td>
+        </tr>
+        <tr>
+          <td rowspan="5">
+            задає функцію розподілу часу, тобто поведінку анімації
+          </td>
+          <td rowspan="5">transition-timing-function</td>
+          <td>ease</td>
+          <td>
+            перехід починається повільно, швидко прискорюється, а потім знову
+            сповільнюється в кінці (за замовчуванням)
+          </td>
+        </tr>
+        <tr>
+          <td>linear</td>
+          <td>перехід має рівномірну швидкість</td>
+        </tr>
+        <tr>
+          <td>ease-in</td>
+          <td>
+            починається повільно, швидкість переходу збільшується до повного
+            завершення переходу
+          </td>
+        </tr>
+        <tr>
+          <td>ease-out</td>
+          <td>починається швидко, уповільнюється протягом переходу</td>
+        </tr>
+        <tr>
+          <td>ease-in-out</td>
+          <td>
+            починається повільно, прискорюється, а потім знову сповільнюється
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2">
+            визначає затримку, після якої розпочинається анімація переходу
+          </td>
+          <td rowspan="2">transition-delay</td>
+          <td>секунди (0.5s)</td>
+          <td rowspan="2">(за замовчуванням 0s)</td>
+        </tr>
+        <tr>
+          <td>мілісекунди (500ms)</td>
+        </tr>
+        <tr>
+          <td rowspan="5">Всі властивості переходу поєднати в одну складову</td>
+          <td rowspan="5">transition</td>
+          <td>property</td>
+          <td>background-color</td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>500ms</td>
+        </tr>
+        <tr>
+          <td>timing-function</td>
+          <td>linear</td>
+        </tr>
+        <tr>
+          <td>delay</td>
+          <td>500ms</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            transition: background-color 500ms linear 500ms, transform 500ms
+            ease-in-out 500ms;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
