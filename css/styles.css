@@ -87,6 +87,10 @@ tr {
   margin-bottom: 20px;
 }
 
+.m-bottom-min {
+  margin-bottom: 8px;
+}
+
 .box:hover {
   background-color: blue;
 }
@@ -97,6 +101,8 @@ tr {
 .connecting-table {
   margin-bottom: 20px;
   width: 750px;
+
+  font-size: 13px;
 }
 .connecting-table .head-connecting {
   width: 105px;
@@ -121,13 +127,13 @@ tr {
   width: 150px;
 }
 .selectors-table .head-glif {
-  width: 100px;
+  width: 120px;
 }
 .selectors-table .head-discription {
-  width: 400px;
+  width: 350px;
 }
 .selectors-table .head-note {
-  width: 100px;
+  width: 130px;
 }
 
 /* ===== Псевдокласи ===== */
@@ -166,7 +172,7 @@ tr {
 .font-table {
   width: 750px;
 
-  font-size: 13px;
+  /* font-size: 13px; */
 }
 .font-table .head-name {
   width: 100px;
@@ -181,17 +187,37 @@ tr {
   width: 400px;
 }
 
+/* ===== Псевдоелементи тексту ===== */
+
+.pseudoelement-font-table {
+  width: 750px;
+}
+
 /* ===== Стили. Геометрия ===== */
 
 /* ===== Визначення ===== */
 .geometry-common {
   display: flex;
   width: 750px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .geometry-common img {
   margin-right: 20px;
   object-fit: scale-down;
+}
+
+/* ===== Типи елементів ===== */
+.type-element-table {
+  width: 750px;
+  margin-bottom: 150px;
+}
+.type-element-table .head-name {
+}
+.type-element-table .head-property {
+}
+.type-element-table .head-value {
+}
+.type-element-table .head-note {
 }
 
 /* ===== Геометрія елементів ===== */
@@ -213,23 +239,47 @@ tr {
   width: 400px;
 }
 
-/* .geometry-table .wrapper {
- display: block;
- margin-top: 200px;
-} */
+/* ===== Структурні псевдокласи ===== */
 
-/* ===== Типи елементів ===== */
-.type-element-table {
-  width: 750px;
-  margin-bottom: 150px;
+.structure-pseudoclass-table .pseudoclass-container {
+  display: flex;
+  gap: 8px;
 }
-.type-element-table .head-name {
+
+.pseudoclass-container {
+  padding: 4px;
 }
-.type-element-table .head-property {
+
+.pseudoclass-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+  font-size: 12px;
 }
-.type-element-table .head-value {
+
+.structure-pseudoclass-table
+  .pseudoclass-container.first-child
+  li:first-child {
+  font-weight: bold;
+  background-color: lightgray;
 }
-.type-element-table .head-note {
+
+.structure-pseudoclass-table
+  .pseudoclass-container.not-selector
+  li:not(:first-child) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.structure-pseudoclass-table
+  .pseudoclass-container.last-child
+  li:last-child {
+  font-weight: bold;
+  background-color: lightgray;
 }
 
 /* ===== Flexbox ===== */
