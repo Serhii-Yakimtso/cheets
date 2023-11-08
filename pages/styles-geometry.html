@@ -13,9 +13,9 @@
   <body>
     <a class="home-link" href="../index.html">На головну</a>
 
-    <h1>Стили. Геометрия</h1>
+    <h1 class="m-bottom">Стили. Геометрия</h1>
 
-    <div class="geometry-common">
+    <div class="geometry-common m-bottom">
       <img
         src="../images/block-model.png"
         alt="блоковая модель"
@@ -469,6 +469,7 @@
             розміри полів (<i>padding</i>), рамок
             (<i>border</i>) і відступів (<i>margin</i>). Це
             значення за замовчуванням <br />
+            <br />
             <b>Ширина</b> =
             <i
               >width + padding-left + padding-right +
@@ -488,6 +489,7 @@
             кінцевий розмір елемента і включають значення
             полів (<i>padding</i>), рамок (<i>border</i>),
             але не зовнішніх відступів (<i>margin</i>)<br />
+            <br />
             <b>Ширина</b> = <i>width</i><br />
             <b>Висота</b> = <i>height</i>
           </td>
@@ -545,7 +547,7 @@
       </tbody>
     </table>
 
-    <table class="structure-pseudoclass-table">
+    <table class="structure-pseudoclass-table m-bottom">
       <caption>
         Структурні псевдокласи
       </caption>
@@ -599,6 +601,7 @@
           <td>:not(selector)</td>
           <td>
             обирає елемент, що не підходить під критерій
+            (li:not(:first-child))
           </td>
           <td>
             <ul class="pseudoclass-container not-selector">
@@ -617,9 +620,13 @@
         </tr>
         <tr>
           <td>:nth-child(an+b)</td>
-          <td>обирає останній елемент</td>
           <td>
-            <ul class="pseudoclass-container last-child">
+            обирає елементи в коллекції сусідів по номеру,
+            через певний цикл (a - період циклу, крок; n -
+            лічильник циклу; b - зміщення, перший елемент)
+          </td>
+          <td>
+            <ul class="pseudoclass-container nth-child">
               <li class="pseudoclass-element">1</li>
               <li class="pseudoclass-element">2</li>
               <li class="pseudoclass-element">3</li>
@@ -634,34 +641,186 @@
           </td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
+          <td>:nth-last-child(an+b)</td>
+          <td>
+            аналог :nth-child(an+b), але рахунок ведеться з
+            кінця
+          </td>
+          <td>
+            <ul
+              class="pseudoclass-container nth-last-child"
+            >
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>:first-of-type</td>
+          <td>обирає перший селектор даного типу</td>
           <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
+          <td>:last-of-type</td>
+          <td>обирає останній селектор даного типу</td>
           <td></td>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
+          <td>:only-of-type</td>
+          <td>
+            обирає селектор? що є єдиною дитиною такого типу
+          </td>
           <td></td>
         </tr>
         <tr>
+          <td>:nth-of-type(an+b)</td>
+          <td>
+            обирає заданий в дужках номер селектора по
+            вказанному типу
+          </td>
           <td></td>
+        </tr>
+        <tr>
+          <td>:nth-last-of-type(an+b)</td>
+          <td>
+            обирає заданий в дужках номер селектора по
+            вказанному типу з кінця колекції
+          </td>
           <td></td>
+        </tr>
+        <tr>
+          <td>:only-child</td>
+          <td>
+            обирає елемент, який є єдиною дитиною з таким
+            селектором в колекції
+          </td>
           <td></td>
+        </tr>
+        <tr>
+          <td>:empty</td>
+          <td>
+            обирає пусті елементи (без нащадків та тексту)
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="nth-child-table">
+      <caption>
+        Псевдоклас :nth-child(an+b). Корисне
+      </caption>
+      <thead>
+        <tr>
+          <th>Псевдоклас</th>
+          <th>Опис</th>
+          <th>Приклад</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>:nth-child(2)</td>
+          <td>обрати 2-ий елемени (b=2)</td>
+          <td>
+            <ul class="pseudoclass-container nth-child-b">
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>:nth-child(2n)</td>
+          <td>обрати кожен парний (<b>even</b>) елемент</td>
+          <td>
+            <ul
+              class="pseudoclass-container nth-child-even"
+            >
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>:nth-child(2n+1)</td>
+          <td>
+            обрати кожен непарний (<b>odd</b>) елемент
+          </td>
+          <td>
+            <ul class="pseudoclass-container nth-child-odd">
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>:nth-child(n+3)</td>
+          <td>обрати усі елементи, починаючи з 3-го</td>
+          <td>
+            <ul class="pseudoclass-container nth-child-n-3">
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>:nth-child(-n+3)</td>
+          <td>обрати усі елементи, до 3-го</td>
+          <td>
+            <ul
+              class="pseudoclass-container nth-child--n-3"
+            >
+              <li class="pseudoclass-element">1</li>
+              <li class="pseudoclass-element">2</li>
+              <li class="pseudoclass-element">3</li>
+              <li class="pseudoclass-element">4</li>
+              <li class="pseudoclass-element">5</li>
+              <li class="pseudoclass-element">6</li>
+              <li class="pseudoclass-element">7</li>
+              <li class="pseudoclass-element">8</li>
+              <li class="pseudoclass-element">9</li>
+              <li class="pseudoclass-element">10</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>

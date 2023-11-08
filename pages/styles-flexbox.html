@@ -13,11 +13,11 @@
     <a class="home-link" href="../index.html">На головну</a>
     <h1>Flexbox</h1>
 
-    <div class="flex-common">
+    <div class="flex-common m-bottom">
       <img
         src="../images/flex-axis.jpg"
         alt="flex axis"
-        width="400"
+        width="300"
       />
       <ul>
         <li>
@@ -54,7 +54,7 @@
       </ul>
     </div>
 
-    <table class="flex-container-table">
+    <table class="flex-container-table m-bottom">
       <caption>
         Властивості Flex-контейнера
       </caption>
@@ -74,11 +74,11 @@
           <td>блоковий контейнер</td>
         </tr>
         <tr>
-          <td>flex</td>
+          <td>inline-flex</td>
           <td>рядково-блоковий контейнер</td>
         </tr>
         <tr>
-          <td rowspan="4">напрямок головної осі</td>
+          <td rowspan="4">напрямок головної вісі</td>
           <td rowspan="4">flex-direction</td>
           <td>row</td>
           <td>
@@ -111,7 +111,7 @@
           <td rowspan="3">проміжок між flex-елементами</td>
           <td>gap</td>
           <td>8px</td>
-          <td></td>
+          <td>проміжки між елементами</td>
         </tr>
         <tr>
           <td>row-gap</td>
@@ -126,58 +126,121 @@
 
         <tr class="justify-content">
           <td rowspan="6">
-            позиціонуванням елементів на main axis
+            позиціонуванням елементів на <b>main axis</b>
           </td>
           <td rowspan="6">justify-content</td>
           <td>flex-start</td>
-          <td rowspan="6">
-            <img
-              src="../images/justify-content.png"
-              alt="justify-content"
-              height="200"
-            />
+          <td>
+            <div class="flex-container flex-start">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
           </td>
         </tr>
         <tr class="justify-content">
           <td>flex-end</td>
+          <td>
+            <div class="flex-container flex-end">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
         <tr class="justify-content">
           <td>center</td>
+          <td>
+            <div class="flex-container center">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
         <tr class="justify-content">
           <td>space-between</td>
+          <td>
+            <div class="flex-container space-between">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
         <tr class="justify-content">
           <td>space-around</td>
+          <td>
+            <div class="flex-container space-around">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
         <tr class="justify-content">
           <td>space-evenly</td>
+          <td>
+            <div class="flex-container space-evenly">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
-        <tr>
+        <tr class="align-items">
           <td rowspan="5">
-            позиціонуванням елементів на cross axis
+            позиціонуванням елементів на <b>cross axis</b>
           </td>
           <td rowspan="5">align-items</td>
           <td>flex-start</td>
-          <td rowspan="5">
-            <img
-              src="../images/align-items.png"
-              alt="align-items"
-              height="160"
-            />
+          <td>
+            <div class="flex-container flex-start">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
           </td>
         </tr>
-        <tr>
+        <tr class="align-items">
           <td>flex-end</td>
+          <td>
+            <div class="flex-container flex-end">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
-        <tr>
+        <tr class="align-items">
           <td>center</td>
+          <td>
+            <div class="flex-container center">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
-        <tr>
+        <tr class="align-items">
           <td>stretch</td>
+          <td>
+            <div class="flex-container stretch">
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+              <div class="flex-element"></div>
+            </div>
+          </td>
         </tr>
-        <tr>
+        <tr class="align-items">
           <td>baseline</td>
+          <td>
+            <div class="flex-container baseline">
+              <div class="flex-element">text</div>
+              <div class="flex-element">text</div>
+              <div class="flex-element">text</div>
+            </div>
+          </td>
         </tr>
         <tr>
           <td rowspan="3">перенос елементів</td>
@@ -193,15 +256,15 @@
           <td>
             дозволяє елементам перестрибувати на інші рядки,
             які за замовчуванням розташовуються зверху вниз
-            (уздовж cross axis)
+            (уздовж <b>cross axis</b>)
           </td>
         </tr>
         <tr>
           <td>wrap-reverse</td>
           <td>
             дозволяє елементам перестрибувати на інші рядки,
-            які розташовуються знизу вгору (уздовж cross
-            axis).
+            які розташовуються знизу вгору (уздовж
+            <b>cross axis</b>)
           </td>
         </tr>
         <tr>
@@ -269,28 +332,31 @@
         </tr>
         <tr>
           <td colspan="3">
-            <ul>
+            <ul class="list-style">
               <li>
                 Якщо застосовано обидві властивості,
-                flex-basis і width, то властивість width
+                <b>flex-basis</b> і <b>width</b>, то
+                властивість <b>width</b>
                 ігнорується.
               </li>
               <li>
-                Властивість flex-basis може визначати
+                Властивість <b>flex-basis</b> може визначати
                 висоту, а не ширину елемента. Це
                 відбувається, коли напрямок головної осі
                 вертикальний
               </li>
               <li>
-                Властивості min-width і max-width працюють,
-                як обмежувачі розміру елемента, навіть якщо
-                у нього вказано flex-basis
+                Властивості <b>min-width</b> і
+                <b>max-width</b> працюють, як обмежувачі
+                розміру елемента, навіть якщо у нього
+                вказано <b>flex-basis</b>
               </li>
               <li>
-                Властивість flex-basis — це не фінальний
-                розмір елемента, а розмір до розподілу
-                вільного простору, який регулюється
-                властивостями flex-grow і flex-shrink
+                Властивість <b>flex-basis</b> — це не
+                фінальний розмір елемента, а розмір до
+                розподілу вільного простору, який
+                регулюється властивостями <b>flex-grow</b> і
+                <b>flex-shrink</b>
               </li>
             </ul>
           </td>
@@ -321,7 +387,7 @@
         </tr>
         <tr>
           <td rowspan="6">
-            зміна свого розташування на cross axis
+            зміна свого розташування на <b>cross axis</b>
           </td>
           <td rowspan="6">align-self</td>
           <td>auto</td>
@@ -350,78 +416,15 @@
         <tr>
           <td>
             візуально змінити порядок розташування елементів
-            уздовж main axis
+            уздовж <b>main axis</b>
           </td>
           <td>order</td>
           <td>позиція</td>
           <td>
-            астосовується вкрай рідко через те, що порушує
+            застосовується вкрай рідко через те, що порушує
             зв'язок між візуальним порядком елементів і тим,
             як їх бачить браузер і асистивні технології
           </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="pseudoclass-table">
-      <caption>
-        Псевдокласи структури
-      </caption>
-      <thead>
-        <tr>
-          <th class="head-pseudoclass">Псевдоклас</th>
-          <th class="head-discription">Опис</th>
-          <th class="head-note">Приклад</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>:first-child</td>
-          <td>
-            застосовання стилю лише до першого елемента в
-            колекції сусідніх елементів
-          </td>
-          <td>.list-item:first-child</td>
-        </tr>
-        <tr>
-          <td>:last-child</td>
-          <td>
-            застосовання стилю лише до останнього елемента в
-            колекції сусідніх елементів
-          </td>
-          <td>.list-item:last-child</td>
-        </tr>
-        <tr>
-          <td>:not(selector)</td>
-          <td>
-            застосовання стилю до всіх елементів, що не
-            підходять під критерій
-          </td>
-          <td>.list-item:not(:last-child)</td>
-        </tr>
-        <tr>
-          <td>:nth-child(an + b)</td>
-          <td>
-            <p>
-              вибирає елементи в колекції сусідів за номером
-            </p>
-            <ul>
-              <li>a — період циклу, довільне число</li>
-              <li>
-                n — лічильник циклу, починається з нуля та
-                збільшується на одиницю на кожній ітерації.
-              </li>
-              <li>b — зміщення. Довільне число.</li>
-            </ul>
-          </td>
-          <td></td>
         </tr>
       </tbody>
     </table>

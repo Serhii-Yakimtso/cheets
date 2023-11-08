@@ -46,7 +46,7 @@ caption {
 td,
 th {
   border: 1px solid black;
-  padding: 2px;
+  padding: 4px;
 }
 
 tr {
@@ -64,6 +64,7 @@ tr {
 .underspace {
   height: 300px;
 }
+
 .italic {
   font-style: italic;
 }
@@ -89,6 +90,10 @@ tr {
 
 .m-bottom-min {
   margin-bottom: 8px;
+}
+
+.m-bottom-max {
+  margin-bottom: 1000px;
 }
 
 .box:hover {
@@ -276,8 +281,55 @@ tr {
 }
 
 .structure-pseudoclass-table
-  .pseudoclass-container.last-child
-  li:last-child {
+  .pseudoclass-container.nth-child
+  li:nth-child(4n + 1) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.structure-pseudoclass-table
+  .pseudoclass-container.nth-last-child
+  li:nth-last-child(4n + 1) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.nth-child-table .pseudoclass-container {
+  display: flex;
+  gap: 8px;
+}
+
+.nth-child-table
+  .pseudoclass-container.nth-child-b
+  li:nth-child(2) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.nth-child-table
+  .pseudoclass-container.nth-child-even
+  li:nth-child(2n) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.nth-child-table
+  .pseudoclass-container.nth-child-odd
+  li:nth-child(2n + 1) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.nth-child-table
+  .pseudoclass-container.nth-child-n-3
+  li:nth-child(n + 3) {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.nth-child-table
+  .pseudoclass-container.nth-child--n-3
+  li:nth-child(-n + 3) {
   font-weight: bold;
   background-color: lightgray;
 }
@@ -302,16 +354,111 @@ tr {
   width: 100px;
 }
 .flex-container-table .head-property {
-  width: 100px;
+  width: 110px;
 }
 .flex-container-table .head-value {
-  width: 100px;
+  width: 110px;
 }
 .flex-container-table .head-note {
-  width: 450px;
+  width: 380px;
 }
-.flex-container-table .justify-content {
+/* .flex-container-table .justify-content {
   height: 50px;
+} */
+
+.flex-container {
+  display: flex;
+
+  margin: 0 auto;
+  padding: 4px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+
+  background-color: lightblue;
+}
+
+.justify-content .flex-container {
+  height: 30px;
+}
+
+.flex-element {
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: orange;
+}
+
+.justify-content .flex-element {
+  height: 100%;
+}
+
+.justify-content .flex-container.flex-start {
+  justify-content: flex-start;
+  gap: 8px;
+}
+.justify-content .flex-container.flex-end {
+  justify-content: flex-end;
+  gap: 8px;
+}
+.justify-content .flex-container.center {
+  justify-content: center;
+  gap: 8px;
+}
+.justify-content .flex-container.space-between {
+  justify-content: space-between;
+  gap: 8px;
+}
+.justify-content .flex-container.space-around {
+  justify-content: space-around;
+  gap: 8px;
+}
+.justify-content .flex-container.space-evenly {
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.align-items .flex-container {
+  height: 40px;
+}
+
+.align-items .flex-element {
+  min-height: 50%;
+}
+
+.align-items .flex-container.flex-start {
+  align-items: flex-start;
+  gap: 20px;
+}
+.align-items .flex-container.flex-end {
+  align-items: flex-end;
+  gap: 20px;
+}
+.align-items .flex-container.center {
+  align-items: center;
+  gap: 20px;
+}
+.align-items .flex-container.stretch {
+  align-items: stretch;
+  gap: 20px;
+}
+.align-items .flex-container.baseline {
+  align-items: baseline;
+  gap: 20px;
+}
+
+.align-items .baseline .flex-element {
+  text-decoration: underline;
+  text-align: center;
+}
+.align-items .baseline .flex-element:nth-child(1) {
+  font-size: 12px;
+}
+.align-items .baseline .flex-element:nth-child(2) {
+  font-size: 24px;
+}
+.align-items .baseline .flex-element:nth-child(3) {
+  font-size: 16px;
 }
 
 /* ===== Властивості Flex-елементів ===== */
@@ -329,4 +476,29 @@ tr {
 }
 .flex-element-table .head-note {
   width: 350px;
+}
+
+/* ===== Фон елементу ===== */
+.backgraund-element-table {
+  font-size: 13px;
+}
+
+/* ===== Форми ===== */
+.forms-elements {
+  font-size: 13px;
+}
+
+.forms-example-table {
+  width: 750px;
+  font-size: 13px;
+}
+
+.forms-example-table .selector {
+  width: 100px;
+}
+.forms-example-table .discribe {
+  width: 250px;
+}
+.forms-example-table .example {
+  width: 750px;
 }
