@@ -113,7 +113,7 @@
         }
       </div>
     </section>
-    <section>
+    <section class="m-bottom-max">
       <h2>Логічні оператори</h2>
       <ul>
         <li>
@@ -147,7 +147,7 @@
           </p>
           <div class="bcg-box">
             @media not print{<br />
-            } <br />
+            }<br />
           </div>
         </li>
       </ul>
@@ -155,47 +155,74 @@
     <section>
       <h2>Адаптивна графіка</h2>
       <h3>Ретинізація графіки</h3>
-      <p>
+      <p class="">
         Ретинізація — це техніка підготовки растрової
         графіки. Для цього потрібно експортувати з макета
         більше зображення.
       </p>
       <ul>
-        <li>
+        <li class="">
           1. Експорту зображень у N-разів більше від розміру
           оригіналу
         </li>
-        <li>
+        <li class="">
           2. Збереження великих зображень з відповідними
-          префіксами @2x і @3x. Для оригіналу префікс не
-          потрібний.
+          префіксами в іменах файлів <b>@2x</b> і
+          <b>@3x</b> (<b>image@2x.jpg</b>). Для оригіналу
+          префікс не потрібний.
         </li>
       </ul>
       <div class="bcg-box">
         &#60;img <br />
         srcset="./img/photo.jpg 1x, ./img/photo@2x.jpg
         2x"<br />
+        sizes="(min-width: 1200px) 270px, (min-width: 768px)
+        330px, (max-width: 767px) 418px,"<br />
         src="./img/photo.jpg"<br />
         alt="Опис зображення для всіх версій"<br />
         /&#62;
       </div>
-      <p>
-        <b>srcset</b> - список версій зображення в різних
-        розмірах
+      <p class="">
+        атрибут <b>srcset</b> - список версій зображення в
+        різних розмірах
       </p>
-      <p class="m-bottom">
-        <b>src</b> - вказується версія зображення в
+      <p class="">
+        атрибут <b>sizes</b> - вказує розміри зображень при
+        різних розмірих екранів
+      </p>
+      <p class="m-bottom-min">
+        атрибут <b>src</b> - вказується версія зображення в
         стандартній якості. Ця версія зображення буде
         використана у випадку, якщо браузер старіший і не
         вміє працювати з атрибутом srcset.
       </p>
 
-      <p>Респонсивні (гумові) зображення</p>
-      <div class="bcg-box m-bottom">
+      <p class="">Респонсивні (гумові) зображення</p>
+      <div class="bcg-box">
         img {<br />
         display: block;<br />
         max-width: 100%;<br />
         }
+      </div>
+
+      <p class="">
+        Приклад підключення зображень під різні пристрої з
+        різною щільність пікселів на екрані
+      </p>
+      <div class="bcg-box m-bottom">
+        &#60;img <br />
+        srcset="<br />
+        ./img/photo-mobile.jpg 418w,<br />
+        ./img/photo-tablet.jpg 330w,<br />
+        ./img/photo-desctop.jpg 270w,<br />
+        ./img/photo-mobile@2x.jpg 836w,<br />
+        ./img/photo-tablet@2x.jpg 660w,<br />
+        ./img/photo-desctop@2x.jpg 540w"<br />
+        sizes="(min-width: 1200px) 270px, (min-width: 768px)
+        330px, (max-width: 767px) 418px,"<br />
+        src="./img/photo-mobile.jpg"<br />
+        alt="Опис зображення"<br />
+        /&#62;
       </div>
 
       <h3 class="m-bottom-min">Фонові зображення</h3>
@@ -215,7 +242,7 @@
         щільністю 2 і більше вказуємо значення <b>192dpi</b>
         (96x2).
       </p>
-      <p>Загальні стилі</p>
+      <p class="">Загальні стилі</p>
       <div class="bcg-box">
         .box {<br />
         width: 200px;<br />
@@ -224,18 +251,74 @@
         background-size: 200px 300px;<br />
         }
       </div>
-      <p>або</p>
+      <p class="">або</p>
       <div class="bcg-box">
         .box {<br />
         background-image: url('photo.png');<br />
         background-size: cover;<br />
         }
       </div>
-      <p>якщо щільність екрана як мінімум 2x</p>
+      <p class="">якщо щільність екрана як мінімум 2x</p>
       <div class="bcg-box">
         @media (min-resolution: 192dpi) {<br />
         .box {<br />
         background-image: url('photo@2x.png');<br />
+        }<br />
+        }
+      </div>
+      <p class="">
+        не усі браузери можуть підртимувати умову
+        (min-resolution: 192dpi)
+      </p>
+      <div class="bcg-box">
+        @media screen and (min-resolution: 192dpi),<br />
+        screen and (min-resolution: 2dppx),<br />
+        screen and (min-device-pixel-ratio: 2) {<br />
+        }
+      </div>
+      <p>
+        Приклад для банерного зображення, що відображається
+        на різних пристроях та з екранами різної піксельної
+        щільності
+      </p>
+      <div class="bcg-box">
+        .banner {<br />
+        min-height: 600px;<br />
+        background-image:
+        url('./imags/image-mobile.jpg');<br />
+        background-position: center top;<br />
+        background-size: 960px 576px;<br />
+        background-repeat: no-repeat;<br />
+        }<br />
+        <br />
+        @media screen and (min-resolution: 192dpi) and
+        (max-width: 767px),<br />
+        screen and (min-resolution: 2dppx) and (max-width:
+        767px),<br />
+        screen and (min-device-pixel-ratio: 2) and
+        (max-width: 767px) {<br />
+        .banner {<br />
+        background-image:
+        url('./imags/image-mobile@2x.jpg');<br />
+        }<br />
+        }<br />
+        <br />
+        @media screen and (min-width: 768px) {<br />
+        .banner {<br />
+        background-image:
+        url('./imags/image-tablet.jpg');<br />
+        }<br />
+        }<br />
+        <br />
+        @media screen and (min-resolution: 192dpi) and
+        (min-width: 768px),<br />
+        screen and (min-resolution: 2dppx) and (min-width:
+        768px),<br />
+        screen and (min-device-pixel-ratio: 2) and
+        (min-width: 768px) {<br />
+        .banner {<br />
+        background-image:
+        url('./imags/image-tablet@2x.jpg');<br />
         }<br />
         }
       </div>

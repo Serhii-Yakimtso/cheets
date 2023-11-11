@@ -92,10 +92,6 @@ tr {
   margin-bottom: 8px;
 }
 
-.m-bottom-max {
-  margin-bottom: 1000px;
-}
-
 .box:hover {
   background-color: blue;
 }
@@ -103,6 +99,14 @@ tr {
 @media print {
   .home-link {
     display: none;
+  }
+
+  .m-bottom-max {
+    margin-bottom: 1000px;
+  }
+
+  .fs-13 {
+    font-size: 13px;
   }
 }
 /* ===== Стилі (загальна інформація) ===== */
@@ -181,8 +185,6 @@ tr {
 /* ===== Стилі шрифтів ===== */
 .font-table {
   width: 750px;
-
-  /* font-size: 13px; */
 }
 .font-table .head-name {
   width: 100px;
@@ -234,7 +236,6 @@ tr {
 .geometry-table {
   margin-bottom: 20px;
   width: 750px;
-  /* font-size: 12px; */
 }
 .geometry-table .head-name {
   width: 100px;
@@ -507,3 +508,33 @@ tr {
 .forms-example-table .example {
   width: 750px;
 }
+
+/* .banner {
+  min-height: 600px;
+  background-image: url('./imags/image-mobile.jpg');
+  background-position: center top;
+  background-size: 960px 576px;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767px),
+  screen and (min-resolution: 2dppx) and (max-width: 767px),
+  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
+  .banner {
+    background-image: url('./imags/image-mobile@2x.jpg');
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    background-image: url('./imags/image-tablet.jpg');
+  }
+}
+
+@media screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px),
+  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
+  .banner {
+    background-image: url('./imags/image-tablet@2x.jpg');
+  }
+} */
