@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+  </head>
+  <body>
+    <a class="home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom">Змінні та типи. Основи функцій</h1>
+    <section class="section">
+      <h2 class="m-bottom">
+        Базова термінологія JavaScript
+      </h2>
+      <p class="m-bottom-min">
+        <b>Код</b> — це набір інструкцій, які комп'ютер може
+        зрозуміти й виконати
+      </p>
+      <p class="m-bottom-min">
+        <b>Алгоритм</b> — це набір кроків, які потрібно
+        виконати задля досягнення певної мети.
+      </p>
+      <p class="m-bottom-min">
+        <b>Компілятор (інтерпретатор)</b> — крок
+        конвертування вихідного коду у набір інструкцій,
+        зрозумілих комп'ютеру.
+      </p>
+
+      <p class="m-bottom-min">
+        <b>Інструкція (statement)</b> — це пов'язаний набір
+        слів і символів із синтаксису мови, які
+        об'єднуються, щоб висловити одну ідею, тобто одну
+        інструкцію для машини. У JavaScript інструкції
+        закінчуються <b>";"</b>
+      </p>
+      <p class="m-bottom-min">
+        <b>Вираз (expression)</b> — це посилання на змінну
+        чи значення, або на набір змінних і значень у
+        поєднанні з операторами
+      </p>
+      <div class="bcg-box">
+        <p>a = b * 2</p>
+      </div>
+      <ul class="list-style m-bottom-min">
+        <li>2 — вираз значення літерала</li>
+        <li>b та a — вирази змінних</li>
+        <li>b * 2 — арифметичний вираз множення</li>
+        <li>a = b * 2 — вираз присвоювання</li>
+      </ul>
+      <p class="m-bottom-min">
+        <b>Літерал</b> — це значення, яке вказується
+        безпосередньо в коді програми та представляє певний
+        тип даних.
+      </p>
+      <p>
+        <b>Підключення скрипта</b> — використовується тег
+        <b>&#60;script&#62;</b>. Атрибут <b>defer</b> вказує
+        браузеру, що скрипт повинен бути виконаний після
+        того, як HTML-документ буде повністю завантажений.
+      </p>
+      <ul class="list-style m-bottom-min">
+        <li>
+          <b>Вбудований скрипт</b> — додати JavaScript-код
+          прямо всередині тега
+          <b>&#60;script&#62;</b> всередині тега
+          <b>&#60;head&#62;</b>
+        </li>
+        <li>
+          <b>Зовнішній скрипт</b> — створюється окремий файл
+          із розширенням <b>.js</b>, що містить
+          JavaScript-код, після чого під'ється цей файл до
+          HTML-сторінки за допомогою тега
+          <b>&#60;script&#62;</b>, вказавши шлях до файлу в
+          атрибуті <b>src</b>
+        </li>
+      </ul>
+      <p class="m-bottom-min">
+        <b>Суворий режим</b> (англ. strict mode) у
+        JavaScript — це спеціальний режим виконання коду,
+        який дає змогу переводити скрипт у режим повної
+        відповідності сучасному стандарту
+        <b>('use strict';)</b>.
+      </p>
+      <p>
+        <b>Виведення даних</b> — використовується метод
+        <b>console.log()</b>
+      </p>
+    </section>
+    <section class="section">
+      <h2 class="m-bottom">Змінні та типи даних</h2>
+      <p class="m-bottom-min">
+        <b>Змінна</b> — це контейнер, який використовується
+        для зберігання даних. Складається з:
+        <i>ідентифікатора</i> (унікального імені);
+        <i>області пам’яті</i>, де зберігається її значення.
+      </p>
+      <p>
+        Оголошення змінних — починається з ключового слова.
+      </p>
+      <ul class="list-style">
+        <li>
+          <b>const</b> — змінну <i>неможливо</i> пізніше
+          перевизначенною
+        </li>
+        <li>
+          <b>let</b> — змінна <i>можна</i> пізніше
+          перевизначенною
+        </li>
+      </ul>
+      <div class="bcg-box">
+        <p></p>
+        const age = 20;<br />
+        let username = "Mango";<br />
+        username = "Poly";
+      </div>
+      <p>
+        Найменування — ім'я змінної має бути зрозумілим та
+        описувати призначення чи вміст змінної з
+        икористанням <b>camelCase</b>.
+      </p>
+      <ul class="list-style m-bottom-max">
+        <li>
+          Імена змінних можуть складатися з літер (a-z,
+          A-Z), цифр (0-9), символів підкреслення (_) та
+          знака долара ($)
+        </li>
+        <li>
+          Першим символом в імені змінної має бути літера
+          латиниці, символ підкреслення або знак долара.
+          Інші символи можуть бути будь-якими з допустимих
+        </li>
+        <li>
+          Імена змінних чутливі до регістру, тобто змінні
+          <i>user</i>, <i>usEr</i> та <i>User</i> вважаються
+          різними змінними
+        </li>
+      </ul>
+      <p>
+        Зарезервовані ключові слова, що мають спеціальне
+        значення та використовуються для певних конструкцій
+        у мові
+      </p>
+      <img src="../../images/js-key-words.jpg" alt="" />
+      <table class="m-bottom-min">
+        <caption>
+          Типи даних
+        </caption>
+        <thead>
+          <tr>
+            <th>Типи даних</th>
+            <th>Опис</th>
+            <th>Значення</th>
+          </tr>
+          <tr>
+            <th colspan="3">Примітивні типи даних</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Number</td>
+            <td>
+              Числа можуть бути позитивними чи негативними,
+              цілими або дробовими. Ціла та дробова частини
+              числа розділяються крапкою.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>String</td>
+            <td>
+              Рядок є послідовністю символів, вкладених в
+              одинарні '' або подвійні лапки ""
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan="2">Boolean</td>
+            <td rowspan="2">
+              Логічний тип даних, що використовується для
+              виконання логічних операцій та перевірок умов.
+            </td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p>Спеціальні значення</p>
+              <ul class="list-style">
+                <li>
+                  <b>null</b> явно вказує на відсутність
+                  значення для позначення порожнього
+                  значення. Це значення має бути явно
+                  присвоєно змінній, щоб вказати, що змінна
+                  не містить ніяких дійсних даних.
+                </li>
+                <li>
+                  <b>undefined</b> вказує на невизначеність
+                  значення змінної, що значення на даний
+                  момент невідоме чи невизначене.
+                  Присвоюється змінній, якщо: було явно
+                  задано значення undefined, або змінна була
+                  оголошена, але ще не була ініціалізована
+                  значенням
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Оператор <b>typeof</b> використовується для
+        визначення типу даних значення або виразу.
+      </p>
+      <div class="bcg-box">
+        <p>
+          const quantity = 17;<br />
+          console.log(typeof quantity); // виведе "number"
+        </p>
+      </div>
+      <table>
+        <caption>
+          Арифметичні операції
+        </caption>
+        <thead>
+          <tr>
+            <td>Оператор</td>
+            <td>Опис</td>
+            <td>Запис</td>
+            <td>Приклад</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>+</td>
+            <td>складання двох чисел</td>
+            <td></td>
+            <td>x + y</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>віднімання одного числа від іншого</td>
+            <td></td>
+            <td>x - y</td>
+          </tr>
+          <tr>
+            <td>*</td>
+            <td>множення двох чисел</td>
+            <td></td>
+            <td>x * y</td>
+          </tr>
+          <tr>
+            <td>/</td>
+            <td>ділення одного числа на інше</td>
+            <td></td>
+            <td>x / y</td>
+          </tr>
+          <tr>
+            <td>%</td>
+            <td>
+              повертає остачу від ділення одного числа на
+              інше
+            </td>
+            <td></td>
+            <td>x % y</td>
+          </tr>
+          <tr>
+            <td>**</td>
+            <td>піднесення числа до степеня</td>
+            <td></td>
+            <td>x ** y</td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <b>Комбіновані оператори</b>
+            </td>
+          </tr>
+          <tr>
+            <td>+=</td>
+            <td>Додавання</td>
+            <td>x = x + y</td>
+            <td>x += y</td>
+          </tr>
+          <tr>
+            <td>-=</td>
+            <td>Віднімання</td>
+            <td>x = x - y</td>
+            <td>x -= y</td>
+          </tr>
+          <tr>
+            <td>*=</td>
+            <td>Множення</td>
+            <td>x = x * y</td>
+            <td>x *= y</td>
+          </tr>
+          <tr>
+            <td>/=</td>
+            <td>Ділення</td>
+            <td>x = x / y</td>
+            <td>x /= y</td>
+          </tr>
+          <tr>
+            <td>%=</td>
+            <td>Остача від ділення</td>
+            <td>x = x % y</td>
+            <td>x %= y</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="section">
+      <h2>Рядки</h2>
+      <p>
+        <b>Конкатенація рядків (склеювання)</b> -
+        застосуваання оператора <b>"+"</b> до рядка та
+        будь-якого іншого типу даних, результатом буде новий
+        рядок, що містить об'єднання вихідних значень
+      </p>
+      <div class="bcg-box">
+        <p>
+          console.log("Mango " + "is" + " happy"); // "Mango
+          is happy"<br />
+          console.log("Mango" + 55); // "Mango55"<br />
+          console.log("Mango" + true); // "Mangotrue"
+        </p>
+      </div>
+      <p>
+        <b>Шаблонні рядки</b> - це синтаксис, який полегшує
+        об'єднання <b>статичного</b> тексту з
+        <b>динамічним</b>. Огортаються зворотними лапками
+        <b>(``)</b> і дозволяють підставляти значення
+        змінних безпосередньо всередині рядка за допомогою
+        синтаксису інтерполяції <b>${змінна}</b>
+      </p>
+      <div class="bcg-box">
+        <p>
+          const guestName = "Mango";<br />
+          const greeting = `Welcome ${guestName}`;<br />
+          "Welcome Mango"
+        </p>
+      </div>
+      <p>
+        <b>Властивості</b> — це описові характеристики
+        сутності.
+      </p>
+      <div class="bcg-box">
+        <p>сутність.властивість</p>
+      </div>
+      <p>
+        <b>Довжина рядка.</b>
+      </p>
+      <div class="bcg-box">
+        <p>
+          const productName = "Repair droid";<br />
+          console.log(productName.length); // 12<br />
+          console.log("Repair droid".length); // 12
+        </p>
+      </div>
+      <p>
+        <b>Індексація рядків.</b> Рядки — це набори
+        символів, де кожен символ має свій порядковий номер
+        (індекс). Індексація елементів рядка починається з
+        нуля.
+      </p>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div class="bcg-box">
+          <p>
+            const product = "Repair droid";<br />
+            console.log(product[0]); // 'R'<br />
+            console.log(product[5]); // 'r'<br />
+            console.log(product[11]); // 'd'
+          </p>
+        </div>
+        <img
+          src="../../images/js-index.jpg"
+          alt=""
+          width="400"
+        />
+      </div>
+
+      <p>Корисно! Останній символ за його індексом</p>
+      <div class="bcg-box">
+        <p>
+          const product = "Repair droid";<br />
+          const lastElementIndex = product.length - 1;<br />
+          console.log(product[lastElementIndex]); // 'd'
+        </p>
+      </div>
+    </section>
+    <section class="section m-bottom-max">
+      <h2 class="m-bottom">Оператори порівняння</h2>
+      <p>
+        <b>Оператори порівняння</b> використовуються для
+        порівняння двох значень і повертають булеве значення
+        (<b>true</b> або <b>false</b>) залежно від
+        результату порівняння.
+      </p>
+
+      <div class="flex-box m-bottom-min">
+        <ul class="list-style">
+          <li>
+            Оператор <b>></b> (більше) — повертає
+            <b>true</b>, якщо <b>лівий</b> операнд
+            <b>більше</b> правого. В іншому разі повертає
+            <b>false</b>
+          </li>
+          <li>
+            Оператор <b><</b> (менше) — повертає
+            <b>true</b>, якщо <b>лівий</b> операнд
+            <b>менше</b> правого. В іншому разі повертає
+            <b>false</b>
+          </li>
+          <li>
+            Оператор <b>>=</b> (більше або дорівнює) —
+            повертає <b>true</b>, якщо <b>лівий</b> операнд
+            <b>більше або дорівнює</b> правому. Якщо
+            навпаки, повертає <b>false</b>
+          </li>
+          <li>
+            Оператор <b><=</b> (менше або дорівнює) —
+            повертає <b>true</b>, якщо <b>лівий</b> операнд
+            <b>менше або дорівнює правому</b>. Якщо навпаки,
+            повертає <b>false</b>
+          </li>
+        </ul>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            const a = 2;<br />
+            const b = 5;<br />
+            <br />
+            console.log(a > b); // false<br />
+            console.log(b > a); // true<br />
+            console.log(a >= b); // false<br />
+            console.log(b >= a); // true <br />
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <b>Оператори рівності</b> - дозволяють порівнювати
+        значення та визначати їхню рівність або нерівність
+      </p>
+      <p>Оператори несуворої рівності</p>
+      <div class="flex-box m-bottom-min">
+        <ul class="list-style">
+          <li>
+            Оператор <b>==</b> (дорівнює) — порівнює два
+            значення на рівність і повертає <b>true</b>,
+            якщо <b>значення операндів рівні</b>. Якщо
+            навпаки, повертає
+            <b>false</b>
+          </li>
+          <li>
+            Оператор <b>!=</b> (не дорівнює) — порівнює два
+            значення на нерівність і повертає <b>true</b>,
+            якщо <b>значення операндів не рівні</b>. Якщо
+            навпаки, повертає <b>false</b>
+          </li>
+        </ul>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(5 == 5); // true<br />
+            console.log(5 == 3); // false<br />
+            console.log(5 != 3); // true<br />
+            console.log(5 != 5); // false
+          </p>
+        </div>
+      </div>
+      <p class="m-bottom-min">
+        <b>Увага!</b> Оператори несуворої рівності можуть
+        приводити <b>значення до різних типів</b>, в
+        залежності від контексту порівняння.
+      </p>
+      <div class="flex-box m-bottom">
+        <div>
+          <p>Оператори суворої рівності</p>
+          <ul class="list-style">
+            <li>
+              Оператор <b>===</b> (сувора рівність) —
+              порівнює два значення на рівність, повертає
+              <b>true</b>, якщо
+              <b>значення операндів рівні</b> та мають
+              <b>однаковий тип даних</b>. В іншому випадку,
+              повертає <b>false</b>
+            </li>
+            <li>
+              Оператор <b>!==</b> (сувора нерівність) —
+              порівнює два <b>значення на нерівність</b>,
+              повертає <b>true</b>, якщо значення операндів
+              <b>не рівні</b> або мають
+              <b>різні типи даних</b>. В іншому випадку,
+              повертає <b>false</b>
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(5 === 5); // true <br />
+            console.log(5 === "5"); // false<br />
+            console.log(5 !== "5"); // true<br />
+            console.log(5 !== 5); // false<br />
+            console.log(1 === true); // false<br />
+            console.log(1 !== true); // true
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <div>
+          <p><b>Перетворення типів: числа</b></p>
+          <p>
+            Функція <b>Number()</b> - використовується Для
+            явного перетворення будь-якого значення в число
+          </p>
+          <ul>
+            <li>
+              <b>true</b> завжди приводиться до <b>1</b>
+            </li>
+            <li>
+              <b>false</b>, <b>null</b> і <b>""</b> завжди
+              приводяться до<b>0</b>
+            </li>
+            <li>
+              якщо <b>неможливо</b> привести значення до
+              числа, результатом перетворення буде
+              спеціальне значення <b>NaN</b> (Not a Number)
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Number("5")); // 5 <br />
+            console.log(Number(true)); // 1<br />
+            console.log(Number(false)); // 0<br />
+            console.log(Number(null)); // 0<br />
+            console.log(Number(undefined)); // NaN<br />
+            console.log(Number("Jacob")); // NaN<br />
+            console.log(Number("25px")); // NaN
+          </p>
+        </div>
+      </div>
+      <p><b>Перетворення рядків у числа</b></p>
+      <div class="flex-box m-bottom-min">
+        <p>
+          Метод <b>Number.parseInt()</b> - аналізує рядок
+          зліва направо, видаляючи пробіли на початку і
+          перетворюючи допустимі символи у число до тих пір,
+          поки не зіткнеться з першим недопустимим символом.
+          Після цього аналіз припиняється, і вже перетворене
+          ціле число повертається. Якщо перші символи рядка
+          не можуть бути перетворені на число, або рядок
+          порожній чи відсутній, результатом буде значення
+          <b>NaN</b>
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Number.parseInt("5")); // 5<br />
+            console.log(Number.parseInt("5.5")); // 5 <br />
+            console.log(Number.parseInt("5cm")); // 5 <br />
+            console.log(Number.parseInt("12qwe74")); //
+            12<br />
+            console.log(Number.parseInt("12.46qwe79")); //
+            12<br />
+            console.log(Number.parseInt("cm5")); // NaN<br />
+            console.log(Number.parseInt("")); // NaN<br />
+            console.log(Number.parseInt("qweqwe")); // NaN
+          </p>
+        </div>
+      </div>
+      <div class="flex-box">
+        <p>
+          Метод <b>Number.parseFloat()</b> - перетворює
+          рядок на число <b>з плаваючою крапкою</b>. Якщо
+          перші символи рядка не можуть бути перетворені на
+          число, або рядок порожній чи відсутній,
+          результатом буде значення <b>NaN</b>
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Number.parseFloat("5")); // 5<br />
+            console.log(Number.parseFloat("5.5")); // 5.5<br />
+            console.log(Number.parseFloat("5.5cm")); //
+            5.5<br />
+            console.log(Number.parseFloat("12.46qwe79")); //
+            12.46<br />
+            console.log(Number.parseFloat("cm5")); // NaN
+          </p>
+        </div>
+      </div>
+      <p class="m-bottom-min"><b>Арифметичні функції</b></p>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.floor(num)</b> повертає найближче ціле
+          число, яке є <b>меншим</b> або дорівнює вказаному
+          числу
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.floor(1.3)); // 1<br />
+            console.log(Math.floor(1.7)); // 1
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.ceil(num)</b> повертає найближче ціле
+          число, яке є <b>більшим</b>, або дорівнює
+          зазначеному числу
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.ceil(1.3)); // 2<br />
+            console.log(Math.ceil(1.7)); // 2
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.round(num)</b> повертає значення числа
+          після округлення до <b>найближчого цілого</b>.
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.round(1.3)); // 1<br />
+            console.log(Math.round(1.7)); // 2
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.max(num1, num2, ...)</b> повертає
+          <b>найбільше</b> число з набору переданих чисел.
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.max(20, 10, 50, 40)); // 50
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.min(num1, num2, ...)</b> повертає
+          <b>найменше</b> число з набору переданих чисел.
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.min(20, 10, 50, 40)); // 10
+          </p>
+        </div>
+      </div>
+      <div class="flex-box m-bottom-min">
+        <p>
+          <b>Math.random()</b> повертає випадкове число в
+          діапазоні від 0 (включно) до 1 (за винятком).
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Math.random()); // <br />
+            випадкове число між 0 і 1,<br />
+            наприклад 0.2 ... 0.9166353649342294
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <b>Корисно!</b> Отримання випадкового числа у
+        вказанному діапазоні, включно
+      </p>
+      <div class="bcg-box m-bottom">
+        <p>
+          function getRandomIntInclusive(min, max) {<br />
+          min = Math.ceil(min);<br />
+          max = Math.floor(max);<br />
+          return Math.floor(Math.random() * (max - min + 1))
+          + min;<br />
+          }
+        </p>
+      </div>
+
+      <p class="m-bottom-min"><b>Дробове число</b></p>
+      <div class="flex-box m-bottom-min">
+        <p>
+          При виконанні операцій з дробовими числами можуть
+          виникати неточності через внутрішнє представлення
+          чисел у пам'яті комп'ютера
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(0.1 + 0.2 === 0.3); // false <br />
+            console.log(0.1 + 0.2); // 0.30000000000000004
+          </p>
+        </div>
+      </div>
+      <div class="flex-box">
+        <ul>
+          <li>
+            <b>Підхід 1</b>. Помножити числа на досить
+            велике число (наприклад, 10 або 100). Виконати
+            додавання. Розділити результат на те саме число,
+            щоб повернути його до початкового масштабу.
+          </li>
+          <li>
+            <b>Підхід 2</b>. Використовувати метод числа
+            <b>toFixed()</b>
+            для округлення результату до певної кількості
+            знаків після крапки.
+          </li>
+        </ul>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            <b>Підхід 1</b><br />
+            console.log((0.1 * 10 + 0.2 * 10) / 10); // 0.3
+            <br />
+            <br />
+            <b>Підхід 2</b><br />
+            console.log((0.1 + 0.2).toFixed(1)); // "0.3"<br />
+            console.log((5).toFixed(2)); // "5.00"<br />
+            console.log((8.762195).toFixed(4)); // "8.7622"
+          </p>
+        </div>
+      </div>
+      <p>
+        Метод <b>toFixed()</b> повертає рядок, що
+        представляє число із зазначеною кількістю знаків
+        після крапки.
+      </p>
+    </section>
+    <section>
+      <h2>Основи функцій</h2>
+      <div class="flex-box m-bottom-min">
+        <div>
+          <p class="m-bottom-min">
+            <b>Функція</b> — це незалежний блок коду, який
+            виконує певну задачу з різними початковими
+            значеннями.
+          </p>
+          <p class="m-bottom-min">
+            Ім'я функції — це дієслово, що відповідає на
+            питання "Що зробити?"
+          </p>
+          <p class="m-bottom-min">
+            <b>Параметри</b> — це локальні змінні, доступні
+            лише всередині тіла функції. Параметри можуть
+            бути відсутні (вказуються просто порожні круглі
+            дужки), один чи декілька (розділяються комами).
+          </p>
+          <p>
+            Під час виклику функції в круглих дужках можна
+            передати <b>аргументи</b>, які є значеннями для
+            оголошених <i>параметрів</i> функції.
+          </p>
+        </div>
+        <div>
+          <div
+            class="bcg-box"
+            style="min-width: max-content"
+          >
+            <b>Оголошення функції</b><br />
+            function doStuff(параметр) {<br />
+            console.log('Log inside multiply function');<br />
+            } <br />
+            <b>Виклик функції</b><br />
+            doStuff(аргумент);<br />
+            <br />
+            function multiply(x, y, z) {<br />
+            console.log(`Result: ${x * y * z}`);<br />
+            }<br />
+            <br />
+            multiply(2, 3, 5); // "Result: 30"
+          </div>
+        </div>
+      </div>
+      <p class="m-bottom-min"><b>Повернення значення</b></p>
+      <div class="flex-box m-bottom">
+        <div>
+          <p>
+            Оператор <b>return</b> використовується для
+            повернення значення з тіла функції назад у код,
+            у місце її виклику. Коли інтерпретатор зустрічає
+            оператор return, він негайно виходить із функції
+            (припиняє її виконання) і повертає вказане після
+            return значення в місце виклику функції.
+          </p>
+          <p>
+            Якщо в тілі функції відсутній оператор
+            <i>return</i> або він не вказує на конкретне
+            значення, функція поверне спеціальне значення
+            <b>undefined</b>.
+          </p>
+          <p>
+            При використанні оператора <i>return</i> всі
+            інструкції, які йдуть на рядках після нього, в
+            тілі функції <b>не виконуються</b>, оскільки
+            виконання функції
+            <i>припиняється відразу</i> після зустрічі
+            оператора return
+          </p>
+        </div>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            function multiply(x, y, z) {<br />
+            const product = x * y * z;<br />
+            return product;<br />
+            }<br />
+            <br />
+            const result = multiply(2, 3, 5);<br />
+            console.log(result); // 30
+          </p>
+        </div>
+      </div>
+      <p class="m-bottom-min">
+        <b>Область видимості функції</b>
+      </p>
+      <p>
+        <b>Глобальні змінні</b> - змінні або функції,
+        оголошені поза будь-якими блоками коду (доступні в
+        будь-якій частині коду).
+      </p>
+      <p>
+        <b>Локальні змінні</b> - оголошені в локальній
+        області видимості (будь-яка конструкція, що
+        використовує фігурні дужки {} (умови, цикли, функції
+        тощо)). Змінні можуть бути використані тільки
+        всередині цього блоку коду.
+      </p>
+    </section>
+  </body>
+</html>

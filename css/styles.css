@@ -34,7 +34,6 @@ ol.list-style {
 }
 
 table {
-  /* border: 1px solid black; */
   border-collapse: collapse;
 }
 
@@ -53,9 +52,11 @@ tr {
   border: 2px solid black;
 }
 
-/* tr:nth-child(odd) {
- background-color: lightgray;
-} */
+.section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
 
 .accent {
   font-weight: 700;
@@ -99,6 +100,11 @@ tr {
 @media print {
   .home-link {
     display: none;
+  }
+
+  .flex-box {
+    display: flex;
+    justify-content: space-between;
   }
 
   .m-bottom-max {
@@ -368,9 +374,6 @@ tr {
 .flex-container-table .head-note {
   width: 380px;
 }
-/* .flex-container-table .justify-content {
-  height: 50px;
-} */
 
 .flex-container {
   display: flex;
