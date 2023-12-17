@@ -97,6 +97,15 @@ tr {
   background-color: blue;
 }
 
+.center-element {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
 @media print {
   .home-link {
     display: none;
