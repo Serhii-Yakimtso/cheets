@@ -8,12 +8,16 @@
     />
     <title>Document</title>
     <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
-    <a class="home-link" href="../../index.html"
+    <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom">Змінні та типи. Основи функцій</h1>
+    <h1 class="m-bottom">Змінні та типи.</h1>
     <section class="section">
       <h2 class="m-bottom">
         Базова термінологія JavaScript
@@ -114,17 +118,20 @@
         </li>
       </ul>
       <div class="bcg-box">
-        <p></p>
-        const age = 20;<br />
-        let username = "Mango";<br />
-        username = "Poly";
+        <p>
+          const age = 20;<br />
+          let username = "Mango";<br />
+          username = "Poly";
+        </p>
       </div>
       <p>
-        Найменування — ім'я змінної має бути зрозумілим та
-        описувати призначення чи вміст змінної з
-        икористанням <b>camelCase</b>.
+        <b>Найменування</b> — ім'я змінної має бути
+        зрозумілим та описувати призначення чи вміст змінної
+        з икористанням <b>camelCase</b>.
       </p>
-      <ul class="list-style m-bottom-max">
+      <ul
+        class="list-style m-bottom-min print-m-bottom-max"
+      >
         <li>
           Імена змінних можуть складатися з літер (a-z,
           A-Z), цифр (0-9), символів підкреслення (_) та
@@ -219,7 +226,7 @@
         Оператор <b>typeof</b> використовується для
         визначення типу даних значення або виразу.
       </p>
-      <div class="bcg-box m-bottom-max">
+      <div class="bcg-box print-m-bottom-max">
         <p>
           const quantity = 17;<br />
           console.log(typeof quantity); // виведе "number"
@@ -315,7 +322,7 @@
         </tbody>
       </table>
     </section>
-    <section class="section m-bottom-max">
+    <section class="section print-m-bottom-max">
       <h2>Рядки</h2>
       <p>
         <b>Конкатенація рядків (склеювання)</b> -
@@ -402,7 +409,7 @@
         </p>
       </div>
     </section>
-    <section class="section m-bottom-max">
+    <section class="section print-m-bottom-max">
       <h2 class="m-bottom">Оператори порівняння</h2>
       <p>
         <b>Оператори порівняння</b> використовуються для
@@ -411,7 +418,7 @@
         результату порівняння.
       </p>
 
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <ul class="list-style">
           <li>
             Оператор <b>></b> (більше) — повертає
@@ -456,7 +463,7 @@
         значення та визначати їхню рівність або нерівність
       </p>
       <p>Оператори несуворої рівності</p>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <ul class="list-style">
           <li>
             Оператор <b>==</b> (дорівнює) — порівнює два
@@ -492,13 +499,13 @@
         операторів <b>несуворої</b> рівності.
       </p>
       <img
-        class="center-element m-bottom-max"
+        class="center-element print-m-bottom-max"
         src="../../images/js-equality-table.jpg"
         alt="equality table"
         width="600"
       />
 
-      <div class="flex-box m-bottom">
+      <div class="print-flex-box m-bottom">
         <div>
           <p>Оператори суворої рівності</p>
           <ul class="list-style">
@@ -542,7 +549,7 @@
         width="550"
       />
 
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <div>
           <p><b>Перетворення типів: числа</b></p>
           <p>
@@ -577,7 +584,7 @@
         </div>
       </div>
       <p><b>Перетворення рядків у числа</b></p>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           Метод <b>Number.parseInt()</b> - аналізує рядок
           зліва направо, видаляючи пробіли на початку і
@@ -604,7 +611,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box">
+      <div class="print-flex-box">
         <p>
           Метод <b>Number.parseFloat()</b> - перетворює
           рядок на число <b>з плаваючою крапкою</b>. Якщо
@@ -625,7 +632,7 @@
         </div>
       </div>
       <p class="m-bottom-min"><b>Арифметичні функції</b></p>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.floor(num)</b> повертає найближче ціле
           число, яке є <b>меншим</b> або дорівнює вказаному
@@ -638,7 +645,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.ceil(num)</b> повертає найближче ціле
           число, яке є <b>більшим</b>, або дорівнює
@@ -651,7 +658,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.round(num)</b> повертає значення числа
           після округлення до <b>найближчого цілого</b>.
@@ -663,7 +670,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.max(num1, num2, ...)</b> повертає
           <b>найбільше</b> число з набору переданих чисел.
@@ -674,7 +681,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.min(num1, num2, ...)</b> повертає
           <b>найменше</b> число з набору переданих чисел.
@@ -685,7 +692,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.random()</b> повертає випадкове число в
           діапазоні від 0 (включно) до 1 (за винятком).
@@ -715,7 +722,7 @@
       </div>
 
       <p class="m-bottom-min"><b>Дробове число</b></p>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <p>
           При виконанні операцій з дробовими числами можуть
           виникати неточності через внутрішнє представлення
@@ -728,7 +735,7 @@
           </p>
         </div>
       </div>
-      <div class="flex-box">
+      <div class="print-flex-box">
         <ul>
           <li>
             <b>Підхід 1</b>. Помножити числа на досить
@@ -764,7 +771,7 @@
     </section>
     <section>
       <h2>Основи функцій</h2>
-      <div class="flex-box m-bottom-min">
+      <div class="print-flex-box m-bottom-min">
         <div>
           <p class="m-bottom-min">
             <b>Функція</b> — це незалежний блок коду, який
@@ -808,7 +815,7 @@
         </div>
       </div>
       <p class="m-bottom-min"><b>Повернення значення</b></p>
-      <div class="flex-box m-bottom">
+      <div class="print-flex-box m-bottom">
         <div>
           <p>
             Оператор <b>return</b> використовується для

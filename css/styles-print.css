@@ -1,0 +1,14 @@
+@media print {
+  .print-home-link {
+    display: none;
+  }
+
+  .print-flex-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .print-m-bottom-max {
+    margin-bottom: 1000px;
+  }
+}

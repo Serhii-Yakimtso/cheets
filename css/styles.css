@@ -110,13 +110,23 @@ tr {
   .home-link {
     display: none;
   }
+  .print-home-link {
+    display: none;
+  }
 
   .flex-box {
     display: flex;
     justify-content: space-between;
   }
+  .print-flex-box {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .m-bottom-max {
+    margin-bottom: 1000px;
+  }
+  .print-m-bottom-max {
     margin-bottom: 1000px;
   }
 
