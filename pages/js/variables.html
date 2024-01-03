@@ -18,13 +18,13 @@
       >На головну</a
     >
     <h1 class="m-bottom">Змінні та типи.</h1>
-    <section class="section">
+    <section class="section print-m-bottom-max">
       <h2 class="m-bottom">
         Базова термінологія JavaScript
       </h2>
       <p class="m-bottom-min">
         <b>Код</b> — це набір інструкцій, які комп'ютер може
-        зрозуміти й виконати
+        зрозуміти й виконати.
       </p>
       <p class="m-bottom-min">
         <b>Алгоритм</b> — це набір кроків, які потрібно
@@ -41,21 +41,21 @@
         слів і символів із синтаксису мови, які
         об'єднуються, щоб висловити одну ідею, тобто одну
         інструкцію для машини. У JavaScript інструкції
-        закінчуються <b>";"</b>
+        закінчуються <b>";"</b>.
       </p>
       <p class="m-bottom-min">
         <b>Вираз (expression)</b> — це посилання на змінну
         чи значення, або на набір змінних і значень у
-        поєднанні з операторами
+        поєднанні з операторами.
       </p>
       <div class="bcg-box">
-        <p>a = b * 2</p>
+        <p>a = b * 2;</p>
       </div>
       <ul class="list-style m-bottom-min">
-        <li>2 — вираз значення літерала</li>
-        <li>b та a — вирази змінних</li>
-        <li>b * 2 — арифметичний вираз множення</li>
-        <li>a = b * 2 — вираз присвоювання</li>
+        <li>2 — вираз значення літерала;</li>
+        <li>b та a — вирази змінних;</li>
+        <li>b * 2 — арифметичний вираз множення;</li>
+        <li>a = b * 2 — вираз присвоювання.</li>
       </ul>
       <p class="m-bottom-min">
         <b>Літерал</b> — це значення, яке вказується
@@ -66,22 +66,22 @@
         <b>Підключення скрипта</b> — використовується тег
         <b>&#60;script&#62;</b>. Атрибут <b>defer</b> вказує
         браузеру, що скрипт повинен бути виконаний після
-        того, як HTML-документ буде повністю завантажений.
+        того, як HTML-документ буде повністю завантажений:
       </p>
       <ul class="list-style m-bottom-min">
         <li>
-          <b>Вбудований скрипт</b> — додати JavaScript-код
+          <b>вбудований скрипт</b> — додати JavaScript-код
           прямо всередині тега
           <b>&#60;script&#62;</b> всередині тега
-          <b>&#60;head&#62;</b>
+          <b>&#60;head&#62;</b>;
         </li>
         <li>
-          <b>Зовнішній скрипт</b> — створюється окремий файл
+          <b>зовнішній скрипт</b> — створюється окремий файл
           із розширенням <b>.js</b>, що містить
           JavaScript-код, після чого під'ється цей файл до
           HTML-сторінки за допомогою тега
           <b>&#60;script&#62;</b>, вказавши шлях до файлу в
-          атрибуті <b>src</b>
+          атрибуті <b>src</b>.
         </li>
       </ul>
       <p class="m-bottom-min">
@@ -92,32 +92,54 @@
         <b>('use strict';)</b>.
       </p>
       <p>
-        <b>Виведення даних</b> — використовується метод
-        <b>console.log()</b>
+        <b>Властивості</b> — це описові характеристики
+        сутності. Пишеться через крапку після сутності,
+        <i>не використовуються дужки</i>.
       </p>
+      <div class="bcg-box m-bottom-min">
+        <p class="m-bottom-min">сутність.властивість;</p>
+        <p>sting.length;</p>
+      </div>
+      <p>
+        <b>Методи</b>
+      </p>
+      <div class="bcg-box m-bottom-min">
+        sting.toUpperCase();
+      </div>
+      <p>
+        <b>Функції</b>
+      </p>
+      <div class="bcg-box m-bottom-min">Number();</div>
     </section>
-    <section class="section">
+
+    <section class="section print-m-bottom-max">
       <h2 class="m-bottom">Змінні та типи даних</h2>
-      <p class="m-bottom-min">
+      <p>
         <b>Змінна</b> — це контейнер, який використовується
         для зберігання даних. Складається з:
-        <i>ідентифікатора</i> (унікального імені);
-        <i>області пам’яті</i>, де зберігається її значення.
       </p>
+      <ul class="list-style m-bottom-min">
+        <li><i>ідентифікатора</i> (унікального імені);</li>
+        <li>
+          <i>області пам’яті</i>, де зберігається її
+          значення.
+        </li>
+      </ul>
       <p>
-        Оголошення змінних — починається з ключового слова.
+        <b>Оголошення змінних</b> — починається з ключового
+        слова.
       </p>
       <ul class="list-style">
         <li>
           <b>const</b> — змінну <i>неможливо</i> пізніше
-          перевизначенною
+          перевизначенною;
         </li>
         <li>
           <b>let</b> — змінна <i>можна</i> пізніше
-          перевизначенною
+          перевизначенною.
         </li>
       </ul>
-      <div class="bcg-box">
+      <div class="bcg-box m-bottom-min">
         <p>
           const age = 20;<br />
           let username = "Mango";<br />
@@ -129,23 +151,21 @@
         зрозумілим та описувати призначення чи вміст змінної
         з икористанням <b>camelCase</b>.
       </p>
-      <ul
-        class="list-style m-bottom-min print-m-bottom-max"
-      >
+      <ul class="list-style m-bottom">
         <li>
-          Імена змінних можуть складатися з літер (a-z,
+          імена змінних можуть складатися з літер (a-z,
           A-Z), цифр (0-9), символів підкреслення (_) та
-          знака долара ($)
+          знака долара ($);
         </li>
         <li>
-          Першим символом в імені змінної має бути літера
+          першим символом в імені змінної має бути літера
           латиниці, символ підкреслення або знак долара.
-          Інші символи можуть бути будь-якими з допустимих
+          Інші символи можуть бути будь-якими з допустимих;
         </li>
         <li>
-          Імена змінних чутливі до регістру, тобто змінні
+          імена змінних чутливі до регістру, тобто змінні
           <i>user</i>, <i>usEr</i> та <i>User</i> вважаються
-          різними змінними
+          різними змінними.
         </li>
       </ul>
       <p>
@@ -153,8 +173,12 @@
         значення та використовуються для певних конструкцій
         у мові
       </p>
-      <img src="../../images/js-key-words.jpg" alt="" />
-      <table class="m-bottom-min">
+      <img
+        class="print-m-bottom-max"
+        src="../../images/js-key-words.jpg"
+        alt=""
+      />
+      <table class="m-bottom">
         <caption>
           Типи даних
         </caption>
@@ -170,7 +194,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Number</td>
+            <td>number</td>
             <td>
               Числа можуть бути позитивними чи негативними,
               цілими або дробовими. Ціла та дробова частини
@@ -179,7 +203,7 @@
             <td></td>
           </tr>
           <tr>
-            <td>String</td>
+            <td>string</td>
             <td>
               Рядок є послідовністю символів, вкладених в
               одинарні '' або подвійні лапки ""
@@ -187,7 +211,7 @@
             <td></td>
           </tr>
           <tr>
-            <td rowspan="2">Boolean</td>
+            <td rowspan="2">boolean</td>
             <td rowspan="2">
               Логічний тип даних, що використовується для
               виконання логічних операцій та перевірок умов.
@@ -222,17 +246,7 @@
           </tr>
         </tbody>
       </table>
-      <p>
-        Оператор <b>typeof</b> використовується для
-        визначення типу даних значення або виразу.
-      </p>
-      <div class="bcg-box print-m-bottom-max">
-        <p>
-          const quantity = 17;<br />
-          console.log(typeof quantity); // виведе "number"
-        </p>
-      </div>
-      <table>
+      <table class="m-bottom print-center">
         <caption>
           Арифметичні операції
         </caption>
@@ -321,16 +335,78 @@
           </tr>
         </tbody>
       </table>
+
+      <p>
+        Оператор <b>typeof</b> використовується для
+        визначення типу даних значення або виразу.
+      </p>
+      <div class="bcg-box m-bottom-min">
+        <p>
+          const quantity = 17;<br />
+          console.log(typeof quantity); // виведе "number"
+        </p>
+      </div>
     </section>
-    <section class="section print-m-bottom-max">
-      <h2>Рядки</h2>
+
+    <section class="section">
+      <h2 class="m-bottom">Введення та виведення даних</h2>
+      <ul class="list-style">
+        <li class="m-bottom-min print-flex-box">
+          <p><i>Виведення</i> даних в консоль</p>
+          <div class="bcg-box print-bcg-box">
+            console.log("Hello");
+          </div>
+        </li>
+        <li class="m-bottom-min print-flex-box">
+          <p>
+            <i>Виведення</i> модального вікна з текстом
+            змінної або літералу
+          </p>
+          <div class="bcg-box print-bcg-box">
+            alert("Hello"); <br />
+            alert(message);
+          </div>
+        </li>
+        <li class="m-bottom-min print-flex-box">
+          <p>
+            Модальне вікно <i>введення</i> з текстом і
+            кнопками "Ok" та "Cancel". Повертає
+            <i>true</i> або
+            <i>false</i>
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const isComing = confirm('Please confirm hotel
+            reservation'); <br />
+            console.log(isComing);
+          </div>
+        </li>
+        <li class="m-bottom-min print-flex-box">
+          <p>
+            Модальне вікно <i>введення</i> з полем вводу і
+            кнопками "Ok" та "Cancel". Повертає введені дані
+            користувачем і присвоює їх у змінні при
+            натискані кнопки "Ok". При натискані "Cancel" -
+            повертає
+            <i>null</i>
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const userName = prompt("wright yor name");
+            <br />
+            console.log(userName);
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="m-bottom">Рядки</h2>
       <p>
         <b>Конкатенація рядків (склеювання)</b> -
         застосуваання оператора <b>"+"</b> до рядка та
         будь-якого іншого типу даних, результатом буде новий
         рядок, що містить об'єднання вихідних значень
       </p>
-      <div class="bcg-box">
+      <div class="bcg-box m-bottom-min">
         <p>
           console.log("Mango " + "is" + " happy"); // "Mango
           is happy"<br />
@@ -338,7 +414,7 @@
           console.log("Mango" + true); // "Mangotrue"
         </p>
       </div>
-      <p>
+      <p class="m-bottom-min">
         <b>Шаблонні рядки</b> - це синтаксис, який полегшує
         об'єднання <b>статичного</b> тексту з
         <b>динамічним</b>. Огортаються зворотними лапками
@@ -346,28 +422,18 @@
         змінних безпосередньо всередині рядка за допомогою
         синтаксису інтерполяції <b>${змінна}</b>
       </p>
-      <p>
-        <b>Корисно!</b> щоб захистити лапки, перед ними
-        треба встановити символ "\"
-      </p>
-      <div class="bcg-box">
+      <div class="bcg-box m-bottom-min">
         <p>
           const guestName = "Mango";<br />
           const greeting = `Welcome ${guestName}`;<br />
           "Welcome Mango"
         </p>
       </div>
+
       <p>
-        <b>Властивості</b> — це описові характеристики
-        сутності.
+        <b>Властивість довжини рядка.</b>
       </p>
-      <div class="bcg-box">
-        <p>сутність.властивість</p>
-      </div>
-      <p>
-        <b>Довжина рядка.</b>
-      </p>
-      <div class="bcg-box">
+      <div class="bcg-box m-bottom-min">
         <p>
           const productName = "Repair droid";<br />
           console.log(productName.length); // 12<br />
@@ -381,6 +447,7 @@
         нуля.
       </p>
       <div
+        class="m-bottom-min"
         style="
           display: flex;
           justify-content: space-between;
@@ -401,14 +468,32 @@
         />
       </div>
 
-      <p>Корисно! Останній символ за його індексом</p>
-      <div class="bcg-box">
-        <p>
-          const product = "Repair droid";<br />
-          console.log(product[product.length - 1]); // 'd'
-        </p>
+      <div class="border-box m-bottom-min">
+        <p class="m-bottom-min"><b>Корисно!</b></p>
+        <div class="print-flex-box">
+          <p>
+            Щоб захистити лапки, перед ними треба встановити
+            символ "\", або використовувати одинарні ('') та
+            парні лапки ("")
+          </p>
+          <div class="bcg-box m-bottom-min print-bcg-box">
+            <p>console.log("Hello \"World\"!");</p>
+            <p>console.log('Hello "World"!');</p>
+          </div>
+        </div>
+        <div class="print-flex-box">
+          <p>Останній символ за його індексом</p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const product = "Repair droid";<br />
+              console.log(product[product.length - 1]); //
+              'd'
+            </p>
+          </div>
+        </div>
       </div>
     </section>
+
     <section class="section">
       <h2 class="m-bottom">Оператори порівняння</h2>
       <p>
@@ -462,7 +547,7 @@
         <b>Оператори рівності</b> - дозволяють порівнювати
         значення та визначати їхню рівність або нерівність
       </p>
-      <p>Оператори несуворої рівності</p>
+      <p><b>Оператори несуворої рівності</b></p>
       <div class="print-flex-box m-bottom-min">
         <ul class="list-style">
           <li>
@@ -499,7 +584,7 @@
         операторів <b>несуворої</b> рівності.
       </p>
       <img
-        class="center-element print-m-bottom-max"
+        class="center-element"
         src="../../images/js-equality-table.jpg"
         alt="equality table"
         width="600"
@@ -507,7 +592,7 @@
 
       <div class="print-flex-box m-bottom">
         <div>
-          <p>Оператори суворої рівності</p>
+          <p><b>Оператори суворої рівності</b></p>
           <ul class="list-style">
             <li>
               Оператор <b>===</b> (сувора рівність) —
@@ -549,14 +634,14 @@
         width="550"
       />
 
+      <p><b>Перетворення типів: числа</b></p>
       <div class="print-flex-box m-bottom-min">
         <div>
-          <p><b>Перетворення типів: числа</b></p>
           <p>
-            Функція <b>Number()</b> - використовується Для
+            Функція <b>Number()</b> - використовується для
             явного перетворення будь-якого значення в число
           </p>
-          <ul>
+          <ul class="list-style">
             <li>
               <b>true</b> завжди приводиться до <b>1</b>
             </li>
@@ -611,7 +696,7 @@
           </p>
         </div>
       </div>
-      <div class="print-flex-box">
+      <div class="m-bottom-min print-flex-box">
         <p>
           Метод <b>Number.parseFloat()</b> - перетворює
           рядок на число <b>з плаваючою крапкою</b>. Якщо
@@ -621,16 +706,36 @@
         </p>
         <div class="bcg-box" style="min-width: max-content">
           <p>
-            console.log(Number.parseFloat("5")); // 5<br />
+            console.log(Number.parseFloat("5")); // 5 <br />
             console.log(Number.parseFloat("5.5")); // 5.5<br />
+            console.log(Number.parseFloat("5cm")); // 5<br />
             console.log(Number.parseFloat("5.5cm")); //
             5.5<br />
+            console.log(Number.parseFloat("12qwe74")); //
+            12<br />
             console.log(Number.parseFloat("12.46qwe79")); //
             12.46<br />
-            console.log(Number.parseFloat("cm5")); // NaN
+            console.log(Number.parseFloat("cm5")); // NaN<br />
+            console.log(Number.parseFloat("")); // NaN<br />
+            console.log(Number.parseFloat("qweqwe")); // NaN
           </p>
         </div>
       </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p>
+          Метод <b>Number.isNaN()</b> - перевіряє аргумент
+          на те, що він є <b>NaN</b>
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>
+            console.log(Number.isNaN("5")); // false <br />
+            console.log(Number.isNaN("Mango")); // true
+            <br />
+          </p>
+        </div>
+      </div>
+
       <p class="m-bottom-min"><b>Арифметичні функції</b></p>
       <div class="print-flex-box m-bottom-min">
         <p>
@@ -645,6 +750,7 @@
           </p>
         </div>
       </div>
+
       <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.ceil(num)</b> повертає найближче ціле
@@ -658,6 +764,7 @@
           </p>
         </div>
       </div>
+
       <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.round(num)</b> повертає значення числа
@@ -670,6 +777,7 @@
           </p>
         </div>
       </div>
+
       <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.max(num1, num2, ...)</b> повертає
@@ -681,6 +789,7 @@
           </p>
         </div>
       </div>
+
       <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.min(num1, num2, ...)</b> повертає
@@ -692,6 +801,17 @@
           </p>
         </div>
       </div>
+
+      <div class="print-flex-box m-bottom-min">
+        <p>
+          <b>Math.pow()</b> повертає число піднесене до
+          ступеню.
+        </p>
+        <div class="bcg-box" style="min-width: max-content">
+          <p>console.log(Math.pow(2б 4)); // 16</p>
+        </div>
+      </div>
+
       <div class="print-flex-box m-bottom-min">
         <p>
           <b>Math.random()</b> повертає випадкове число в
@@ -706,21 +826,22 @@
         </div>
       </div>
 
-      <p>
-        <b>Корисно!</b> Отримання випадкового числа у
-        вказанному діапазоні, включно
-      </p>
-      <div class="bcg-box m-bottom">
+      <div class="border-box m-bottom print-flex-box">
         <p>
-          function getRandomIntInclusive(min, max) {<br />
-          min = Math.ceil(min);<br />
-          max = Math.floor(max);<br />
-          return Math.floor(Math.random() * (max - min + 1))
-          + min;<br />
-          }
+          <b>Корисно!</b> Отримання випадкового числа у
+          вказанному діапазоні, включно
         </p>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            function getRandomIntInclusive(min, max) {<br />
+            min = Math.ceil(min);<br />
+            max = Math.floor(max);<br />
+            return Math.floor(Math.random() * (max - min +
+            1)) + min;<br />
+            }
+          </p>
+        </div>
       </div>
-
       <p class="m-bottom-min"><b>Дробове число</b></p>
       <div class="print-flex-box m-bottom-min">
         <p>
@@ -745,9 +866,9 @@
           </li>
           <li>
             <b>Підхід 2</b>. Використовувати метод числа
-            <b>toFixed()</b>
-            для округлення результату до певної кількості
-            знаків після крапки.
+            <b>toFixed()</b> для округлення результату до
+            певної кількості знаків після крапки, вказанної
+            в дужках.
           </li>
         </ul>
         <div class="bcg-box" style="min-width: max-content">
@@ -763,11 +884,6 @@
           </p>
         </div>
       </div>
-      <p>
-        Метод <b>toFixed()</b> повертає рядок, що
-        представляє число із зазначеною кількістю знаків
-        після крапки.
-      </p>
     </section>
   </body>
 </html>

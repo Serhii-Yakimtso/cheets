@@ -8,6 +8,17 @@
     justify-content: space-between;
   }
 
+  .print-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .print-bcg-box {
+    margin-left: auto;
+    margin-right: 0;
+    min-width: max-content;
+  }
+
   .print-m-bottom-max {
     margin-bottom: 1000px;
   }

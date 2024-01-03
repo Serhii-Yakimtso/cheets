@@ -85,6 +85,12 @@ tr {
   background-color: lightgray;
 }
 
+.border-box {
+  padding: 4px;
+  border: 2px dashed black;
+  border-radius: 16px;
+}
+
 .m-bottom {
   margin-bottom: 20px;
 }
