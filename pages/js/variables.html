@@ -502,6 +502,148 @@
     </section>
 
     <section class="section">
+      <h2 class="m-bottom">Методи рядків</h2>
+      <div class="subsection m-bottom">
+        <h3 class="m-bottom-min">Метод slice()</h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Використовується для створення копії частини або
+            всього рядка без зміни оригінального рядка. Він
+            дозволяє витягувати підрядок з вихідного рядка,
+            вказуючи початковий та кінцевий (не включаючи)
+            індекси.
+          </p>
+          <div class="bcg-box m-bottom-min print-bcg-box">
+            const fullName = "Jacob Mercer";<br />
+            console.log(fullName.slice(0, 4)); // 'Jaco'<br />
+            console.log(fullName.slice(3, 9)); // 'ob
+            Mer'<br />
+            console.log(fullName.slice(0, fullName.length));
+            // 'Jacob Mercer'
+          </div>
+        </div>
+        <div class="border-box">
+          <p class="m-bottom-min"><b>Цікаво!</b></p>
+          <p>
+            Параметр <i>endIndex</i> є
+            <i>необов'язковим</i>. Якщо endIndex не
+            вказаний, витягуються всі елементи до кінця
+            рядка.
+          </p>
+          <p>
+            Якщо викликати метод slice()
+            <i>без аргументів</i>, він створює точну копію
+            рядка і повертає її.
+          </p>
+        </div>
+      </div>
+
+      <div class="subsection m-bottom">
+        <h3 class="m-bottom-min">
+          Методи toLowerCase() і toUpperCase()
+        </h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Використовуються для зміни регістру символів у
+            рядку. Не змінюють вихідний рядок, а повертають
+            новий рядок у відповідному регістрі.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const message = "Welcome to Bahamas!"; <br />
+            console.log(message); // "Welcome to
+            Bahamas!"<br />
+            console.log(message.toLowerCase()); // "welcome
+            to bahamas!"<br />
+            console.log(message.toUpperCase()); // "WELCOME
+            TO BAHAMAS!"
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection m-bottom">
+        <h3 class="m-bottom-min">Метод includes()</h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Використовується для перевірки наявності
+            підрядка у рядку. Повертає логічне значення
+            <i>true</i>, якщо підрядок знайдено, і
+            <i>false</i>, якщо підрядок відсутній. Регістр
+            символів у рядку й підрядку має значення.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const username = 'Jacob Mercer';<br />
+            console.log(username.includes('Jacob')); // true
+            <br />
+            console.log(username.includes('John')); // false
+            <br />
+            console.log(username.includes('Mercer')); //
+            true
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection m-bottom">
+        <h3 class="m-bottom-min">
+          Методи startsWith() і endsWith()
+        </h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Призначені для перевірки початку й закінчення
+            рядка відповідно. Вони повертають булеве
+            значення
+            <i>true</i> або <i>false</i>, залежно від того,
+            чи відповідає початок або кінець рядка заданому
+            значенню. Метод чутливий до регістру
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const str = "Hello, world!";<br />
+            console.log(str.startsWith("Hello")); // true<br />
+            console.log(str.startsWith("hello")); //
+            false<br />
+            console.log(str.endsWith("world!")); // true<br />
+            console.log(str.endsWith("World!")); // false
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection m-bottom">
+        <h3>Метод indexOf()</h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Використовується для пошуку першого входження
+            підрядка в рядок. Він повертає індекс першого
+            входження (індекс першого символу) підрядка,
+            якщо він знайдений або <b>-1</b>, якщо підрядок
+            не виявлено.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const message = "Welcome to Bahamas!";<br />
+            console.log(message.indexOf("to")); // 8<br />
+            console.log(message.indexOf("hello")); // -1
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection m-bottom">
+        <h3>Метод trim()</h3>
+        <div class="print-flex-box">
+          <p class="m-bottom-min">
+            Використовується для видалення початкових і
+            кінцевих пробілів із рядка. Не змінює вихідний
+            рядок, а повертає новий
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const input = " JavaScript is awesome! ";<br />
+            console.log(input); // " JavaScript is awesome!
+            "<br />
+            console.log(input.trim()); // "JavaScript is
+            awesome!"<br />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <h2 class="m-bottom">Оператори порівняння</h2>
       <p>
         <b>Оператори порівняння</b> використовуються для
