@@ -17,8 +17,10 @@
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom">Функції. Розгалудження. Цикли</h1>
-    <section class="section">
+    <h1 class="m-bottom">ФункціЇ</h1>
+
+    <!-- Основи функції -->
+    <section class="section m-bottom print-m-bottom-max">
       <h2>Основи функцій</h2>
       <div class="print-flex-box m-bottom-min">
         <div>
@@ -28,8 +30,8 @@
             значеннями.
           </p>
           <p class="m-bottom-min">
-            Ім'я функції — це дієслово, що відповідає на
-            питання "Що зробити?"
+            <b>Ім'я функції</b> — це дієслово, що відповідає
+            на питання "Що зробити?"
           </p>
           <p class="m-bottom-min">
             <b>Параметри</b> — це локальні змінні, доступні
@@ -122,10 +124,67 @@
         Область видимості має доступ до змінних, що
         оголошені:
       </p>
-      <ul class="list-style">
+      <ul class="list-style m-bottom">
         <li>у цій області видимості;</li>
         <li>у вищій за ієрархією області видимості.</li>
       </ul>
+
+      <h3>Псевдомасив arguments</h3>
+      <div class="print-flex-box">
+        <p>
+          Доступ до списку всіх аргументів можна отримати за
+          допомогою спеціальної змінної <b>arguments</b>.
+          Коли викликаємо функцію з аргументами,
+          <b>arguments</b> автоматично створюється всередині
+          цієї функції і заповнюється переданими значеннями
+          аргументів.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function sum(a, b) { <br />
+          console.log(arguments);<br />
+          return a + b;<br />
+          }
+        </div>
+      </div>
+
+      <h3>Параметри за замовчуванням</h3>
+      <div class="print-flex-box">
+        <p>
+          Функції можуть мати параметри зі значеннями за
+          замовчуванням, тобто необов'язкові параметри. Ці
+          значення використовуються в тому випадку, якщо
+          функція викликається без передавання відповідного
+          аргументу для цього параметра. Значенням за
+          замовчуванням може бути будь-який тип даних.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function greet(username = "Guest") { <br />
+          console.log(`Hello, ${username}!`);<br />
+          }<br />
+          <br />
+          greet("Jacob"); // "Hello, Jacob!"<br />
+          greet(); // "Hello, Guest!"
+        </div>
+      </div>
+
+      <h3>Функціональний вираз</h3>
+      <div class="print-flex-box">
+        <p>
+          <b>Функціональний вираз</b> (function expression)
+          — звичайне оголошення змінної, значенням якої буде
+          функція. Не можна викликати до місця його
+          створення, тільки після.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          <b>const multiply = function</b> (x, y, z) {
+          <br />
+          console.log(x * y * z);<br />
+          };
+        </div>
+      </div>
     </section>
   </body>
 </html>

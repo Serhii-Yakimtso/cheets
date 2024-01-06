@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <!-- <h1 class="m-bottom">Розгалудження</h1> -->
+
+    <!-- Розгалудження -->
+    <section class="section m-bottom print-m-bottom-max">
+      <h2 class="m-bottom">Розгалудження</h2>
+      <p class="m-bottom">
+        Розгалуження використовуються для виконання різного
+        коду в тілі залежно від виконання умови. <br />
+
+        Коли інтерпретатор зустрічає інструкцію, він
+        обчислює вказану
+        <b>умову в круглих дужках</b> (condition),
+        перетворюючи її до логічного типу (<b>boolean</b>).
+        Якщо <b>умова</b> (<b>condition</b>) перетворюється
+        до <b>true</b>, виконується блок коду, написаний
+        <b>у фігурних дужках {}</b> — (<b>statement</b>).
+      </p>
+
+      <h3 class="m-bottom-min">Інструкція if</h3>
+      <div class="m-bottom-min print-flex-box">
+        <p>
+          Дозволяє виконати певний блок коду <b>тільки</b> в
+          тому випадку, якщо задана
+          <b>умова істинна</b> (тобто приймає значення
+          <b>true</b>). <br />
+          Якщо умова перетворюється до <b>false</b>, код у
+          фігурних дужках не буде виконуватися
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          <p>
+            let price = 0;<br />
+            const subscription = "pro";<br />
+            <br />
+            if (subscription = = = "pro") {<br />
+            price = 100;<br />
+            }<br />
+
+            console.log(price); // 100
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Інструкція if...else</h3>
+      <div class="m-bottom-min print-flex-box">
+        <p>
+          Використовується у випадках, коли потрібно задати
+          альтернативне виконання коду, при неможливості
+          виконання умови. <br />
+          Якщо умова перетворюється до <b>true</b>, то
+          виконається код блоку <b>if</b> у фігурних дужках.
+          <br />
+          Якщо умова перетворюється до <b>false</b>, то
+          виконається код блоку <b>else</b>.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const grade = 85;<br />
+            <br />
+            if (grade >= 70) {<br />
+            console.log("Satisfactorily");<br />
+            } else {<br />
+            console.log("Unsatisfactorily");<br />
+            }
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Блок else...if</h3>
+      <div class="m-bottom-min print-flex-box">
+        <p>
+          Використовується у випадках, коли необхідно задати
+          декілька послідовних умов. <br />
+          Перевірка зупиняється, щойно програма знаходить
+          першу умову, яка задовільняється. При цьому
+          виконується тільки тіло відповідного блоку if або
+          else if.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const grade = 85;<br />
+            <br />
+            if (grade >= 90) {<br />
+            console.log("Perfectly");<br />
+            } else if (grade >= 80) {<br />
+            console.log("Good");<br />
+            } else if (grade >= 70) {<br />
+            console.log("Satisfactorily");<br />
+            } else {<br />
+            console.log("Unsatisfactorily");<br />
+            }
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Тернарний оператор</h3>
+      <div class="m-bottom print-flex-box" style="gap: 8px">
+        <div>
+          <p>
+            Тернарний оператор — це коротша синтаксична
+            заміна інструкції if...else. Дозволяє виконувати
+            певну частину коду залежно від умови
+          </p>
+          <ul class="list-style m-bottom-min">
+            <li>
+              обчислюється умова (вказана до знаку
+              <b>"?"</b>);
+            </li>
+            <li>
+              якщо умова <b>true</b>, обчислюється вираз
+              після <b>"?"</b>;
+            </li>
+            <li>
+              якщо умова <b>false</b>, обчислюється вираз
+              після <b>":"</b>;
+            </li>
+            <li>
+              значення обчисленого виразу повертається як
+              результат роботи.
+            </li>
+          </ul>
+          <p class="border-box">
+            <b>Увага!</b> Тернарний оператор рекомендується
+            використовувати у найпростіших випадках операції
+            присвоєння чи повернення.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            let type;<br />
+            const age = 20;<br />
+            <br />
+            if (age >= 18) {<br />
+            type = 'adult';<br />
+            } else {<br />
+            type = 'child';<br />
+            } <br /><br />або тернаний оператор<br />
+            type = age >= 18 ? 'adult' : 'child';
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Оператор switch</h3>
+      <p>
+        Дозволяє виконувати різні дії залежно від значення
+        виразу. Працює:
+      </p>
+      <ul class="list-style m-bottom-min">
+        <li>
+          <b>Вираз</b> (expression) в операторі switch
+          суворо порівнюється (===) з усіма значеннями в
+          блоках case.
+        </li>
+        <li>
+          Значення виразу <b>порівнюється</b> з кожним
+          <b>блоком case</b> зверху вниз.
+        </li>
+        <li>
+          Якщо значення виразу відповідає значенню в блоці
+          case, виконується код цього блоку.
+        </li>
+        <li>
+          Коли виконання коду
+          <b>блоку case завершено</b>, необхідно
+          використовувати <b>оператор break</b>, щоб вийти
+          зі switch. Це запобігає виконанню коду в наступних
+          блоках case.
+        </li>
+        <li>
+          Якщо жодне значення не відповідає виразу,
+          виконається код у <b>блоці default</b> (якщо він
+          є; default завжди має бути останнім в коді;
+          використовується лише 1 default в коді).
+        </li>
+      </ul>
+
+      <p class="m-bottom-min">
+        Якщо break не вказано, виконання коду продовжиться в
+        наступному case і далі. Така поведінка називається
+        "провалюванням" (fall-through). Якщо потрібно, щоб
+        кілька блоків case виконували той самий код, можна
+        опустити оператор break між ними (ця поведінка
+        відображенна у другому прикладі).
+      </p>
+
+      <div class="m-bottom print-flex-box">
+        <div class="bcg-box">
+          <p>
+            const fruit = 'apple';<br />
+            <br />
+            switch (fruit) {<br />
+            case 'apple':<br />
+            console.log('Apple selected');<br />
+            break;<br />
+            case 'banana':<br />
+            console.log('Banana selected');<br />
+            break;<br />
+            case 'orange':<br />
+            console.log('Orange selected');<br />
+            break;<br />
+            default:<br />
+            console.log('The fruit is unknown');<br />
+            }
+          </p>
+        </div>
+
+        <div class="bcg-box">
+          <p>
+            const day = 3;<br />
+            <br />
+            switch (day) {<br />
+            case 1:<br />
+            case 2:<br />
+            case 3:<br />
+            case 4:<br />
+            console.log('This is a working day');<br />
+            break;<br />
+            case 5:<br />
+            case 6:<br />
+            console.log('It is a day off');<br />
+            break;<br />
+            default:<br />
+            console.log('Invalid');<br />
+            }
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Схеми розгалуджень</h3>
+      <ul class="ramifications-img-pattern">
+        <li>
+          <img src="../../images/js/js-if.jpg" alt="if" />
+        </li>
+        <li>
+          <img
+            src="../../images/js/js-if-else.jpg"
+            alt="if-else"
+          />
+        </li>
+        <li>
+          <img
+            src="../../images/js/js-if-else-if.jpg"
+            alt="if-else-if"
+          />
+        </li>
+        <li>
+          <img
+            src="../../images/js/js-switch.jpg"
+            alt="switch"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <!-- Логічні оператори -->
+    <section class="section">
+      <h2 class="m-bottom">Логічні оператори</h2>
+
+      <p>
+        Логічні оператори використовуються для перевірки
+        множинних умов, наприклад, в інструкціях <b>if</b>.
+      </p>
+
+      <p class="m-bottom-min">
+        Перетворення типів означає приведення значення
+        будь-якого типу даних у логічне (булеве) значення
+        <b>true</b> або <b>false</b>.
+      </p>
+      <div
+        class="m-bottom-min"
+        style="
+          display: flex;
+          gap: 4px;
+          justify-content: center;
+        "
+      >
+        <table style="font-size: 11px">
+          <thead>
+            <th>Тип даних</th>
+            <th>Запис</th>
+            <th>Перетворення</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="6">Числа</td>
+              <td>0</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>NaN</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>null</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>undefined</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>3.14</td>
+              <td>true</td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="font-size: 11px">
+          <thead>
+            <th>Тип даних</th>
+            <th>Запис</th>
+            <th>Перетворення</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">логічні</td>
+              <td>true</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td rowspan="3">рядки</td>
+              <td>""</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>"hello"</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>"false"</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>масив</td>
+              <td>[]</td>
+              <td>true</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <table style="font-size: 11px">
+        <thead>
+          <th style="font-size: 14px">Назва</th>
+          <th style="font-size: 14px">Оператор</th>
+          <th style="font-size: 14px">Опис повернення</th>
+          <th style="width: 300px; font-size: 14px">
+            Приклад повернення
+          </th>
+          <th>
+            true/<br />
+            false
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="13" style="font-size: 14px">
+              "І"
+            </td>
+            <td
+              rowspan="13"
+              style="font-size: 14px; text-align: center"
+            >
+              &&
+            </td>
+            <td rowspan="12" style="font-size: 14px">
+              Оператор зліва направо перевіряє почергово
+              обидва операнди на істинність та повертає або
+              значення останнього істинного (тільки правого)
+              операнда, або першого хибного (лівого чи
+              правого), на якому він запнувся
+            </td>
+            <td>"hello" && 5; // 5</td>
+            <td rowspan="6" style="font-size: 14px">
+              true
+            </td>
+          </tr>
+          <tr>
+            <td>5 && "hello"; // "hello"</td>
+          </tr>
+          <tr>
+            <td>"mango" && "poly"; // "poly"</td>
+          </tr>
+          <tr>
+            <td>"poly" && "mango"; // "mango"</td>
+          </tr>
+          <tr>
+            <td>3 && true; // true</td>
+          </tr>
+          <tr>
+            <td>true && 3; // 3</td>
+          </tr>
+          <tr>
+            <td>"hello" && 0; // 0</td>
+            <td rowspan="6" style="font-size: 14px">
+              false
+            </td>
+          </tr>
+          <tr>
+            <td>0 && "hello"; // 0</td>
+          </tr>
+          <tr>
+            <td>3 && false; // false</td>
+          </tr>
+          <tr>
+            <td>false && 3; // false</td>
+          </tr>
+          <tr>
+            <td>0 && ""; // 0</td>
+          </tr>
+          <tr>
+            <td>"" && 0; // ""</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-size: 14px">
+              Приклад запису: <b>(a > 10 && a < 30)</b>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="11" style="font-size: 14px">
+              «АБО»
+            </td>
+            <td
+              rowspan="11"
+              style="font-size: 14px; text-align: center"
+            >
+              ||
+            </td>
+            <td rowspan="10" style="font-size: 14px">
+              Як тільки оператор знайшов операнд, який
+              перетворюється на <b>true</b>, він зупиняється
+              та повертає його значення. Якщо до істини було
+              перетворено перший операнд, то другий навіть
+              не буде оцінюватися. Якщо
+              <b>всі операнди</b> перетворюються на
+              <b>false</b>, результатом буде значення
+              <b>крайнього правого</b> операнда.
+            </td>
+            <td>true || false; // true</td>
+            <td rowspan="6" style="font-size: 14px">
+              true
+            </td>
+          </tr>
+          <tr>
+            <td>false || true; // true</td>
+          </tr>
+          <tr>
+            <td>5 || false; // 5</td>
+          </tr>
+          <tr>
+            <td>false || 5; // 5</td>
+          </tr>
+          <tr>
+            <td>"hello" || 0; // "hello"</td>
+          </tr>
+          <tr>
+            <td>0 || "hello"; // "hello"</td>
+          </tr>
+          <tr>
+            <td>0 || false; // false</td>
+            <td rowspan="4" style="font-size: 14px">
+              false
+            </td>
+          </tr>
+          <tr>
+            <td>false || 0; // 0</td>
+          </tr>
+          <tr>
+            <td>null || ""; // ""</td>
+          </tr>
+          <tr>
+            <td>"" || null; // null</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-size: 14px">
+              Приклад запису: <b>(a < 10 || a > 30)</b>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="8" style="font-size: 14px">
+              «НІ»
+            </td>
+            <td
+              rowspan="8"
+              style="font-size: 14px; text-align: center"
+            >
+              !
+            </td>
+            <td rowspan="7" style="font-size: 14px">
+              Приводить операнд до логічного значення (true
+              або false) і потім заперечує (інвертує) його,
+              тобто заміняє на протилежне: true —> false, а
+              false —> true. Використовується для перевірки
+              від зворотного.
+            </td>
+            <td>!false; // true</td>
+            <td rowspan="4" style="font-size: 14px">
+              true
+            </td>
+          </tr>
+          <tr>
+            <td>!0; // !0 -> !false -> true</td>
+          </tr>
+          <tr>
+            <td>!""; // !"" -> !false -> true</td>
+          </tr>
+          <tr>
+            <td>!null; // !null -> !false -> true</td>
+          </tr>
+          <tr>
+            <td>!true; // false</td>
+            <td rowspan="3" style="font-size: 14px">
+              false
+            </td>
+          </tr>
+          <tr>
+            <td>!3; // !3 -> !true -> false</td>
+          </tr>
+          <tr>
+            <td>!"Mango"; // !"Mango" -> !true -> false</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-size: 14px">
+              Приклад запису: <b>isOnline && !isBlocked;</b>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

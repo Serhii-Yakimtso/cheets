@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom-min">Методи</h1>
+    <section class="section">
+      <table>
+        <thead>
+          <th>Метод</th>
+          <th>Опис</th>
+          <th>Приклад</th>
+          <th>Використання</th>
+        </thead>
+        <tr>
+          <td>slice()</td>
+          <td>
+            Використовується для створення копії частини або
+            всього рядка без зміни оригінального рядка. Він
+            дозволяє витягувати підрядок з вихідного рядка,
+            вказуючи початковий та кінцевий (не включаючи)
+            індекси. <br />
+            Параметр <i>endIndex</i> є
+            <i>необов'язковим</i>. Якщо endIndex не
+            вказаний, витягуються всі елементи до кінця
+            рядка. Якщо викликати метод slice()
+            <i>без аргументів</i>, він створює точну копію
+            рядка і повертає її.
+          </td>
+          <td>
+            const name = "Jacob Mercer";<br />
+            name.slice(0, 4); // 'Jaco'<br />
+            name.slice(3, 9); // 'ob Mer'<br />
+            name.slice(0, name.length);<br />
+            // 'Jacob Mercer'
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>toLowerCase()</td>
+          <td>
+            Використовується для зміни регістру символів у
+            рядку. Не змінює вихідний рядок, а повертає
+            новий рядок.
+          </td>
+          <td>
+            const message = "Welcome to Bahamas!"; <br />
+            message.toLowerCase(); // "welcome to
+            bahamas!"<br />
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>toUpperCase()</td>
+          <td>
+            Використовується для зміни регістру символів у
+            рядку. Не змінює вихідний рядок, а повертає
+            новий рядок.
+          </td>
+          <td>
+            const message = "Welcome to Bahamas!"; <br />
+            message.toUpperCase(); // "WELCOME TO BAHAMAS!"
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>startsWith()</td>
+          <td>
+            Повертає булеве значення <i>true</i> або
+            <i>false</i>, залежно від того, чи відповідає
+            початок рядка заданому значенню.
+            <b>Чутливий до регістру</b>
+          </td>
+          <td>
+            const str = "Hello, world!";<br />
+            str.startsWith("Hello"); // true<br />
+            str.startsWith("hello"); // false
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>endsWith()</td>
+          <td>
+            Повертає булеве значення <i>true</i> або
+            <i>false</i>, залежно від того, чи відповідає
+            кінець рядка заданому значенню.
+            <b>Чутливий до регістру</b>
+          </td>
+          <td>
+            const str = "Hello, world!";<br />
+            str.endsWith("world!"); // true
+            str.endsWith("World!"); // false
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>replace()</td>
+          <td>
+            Використовується для заміни одного підрядка на
+            інший.
+            <b>Чутливий до регістру</b>
+          </td>
+          <td>
+            const mes = "Poly is awersome";<br />
+            mes.replace("Poly", "Marta"); // "Marta is
+            awersome"<br />
+            mes.replace("poly", "Marta"); // "Poly is
+            awersome"
+          </td>
+          <td>рядки</td>
+        </tr>
+        <tr>
+          <td>trim()</td>
+          <td>
+            Використовується для видалення початкових і
+            кінцевих пробілів із рядка. Не змінює вихідний
+            рядок, а повертає новий
+          </td>
+          <td>
+            const input = " JavaScript is awesome! ";<br />
+            input.trim(); // "JavaScript is awesome!"<br />
+          </td>
+          <td>рядки</td>
+        </tr>
+
+        <tr>
+          <td>includes()</td>
+          <td>
+            Використовується для перевірки наявності
+            підрядка у рядку. Повертає логічне значення
+            <i>true</i>, якщо підрядок знайдено, і
+            <i>false</i>, якщо підрядок відсутній.
+            <b>Чутливий до регістру</b>
+            .
+          </td>
+          <td>
+            const name = 'Jacob Mercer';<br />
+            name.includes('Jacob'); // true
+            <br />
+            name.includes('John'); // false
+            <br />
+            <br />
+            const planets = ["Earth", "Mars"];<br />
+
+            planets.includes("Earth"); // true<br />
+            planets.includes("Jupiter"); // false
+          </td>
+          <td>
+            рядки, <br />
+            масиви
+          </td>
+        </tr>
+
+        <tr>
+          <td>indexOf()</td>
+          <td>
+            Використовується для пошуку першого входження
+            підрядка в рядок. Повертає індекс першого
+            входження (індекс першого символу) підрядка,
+            якщо він знайдений або <b>-1</b>, якщо підрядок
+            не виявлено.
+            <b>Чутливий до регістру</b>
+          </td>
+          <td>
+            const message = "Welcome to Bahamas!";<br />
+            message.indexOf("to"); // 8<br />
+            message.indexOf("To"); // -1<br />
+            message.indexOf("hello"); // -1<br /><br />
+            const clients = ["Poly", "Kiwi", "Poly"];<br />
+            clients.indexOf("Poly"); // 0<br />
+            clients.indexOf("Monkong"); // -1
+          </td>
+          <td>
+            рядки,<br />
+            масиви
+          </td>
+        </tr>
+        <tr>
+          <td>join()</td>
+          <td>
+            Дозволяє об'єднати елементи масиву в рядок. У
+            результуючому рядку елементи будуть розділені
+            символом або групою символів, зазначених у
+            дужках.
+          </td>
+          <td>
+            const words = ["JavaScript", "is" ];<br />
+            words.join(""); // 'JavaScriptis'<br />
+            words.join(" "); // 'JavaScript is'<br />
+            words.join("-"); // 'JavaScript-is'
+          </td>
+          <td>масиви</td>
+        </tr>
+        <tr>
+          <td>split()</td>
+          <td>
+            дозволяє перетворити рядок на масив, розбивши
+            його за вказаним роздільником у дужках
+            (зворотній від join())
+          </td>
+          <td>
+            const name = "Man";<br />
+            const message = "Hello world";<br />
+            name.split(""); // ["M", "a", "n"]<br />
+            message.split(" "); // ["Hello", "world"]
+          </td>
+          <br />
+          <td>масиви</td>
+        </tr>
+        <tr>
+          <td>slice()</td>
+          <td>
+            Повертає новий масив, що містить копію частини
+            вихідного масиву, не змінюючи його. Копія
+            створюється від індексу <b>begin</b> до, але
+            <i>не включаючи</i> індекс <b>end</b>. <br />
+            Якщо не вказати параметри <b>begin</b> і
+            <b>end</b>, буде створено повну копію вихідного
+            масиву. <br />
+            Якщо не вказати <b>end</b>, копіювання
+            відбуватиметься від <b>begin</b> до кінця
+            масиву. <br />
+            Якщо значення <b>begin</b> <i>негативне</i>, а
+            <b>end</b> <i>не вказано</i>, будуть скопійовані
+            останні begin елементів (тобто стільки елементів
+            з кінця, скільки вказано в параметрі begin)
+          </td>
+          <td>
+            const planets = ["Earth", "Mars", "Venus"];<br /><br />
+            planets.slice(0, 2); // ['Earth', 'Mars']<br />
+            planets.slice(1, 3); // ['Mars', 'Venus']<br />
+            planets.slice(); // ["Earth", "Mars", "Venus"]
+            <br />
+            planets.slice(1); // ["Mars", "Venus"]<br />
+            planets.slice(-2); // ["Mars", "Venus"]
+          </td>
+          <td>масиви</td>
+        </tr>
+        <tr>
+          <td>concat()</td>
+          <td>
+            Використовується для об'єднання двох або більше
+            масивів. Не змінює вихідні масиви. <br />
+            Порядок аргументів методу визначає порядок
+            розташування елементів у новому масиві.
+          </td>
+          <td>
+            const firstArray = ["Mercury", "Venus"]; <br />
+            const secondArray = ["Mars"];<br />
+            const result =
+            firstArray.concat(secondArray);<br />
+            result; // ["Mercury", "Venus", "Mars"];
+          </td>
+          <td>масиви</td>
+        </tr>
+        <tr>
+          <td>push()</td>
+          <td>
+            Використовується для додавання одного або більше
+            елементів у кінець масиву.
+          </td>
+          <td>
+            const planets = ["Earth", "Mars"];<br />
+            planets.push("Jupiter");<br />
+            planets; // ['Earth', 'Mars', 'Jupiter']<br /><br />
+            planets.push("Saturn", "Neptune");<br />
+            planets; // ['Earth', 'Mars', 'Jupiter',
+            "Saturn", "Neptune"]
+          </td>
+          <td>масиви</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>

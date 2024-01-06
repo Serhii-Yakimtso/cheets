@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom">Масиви</h1>
+    <section>
+      <h2 class="m-bottom-min">Загальне</h2>
+      <p class="m-bottom-min">
+        Масив — це впорядкована структура даних, яка
+        використовується для зберігання колекції елементів.
+        Можуть містити елементи різних типів даних, таких як
+        числа, рядки, булеві значення тощо. Для створення
+        використовуються квадратні дужки []. Усередині дужок
+        перераховуються елементи масиву, розділені комами.
+      </p>
+      <div class="bcg-box m-bottom-min">
+        const mixed = ['apple', 10, true];
+      </div>
+      <p class="m-bottom-min">
+        Кожен елемент масиву має свій порядковий номер -
+        індекс. Індексація елементів масиву починається з 0.
+        Щоб отримати доступ до елемента масиву,
+        використовується синтаксис квадратних дужок.
+      </p>
+      <div class="bcg-box m-bottom-min">
+        const planets = ['Earth', 'Mars', 'Venus'];<br />
+        console.log(planets[0]); // 'Earth'
+      </div>
+      <p class="m-bottom-min">
+        Перевизначення значення елемента
+      </p>
+      <div class="bcg-box m-bottom-min">
+        const planets = ['Earth', 'Mars', 'Venus'];<br />
+        planets[0] = 'Jupiter';<br />
+        planets[2] = 'Neptune';<br />
+        console.log(planets); // ['Jupiter', 'Mars',
+        'Neptune']
+      </div>
+      <p class="m-bottom-min">Довжина масиву</p>
+      <div class="bcg-box m-bottom-min">
+        const planets = ['Earth', 'Mars', 'Venus'];<br />
+        console.log(planets.length); // 3
+      </div>
+      <p class="m-bottom-min">Індекс останнього елемента</p>
+      <div class="bcg-box m-bottom-min">
+        const planets = ["Earth", "Mars", "Venus"];<br />
+        const lastIndex = planets.length - 1;<br />
+        console.log(planets[lastIndex]); // "Venus"
+      </div>
+      <p class="m-bottom-min">Приведення типів</p>
+      <div class="bcg-box m-bottom-min">
+        const array = [1, true, "Poly"];<br />
+        console.log(String(array));// "1,true,Poly"<br />
+        console.log(array + "5"); // "1,true,Poly5"
+        <br /><br />
+        console.log(Number([])); // 0<br />
+        console.log(Number([1])); // 1<br />
+        console.log(Number([1, 2, 3])); // NaN<br /><br />
+        console.log(Boolean([])); // true /><br />
+        console.log(Boolean([1, 2, 3])); // true
+      </div>
+    </section>
+  </body>
+</html>

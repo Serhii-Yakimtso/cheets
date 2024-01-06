@@ -537,32 +537,16 @@ tr {
   width: 750px;
 }
 
-/* .banner {
-  min-height: 600px;
-  background-image: url('./imags/image-mobile.jpg');
-  background-position: center top;
-  background-size: 960px 576px;
-  background-repeat: no-repeat;
+/* JS Розгалудження */
+.ramifications-img-pattern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
-@media screen and (min-resolution: 192dpi) and (max-width: 767px),
-  screen and (min-resolution: 2dppx) and (max-width: 767px),
-  screen and (min-device-pixel-ratio: 2) and (max-width: 767px) {
-  .banner {
-    background-image: url('./imags/image-mobile@2x.jpg');
-  }
-}
+.ramifications-img-pattern > li {
+  width: calc(50% - 2px);
 
-@media screen and (min-width: 768px) {
-  .banner {
-    background-image: url('./imags/image-tablet.jpg');
-  }
+  border: 1px solid grey;
+  border-radius: 4px;
 }
-
-@media screen and (min-resolution: 192dpi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px),
-  screen and (min-device-pixel-ratio: 2) and (min-width: 768px) {
-  .banner {
-    background-image: url('./imags/image-tablet@2x.jpg');
-  }
-} */
