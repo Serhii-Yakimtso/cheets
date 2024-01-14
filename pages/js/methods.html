@@ -469,25 +469,51 @@
           </tr>
 
           <tr>
-            <td>Методи</td>
+            <td>Object.keys()</td>
+            <td>
+              Приймає об'єкт і повертає масив ключів його
+              властивостей. Якщо в об'єкті немає
+              властивостей, метод поверне порожній масив.
+            </td>
+            <td>
+              const book = {<br />
+              title: "The Last Kingdom",<br />
+              author: "Bernard Cornwell",<br />
+              };<br />
+              <br />
+              const keys = Object.keys(book);<br />
+              console.log(keys); // ['title', 'author']
+            </td>
+          </tr>
+
+          <tr>
+            <td>Object.values()</td>
+            <td>
+              Приймає об'єкт і повертає масив значень
+              властивостей. Якщо в об'єкті немає
+              властивостей, метод поверне порожній масив.
+            </td>
+            <td>
+              const book = {<br />
+              title: "The Last Kingdom",<br />
+              author: "Bernard Cornwell",<br />
+              rating: 8.38,<br />
+              };<br />
+              <br />
+              const values = Object.values(book);<br />
+              console.log(values); // ["The Last Kingdom",
+              "Bernard Cornwell", 8.38]
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
 
           <tr>
-            <td>Методи</td>
             <td></td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td>Методи</td>
-            <td></td>
-            <td></td>
-          </tr>
-
-          <tr>
-            <td>Методи</td>
             <td></td>
             <td></td>
           </tr>
