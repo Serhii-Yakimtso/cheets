@@ -17,12 +17,12 @@
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom">ФункціЇ</h1>
+    <h1 class="m-bottom center-text">Функції</h1>
 
     <!-- Основи функції -->
-    <section class="section m-bottom print-m-bottom-max">
-      <h2>Основи функцій</h2>
-      <div class="print-flex-box m-bottom-min">
+    <section class="m-bottom">
+      <h2 class="m-bottom">Основи функцій</h2>
+      <div class="print-flex-box m-bottom">
         <div>
           <p class="m-bottom-min">
             <b>Функція</b> — це незалежний блок коду, який
@@ -39,7 +39,7 @@
             бути відсутні (вказуються просто порожні круглі
             дужки), один чи декілька (розділяються комами).
           </p>
-          <p>
+          <p class="m-bottom-min">
             Під час виклику функції в круглих дужках можна
             передати <b>аргументи</b>, які є значеннями для
             оголошених <i>параметрів</i> функції.
@@ -54,6 +54,7 @@
             function doStuff(параметр) {<br />
             console.log('Log inside multiply function');<br />
             } <br />
+            <br />
             <b>Виклик функції</b><br />
             doStuff(аргумент);<br />
             <br />
@@ -65,10 +66,11 @@
           </div>
         </div>
       </div>
-      <p class="m-bottom-min"><b>Повернення значення</b></p>
-      <div class="print-flex-box m-bottom">
-        <div>
-          <p>
+
+      <h3 class="m-bottom-min">Повернення значення</h3>
+      <div class="print-flex-box">
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
             Оператор <b>return</b> використовується для
             повернення значення з тіла функції назад у код,
             у місце її виклику. Коли інтерпретатор зустрічає
@@ -76,7 +78,7 @@
             (припиняє її виконання) і повертає вказане після
             return значення в місце виклику функції.
           </p>
-          <p>
+          <p class="m-bottom-min">
             Якщо в тілі функції відсутній оператор
             <i>return</i> або він не вказує на конкретне
             значення, функція поверне спеціальне значення
@@ -103,54 +105,12 @@
           </p>
         </div>
       </div>
-      <p class="m-bottom-min">
-        <b>Область видимості функції</b>
-      </p>
-      <ul class="m-bottom-min">
-        <li>
-          <b>Глобальні змінні</b> - змінні або функції,
-          оголошені поза будь-якими блоками коду (доступні в
-          будь-якій частині коду).
-        </li>
-        <li>
-          <b>Локальні змінні</b> - оголошені в локальній
-          області видимості (будь-яка конструкція, що
-          використовує фігурні дужки {} (умови, цикли,
-          функції тощо)). Змінні можуть бути використані
-          тільки всередині цього блоку коду.
-        </li>
-      </ul>
-      <p>
-        Область видимості має доступ до змінних, що
-        оголошені:
-      </p>
-      <ul class="list-style m-bottom">
-        <li>у цій області видимості;</li>
-        <li>у вищій за ієрархією області видимості.</li>
-      </ul>
+    </section>
 
-      <h3>Псевдомасив arguments</h3>
+    <section class="m-bottom">
+      <h2 class="m-bottom">Параметри за замовчуванням</h2>
       <div class="print-flex-box">
-        <p>
-          Доступ до списку всіх аргументів можна отримати за
-          допомогою спеціальної змінної <b>arguments</b>.
-          Коли викликаємо функцію з аргументами,
-          <b>arguments</b> автоматично створюється всередині
-          цієї функції і заповнюється переданими значеннями
-          аргументів.
-        </p>
-
-        <div class="bcg-box print-bcg-box">
-          function sum(a, b) { <br />
-          console.log(arguments);<br />
-          return a + b;<br />
-          }
-        </div>
-      </div>
-
-      <h3>Параметри за замовчуванням</h3>
-      <div class="print-flex-box">
-        <p>
+        <p class="m-bottom-min">
           Функції можуть мати параметри зі значеннями за
           замовчуванням, тобто необов'язкові параметри. Ці
           значення використовуються в тому випадку, якщо
@@ -168,10 +128,12 @@
           greet(); // "Hello, Guest!"
         </div>
       </div>
+    </section>
 
-      <h3>Функціональний вираз</h3>
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom">Функціональний вираз</h2>
       <div class="print-flex-box">
-        <p>
+        <p class="m-bottom-min">
           <b>Функціональний вираз</b> (function expression)
           — звичайне оголошення змінної, значенням якої буде
           функція. Не можна викликати до місця його
@@ -183,6 +145,101 @@
           <br />
           console.log(x * y * z);<br />
           };
+        </div>
+      </div>
+    </section>
+
+    <section class="m-bottom">
+      <h2 class="m-bottom">Псевдомасив arguments</h2>
+      <div class="print-flex-box">
+        <p class="m-bottom-min">
+          Доступ до списку всіх аргументів можна отримати за
+          допомогою спеціальної змінної <b>arguments</b>.
+          Коли викликаємо функцію з аргументами,
+          <b>arguments</b> автоматично створюється всередині
+          цієї функції і заповнюється переданими значеннями
+          аргументів.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function sum(a, b) { <br />
+          console.log(arguments); // [a, b]<br />
+          return a + b;<br />
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="m-bottom">
+      <h2 class="m-bottom">Синтаксис rest</h2>
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Якщо викликати функцію з більшою кількістю
+          аргументів ніж вказано в параметрах, зайві
+          аргументи не будуть використані.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function multiply(a, b) {<br />
+          console.log(a, b)<br />
+          }<br />
+          <br />
+          multiply(1, 2, 3, 4); // 1 2
+        </div>
+      </div>
+
+      <div class="print-flex-box">
+        <p class="m-bottom-min">
+          Якщо спеціальний синтаксисичний запис (...rest)
+          він дозволить зібрати групу незалежних елементів у
+          масив.<br />
+          <br />
+          <b>Корисно!</b> Ім'я параметра може бути
+          довільним. Найчастіше його називають
+          <b>args</b> або <b>rest</b>.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function multiply(...args) {<br />
+          console.log(args);<br />
+          }<br />
+          <br />
+          multiply(1, 2); // [1, 2]<br />
+          multiply(1, 2, 3, 4); // [1, 2, 3, 4]
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Збір частини аргументів</h3>
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Усі аргументи, для яких будуть оголошені
+          параметри, передадуть їм свої значення, інші
+          аргументи міститимуться в масиві.
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function multiply(first, second, ...args) {<br />
+          console.log(first, second, args);<br />
+          }<br />
+          <br />
+          multiply(1, 2); // 1 2 []<br />
+          multiply(1, 2, 3, 4); // 1 2 [3, 4]
+        </div>
+      </div>
+
+      <div class="print-flex-box">
+        <p class="m-bottom-min">
+          Це викличе помилку:
+          <i
+            >SyntaxError: Rest parameter must be last formal
+            parameter.</i
+          >
+        </p>
+
+        <div class="bcg-box print-bcg-box">
+          function multiply(first, ...args, second) { }
+          <br />
+          function multiply(...args, first, second) { }
         </div>
       </div>
     </section>

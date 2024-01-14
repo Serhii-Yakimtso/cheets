@@ -42,7 +42,7 @@
           використовується синтаксис
           <b>квадратних дужок</b>.
         </p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
+        <div class="bcg-box print-bcg-box">
           const planets = ['Earth', 'Mars', 'Venus'];<br />
           console.log(planets[0]); // 'Earth'<br />
           console.log(planets[2]); // 'Venus'
@@ -53,7 +53,7 @@
         <p class="m-bottom-min">
           Перевизначення значення елемента
         </p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
+        <div class="bcg-box print-bcg-box">
           const planets = ['Earth', 'Mars', 'Venus'];<br />
           planets[0] = 'Jupiter';<br />
           planets[2] = 'Neptune';<br />
@@ -63,51 +63,100 @@
       </div>
 
       <div class="m-bottom-min print-flex-box">
-        <p class="m-bottom-min">Довжина масиву</p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
-          const planets = ['Earth', 'Mars', 'Venus'];<br />
-          console.log(planets.length); // 3
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">Довжина масиву</p>
+          <div class="bcg-box">
+            const planets = ['Earth', 'Mars', 'Venus'];<br />
+            console.log(planets.length); // 3
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min">
+            Індекс останнього елемента
+          </p>
+          <div class="bcg-box">
+            const planets = ["Earth", "Mars", "Venus"];<br />
+            const lastIndex = planets.length - 1;<br />
+            console.log(planets[lastIndex]); // "Venus"
+          </div>
         </div>
       </div>
 
+      <div class="m-bottom-min print-flex-box">
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">Приведення типів</p>
+          <div class="bcg-box">
+            const array = [1, true, "Poly"];<br />
+            console.log(String(array));// "1,true,Poly"<br />
+            console.log(array + "5"); // "1,true,Poly5"<br />
+            console.log(Number([])); // 0<br />
+            console.log(Number([1])); // 1<br />
+            console.log(Number([1, 2, 3])); // NaN<br /><br />
+            console.log(Boolean([])); // true /><br />
+            console.log(Boolean([1, 2, 3])); // true
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min">Багатомірні масиви</p>
+          <div class="bcg-box">
+            const array = [1, true, "Poly"];<br />
+            const matrix = [<br />
+            [1, 2, 3]<br />
+            [4, 5, 6]<br />
+            [7, 8, 9]<br />
+            ];<br />
+            console.log(matrix[0][0]); // 1<br />
+            console.log(matrix[1][2]); // 6<br />
+            console.log(matrix[2][2]); // 9
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Синтаксис ...spread</h2>
       <div class="m-bottom-min print-flex-box">
         <p class="m-bottom-min">
-          Індекс останнього елемента
+          Синтаксис <b>...spread</b> перетворює масив на
+          список аргументів. Це доцільно, коли очікується
+          список чисел, а не масив. <br />
+          <b>Цікаво!</b> Синтаксис
+          <b>...spread</b> перетворює числа, які записані у
+          форматі <i>рядків на числа</i>, при цьому текстові
+          рядки залишає не змінними
         </p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
-          const planets = ["Earth", "Mars", "Venus"];<br />
-          const lastIndex = planets.length - 1;<br />
-          console.log(planets[lastIndex]); // "Venus"
+        <div class="bcg-box print-bcg-box">
+          const temps = [14, -4, <b>"25"</b>, 8, 11]; <br />
+          console.log(temps); // [14, -4, "25", 8, 11]
+          <br />
+          console.log(...temps); // 14 -4 <b>25</b> 8 11
+          <br />
+          console.log(Math.max(temps)); // NaN <br />
+          console.log(Math.max(...temps)); // 25 <br />
+          <br />
         </div>
       </div>
 
-      <div class="m-bottom-min print-flex-box">
-        <p class="m-bottom-min">Приведення типів</p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
-          const array = [1, true, "Poly"];<br />
-          console.log(String(array));// "1,true,Poly"<br />
-          console.log(array + "5"); // "1,true,Poly5"
-          <br /><br />
-          console.log(Number([])); // 0<br />
-          console.log(Number([1])); // 1<br />
-          console.log(Number([1, 2, 3])); // NaN<br /><br />
-          console.log(Boolean([])); // true /><br />
-          console.log(Boolean([1, 2, 3])); // true
-        </div>
-      </div>
-
-      <div class="m-bottom-min print-flex-box">
-        <p class="m-bottom-min">Багатомірні масиви</p>
-        <div class="bcg-box m-bottom-min print-bcg-box">
-          const array = [1, true, "Poly"];<br />
-          const matrix = [<br />
-          [1, 2, 3]<br />
-          [4, 5, 6]<br />
-          [7, 8, 9]<br />
-          ];<br />
-          console.log(matrix[0][0]); // 1<br />
-          console.log(matrix[1][2]); // 6<br />
-          console.log(matrix[2][2]); // 9
+      <h3 class="m-bottom-min">
+        Створення об'єкту за допомогою ...spread
+      </h3>
+      <div class="print-flex-box">
+        <p class="m-bottom-min">
+          Операція <b>...spread</b> дозволяє створити копію
+          масиву або «склеїти» довільну кількість масивів в
+          один новий замість методів <b>slice()</b> і
+          <b>concat()</b>
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const temps = [14, -4, 25, 8, 11];<br />
+          const copyOfTemps = [...temps];<br />
+          console.log(copyOfTemps); // [14, -4, 25, 8,
+          11]<br />
+          const lastWeekTemps = [14, 25, 11];<br />
+          const currentWeekTemps = [23, 17, 18];<br />
+          const allTemps = [...lastWeekTemps,
+          ...currentWeekTemps];<br />
+          console.log(allTemps); // [14, 25, 11, 23, 17, 18]
         </div>
       </div>
     </section>

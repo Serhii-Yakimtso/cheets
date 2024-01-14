@@ -23,4 +23,8 @@
   .print-m-bottom-max {
     margin-bottom: 1000px;
   }
+
+  .print-m-left-none {
+    margin-left: 0;
+  }
 }
