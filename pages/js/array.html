@@ -17,62 +17,98 @@
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom">Масиви</h1>
+    <h1 class="m-bottom center-text">Масиви</h1>
+
     <section>
-      <h2 class="m-bottom-min">Загальне</h2>
       <p class="m-bottom-min">
-        Масив — це впорядкована структура даних, яка
+        <b>Масив</b> — це впорядкована структура даних, яка
         використовується для зберігання колекції елементів.
         Можуть містити елементи різних типів даних, таких як
         числа, рядки, булеві значення тощо. Для створення
-        використовуються квадратні дужки []. Усередині дужок
-        перераховуються елементи масиву, розділені комами.
+        використовуються квадратні дужки <b>[ ]</b>.
+        Усередині дужок перераховуються елементи масиву,
+        розділені комами.
       </p>
       <div class="bcg-box m-bottom-min">
         const mixed = ['apple', 10, true];
       </div>
-      <p class="m-bottom-min">
-        Кожен елемент масиву має свій порядковий номер -
-        індекс. Індексація елементів масиву починається з 0.
-        Щоб отримати доступ до елемента масиву,
-        використовується синтаксис квадратних дужок.
-      </p>
-      <div class="bcg-box m-bottom-min">
-        const planets = ['Earth', 'Mars', 'Venus'];<br />
-        console.log(planets[0]); // 'Earth'
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Кожен елемент масиву має свій порядковий номер -
+          <b>індекс</b>. Індексація елементів масиву
+          починається з <b>0</b>. <br />
+          Щоб отримати доступ до елемента масиву,
+          використовується синтаксис
+          <b>квадратних дужок</b>.
+        </p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const planets = ['Earth', 'Mars', 'Venus'];<br />
+          console.log(planets[0]); // 'Earth'<br />
+          console.log(planets[2]); // 'Venus'
+        </div>
       </div>
-      <p class="m-bottom-min">
-        Перевизначення значення елемента
-      </p>
-      <div class="bcg-box m-bottom-min">
-        const planets = ['Earth', 'Mars', 'Venus'];<br />
-        planets[0] = 'Jupiter';<br />
-        planets[2] = 'Neptune';<br />
-        console.log(planets); // ['Jupiter', 'Mars',
-        'Neptune']
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Перевизначення значення елемента
+        </p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const planets = ['Earth', 'Mars', 'Venus'];<br />
+          planets[0] = 'Jupiter';<br />
+          planets[2] = 'Neptune';<br />
+          console.log(planets); // ['Jupiter', 'Mars',
+          'Neptune']
+        </div>
       </div>
-      <p class="m-bottom-min">Довжина масиву</p>
-      <div class="bcg-box m-bottom-min">
-        const planets = ['Earth', 'Mars', 'Venus'];<br />
-        console.log(planets.length); // 3
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">Довжина масиву</p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const planets = ['Earth', 'Mars', 'Venus'];<br />
+          console.log(planets.length); // 3
+        </div>
       </div>
-      <p class="m-bottom-min">Індекс останнього елемента</p>
-      <div class="bcg-box m-bottom-min">
-        const planets = ["Earth", "Mars", "Venus"];<br />
-        const lastIndex = planets.length - 1;<br />
-        console.log(planets[lastIndex]); // "Venus"
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Індекс останнього елемента
+        </p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const planets = ["Earth", "Mars", "Venus"];<br />
+          const lastIndex = planets.length - 1;<br />
+          console.log(planets[lastIndex]); // "Venus"
+        </div>
       </div>
-      <p class="m-bottom-min">Приведення типів</p>
-      <div class="bcg-box m-bottom-min">
-        const array = [1, true, "Poly"];<br />
-        console.log(String(array));// "1,true,Poly"<br />
-        console.log(array + "5"); // "1,true,Poly5"
-        <br /><br />
-        console.log(Number([])); // 0<br />
-        console.log(Number([1])); // 1<br />
-        console.log(Number([1, 2, 3])); // NaN<br /><br />
-        console.log(Boolean([])); // true /><br />
-        console.log(Boolean([1, 2, 3])); // true
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">Приведення типів</p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const array = [1, true, "Poly"];<br />
+          console.log(String(array));// "1,true,Poly"<br />
+          console.log(array + "5"); // "1,true,Poly5"
+          <br /><br />
+          console.log(Number([])); // 0<br />
+          console.log(Number([1])); // 1<br />
+          console.log(Number([1, 2, 3])); // NaN<br /><br />
+          console.log(Boolean([])); // true /><br />
+          console.log(Boolean([1, 2, 3])); // true
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">Багатомірні масиви</p>
+        <div class="bcg-box m-bottom-min print-bcg-box">
+          const array = [1, true, "Poly"];<br />
+          const matrix = [<br />
+          [1, 2, 3]<br />
+          [4, 5, 6]<br />
+          [7, 8, 9]<br />
+          ];<br />
+          console.log(matrix[0][0]); // 1<br />
+          console.log(matrix[1][2]); // 6<br />
+          console.log(matrix[2][2]); // 9
+        </div>
       </div>
     </section>
   </body>

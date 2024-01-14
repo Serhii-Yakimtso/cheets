@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Логічні оператори</h1>
+
+    <p>
+      Логічні оператори використовуються для перевірки
+      множинних умов, наприклад, в інструкціях <b>if</b>.
+    </p>
+
+    <p class="m-bottom-min">
+      Перетворення типів означає приведення значення
+      будь-якого типу даних у логічне (булеве) значення
+      <b>true</b> або <b>false</b>.
+    </p>
+    <div
+      class="m-bottom-min"
+      style="
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+      "
+    >
+      <table style="font-size: 11px">
+        <thead>
+          <th>Тип даних</th>
+          <th>Запис</th>
+          <th>Перетворення</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="6">Числа</td>
+            <td>0</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>NaN</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>null</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>undefined</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>3.14</td>
+            <td>true</td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="font-size: 11px">
+        <thead>
+          <th>Тип даних</th>
+          <th>Запис</th>
+          <th>Перетворення</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2">логічні</td>
+            <td>true</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>false</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td rowspan="3">рядки</td>
+            <td>""</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>"hello"</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>"false"</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>масив</td>
+            <td>[]</td>
+            <td>true</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <table style="font-size: 11px">
+      <thead>
+        <th style="font-size: 14px">Назва</th>
+        <th style="font-size: 14px">Оператор</th>
+        <th style="font-size: 14px">Опис повернення</th>
+        <th style="width: 300px; font-size: 14px">
+          Приклад повернення
+        </th>
+        <th>
+          true/<br />
+          false
+        </th>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="13" style="font-size: 14px">"І"</td>
+          <td
+            rowspan="13"
+            style="font-size: 14px; text-align: center"
+          >
+            &&
+          </td>
+          <td rowspan="12" style="font-size: 14px">
+            Оператор зліва направо перевіряє почергово
+            обидва операнди на істинність та повертає або
+            значення останнього істинного (тільки правого)
+            операнда, або першого хибного (лівого чи
+            правого), на якому він запнувся
+          </td>
+          <td>"hello" && 5; // 5</td>
+          <td rowspan="6" style="font-size: 14px">true</td>
+        </tr>
+        <tr>
+          <td>5 && "hello"; // "hello"</td>
+        </tr>
+        <tr>
+          <td>"mango" && "poly"; // "poly"</td>
+        </tr>
+        <tr>
+          <td>"poly" && "mango"; // "mango"</td>
+        </tr>
+        <tr>
+          <td>3 && true; // true</td>
+        </tr>
+        <tr>
+          <td>true && 3; // 3</td>
+        </tr>
+        <tr>
+          <td>"hello" && 0; // 0</td>
+          <td rowspan="6" style="font-size: 14px">false</td>
+        </tr>
+        <tr>
+          <td>0 && "hello"; // 0</td>
+        </tr>
+        <tr>
+          <td>3 && false; // false</td>
+        </tr>
+        <tr>
+          <td>false && 3; // false</td>
+        </tr>
+        <tr>
+          <td>0 && ""; // 0</td>
+        </tr>
+        <tr>
+          <td>"" && 0; // ""</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="font-size: 14px">
+            Приклад запису: <b>(a > 10 && a < 30)</b>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr>
+          <td rowspan="11" style="font-size: 14px">
+            «АБО»
+          </td>
+          <td
+            rowspan="11"
+            style="font-size: 14px; text-align: center"
+          >
+            ||
+          </td>
+          <td rowspan="10" style="font-size: 14px">
+            Як тільки оператор знайшов операнд, який
+            перетворюється на <b>true</b>, він зупиняється
+            та повертає його значення. Якщо до істини було
+            перетворено перший операнд, то другий навіть не
+            буде оцінюватися. Якщо
+            <b>всі операнди</b> перетворюються на
+            <b>false</b>, результатом буде значення
+            <b>крайнього правого</b> операнда.
+          </td>
+          <td>true || false; // true</td>
+          <td rowspan="6" style="font-size: 14px">true</td>
+        </tr>
+        <tr>
+          <td>false || true; // true</td>
+        </tr>
+        <tr>
+          <td>5 || false; // 5</td>
+        </tr>
+        <tr>
+          <td>false || 5; // 5</td>
+        </tr>
+        <tr>
+          <td>"hello" || 0; // "hello"</td>
+        </tr>
+        <tr>
+          <td>0 || "hello"; // "hello"</td>
+        </tr>
+        <tr>
+          <td>0 || false; // false</td>
+          <td rowspan="4" style="font-size: 14px">false</td>
+        </tr>
+        <tr>
+          <td>false || 0; // 0</td>
+        </tr>
+        <tr>
+          <td>null || ""; // ""</td>
+        </tr>
+        <tr>
+          <td>"" || null; // null</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="font-size: 14px">
+            Приклад запису: <b>(a < 10 || a > 30)</b>
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody>
+        <tr>
+          <td rowspan="8" style="font-size: 14px">«НІ»</td>
+          <td
+            rowspan="8"
+            style="font-size: 14px; text-align: center"
+          >
+            !
+          </td>
+          <td rowspan="7" style="font-size: 14px">
+            Приводить операнд до логічного значення (true
+            або false) і потім заперечує (інвертує) його,
+            тобто заміняє на протилежне: true —> false, а
+            false —> true. Використовується для перевірки
+            від зворотного.
+          </td>
+          <td>!false; // true</td>
+          <td rowspan="4" style="font-size: 14px">true</td>
+        </tr>
+        <tr>
+          <td>!0; // !0 -> !false -> true</td>
+        </tr>
+        <tr>
+          <td>!""; // !"" -> !false -> true</td>
+        </tr>
+        <tr>
+          <td>!null; // !null -> !false -> true</td>
+        </tr>
+        <tr>
+          <td>!true; // false</td>
+          <td rowspan="3" style="font-size: 14px">false</td>
+        </tr>
+        <tr>
+          <td>!3; // !3 -> !true -> false</td>
+        </tr>
+        <tr>
+          <td>!"Mango"; // !"Mango" -> !true -> false</td>
+        </tr>
+        <tr>
+          <td colspan="3" style="font-size: 14px">
+            Приклад запису: <b>isOnline && !isBlocked;</b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

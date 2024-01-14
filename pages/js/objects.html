@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Об'єкти</h1>
+
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p>
+          Елемент, в якому можно зберігати згрупованні
+          данні.
+        </p>
+        <ul class="list-style">
+          <li>
+            оголошення об’єкта — фігурні дужки <b>{}</b>.
+          </li>
+          <li>
+            при створенні можна додати <b>властивості</b>,
+            але не обов’язково. Кожна властивість
+            обов’язково складається з пари
+            <b>ключ: значення</b>.
+          </li>
+          <li>
+            <b>ключ</b> — ім'ям властивості (зазвичай
+            рядок).
+          </li>
+          <li>
+            <b>значенням властивості</b> можуть бути
+            будь-які типи: примітиви, масиви, об'єкти, булі,
+            функції тощо.
+          </li>
+          <li>
+            властивості між собою розділяються <b>комою</b>.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        pconst book = {<br />
+        title: "The Last Kingdom",<br />
+        author: "Bernard Cornwell",<br />
+        genres: ["historical prose", "adventure"],<br />
+        public: true,<br />
+        rating: 8.38,<br />
+        stats: {<br />
+        reads: 4827,<br />
+        likes: 1308,<br />
+        },<br />
+        };
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">Доступ до властивостей</h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>Синтаксис <b>objectName.key</b></p>
+        <ul class="list-style">
+          <li>
+            На місце звернення буде повернуте значення
+            властивості з таким ключем.
+          </li>
+          <li>
+            Якщо в об'єкті відсутня властивість з таким
+            ключем, на місце звернення повернеться
+            <b>undefined</b>.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const book = {<br />
+          title: "The Last Kingdom",<br />
+          };<br />
+          <br />
+          console.log(book.title;); // "The Last Kingdom"<br />
+          console.log(book.price); // undefined
+        </p>
+      </div>
+    </div>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>Синтаксис <b>objectName[”key”]</b></p>
+        <ul class="list-style">
+          <li>
+            у квадратні дужки вкладається <i>рядок</i> або
+            <i>змінна</i>
+          </li>
+          <li>
+            цей синтаксис використовується рідко - як
+            правило, у випадках, коли ім'я властивості
+            заздалегідь не відоме або воно зберігається у
+            змінній.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const book = {<br />
+          title: "The Last Kingdom",<br />
+          author: "Bernard Cornwell",<br />
+          };<br />
+          <br />
+          console.log(book.title); // "The Last Kingdom"
+          <br />
+          console.log(book["title"]); // "The Last Kingdom"
+          <br />
+          <br />
+          const propKey = "author";<br />
+          console.log(book.propKey); // undefined<br />
+          console.log(book[propKey]); // "Bernard Cornwell"
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">
+      Доступ до вкладених властивостей
+    </h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>
+          Для доступу до вкладених властивостей
+          використовується ланцюжок звернень через «крапку»
+        </p>
+        <ul class="list-style">
+          <li>
+            <b>user.location</b> — це звернення (шлях) до
+            об'єкта у властивості location,
+          </li>
+          <li>
+            <b>user.location.country</b> — звернення до
+            властивості country в цьому об'єкті
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const user = {<br />
+          location: {<br />
+          country: "Jamaica",<br />
+          },<br />
+          };<br />
+          console.log(user.location.country); //
+          "Jamaica"<br />
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">
+      Доступ до властивості-масиву
+    </h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p></p>
+        <ul class="list-style">
+          <li>
+            отримати доступ до елементів масиву можна через
+            квадратні дужки та індекс:
+            <b>user.hobbies[0]</b>;
+          </li>
+          <li>
+            можна використовувати властивості й методи
+            масиву
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const user = {<br />
+          hobbies: ["swimming", "music", "sci-fi"], <br />
+          }<br />
+          console.log(user.hobbies); // ["swimming",
+          "music"]<br />
+          console.log(user.hobbies[0]); // "swimming"<br />
+          console.log(user.hobbies.length); // 2
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">
+      Зміна значення властивостей
+    </h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>
+          Щоб <b>змінити</b> значення властивості в об'єкті,
+          треба звернутися до неї за її ключем та присвоїти
+          нове значення.
+        </p>
+        <!-- <ul class="list-style">
+          <li></li>
+          <li></li>
+        </ul> -->
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const book = {<br />
+          title: "The Last Kingdom",<br />
+          genres: ["historical prose", "adventure"],<br />
+          rating: 8.38,<br />
+          };<br />
+          <br />
+          book.rating = 9;<br />
+          book.genres.push("drama");<br />
+          <br />
+          console.log(book.rating); // 9<br />
+          console.log(book.genres); // ["historical prose",
+          "adventure", "drama"]
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">Додавання властивостей</h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>
+          Якщо звернутись до значення властивості, яка
+          відсутня в об'єкті - вона буде у ньому створена.
+        </p>
+        <!-- <ul class="list-style">
+          <li></li>
+          <li></li>
+        </ul> -->
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const book = {<br />
+          title: "The Last Kingdom",<br />
+          };<br />
+          <br />
+          book.pageCount = 836;<br /><br />
+          console.log(book.pageCount); // 836
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">Короткі властивості</h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p>
+          Під час створення об'єкта значення властивості
+          може бути необхідно взяти зі змінної або параметра
+          функції з таким самим ім'ям, як і сама
+          властивість. <br />
+          Щоб уникнути дублювання імен (наприклад,
+          <i>name: name</i>, і <i>age: age</i>,)
+          використовують короткі записи, де вказується лише
+          ім'я властивості (наприклад, <i>name</i> і
+          <i>age</i>) - значення властивості буде взято зі
+          змінної з аналогічним ім'ям
+        </p>
+        <!-- <ul class="list-style">
+          <li></li>
+          <li></li>
+        </ul> -->
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const name = "Henry Sibola";<br />
+          const age = 25;<br />
+          <br />
+          const user = {<br />
+          name: name,<br />
+          age: age,<br />
+          };<br />
+          <br />
+          const user = {<br />
+          name,<br />
+          age,<br />
+          };
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">Обчислювальні властивості</h2>
+    <div class="m-bottom-min print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          Під час оголошення об'єкта може бути необхідно
+          додати властивість з ім'ям, яке ми заздалегідь не
+          знаємо, тому що воно зберігається як значення
+          змінної або як результат виконання функції.
+        </p>
+        <p>
+          Синтаксис схожий із додаванням властивостей через
+          квадратні дужки, але допомагає уникнути зайвого
+          коду.
+        </p>
+        <!-- <ul class="list-style">
+          <li></li>
+          <li></li>
+        </ul> -->
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          const propName = "name";<br />
+          <br />
+          <i>Синтаксис через квадратні дужки</i><br />
+          const user = {<br />
+          age: 25,<br />
+          };<br />
+          <br />
+          user[propName] = "Henry Sibola";<br />
+          <br />
+          <i>Синтаксис через обчислювальні властивості</i
+          ><br />
+          const propName = "name";<br />
+          const user = {<br />
+          age: 25,<br />
+          [propName]: "Henry Sibola",<br />
+          };
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
