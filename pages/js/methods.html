@@ -22,15 +22,15 @@
     <section>
       <table>
         <thead>
-          <th>Метод</th>
-          <th>Опис</th>
-          <th>Приклад</th>
+          <th class="bcg-color-head">Метод</th>
+          <th class="bcg-color-head">Опис</th>
+          <th class="bcg-color-head">Приклад</th>
           <!-- <th>Використання</th> -->
         </thead>
 
         <tbody>
           <tr>
-            <td class="center-text" colspan="3">
+            <td class="center-text bcg-color" colspan="3">
               <b>Методи рядків</b>
             </td>
           </tr>
@@ -193,7 +193,7 @@
 
         <tbody>
           <tr>
-            <td class="center-text" colspan="3">
+            <td class="center-text bcg-color" colspan="3">
               <b>Методи масивів</b>
             </td>
           </tr>
@@ -350,7 +350,6 @@
                 splice(begin_position, num, new_element_1,
                 new_element_2, ...)
               </div>
-              <br /><br />
             </td>
             <td>
               const array = [0, 1, 2, 3, 4];<br />
@@ -459,11 +458,280 @@
               planets; // ['Mars']
             </td>
           </tr>
+
+          <tr>
+            <td>forEach(callback)</td>
+            <td>
+              Метод перебирання масиву, який
+              використовується для заміни циклів
+              <b>for</b> і <b>for...of</b> в роботі з
+              колекцією. Повертає <b>undefined</b>, навіть
+              якщо явно задати вираз після <b>return</b
+              ><br />
+              <div class="bcg-box">
+                array.forEach(function callback(element,
+                index, array) { // Тіло колбек-функції });
+              </div>
+              Не всі параметри обов’язково оголошувати, але
+              дуже важлива їх послідовність. <br />
+              <b>Важливо!</b> Єдиний випадок, коли варто
+              використовувати цикли <i>for</i> або
+              <i>for...of</i> для перебирання масиву, — це
+              задачі з <i>перериванням виконання циклу</i>.
+              Перервати виконання методу forEach не можна,
+              він завжди перебирає масив до кінця.
+            </td>
+            <td>
+              const numbers = [5, 10, 15, 20, 25];<br />
+              <br />
+              numbers.forEach(function (number, index) {<br />
+              console.log(`Index ${index}, value
+              ${number}`);<br />
+              });
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b><i>Перебираючі методи</i></b>
+            </td>
+            <td>
+              Усі перебираючі методи масивів мають схожий
+              синтаксис. На вихідному
+              <b>array</b> викликається перебираючий метод
+              <b>method</b>, у який аргументом передається
+              колбек-функція <b>callback</b>.
+              <div class="bcg-box">
+                array.method(callback(currentValue, index,
+                array))
+              </div>
+              <b>currentValue</b> - значення поточного
+              елемента масиву; <br />
+              <b>index</b> - індекс поточного елемента
+              масиву; <br />
+              <b>array</b> - посилання на сам вихідний
+              масив. <br />
+              <b>Корисно!</b> Усі параметри, окрім значення
+              поточного елемента масиву <b>item</b>,
+              <i>необов'язкові</i>.
+            </td>
+            <td>
+              array.method((item, idx, arr) => { <br />
+              тіло <br />
+              });
+            </td>
+          </tr>
+          <tr>
+            <td>map()</td>
+            <td>
+              <i>Метод перебору.</i> Трансформує масив.
+              Викликає колбек-функцію для кожного елемента
+              вихідного масиву, а результат її роботи
+              записує в <b>новий масив</b>. <br />
+              - Поелементно перебирає оригінальний масив;<br />
+              - Не змінює оригінальний масив;<br />
+              - Результат роботи колбек-функції записується
+              в новий масив;<br />
+              - Повертає новий масив такої ж довжини, як і в
+              масиві, до якого він був застосований.
+            </td>
+            <td>
+              const students = [<br />
+              { name: "Mango", score: 83 },<br />
+              { name: "Poly", score: 59 },<br />
+              ];<br />
+              <br />
+              const names = students.map(student =>
+              student.name);<br />
+              console.log(names); // ["Mango", "Poly"]
+            </td>
+          </tr>
+          <tr>
+            <td>flatMap()</td>
+            <td>
+              <i>Метод перебору.</i> Аналогічний методу
+              <b>map()</b>, але застосовується у випадках,
+              коли результат — це багатовимірний масив, який
+              необхідно «<i>розгладити</i>» (вийняти
+              елементи із вкладеного масиву). <br />
+              Новий масив <i>«розгладжується»</i> на
+              глибину, що дорівнює одиниці (одна
+              вкладеність).
+            </td>
+            <td>
+              const students = [<br />
+              { name: "Mango", courses: ["mathematics",
+              "physics"] },<br />
+              { name: "Poly", courses: ["science",
+              "mathematics"] },<br />
+              ];<br />
+              const mappedCourses = students.map(student =>
+              student.courses);<br />
+              // [["mathematics", "physics"], ["science",
+              "mathematics"]]<br />
+              const flattenedCourses =
+              students.flatMap(student =>
+              student.courses);<br />
+              // ["mathematics", "physics", "science",
+              "mathematics"];
+            </td>
+          </tr>
+          <tr>
+            <td>filter()</td>
+            <td>
+              <i>Метод перебору.</i> Викликає колбек-функцію
+              для кожного елемента вихідного масиву. Якщо
+              результат її виконання <b>true</b>, поточний
+              елемент додається в новий масив.
+            </td>
+            <td>
+              const values = [51, -3, 27, -68];<br />
+              <br />
+              const positiveValues = values.filter(value =>
+              value >= 0);<br />
+              // [51, 27]<br />
+              <br />
+
+              const HIGH_SCORE = 80;<br />
+              const students = [<br />
+              { name: 'Mango', score: 83 },<br />
+              { name: 'Poly', score: 59 },<br />
+              { name: 'Kiwi', score: 94 },<br />
+              ];<br />
+              <br />
+              const best = students.filter(student =>
+              student.score >= HIGH_SCORE);<br />
+              console.log(best);<br />
+              <br />
+              [<br />
+              { name: 'Mango', score: 83 },<br />
+              { name: 'Kiwi', score: 94 },<br />
+              ];
+            </td>
+          </tr>
+          <tr>
+            <td>find()</td>
+            <td>
+              <i>Метод перебору.</i> Дозволяє знайти і
+              повернути <b>перший</b> відповідний елемент,
+              що задовольняє умову, після чого перебирання
+              масиву припиняється. Тобто він, на відміну від
+              методу <b>filter(callback)</b>, шукає до
+              першого збігу.
+            </td>
+            <td>
+              const color = [<br />
+              { label: "red", color: "#F44336" },<br />
+              { label: "blue", color: "#2196F3" },<br />
+              ];<br />
+              <br />
+              color.find((option) => option.label ===
+              "blue"); <br />
+              // { label: "blue", color: "#2196F3" }
+            </td>
+          </tr>
+          <tr>
+            <td>every()</td>
+            <td>
+              <i>Метод перебору.</i> Перевіряє, чи
+              задовольняють усі елементи умову
+              колбек-функції. <br />
+              <br />
+              - Повертає <b>true</b>, якщо
+              <b>всі</b> елементи масиву задовольняють
+              умову;<br />
+              - Повертає <b>false</b>, якщо хоча б один
+              елемент масиву не задовольняє умову;<br />
+              - Перебирання масиву припиняється, якщо колбек
+              повертає <b>false</b>.
+            </td>
+            <td>
+              [1, 2, 3].every((value) =><br />
+              value >= 0);<br />
+              // true<br />
+              <br />
+              [1, 2, -10].every((value) =><br />
+              value >= 0);<br />
+              // false
+            </td>
+          </tr>
+          <tr>
+            <td>some()</td>
+            <td>
+              <i>Метод перебору.</i> Перевіряє, чи
+              задовольняє хоча б <b>один</b> елемент умову
+              колбек-функції.<br />
+              <br />
+              - Повертає <b>true</b>, якщо хоча б один
+              елемент масиву задовольняє умову;<br />
+              - Повертає <b>false</b>, якщо жоден елемент
+              масиву не задовольняє умову;<br />
+              - Перебирання масиву припиняється, якщо колбек
+              повертає <b>true</b>.<br />
+            </td>
+            <td>
+              [-7, -20, 3].some(value =><br />
+              value >= 0);<br />
+              <br />
+              // true [1, 2, 3].some(value =><br />
+              value < 0);<br />
+              // false
+            </td>
+          </tr>
+          <tr>
+            <td>reduce()</td>
+            <td>
+              <i>Метод перебору.</i> Використовується для
+              послідовної обробки кожного елемента масиву із
+              <b>збереженням</b> проміжного результату.<br />
+              <div class="bcg-box">
+                array.reduce((previousValue, element, index,
+                array) => { Тіло колбек-функції },
+                initialValue);
+              </div>
+              <b>previousValue</b> — це акумулятор, тобто
+              проміжний результат. Значення, яке поверне
+              колбек-функція на поточній ітерації, буде
+              значенням цього параметра на наступній
+              ітерації;<br />
+              <b>element</b> — поточний елемент масиву;<br />
+              <b>index</b> — індекс поточної ітерації;<br />
+              <b>array</b> — посилання на вихідний масив;<br />
+              <b>initialValue</b> — початкове значення
+              акумулятора (<i>не обов’язковий</i>).<br />
+              <b>Цікаво!</b> У повсякденних завданнях його
+              застосування зводиться до роботи з числами.
+            </td>
+            <td>
+              const total = [2, 7, 3].reduce((previousValue,
+              number) => {<br />
+              return previousValue + number;<br />
+              }, 0);<br />
+              <br />
+              console.log(total); // 12
+            </td>
+          </tr>
+          <tr>
+            <td>toSorted()</td>
+            <td>
+              Сортує елементи масиву.<br />
+              - Сортує вихідний масив;<br />
+              - Повертає новий масив;<br />
+              - За замовчуванням сортує за зростанням.
+            </td>
+            <td>
+              const scores = [61, 19, 74];<br />
+              const ascendingScores = scores.toSorted();<br />
+              // [19, 61, 74]<br />
+              <br />
+              const letters = ["b", "B", "a", "A"]; <br />
+              // ["A", "B", "a", "b"]
+            </td>
+          </tr>
         </tbody>
 
         <tbody>
           <tr>
-            <td class="center-text" colspan="3">
+            <td class="center-text bcg-color" colspan="3">
               <b>Методи об'єктів</b>
             </td>
           </tr>
@@ -506,17 +774,17 @@
             </td>
           </tr>
 
-          <tr>
+          <!-- <tr>
             <td></td>
             <td></td>
             <td></td>
-          </tr>
+          </tr> -->
 
-          <tr>
+          <!-- <tr>
             <td></td>
             <td></td>
             <td></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </section>

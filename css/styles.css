@@ -91,6 +91,14 @@ tr {
   border-radius: 16px;
 }
 
+.bcg-color {
+  background-color: rgb(255, 248, 122);
+}
+
+.bcg-color-head {
+  background-color: lightgray;
+}
+
 .m-bottom {
   margin-bottom: 20px;
 }

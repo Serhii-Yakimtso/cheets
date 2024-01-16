@@ -183,7 +183,6 @@
           function multiply(a, b) {<br />
           console.log(a, b)<br />
           }<br />
-          <br />
           multiply(1, 2, 3, 4); // 1 2
         </div>
       </div>
@@ -203,7 +202,6 @@
           function multiply(...args) {<br />
           console.log(args);<br />
           }<br />
-          <br />
           multiply(1, 2); // [1, 2]<br />
           multiply(1, 2, 3, 4); // [1, 2, 3, 4]
         </div>
@@ -221,7 +219,6 @@
           function multiply(first, second, ...args) {<br />
           console.log(first, second, args);<br />
           }<br />
-          <br />
           multiply(1, 2); // 1 2 []<br />
           multiply(1, 2, 3, 4); // 1 2 [3, 4]
         </div>
@@ -240,6 +237,214 @@
           function multiply(first, ...args, second) { }
           <br />
           function multiply(...args, first, second) { }
+        </div>
+      </div>
+    </section>
+
+    <section class="m-bottom">
+      <h2 class="m-bottom">Колбек-функції</h2>
+      <h3 class="m-bottom-min">Функція як значення</h3>
+      <div class="m-bottom print-flex-box">
+        <p class="m-bottom-min">
+          Значення функції (посилання на неї) можна
+          зберігати у змінній або передавати в якості
+          аргументу в іншу функцію. <br />
+          У першому лозі викликаємо функцію greet за
+          допомогою круглих дужок, і в консоль виводиться
+          результат її виконання.<br />
+
+          У другому лозі передається посилання на функцію, а
+          не результат її виклику (відсутні круглі дужки)
+        </p>
+        <div class="bcg-box print-bcg-box">
+          function greet(name) {<br />
+          return `Welcome ${name}!`;<br />
+          }<br />
+          <br />
+          console.log(greet("Mango")); // "Welcome
+          Mango!"<br />
+          console.log(greet); <br />
+          // ƒ greet() {return `Welcome ${name}!`}
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Колбек-функції</h3>
+      <p class="m-bottom-min">
+        <b>Колбек-функції</b> - функції, що передаються як
+        посилання в аргументах функції і викликаються в
+        середині самої функції.
+      </p>
+      <div class="m-bottom print-flex-box">
+        <div
+          class="bcg-box m-bottom-min print-bcg-box print-m-left-none"
+        >
+          function registerGuest(callback) { <br />
+          callback(); <br />
+          }
+        </div>
+        <div class="bcg-box print-bcg-box">
+          function registerGuest(value, callback) { <br />
+          callback(value); <br />
+          }
+        </div>
+      </div>
+      <div class="m-bottom print-flex-box">
+        <p>
+          <b
+            >Функція зворотного виклику (callback,
+            колбек)</b
+          >
+          — це функція, яка передається іншій функції як
+          аргумент, а та у свою чергу використовує передану
+          функцію. <br /><br />
+          <b
+            >Функція вищого порядку (higher order
+            function)</b
+          >
+          — функція, яка приймає в якості параметрів інші
+          функції або повертає функцію в якості результату.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          function greet(name) {<br />
+          console.log(`Welcome ${name}!`);<br />
+          }<br />
+          <br />
+          function registerGuest(name, callback) {<br />
+          callback(name);<br />
+          }<br />
+          <br />
+          registerGuest("Mango", greet); // "Welcome Mango!"
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Інлайн-колбеки</h3>
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Функцію можна оголосити безпосередньо на момент
+          виклику функції, в яку передаємо колбек.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          function registerGuest(name, callback) {<br />
+          callback(name);<br />
+          }<br />
+
+          registerGuest("Mango", function greet(name) {<br />
+          console.log(`Welcome ${name}!`);<br />
+          });
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Стрілочні функції</h2>
+
+      <h3 class="m-bottom-min">Синтаксис</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Стрілочні функції</b> — скорочений та
+            лаконічний синтаксис, що зменшує обсяг коду,
+            особливо коли функція <i>маленька</i> або якщо
+            вона використовується як <i>колбек</i>.
+          </p>
+          <div class="bcg-box m-bottom-min">
+            ( ) => { };
+          </div>
+          <p>
+            Якщо параметрів декілька, то вони
+            перераховуються через кому в круглих дужках .
+          </p>
+          <p>
+            Якщо параметр один, його можна оголошувати без
+            круглих дужок.
+          </p>
+          <p>
+            Якщо параметри відсутні, то обов'язково повинні
+            бути порожні круглі дужки.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          function classicAdd(a, b, c) {<br />
+          return a + b + c;<br />
+          }<br />
+          <br />
+          // Виклик стрілочної функції<br />
+          const arrowAdd = (a, b, c) => {<br />
+          return a + b + c;<br />
+          };<br />
+          const add = a => { тіло };<br />
+          const greet = () => { тіло };
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Явне повернення - якщо <b>є фігурні дужки</b> і
+          функція повинна повертати якесь значення,
+          необхідно явно поставити <b>return</b>.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const add = (a, b, c) => {<br />
+          console.log(a, b, c);<br />
+          return a + b + c;<br />
+          };
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Неявне повернення - якщо фігурні дужки відсутні,
+          то повертається результат виразу, який стоїть
+          після <b>=></b>. <b>Важливо!</b> Доречний, коли в
+          тілі функції не потрібно виконувати жодних
+          додаткових інструкцій, окрім повернення значення.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const add = (a, b, c) => a + b + c;
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          У стрілочних функцій немає локальної змінної
+          <b>arguments</b>, що містить усі аргументи. Якщо
+          необхідно зібрати всі аргументи в масив,
+          використовується операція <b>rest</b>.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const add = (...args) => { <br />
+          console.log(args);<br />
+          };
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Анонімні стрілочні функції можна використати для
+          колбеків перебираючих методів масиву
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const numbers = [5, 10, 15, 20, 25];<br />
+          <br />
+          numbers.forEach((number, index) => {<br />
+          console.log(`Index ${index}, value ${number}`);<br />
+          });
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          Можна оголошувати окремо й передавати на неї
+          посилання.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          const numbers = [5, 10, 15, 20, 25];<br />
+          <br />
+          const logMessage = (number, index) => {<br />
+          console.log(`Inex ${index}, value ${number}`);<br />
+          };<br />
+          <br />
+          numbers.forEach(logMessage);
         </div>
       </div>
     </section>
