@@ -424,7 +424,7 @@
       </div>
     </section>
 
-    <section class="m-bottom">
+    <section class="m-bottom print-m-bottom-max">
       <h2 class="m-bottom-min">
         this - як доступ до властивостей об'єкта
       </h2>
@@ -496,6 +496,11 @@
         гарантує, що метод працює саме з тим об'єктом, який
         його викликав.
       </p>
+      <p class="m-bottom">
+        <b>Важливо!</b>. Значення <b>this</b> визначається
+        <i>не на момент оголошення функції</i> (за винятком
+        стрілкових функцій), <i>а на момент її виклику</i>
+      </p>
 
       <div class="m-bottom print-flex-box">
         <div>
@@ -534,7 +539,7 @@
         </div>
       </div>
 
-      <div class="print-flex-box">
+      <div class="m-bottom print-flex-box">
         <div>
           <p class="m-bottom-min">
             <b>
@@ -593,6 +598,306 @@
           </div>
         </div>
       </div>
+
+      <div
+        class="m-bottom print-flex-box print-m-bottom-max"
+      >
+        <div>
+          <p class="m-bottom-min">
+            <b> this - додавання методів у об'єкт </b>
+          </p>
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            <p>
+              "use strict";<br />
+
+              function showThis() {<br />
+              console.log(this);<br />
+              }<br />
+              <br />
+              const user = {<br />
+              username: "Poly",<br />
+              };<br />
+              <br />
+              user.showContext = showThis;<br />
+
+              user.showContext(); <br />// {username:
+              "Poly", showContext: ƒ}<br />
+
+              showThis(); // undefined
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Глобальний контекст</h3>
+      <div class="print-flex-box">
+        <p class="m-bottom-min">
+          Якщо функція виконується
+          <i>не в суворому режимі</i>,
+          <b>this</b> посилається на об'єкт <b>window</b>.
+          <br />
+          <br />
+          <i>У суворому режимі</i> значення <b>this</b> у
+          глобальному контексті завжди буде
+          <b>undefined</b>.
+        </p>
+        <div class="print-flex-box">
+          <div class="bcg-box m-bottom-min print-bcg-box">
+            <p>
+              function foo() {<br />
+              console.log(this);<br />
+              }<br />
+              <br />
+              foo(); // window
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <b>"use strict"; </b><br />
+              function foo() {<br />
+              console.log(this);<br />
+              }<br />
+              <br />
+              foo(); // undefined
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        this у стрілочних функціях
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <p class="m-bottom-min">
+          1.Контекст <b>this</b> усередині стрілочної
+          функції визначається місцем її <b>оголошення</b>,
+          а не виклику.
+          <br />
+          2.Стрілочні функції
+          <b>ігнорують наявність суворого режиму</b>. Тому в
+          глобальному контексті у стрілці завжди this
+          посилається на об'єкт <b>window</b>.<br />
+          3. <i>Неможливо</i> змінити значення
+          <b>this</b> усередині стрілочних функцій
+          <i>після її оголошення</i>. Методи
+          <i>call, apply і bind</i> не впливають на значення
+          this у стрілках.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const showThis = () => {<br />
+            console.log(this);<br />
+            };<br />
+            <br />
+            const user = {<br />
+            username: "Mango",<br />
+            };<br />
+            <br />
+            user.showContext = showThis;<br />
+
+            user.showContext(); // window
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        ВИСНОВОК! this у функціях
+      </h3>
+      <p class="m-bottom">
+        <b>this</b> використовується у методах об'єкту,
+        функціях, стрілочних функціях та методах функцій,
+        таких як <b>call()</b>, <b>apply()</b> та
+        <b>bind()</b>
+      </p>
+
+      <h3 class="m-bottom-min">Алгоритм визначення this</h3>
+      <div class="m-bottom print-flex-box">
+        <img
+          src="../../images/js/js-this.jpg"
+          alt=""
+          width="100%"
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Прототипи</h2>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Прототипне успадкування</b> - організація
+            об'єктів в ланцюжки таким чином, щоб
+            здійснювався автоматичний пошук властивості в
+            іншому об'єкті, якщо її не знайдено в поточному.
+          </p>
+          <p class="m-bottom-min">
+            Метод <b>Object.create(obj)</b> створює і
+            повертає новий об'єкт, зв'язуючи його з об'єктом
+            <b>obj</b>.
+          </p>
+          <p class="m-bottom-min">
+            Об'єкт, на який вказує посилання у властивості
+            <b>[[Prototype]]</b>, називається прототипом.
+            Об'єкт <b>animal</b> — це прототип для об'єкта
+            <b>dog</b>.
+          </p>
+          <p>
+            Звертаючись до <b>dog.legs</b>, інтерпретатор
+            шукає властивість <b>legs</b> в об'єкті
+            <b>dog</b>, не знаходить і продовжує пошук в
+            об'єкті за посиланням з <b>[[Prototype]]</b>,
+            тобто в цьому випадку в об'єкті <b>animal</b> —
+            його прототипі.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const animal = {<br />
+            legs: 4,<br />
+            };<br />
+            <br />
+            const dog = Object.create(animal);<br />
+            dog.name = "Mango";<br />
+            <br />
+            console.log(dog); <br />
+            // { name: "Mango", [[Prototype]]: animal }<br />
+            <br />
+            console.log(dog.name); // "Mango"<br />
+            console.log(dog.legs); // 4
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Власні і невласні властивості
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Властивість <b>name</b> належить об'єкту
+            <b>dog</b>, тому називається
+            <b>власною властивістю</b> об'єкта <b>dog</b>.
+          </p>
+          <p class="m-bottom-min">
+            Властивість <b>legs</b> не належить об'єкту
+            <b>dog</b>. Це властивість його
+            <i>прототипу</i> <b>animal</b>, тому вона
+            називається <b>невласною властивістю</b> об'єкта
+            <b>dog</b>. <b>obj</b>.
+          </p>
+          <p class="m-bottom-min">
+            Для перевірки, чи є в об'єкті
+            <i>власна властивість</i>, використовується
+            метод <b>obj.hasOwnProperty(key)</b>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const animal = {<br />
+            legs: 4,<br />
+            };<br />
+            const dog = Object.create(animal);<br />
+            dog.name = "Mango";<br />
+            <br />
+
+            console.log(dog.hasOwnProperty("name")); //
+            true<br />
+            console.log(dog.hasOwnProperty("legs")); //
+            false
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Перебір власних властивостей
+      </h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Оператор <b>in</b>, який використовується в
+            циклі <b>for...in</b>, не розрізняє власні
+            властивості об'єкта і його прототипу. Ця
+            особливість заважає, оскільки зазвичай потрібно
+            перебрати тільки власні властивості.
+          </p>
+          <p class="m-bottom-min">
+            Для вибору саме <i>власних властивостей</i> під
+            час перебору необхідно на кожній ітерації додати
+            <i>перевірку</i> на власну властивість
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const animal = { legs: 4 };<br />
+            const dog = Object.create(animal);<br />
+            dog.name = "Mango";<br />
+            <br />
+            for (const key in dog) {<br />
+            if(dog.hasOwnProperty(key)) {<br />
+            console.log(key); // "name"<br />
+            }<br />
+            }
+          </p>
+        </div>
+      </div>
+      <div
+        class="m-bottom print-flex-box print-m-bottom-max"
+      >
+        <p class="m-bottom-min">
+          Методи <b>Object.keys(obj)</b> і
+          <b>Object.values(obj)</b> повертають масив
+          <i>тільки власних ключів</i> або значень
+          <i>тільки власних властивостей</i> об'єкта obj,
+          без необхідності додаткових перевірок.
+        </p>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const animal = { legs: 4 };<br />
+            const dog = Object.create(animal);<br />
+            dog.name = "Mango";<br />
+            <br />
+            console.log(Object.keys(dog)); // ["name"]<br />
+            console.log(Object.values(dog)); // ["Mango"]<br />
+            <br />
+            for(const key of Object.keys(dog)) {<br />
+            console.log(key); // "name"<br />
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Класи</h2>
+
+      <h3 class="m-bottom-min">Визначення</h3>
+      <div>
+        <p class="m-bottom-min">
+          <b>Клас</b> — це спосіб опису сутності, що
+          визначає структуру та поведінку об'єктів, а також
+          правила для взаємодії з цією сутністю (контракт).
+          Вони виступають в якості
+          <i>шаблонів для створення нових об'єктів</i>.
+        </p>
+        <p class="m-bottom-min">
+          <b>Екземпляр</b> (об'єкт, інстанція) — це окремий
+          представник <i>класу</i>, який має дані
+          (властивості) і методи (функції), які працюють з
+          цими даними. Екземпляр — це те, що створено
+          <i>за шаблоном</i>, тобто на підставі опису з
+          класу.
+        </p>
+        <p class="m-bottom-min">
+          <b>Інтерфейс</b> — це набір <i>властивостей</i> і
+          <i>методів</i> класу, доступних для використання у
+          роботі з екземпляром.
+        </p>
+      </div>
+
+      <h3 class="m-bottom-min">Оголошення класу</h3>
+      <div></div>
     </section>
   </body>
 </html>

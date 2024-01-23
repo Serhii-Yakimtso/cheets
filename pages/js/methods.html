@@ -20,21 +20,17 @@
     <h1 class="m-bottom-min center-text">Методи</h1>
 
     <section>
-      <table>
+      <table class="print-m-bottom-max">
+        <caption>
+          Методи рядків
+        </caption>
         <thead>
           <th class="bcg-color-head">Метод</th>
           <th class="bcg-color-head">Опис</th>
           <th class="bcg-color-head">Приклад</th>
-          <!-- <th>Використання</th> -->
         </thead>
 
         <tbody>
-          <tr>
-            <td class="center-text bcg-color" colspan="3">
-              <b>Методи рядків</b>
-            </td>
-          </tr>
-
           <tr>
             <td>slice()</td>
             <td>
@@ -125,8 +121,8 @@
               рядок, а повертає новий
             </td>
             <td>
-              const input = " JavaScript is awesome! ";<br />
-              input.trim(); // "JavaScript is awesome!"<br />
+              const input = " JavaScript ";<br />
+              input.trim(); // "JavaScript "<br />
             </td>
           </tr>
 
@@ -144,7 +140,7 @@
               const message = "Welcome to Bahamas!";<br />
               message.indexOf("to"); // 8<br />
               message.indexOf("To"); // -1<br />
-              message.indexOf("hello"); // -1<br /><br />
+              message.indexOf("hello"); // -1<br />
               const clients = ["Poly", "Kiwi", "Poly"];<br />
               clients.indexOf("Poly"); // 0<br />
               clients.indexOf("Monkong"); // -1
@@ -165,7 +161,6 @@
               name.includes('Jacob'); // true
               <br />
               name.includes('John'); // false
-              <br />
               <br />
               const planets = ["Earth", "Mars"];<br />
 
@@ -190,14 +185,19 @@
             </td>
           </tr>
         </tbody>
+      </table>
+
+      <table class="print-m-bottom-max">
+        <caption>
+          Методи масивів
+        </caption>
+        <thead>
+          <th class="bcg-color-head">Метод</th>
+          <th class="bcg-color-head">Опис</th>
+          <th class="bcg-color-head">Приклад</th>
+        </thead>
 
         <tbody>
-          <tr>
-            <td class="center-text bcg-color" colspan="3">
-              <b>Методи масивів</b>
-            </td>
-          </tr>
-
           <tr>
             <td>indexOf()</td>
             <td>
@@ -279,43 +279,6 @@
           </tr>
 
           <tr>
-            <td>slice()</td>
-            <td>
-              Повертає новий масив, що містить копію частини
-              вихідного масиву, не змінюючи його. Копія
-              створюється від індексу <b>begin</b> до, але
-              <i>не включаючи</i> індекс <b>end</b>. <br />
-              <br />
-              Якщо не вказати параметри <b>begin</b> і
-              <b>end</b>, буде створено повну копію
-              вихідного масиву. <br />
-              Якщо не вказати <b>end</b>, копіювання
-              відбуватиметься від <b>begin</b> до кінця
-              масиву. <br />
-              Якщо значення <b>begin</b> <i>негативне</i>, а
-              <b>end</b> <i>не вказано</i>, будуть
-              скопійовані останні <b>begin</b> елементів
-              (тобто стільки елементів з кінця, скільки
-              вказано в параметрі <b>begin</b>)<br />
-              <b>Створює новий масив</b>
-              <br /><br />
-              <div class="bcg-box">
-                <p>slice(begin_position, end_position)</p>
-              </div>
-              <br />
-            </td>
-            <td>
-              const planets = ["Earth", "Mars", "Venus"];<br /><br />
-              planets.slice(0, 2); // ['Earth', 'Mars']<br />
-              planets.slice(1, 3); // ['Mars', 'Venus']<br />
-              planets.slice(); // ["Earth", "Mars", "Venus"]
-              <br />
-              planets.slice(1); // ["Mars", "Venus"]<br />
-              planets.slice(-2); // ["Mars", "Venus"]
-            </td>
-          </tr>
-
-          <tr>
             <td>splice()</td>
             <td>
               Дозволяє видаляти, додавати та замінювати
@@ -329,10 +292,9 @@
               <b>begin</b> - видаляє усі елементи до
               кінця.<br />
               Якщо <b>begin</b> - це <i>негативне</i> число,
-              - будуть видалені останні
-              <b>begin</b> елементів (тобто стільки
-              елементів з кінця, скільки вказано в параметрі
-              <b>begin</b>)<br />
+              - видаляться останні <b>begin</b> елементів
+              (стільки елементів з кінця, скільки вказано в
+              параметрі <b>begin</b>)<br />
               <br />
               <b>Додавання</b>. Додає елементи
               <b>new_element_1, new_element_2, ...</b> від
@@ -345,7 +307,6 @@
               <b>num</b>.<br />
               <b>Не створює новий масив</b><br />
 
-              <br />
               <div class="bcg-box">
                 splice(begin_position, num, new_element_1,
                 new_element_2, ...)
@@ -371,6 +332,42 @@
               array.splice(2, 2, 22); // [0, 1, 22, 4]<br />
               array.splice(2, 2, 22, 33); // [0, 1, 22, 33,
               4]<br />
+            </td>
+          </tr>
+
+          <tr>
+            <td>slice()</td>
+            <td>
+              Повертає новий масив, що містить копію частини
+              вихідного масиву, не змінюючи його. Копія
+              створюється від індексу <b>begin</b> до, але
+              <i>не включаючи</i> індекс <b>end</b>. <br />
+              <br />
+              Якщо не вказати параметри <b>begin</b> і
+              <b>end</b>, буде створено повну копію
+              вихідного масиву. <br />
+              Якщо не вказати <b>end</b>, копіювання
+              відбуватиметься від <b>begin</b> до кінця
+              масиву. <br />
+              Якщо значення <b>begin</b> <i>негативне</i>, а
+              <b>end</b> <i>не вказано</i>, будуть
+              скопійовані останні <b>begin</b> елементів
+              (тобто стільки елементів з кінця, скільки
+              вказано в параметрі <b>begin</b>)<br />
+              <b>Створює новий масив</b>
+              <br /><br />
+              <div class="bcg-box">
+                <p>slice(begin_position, end_position)</p>
+              </div>
+            </td>
+            <td>
+              const planets = ["Earth", "Mars", "Venus"];<br /><br />
+              planets.slice(0, 2); // ['Earth', 'Mars']<br />
+              planets.slice(1, 3); // ['Mars', 'Venus']<br />
+              planets.slice(); // ["Earth", "Mars", "Venus"]
+              <br />
+              planets.slice(1); // ["Mars", "Venus"]<br />
+              planets.slice(-2); // ["Mars", "Venus"]
             </td>
           </tr>
 
@@ -728,14 +725,19 @@
             </td>
           </tr>
         </tbody>
+      </table>
+
+      <table class="print-m-bottom-max">
+        <caption>
+          Методи об'єктів
+        </caption>
+        <thead>
+          <th class="bcg-color-head">Метод</th>
+          <th class="bcg-color-head">Опис</th>
+          <th class="bcg-color-head">Приклад</th>
+        </thead>
 
         <tbody>
-          <tr>
-            <td class="center-text bcg-color" colspan="3">
-              <b>Методи об'єктів</b>
-            </td>
-          </tr>
-
           <tr>
             <td>Object.keys()</td>
             <td>
@@ -769,8 +771,197 @@
               };<br />
               <br />
               const values = Object.values(book);<br />
-              console.log(values); // ["The Last Kingdom",
-              "Bernard Cornwell", 8.38]
+              console.log(values); <br />
+              // ["The Last Kingdom", "Bernard Cornwell",
+              8.38]
+            </td>
+          </tr>
+
+          <tr>
+            <td>Object.create(obj)</td>
+            <td>
+              Створює і повертає новий об'єкт, зв'язуючи
+              його з об'єктом <b>obj</b>.
+            </td>
+            <td>
+              const animal = {<br />
+              legs: 4,<br />
+              };<br />
+              <br />
+              const dog = Object.create(animal);<br />
+              dog.name = "Mango";<br />
+              <br />
+              console.log(dog); <br />
+              // { name: "Mango", [[Prototype]]: animal }
+            </td>
+          </tr>
+
+          <tr>
+            <td>isPrototypeOf()</td>
+            <td>
+              Перевірка, чи є об'єкт прототипом іншого
+              об'єкта.
+              <div class="bcg-box">
+                objA.isPrototypeOf(objB)
+              </div>
+              Метод перевіряє, чи є об'єкт
+              <b>objA</b> прототипом для об’єкта
+              <b>objB</b>. Якщо так, повертає <b>true</b>, в
+              іншому разі повертає <b>false</b>
+            </td>
+            <td>
+              const animal = { };<br />
+
+              const dog = Object.create(animal);<br />
+              <br />
+              console.log(dog); // { [[Prototype]]: animal
+              }<br />
+              <br />
+              console.log(animal.isPrototypeOf(dog)); //
+              true<br />
+              console.log(dog.isPrototypeOf(animal)); //
+              false
+            </td>
+          </tr>
+
+          <tr>
+            <td>hasOwnProperty(key)</td>
+            <td>
+              Перевіряє наявність власної властивості з
+              ім'ям key і повертає <b>true</b>, якщо є, і
+              <b>false</b> в іншому випадку.
+            </td>
+            <td>
+              const animal = {<br />
+              legs: 4,<br />
+              };<br />
+              const dog = Object.create(animal);<br />
+              dog.name = "Mango";<br />
+              <br />
+
+              console.log(dog.hasOwnProperty("name")); //
+              true<br />
+              console.log(dog.hasOwnProperty("legs")); //
+              false
+            </td>
+          </tr>
+
+          <!-- <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <table class="print-m-bottom-max">
+        <caption>
+          Методи функцій
+        </caption>
+        <thead>
+          <th class="bcg-color-head">Метод</th>
+          <th class="bcg-color-head">Опис</th>
+          <th class="bcg-color-head">Приклад</th>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>call()</td>
+            <td>
+              Викликає функцію та вказує <b>this</b> для
+              об'єкта, якщо функція не є його методом.
+              <br />
+              <div class="bcg-box">
+                <p>foo.call(thisArg, arg1, arg2, ...)</p>
+              </div>
+
+              <b>thisArg</b> — об'єкт, який необхідно
+              встановити як контекст (значення this) для
+              функції <br />
+              <b>arg1, arg2, ...</b> — необов'язкові
+              аргументи, які будуть передані функції
+            </td>
+            <td>
+              function greet(str) {<br />
+              console.log(`${str}, ${this.username}`);<br />
+              }<br />
+              <br />
+              const mango = {<br />
+              username: "Mango",<br />
+              };<br />
+              <br />
+              greet.call(mango, "Welcome");<br />
+              // "Welcome, Mango"
+            </td>
+          </tr>
+
+          <tr>
+            <td>apply()</td>
+            <td>
+              Викликає функцію та вказує <b>this</b> для
+              об'єкта, якщо функція не є його методом.
+              Аналог методу <b>call</b>, відмінність у тому,
+              що в методі apply()
+              <i
+                >синтаксис передачі аргументів вимагає
+                масиву</i
+              >,
+              <br />
+              <div class="bcg-box">
+                <p>foo.call(thisArg, [arg1, arg2, ...])</p>
+              </div>
+
+              <b>thisArg</b> — об'єкт, який необхідно
+              встановити як контекст (значення this) для
+              функції <br />
+              <b>[arg1, arg2, ...]</b> — необов'язкові
+              аргументи, які будуть передані функції.
+              Обов'язково передається <b>масив</b>.
+            </td>
+            <td>
+              function greet(str) {<br />
+              console.log(`${str}, ${this.username}`);<br />
+              }<br />
+              <br />
+              const mango = {<br />
+              username: "Mango",<br />
+              };<br />
+              <br />
+              greet.apply(mango, ["Welcome"]); <br />
+              // "Welcome, Mango"
+            </td>
+          </tr>
+
+          <tr>
+            <td>bind()</td>
+            <td>
+              Створює і повертає <b>нову функцію</b>, яка
+              має заздалегідь встановлений контекст, і ця
+              нова функція може бути викликана пізніше з
+              будь-якими аргументами. <br />
+              <div class="bcg-box">
+                <p>
+                  const boundFoo = foo.bind(thisArg, arg1,
+                  arg2, ...)
+                </p>
+              </div>
+            </td>
+            <td>
+              "use strict";<br />
+
+              const customer = {<br />
+              name: "Jacob",<br />
+              sayHello() {<br />
+              console.log(`Hello, ${this.name}!`);<br />
+              }<br />
+              };<br />
+              <br />
+              customer.sayHello(); // "Hello, Jacob!"<br />
+              <br />
+              const greet =
+              customer.sayHello.bind(customer);<br />
+              <br />
+              greet(); // "Hello, Jacob!"
             </td>
           </tr>
 
