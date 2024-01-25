@@ -873,7 +873,7 @@
       <h2 class="m-bottom">Класи</h2>
 
       <h3 class="m-bottom-min">Визначення</h3>
-      <div>
+      <div class="m-bottom">
         <p class="m-bottom-min">
           <b>Клас</b> — це спосіб опису сутності, що
           визначає структуру та поведінку об'єктів, а також
@@ -897,7 +897,314 @@
       </div>
 
       <h3 class="m-bottom-min">Оголошення класу</h3>
-      <div></div>
+      <div>
+        <div class="m-bottom-min print-flex-box">
+          <ul class="list-style">
+            <li>
+              ключове слово <b>class</b> (Класи прийнято
+              називати з <b>великої літери</b>, а в назві
+              відображати тип об'єкта (іменника), що
+              створюється)
+            </li>
+            <li>ім’я класу (у прикладі: User)</li>
+            <li>тіло класу у фігурних дужках</li>
+          </ul>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              // Тіло класу<br />
+              }
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <p>
+            За допомогою спеціального оператора
+            <b>new</b> створюється його <b>екземпляр</b>
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              // Тіло класу<br />
+              }<br />
+              const mango = new User();
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Метод <b>constructor</b> використовується для
+              ініціалізації екземпляра класу
+            </p>
+            <p class="m-bottom-min">
+              Виклик класу з оператором
+              <b>new</b> призводить до створення нового
+              об'єкта й автоматичного виклику методу
+              <i>constructor</i>.
+            </p>
+            <p class="m-bottom-min">
+              <b>Аргументи</b>, які передаються при виклику
+              <i>new User()</i>, стають
+              <i>значеннями параметрів</i> для методу
+              constructor.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Цікаво!</b> Якщо його не визначити в явному
+              вигляді, то буде створений конструктор за
+              замовчуванням — порожня функція, яка не змінює
+              екземпляр класу.
+            </p>
+            <p class="border-box">
+              <b>Цікаво!</b> метод constructor викликається
+              в контексті створюваного екземпляра.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              constructor(name, email) {<br />
+              this.name = name;<br />
+              this.email = email;<br />
+              }<br />
+              }<br />
+              <br />
+              const mango = new User("Mango",<br />
+              "mango@mail.com");<br />
+              <br />
+              console.log(mango); <br />
+              // { name: 'Mango', <br />email:
+              'mango@mail.com' }
+            </p>
+          </div>
+        </div>
+
+        <p class="m-bottom-min">
+          Властивості name та email називаються
+          <b>публічними властивостями</b>, оскільки вони є
+          власними властивостями об'єкта-екземпляра.
+        </p>
+
+        <div class="m-bottom-min print-flex-box">
+          <p>У параметри можна передати об'єкт.</p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              constructor(params) { this.name = params.name;
+              } }<br />
+              <br />
+              const mango = new User({ name: "Mango", });
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="m-bottom-min print-flex-box print-m-bottom-max"
+        >
+          <p>
+            До параметра можна застосувати деструктуризацію.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              constructor({ name, email }) { this.name =
+              name;<br />
+              this.email = email;<br />
+              } }<br />
+              <br />
+              const mango = new User({<br />
+              name: "Mango",<br />
+              email: "mango@mail.com",<br />
+              });
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <p>
+            <b>Методи класу</b> — це функції, які будуть
+            доступні екземпляру в його прототипі. Вони
+            оголошуються в довільному порядку
+            <i>після конструктора</i>. Методи класу
+            <i
+              >не розділені жодними спеціальними
+              символами</i
+            >.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              class User {<br />
+              constructor({ name, email }) {<br />
+              this.name = name;<br />
+              this.email = email;<br />
+              }<br />
+              <br />
+              getEmail() { return this.email; }<br />
+              <br />
+              changeEmail(newEmail) { this.email = newEmail;
+              }<br />
+              }
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <p>
+            Після створення екземпляра можна використовувати
+            оголошені методи класу, які будуть звертатися до
+            властивостей об'єкта, що їх викликав.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              mango.changeEmail("new@mail.com");<br />
+              <br />
+              console.log(mango.getEmail()); //
+              "new@mail.com"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Прототип екземпляру</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Методи класу не стають власними властивостями
+            екземпляра. На відміну від значень властивостей,
+            вони не є унікальними. Це одна й та сама
+            функція, яка викликається в контексті різних
+            об'єктів. Немає сенсу копіювати методи для
+            кожного екземпляра
+          </p>
+          <p class="m-bottom-min">
+            Методи класу автоматично додаються до
+            спеціального об'єкта, який зберігається у
+            властивості
+            <b>prototype</b> самого класу.
+          </p>
+          <p>
+            При створенні <i>екземпляра</i> через
+            <i>new</i>, об'єкт, збережений у властивості
+            <i>prototype</i> класу, автоматично стає його
+            прототипом. Це означає, що властивість
+            <b>[[Prototype]] екземпляра</b>
+            <i
+              >отримує посилання на властивість prototype
+              класу</i
+            >.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            constructor({ name, email }) {<br />
+            this.name = name;<br />
+            this.email = email;<br />
+            }<br />
+            <br />
+            getEmail() {<br />
+            return this.email;<br />
+            } } <br />
+            console.log(User.prototype); <br />
+            // {constructor: ƒ, getEmail: ƒ}
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Методи класу</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Інкапсуляція</b> — це парадигма ООП, яка
+            передбачає приховування деталей внутрішньої
+            реалізації класу від зовнішнього коду.
+            Інкапсуляція реалізується
+            <b>приватними властивостями та методами</b>,
+            доступ до яких можна отримати тільки
+            <i>всередині класу</i>.
+          </p>
+          <p class="m-bottom-min">
+            Приватною властивість стає при додаванні до її
+            імені на початку символ символа
+            <b>#</b>. Оголошується приватна властивість до
+            ініціалізації в конструкторі.
+          </p>
+          <p>
+            Щоб отримати або змінити значення
+            <i>приватної властивості</i> використовуються
+            <b>публічні методи</b>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            constructor({ name, email }) {<br />
+            this.name = name;<br />
+            this.<b>#</b>email = email;<br />
+            }<br />
+            <br />
+            getEmail() { return this.<b>#</b>email; } <br />
+            }
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Приватні методи</b> — дозволяють проводити
+            дії, що приховні від користувача. Для цього, до
+            імені класу додається символ "#"
+          </p>
+          <p class="m-bottom-min">
+            Метод не доступний ззовні класу, тому
+            користувачі (або інші розробники) не можуть його
+            викликати напряму. Це безпеку та стабільність
+            роботи класу.
+          </p>
+          <p>
+            Публічні методи можуть використовавати приватні
+            методи
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User { name; #email; constructor({ name,
+            email }) {<br />
+            this.name = name;<br />
+            this.#email = email;<br />
+            }<br />
+
+            getEmail() { return this.#email; }<br />
+
+            changeEmail(newEmail) {<br />
+            if (this.#validateEmail(newEmail)) {<br />
+            this.#email = newEmail;<br />
+            } else {<br />
+            console.log('Invalid email format');<br />
+            }<br />
+            }<br />
+
+            пошти #validateEmail(email) {<br />
+            return email.includes('@');<br />
+            }<br />
+            }<br />
+
+            const mango = new User({<br />
+            name: 'Mango',<br />
+            email: 'mango@mail.com',<br />
+            });<br />
+
+            mango.changeEmail('new@mail.com');<br />
+            console.log(mango.getEmail()); //
+            "new@mail.com"<br />
+
+            mango.#validateEmail('test'); // Помилка
+          </p>
+        </div>
+      </div>
     </section>
   </body>
 </html>
