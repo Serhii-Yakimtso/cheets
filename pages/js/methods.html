@@ -194,7 +194,9 @@
         <thead>
           <th class="bcg-color-head">Метод</th>
           <th class="bcg-color-head">Опис</th>
-          <th class="bcg-color-head">Приклад</th>
+          <th class="bcg-color-head" style="width: 240px">
+            Приклад
+          </th>
         </thead>
 
         <tbody>
@@ -442,17 +444,22 @@
           </tr>
 
           <tr>
-            <td>shift()</td>
+            <td>
+              shift()
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </td>
             <td>
               Використовується для <b>видалення</b> одного
               елементу з <b>початку масиву</b>.
               <i>У дужках нічого не вказується.</i><br />
-              <b>Не створює новий масив</b>
+              <b>Не створює новий масив</b
+              ><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </td>
             <td>
               const planets = ["Earth", "Mars"];<br />
               planets.shift();<br />
               planets; // ['Mars']
+              <br /><br /><br /><br /><br /><br /><br /><br /><br />
             </td>
           </tr>
 
@@ -487,6 +494,7 @@
               });
             </td>
           </tr>
+
           <tr>
             <td>
               <b><i>Перебираючі методи</i></b>
@@ -517,6 +525,7 @@
               });
             </td>
           </tr>
+
           <tr>
             <td>map()</td>
             <td>
@@ -526,8 +535,6 @@
               записує в <b>новий масив</b>. <br />
               - Поелементно перебирає оригінальний масив;<br />
               - Не змінює оригінальний масив;<br />
-              - Результат роботи колбек-функції записується
-              в новий масив;<br />
               - Повертає новий масив такої ж довжини, як і в
               масиві, до якого він був застосований.
             </td>
@@ -536,12 +543,12 @@
               { name: "Mango", score: 83 },<br />
               { name: "Poly", score: 59 },<br />
               ];<br />
-              <br />
               const names = students.map(student =>
               student.name);<br />
               console.log(names); // ["Mango", "Poly"]
             </td>
           </tr>
+
           <tr>
             <td>flatMap()</td>
             <td>
@@ -572,6 +579,7 @@
               "mathematics"];
             </td>
           </tr>
+
           <tr>
             <td>filter()</td>
             <td>
@@ -602,9 +610,10 @@
               [<br />
               { name: 'Mango', score: 83 },<br />
               { name: 'Kiwi', score: 94 },<br />
-              ];
+              ];<br /><br />
             </td>
           </tr>
+
           <tr>
             <td>find()</td>
             <td>
@@ -623,9 +632,10 @@
               <br />
               color.find((option) => option.label ===
               "blue"); <br />
-              // { label: "blue", color: "#2196F3" }
+              // { label: "blue", color: "#2196F3" }<br /><br />
             </td>
           </tr>
+
           <tr>
             <td>every()</td>
             <td>
@@ -639,7 +649,7 @@
               - Повертає <b>false</b>, якщо хоча б один
               елемент масиву не задовольняє умову;<br />
               - Перебирання масиву припиняється, якщо колбек
-              повертає <b>false</b>.
+              повертає <b>false</b>.<br /><br />
             </td>
             <td>
               [1, 2, 3].every((value) =><br />
@@ -651,6 +661,7 @@
               // false
             </td>
           </tr>
+
           <tr>
             <td>some()</td>
             <td>
@@ -663,7 +674,7 @@
               - Повертає <b>false</b>, якщо жоден елемент
               масиву не задовольняє умову;<br />
               - Перебирання масиву припиняється, якщо колбек
-              повертає <b>true</b>.<br />
+              повертає <b>true</b>.<br /><br />
             </td>
             <td>
               [-7, -20, 3].some(value =><br />
@@ -674,6 +685,7 @@
               // false
             </td>
           </tr>
+
           <tr>
             <td>reduce()</td>
             <td>
@@ -707,8 +719,9 @@
               console.log(total); // 12
             </td>
           </tr>
+
           <tr>
-            <td>toSorted()</td>
+            <td rowspan="3">toSorted()</td>
             <td>
               Сортує елементи масиву.<br />
               - Сортує вихідний масив;<br />
@@ -717,11 +730,73 @@
             </td>
             <td>
               const scores = [61, 19, 74];<br />
-              const ascendingScores = scores.toSorted();<br />
-              // [19, 61, 74]<br />
+              scores.toSorted(); // [19, 61, 74]<br />
               <br />
               const letters = ["b", "B", "a", "A"]; <br />
-              // ["A", "B", "a", "b"]
+              letters.toSorted(); // ["A", "B", "a", "b"]
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Для зазначення
+              <b>свого порядку сортування чисел</b> потрібно
+              передати <i>колбек-функцію</i> з двома
+              параметрами. <br />
+              <div class="bcg-box">
+                <p>
+                  array.toSorted((a, b) => { // Callback
+                  function body });
+                </p>
+              </div>
+              - <b>a</b> — перший елемент для порівняння.
+              <br />
+              - <b>b</b> — другий елемент для порівняння.<br />
+              При сортуванні масиву чисел і передачі в метод
+              toSorted() колбек-функції, числа не будуть
+              приводитися до рядків.
+            </td>
+            <td>
+              const scores = [61, 19, 92 ];<br />
+              <b>// за зростанням</b><br />
+              const s = scores.toSorted((a, b) => a - b);<br />
+              console.log(s); // [19, 61, 92]<br />
+              <b>// за спаданням</b><br />
+              const s = scores.toSorted((a, b) => b - a);<br />
+              console.log(s); // [92, 61, 19]
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Для зазначення
+              <b>свого порядку сортування рядків</b>
+              використовується метод рядків
+              <b>localeCompare()</b> у
+              <i>тілі колбек-функції</i>.
+              <br />
+              <div class="bcg-box">
+                <p>
+                  firstString.localeCompare(secondString)
+                </p>
+              </div>
+              - <b>firstString</b> — рядок, який потрібно
+              порівняти.
+              <br />
+              - <b>secondString</b> — рядок, з яким
+              порівнюється.<br />
+            </td>
+            <td>
+              const men = ["Jacob", <br />"Artemis",
+              "Solomon"];<br />
+              <br />
+              const s = men.toSorted((a, b) <br />
+              => a.localeCompare(b));<br />
+              console.log(s); // [ "Artemis", "Jacob",
+              "Solomon" ]<br />
+              <br />
+              const s = men.toSorted((a, b) <br />
+              => b.localeCompare(a));<br />
+              console.log(s); // [ "Solomon", "Jacob",
+              "Artemis" ]<br />
             </td>
           </tr>
         </tbody>
