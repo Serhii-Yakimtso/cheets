@@ -19,7 +19,7 @@
     >
     <h1 class="m-bottom">Змінні та типи.</h1>
 
-    <section class="section print-m-bottom-max">
+    <section class="print-m-bottom-max">
       <p>
         <b>Змінна</b> — це контейнер, який використовується
         для зберігання даних. Складається з:
@@ -254,7 +254,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="">
       <h2 class="m-bottom">Введення та виведення даних</h2>
       <ul class="list-style">
         <li class="m-bottom-min print-flex-box">
@@ -304,47 +304,54 @@
       </ul>
     </section>
 
-    <section class="section">
+    <section class="print-m-bottom-max">
       <h2 class="m-bottom">Рядки</h2>
-      <p>
-        <b>Конкатенація рядків (склеювання)</b> -
-        застосуваання оператора <b>"+"</b> до рядка та
-        будь-якого іншого типу даних, результатом буде новий
-        рядок, що містить об'єднання вихідних значень
-      </p>
-      <div class="bcg-box m-bottom-min">
+      <div class="m-bottom-min print-flex-box">
         <p>
-          console.log("Mango " + "is" + " happy"); // "Mango
-          is happy"<br />
-          console.log("Mango" + 55); // "Mango55"<br />
-          console.log("Mango" + true); // "Mangotrue"
+          <b>Конкатенація рядків (склеювання)</b> -
+          застосуваання оператора <b>"+"</b> до рядка та
+          будь-якого іншого типу даних, результатом буде
+          новий рядок, що містить об'єднання вихідних
+          значень
         </p>
-      </div>
-      <p class="m-bottom-min">
-        <b>Шаблонні рядки</b> - це синтаксис, який полегшує
-        об'єднання <b>статичного</b> тексту з
-        <b>динамічним</b>. Огортаються зворотними лапками
-        <b>(``)</b> і дозволяють підставляти значення
-        змінних безпосередньо всередині рядка за допомогою
-        синтаксису інтерполяції <b>${змінна}</b>
-      </p>
-      <div class="bcg-box m-bottom-min">
-        <p>
-          const guestName = "Mango";<br />
-          const greeting = `Welcome ${guestName}`;<br />
-          "Welcome Mango"
-        </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            console.log("Mango " + "is" + " happy"); //
+            "Mango is happy"<br />
+            console.log("Mango" + 55); // "Mango55"<br />
+            console.log("Mango" + true); // "Mangotrue"
+          </p>
+        </div>
       </div>
 
-      <p>
-        <b>Властивість довжини рядка.</b>
-      </p>
-      <div class="bcg-box m-bottom-min">
-        <p>
-          const productName = "Repair droid";<br />
-          console.log(productName.length); // 12<br />
-          console.log("Repair droid".length); // 12
+      <div class="m-bottom-min print-flex-box">
+        <p class="m-bottom-min">
+          <b>Шаблонні рядки</b> - це синтаксис, який
+          полегшує об'єднання <b>статичного</b> тексту з
+          <b>динамічним</b>. Огортаються зворотними лапками
+          <b>(``)</b> і дозволяють підставляти значення
+          змінних безпосередньо всередині рядка за допомогою
+          синтаксису інтерполяції <b>${змінна}</b>
         </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            const guestName = "Mango";<br />
+            const greeting = `Welcome ${guestName}`;<br />
+            "Welcome Mango"
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <p>
+          <b>Властивість довжини рядка.</b>
+        </p>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const productName = "Repair droid";<br />
+            console.log(productName.length); // 12<br />
+            console.log("Repair droid".length); // 12
+          </p>
+        </div>
       </div>
       <p>
         <b>Індексація рядків.</b> Рядки — це набори
@@ -383,10 +390,27 @@
             парні лапки ("")
           </p>
           <div class="bcg-box m-bottom-min print-bcg-box">
-            <p>console.log("Hello \"World\"!");</p>
-            <p>console.log('Hello "World"!');</p>
+            <p>
+              console.log("Hello \"World\"!"); <br />
+              console.log('Hello "World"!');<br />
+              // Hello "World"!
+            </p>
           </div>
         </div>
+        <div class="print-flex-box">
+          <p>
+            Щоб утворити перенос рядка у консолі,
+            використувуєтсья символ "<b>\n</b>"
+          </p>
+          <div class="bcg-box m-bottom-min print-bcg-box">
+            <p>
+              console.log("Hello \nWorld!");<br />
+              // Hello <br />
+              // World!
+            </p>
+          </div>
+        </div>
+
         <div class="print-flex-box">
           <p>Останній символ за його індексом</p>
           <div class="bcg-box print-bcg-box">
@@ -400,7 +424,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="">
       <h2 class="m-bottom">Оператори порівняння</h2>
       <p>
         <b>Оператори порівняння</b> використовуються для
