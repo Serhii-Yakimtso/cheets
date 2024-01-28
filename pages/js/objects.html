@@ -1114,7 +1114,9 @@
       </div>
 
       <h3 class="m-bottom-min">Методи класу</h3>
-      <div class="m-bottom-min print-flex-box">
+      <div
+        class="m-bottom-min print-flex-box print-m-bottom-max"
+      >
         <div>
           <p class="m-bottom-min">
             <b>Інкапсуляція</b> — це парадигма ООП, яка
@@ -1146,7 +1148,16 @@
             }<br />
             <br />
             getEmail() { return this.<b>#</b>email; } <br />
-            }
+            }<br />
+            <br />
+            console.log(mango.name); // "Mango"<br />
+            console.log(mango.#email); // Виникне помилка<br />
+            <br />
+            console.log(mango.getEmail());
+            <br />// "mango@mail.com"<br /><br />
+            mango.changeEmail("mango@supermail.com");<br /><br />
+            console.log(mango.getEmail());
+            <br />// "mango@supermail.com"<br />
           </p>
         </div>
       </div>
@@ -1165,8 +1176,10 @@
             роботи класу.
           </p>
           <p>
-            Публічні методи можуть використовавати приватні
-            методи
+            <i
+              >Публічні методи можуть використовавати
+              приватні методи</i
+            >
           </p>
         </div>
         <div class="bcg-box print-bcg-box">
@@ -1187,7 +1200,7 @@
             }<br />
             }<br />
 
-            пошти #validateEmail(email) {<br />
+            #validateEmail(email) {<br />
             return email.includes('@');<br />
             }<br />
             }<br />
@@ -1202,6 +1215,375 @@
             "new@mail.com"<br />
 
             mango.#validateEmail('test'); // Помилка
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Геттери і сеттери</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <i>Геттери і сеттери</i> — це спеціальний
+            синтаксис оголошення методів для взаємодії з
+            властивостями. Імітують звичайну публічну
+            властивість класу, але дозволяють взаємодіяти з
+            іншими властивостями зручнішим способом.
+          </p>
+          <p class="m-bottom-min">
+            Щоб <i>оголосити</i> геттер і сеттер, потрібно
+            поставити перед ім'ям властивості відповідні
+            ключові слова — <b>get</b> і <b>set</b>
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Важливо!</b> Геттер і сеттер повинні
+            називатися однаково, так само, як і властивість,
+            з якою вони працюють.
+          </p>
+          <p class="border-box">
+            <b>Важливо!</b> доречно використовувати для
+            простих операцій читання та зміни значення
+            властивостей, особливо приватних, як їх
+            публічний інтерфейс. Для роботи з властивістю,
+            яка зберігає масив або об'єкт, вони не
+            підійдуть.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            #email;<br />
+            <br />
+            constructor({ name, email }) {<br />
+            this.name = name;<br />
+            this.#email = email;<br />
+            }<br />
+            <br />
+            get email() { return this.#email; }<br />
+
+            set email(newEmail) { this.#email = newEmail;
+            }<br />
+            }
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Статичні властивості</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Статичні властивості</b> - властивості, що
+            доступні тільки класові, але не його
+            екземплярам. Корисні для зберігання інформації,
+            що стосується класу.
+          </p>
+          <p class="m-bottom-min">
+            Статичні властивості <i>оголошуються</i> в тілі
+            класу за допомогою ключового слова
+            <b>static</b>. Статичні властивості можна
+            використовувати як у методах класу, так і поза
+            класом.
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Важливо!</b> У екземпляра немає доступу до
+            статичних властивостей класу.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class MyClass {<br />
+            static myProp = "value";<br />
+            }<br />
+            <br />
+            console.log(MyClass.myProp); // "value"<br />
+            <br />
+            const inst = new MyClass();<br />
+            console.log(inst.myProp); // undefined
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min"><b>Приклад</b></p>
+          <p class="m-bottom-min">
+            Додамо класу користувача приватну властивість
+            role — його роль, що визначає набір прав,
+            наприклад: адміністратор, редактор, звичайний
+            користувач тощо. Можливі ролі користувачів
+            будемо зберігати як статичну властивість roles —
+            об'єкт із властивостями.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            static roles = {<br />
+            admin: "admin",<br />
+            editor: "editor",<br />
+            basic: "basic"<br />
+            };<br />
+            <br />
+            #email;<br />
+            #role;<br />
+            <br />
+            constructor({ email, role = User.roles.basic })
+            {<br />
+            this.#email = email;<br />
+            this.#role = role;<br />
+            }<br />
+            <br />
+            get role() { return this.#role; }<br />
+            set role(newRole) { this.#role = newRole; }<br />
+            }<br />
+            <br />
+            const mango = new User({<br />
+            email: "mango@mail.com",<br />
+            role: User.roles.admin,<br />
+            });<br />
+            <br />
+            console.log(mango.role); // "admin"<br />
+            mango.role = User.roles.editor;<br />
+            console.log(mango.role); // "editor"
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Статичні методи</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Статичні методи</b> — це методи, доступні
+            тільки класу. Вони можуть бути
+            <b>публічні</b> та <b>приватні</b>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class MyClass {<br />
+            static myMethod() { console.log("A static
+            method"); }<br />
+            }<br />
+            <br />
+            MyClass.myMethod(); // "A static method"
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min"><b>Приклад</b></p>
+          <p class="m-bottom-min">
+            Додамо у клас User: <br />
+            - статичну <i>властивість</i>
+            <i>takenEmails</i> для зберігання зайнятих пошт
+            користувачів<br />
+            - статичний <i>метод</i> <i>isEmailTaken</i>,
+            який перевіряє, чи доступна пошта<br />
+            <br />
+            Під час ініціалізації екземпляра в конструкторі
+            класу будемо додавати пошту в список зайнятих.
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Особливість статичних методів!</b> <br />
+            Під час їх виклику ключове слово
+            <i>this</i> посилається на сам <i>клас</i>. Це
+            означає, що статичний метод може отримати доступ
+            до статичних властивостей класу, але не до
+            властивостей екземпляра. Це логічно, адже
+            статичні методи викликає сам клас, а не його
+            екземпляри.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            static #takenEmails = [];<br />
+            <br />
+            static isEmailTaken(email) {<br />
+            return User.#takenEmails.includes(email);<br />
+            }<br />
+            <br />
+            #email;<br />
+            <br />
+            constructor({ email }) {<br />
+            this.#email = email;<br />
+            User.#takenEmails.push(email);<br />
+            }<br />
+            }<br />
+            <br />
+            const mango = new User({ email: "mango@mail.com"
+            });<br />
+            <br />
+            console.log(User.isEmailTaken("poly@mail.com"));
+            // false<br />
+            console.log(User.isEmailTaken("mango@mail.com"));
+            // true
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Наслідування класів</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Ключове слово <b>extends</b> дозволяє
+            реалізувати наслідування класів, коли один клас
+            (<i>дочірній, похідний</i>) наслідує властивості
+            й методи іншого класу (<i>батьківського</i>).
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class Parent {} <br />
+            <br />
+            class Child extends Parent { // ... }
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Базовий (батьківський) клас зберігає загальні
+            характеристики й методи для групи похідних
+            (дочірніх) класів, які наслідують властивості й
+            методи батьківського, але також додають свої
+            унікальні.
+          </p>
+          <p>
+            Створюючи незалежні класи для кожного типу
+            користувача (наприклад), отримуємо дублювання
+            загальних властивостей і методів. Якщо необхідно
+            змінити, наприклад, назву властивості,
+            доведеться проходити по всіх класах, - це
+            незручно й вимагає багато часу.
+            <br />
+
+            Замість цього можна:<br />
+            <br />
+
+            - створити загальний клас User, який буде
+            зберігати набір загальних властивостей і
+            методів<br />
+            - після чого створити класи для кожного типу
+            користувача, які наслідують цей набір від класу
+            User
+            <br />
+            <br />
+            За потреби змінити щось спільне, достатньо буде
+            змінити тільки код класу User.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            #email;<br />
+            <br />
+            constructor(email) { this.#email = email; }<br />
+            <br />
+            get email() { return this.#email; }<br />
+            <br />
+            set email(newEmail) { this.#email = newEmail;
+            }<br />
+            }<br />
+            <br />
+            class ContentEditor extends User {<br />
+            // Тіло класу ContentEditor<br />
+            }<br />
+            <br />
+            const editor = new
+            ContentEditor("mango@mail.com");<br /><br />
+            console.log(editor); <br />// { #email:
+            "mango@mail.com" }<br /><br />
+            console.log(editor.email); <br />//
+            "mango@mail.com"
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Конструктор дочірнього класу
+      </h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>super(args)</b> — це спеціальна функція,
+            псевдонім конструктора батьківського класу.
+            Викликається у конструкторі дочірнього класу
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Важливо!</b> В іншому випадку при спробі
+            звернутися до this у конструкторі дочірнього
+            класу виникне помилка.
+          </p>
+          <p class="m-bottom-min">
+            Під час виклику
+            <i>конструктора батьківського класу</i>
+            передаємо необхідні йому аргументи для
+            ініціалізації властивостей.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            class User {<br />
+            #email;<br />
+            <br />
+            constructor(email) { this.#email = email; }<br />
+            <br />
+            get email() { return this.#email; }<br />
+            <br />
+            set email(newEmail) { this.#email = newEmail;
+            }<br />
+            }<br />
+            <br />
+            class ContentEditor extends User {<br />
+            constructor({ email, posts }) {<br />
+            super(email); <br />// Виклик конструктора
+            батьківського класу User<br /><br />
+            this.posts = posts;<br />
+            }<br />
+            }<br />
+            <br />
+            const editor = new ContentEditor({ <br />
+            email: "mango@mail.com", <br />
+            posts: [] <br />
+            });<br />
+            console.log(editor); // { #email:
+            "mango@mail.com", posts: [] }<br />
+            console.log(editor.email); // "mango@mail.com"
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Методи дочірнього класу</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            У дочірньому класі можна оголошувати методи, які
+            будуть доступні тільки його екземплярам.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            // Опис класу User вище
+            <br />
+            <br />
+            class ContentEditor extends User {<br />
+            constructor({ email, posts }) {<br />
+            super(email);<br />
+            this.posts = posts;<br />
+            }<br />
+            <br />
+            addPost(post) { this.posts.push(post); }<br />
+            }<br />
+            <br />
+            const editor = new ContentEditor({ <br />
+            email: "mango@mail.com", <br />
+            posts: [] <br />
+            });<br />
+            <br />
+
+            editor.addPost("post-1");<br />
+            editor.addPost("post-2");<br />
+            console.log(editor.posts); // ['post-1',
+            'post-2']
           </p>
         </div>
       </div>
