@@ -1184,8 +1184,9 @@
         </div>
         <div class="bcg-box print-bcg-box">
           <p>
-            class User { name; #email; constructor({ name,
-            email }) {<br />
+            class User {<br />
+            name; #email;<br />
+            constructor({ name, email }) {<br />
             this.name = name;<br />
             this.#email = email;<br />
             }<br />
@@ -1197,13 +1198,11 @@
             this.#email = newEmail;<br />
             } else {<br />
             console.log('Invalid email format');<br />
-            }<br />
-            }<br />
+            } }<br />
 
             #validateEmail(email) {<br />
             return email.includes('@');<br />
-            }<br />
-            }<br />
+            } }<br />
 
             const mango = new User({<br />
             name: 'Mango',<br />
