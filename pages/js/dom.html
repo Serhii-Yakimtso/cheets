@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom">DOM</h1>
+
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">
+        Об'єктна модель документа
+      </h2>
+      <p class="m-bottom-min">
+        <b>ECMAScript (ES)</b> — це стандарт, який описує
+        мову програмування JavaScript. Цей стандарт визначає
+        синтаксис і семантику мови, а також набір вбудованих
+        об'єктів і функцій для роботи з даними, текстом,
+        датами та іншими аспектами програмування. ECMAScript
+        надає основну структуру мови, на якій базується
+        JavaScript.
+      </p>
+      <p class="m-bottom-min">
+        <b
+          >Об'єктна модель документа (Document Object
+          Model)</b
+        >
+        — незалежний інтерфейс для роботи з
+        <b>HTML-документом</b>. Ця модель містить набір
+        властивостей і методів, що дозволяють шукати,
+        створювати й видаляти елементи, реагувати на дії
+        користувача і багато іншого, тобто поєднує сторінку
+        з мовою програмування. DOM — це відображення
+        HTML-документа.
+      </p>
+      <p class="m-bottom-min">
+        <b
+          >Об'єктна модель браузера (Browser Object
+          Model)</b
+        >
+        — незалежний від мови інтерфейс для роботи з
+        <b>браузером</b>. Містить набір властивостей і
+        методів, що дозволяють отримати доступ до ряду
+        функцій браузера. Саме завдяки BOM можна отримувати
+        розміри вікна браузера, прокручувати сторінку,
+        читати URL, працювати з історією навігації, місцем
+        розташування тощо.
+      </p>
+      <p class="m-bottom-min">
+        Згідно з DOM-моделлю, кожен тег утворює окремий
+        <b>елемент-вузол</b> (element node), а кожен
+        фрагмент тексту всередині елемента —
+        <b>текстовий вузол</b> (text node) (містить тільки
+        рядок тексту й не може мати дочірніх елементів).
+      </p>
+      <p class="m-bottom-min">
+        В HTML вкладеність визначає відносини батько-дитина
+        між елементами. У DOM об'єкти пов'язані в
+        деревоподібній структурі даних, фіксуючи ці
+        відносини.
+      </p>
+      <p class="m-bottom-min">
+        Браузер будує DOM поступово, щойно надходять перші
+        фрагменти коду, він починає парсити HTML, додаючи
+        вузли в деревоподібну структуру.
+      </p>
+      <p class="m-bottom">
+        Після того як DOM-дерево побудовано, у ньому можна
+        знайти елемент за допомогою JavaScript. Оскільки
+        кожен елемент має інтерфейс із безліччю властивостей
+        і методів, з ним можна виконувати необхідні дії.
+      </p>
+
+      <!-- <h3 class="m-bottom-min">Навігація по DOM</h3>
+      <p class="m-bottom-min">
+        Елементи DOM-дерева мають ієрархічне відношення один
+        до одного. Для опису відносин використовуються
+        терміни
+        <i
+          >предок (ancestor), нащадок (descendant), батько
+          (parent), дитина (child) і сусід (sibling)</i
+        >.
+      </p>
+      <p class="m-bottom-min">
+        щоб скористатися цими можливостями, спочатку
+        потрібно отримати посилання на нього, наприклад, за
+        допомогою методу <b>document.querySelector()</b>.
+      </p>
+      <ul class="list-style m-bottom">
+        <li>
+          Найвищий елемент називається
+          <b>кореневим</b> (root node).
+        </li>
+        <li>
+          Кожен елемент, крім кореневого, має тільки один
+          батьківський.
+        </li>
+        <li>
+          В елемента може бути скільки завгодно дітей.
+        </li>
+        <li>
+          <b>Сусіди</b> — це елементи зі спільним
+          батьківським елементом.
+        </li>
+        <li>
+          <b>Дочірні елементи (діти)</b> — елементи, що
+          безпосередньо вкладені в поточний елемент
+          (елементи першого рівня вкладеності).
+        </li>
+        <li>
+          <b>Нащадки</b> — усі елементи, які знаходяться в
+          поточному елементі, разом з їхніми дітьми, дітьми
+          їхніх дітей тощо. Тобто все на зразок дерева.
+        </li>
+      </ul> -->
+      <table style="font-size: 14px">
+        <caption>
+          Властивості навігації DOM
+        </caption>
+        <thead>
+          <tr>
+            <th>Властивість</th>
+            <th>Опис</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>elem.parentNode</td>
+            <td>
+              посилання на батьківський вузол-елемент вузла
+              elem
+            </td>
+          </tr>
+          <tr>
+            <td>elem.childNodes</td>
+            <td>
+              псевдомасив, у якому зібрані всі дочірні
+              вузли-елементи і текстові вузли вузла elem
+            </td>
+          </tr>
+          <tr>
+            <td>elem.children</td>
+            <td>
+              псевдомасив, у якому зібрані всі дочірні
+              вузли-елементи вузла elem, тобто ті, що
+              відповідають тегам
+            </td>
+          </tr>
+          <tr>
+            <td>elem.firstChild</td>
+            <td>
+              осилання на перший дочірній вузол
+              (вузол-елемент або текстовий вузол) вузла elem
+            </td>
+          </tr>
+          <tr>
+            <td>elem.firstElementChild</td>
+            <td>
+              посилання на перший дочірній вузол-елемент
+              усередині elem, тобто той, що відповідає тегу
+            </td>
+          </tr>
+          <tr>
+            <td>elem.lastChild</td>
+            <td>
+              посилання на останній дочірній вузол
+              (вузол-елемент або текстовий вузол) вузла elem
+            </td>
+          </tr>
+          <tr>
+            <td>elem.lastElementChild</td>
+            <td>
+              посилання на останній дочірній вузол-елемент
+              усередині elem, тобто той, що відповідає тегу
+            </td>
+          </tr>
+          <tr>
+            <td>elem.previousSibling</td>
+            <td>
+              посилання на попередній сусідній вузол
+              відносно елемента elem, і це може бути як
+              елемент, так і текстовий вузол
+            </td>
+          </tr>
+          <tr>
+            <td>elem.previousElementSibling</td>
+            <td>
+              посилання на попередній сусідній вузол-елемент
+              відносно елемента elem, тобто той, що
+              відповідає тегу
+            </td>
+          </tr>
+          <tr>
+            <td>elem.nextSibling</td>
+            <td>
+              посилання на наступний сусідній вузол відносно
+              елемента elem, і це може бути як елемент, так
+              і текстовий вузол
+            </td>
+          </tr>
+          <tr>
+            <td>elem.nextElementSibling</td>
+            <td>
+              посилання на наступний сусідній вузол-елемент
+              відносно елемента elem, тобто той, що
+              відповідає тегу
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="m-bottom-min">Властивості та атрибути</h2>
+
+      <h3 class="m-bottom-min">Доступ до властивостей</h3>
+      <div class="m-bottom">
+        <p class="m-bottom-min">
+          Під час побудови DOM-дерева деякі стандартні
+          HTML-атрибути стають властивостями елементів,
+          тобто властивостями DOM-об’єктів. Я
+        </p>
+        <div class="m-bottom-min print-flex-box">
+          <p class="m-bottom-min">
+            Якщо в HTML є тег то у JS коді можна прочитати
+            значення його атрибутів, отримавши посилання на
+            елемент, тобто об'єкт, використовуючи
+            querySelector, і звернутися до його властивості.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              &#60;a class="link"
+              href="&#60;https://goit.global&#62;"
+              &#62;GoIT&#60;/a &#62;;<br />
+              <br />
+              const link =
+              document.querySelector(".link");<br />
+              console.log(link.href); //
+              "&#60;https://goit.global&#62;"
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <p class="m-bottom-min">
+            Значення атрибутів можна змінювати,
+            перевизначивши їм нове значення прямо з JS коду,
+            і під час виконання скрипта значення в HTML,
+            тобто в DOM-дереві, зміниться.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              link.href =
+              "[&#60;https://neo.goit.global&#62;]
+              <br />
+              (&#60;https://neo.goit.global/&#62;)";
+            </p>
+          </div>
+        </div>
+
+        <table>
+          <caption>
+            Властивості елементів DOM
+          </caption>
+          <thead>
+            <tr>
+              <th>Властивість</th>
+              <th>Опис</th>
+              <th>Приклад</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>textContent</td>
+              <td>
+                <p class="m-bottom-min">
+                  Повертає весь текстовий контент усередині
+                  елементів (власних і вкладених елементів).
+                </p>
+                <p>
+                  Неважливо, що буде передано в textContent,
+                  дані завжди будуть записані як
+                  <b>текст</b>.
+                </p>
+              </td>
+              <td>
+                &#60;p class="text"&#62; User: &#60;span
+                class="sub"&#62;Max&#60;/span&#62;
+                &#60;/p&#62; <br />
+                <br />
+                const el =
+                document.querySelector(".text")<br />
+                const nested =
+                document.querySelector(".sub")<br />
+                <br />
+                console.log(el.textContent); // "User:
+                Mango"<br />
+                console.log(nested.textContent); // "Max"<br />
+                <br />
+                el.textContent = "User: Poly"; // "User:
+                Poly"
+              </td>
+            </tr>
+            <tr>
+              <td>classList</td>
+              <td>
+                <p class="m-bottom-min">
+                  Дозволяє прочитати, додати, видалити або
+                  перевірити наявність CSS-класу в елемента
+                  та зберігає об'єкт із методами для роботи
+                  з CSS-класами елемента.
+                  <b>(див. методи DOM (classList))</b>
+                </p>
+                <p>
+                  Масив зберігає в собі весь перелік класів
+                  DOM-елемента, властивість
+                  <b>length</b> (кількість класів в
+                  елемента) і властивість
+                  <b>value</b> (містить точне значення
+                  атрибута class).
+                </p>
+              </td>
+              <td>
+                console.log(link.classList); <br />
+                // ["link", "is-active", length: 2, value:
+                "link is-active"]
+              </td>
+            </tr>
+            <tr>
+              <td>style</td>
+              <td>
+                <p class="m-bottom-min">
+                  Використовується для читання та зміни
+                  інлайнових стилів.
+                </p>
+                <p class="m-bottom-min">
+                  Повертає об'єкт, який містить список лише
+                  всіх
+                  <b>інлайнових властивостей елемента</b>, а
+                  не увесь CSS.
+                </p>
+                <p class="m-bottom-min">
+                  Під час запису властивості вони
+                  записуються в <b>camelCase</b> нотації,
+                  замість дефісів (<i>background-color</i>
+                  буде <i>backgroundColor</i>).
+                </p>
+                <p class="border-box">
+                  <b>Важливо!</b> На практиці стилізація
+                  елементів зазвичай виконується шляхом
+                  додавання CSS-класів.
+                </p>
+              </td>
+              <td>
+                const button =
+                document.querySelector(".btn");<br />
+                <br />
+                button.style.backgroundColor = "teal";<br />
+                button.style.fontSize = "24px";<br />
+                button.style.textAlign = "center";<br />
+                <br />
+                console.log(button.style); // inline styles
+                object
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="m-bottom-min">Доступ до атрибутів</h3>
+      <div></div>
+    </section>
+  </body>
+</html>

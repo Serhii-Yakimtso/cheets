@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom">DOM</h1>
+
+    <table class="print-m-bottom-max">
+      <caption>
+        Методи DOM
+      </caption>
+      <thead>
+        <th class="bcg-color-head">Метод</th>
+        <th class="bcg-color-head">Опис</th>
+        <th class="bcg-color-head">Приклад</th>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>querySelector(selector)</td>
+          <td>
+            <p>
+              Використовується, якщо необхідно знайти тільки
+              один, найчастіше унікальний елемент.
+            </p>
+            <ul class="list-style">
+              <li>
+                Повертає <b>перший</b> знайдений елемент
+                усередині element, що відповідає рядку
+                <i>CSS-селектора selector</i>. Навіть якщо
+                їх декілька, завжди повернеться посилання
+                тільки на перший елемент у DOM-дереві.
+              </li>
+              <li>
+                Якщо нічого не знайдено, то поверне
+                <b>null</b>
+              </li>
+            </ul>
+            <div class="bcg-box">
+              <p>element.querySelector(selector)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              &#60;ul class="list"&#62;<br />
+              <b
+                >&#60;li
+                class="list-item"&#62;&#60;/li&#62;</b
+              ><br />
+              &#60;li class="list-item"&#62;&#60;/li&#62;<br />
+              &#60;/ul&#62;<br />
+              <br />
+              const listItems =
+              document.querySelector(".list-item")
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>querySelectorAll(selector)</td>
+          <td>
+            <p>
+              Використовується, якщо необхідно знайти
+              колекцію елементів, тобто отримати масив
+              посилань на елементи з однаковим селектором.
+            </p>
+            <ul class="list-style">
+              <li>
+                Повертає <i>псевдомасив</i> усіх елементів
+                всередині element, які відповідають
+                CSS-селектору <b>selector</b>
+              </li>
+              <li>
+                Якщо нічого не знайдено, поверне порожній
+                масив
+              </li>
+            </ul>
+            <div class="bcg-box">
+              <p>element.querySelectorAll(selector)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              &#60;ul class="list"&#62;<br />
+              <b
+                >&#60;li
+                class="list-item"&#62;&#60;/li&#62;</b
+              ><br />
+              <b>
+                &#60;li
+                class="list-item"&#62;&#60;/li&#62;</b
+              ><br />
+              &#60;/ul&#62;<br />
+              <br />
+              const listItems =
+              document.querySelector(".list-item")
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
