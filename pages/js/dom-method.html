@@ -30,6 +30,7 @@
       </thead>
 
       <tbody>
+        <!-- querySelector -->
         <tr>
           <td>querySelector(selector)</td>
           <td>
@@ -37,7 +38,7 @@
               Використовується, якщо необхідно знайти тільки
               один, найчастіше унікальний елемент.
             </p>
-            <ul class="list-style">
+            <ul class="list-style m-bottom-min">
               <li>
                 Повертає <b>перший</b> знайдений елемент
                 усередині element, що відповідає рядку
@@ -70,6 +71,7 @@
           </td>
         </tr>
 
+        <!-- querySelectorAll -->
         <tr>
           <td>querySelectorAll(selector)</td>
           <td>
@@ -78,7 +80,7 @@
               колекцію елементів, тобто отримати масив
               посилань на елементи з однаковим селектором.
             </p>
-            <ul class="list-style">
+            <ul class="list-style m-bottom-min">
               <li>
                 Повертає <i>псевдомасив</i> усіх елементів
                 всередині element, які відповідають
@@ -112,52 +114,274 @@
           </td>
         </tr>
 
+        <!-- Методи властивості classList -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="bcg-color center-text" colspan="3">
+            <b>Методи властивості classList</b>
+          </td>
+        </tr>
+
+        <!-- Приклад -->
+        <tr>
+          <td colspan="3">
+            <p><b>Приклад для методів нижче</b></p>
+            <p>
+              &#60;a class="link"
+              href="&#60;https://goit.global&#62;"
+              &#62;GoIT&#60;/a &#62;;<br />
+              <br />
+              const link =
+              document.querySelector(".link");<br />
+              console.log(link.classList); // ["link",
+              "is-active", length: 2, value: "link
+              is-active"]
+            </p>
+          </td>
+        </tr>
+
+        <!-- contains() -->
+        <tr>
+          <td>contains()</td>
+          <td>
+            <p>
+              Перевіряє наявність класу <b>className</b> в
+              елемента, та повертає <b>true</b> або
+              <b>false</b>
+            </p>
+            <p class="m-bottom-min">
+              <i
+                >Очікує аргументом рядок без крапки (без
+                селектора класу) з іменем класу</i
+              >
+            </p>
+            <div class="bcg-box">
+              <p>el.classList.contains(className)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              const hasActiveClass =
+              link.classList.contains("is-active"); // true
+              <br />
+              const hasActiveClass =
+              link.classList.contains("title"); // false
+            </p>
+          </td>
+        </tr>
+
+        <!-- add() -->
+        <tr>
+          <td>add()</td>
+          <td>
+            <p class="m-bottom-min">
+              Додає клас <b>className</b> до списку класів
+              елемента.
+            </p>
+            <div class="bcg-box">
+              <p>el.classList.add(className)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              link.classList.add("special");<br />
+              // ["link", "is-active", <b>"special"</b> ,
+              length: 3, value: "link is-active
+              <b>special</b>"]
+            </p>
+          </td>
+        </tr>
+
+        <!-- remove() -->
+        <tr>
+          <td>remove()</td>
+          <td>
+            <p class="m-bottom-min">
+              Видаляє клас <b>className</b> зі списку класів
+              елемента.
+            </p>
+            <div class="bcg-box">
+              <p>el.classList.remove(className)</p>
+            </div>
+            <p>
+              <i
+                >Якщо видалити клас, якого не існує на
+                елементі, то це не викличе помилку. Просто
+                нічого не видалиться.</i
+              >
+            </p>
+          </td>
+          <td>
+            <p>
+              link.classList.remove("is-active");<br />
+              // ["link", "special", length: 2, value: "link
+              special"]
+            </p>
+          </td>
+        </tr>
+
+        <!-- toggle() -->
+        <tr>
+          <td>toggle()</td>
+          <td>
+            <p>Працює як перемикач:</p>
+            <ul class="list-style m-bottom-min">
+              <li>
+                якщо клас className <i>відсутній</i>, то
+                <b>додає</b> його в
+                <i>кінець списку класів</i>;
+              </li>
+              <li>
+                якщо клас className <i>присутній</i> —
+                <b>видаляє</b> його.
+              </li>
+            </ul>
+            <div class="bcg-box">
+              <p>el.classList.toggle(className)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              link.classList.toggle("is-active");<br />
+              // ["link", "special", "is-active", length: 3,
+              value: "link special is-active"]
+            </p>
+          </td>
+        </tr>
+
+        <!-- replace() -->
+        <tr>
+          <td>replace()</td>
+          <td>
+            <p class="m-bottom-min">
+              Замінює існуючий клас <b>oldClassName</b> на
+              вказаний <b>newClassName</b>.
+            </p>
+            <div class="bcg-box">
+              <p>
+                el.classList.replace(oldClassName,
+                newClassName)
+              </p>
+            </div>
+          </td>
+          <td>
+            link.classList.replace("special", "regular");<br />
+            // ["link", "regular", "is-active", length: 3,
+            value: "link regular is-active"]
+          </td>
         </tr>
 
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td class="bcg-color center-text" colspan="3">
+            Методи атрибутів
+          </td>
         </tr>
 
+        <!-- Приклад -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td colspan="3">
+            <p><b>Приклад для методів нижче</b></p>
+            <p>
+              &#60;img class="image"
+              src="&#60;https://picsum.photos/id/15/320/240&#62;"
+              alt="Rocks and waterfall" width="300" /&#62;
+              <br />
+
+              const image =
+              document.querySelector(".image");
+            </p>
+          </td>
         </tr>
 
+        <!-- hasAttribute() -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>hasAttribute()</td>
+          <td>
+            <p class="m-bottom-min">
+              Перевіряє наявність атрибуту у елементі, та
+              повертає <b>true</b> чи <b>false</b>.
+            </p>
+            <p class="m-bottom-min">
+              Приймає один аргумент — рядок
+              <b>nameAttribute</b> з іменем атрибута.
+            </p>
+            <div class="bcg-box">
+              el.hasAttribute(nameAttribute)
+            </div>
+          </td>
+          <td>
+            image.hasAttribute("src"); // true
+            <br />
+            image.hasAttribute("href"); // false
+          </td>
         </tr>
 
+        <!-- getAttribute() -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>getAttribute()</td>
+          <td>
+            <p class="m-bottom-min">
+              Повертає значення атрибута для вказаного
+              HTML-елемента
+            </p>
+            <div class="bcg-box">
+              <p>el.getAttribute(nameAttribute)</p>
+            </div>
+          </td>
+          <td>
+            <p>
+              image.getAttribute("alt"); // "Rocks and
+              waterfall"
+            </p>
+          </td>
         </tr>
 
+        <!-- setAttribute() -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>setAttribute()</td>
+          <td>
+            <p class="m-bottom-min">
+              Встановлює або змінює значення зазначеного
+              атрибута для вказаного HTML-елемента
+            </p>
+            <ul class="m-bottom-min">
+              <li>
+                <b>nameAttribute</b> - ім'я атрибута, який
+                потрібно встановити або змінити;
+              </li>
+              <li>
+                <b>value</b> - значення, яке треба присвоїти
+                цьому атрибуту.
+              </li>
+            </ul>
+            <div class="bcg-box">
+              el.setAttribute(nameAttribute, value)
+            </div>
+          </td>
+          <td>
+            image.getAttribute("alt"); // Amazing nature
+          </td>
         </tr>
 
+        <!-- removeAttribute() -->
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>removeAttribute()</td>
+          <td>
+            <p class="m-bottom-min">
+              Видаляє атрибут із вказаного HTML-елемента
+            </p>
+            <p class="m-bottom-min">
+              Якщо зазначеного атрибута немає на елементі,
+              метод не викликає жодних помилок та не робить
+              нічого.
+            </p>
+            <div class="bcg-box">
+              el.removeAttribute(nameAttribute)
+            </div>
+          </td>
+          <td>
+            image.removeAttribute("alt");
+            image.hasAttribute("alt"); // false
+          </td>
         </tr>
 
         <tr>

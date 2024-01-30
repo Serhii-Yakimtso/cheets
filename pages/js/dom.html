@@ -222,7 +222,7 @@
       </table>
     </section>
 
-    <section>
+    <section class="m-bottom">
       <h2 class="m-bottom-min">Властивості та атрибути</h2>
 
       <h3 class="m-bottom-min">Доступ до властивостей</h3>
@@ -320,7 +320,10 @@
                   перевірити наявність CSS-класу в елемента
                   та зберігає об'єкт із методами для роботи
                   з CSS-класами елемента.
-                  <b>(див. методи DOM (classList))</b>
+                  <b
+                    >(див. методи DOM (Методи властивості
+                    classList))</b
+                  >
                 </p>
                 <p>
                   Масив зберігає в собі весь перелік класів
@@ -379,6 +382,151 @@
       </div>
 
       <h3 class="m-bottom-min">Доступ до атрибутів</h3>
+      <div class="m-bottom">
+        <p>
+          DOM-елементам відповідають HTML-теги, які містять
+          текстові атрибути. Доступ до атрибутів
+          здійснюється за допомогою методів
+          <b>(див. Методи DOM (Методи атрибутів))</b>. Ці
+          методи працюють зі значенням, яке знаходиться в
+          HTML.
+        </p>
+      </div>
+
+      <h3 class="m-bottom-min">Власні атрибути</h3>
+      <div>
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
+            Власні атрибути ( <b>data-атрибути</b> )
+            дозволяють додати до тегу довільний атрибут і
+            отримати його значення в JavaScript. Можна
+            зберегти певну інформацію на тезі, наприклад,
+            вказати тип дії кнопки, щоб потім у певний
+            момент часу мати можливість отримати до неї
+            доступ.
+          </p>
+          <div class="bcg-box">
+            <p>
+              &#60;button type="button"
+              data-action="save"&#62; Save text
+              &#60;/button&#62;
+              <br />
+              &#60;button type="button"
+              data-action="close"&#62; Close editor
+              &#60;/button&#62;
+            </p>
+          </div>
+        </div>
+        <div class="print-flex-box m-bottom-min">
+          <p class="m-bottom-min">
+            Для <b>отримання</b> значення
+            <b>data-атрибута</b> використовується
+            властивість <b>dataset</b>, після якої
+            <i
+              >через крапку пишеться ім'я атрибута без
+              data-</i
+            >. ( "<i>data-</i>" відкидається, а інша частина
+            імені записується як ім'я властивості об'єкта.)
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const saveBtn =
+              document.querySelector('button[data-action="save"]');<br />
+
+              const closeBtn =
+              document.querySelector('button[data-action="close"]');<br />
+              <br />
+              console.log(saveBtn.dataset.action); //
+              "save"<br />
+              console.log(closeBtn.dataset.action); //
+              "close"
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box m-bottom-min">
+          <p class="m-bottom-min">
+            Щоб <b>змінити</b> значення існуючого
+            data-атрибута або <b>додати</b> новий , треба
+            отримати доступ до DOM-елемента, а потім
+            змінити/задати значення властивості в об'єкті
+            <b>dataset</b>.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              /
+              <i
+                >Змінюємо значення data-action для кнопки
+                saveBtn</i
+              >
+              <br />
+              saveBtn.dataset.action = "update";<br />
+              <br />
+              / <i>Додаємо новий data-атрибут data-role</i
+              ><br />
+              saveBtn.dataset.role = "admin";
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box m-bottom-min">
+          <p class="m-bottom-min">
+            Для <b>видалення</b> data-атрибута
+            використовується оператор <b>delete</b>:
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <b>delete</b> saveBtn.dataset.action; <br />
+
+              console.log(saveBtn.dataset.action); //
+              undefined
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
+            <i>data-атрибути</i> часто використовуються з
+            <b>кебаб-кейсом</b> (kebab-case), де слова
+            розділяються <i>дефісами</i>.
+          </p>
+          <p class="m-bottom-min">
+            Коли потрібно отримати доступ до цих
+            <i>data-атрибутів</i> через властивість
+            <i>dataset</i>, атрибути в кебаб-кейсі
+            перетворюються в <b>кемел-кейс</b> (camelCase).
+            Тобто дефіси видаляються, і
+            <i
+              >наступна літера після кожного дефіса стає
+              великою</i
+            >. Наприклад, <b>data-user-role</b> стає
+            <b>userRole</b> у JavaScript
+          </p>
+          <div class="bcg-box">
+            <p>
+              const userBlock=
+              document.querySelector('div[data-user-role="admin"]');<br />
+              <br />
+              // Додаємо новий data-атрибут
+              data-user-status<br />
+              element.dataset.userStatus = "online";<br />
+              <br />
+              console.log(element.dataset.userRole); //
+              "admin"<br />
+              console.log(element.dataset.userStatus); //
+              "online"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom-min">
+        Створення та видалення елементів
+      </h2>
+
+      <h3></h3>
       <div></div>
     </section>
   </body>
