@@ -222,7 +222,7 @@
       </table>
     </section>
 
-    <section class="m-bottom">
+    <section class="m-bottom print-m-bottom-max">
       <h2 class="m-bottom-min">Властивості та атрибути</h2>
 
       <h3 class="m-bottom-min">Доступ до властивостей</h3>
@@ -521,13 +521,278 @@
       </div>
     </section>
 
-    <section>
+    <section class="m-bottom print-m-bottom-max">
       <h2 class="m-bottom-min">
         Створення та видалення елементів
       </h2>
 
-      <h3></h3>
-      <div></div>
+      <div>
+        <p>
+          DOM API (Document Object Model Application
+          Programming Interface) має широкий функціонал. За
+          його допомогою можна:
+        </p>
+        <ul class="m-bottom-min list-style">
+          <li>
+            вибирати або змінювати вже існуючі елементи
+          </li>
+          <li>видаляти елементи</li>
+          <li>
+            створювати нові елементи й додавати їх у
+            документ
+          </li>
+        </ul>
+      </div>
+
+      <h3 class="m-bottom-min">Створення елементів</h3>
+      <div class="print-flex-box m-bottom-min">
+        <div class="m-bottom-min">
+          <p>
+            Створення елементу з ім'ям <b>tagName</b> і
+            <i>повернення посилання на його об’єкт</i>.
+          </p>
+          <p class="m-bottom-min">
+            <b>tagName</b> — це рядок, що вказує тип
+            елемента, який створюється.
+          </p>
+          <p class="border-box">
+            <b>Важливо!</b> Елемент створюється в пам'яті, у
+            DOM його ще немає.
+          </p>
+        </div>
+        <div class="bcg-box">
+          <p>
+            document.createElement(<b>tagName</b>)
+            <br /><br />
+            const heading = document.createElement("h1");
+          </p>
+        </div>
+      </div>
+
+      <div class="print-flex-box m-bottom-min">
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
+            Після створення елемента можна звертатися до
+            властивостей цього об’єкта і змінювати їх ще до
+            того, як вставимо цей елемент у DOM.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const heading = document.createElement("h1");<br />
+            headding.classList.add("title");<br />
+            heading.textContent = "This is a heading";<br />
+            console.log(heading); // &#60;h1
+            class="title"&#62;This is a heading&#62;/h1&#62;
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Додавання елементів</h3>
+      <div class="print-flex-box m-bottom-min">
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
+            Щоб створений елемент відображався на сторінці,
+            його необхідно
+            <i
+              >додати до вже існуючого елемента в
+              DOM-дереві</i
+            >.
+          </p>
+          <p class="border-box m-bottom-min">
+            <b>Важливо!</b> Зверни увагу! Якщо елемент для
+            додавання вже знаходиться в DOM, то він
+            видаляється зі свого старого місця й додається у
+            нове. Отже, є правило: один і той самий елемент
+            не може бути одночасно у двох місцях.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            elem.append(el1, el2, ...) — додає один або<br />
+            декілька елементів
+            <b>після всіх дітей</b> елемента elem.
+            <br /><br />
+            elem.prepend(el1, el2, ...) — додає один або<br />
+            декілька елементів
+            <b>перед усіма дітьми</b> елемента elem.<br /><br />
+            elem.after(el1, el2, ...) — додає один або<br />
+            декілька елементів
+            <b>після елемента</b> elem.<br /><br />
+            elem.before(el1, el2, ...) — додає один або<br />
+            декілька елементів
+            <b>перед елементом</b> elem.<br />
+            <br />
+            <b>el</b> — це елементи або рядки, у будь-якому
+            поєднанні та кількості. <br />Рядки додаються,
+            як текстові вузли.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Видалення елементів</h3>
+      <div class="print-flex-box m-bottom-min">
+        <div class="m-bottom-min">
+          <p class="m-bottom-min">
+            Щоб видалити елемент, використовується метод
+            <b>element.remove()</b>. Викликається на
+            елементі element, який необхідно видалити.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            &#60;p class="text"&#62;Random text
+            content&#60;/p&#62; <br />
+            const text = document.querySelector(".text")<br />
+            text.remove();<br />
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Властивість innerHTML</h3>
+      <div class="m-bottom-min">
+        <div class="print-flex-box m-bottom-min">
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Властивість innerHTML зберігає вміст елемента,
+              включно з тегами, у вигляді рядка. <br />
+              Значення, що повертається, — це завжди
+              валідний HTML-код.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              &#60;p class="text"&#62; Lorem ipsum dolor
+              &#60;span class="accent"
+              <br />&#62;sit&#60;/span&#62; amet
+              &#60;/p&#62;
+              <br />
+              <br />
+              const text =
+              document.querySelector('.text');<br />
+              console.log(text.innerHTML);<br />
+              // Lorem ipsum dolor &#60;span
+              class="accent"&#62;sit&#60;/span&#62; amet
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box m-bottom-min">
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Для зміни значення властивості, в неї можна
+              записати рядок з HTML-тегами
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              text.innerHTML = '&#60;span class="accent"
+              <br />&#62;New&#60;/span&#62; cool text';
+            </p>
+          </div>
+        </div>
+
+        <p class="m-bottom-min border-box">
+          <b>Важливо!</b> Якщо у властивість innerHTML
+          записати <i>порожній рядок</i>, то вміст елемента
+          буде <i>очищено</i>. Це простий і швидкий спосіб
+          видалення всього вмісту.
+        </p>
+
+        <div class="print-flex-box m-bottom-min">
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Однотипна (шаблонна) розмітка створюється із
+              масиву даних.
+            </p>
+            <p class="m-bottom-min">
+              Прийом полягає в перебиранні цього масиву та
+              створенні одного рядка з HTML-тегами, який
+              потім записуємо в innerHTML елемента.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              &#60;ul class="list"&#62;&#60;/ul&#62;<br />
+              const technologies = ["HTML", "CSS",
+              "JavaScript", "React", "Node"]; <br />
+              const list =
+              document.querySelector(".list");<br />
+              <br />
+              const markup = technologies<br />
+              .map((technology) => ` &#60;li
+              class="list-item"&#62;${technology}&#60;/li&#62;
+              `).join("");<br /><br />
+
+              list.innerHTML = markup;
+            </p>
+          </div>
+        </div>
+
+        <p class="m-bottom-min border-box">
+          <b>Важливо!</b> Нове значення для
+          element.innerHTML повністю видалить і повторно
+          створить усіх нащадків елемента element. Якщо
+          елемент спочатку не був порожній, то виникнуть
+          додаткові витрати на повторне створення вже
+          існуючої розмітки, а це погано. <br />
+          Використовуй властивість element.innerHTML для
+          <b>додавання тільки у разі</b>, <br />
+          — коли елемент element порожній <br />
+          — якщо потрібно повністю замінити вміст element
+        </p>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Метод insertAdjacentHTML()
+      </h3>
+
+      <div>
+        <p class="m-bottom-min">
+          <b>Метод insertAdjacentHTML()</b> — це сучасний
+          метод для додавання рядка з HTML-тегами перед,
+          після або всередину елемента. Він вирішує проблему
+          <b>innerHTML</b> з повторною серіалізацією вмісту
+          елемента під час додавання розмітки до вже
+          існуючої.
+        </p>
+        <div class="m-bottom-min bcg-box">
+          <p>
+            element.insertAdjacentHTML(position, string)
+          </p>
+        </div>
+        <p>
+          Аргумент <b>position</b> — це рядок, який визначає
+          позицію щодо елемента element. Він приймає одне з
+          чотирьох значень.
+        </p>
+        <ul class="list-style">
+          <li>
+            <b>"beforebegin"</b> — перед element (працюєть,
+            коли element вже знаходиться в DOM-дереві)
+          </li>
+          <li>
+            <b>"afterbegin"</b> — всередині element, перед
+            усіма дітьми
+          </li>
+          <li>
+            <b>"beforeend"</b> — всередині element, після
+            усіх дітей
+          </li>
+          <li>
+            <b>"afterend"</b> — після element (працюєть,
+            коли element вже знаходиться в DOM-дереві)
+          </li>
+        </ul>
+        <p>
+          Аргумент <b>string</b> — рядок з вілідною
+          HTML-розміткою або зміна, що її містить
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom">Події</h2>
     </section>
   </body>
 </html>
