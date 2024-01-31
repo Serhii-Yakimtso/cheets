@@ -1053,6 +1053,574 @@
           </tr> -->
         </tbody>
       </table>
+
+      <table class="print-m-bottom-max">
+        <caption>
+          Методи DOM
+        </caption>
+        <thead>
+          <th class="bcg-color-head">Метод</th>
+          <th class="bcg-color-head">Опис</th>
+          <th class="bcg-color-head">Приклад</th>
+        </thead>
+
+        <tbody>
+          <!-- Методи пошуку елементів -->
+          <tr>
+            <td class="bcg-color center-text" colspan="3">
+              <b>Методи пошуку елементів</b>
+            </td>
+          </tr>
+
+          <!-- querySelector -->
+          <tr>
+            <td>querySelector()</td>
+            <td>
+              <p>
+                Використовується, якщо необхідно знайти
+                тільки один, найчастіше унікальний елемент.
+              </p>
+              <ul class="list-style">
+                <li>
+                  Повертає <b>перший</b> знайдений елемент
+                  усередині element, що відповідає рядку
+                  <i>CSS-селектора selector</i>. Навіть якщо
+                  їх декілька, завжди повернеться посилання
+                  тільки на перший елемент у DOM-дереві.
+                </li>
+                <li>
+                  Якщо не знайдено - поверне
+                  <b>null</b>
+                </li>
+              </ul>
+              <div class="bcg-box">
+                <p>element.querySelector(selector)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                &#60;ul class="list"&#62;<br />
+                <b
+                  >&#60;li
+                  class="list-item"&#62;&#60;/li&#62;</b
+                ><br />
+                &#60;li
+                class="list-item"&#62;&#60;/li&#62;<br />
+                &#60;/ul&#62;<br />
+                <br />
+                const listItems =
+                document.querySelector(".list-item")
+              </p>
+            </td>
+          </tr>
+
+          <!-- querySelectorAll -->
+          <tr>
+            <td>querySelectorAll()</td>
+            <td>
+              <p>
+                Використовується, якщо необхідно знайти
+                колекцію елементів, тобто отримати масив
+                посилань на елементи з однаковим селектором.
+              </p>
+              <ul class="list-style">
+                <li>
+                  Повертає <i>псевдомасив</i> усіх елементів
+                  всередині element, які відповідають
+                  CSS-селектору <b>selector</b>
+                </li>
+                <li>
+                  Якщо нічого не знайдено, поверне порожній
+                  масив
+                </li>
+              </ul>
+              <div class="bcg-box">
+                <p>element.querySelectorAll(selector)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                &#60;ul class="list"&#62;<br />
+                <b
+                  >&#60;li
+                  class="list-item"&#62;&#60;/li&#62;</b
+                ><br />
+                <b>
+                  &#60;li
+                  class="list-item"&#62;&#60;/li&#62;</b
+                ><br />
+                &#60;/ul&#62;<br />
+                <br />
+                const listItems =
+                document.querySelector(".list-item")
+              </p>
+            </td>
+          </tr>
+
+          <!-- Методи властивості classList -->
+          <tr>
+            <td class="bcg-color center-text" colspan="3">
+              <b>Методи властивості classList</b>
+            </td>
+          </tr>
+
+          <!-- Приклад -->
+          <tr>
+            <td colspan="3">
+              <p><b>Приклад для методів нижче</b></p>
+              <p>
+                &#60;a class="link"
+                href="&#60;https://goit.global&#62;"
+                &#62;GoIT&#60;/a &#62;;<br />
+                const link =
+                document.querySelector(".link");<br />
+                console.log(link.classList); // ["link",
+                "is-active", length: 2, value: "link
+                is-active"]
+              </p>
+            </td>
+          </tr>
+
+          <!-- contains() -->
+          <tr>
+            <td>contains()</td>
+            <td>
+              <p>
+                Перевіряє наявність класу <b>className</b> в
+                елемента, та повертає <b>true</b> або
+                <b>false</b>
+              </p>
+              <p class="">
+                <i
+                  >Очікує аргументом рядок без крапки (без
+                  селектора класу) з іменем класу</i
+                >
+              </p>
+              <div class="bcg-box">
+                <p>el.classList.contains(className)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                const hasActiveClass =
+                link.classList.contains("is-active"); //
+                true
+                <br /><br />
+                const hasActiveClass =
+                link.classList.contains("title"); // false
+              </p>
+            </td>
+          </tr>
+
+          <!-- add() -->
+          <tr>
+            <td>add()</td>
+            <td>
+              <p class="">
+                Додає клас <b>className</b> до списку класів
+                елемента.
+              </p>
+              <div class="bcg-box">
+                <p>el.classList.add(className)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                link.classList.add("special");<br />
+                // ["link", "is-active", <b>"special"</b> ,
+                length: 3, value: "link is-active
+                <b>special</b>"]
+              </p>
+            </td>
+          </tr>
+
+          <!-- remove() -->
+          <tr>
+            <td>remove()</td>
+            <td>
+              <p class="">
+                Видаляє клас <b>className</b> зі списку
+                класів елемента.
+              </p>
+              <div class="bcg-box">
+                <p>el.classList.remove(className)</p>
+              </div>
+              <p>
+                <i
+                  >Якщо видалити клас, якого не існує на
+                  елементі, то це не викличе помилку.
+                </i>
+              </p>
+            </td>
+            <td>
+              <p>
+                link.classList.remove("is-active");<br />
+                // ["link", "special", length: 2, value:
+                "link special"]
+              </p>
+            </td>
+          </tr>
+
+          <!-- toggle() -->
+          <tr>
+            <td>toggle()</td>
+            <td>
+              <p>Працює як перемикач:</p>
+              <ul class="list-style">
+                <li>
+                  якщо клас className <i>відсутній</i>, то
+                  <b>додає</b> його в
+                  <i>кінець списку класів</i>;
+                </li>
+                <li>
+                  якщо клас className <i>присутній</i> —
+                  <b>видаляє</b> його.
+                </li>
+              </ul>
+              <div class="bcg-box">
+                <p>el.classList.toggle(className)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                link.classList.toggle("is-active");<br />
+                // ["link", "special", "is-active", length:
+                3, value: "link special is-active"]
+              </p>
+            </td>
+          </tr>
+
+          <!-- replace() -->
+          <tr>
+            <td>replace()</td>
+            <td>
+              <p class="">
+                Замінює існуючий клас <b>oldClassName</b> на
+                вказаний <b>newClassName</b>.
+              </p>
+              <div class="bcg-box">
+                <p>
+                  el.classList.replace(oldClassName,
+                  newClassName)
+                </p>
+              </div>
+            </td>
+            <td>
+              link.classList.replace("special",
+              "regular");<br />
+              // ["link", "regular", "is-active", length: 3,
+              value: "link regular is-active"]
+            </td>
+          </tr>
+
+          <!-- Методи атрибутів -->
+          <tr>
+            <td class="bcg-color center-text" colspan="3">
+              <b>Методи атрибутів</b>
+            </td>
+          </tr>
+
+          <!-- Приклад -->
+          <tr>
+            <td colspan="3">
+              <p><b>Приклад для методів нижче</b></p>
+              <p>
+                &#60;img class="image"
+                src="&#60;https://picsum.photos/id/15/320/240&#62;"
+                alt="Rocks and waterfall" width="300" /&#62;
+                <br />
+
+                const image =
+                document.querySelector(".image");
+              </p>
+            </td>
+          </tr>
+
+          <!-- hasAttribute() -->
+          <tr>
+            <td>hasAttribute()</td>
+            <td>
+              <p class="m-bottom-min">
+                Перевіряє наявність атрибуту у елементі, та
+                повертає <b>true</b> чи <b>false</b>.
+              </p>
+              <p class="">
+                Приймає один аргумент — рядок
+                <b>nameAttribute</b> з іменем атрибута.
+              </p>
+              <div class="bcg-box">
+                el.hasAttribute(nameAttribute)
+              </div>
+            </td>
+            <td>
+              image.hasAttribute("src"); // true
+              <br />
+              image.hasAttribute("href"); // false
+            </td>
+          </tr>
+
+          <!-- getAttribute() -->
+          <tr>
+            <td>getAttribute()</td>
+            <td>
+              <p class="m-bottom-min">
+                Повертає значення атрибута для вказаного
+                HTML-елемента
+              </p>
+              <div class="bcg-box">
+                <p>el.getAttribute(nameAttribute)</p>
+              </div>
+            </td>
+            <td>
+              <p>
+                image.getAttribute("alt"); // "Rocks and
+                waterfall"
+              </p>
+            </td>
+          </tr>
+
+          <!-- setAttribute() -->
+          <tr>
+            <td>setAttribute()</td>
+            <td>
+              <p class="m-bottom-min">
+                Встановлює або змінює значення зазначеного
+                атрибута для вказаного HTML-елемента
+              </p>
+              <ul class="">
+                <li>
+                  <b>nameAttribute</b> - ім'я атрибута, який
+                  потрібно встановити або змінити;
+                </li>
+                <li>
+                  <b>value</b> - значення, яке треба
+                  присвоїти цьому атрибуту.
+                </li>
+              </ul>
+              <div class="bcg-box">
+                el.setAttribute(nameAttribute, value)
+              </div>
+            </td>
+            <td>
+              image.getAttribute("alt"); // Amazing nature
+            </td>
+          </tr>
+
+          <!-- removeAttribute() -->
+          <tr>
+            <td>removeAttribute()</td>
+            <td>
+              <p class="m-bottom-min">
+                Видаляє атрибут із вказаного HTML-елемента
+              </p>
+              <p class="">
+                Якщо зазначеного атрибута немає на елементі,
+                метод не викликає жодних помилок та не
+                робить нічого.
+              </p>
+              <div class="bcg-box">
+                el.removeAttribute(nameAttribute)
+              </div>
+            </td>
+            <td>
+              image.removeAttribute("alt");
+              image.hasAttribute("alt"); // false
+            </td>
+          </tr>
+
+          <!-- Методи створення, додавання та видалення елементів -->
+          <tr>
+            <td class="bcg-color center-text" colspan="3">
+              <b
+                >Методи створення, додавання та видалення
+                елементів</b
+              >
+            </td>
+          </tr>
+
+          <!-- createElement() -->
+          <tr>
+            <td>createElement()</td>
+            <td>
+              <p>
+                Створює елемент з ім'ям tagName і повертає
+                посилання на його об’єкт як результат свого
+                виконання.
+              </p>
+              <p>
+                <b>tagName</b> — це рядок, що вказує тип
+                елемента, який створюється.
+              </p>
+              <p>
+                Елемент створюється в пам'яті, у DOM його ще
+                немає.
+              </p>
+              <div class="bcg-box">
+                document.createElement(tagName)
+              </div>
+            </td>
+            <td>
+              <p>
+                document.createElement(<b>tagName</b>)
+                <br /><br />
+                const list = document.createElement("ul");
+                <br />
+                const item =
+                document.createElement("li");<br />
+                const text = document.createElement("p");
+              </p>
+            </td>
+          </tr>
+
+          <!-- append() -->
+          <tr>
+            <td>append()</td>
+            <td>
+              <p>
+                додає один або декілька елементів
+                <b>після всіх дітей</b> елемента
+              </p>
+              <div class="bcg-box">
+                elem.append(el1, el2, ...)
+              </div>
+            </td>
+            <td>
+              list.append(item) <br />
+              <br />
+              &#60;ul&#62;<br />
+              &#60;li&#62;&#60;/li&#62;<br />
+              <b> &#60;li&#62;&#60;/li&#62;<br /> </b>
+              &#60;/ul&#62;
+            </td>
+          </tr>
+
+          <!-- prepend() -->
+          <tr>
+            <td>prepend()</td>
+            <td>
+              <p>
+                додає один або декілька елементів
+                <b>перед усіма дітьми</b> елемента
+              </p>
+              <div class="bcg-box">
+                elem.prepend(el1, el2, ...)
+              </div>
+            </td>
+            <td>
+              list.prepend(item) <br />
+              <br />
+              &#60;ul&#62;<br />
+              <b> &#60;li&#62;&#60;/li&#62;<br /> </b>
+              &#60;li&#62;&#60;/li&#62;<br />
+              &#60;/ul&#62;
+            </td>
+          </tr>
+
+          <!-- after() -->
+          <tr>
+            <td>after()</td>
+            <td>
+              <p>
+                додає один або декілька елементів
+                <b>після елемента</b>
+              </p>
+              <div class="bcg-box">
+                elem.after(el1, el2, ...)
+              </div>
+            </td>
+            <td>
+              list.after(text) <br />
+              <br />
+              &#60;ul&#62;<br />
+              &#60;li&#62;&#60;/li&#62;<br />
+              &#60;li&#62;&#60;/li&#62;<br />
+              &#60;/ul&#62;<br />
+              <b> &#60;p&#62;&#60;/p&#62;</b>
+            </td>
+          </tr>
+
+          <!-- before() -->
+          <tr>
+            <td>before()</td>
+            <td>
+              <p>
+                додає один або декілька елементів
+                <b>перед елементом</b>
+              </p>
+              <div class="bcg-box">
+                elem.before(el1, el2, ...)
+              </div>
+            </td>
+            <td>
+              list.after(text) <br />
+              <br />
+              <b> &#60;p&#62;&#60;/p&#62;</b><br />
+              &#60;ul&#62;<br />
+              &#60;li&#62;&#60;/li&#62;<br />
+              &#60;li&#62;&#60;/li&#62;<br />
+              &#60;/ul&#62;
+            </td>
+          </tr>
+
+          <!-- remove() -->
+          <tr>
+            <td>remove()</td>
+            <td>
+              <p>Видаляє елемент</p>
+              <div class="bcg-box">element.remove()</div>
+            </td>
+            <td>text.remove();</td>
+          </tr>
+
+          <!-- insertAdjacentHTML() -->
+          <tr>
+            <td>insertAdjacentHTML()</td>
+            <td>
+              <p>
+                додавання рядка з HTML-тегами перед, після
+                або всередину елемента.
+              </p>
+              <div class="bcg-box">
+                element.insertAdjacentHTML(position, string)
+              </div>
+              <p>
+                Аргумент <b>position</b> — це рядок, який
+                визначає позицію щодо елемента element. Він
+                приймає одне з чотирьох значень.
+              </p>
+              <ul class="list-style">
+                <li>
+                  <b>"beforebegin"</b> — перед element
+                  (працюєть, коли element вже знаходиться в
+                  DOM-дереві)
+                </li>
+                <li>
+                  <b>"afterbegin"</b> — всередині element,
+                  перед усіма дітьми
+                </li>
+                <li>
+                  <b>"beforeend"</b> — всередині element,
+                  після усіх дітей
+                </li>
+                <li>
+                  <b>"afterend"</b> — після element
+                  (працюєть, коли element вже знаходиться в
+                  DOM-дереві)
+                </li>
+              </ul>
+              <p>
+                Аргумент <b>string</b> — рядок з вілідною
+                HTML-розміткою або зміна, що її містить
+              </p>
+            </td>
+            <td>
+              list.insertAdjacentHTML("beforebegin",
+              "&#60;h2&#62;Popular
+              technologies&#60;/h2&#62;");
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </body>
 </html>

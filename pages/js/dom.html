@@ -793,6 +793,87 @@
 
     <section>
       <h2 class="m-bottom">Події</h2>
+
+      <h3>Метод addEventListener()</h3>
+      <div>
+        <p>
+          <b>Подія</b> — це сигнал від браузера про те, що
+          на вебсторінці щось відбулося. Події
+          використовуються для реакції на дії користувача й
+          виконання коду, пов'язаного з певною подією.
+        </p>
+        <ul class="m-bottom-min list-style">
+          <li>події миші,</li>
+          <li>події клавіатури,</li>
+          <li>події елементів форм,</li>
+          <li>зміни розмірів вікна,</li>
+          <li>завантаження зображень,</li>
+          <li>буфера обміну,</li>
+          <li>зміни стадії CSS анімації</li>
+          <li>зміни стадії CSS переходу</li>
+          <li>тощо</li>
+        </ul>
+
+        <p class="m-bottom-min">
+          <b>Слухач події</b> — це механізм, який "слухає"
+          або "очікує" на виникнення певної події. Метод
+          <b>addEventListener()</b> додає слухача події на
+          елемент.
+        </p>
+        <div class="m-bottom-min bcg-box">
+          element.addEventListener(event, handler, options)
+        </div>
+        <ul class="m-bottom-min list-style">
+          <li>
+            <b>event</b> — рядок, що містить ім'я події,
+            наприклад, "click"
+          </li>
+          <li>
+            <b>handler</b> — колбек-функція, яка буде
+            викликана під час настання події
+          </li>
+          <li>
+            <b>options</b> — необов'язковий об'єкт
+            параметрів із розширеними налаштуваннями
+          </li>
+        </ul>
+
+        <div class="m-bottom-min bcg-box">
+          <p>
+            &#60;button
+            class="my-button"&#62;Next&#60;/button&#62;
+            <br />
+            const button =
+            document.querySelector(".my-button");<br />
+            button.addEventListener("click", () => {
+            console.log("The button was pressed and now the
+            next image will appear"); });
+          </p>
+        </div>
+        <p class="m-bottom-min">
+          Для колбека можна використовувати не анонімну, а
+          окрему функцію, передаючи на неї посилання.
+        </p>
+        <div class="m-bottom-min bcg-box">
+          <p>
+            const button =
+            document.querySelector(".my-button");<br />
+            <br />
+            const handleClick = () => { console.log("The
+            button was pressed and now the next image will
+            appear"); };<br />
+            <br />
+            button.addEventListener("click", handleClick);
+          </p>
+        </div>
+        <p class="m-bottom-min border-box">
+          <b>Важливо!</b>
+          На одному елементі може бути будь-яка кількість
+          обробників подій, навіть подій одного типу.
+          Колбек-функції будуть викликатися в порядку їхньої
+          реєстрації в коді.
+        </p>
+      </div>
     </section>
   </body>
 </html>
