@@ -791,11 +791,10 @@
       </div>
     </section>
 
-    <section>
+    <section class="m-bottom print-m-bottom-max">
       <h2 class="m-bottom">Події</h2>
 
-      <h3>Метод addEventListener()</h3>
-      <div>
+      <div class="m-bottom-min">
         <p>
           <b>Подія</b> — це сигнал від браузера про те, що
           на вебсторінці щось відбулося. Події
@@ -813,7 +812,10 @@
           <li>зміни стадії CSS переходу</li>
           <li>тощо</li>
         </ul>
+      </div>
 
+      <h3 class="m-bottom-min">Метод addEventListener()</h3>
+      <div>
         <p class="m-bottom-min">
           <b>Слухач події</b> — це механізм, який "слухає"
           або "очікує" на виникнення певної події. Метод
@@ -873,6 +875,347 @@
           Колбек-функції будуть викликатися в порядку їхньої
           реєстрації в коді.
         </p>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Метод removeEventListener()
+      </h3>
+      <div class="m-bottom-min">
+        <p class="m-bottom-min">
+          Метод <b>removeEventListener()</b> видаляє слухача
+          події з елемента. Аргументи аналогічні методу
+          addEventListener()
+        </p>
+
+        <div class="m-bottom-min bcg-box">
+          element.removeEventListener(event, handler,
+          options)
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <p class="m-bottom-min">
+            Для того щоб мати можливість видаляти слухача
+            події з елемента через removeEventListener,
+            важливо використовувати ту саму
+            функцію-обробник, яка була призначена в
+            addEventListener. З цієї причини рекомендовано
+            для обробників подій використовувати іменовані
+            функції, які можна легко передавати як
+            аргументи.
+          </p>
+
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const btn =
+              document.querySelector(".my-button");<br />
+              <br />
+              const handleClick = () => { function's body
+              };<br />
+              <br />
+              btn.addEventListener("click", handleClick);<br />
+              btn.removeEventListener("click", handleClick);
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Об'єкт події</h3>
+      <div class="m-bottom-min">
+        <div class="m-bottom-min print-flex-box">
+          <p>
+            Кожна подія — це об'єкт, який містить інформацію
+            про деталі події та автоматично передається
+            першим аргументом в обробник події. Усі події
+            відбуваються з базового класу
+            <b>Event</b> (зазвичай оголошують як <b>e</b>,
+            <b>evt</b> або <b>event</b>).
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const handleClick = event => {
+              console.log(event); };<br />
+              <br />
+              button.addEventListener("click", handleClick);
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <div class="m-bottom-min">
+            <p>Деякі властивості об'єкта події:</p>
+            <ul>
+              <li><b>event.type</b> — тип події.</li>
+              <li>
+                <b>event.currentTarget</b> — елемент, на
+                якому виконується обробник події.
+              </li>
+            </ul>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const btn = document.querySelector(".btn");<br />
+              <br />
+              const handleClick = (event) => {<br />
+              console.log("event: ", event);<br />
+              console.log("event type: ", event.type);<br />
+              console.log("currentTarget: ",
+              event.currentTarget);<br />
+              };<br />
+              <br />
+              btn.addEventListener("click", handleClick);
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Події клавіатури</h3>
+      <div class="">
+        <div class="m-bottom-min">
+          <p>Існує дві основні події клавіатури:</p>
+          <ul class="m-bottom-min">
+            <li>
+              <b>keydown</b> — подія, що відбувається при
+              натисканні клавіші
+            </li>
+            <li>
+              <b>keyup</b> — подія, що відбувається, коли
+              клавішу відпустили
+            </li>
+          </ul>
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p class="m-bottom-min">
+                На відміну від інших подій, події клавіатури
+                обробляються на документі, а не на
+                конкретному елементі. Об'єкти подій
+                клавіатури походять від базового класу
+                <b>KeyboardEvent</b>.
+              </p>
+              <p class="m-bottom-min">
+                Події <b>keydown</b> і
+                <b>keyup</b> спрацьовують при натисканні
+                <i>будь-якої клавіші</i>, включно зі
+                службовими (Ctrl, ShiftAltEscape тощо).
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                document.addEventListener("keydown",
+                event<br />
+                => { console.log("Keydown: ", event); });<br />
+                <br />
+                document.addEventListener("keyup", event<br />
+                => { console.log("Keyup: ", event); });
+              </p>
+            </div>
+          </div>
+          <p class="m-bottom-min">
+            <i>На практиці</i> переважно обробляють тільки
+            подію <b>keydown</b>, оскільки вона відбувається
+            швидше за keyup і
+            <i
+              >користувач раніше бачить результат
+              натискання</i
+            >.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Властивості key і code</h3>
+      <div>
+        <div class="m-bottom-min print-flex-box">
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Властивість об’єкта події <b>key</b> повертає
+              символ, згенерований натисканням клавіші на
+              клавіатурі. Ця властивість
+              <i
+                >враховує стан клавіш-модифікаторів
+                (наприклад Shift) і поточну мову</i
+              >
+            </p>
+            <p>
+              Властивість об’єкта події <b>code</b> повертає
+              код фізичної клавіші на клавіатурі й не
+              залежить від мови та стану
+              клавіш-модифікаторів.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              document.addEventListener("keydown", event =>
+              { <br />
+              console.log("key: ", event.key);<br />
+              console.log("code: ", event.code);<br />
+              });
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <div class="m-bottom-min">
+            <p class="">
+              Для обробки комбінацій клавіш на об'єкті події
+              є властивості:
+            </p>
+            <ul class="list-style">
+              <li>
+                ctrlKey - якщо клавіша <b>Ctrl</b> була
+                активна (зажата) при настанні події
+              </li>
+              <li>
+                altKey - якщо клавіша <b>Alt</b> була
+                активна (зажата) при настанні події
+              </li>
+              <li>
+                shiftkey - якщо клавіша <b>Sgift</b> була
+                активна (зажата) при настанні події
+              </li>
+              <li>
+                metaKey - якщо клавіша
+                <b>Meta</b> (Win/Command) була активна
+                (зажата) при настанні події
+              </li>
+            </ul>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              document.addEventListener("keydown",<br />
+              event => {<br />
+              if ((event.ctrlKey || event.metaKey) <br />&&
+              event.code === "KeyS") {<br />
+              console.log("«Ctrl + s» or <br />«Command + s»
+              combo");<br />
+              }<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="m-bottom-min">Події елементів форм</h2>
+
+      <h3 class="m-bottom-min">Подія submit</h3>
+      <div>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Відправлення форми відбувається
+              <i
+                >при кліку на кнопку з атрибутом
+                <b>type="submit"</b></i
+              >
+              або
+              <i>при натисканні клавіші <b>Enter</b></i> під
+              час перебування в будь-якому її текстовому
+              полі форми
+            </p>
+            <p class="m-bottom-min">
+              Подія <b>submit</b> відбувається безпосередньо
+              на формі (тег <b>form</b>), тому обробник
+              подій слід встановлювати саме на ній.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const form =
+              document.querySelector("form");<br />
+              <br />
+              form.addEventListener("submit", event => {
+              <br />// ...<br />
+              });
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Метод <b>preventDefault()</b> - скасовує дії
+              браузера за замовчуванням (клік на посиланні
+              ініціює перехід на нову адресу, зазначену в
+              href, а відправлення форми перезавантажує
+              сторінку.)
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const form =
+              document.querySelector("form");<br />
+              <br />
+              form.addEventListener("submit", event => {<br />
+              event.preventDefault();<br />
+              });
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Подію submit можна застосувати для валідації
+              (перевірки) форми перед відправленням,
+              оскільки на об'єкті події існує багато
+              корисних властивостей, пов'язаних з елементами
+              форми.
+            </p>
+            <p class="m-bottom-min">
+              Властивість <b>elements</b> DOM-елемента форми
+              містить об'єкт з посиланнями на всі її
+              елементи, які мають атрибут name. Саме тому в
+              прикладі ми отримуємо значення полів,
+              звертаючись до
+              <i>event.target.elements.login.value</i> і
+              <i>event.target.elements.password.value</i>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const registerForm =
+              document.querySelector(".form");<br />
+              <br />
+              registerForm.addEventListener("submit",
+              handleSubmit);<br />
+              <br />
+              function handleSubmit(event) {<br />
+              event.preventDefault();<br />
+              cont form = event.target;<br />
+              const login = form.elements.login.value;<br />
+              const password =
+              form.elements.password.value;<br />
+              <br />
+              if (login === "" || password === "") {<br />
+              return console.log("Please fill in all the
+              fields!");<br />
+              }<br />
+              <br />
+              console.log(`Login: ${login.value}, Password:
+              ${password.value}`);<br />
+              form.reset();<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Подія change</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Подія <b>change</b> відбувається після зміни
+            елемента форми.
+          </p>
+          <p class="m-bottom-min">
+            Для текстових полів або <i>textarea</i> подія
+            відбудеться не на кожному введенні символу, а
+            після втрати фокусу.
+          </p>
+          <p class="m-bottom-min">
+            Для <i>select</i>, чекбоксів і радіокнопок,
+            подія change спрацьовує відразу під час вибору
+            значення.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box"></div>
       </div>
     </section>
   </body>
