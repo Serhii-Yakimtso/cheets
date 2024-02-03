@@ -1540,7 +1540,6 @@
             </td>
             <td>
               list.prepend(item) <br />
-              <br />
               &#60;ul&#62;<br />
               <b> &#60;li&#62;&#60;/li&#62;<br /> </b>
               &#60;li&#62;&#60;/li&#62;<br />
@@ -1562,7 +1561,6 @@
             </td>
             <td>
               list.after(text) <br />
-              <br />
               &#60;ul&#62;<br />
               &#60;li&#62;&#60;/li&#62;<br />
               &#60;li&#62;&#60;/li&#62;<br />
@@ -1585,7 +1583,6 @@
             </td>
             <td>
               list.before(text) <br />
-              <br />
               <b> &#60;p&#62;&#60;/p&#62;</b><br />
               &#60;ul&#62;<br />
               &#60;li&#62;&#60;/li&#62;<br />
@@ -1656,8 +1653,120 @@
         <tbody>
           <tr>
             <td class="bcg-color center-text" colspan="3">
-              <b></b>
+              <b>Методи подій</b>
             </td>
+          </tr>
+
+          <tr>
+            <td>addEventListener()</td>
+            <td>
+              <p>Додає слухача події на елемент.</p>
+              <div class="bcg-box">
+                element.addEventListener(event, handler,
+                options)
+              </div>
+              <ul>
+                <li>
+                  <b>event</b> — рядок, що містить ім'я
+                  події, наприклад, "click"
+                </li>
+                <li>
+                  <b>handler</b> — колбек-функція, яка буде
+                  викликана під час настання події
+                </li>
+                <li>
+                  <b>options</b> — необов'язковий об'єкт
+                  параметрів із розширеними налаштуваннями
+                </li>
+              </ul>
+            </td>
+            <td>
+              btn.addEventListener(<br />
+              "click",<br />
+              () => { console.log(""); }<br />);
+            </td>
+          </tr>
+
+          <tr>
+            <td>removeEventListener()</td>
+            <td>
+              <p>Видаляє слухача події з елемента.</p>
+              <div class="bcg-box">
+                element.removeEventListener(event, handler,
+                options)
+              </div>
+              <p>
+                <i>Аргументи аналогічні методу</i>
+                <b>addEventListener()</b>
+              </p>
+            </td>
+            <td>
+              const handleClick = () => { function's body
+              };<br />
+              <br />
+              btn.addEventListener("click", handleClick);<br />
+              btn.removeEventListener("click", handleClick);
+            </td>
+          </tr>
+
+          <tr>
+            <td>preventDefault()</td>
+            <td>
+              <p>
+                Скасовує дії браузера за замовчуванням.
+                Вкористовується в середині колбек-функції
+              </p>
+              <div class="bcg-box">
+                event.preventDefault()
+              </div>
+            </td>
+            <td>
+              form.addEventListener(<br />
+              "submit",<br />
+              event => { event.preventDefault();<br />
+              });
+            </td>
+          </tr>
+
+          <tr>
+            <td>focus()</td>
+            <td>
+              <p>
+                Активує фокус на елементі. Вкористовується в
+                середині колбек-функції
+              </p>
+              <div class="bcg-box">textInput.focus()</div>
+            </td>
+            <td>
+              setFocusBtn.addEventListener(<br />
+              "click",<br />
+              () => { textInput.focus(); }<br />);
+            </td>
+          </tr>
+
+          <tr>
+            <td>blur()</td>
+            <td>
+              <p>
+                Скасовує фокус на елементі. Вкористовується
+                в середині колбек-функції
+              </p>
+              <div class="bcg-box">textInput.blur()</div>
+            </td>
+            <td>
+              removeFocusBtn.addEventListener(<br />
+              "click",<br />
+              () => { textInput.blur(); }<br />);
+            </td>
+          </tr>
+
+          <!-- <tr>
+            <td></td>
+            <td>
+              <p></p>
+              <div class="bcg-box"></div>
+            </td>
+            <td></td>
           </tr>
 
           <tr>
@@ -1667,7 +1776,7 @@
               <div class="bcg-box"></div>
             </td>
             <td></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </section>
