@@ -139,65 +139,72 @@
           <tr>
             <td>elem.parentNode</td>
             <td>
-              посилання на батьківський вузол-елемент вузла
-              elem
+              посилання на <b>батьківський</b> вузол-елемент
+              вузла elem
             </td>
           </tr>
           <tr>
             <td>elem.childNodes</td>
             <td>
-              псевдомасив, у якому зібрані всі дочірні
+              <i>псевдомасив</i>, у якому зібрані
+              <b>всі дочірні</b>
               вузли-елементи і текстові вузли вузла elem
             </td>
           </tr>
           <tr>
             <td>elem.children</td>
             <td>
-              псевдомасив, у якому зібрані всі дочірні
-              вузли-елементи вузла elem, тобто ті, що
-              відповідають тегам
+              <i>псевдомасив</i>, у якому зібрані
+              <b>всі дочірні</b> вузли-елементи вузла elem,
+              тобто ті, що відповідають тегам
             </td>
           </tr>
           <tr>
             <td>elem.firstChild</td>
             <td>
-              осилання на перший дочірній вузол
-              (вузол-елемент або текстовий вузол) вузла elem
+              <i>посилання</i> на
+              <b>перший дочірній</b>вузол (вузол-елемент або
+              текстовий вузол) вузла elem
             </td>
           </tr>
           <tr>
             <td>elem.firstElementChild</td>
             <td>
-              посилання на перший дочірній вузол-елемент
-              усередині elem, тобто той, що відповідає тегу
+              <i>посилання</i> на
+              <b>перший дочірній</b> вузол-елемент усередині
+              elem, тобто той, що відповідає тегу
             </td>
           </tr>
           <tr>
             <td>elem.lastChild</td>
             <td>
-              посилання на останній дочірній вузол
-              (вузол-елемент або текстовий вузол) вузла elem
+              <i>посилання</i> на
+              <b>останній дочірній</b> вузол (вузол-елемент
+              або текстовий вузол) вузла elem
             </td>
           </tr>
           <tr>
             <td>elem.lastElementChild</td>
             <td>
-              посилання на останній дочірній вузол-елемент
+              <i>посилання</i> на
+              <b>останній дочірній</b> вузол-елемент
               усередині elem, тобто той, що відповідає тегу
             </td>
           </tr>
           <tr>
             <td>elem.previousSibling</td>
             <td>
-              посилання на попередній сусідній вузол
-              відносно елемента elem, і це може бути як
-              елемент, так і текстовий вузол
+              <i>посилання</i> на
+              <b>попередній сусідній</b> вузол відносно
+              елемента elem, і це може бути як елемент, так
+              і текстовий вузол
             </td>
           </tr>
           <tr>
             <td>elem.previousElementSibling</td>
             <td>
-              посилання на попередній сусідній вузол-елемент
+              <i>посилання</i> на
+              <b>попередній сусідній</b> вузол-елемент
               відносно елемента elem, тобто той, що
               відповідає тегу
             </td>
@@ -205,7 +212,8 @@
           <tr>
             <td>elem.nextSibling</td>
             <td>
-              посилання на наступний сусідній вузол відносно
+              <i>посилання</i> на
+              <b>наступний сусідній</b> вузол відносно
               елемента elem, і це може бути як елемент, так
               і текстовий вузол
             </td>
@@ -213,7 +221,8 @@
           <tr>
             <td>elem.nextElementSibling</td>
             <td>
-              посилання на наступний сусідній вузол-елемент
+              <i>посилання</i> на
+              <b>наступний сусідній</b> вузол-елемент
               відносно елемента elem, тобто той, що
               відповідає тегу
             </td>
@@ -1198,24 +1207,198 @@
       </div>
 
       <h3 class="m-bottom-min">Подія change</h3>
-      <div class="m-bottom-min print-flex-box">
+      <div class="m-bottom">
+        <p class="m-bottom-min">
+          Подія <b>change</b> відбувається після зміни
+          елемента форми.
+        </p>
+        <p class="m-bottom-min">
+          Для текстових полів або <i>textarea</i> подія
+          відбудеться не на кожному введенні символу, а
+          після <b>втрати</b> <b>фокусу</b>.
+        </p>
+        <p class="m-bottom-min">
+          Для <i>select</i>, чекбоксів і радіокнопок, подія
+          change спрацьовує відразу під час вибору значення.
+        </p>
+        <div class="m-bottom-min print-flex-box">
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            &#60;p&#62; Selected option text:<br />
+            &#60;span class="text-output"&#62;<br />none<br />&#60;/span&#62;<br />
+            &#60;/p&#62;<br />
+            <br />
+            &#60;p&#62; Selected option value:<br />
+            &#60;span class="value-output"&#62;<br />none<br />&#60;/span&#62;<br />
+            &#60;/p&#62;<br />
+            <br />
+            &#60;p&#62;<br />
+            &#60;select class="pizza-select"&#62;<br />
+            &#60;option value="four_meats"&#62;<br />Four
+            Meats<br />&#60;/option&#62;<br />
+            &#60;option value="vegetarian"&#62;<br />Vegetarian<br />&#60;/option&#62;<br />
+            &#60;/select&#62;<br />
+            &#60;/p&#62;
+          </div>
+
+          <div class="bcg-box print-bcg-box">
+            const select =
+            document.querySelector(".pizza-select");<br />
+            const textOutput =
+            document.querySelector(".text-output");<br />
+            const valueOutput =
+            document.querySelector(".value-output");<br />
+            <br />
+            select.addEventListener("change", setOutput);<br />
+            <br />
+            function setOutput(event) {<br />
+            const selectedOptionValue =
+            event.currentTarget.value;<br />
+            const selectedOptionIndex =
+            event.currentTarget.selectedIndex;<br />
+            const selectedOptionText =<br />
+            event.currentTarget.options[selectedOptionIndex].text;<br />
+            <br />
+            textOutput.textContent = selectedOptionText;<br />
+            valueOutput.textContent =
+            selectedOptionValue;<br />
+            }
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Подія input</h3>
+      <div class="m-bottom">
+        <p>
+          Подія <b>input</b> відбувається тільки на
+          <i>текстових полях</i> і <i>textarea</i>.
+        </p>
+        <p class="m-bottom-min">
+          Вона створюється щоразу при зміні значення
+          елемента, не чекаючи втрати фокусу. На практиці
+          input — це найголовніша подія для роботи з
+          текстовими полями форми.
+        </p>
+        <p>
+          Різниця між подіями <b>input</b> і
+          <b>change</b> на <i>текстових полях</i> і
+          <i>textarea</i>
+        </p>
+        <ul class="list-style">
+          <li>
+            Подія <b>input</b> - відбувається
+            <i>при кожній зміні значення</i> (при введенні
+            або видаленні), не залежить від втрати фокусу
+          </li>
+          <li>
+            Подія <b>change</b> - відбувається
+            <i>після втрати фокусу за умови</i>, що
+            відбулася зміна значення в елементі
+          </li>
+        </ul>
+        <div class="print-flex-box">
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            <p>
+              &#60;input type="text" class="text-input"
+              /&#62; <br />
+              &#60;p&#62;Text field value: <br />&#60;span
+              class="output"&#62;&#60;/span&#62;<br />&#60;/p&#62;
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const textInput =
+              document.querySelector(".text-input");<br />
+              const output =
+              document.querySelector(".output");<br />
+              <br />
+              textInput.addEventListener("input", (event) =>
+              {<br />
+              output.textContent =
+              event.currentTarget.value;<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Подія focus і blur</h3>
+      <div>
         <div>
           <p class="m-bottom-min">
-            Подія <b>change</b> відбувається після зміни
-            елемента форми.
+            Подія <b>focus</b> відбувається
+            <i>під час фокусування</i> на елементі. Елемент
+            <i>отримує фокус</i> під час
+            <i>кліку миші</i> або переходу клавішею
+            <i>Tab</i>. Отримуючи фокус, завантажити дані
+            для автозаповнення, почати відстежувати зміни
+            тощо.
           </p>
           <p class="m-bottom-min">
-            Для текстових полів або <i>textarea</i> подія
-            відбудеться не на кожному введенні символу, а
-            після втрати фокусу.
+            Подія <b>blur</b> відбувається
+            <i>при втраті фокусу</i>, наприклад, користувач
+            клікає в іншому місці екрана. Під час втрати
+            фокусу можна перевірити введені дані.
           </p>
           <p class="m-bottom-min">
-            Для <i>select</i>, чекбоксів і радіокнопок,
-            подія change спрацьовує відразу під час вибору
-            значення.
+            Активувати або скасувати фокус можна викликавши
+            в коді для елемента однойменні методи
+            <b>focus()</b> і <b>blur()</b>.
+          </p>
+          <p class="m-bottom-min">
+            <i>Фокус може бути тільки на одному елементі</i>
+            сторінки за одиницю часу. Поточний елемент, на
+            якому знаходиться фокус, доступний за
+            <i>властивістю</i>
+            <b>document.activeElement</b>.
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Важливо!</b> Більшість елементів не можуть
+            отримати фокус. Наприклад, якщо клікнути по
+            &#60;div&#62;, то фокусування на ньому не
+            відбудеться, тому що це не інтерактивний
+            елемент.
           </p>
         </div>
-        <div class="bcg-box print-bcg-box"></div>
+        <div class="print-flex-box">
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            &#60;button<br />type="button"<br />
+            data-action="set"<br />&#62;<br />
+            Set focus to input <br />
+            &#60;/button&#62;<br /><br />
+            &#60;button<br />
+            type="button"<br />
+            data-action="remove"<br />&#62;<br />
+            Remove focus from input <br />
+            &#60;/button&#62;<br />
+            <br />
+            &#60;input type="text" class="text-input" /&#62;
+          </div>
+          <div class="bcg-box print-bcg-box">
+            const textInput = document.querySelector(<br />".text-input");<br />
+            const setFocusBtn = document.querySelector(<br />'[data-action="set"]');<br />
+            const removeFocusBtn =
+            document.querySelector(<br />'[data-action="remove"]');<br />
+            <br />
+            setFocusBtn.addEventListener("click", <br />()
+            => { textInput.focus(); });<br />
+            <br />
+            removeFocusBtn.addEventListener("click",<br />
+            () => { textInput.blur(); });<br />
+            <br />
+            textInput.addEventListener("focus",<br />
+            () => { textInput.value = "This input has
+            focus"; });<br />
+            <br />
+            textInput.addEventListener("blur",<br />
+            () => { textInput.value = ""; });
+          </div>
+        </div>
       </div>
     </section>
   </body>
