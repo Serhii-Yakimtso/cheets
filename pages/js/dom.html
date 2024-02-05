@@ -904,7 +904,9 @@
           options)
         </div>
 
-        <div class="m-bottom-min print-flex-box">
+        <div
+          class="m-bottom-min print-flex-box print-m-bottom-max"
+        >
           <p class="m-bottom-min">
             Для того щоб мати можливість видаляти слухача
             події з елемента через removeEventListener,
@@ -1154,7 +1156,6 @@
             <p>
               const form =
               document.querySelector("form");<br />
-              <br />
               form.addEventListener("submit", event => {<br />
               event.preventDefault();<br />
               });
@@ -1184,10 +1185,8 @@
             <p>
               const registerForm =
               document.querySelector(".form");<br />
-              <br />
               registerForm.addEventListener("submit",
               handleSubmit);<br />
-              <br />
               function handleSubmit(event) {<br />
               event.preventDefault();<br />
               cont form = event.target;<br />
@@ -1199,7 +1198,6 @@
               return console.log("Please fill in all the
               fields!");<br />
               }<br />
-              <br />
               console.log(`Login: ${login.value}, Password:
               ${password.value}`);<br />
               form.reset();<br />
@@ -1213,16 +1211,12 @@
       <div class="m-bottom">
         <p class="m-bottom-min">
           Подія <b>change</b> відбувається після зміни
-          елемента форми.
-        </p>
-        <p class="m-bottom-min">
-          Для текстових полів або <i>textarea</i> подія
-          відбудеться не на кожному введенні символу, а
-          після <b>втрати</b> <b>фокусу</b>.
-        </p>
-        <p class="m-bottom-min">
-          Для <i>select</i>, чекбоксів і радіокнопок, подія
-          change спрацьовує відразу під час вибору значення.
+          елемента форми. Для текстових полів або
+          <i>textarea</i> подія відбудеться не на кожному
+          введенні символу, а після <b>втрати</b>
+          <b>фокусу</b>. Для <i>select</i>, чекбоксів і
+          радіокнопок, подія change спрацьовує відразу під
+          час вибору значення.
         </p>
         <div class="m-bottom-min print-flex-box">
           <div
@@ -1231,11 +1225,9 @@
             &#60;p&#62; Selected option text:<br />
             &#60;span class="text-output"&#62;<br />none<br />&#60;/span&#62;<br />
             &#60;/p&#62;<br />
-            <br />
             &#60;p&#62; Selected option value:<br />
             &#60;span class="value-output"&#62;<br />none<br />&#60;/span&#62;<br />
             &#60;/p&#62;<br />
-            <br />
             &#60;p&#62;<br />
             &#60;select class="pizza-select"&#62;<br />
             &#60;option value="four_meats"&#62;<br />Four
