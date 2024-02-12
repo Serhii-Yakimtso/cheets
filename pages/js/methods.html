@@ -1103,8 +1103,8 @@
             <td>querySelector()</td>
             <td>
               <p>
-                Використовується, якщо необхідно знайти
-                тільки один, найчастіше унікальний елемент.
+                Знаходить тільки один, найчастіше унікальний
+                елемент.
               </p>
               <ul class="list-style">
                 <li>
@@ -1145,9 +1145,9 @@
             <td>querySelectorAll()</td>
             <td>
               <p>
-                Використовується, якщо необхідно знайти
-                колекцію елементів, тобто отримати масив
-                посилань на елементи з однаковим селектором.
+                Знаходить колекцію елементів, тобто отримати
+                масив посилань на елементи з однаковим
+                селектором.
               </p>
               <ul class="list-style">
                 <li>
@@ -1374,7 +1374,7 @@
                 Перевіряє наявність атрибуту у елементі, та
                 повертає <b>true</b> чи <b>false</b>.
               </p>
-              <p class="">
+              <p class="m-bottom-min">
                 Приймає один аргумент — рядок
                 <b>nameAttribute</b> з іменем атрибута.
               </p>
@@ -1760,6 +1760,58 @@
             </td>
           </tr>
 
+          <tr>
+            <td>stopPropagation()</td>
+            <td>
+              <p>
+                зупиняє "спливання" події в DOM-дереві,
+                тобто жоден батьківський елемент не зможе
+                відловити цю подію. Не заважає іншим
+                обробникам подій виконуватися на тому ж
+                самому елементі.
+              </p>
+              <div class="bcg-box">
+                event.stopPropagation()
+              </div>
+            </td>
+            <td>
+              child.addEventListener(<br />'click',<br />
+              (event) => {<br />
+              event.stopPropagation()<br />
+              ...<br />
+              })<br />
+              child.addEventListener(<br />'click',<br />
+              (event) => {<br />
+              ...<br />
+              })
+            </td>
+          </tr>
+          <tr>
+            <td>stopImmediatePropagation()</td>
+            <td>
+              <p>
+                зупиняє "спливання" події і, також зупиняє
+                виконання всіх інших обробників подій, які
+                слухають цю ж подію на даному елементі,
+                навіть якщо вони були зареєстровані перед
+                цим.
+              </p>
+              <div class="bcg-box">
+                event.stopImmediatePropagation()
+              </div>
+            </td>
+            <td>
+              child.addEventListener(<br />'click',<br />
+              (event) => {<br />
+              event.stopPropagation()<br />
+              ...<br />
+              })<br />
+              child.addEventListener(<br />'click',<br />
+              (event) => {<br />
+              ...<br />
+              }) // ця подія не відбудеться
+            </td>
+          </tr>
           <!-- <tr>
             <td></td>
             <td>

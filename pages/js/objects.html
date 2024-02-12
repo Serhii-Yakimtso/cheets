@@ -69,7 +69,10 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">Доступ до властивостей</h2>
+      <h2 class="m-bottom">
+        Робота над властивостями об'єктів
+      </h2>
+      <h3 class="m-bottom-min">Доступ до властивостей</h3>
       <div class="m-bottom-min print-flex-box">
         <div>
           <p>Синтаксис <b>objectName.key</b></p>
@@ -90,7 +93,6 @@
             const book = {<br />
             title: "The Last Kingdom",<br />
             };<br />
-            <br />
             console.log(book.title;); // "The Last
             Kingdom"<br />
             console.log(book.price); // undefined
@@ -119,7 +121,6 @@
             title: "The Last Kingdom",<br />
             author: "Bernard Cornwell",<br />
             };<br />
-            <br />
             console.log(book.title); // "The Last Kingdom"
             <br />
             console.log(book["title"]); // "The Last
@@ -136,9 +137,9 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">
+      <h3 class="m-bottom-min">
         Доступ до вкладених властивостей
-      </h2>
+      </h3>
       <div class="print-flex-box">
         <div>
           <p>
@@ -172,9 +173,9 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">
+      <h3 class="m-bottom-min">
         Доступ до властивості-масиву
-      </h2>
+      </h3>
       <div class="print-flex-box">
         <div>
           <p></p>
@@ -205,9 +206,9 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">
+      <h3 class="m-bottom-min">
         Зміна значення властивостей
-      </h2>
+      </h3>
       <div class="print-flex-box">
         <div>
           <p>
@@ -240,7 +241,7 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">Додавання властивостей</h2>
+      <h3 class="m-bottom-min">Додавання властивостей</h3>
       <div class="print-flex-box">
         <div>
           <p>
@@ -266,7 +267,7 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">Короткі властивості</h2>
+      <h3 class="m-bottom-min">Короткі властивості</h3>
       <div class="print-flex-box">
         <div>
           <p>
@@ -305,9 +306,9 @@
     </section>
 
     <section class="m-bottom">
-      <h2 class="m-bottom-min">
+      <h3 class="m-bottom-min">
         Обчислювальні властивості
-      </h2>
+      </h3>
       <div class="print-flex-box">
         <div>
           <p class="m-bottom-min">
@@ -869,7 +870,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="m-bottom">
       <h2 class="m-bottom">Класи</h2>
 
       <h3 class="m-bottom-min">Визначення</h3>
@@ -1587,5 +1588,404 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2 class="m-bottom">Деструктуризація</h2>
+
+      <p class="m-bottom-min">
+        <b>Деструктуризація</b> (Destructuring) — це
+        особливий синтаксис, що дозволяє витягти значення зі
+        структур даних, такі як об'єкти або масиви, і
+        присвоїти їх змінним.
+      </p>
+      <div
+        class="print-flex-box m-bottom"
+        style="justify-content: space-evenly"
+      >
+        <div>
+          <p class="m-bottom-min center-text">
+            Без деструктуризації
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const user = { <br />
+            name: "Jacob", <br />
+            age: 32 <br />
+            };<br />
+            <br />
+            console.log(user.name); // Jacob<br />
+            console.log(user.age); // 32
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min center-text">
+            Із деструктуризацією
+          </p>
+          <div class="bcg-box print-bcg-box">
+            const user = { <br />
+            name: "Jacob", <br />
+            age: 32 <br />
+            };<br />
+            <br />
+            const { name, age } = user;<br />
+            console.log(name); // Jacob<br />
+            console.log(age); // 32
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Деструктуризація об'єктів
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Деструктуризація дозволяє
+            <i>«розпакувати»</i> значення властивостей
+            об'єкта в локальні змінні.
+          </p>
+          <p class="m-bottom-min">
+            Після <i>ключового слова</i> <b>const</b> або
+            <b>let</b> ставимо <i>фігурні дужки</i>, як і у
+            випадку з оголошенням об'єкта.
+          </p>
+          <p class="m-bottom-min">
+            Усередині дужок, через кому, вказуємо імена
+            змінних, яким будуть задані відповідні значення
+            властивостей деструктуризованого об’єкта.
+          </p>
+          <ul class="list-style">
+            <li>
+              <i>Деструктуризація</i> завжди знаходиться в
+              <i>лівій</i>
+              частині операції присвоювання.
+            </li>
+            <li>
+              Змінним усередині фігурних дужок присвоюються
+              значення <b>однойменних</b> властивостей
+              об'єкта з відповідними іменами.
+            </li>
+            <li>
+              <i>Послідовність</i> оголошення змінних у
+              фігурних дужках не важлива.
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const book = {<br />
+            title: "The Last Kingdom",<br />
+            author: "Bernard Cornwell",<br />
+            genres: ["historical prose", "adventure"],<br />
+            isPublic: true,<br />
+            rating: 8.38,<br />
+            };<br />
+            <br />
+            // <i>Деструктуризуємо</i><br />
+            const { title, author, isPublic } = book;<br />
+            <br />
+            // <i>Використовуємо</i><br />
+            const accessType = isPublic ? "pulbic" :
+            "private";<br />
+            const message = `Book ${title} by ${author}<br />
+            is in ${accessType} access!`;<br />
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Деструктуризація неіснуючих властивостей
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p>
+            У випадку, якщо ім'я змінної та ім'я властивості
+            збігаються, то відбувається присвоєння. Коли в
+            об'єкті немає властивості з таким ім'ям, змінній
+            буде присвоєно <b>undefined</b>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const book = {<br />
+            title: "The Last Kingdom",<br />
+            author: "Bernard Cornwell",<br />
+            };<br />
+            <br />
+            // <i>Деструктуризуємо</i> <br />
+            const { title, bookTitle, coverImage } =
+            book;<br />
+            console.log(title); // "The Last Kingdom"<br />
+            console.log(bookTitle); // undefined<br />
+            console.log(coverImage); // undefined
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p>
+            Під час деструктуризації неіснуючих
+            властивостей, можна задати змінним значення за
+            замовчуванням, використовуючи знак <b>"="</b>.
+            Це значення буде присвоєно тільки у випадку,
+            коли в об'єкті <i>відсутня властивість</i> із
+            таким ім'ям.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const book = {<br />
+            title: "The Last Kingdom",<br />
+            author: "Bernard Cornwell",<br />
+            };<br />
+            //
+            <i
+              >Додамо зображення обкладинки, якщо вона
+              відсутня в об'єкті книги</i
+            >
+            <br />
+            const {<br />
+            title,<br />
+            author,<br />
+            coverImage =
+            "&#60;https://via.placeholder.com/640/480&#62;"<br />
+            } = book;<br />
+            <br />
+            console.log(title); // "The Last Kingdom"<br />
+            console.log(author); // "Bernard Cornwell"<br />
+            console.log(coverImage); //
+            "&#60;https://via.placeholder.com/640/480&#62;"
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Перейменування змінної</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Під час деструктуризації можна перейменувати
+            змінну, в яку розпаковується значення
+            властивості, використовуючи <b>":"</b>.
+          </p>
+          <p>Для цього пишемо:</p>
+          <ul class="list-style">
+            <li>
+              ім'я властивості, з якої хочемо отримати
+              значення
+            </li>
+            <li>ставимо двокрапку <b>":"</b></li>
+            <li>
+              пишемо ім'я змінної, в яку необхідно помістити
+              значення цієї властивості.
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const book = {<br />
+            title: "The Last Kingdom",<br />
+            author: "Bernard Cornwell",<br />
+            };<br /><br />
+            // <i>Деструктуризуємо</i> <br />
+            const { title, author: bookAuthor } = book;<br />
+            console.log(title); // "The Last Kingdom"<br />
+            console.log(bookAuthor); // "Bernard Cornwell"
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            При перейменуванні змінної, в яку ми
+            розпаковуємо значення властивості об'єкта, також
+            можна присвоїти значення за замовчуванням.
+          </p>
+          <p>
+            Якщо така властивість існує в об'єкті, у змінну
+            буде присвоєно її значення. В іншому випадку
+            змінній буде присвоєно значення за
+            замовчуванням.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const book = {<br />
+            title: "The Last Kingdom",<br />
+            coverImage:<br />
+            "&#60;https://images-na.ssl-images-amazon.com/images/image.jpg.jpg&#62;",<br />
+            };<br />
+            <br />
+            const {<br />
+            title,<br />
+            coverImage: bookCoverImage =<br />
+            "&#60;https://via.placeholder.com/640/480&#62;",<br />
+            } = book;<br />
+            <br />
+            console.log(bookCoverImage); // <br />
+            "&#60;https://images-na.ssl-images-amazon.com/images/image.jpg&#62;"
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Деструктуризація в циклах
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min center-text">
+            Деструктуризація в тілі цикла
+          </p>
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            <p>
+              for (const book of books) {<br />
+              const { title, author, rating } = book;<br />
+              console.log(title);<br />
+              console.log(author);<br />
+              console.log(rating);<br />
+              }
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min center-text">
+            Деструктуризація при ініціалізаціїї
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              for (const { title, author, rating } of books)
+              {<br />
+              console.log(title);<br />
+              console.log(author);<br />
+              console.log(rating);<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Деструктуризація параметрів функції
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min center-text">
+            Деструктуризація в тілі функції
+          </p>
+          <div
+            class="bcg-box print-bcg-box print-m-left-none"
+          >
+            <p>
+              function printUserInfo(user) {<br />
+              const { name, age } = user<br />
+              console.log(`Name: ${name}, Age: ${age}`);<br />
+              }<br />
+              <br />
+              printUserInfo({ <br />
+              name: "Alice", <br />
+              age: 25, <br />
+              }); // Name: Alice, Age: 25,
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min center-text">
+            Деструктуризація при оголошення параметрів
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function printUserInfo({ name, age }) {<br />
+              console.log(`Name: ${name}, Age: ${age} `);<br />
+              }<br />
+              <br />
+              printUserInfo({ <br />
+              name: "Alice", <br />
+              age: 25, <br />
+              }); // Name: Alice, Age: 25
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Глибока деструктуризація</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для деструктуризації властивостей вкладених
+            об'єктів використовуються ті самі принципи.
+          </p>
+          <p>
+            Під час глибокої деструктуризації також можна
+            змінювати імена змінних і присвоювати значення
+            за замовчуванням
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const user = {<br />
+            name: "Jacques Gluke",<br />
+            stats: {<br />
+            followers: 5603,<br />
+            likes: 1308,<br />
+            },<br />
+            };<br />
+            <br />
+            const {<br />
+            name,<br />
+            stats: { followers, likes: userLikes = 0 },<br />
+            } = user;
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Часткова деструктуризація
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p>
+            Можна деструктуризувати певні властивості в
+            окремі змінні, а решту зібрати в новий об'єкт за
+            допомогою операції <b>...rest</b>.
+          </p>
+          <p>
+            При цьому
+            <i>оригінальний об'єкт не змінюється</i>, у
+            змінній <i>otherProps</i> буде
+            <i>новий об'єкт</i> із копіями зібраних
+            властивостей.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            const user = {<br />
+            name: "Jacob",<br />
+            age: 32,<br />
+            email: "j.cob@mail.com",<br />
+            isOnline: true<br />
+            };<br />
+            <br />
+            const { name, isOnline, ...otherProps } =
+            user;<br />
+            <br />
+            console.log(name); // "Jacob"<br />
+            console.log(isOnline); // true<br />
+            console.log(otherProps); <br />// {age: 32,
+            email: "j.cob@mail.com"}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <h3 class="m-bottom-min"></h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p></p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p></p>
+        </div>
+      </div> -->
   </body>
 </html>
