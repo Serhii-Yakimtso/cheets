@@ -1,0 +1,163 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul.list-style,
+ol.list-style {
+  list-style: inside;
+}
+
+ol.list-style {
+  list-style-type: decimal;
+}
+
+ul.list-mid-lvl {
+  list-style: outside;
+  padding-left: 30px;
+}
+
+ul.list-style-type {
+  list-style: outside;
+  list-style-type: '-  ';
+  padding-left: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+tr {
+  border: 2px solid black;
+}
+
+.bcg-color {
+  background-color: rgb(255, 248, 122);
+}
+
+.bcg-color-head {
+  background-color: lightgray;
+}
+
+.section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.accent {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bcg-box {
+  padding: 8px 15px;
+  margin: 0 auto;
+  max-width: max-content;
+  border-radius: 4px;
+  background-color: lightgray;
+}
+
+.border-box {
+  padding: 4px;
+  border: 2px dashed black;
+  border-radius: 16px;
+}
+
+.m-bottom {
+  margin-bottom: 20px;
+}
+
+.m-bottom-min {
+  margin-bottom: 8px;
+}
+
+.center-element {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* ================================================= */
+/* ===================== PRINT ===================== */
+/* ================================================= */
+
+/* @media print { */
+.print-home-link {
+  display: none;
+}
+
+.print-flex-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.print-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.print-bcg-box {
+  margin-left: auto;
+  margin-right: 0;
+  min-width: max-content;
+}
+
+.print-m-bottom-max {
+  margin-bottom: 1000px;
+}
+
+.print-m-left-none {
+  margin-left: 0;
+}
+
+.print-max-width {
+  min-width: 100%;
+}
+.print-fs-13 {
+  font-size: 13px;
+}
+.print-fs-15 {
+  font-size: 15px;
+}
+/* } */
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 2px dotted red;
+  background-color: green;
+}
+
+.box:hover {
+  background-color: blue;
+}

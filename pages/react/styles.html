@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Стилі</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Стилі</h1>
+
+    <!-- Вбудовані стилі -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Вбудовані стилі</h2>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для стилізації за допомогою вбудованих стилів
+            використовується атрибут <b>style</b>, який у
+            React приймає <i>не рядок, а об'єкт стилів</i>.
+          </p>
+          <ul class="list-style">
+            <li>
+              <i>імена властивостей</i>, що складаються з
+              <i>двох і більше слів</i>, наприклад
+              background-color, обов'язково повинні бути
+              записані в <b>camelCase</b> нотації (<b
+                >backgroundColor</b
+              >
+              ), як при зверненні до властивостей об'єкта
+              style у DOM-елемента.
+            </li>
+            <li>
+              до <i>числових значень</i> більшості
+              властивостей буде автоматично додано суфікс
+              <b>px</b>. Якщо необхідно використовувати
+              одиниці відмінні від px, або значення
+              складається з кількох частин, воно вказується
+              як рядок.
+            </li>
+          </ul>
+        </div>
+        <div class="print-bcg-box">
+          <div class="bcg-box">
+            <p>
+              <i>// src/components/App.jsx </i><br />
+              export const App = () => {<br />
+                  return (<br />
+                      &#60;p<br />
+                         
+              <b
+                >style={{<br />
+                                padding: "12px 16px",<br />
+                                borderRadius: 4,<br />
+                                fontSize: 16,<br />
+                                color: "white",<br />
+                            }}</b
+              ><br />
+                      ><br />
+                          text<br />
+                      &#60;/p><br />
+                  );<br />
+              };<br /><br /><br />
+            </p>
+          </div>
+          <p class="center-text">
+            <b
+              >Стилі описанні безпосередньо <br />в атрибуті
+              тега</b
+            >
+          </p>
+        </div>
+        <div class="print-bcg-box">
+          <div class="bcg-box">
+            <p>
+              <i>// src/components/App.jsx </i><br />
+
+              <b
+                >const alertStyles = {<br />
+                    padding: "12px 16px",<br />
+                    borderRadius: 4,<br />
+                    fontSize: 16,<br />
+                    color: "white",<br />
+                }</b
+              >;<br /><br />
+              export const App = () => {<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;p<br />
+                              <b>style={alertStyles}</b
+              ><br />            >text&#60;/p><br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
+          <p class="center-text">
+            <b>
+              Опис стилів винесений у <br />окрему змінну
+            </b>
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">Динамічні стилі</h3>
+      <div>
+        <div>
+          <p class="m-bottom-min">
+            Динамічні стилі - вбудовані стилі, які
+            змінюються при виконанні умови.
+          </p>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div class="print-m-left-none">
+            <div
+              class="m-bottom-min bcg-box print-bcg-box print-m-left-none"
+            >
+              <p>
+                <i> // src/components/App.jsx </i><br />
+                import { Alert } from "./Alert";<br />
+                <br />
+                const App = () => {<br />
+                    return (<br />
+                        &#60;><br />
+                            &#60;Alert variant="error"> Text
+                &#60;/Alert><br />
+                            &#60;Alert
+                variant="success">Text&#60;/Alert><br />
+                        &#60;/><br />
+                    );<br />
+                };<br />
+              </p>
+            </div>
+            <div class="border-box m-bottom-min">
+              <p class=""><b>Підсумок:</b></p>
+              <ul class="list-style">
+                <li>
+                  слабка масштабованість та повторне
+                  використання стилів;
+                </li>
+                <li>
+                  обмежені можливості (псевдокласи,
+                  псевдоелементи, адаптивні властивості);
+                </li>
+                <li>
+                  погана продуктивність при відмальовуванні
+                  великої кількості елементів;
+                </li>
+                <li>
+                  відсутність зручних інструментів
+                  розробника;
+                </li>
+                <li>
+                  немає підтримки в популярних інструментах,
+                  наприклад autoprefixer.
+                </li>
+              </ul>
+            </div>
+            <div class="border-box">
+              <p>
+                <b>Важливо!</b>
+                На практиці вбудовані стилі використовуються
+                тільки для динамічно обчислюваних значень
+                властивостей, у парі із зовнішніми таблицями
+                стилів.
+              </p>
+            </div>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/components/Alert.jsx </i><br />
+              const alertStyles = {<br />
+                  color: "white",<br />
+              };<br />
+              <br />
+              const getBgColor = variant => {<br />
+                  switch (variant) {<br />
+                      case "success":<br />
+                          return "green";<br />
+                      case "error":<br />
+                          return "red";<br />
+                      default:<br />
+                          throw new Error("Text
+              default");<br />
+                  }<br />
+              };<br />
+              <br />
+              export const Alert = ({ variant, children })
+              => {<br />
+                  return (<br />
+                      &#60;p<br />
+                          style={{<br />
+                              ...alertStyles,<br />
+                              backgroundColor:
+              getBgColor(variant),<br />
+                          }}<br />
+                      >{children}&#60;/p><br />
+                  );<br />
+              };<br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ванільний CSS -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Ванільний CSS</h2>
+      <div>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Стилі компонента винести до окремої таблиці
+              стилів. Стилі кожного компонента оголошуються
+              в окремому CSS-файлі з розширенням
+              <b>*.css</b>. Ім'я файлу складається з
+              <i>імені компонента</i> та
+              <i>розширення</i> (Alert.css).
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Всередині файлу стилів можна
+              написати будь-який валідний CSS код. Хорошою
+              практикою буде писати CSS тільки для
+              HTML-розмітки компонента до якого належить цей
+              файл стилів.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> /* src/components/Alert.css */ </i
+              ><br /><br />
+              .alert {<br />
+                  margin: 8px;<br />
+                  padding: 12px 16px;<br />
+                  border-radius: 4px;<br />
+                  background-color: gray;<br />
+                  color: white;<br />
+              }
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Стилі компонента
+              <b
+                >імпортуються у файл оголошення
+                компонента</b
+              >, після чого CSS-класи описані у таблиці
+              стилів доступні для використання.
+            </p>
+            <p class="">
+              У React HTML-атрибуту class відповідає
+              JSX-атрибут <b>className</b>, куди можна
+              передати рядок з перерахуванням усіх класів
+              елемента.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/components/Alert.jsx </i><br />
+              <b>import "./Alert.css"</b>;<br />
+              <br />
+              const Alert = ({ children }) => {<br />
+                  return &#60;p className="alert">{children}
+              &#60;/p>;<br />
+              };
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Композиція класів -->
+      <h3 class="m-bottom-min">Композиція класів</h3>
+      <div class="print-m-bottom-max">
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Процес обчислення
+              <i>фінального значення атрибуту</i>
+              <b>className</b> залежить від розробника та
+              поточного завдання. Наприклад, використовуємо
+              масив рядків та метод join щоб отримати рядок
+              класів.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Ім'я компонента обов'язково
+              повинно починатися з великої літери. Назви
+              компонентів з маленької літери зарезервовані
+              для HTML-елементів. Якщо ви спробуєте назвати
+              компонент product, а не Product, під час
+              рендеру React проігнорує його та відрендерить
+              тег
+              <b>&#60;product&#62;&#60;/product&#62;</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> // src/components/Alert.jsx </i><br />
+              import "./Alert.css";<br />
+              <br />
+              const Alert = ({ variant, children }) => {<br />
+                  const classNames = ["alert", variant];<br />
+              <br />
+                  return <br />
+                      &#60;p className={classNames.join("
+              ")}><br />
+                          {children}<br />
+                      &#60;/p>;<br />
+              };
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> /* src/components/Alert.css */ </i><br />
+
+              .alert {<br />
+                  margin: 8px;<br />
+                  padding: 12px 16px;<br />
+                  border-radius: 4px;<br />
+                  color: white;<br />
+              }<br />
+
+              <br />
+              .alert.is-outlined {<br />
+                  outline: 1px solid black;<br />
+              }<br />
+              <br />
+              .alert.is-elevated {<br />
+                  box-shadow: <br />
+                      rgb(0 0 0 / 20%) 0px 3px 3px -2px,<br />
+                      rgb(0 0 0 / 14%) 0px 3px 4px 0px,<br />
+                      rgb(0 0 0 / 12%) 0px 1px 8px 0px;<br />
+              }
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/components/Alert.jsx </i><br />
+              import "./Alert.css";<br />
+              <br />
+              const Alert = ({ variant, outlined, elevated,
+              children }) => {<br />
+                  const classNames = ["alert", variant];<br />
+              <br />
+                  if (outlined) {<br />
+                      classNames.push("is-outlined");<br />
+                  }<br />
+              <br />
+                  if (elevated) {<br />
+                      classNames.push("is-elevated");<br />
+                  }<br />
+              <br />
+                  return <br />
+                      &#60;p className={classNames.join("
+              ")}>
+              <br />
+                          {children}<br />
+                     &#60;/p>;<br />
+              };
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Бібліотека clsx -->
+      <h3 class="m-bottom-min">Бібліотека clsx</h3>
+      <div class="print-m-bottom-max">
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Бібліотека <b>clsx</b> дозволяє виріити
+              більшість завдань, пов'язаних з безліччю
+              класів, що задаються згідно з певними умовами.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// у терміналі</i> <br />
+              <br />
+              npm install clsx
+            </p>
+          </div>
+        </div>
+        <div>
+          <p class="m-bottom-min">
+            <b>Функції clsx</b> можна передати список
+            виразів як набір аргументів. Вирази що
+            приводяться до <b>true</b>, результат яких це
+            рядок або число, буде додано у фінальний рядок
+            класів.
+          </p>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <b>import clsx from "clsx"</b>;<br />
+              <br />
+              const className = <b>clsx</b>(<br />
+              <b>
+                    "first",<br />
+                    10,<br />
+                    undefined && "second",<br />
+                    true && "third",<br />
+                    false ? "fourth" : "fifth"<br />
+              </b>
+              );<br />
+              console.log(className); <br />
+                  // "first 10 third fifth"
+            </p>
+          </div>
+          <div class="bcg-box">
+            <i> // src/components/Alert.jsx </i><br />
+            import clsx from "clsx";<br />
+            import "./Alert.css";<br />
+            <br />
+            const Alert = ({ variant, outlined, elevated,
+            children }) => {<br />
+                return (<br />
+                    &#60;p<br />
+                        className={<b>clsx</b>(<br />
+            <b>
+                              "alert",<br />
+                              variant,<br />
+                              outlined && "is-outlined",<br />
+                              elevated && "is-elevated"<br />
+            </b>
+                        )}<br />
+                    ><br />
+                        {children}<br />
+                    &#60;/p><br />
+                );<br />
+            };
+          </div>
+        </div>
+
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Можна комбінувати варіативну та об'єктну форму
+              функції clsx. Спочатку передаються класи, які
+              будуть завжди, після чого в об'єкті
+              налаштувань перераховуємо динамічні значення
+              класів залежно від якихось обчислень.
+            </p>
+            <p class="border-box m-bottom-min">
+              <b>Важливо!</b> Варто пам'ятати, що класи з
+              однаковими назвами, в залежності від
+              підключення компонентів, що на них
+              посилаються, можуть перевизначати властивості
+              одне одного.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> // src/components/Alert.jsx </i><br />
+              import clsx from "clsx";<br />
+              import "./Alert.css";<br />
+              <br />
+              const Alert = ({ variant, outlined, elevated,
+              children }) => {<br />
+                  return (<br />
+                      &#60;p<br />
+                          className={clsx("alert", variant,
+              {<br />
+                              "is-outlined": outlined,<br />
+                              "is-elevated": elevated,<br />
+                          })}<br />
+                      ><br />
+                          {children}<br />
+                      &#60;/p><br />
+                  );<br />
+              };<br />
+            </p>
+          </div>
+        </div>
+        <p><b>Підсумок</b>:</p>
+        <ul class="list-style">
+          <li>слабка масштабованість;</li>
+          <li>обмежене повторне використання стилів;</li>
+          <li>
+            для динамічних значень необхідно використовувати
+            вбудовані стилі;
+          </li>
+          <li>проблема глобального простору імен;</li>
+          <li>
+            необхідність використовувати якусь конвенцію
+            іменування селекторів класу.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Повторне використання стилів -->
+      <h3 class="m-bottom-min">
+        Повторне використання стилів
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Не рекомендується використовувати одні й ті самі
+            CSS-класи в різних компонентах, для цього є
+            композиція компонентів.
+          </p>
+          <p>
+            Наприклад, замість використання базового
+            CSS-класу <b>.button</b> у компонентах
+            <b>&#60;LoginButton></b> та
+            <b>&#60;FollowButton></b>, краще створити
+            компонент <b>&#60;Button></b> зі своїми власними
+            стилями, які можуть відображатись у кількох
+            варіантах. Тоді компоненти
+            <b>&#60;LoginButton></b> та
+            <b>&#60;FollowButton></b> можуть використовувати
+            компонент <b>&#60;Button></b>, а не просто
+            CSS-клас.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <i> // Button.jsx </i><br />
+            const Button = ({ variant, children }) => {<br />
+               
+            <i
+              >// Базові стилі кнопки з кількома варіантами
+              відображення</i
+            ><br />
+                return <br />
+                    &#60;button className={clsx("button",
+            variant)}>{children}&#60;/button>;<br />
+            };<br />
+            <br />
+            <i>// LoginButton.jsx</i><br />
+            const LoginButton = () => {<br />
+                <i>// Унікальна логіка кнопки логіна</i
+            ><br />
+                return &#60;Button
+            variant="primary">Login&#60;/Button>;<br />
+            };<br />
+            <br />
+            <i>// FollowButton.jsx</i><br />
+            const FollowButton = () => {<br />
+                <i>// Унікальна логіка кнопки підписки</i
+            ><br />
+                return &#60;Button
+            variant="secondary">Follow&#60;/Button>;<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <!-- CSS-модулі -->
+      <h3 class="m-bottom-min">CSS-модулі</h3>
+      <div class="m-bottom print-m-bottom-max">
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              CSS-модулі - це не офіційна специфікація, вони
+              не імплементовані в браузери. Це процес, що
+              запускається на стадії складання проекту, в
+              результаті виконання якого імена класів
+              замінюються на унікальні. Це дозволяє
+              використовувати одне і те ж ім'я класу в
+              різних CSS-файлах, не турбуючись про конфлікти
+              імен.
+            </p>
+            <p>
+              Vite за замовчуванням підтримує CSS-модулі.
+              Необхідно створbти файли стилів з розширенням
+              <b>*.module.css</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>/* src/components/Alert.module.css */ </i
+              ><br />
+              .alert {<br />
+                  margin: 8px;<br />
+                  padding: 12px 16px;<br />
+                  border-radius: 4px;<br />
+                  background-color: gray;<br />
+                  color: white;<br />
+              }
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>Імпорт CSS-модуля</b> нагадує імпорт файлу
+              JavaScript модуля. У CSS-модулі є експорт за
+              замовчуванням - об'єкт відповідності
+              оригінального та згенерованих імен класів.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Селектори тегів за
+              замовчуванням будуть у глобальній області
+              видимості, CSS-модулі генерують
+              <b>лише унікальні імена селекторів класу</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> // src/components/Alert.jsx </i><br />
+              <i>// Синтаксис імпорту CSS-модуля </i><br />
+              <b>import css from "./Alert.module.css"</b
+              >;<br />
+              <br />
+              <i
+                >// Отримуємо об'єкт відповідності імен
+                класів </i
+              ><br />
+              console.log(css); // { alert:
+              "Alert_alert_ax7yz" }<br />
+              const Alert = ({ children }) => {<br />
+                  return &#60;p
+              className={<b>css.alert</b>}>{children}&#60;/p>;<br />
+              };
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Композиція селекторів - це одна з ключових
+              можливостей CSS-модулів, яка дозволяє
+              створювати клас, наслідуючи стилі іншого
+              класу, але не дублюючи їх.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Важливо!</b> Властивість
+              <b>composes</b> має передувати іншим правилам,
+              щоб можна було перевизначити стилі.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Важливо!</b> До властивостей об'єкта
+              зазвичай звертаються як <b>css.alert</b>, але
+              можна використовувати квадратні дужки,
+              наприклад <b>css["alert"]</b>. Це корисно у
+              випадку коли ім'я властивості зберігається у
+              змінній, як у нас у пропсі variant.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Імена класи, що складаються з
+              декількох слів записують у
+              <b>camelCase</b> нотації.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i> /* src/components/Alert.module.css */ </i
+              ><br />
+              .alert {<br />
+                  padding: 12px 16px;<br />
+                  background-color: gray;<br />
+              }<br />
+              .success {<br />
+                  composes: alert;<br />
+                  background-color: green;<br />
+              }<br />
+              .error {<br />
+                  composes: alert;<br />
+                  background-color: red;<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Нормалізація стилів -->
+      <h3 class="m-bottom-min">Нормалізація стилів</h3>
+      <div class="m-bottom">
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Необхідно встановити через термінал залежності
+              в проекті для нормалізатора
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>npm install modern-normalize</p>
+          </div>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Після цього в файлі <b>main.jsx</b> ми
+              <i>імпортуємо</i>
+              стилі нормалізації. Це додасть стилі з файлу
+              нормалізації до проекту.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              import React from "react"; <br />
+              import ReactDOM from "react-dom/client";<br />
+              <b>import "modern-normalize"</b>;<br />
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Крім стандартизації зовнішнього вигляду
+              елементів, корисно скинути або додати деякі
+              глобальні стилі для елементів. Це можна
+              зробити в файлі <b>index.css</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>/* src/index.css */ </i> <br />
+              body {<br />
+                  font-family: sans-serif;<br />
+                  line-height: 1.5;<br />
+              }<br />
+              <br />
+              h1,<br />
+              h2,<br />
+              h3,<br />
+              h4,<br />
+              h5,<br />
+              h6,<br />
+              p {<br />
+                  margin: 0;<br />
+              }<br />
+              <br />
+              ul,<br />
+              ol {<br />
+                  margin: 0;<br />
+                  padding: 0;<br />
+              }<br />
+              <br />
+              img {<br />
+                  display: block;<br />
+                  max-width: 100%;<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Бібліотека React Icons -->
+      <h3 class="m-bottom-min">Бібліотека React Icons</h3>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            React Icons
+            (<i>https://react-icons.github.io/react-icons/</i>)
+            - це набір іконок, спеціально створений для
+            використання в React-додатках.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>npm install react-icons</p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Бібліотеку необхідно імпортувати у компонент, та
+            підставити назву подтрібної іконки у код
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <b>import { HiUser } from "react-icons/hi"; </b
+            ><br />
+            const UserMenu = ({ name }) => {<br />
+                return &#60;p>
+            <b>&#60;HiUser /></b> {name}&#60;/p><br />
+            };
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Можна налаштувати зовнішній вигляд іконок,
+            використовуючи стилі React, передаючи власні
+            класи або інші параметри.
+          </p>
+          <ul class="list-style">
+            <li>
+              колір іконки вказується в додатковому класі
+              CSS-властивістю <b>color</b>;
+            </li>
+            <li>
+              розмір іконки визначається числом в атрибуті
+              <b>size</b>, це кількість пікселів (за
+              замовчуванням - <b>16px</b>).
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <b>import { HiUser } from "react-icons/hi"; </b
+            ><br />
+            <br />
+            const UserMenu = ({ name }) => {<br />
+                return <br />
+                    &#60;p><br />
+                        &#60;HiUser
+            <b>className="my-icon" size="24"</b> />
+            {name}<br />
+                    &#60;/p><br />
+            };
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
