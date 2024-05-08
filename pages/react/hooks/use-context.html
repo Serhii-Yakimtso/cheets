@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Context</title>
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">
+      Context, useContext
+    </h1>
+    <h2 class="m-bottom-min">Context</h2>
+    <div class="m-bottom">
+      <p class="m-bottom-min">
+        Контекст забезпечує спосіб передачі даних глибоко по
+        дереву компонентів без необхідності явно передавати
+        пропси в проміжні компоненти вручну на кожному
+        рівні. Тобто це щось схоже на глобальну змінну, до
+        якої можна отримати доступ в будь-якій частині
+        вашого коду.
+      </p>
+      <p class="m-bottom-min border-box">
+        <b>Важливо!</b> Контекст не використовується для
+        уникнення передачі пропсів на кілька рівнів вниз.
+        Цей механізм призначений для вузького спектра
+        завдань.
+      </p>
+
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для створення контексту використовується
+            вбудована
+            <i>функція</i> <b>createContext</b>. Результатом
+            виклику цієї функції є <i>об'єкт контексту</i>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            import { <b>createContext</b> } from "react";<br />
+            <b>const myContext = createContext()</b>;
+          </p>
+        </div>
+      </div>
+      <p>
+        <i>Функції</i> <b>createContext</b> можна передати
+        один аргумент - значення контексту за замовчуванням.
+        На практиці, зазвичай його не вказують, оскільки
+        намагатися отримати доступ до контексту, якого
+        немає, не має сенсу.
+      </p>
+    </div>
+
+    <h3 class="m-bottom-min">Компонент &#60;Provider></h3>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          У об'єкта контексту є властивість
+          <b>Provider</b> - компонент, який використовується
+          для передачі контексту, щоб компоненти могли
+          отримувати доступ до значення контексту.
+        </p>
+        <ul class="list-style">
+          <li>
+            Обгортає всі компоненти додатка, так як в нього
+            вкладений компонент <b>App</b>.
+          </li>
+          <li>
+            Приймає проп <b>value</b> - значення контексту,
+            яке буде доступне компонентам.
+          </li>
+          <li>
+            Дозволяє компонентам підписуватись на зміни
+            контексту незалежно від глибини вкладеності.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          import { createContext } from "react";<br />
+          import ReactDOM from "react-dom/client";<br />
+          <br />
+          const myContext = createContext();<br />
+          <br />
+          ReactDOM.createRoot(document.getElementById("root"))<br />
+              .render(<br />
+                  &#60;myContext.Provider value={{ username:
+          "Mango" }}><br />
+                      &#60;App /><br />
+                  &#60;/myContext.Provider><br />
+          );
+        </p>
+      </div>
+    </div>
+
+    <h2 class="m-bottom-min">Хук useContext()</h2>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          Дозволяє будь-якому вкладеному компоненту отримати
+          доступ до поточного значення контексту.
+        </p>
+        <ul class="list-style">
+          <li>
+            Використовується в компонентах для доступу до
+            контексту.
+          </li>
+          <li>
+            Очікує єдиний аргумент – посилання на створений
+            контекст.
+          </li>
+          <li>
+            Повертає значення контексту від провайдера.
+          </li>
+          <li>
+            Кожного разу, коли змінюється значення
+            контексту, залежний компонент оновлюється.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          import { createContext, useContext } from
+          "react";<br />
+          <br />
+          const myContext = createContext();<br />
+          <br />
+          const contextValue = useContext(myContext);
+        </p>
+      </div>
+    </div>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          Кожного разу імпортувати посилання на об'єкт
+          контексту може бути не дуже зручно. Тому
+          створюється власний хук для доступу до контексту.
+        </p>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          import { createContext, useContext } from
+          "react";<br />
+          <br />
+          const myContext = createContext();<br />
+          <br />
+          <i
+            >// Імпортуємо та використовуємо цей хук у
+            компонентах </i
+          ><br />
+          export const useMyContext = () =>
+          useContext(myContext);
+        </p>
+      </div>
+    </div>
+
+    <!-- Приклад. Контекст користувача -->
+    <h2 class="m-bottom-min">
+      Приклад. Контекст користувача
+    </h2>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          <b>1</b>. Створимо контекст для зберігання
+          інформації про поточний стан користувача - статусу
+          логіну та особистої інформації
+          <b>userContext.js</b>.
+        </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>// src/userContext.js</i><br />
+            import { createContext, useContext } from
+            "react";<br />
+            <br />
+            export const userContext = createContext();<br />
+            <br />
+            export const useUser = () =>
+            useContext(userContext);
+          </p>
+        </div>
+
+        <p class="m-bottom-min">
+          <b>2</b>. Обгорнемо все дерево компонентів
+          провайдером. Це можна зробити в головному файлі
+          <b>main.jsx</b>.
+        </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>// src/main.jsx</i><br />
+            import ReactDOM from "react-dom/client";<br />
+            import { userContext } from "./userContext";<br />
+            <br />
+            const contextValue = { <br />
+                username: "Mango", <br />
+                isLoggedIn: true <br />
+            };<br />
+
+            ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                &#60;userContext.Provider
+            value={contextValue}><br />
+                    &#60;App /><br />
+                &#60;/userContext.Provider><br />
+            );
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="m-bottom-min">
+          <b>3</b>. Додамо компонент меню користувача,
+          вкладений у <b>App.jsx</b>. В ньому будемо
+          отримувати значення контексту та відображати ім'я
+          користувача. Рендеримо меню користувача
+          <i>UserMenu</i>.
+        </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>// src/components/App.jsx</i><br />
+            <br />
+            import { UserMenu } from "./UserMenu";<br />
+            <br />
+            const App = () => {<br />
+                return (<br />
+                    &#60;div><br />
+                        &#60;UserMenu /><br />
+                    &#60;/div><br />
+                );<br />
+            };
+          </p>
+        </div>
+
+        <p class="m-bottom-min">
+          <b>4</b>. Використовуємо власний хук
+          <b>useUser</b> в <b>UserMenu</b> для доступу до
+          значення контексту та виводимо ім'я користувача.
+        </p>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>// src/components/UserMenu.jsx<br /> </i
+            ><br />
+            import { useUser } from "../userContext";<br />
+            <br />
+            export const UserMenu = () => {<br />
+                const { username } = useUser();<br />
+                <br />
+                return (<br />
+                    &#60;div><br />
+                        &#60;p>Welcome,
+            {username}!&#60;/p><br />
+                    &#60;button>Log out&#60;/button><br />
+                    &#60;/div><br />
+                );<br />
+            };
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

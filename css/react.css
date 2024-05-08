@@ -110,46 +110,49 @@ tr {
 /* ===================== PRINT ===================== */
 /* ================================================= */
 
-/* @media print { */
-.print-home-link {
-  display: none;
-}
+@media print {
+  .print-home-link {
+    display: none;
+  }
 
-.print-flex-box {
-  display: flex;
-  justify-content: space-between;
-  gap: 4px;
-}
+  .print-flex-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+  }
 
-.print-center {
-  margin-left: auto;
-  margin-right: auto;
-}
+  .print-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.print-bcg-box {
-  margin-left: auto;
-  margin-right: 0;
-  min-width: max-content;
-}
+  .print-bcg-box {
+    margin-left: auto;
+    margin-right: 0;
+    min-width: max-content;
+  }
 
-.print-m-bottom-max {
-  margin-bottom: 1000px;
-}
+  .print-m-bottom-max {
+    margin-bottom: 1000px;
+  }
 
-.print-m-left-none {
-  margin-left: 0;
-}
+  .print-m-left-none {
+    margin-left: 0;
+  }
 
-.print-max-width {
-  min-width: 100%;
+  .print-max-width {
+    min-width: 100%;
+  }
+  .print-fs-13 {
+    font-size: 13px;
+  }
+  .print-fs-14 {
+    font-size: 14px;
+  }
+  .print-fs-15 {
+    font-size: 15px;
+  }
 }
-.print-fs-13 {
-  font-size: 13px;
-}
-.print-fs-15 {
-  font-size: 15px;
-}
-/* } */
 
 .box {
   width: 100px;
@@ -160,4 +163,10 @@ tr {
 
 .box:hover {
   background-color: blue;
+}
+
+.print-center-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

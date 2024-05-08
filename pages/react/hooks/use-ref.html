@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>useRefn</title>
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Хук useRef</h1>
+
+    <div class="m-bottom-min">
+      <p>
+        <b>Рефи</b> дозволяють отримати прямий доступ до
+        DOM-вузлів або React-елементів із шаблону
+        компонента. Вони використовуються якщо необхідно
+        звернутися до DOM-методів та властивостей елемента.
+      </p>
+      <ul class="list-style">
+        <li>
+          Фокус елемента під час події, виділення тексту.
+        </li>
+        <li>Контроль програвання медіаконтенту.</li>
+        <li>Інтеграція з DOM-бібліотеками.</li>
+        <li>
+          Доступ до DOM-властивостей, значення яких
+          неможливо отримати по-іншому - розміри елемента,
+          значення скрола тощо.
+        </li>
+      </ul>
+    </div>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="">
+          Рефи створюються хуком <b>useRef()</b> та
+          прив'язані до React-елементів за допомогою
+          атрибуту ref (скорочення від reference), який
+          зберігатиме посилання на DOM-елемент.
+        </p>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          <b>import { useRef } from "react"</b>;<br />
+          <br />
+          const App = () => {<br />
+              <b>const btnRef = useRef()</b>;<br />
+              <br />
+              return &#60;button
+          <b>ref="{btnRef}"</b>>Button with ref&#60;/button
+          >;<br />
+          };
+        </p>
+      </div>
+    </div>
+    <div class="m-bottom">
+      <h3>Життєвий цикл рефа</h3>
+      <p>
+        React надає властивості <b>current</b>
+        <i>посилання на DOM-елемент</i> коли компонент
+        монтується та <i>undefined</i> при розмонтуванні,
+        тому
+        <b>значення рефа доступне тільки після монтування</b
+        >.
+      </p>
+      <ul class="list-style">
+        <li>
+          <i>на першому рендері</i> буде <b>undefined</b> -
+          посилання на DOM-елемент всі наступні;
+        </li>
+        <li>
+          ефекти (<b>useEffect</b>) виконуються після
+          монтування, тому завжди буде посиланням на
+          DOM-елемент;
+        </li>
+        <li>
+          <b>функції-події</b> будуть після монтування, тому
+          завжди буде посиланням на DOM-елемент.
+        </li>
+      </ul>
+    </div>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <div class="m-bottom-min">
+          <h3>Відсутність реактивності</h3>
+          <p>
+            Рефи це не стан, тобто вони не реактивні, тому
+            зміна значення рефа не впливає на оновлення
+            компонента і не викликає повторний рендер.
+          </p>
+          <p>
+            Рефи також можна використовувати як сховище
+            довільних значень, які не змінюються між
+            рендерами компонента та на нього не впливають.
+          </p>
+        </div>
+
+        <div class="m-bottom-min">
+          <h3>Приклад. Відеоплеєр &#10142;</h3>
+          <p class="m-bottom-min">
+            Створимо компонент <b>Player</b> для програвання
+            відео, використовуючи нативний тег
+            <i>&#60;video></i>. Щоб запустити та зупинити
+            програвання необхідно викликати методи
+            <b>HTMLMediaElement.play()</b> та
+            <b>HTMLMediaElement.pause()</b>, де
+            <b>HTMLMediaElement</b> це елемент
+            <i>&#60;video></i>. Використовуємо реф для
+            отримання доступу до DOM-елементу та його
+            методам.
+          </p>
+        </div>
+
+        <div
+          class="bcg-box print-bcg-box print-fs-14 print-m-left-none"
+        >
+          <p>
+            import { forwardRef, useRef, useEffect } from
+            "react";<br />
+            <br />
+            const CustomButton = forwardRef((props, ref) =>
+            (<br />
+                &#60;button
+            ref={ref}>{props.children}&#60;/button><br />
+            ));<br />
+            <br />
+            const App = () => {<br />
+                const btnRef = useRef();<br />
+            <br />
+                useEffect(() => btnRef.current.focus(),
+            []);<br />
+            <br />
+                return &#60;CustomButton ref={btnRef}><br />
+                    Button with forwarded ref<br />
+            &#60;/CustomButton>;<br />
+            };
+          </p>
+        </div>
+      </div>
+      <div>
+        <div
+          class="bcg-box print-bcg-box print-fs-14 m-bottom-min"
+        >
+          <p>
+            import { useRef } from "react";<br />
+            <br />
+            const Player = ({ source }) => {<br />
+                const playerRef = useRef();<br />
+                const play = () =>
+            playerRef.current.play();<br />
+                const pause = () =>
+            playerRef.current.pause();<br />
+                <br />
+                return (<br />
+                    &#60;div><br />
+                        &#60;video ref={playerRef}
+            src={source}><br />
+                            Sorry, your browser does not<br />
+                                support embedded videos.<br />
+                        &#60;/video><br />
+                        &#60;div><br />
+                            &#60;button
+            onClick={play}>Play&#60;/button><br />
+                            &#60;button
+            onClick={pause}>Pause&#60;/button><br />
+                        &#60;/div><br />
+                    &#60;/div><br />
+                );<br />
+            };<br />
+            <br />
+            const App = () => {<br />
+                return &#60;Player<br />
+                   
+            source=&#60;http://.../trailer.mp4>"/>;<br />
+            };
+          </p>
+        </div>
+        <div>
+          <h3>&#129044; Перенаправлення рефів</h3>
+
+          <p>
+            При використанні рефів на компоненті,
+            <i>проп</i> <b>ref</b>
+            <i>не передається автоматично</i>. Це створює
+            проблеми у випадку коли необхідно отримати
+            <b>ref</b> на елемент усередині самого
+            компонента, а не на сам компонент. Для цього
+            використовується функція <b>forwardRef</b>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

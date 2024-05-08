@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>useMemo</title>
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Хук useMemo</h1>
+
+    <p class="m-bottom-min">
+      Хук <b>useMemo</b> використовує концепцію мемоізації,
+      метод оптимізації комп'ютерних програм шляхом
+      збереження результатів викликів функції та повернення
+      кешованого результату при повторенні тих самих вхідних
+      даних. Мемоізована функція «запам'ятовує» результат
+      обчислень відповідний набору аргументів. Наступні
+      виклики з такими самими значеннями аргументів
+      повертають запам'ятований результат, а не
+      перераховують його.
+    </p>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="">
+          Хук useMemo приймає <b>два аругменти</b>:
+        </p>
+        <ul class="list-style">
+          <li>
+            Першим є анонімна функція, яка повертає
+            значення, саме вона буде мемоізована.
+          </li>
+          <li>
+            Другим є масив залежностей, при зміні якоїсь з
+            них, викликається функція передана першим
+            аргументом.
+          </li>
+        </ul>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          import { useMemo } from "react";<br />
+          <br />
+          const memoizedValue = useMemo(() => {<br />
+              return a + b;<br />
+          }, [a, b]);
+        </p>
+      </div>
+    </div>
+
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class=""><b>Алгоритм</b> роботи хука useMemo:</p>
+        <ul class="m-bottom list-style">
+          <li>
+            При першому рендері компонента викликається
+            функція, результат запам'ятовується і
+            повертається як результат роботи хука.
+          </li>
+          <li>
+            Якщо за наступних рендерів залежності не
+            змінюються, то хук не викликає функцію, а просто
+            повертає збережений результат роботи.
+          </li>
+          <li>
+            Якщо будь-яка залежність змінилася, то хук
+            викликає функцію заново, запам'ятовує нове
+            значення та повертає його.
+          </li>
+        </ul>
+        <div class="border-box">
+          <p class="m-bottom-min"><b>Опис прикладу!</b></p>
+          <p class="m-bottom-min">
+            Кожного разу, коли зміниться значення
+            <b>planets</b> або <b>query</b>, компонент буде
+            оновлено.
+          </p>
+          <p class="m-bottom-min">
+            Компонент <b>App</b> містить додатковий стан
+            <b>clicks</b>, який ніяк
+            <i>не впливає на планети</i>.
+          </p>
+          <p>
+            Кожного разу, коли змінюється стан
+            <b>clicks</b>, компонент буде оновлено, що
+            призведе до обчислення <b>filteredPlanets</b>,
+            хоча значення <b>planets</b> та
+            <b>planets</b> не змінилися! Оскільки метод
+            <b>filter</b> повертає посилання на новий масив,
+            React сприймає це як абсолютно нові дані та
+            список планет буде відображено заново. У такому
+            разі варто мемоізувати обчислення
+            <b>filteredPlanets</b>.
+          </p>
+        </div>
+      </div>
+      <div class="bcg-box print-bcg-box">
+        <p>
+          <b>import { useMemo } from "react"</b>;<br />
+          <br />
+          const App = () => {<br />
+              const [<b>planets</b>, setPlanets] =
+          useState(<br />
+                  ["Earth", "Mars", "Jupiter", "Venus"]<br />
+              );<br />
+              const [<b>query</b>, setQuery] =
+          useState("");<br />
+              const [clicks, setClicks] = useState(0);<br />
+              <br />
+             
+          <b
+            >const filteredPlanets = useMemo(<br />
+                    () => planets.filter(<br />
+                        planet => planet.includes(query)<br />
+                    ),<br />
+                    [planets, query]<br />
+                )</b
+          >;<br />
+              <br />
+              return (<br />
+                  &#60;><br />
+                      &#60;button onClick={<br />
+                          () => setClicks(clicks + 1)<br />
+                      }><br />
+                          Number of clicks: {clicks}<br />
+                      &#60;/button><br />
+                      &#60;ul><br />
+                          {filteredPlanets.map(planet =>
+          (<br />
+                              &#60;li
+          key={planet}>{planet}&#60;/li><br />
+                          ))}<br />
+                      &#60;/ul><br />
+                  &#60;/><br />
+              );<br />
+          };
+        </p>
+      </div>
+    </div>
+
+    <p class="m-bottom-min">
+      Те ж саме стосується дорогих операцій, таких як
+      використання довгого циклу <b>for</b>. Дорогі
+      обчислення можуть бути витратними за часом, що
+      гарантовано призведе до погіршення роботи інтерфейсу.
+    </p>
+    <p>
+      Не потрібно мемоізувати все поспіль, це може призвести
+      до втрат продуктивності, оскільки мемоізація також
+      займає обчислювальні ресурси. Найчастіше повторні
+      прості обчислення обійдуться дешевше, ніж їхня
+      мемоїзація. Використовуйте useMemo() точково, в першу
+      чергу при роботі з масивами та для дорогих обчислень.
+    </p>
+  </body>
+</html>

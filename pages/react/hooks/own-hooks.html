@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Own hooks</title>
+    <link rel="stylesheet" href="../../../css/reset.css" />
+    <link rel="stylesheet" href="../../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Власні хуки</h1>
+
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="center-text"><b>Без хуку</b></p>
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-m-left-none print-fs-15"
+        >
+          <p>
+            <i>// ComponentA.jsx</i><br />
+            const ComponentA = () => {<br />
+                const [isModalOpen, setIsModalOpen] =
+            useState(false);<br />
+                const openModal = () =>
+            setIsModalOpen(true);<br />
+                const closeModal = () =>
+            setIsModalOpen(false);<br />
+                <br />
+                return (<br />
+                    &#60;><br />
+                        &#60;button onClick={openModal}><br />
+                            Open modal<br />
+                        &#60;/button><br />
+                        &#60;Modal<br />
+                            isOpen={isModalOpen}<br />
+                            onClose={closeModal} <br />
+                        /><br />
+                    &#60;/><br />
+                );<br />
+            };<br />
+            <br />
+            <i>// ComponentB.jsx</i><br />
+            const ComponentB = () => {<br />
+                const [isSidebarOpen, setIsSidebarOpen] =
+            useState(false);<br />
+                const openSidebar = () =>
+            setIsSidebarOpen(true);<br />
+                const closeSidebar = () =>
+            setIsSidebarOpen(false);<br />
+                <br />
+                return (<br />
+                    &#60;><br />
+                        &#60;button
+            onClick={openSidebar}><br />
+                            Open sidebar<br />
+                        &#60;/button><br />
+                        &#60;Sidebar <br />
+                            isOpen={isSidebarOpen}<br />
+                            onClose={closeSidebar} <br />
+                        /><br />
+                    &#60;/><br />
+                );<br />
+            };<br />
+          </p>
+        </div>
+        <div class="m-bottom-min print-center-flex">
+          <p>
+            Хук <b>useToggle</b> в приховує у собі створення
+            стану та функцій роботи з ним (open, close).
+          </p>
+          <p>&#10132;</p>
+        </div>
+        <p class="border-box">
+          Власний хук може приймати будь-які аргументи і
+          повертати будь-що, правил немає, залежить від
+          реалізації.
+        </p>
+      </div>
+      <div>
+        <p class="center-text"><b>Із власним хуком</b></p>
+
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-fs-15"
+        >
+          <p>
+            <i>// src/hooks/useToggle.js</i><br />
+            export const <b>useToggle</b> = () => {<br />
+                const [isOpen, setIsOpen] =
+            useState(false);<br />
+                const open = () => setIsOpen(true);<br />
+                const close = () => setIsOpen(false);<br />
+                <br />
+                return { isOpen, open, close };<br />
+            };
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-15">
+          <p>
+            <i>// ComponentA.jsx</i><br />
+            import { <b>useToggle</b> } from
+            "../useToggle.js";<br />
+            const ComponentA = () => {<br />
+               
+            <b
+              >const { isOpen, open, close } =
+              useToggle()</b
+            >;<br />
+                <br />
+                return (<br />
+                    &#60;><br />
+                        &#60;button onClick={open}><br />
+                            Open modal<br />
+                        &#60;/button><br />
+                        &#60;Modal<br />
+                            isOpen={isOpen}<br />
+                            onClose={close} <br />
+                        /><br />
+                    &#60;/><br />
+                );<br />
+            };<br />
+            <br />
+            <i>// ComponentB.jsx</i><br />
+            import { <b>useToggle</b> } from
+            "../useToggle.js";<br />
+            const ComponentB = () => {<br />
+               
+            <b
+              >const { isOpen, open, close } =
+              useToggle()</b
+            >;<br />
+                <br />
+                return (<br />
+                    &#60;><br />
+                        &#60;button onClick={open}><br />
+                            Open sidebar<br />
+                        &#60;/button><br />
+                        &#60;Sidebar<br />
+                            isOpen={isOpen}<br />
+                            onClose={close} /><br />
+                        &#60;/><br />
+                );<br />
+            };
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="m-bottom print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          Хук useToggle можна розширити так, щоб модальне
+          вікно спочатку було відкритим. При цьому, за
+          замовчуванням - закрите.
+        </p>
+      </div>
+      <div class="bcg-box print-bcg-box print-fs-15">
+        <p>
+          export const <b>useToggle</b> = (<b
+            >initialState = false</b
+          >) => {<br />
+              const [isOpen, setIsOpen] =
+          <b>useState(initialState)</b>;<br />
+                 
+          <i>// other code with func. "open" & "clkse"</i
+          ><br />
+              return { isOpen, open, close };<br />
+          };<br />
+          <br />
+          const MyComponent = () => {<br />
+              const { isOpen, open, close } =
+          <b>useToggle(true)</b>;<br />
+                  <i>// other code </i><br />
+          };
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
