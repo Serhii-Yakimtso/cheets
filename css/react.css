@@ -53,6 +53,10 @@ tr {
   border: 2px solid black;
 }
 
+.hidden {
+  display: none;
+}
+
 .bcg-color {
   background-color: rgb(255, 248, 122);
 }
@@ -142,6 +146,9 @@ tr {
 
   .print-max-width {
     min-width: 100%;
+  }
+  .print-fs-12 {
+    font-size: 12px;
   }
   .print-fs-13 {
     font-size: 13px;

@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Redux</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Redux</h1>
+
+    <!-- Управління станом -->
+    <section class="m-bottom">
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="">
+            Redux це бібліотека керування станом програми,
+            що стандартизує зберігання та роботу із її
+            станом.
+          </p>
+          <ul class="m-bottom-min list-style">
+            <li>
+              <b>Передбачуваність результату</b> - існує
+              завжди одне джерело правди, стор (сховище,
+              store), що приховує у собі стан програми та
+              методи для роботи з ним.
+            </li>
+            <li>
+              <b>Підтримуваність</b> - є набір правил та
+              кращих практик про те, як повинен бути
+              структурований код, що робить його більш
+              одноманітним та зрозумілим.
+            </li>
+            <li>
+              <b>Інструменти розробника</b> - зручне
+              розширення браузера в якому надається максимум
+              інформації про стан програми в режимі
+              реального часу.
+            </li>
+          </ul>
+
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p class="">
+                <b>Бібліотека Redux</b> - набір функцій для
+                створення стора (сховища, store), роботи зі
+                станом програми (state) та відправлення
+                екшенів (дій, actions).
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p><b>npm install redux</b></p>
+            </div>
+          </div>
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p class="">
+                <b>Бібліотека React Redux</b> - набір
+                компонентів та хуків зв'язуючих компонентів
+                React та Redux стор (store).
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p><b>npm install react-redux</b></p>
+            </div>
+          </div>
+
+          <p class="m-bottom-min">
+            <b>Стора</b> (сховище, store) відповідає за
+            централізоване зберігання всього стану та надає
+            набір правил та методів для його зміни.
+            Компонентам залишається викликати методи для
+            оновлення даних та підписатися на оновлення.
+            Потік даних у Redux завжди односпрямований, від
+            компонентів до стору, та від стора до
+            компонентів без посередників.
+          </p>
+
+          <p>Алгоритм дії:</p>
+          <ul class="m-bottom-min list-style">
+            <li>
+              Користувач, працюючи з інтерфейсом,
+              ініціалізує відправку <b>екшенів</b> (дій,
+              actions).
+            </li>
+            <li>
+              <b>Стор</b> (store) викликає всі оголошені
+              <b>редюсери</b> (reducers), функції для зміни
+              стану, передаючи їм поточний
+              <b>стан</b> (state) та <b>екшен</b> (дія,
+              action).
+            </li>
+            <li>
+              <b>Стор</b> (store) зберігає оновлений
+              <b>стан</b> (state) повернутий з
+              <b>редюсерів</b> (reducers).
+            </li>
+            <li>
+              При оновленні <b>стану</b> (state) повторно
+              рендеруються залежні від нього компоненти.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Створення структури для Redux -->
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom-min">
+        Створення структури для Redux
+      </h2>
+
+      <p class="m-bottom-min">
+        Подальша структура буде створюватись для прикладу
+        побудови планувальника завдань
+      </p>
+
+      <!-- Структура файлів проекту -->
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="">
+            Для відокремлення логіки Redux від коду
+            компонентів, необхідно зробити папку
+            <b>src/redux</b> з кількома файлами.
+          </p>
+          <ul class="m-bottom-min">
+            <li>
+              <b>actions.js</b> - файл оголошення екшенів
+              програми
+            </li>
+            <li>
+              <b>reducer.js</b> - файл оголошення
+              функцій-редюсерів для оновлення стану
+            </li>
+            <li>
+              <b>constants.js</b> - файл для зберігання
+              констант (наприклад значень фільтру статусу)
+            </li>
+            <li>
+              <b>selectors.js</b> - файл оголошення
+              функцій-селекторів
+            </li>
+            <li>
+              <b>store.js</b> - файл створення стор Redux
+            </li>
+          </ul>
+          <p class="">
+            Якщо в додатку багато різних даних, то підійде
+            «<i>feature based</i>» підхід, де під кожну
+            сутність створюється окрема папка усередині
+            папки redux. Більше файлів, але код логіки Redux
+            поділений на сутності та більш структурований.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            src/<br />
+                - components/<br />
+            <b>
+                  - redux/<br />
+                      - actions.js <br />
+                      - reducer.js <br />
+                      - constants.js<br />
+                      - selectors.js<br />
+                      - store.js<br />
+            </b>
+                - index.js
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            src/<br />
+                - components/<br />
+            <b>
+                  - redux/<br />
+                      - tasks/<br />
+                          - actions.js <br />
+                          - reducer.js <br />
+                          - constants.js<br />
+                          - selectors.js<br />
+                      - filters/<br />
+                          - actions.js <br />
+                          - reducer.js <br />
+                          - constants.js<br />
+                          - selectors.js<br />
+                      - store.js<br />
+            </b>
+                - index.js
+          </p>
+        </div>
+      </div>
+
+      <!-- Проектування стану -->
+      <h3 class="m-bottom-min">Проектування стану</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Інтерфейс програми повинен ґрунтуватися на його
+            стані. Необхідно спроектувати стан програми, яка
+            міститиме найменшу кількість значень, достатню
+            для опису всього необхідного функціоналу.
+          </p>
+          <p class="m-bottom-min">
+            <b>Стан</b> Redux це завжди <i>об'єкт</i>,
+            всередину якого додаються властивості для стану
+            програми.
+          </p>
+          <p>
+            Стан об'являється у файлі <b>reducers.js</b>
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            const <b>initialState</b> = {<br />
+                tasks: [<br />
+                    { id: 0, text: "Learn HTML & CSS",
+            completed: true },<br />
+                    { id: 1, text: "Get good at JS",
+            completed: true },<br />
+                    { id: 2, text: "Master React",
+            completed: false },<br />
+                ],<br />
+                filters: {<br />
+                    status: "all",<br />
+                },<br />
+            };
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Стор (store) -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Стор (store)</h2>
+      <p class="m-bottom-min">
+        Стор (store) - об'єкт, який містить повний стан
+        програми, методи доступу до стану та відправлення
+        екшенів. У програмі може бути лише один стор.
+      </p>
+
+      <div class="print-flex-box">
+        <div>
+          <p class="">
+            Для створення стора є функція
+            <b>createStore()</b>, яка приймає кілька
+            параметрів та повертає новий об'єкт стора.
+          </p>
+        </div>
+        <div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <b
+                >createStore(reducer, preloadedState,
+                enhancer)</b
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <ul class="m-bottom-min list-style">
+        <li>
+          <b>reducer</b> - функція із логікою зміни стану
+          Redux. Обов'язковий параметр.
+        </li>
+        <li>
+          <b>preloadedState</b> - початковий стан програми.
+          Це має бути об'єкт тієї ж форми, що й, як мінімум,
+          частина стану. Необов'язковий параметр.
+        </li>
+        <li>
+          <b>enhancer</b> - функція розширення можливостей
+          стору. Необов'язковий параметр.
+        </li>
+      </ul>
+
+      <div class="m-bottom print-flex-box">
+        <div
+          class="bcg-box print-bcg-box print-m-left-none print-fs-14"
+        >
+          <p>
+            <i>// src/redux/store.js</i><br />
+            <br />
+            <b>import { createStore } from "redux"</b
+            >;<br />
+            <br />
+            <i
+              >// Початкове значення стану Redux для
+              кореневого<br />
+              // редюсера, якщо не передати параметр
+              preloadedState.<br
+            /></i>
+            const <b>initialState</b> = {<br />
+                tasks: [<br />
+                    { id: 0, text: "Learn HTML&CSS",
+            completed: true },<br />
+                    { id: 1, text: "Get good at JS",
+            completed: true },<br />
+                    { id: 2, text: "Master React",
+            completed: false },<br />
+                ],<br />
+                filters: {<br />
+                    status: "all",<br />
+                },<br />
+            };<br />
+            <br />
+            <i
+              >// Поки що використовуємо редюсер який<br />
+              // тільки повертає отриманий стан<br
+            /></i>
+            const <b>rootReducer</b> = (state =
+            <b>initialState</b>, action) => {<br />
+                return state;<br />
+            };<br />
+            <br />
+            export const
+            <b>store = createStore(rootReducer)</b>;
+          </p>
+        </div>
+
+        <div>
+          <p class="m-bottom-min">
+            Після створення стору необхідно зв'язати його з
+            компонентами React, щоб вони могли отримувати
+            доступ до стору та його методів. Для цього у
+            бібліотеці React Redux є компонент
+            <b>Provider</b>, котрий чекає однойменний пропс
+            store. Для того щоб будь-який компонент у
+            додатку міг використовувати стор, обертаємо
+            <b>Provider</b> все <i>дерево компонентів</i>.
+          </p>
+
+          <div class="bcg-box print-bcg-box print-fs-14">
+            <p>
+              <i>// src/main.jsx</i>
+              <br />
+              import React from 'react';<br />
+              import ReactDOM from 'react-dom/client';<br />
+              import { App } from './components/App';<br />
+              import { store } from "./redux/store";<br />
+              <br />
+              ReactDOM.createRoot(document.getElementById('root'))<br />
+                  .render(<br />
+                      &#60;React.StrictMode><br />
+                          <b>&#60;Provider store={store}></b
+              ><br />
+                              &#60;App /><br />
+                          <b>&#60;/Provider></b><br />
+                      &#60;/React.StrictMode><br />
+              );
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Redux DevTools -->
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom-min">Redux DevTools</h2>
+      <p class="m-bottom-min">
+        Інструменти розробника, розширення браузера, яке
+        додає зручний візуальний інтерфейс для налагодження
+        змін стану програми та стеження за потоком даних у
+        Redux, від відправлення дій до зміни стану.
+      </p>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="">
+            Бібліотека Redux DevTools дозволяє
+            ініціалізувати логіку Redux DevTools та зв'язати
+            її з розширенням в інструментах розробника.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <b>npm install @redux-devtools/extension</b>
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Імпортуємо функцію <b>devToolsEnhancer</b> і
+            використовуємо її при створенні стора, передавши
+            її результат третім аргументом, замість
+            початкового стану.
+          </p>
+          <p class="">
+            Після запуску проекту командою <b>npm start</b>,
+            у стандартних інструментах розробника з'явиться
+            нова вкладка Redux, при переході на яку
+            відкриються Redux DevTools зі списком
+            відправлених екшенів зліва та детальною
+            інформацією про стан та екшени праворуч.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-15">
+          <p>
+            <i>// src/redux/store.js</i><br />
+            <br />
+            import { <b>devToolsEnhancer</b> } from
+            "@redux-devtools/extension";<br />
+            <br />
+            <i>// Попередній код</i><br />
+            <br />
+            <i>
+              // Створюємо розширення стора, щоб додати<br />
+              інструменти розробника<br />
+            </i>
+            const <b>enhancer</b> =
+            <b>devToolsEnhancer</b>();<br />
+            <br />
+
+            export const store = createStore(rootReducer,
+            <b>enhancer</b> );
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Підписка на стор -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Підписка на стор</h2>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Щоб отримати дані зі стору, компоненти повинні
+            підписатися на необхідні їм частини стану Redux.
+            Для цього у бібліотеці React Redux є хук
+            <b>useSelector(selector)</b>. Аргументом він
+            приймає функцію, яка оголошує один параметр
+            <b>state</b> - весь об'єкт стану Redux, який
+            буде автоматично переданий функції хуком
+            useSelector. Ця функція називається
+            <i>селектором</i> і повинна повернути тільки ту
+            частину стану, яка необхідна компоненту.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// Імпортуємо хук</i><br />
+            import { <b>useSelector</b> } from
+            "react-redux";<br />
+            <br />
+            const StatusFilter = () => {<br />
+                <i>// Отримуємо необхідну частину стану</i
+            ><br />
+                const filter =
+            <b
+              >useSelector(<br />
+                      state => state.filters.status<br />
+                  )</b
+            >;<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <!-- Функції-селектори -->
+      <h3 class="m-bottom-min">Функції-селектори</h3>
+      <p class="m-bottom-min">
+        Один і той же селектор може використовуватися в
+        декількох місцях програми, що призводить до
+        дублювання коду.
+      </p>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="">
+            Щоб уникнути цього, всі функції-селектори
+            оголошуються в окремому файлі, наприклад, в
+            <b>src/redux/selectors.js</b>, після чого
+            <i>імпортуються</i> до <i>компонентів</i>.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i> // src/redux/selectors.js</i><br />
+            <br />
+            export const
+            <b>getTasks = state => state.tasks</b>;<br />
+            export const
+            <b
+              >getStatusFilter = state =>
+              state.filters.status</b
+            >;
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Екшени (actions) -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Екшени (actions)</h2>
+
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Екшени (actions)</b> - це об'єкти, які
+            передають дані з компонентів у стор, тим самим
+            сигналізуючи про те, яка подія сталася в
+            інтерфейсі. Вони являються єдиним джерелом
+            інформації для стору.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// src/redux/actions.js</i><br />
+            const action = {<br />
+                type: "Action type",<br />
+                payload: "Payload value",<br />
+            };<br />
+          </p>
+        </div>
+      </div>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Екшени повинні мати обов'язкову властивість
+            <b>type</b> - рядок який описує тип події в
+            інтерфейсі.
+          </p>
+          <p class="m-bottom-min">
+            Крім властивості type структура об'єкта може
+            бути довільною, проте, дані зазвичай передають у
+            необов'язковій властивості <b>payload</b>.
+          </p>
+          <p>
+            Властивість <i>id: "Generated id"</i> буде
+            генерувати бєкенд, а без нього можна через
+            бібліотеку nanoid
+          </p>
+          <p class="">
+            Даними екшену може бути будь-яке значення крім
+            функцій та класів.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            const addTask = {<br />
+                type: "tasks/addTask",<br />
+                payload: {<br />
+                    id: "Generated id",<br />
+                    text: "User entered text",<br />
+                    completed: false,<br />
+                },<br />
+            };
+          </p>
+        </div>
+      </div>
+      <p class="m-bottom-min border-box">
+        <b
+          >Найменування поля type у форматі
+          <i>domain/eventName</i>.</b
+        >
+        <b>Перше</b> це ім'я b
+        <b>категорії (сутності)</b> до якої належить екшен
+        (<i>tasks та filters</i>), зазвичай збігається з
+        ім'ям властивості частини стану Redux, і
+        <b>друге</b> це <b>подія</b>, яка описує екшен (<i
+          >addTask, deleteTask, toggleCompleted,
+          setStatusFilter</i
+        >).
+      </p>
+
+      <!-- Генератори екшенів -->
+      <h3 class="m-bottom-min">Генератори екшенів</h3>
+      <div
+        class="m-bottom print-flex-box print-m-bottom-max"
+      >
+        <div>
+          <p class="m-bottom-min">
+            Екшени це <i>статичні об'єкти</i>, значення
+            властивості <b>payload</b> яких неможливо задати
+            динамічно. <b>Генератори екшенів</b> (Action
+            Creators) - <i>функції</i>, які можуть приймати
+            <i>аргументи</i>, після чого створюють та
+            повертають екшени
+            <i>з однаковим значенням властивості type</i>,
+            але <i>різними payload</i>. Вони можуть мати
+            побічні ефекти, наприклад, заповнювати
+            властивості за замовчуванням або генерувати
+            унікальний ідентифікатор об'єкта завдання.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// src/redux/actions.js</i><br />
+            <br />
+            import { nanoid } from "nanoid";<br />
+            <br />
+            export const addTask = text => {<br />
+               return
+            <b
+              >{ <br />
+                     type: "tasks/addTask",<br />
+                     payload: {<br />
+                         id: nanoid(),<br />
+                         completed: false,<br />
+                         text,<br />
+                     },<br />
+                  }</b
+            >;<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <!-- Відправлення екшенів -->
+      <h3 class="m-bottom-min">Відправлення екшенів</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для того щоб сповістити сторінку про те, що в
+            інтерфейсі відбулася якась подія, необхідно
+            відправити екшен за допомогою хуку
+            <b>useDispatch()</b>. Він повертає посилання на
+            функцію надсилання екшенів <b>dispatch</b>
+            з об'єкта створеного нами раніше стора Redux.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// src/components/TaskForm/TaskForm.jsx</i
+            ><br />
+
+            <i>// Імпортуємо хук</i><br />
+            import { <b>useDispatch</b> } from
+            "react-redux";<br />
+            <i>// Імпортуємо генератор екшену</i><br />
+            import { addTask } from
+            "../../redux/actions";<br />
+            <br />
+            export const TaskForm = () => {<br />
+                ><br />
+                const <b>dispatch = useDispatch()</b>;<br />
+            <br />
+                const handleSubmit = event => {<br />
+                    event.preventDefault();<br />
+                    const form = event.target;<br />
+                   
+            <b
+              >dispatch(addTask(form.elements.text.value))</b
+            >;<br />
+                    <br />
+                    form.reset();<br />
+                };<br />
+            <br />
+                return (<br />
+                    &#60;form
+            onSubmit={handleSubmit}>...&#60;/form><br />
+
+                );<br />
+
+            };
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Редюсери (reducers) -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Редюсери (reducers)</h2>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="">
+            <b>Редюсер (reducer)</b> - це функція, яка
+            приймає поточний стан та екшен як аргументи і
+            повертає новий стан. Редюсер визначає, як
+            змінюється стан програми у відповідь на екшени,
+            надіслані на стор.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>(state, action) => nextState</p>
+        </div>
+      </div>
+      <p class="m-bottom-min border-box">
+        <b>Важливо!</b> Екшени описують тільки те, що
+        сталося, а не як змінюється стан програми..
+      </p>
+
+      <!-- Кореневий редюсер -->
+      <h3 class="m-bottom-min">Кореневий редюсер</h3>
+      <div class="print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            У додатку завжди буде лише <b>один</b>
+            <b>кореневий редюсер</b>, який потрібно передати
+            до <b>createStore</b>
+            під час створення стора. Цей редюсер відповідає
+            за обробку всіх відправлених екшенів та
+            обчислення нового стану.
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Важливо!</b> При ініціалізації стора всім
+            редюсерам у якості значення стану передається
+            <i>undefined</i>. Тому кожному редюсеру
+            необхідно вказати значення
+            <i>за замовчуванням</i> для параметра
+            <b>state</b>, яке стане початковим станом
+            програми.
+            <b>&#60;product&#62;&#60;/product&#62;</b>.
+          </p>
+          <p class="m-bottom-min border-box">
+            <b>Цікаво!</b> Редюсер розрізняє екшени за
+            значенням властивості <b>type</b>. Залежно від
+            типу екшену виконуватиметься <i>різна логіка</i
+            ><br />
+          </p>
+          <p class=""><b>Правила редюсерів</b></p>
+          <ul class="list-style">
+            <li>
+              Не можна змінювати аргументи (<b>state</b> та
+              <b>action</b>). Редюсери мають лише
+              обчислювати нове значення стану з урахуванням
+              цих аргументів.
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// src/redux/reducers.js</i><br />
+            import { statusFilters } from "./constants";<br />
+            <br />
+            const initialState = {<br />
+                    ...<br />
+            };<br />
+            <br />
+            export const rootReducer = (state =
+            initialState, action) => {<br />
+
+                switch (action.type) {<br />
+
+                    case "tasks/addTask": {<br />
+                        return {<br />
+                          ...state,<br />
+                          tasks: [<br />
+                              ...state.tasks,<br />
+                              action.payload,<br />
+                          ],<br />
+                        };<br />
+                    }<br />
+                    default:<br />
+                        return state;<br />
+                }<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <ul class="m-bottom-min list-style">
+        <li>
+          Не можна змінювати стан (<b>state</b>). Натомість
+          редюсери повинні робити оновлення, копіюючи
+          існуючий стан та вносячи зміни до копії.
+        </li>
+        <li>
+          Редюсери <b>не повинні виконувати</b> жодних
+          <i>«побічних ефектів»</i>. Наприклад, запуск
+          таймера, виконання HTTP-запиту, зміна значення
+          поза функцією або її аргументів, генерація
+          випадкових чисел чи рядків тощо.
+        </li>
+      </ul>
+
+      <!-- Композиція редюсерів -->
+      <h3 class="m-bottom-min">Композиція редюсерів</h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Зазвичай редюсери поділяються ґрунтуючись на
+            частинах стану Redux які вони оновлюють.
+            Розділимо обробку екшенів завдань та зміни
+            фільтра на два незалежних редюсера. Кожен
+            редюсер відповідатиме лише за свою частину стану
+            Redux, тому код оновлення стану буде значно
+            простіше.
+          </p>
+          <p class="m-bottom">
+            Тепер у нас є два окремі редюсери, але при
+            створенні стора необхідно передати один
+            кореневий редюсер, який відповідає за весь стан
+            Redux. Ми можемо написати кореневий редюсер так,
+            щоб він просто викликав два інші редюсери і
+            передавав їм необхідну частину стану та екшен.
+            Це і є <b>композиція редюсерів</b>.
+          </p>
+
+          <div class="border-box m-bottom">
+            <p class="m-bottom-min">
+              Щоб не створювати кореневий редюсер вручну, у
+              бібліотеці Redux є функція
+              <b>combineReducers</b>, яка робить те саме,
+              але коротше.
+            </p>
+
+            <div class="bcg-box">
+              <p>
+                import { <b>combineReducers</b> } from
+                "redux";<br />
+                <br />
+                export const <b>rootReducer</b> =
+                <b>combineReducers</b>({<br />
+                    tasks: <b>tasksReducer</b>,<br />
+                    filters: <b>filtersReducer</b>,<br />
+                });
+              </p>
+            </div>
+          </div>
+
+          <div class="border-box">
+            <p class="m-bottom-min">
+              <b>Слайси</b> (slices, шматочки) - частина
+              стану Redux, що групує інщі дані, які
+              відносятся до певного інтерфейсу чи іншим
+              даним, пов'язаних спільною логікою. По факту -
+              слайси - це властивості стану першого рівня
+              вкладеності.
+            </p>
+            <div class="print-flex-box">
+              <p>
+                Можна сказати, що композиція редьюсерів
+                залежить від слайсів
+              </p>
+              <div class="bcg-box print-bcg-box">
+                <p>
+                  const initialState = {<br />
+                      <b>tasks</b>: [ {...}, {...} ],<br />
+                      <b>filters</b>: {<br />
+                          status: "all",<br />
+                      },<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bcg-box print-bcg-box print-fs-14">
+          <p>
+            <i>// src/redux/reducers.js</i><br />
+            <br />
+            const tasksInitialState = [<br />
+                ... <i>// дані початкового стану</i><br />
+            ];<br />
+            <br />
+            const <b>tasksReducer</b> = (state =
+            tasksInitialState, action) => {<br />
+                switch (action.type) {<br />
+                    case "tasks/addTask":<br />
+                        return [...state,
+            action.payload];<br />
+                    case "tasks/deleteTask":<br />
+                        return state.filter(task => task.id
+            !== action.payload);<br />
+                    case "tasks/toggleCompleted":<br />
+                        return state.map(task => {<br />
+                            if (task.id !== action.payload)
+            {<br />
+                                return task;<br />
+                            }<br />
+                            return { ...task, completed:
+            !task.completed };<br />
+                        });<br />
+                    default:<br />
+                        return state;<br />
+                }<br />
+            };<br />
+            <br />
+            const filtersInitialState = {<br />
+                status: statusFilters.all,<br />
+            };<br />
+            <br />
+            const <b>filtersReducer</b> = (state =
+            filtersInitialState, action) => {<br />
+                switch (action.type) {<br />
+                    case "filters/setStatusFilter":<br />
+                        return {<br />
+                            ...state,<br />
+                            status: action.payload,<br />
+                        };<br />
+                    default:<br />
+                        return state;<br />
+                }<br />
+            };<br />
+            <br />
+            export const <b>rootReducer</b> = (state = {},
+            action) => {<br />
+                return {<br />
+                    tasks: tasksReducer(state.tasks,
+            action),<br />
+                    filters: filtersReducer(state.filters,
+            action),<br />
+                };<br />
+            };
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Висновки -->
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom-min">Висновки</h2>
+      <div class="m-bottom">
+        <div>
+          <p>Алгоритм використання Redux</p>
+          <ul
+            class="list-style"
+            style="min-width: max-content"
+          >
+            <li>Створити <b>Store</b></li>
+            <li>Оголосити <b>початковий стан</b></li>
+            <li>
+              Створити базовий Reducer (<b>rootReducer</b>)
+            </li>
+            <li>
+              <b>Provider</b>'ом огорнути <b>App</b> (у
+              main.js) та передати <b>store</b>
+            </li>
+            <li>Створити компонент</li>
+            <li>
+              Оголосити <b>useSelector</b> у компоненті для
+              підписання на зміну частини стану
+            </li>
+            <li>Оголосити <b>actions</b></li>
+            <li>
+              <b>dispatch</b> actions із компоненту при
+              подіях
+            </li>
+            <li>
+              Обробити <b>actions</b> у <i>reducer</i>'і
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Приклад -->
+    <section class="">
+      <h2 class="m-bottom-min center-text">Приклад</h2>
+      <div class="print-flex-box print-fs-12">
+        <div class="print-bcg-box">
+          <!-- <p>Стан (Store)</p> -->
+          <div
+            class="bcg-box print-m-left-none"
+            style="margin-right: auto"
+          >
+            <p>
+              <i>// src/redux/store.js</i><br />
+
+              import { createStore, combineReducers } from
+              "redux";<br />
+              import { balanceReducer } from
+              "./balanceSlice";<br />
+              import { localeReducer } from
+              "./localeSlice";<br />
+              <br />
+              const rootReducer = combineReducers({<br />
+                  balance: balanceReducer,<br />
+                  locale: localeReducer,<br />
+              });<br />
+              export const store = createStore(rootReducer);
+            </p>
+          </div>
+
+          <!-- <p>balanceSlice</p> -->
+          <div
+            class="bcg-box print-m-left-none"
+            style="margin-right: auto"
+          >
+            <p>
+              <i>// src/redux/balanceSlice.js </i><br />
+              export const deposit = (value) => {<br />
+                  return {<br />
+                      type: "balance/deposit",<br />
+                      payload: value,<br />
+                  };<br />
+              };<br />
+              export const withdraw = (value) => {<br />
+                  return {<br />
+                      type: "balance/withdraw",<br />
+                      payload: value,<br />
+                  };<br />
+              };<br />
+              export const balanceReducer = (<br />
+                      state = {value: 1000 },<br />
+                      action<br />
+                  ) => {<br />
+                      switch (action.type) {<br />
+                          case "balance/deposit":<br />
+                              return {<br />
+                                  ...state,<br />
+                                  value: state.value +
+              action.payload,<br />
+                              };<br />
+                          case "balance/withdraw":<br />
+                              return {<br />
+                                  ...state,<br />
+                                  value: state.value -
+              action.payload,<br />
+                              };<br />
+                          default:<br />
+                              return state;<br />
+                  }<br />
+              };
+            </p>
+          </div>
+
+          <!-- <p>localeSlice.js</p> -->
+          <div
+            class="bcg-box print-m-left-none"
+            style="margin-right: auto"
+          >
+            <p>
+              <i>// src/redux/localeSlice.js </i><br />
+              export const changeLang = (newLang) => {<br />
+                  return {<br />
+                      type: "locale/changeLang",<br />
+                      payload: newLang,<br />
+                  };<br />
+              };<br />
+              export const localeReducer = (<br />
+                      state = { lang: "uk" },<br />
+                      action<br />
+                  ) => {<br />
+                      switch (action.type) {<br />
+                          case "locale/changeLang":<br />
+                              return {<br />
+                                  ...state,<br />
+                                  lang: action.payload,<br />
+                              };<br />
+                          <br />
+                          default:<br />
+                              return state;<br />
+                  }<br />
+              };
+            </p>
+          </div>
+
+          <!-- <p>main.jsx</p>
+          <div class="bcg-box">
+            <p>
+              <i>// src/main.jsx</i>
+
+              import React from "react";<br />
+              import ReactDOM from "react-dom/client";<br />
+              import App from "./components/App";<br />
+              import "modern-normalize";<br />
+              import "./index.css";<br />
+              import { Provider } from "react-redux";<br />
+              import { store } from "./redux/store";<br />
+              <br />
+              ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                  &#60;React.StrictMode ><br />
+                      &#60;Provider store="{store}" ><br />
+                          &#60;App /><br />
+                      &#60;/Provider ><br />
+                  &#60;/React.StrictMode ><br />
+              );
+            </p>
+          </div> -->
+        </div>
+
+        <div class="print-bcg-box print-m-left-none">
+          <!-- <p>App.jsx</p> -->
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/components/App/App.jsx</i><br />
+              import LangSwitcher from "./LangSwitcher";<br />
+              import Balance from "./Balance";<br />
+              import { useSelector } from "react-redux";<br />
+              <br />
+              export default function App() {<br />
+                  const lang = useSelector((state) =>
+              state.locale.lang);<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h1>Redux&#60;/h1><br />
+                          &#60;Balance /><br />
+                          &#60;LangSwitcher /><br />
+                          &#60;p>Selected lang:
+              {lang}&#60;/p><br />
+                      &#60;/div><br />
+                  );<br />
+              }
+            </p>
+          </div>
+
+          <!-- <p>Balance</p> -->
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/components/Balance/Balance.jsx</i
+              ><br />
+
+              import { useDispatch, useSelector } from
+              "react-redux";<br />
+              import { deposit, withdraw } from
+              "../redux/balanceSlice";<br />
+              import { useState } from "react";<br />
+              <br />
+              export default function Balance() {<br />
+                  const dispatch = useDispatch();<br />
+                  const balance = useSelector((state) =>
+              state.balance.value);<br />
+                  const [value, setValue] = useState(0);<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;p>Balance:
+              {balance}&#60;/p><br />
+                          &#60;input<br />
+                              type="number"<br />
+                              value={value}<br />
+                              onChange={(e) =>
+              setValue(Number(e.target.value))}<br />
+                          /><br />
+                          &#60;button onClick={() =>
+              dispatch(deposit(value))}><br />
+                              Deposit credits<br />
+                          &#60;/button><br />
+                          &#60;button onClick={() =>
+              dispatch(withdraw(value))}><br />
+                              Withdraw credits<br />
+                          &#60;/button><br />
+                      &#60;/div><br />
+                  );<br />
+              }
+            </p>
+          </div>
+
+          <!-- <p>LangSwitcher</p> -->
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i
+                >//
+                src/components/LangSwitcher/LangSwitcher.jsx</i
+              ><br />
+
+              import { useDispatch, useSelector } from
+              "react-redux";<br />
+              import { changeLang } from
+              "../redux/localeSlice";<br />
+              <br />
+              export default function LangSwitcher() {<br />
+                  const dispatch = useDispatch();<br />
+                  const lang = useSelector((state) =>
+              state.locale.lang);<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;select<br />
+                              value={lang}<br />
+                              onChange={(e) => dispatch(<br />
+                                 
+              changeLang(e.target.value)<br />
+                              )}<br />
+                          ><br />
+                              &#60;option
+              value="en">EN&#60;/option><br />
+                              &#60;option
+              value="uk">UK&#60;/option><br />
+                              &#60;option
+              value="pl">PL&#60;/option><br />
+                          &#60;/select><br />
+                      &#60;/div><br />
+                  );<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
