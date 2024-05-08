@@ -138,7 +138,7 @@
         </p>
       </div>
     </div>
-    <div class="m-bottom print-flex-box">
+    <div class="m-bottom print-flex-box print-m-bottom-max">
       <div>
         <p class="m-bottom-min">
           Кожного разу імпортувати посилання на об'єкт
@@ -175,7 +175,9 @@
           логіну та особистої інформації
           <b>userContext.js</b>.
         </p>
-        <div class="m-bottom-min bcg-box print-bcg-box">
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-m-left-none print-fs-13"
+        >
           <p>
             <i>// src/userContext.js</i><br />
             import { createContext, useContext } from
@@ -193,7 +195,9 @@
           провайдером. Це можна зробити в головному файлі
           <b>main.jsx</b>.
         </p>
-        <div class="m-bottom-min bcg-box print-bcg-box">
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-fs-13"
+        >
           <p>
             <i>// src/main.jsx</i><br />
             import ReactDOM from "react-dom/client";<br />
@@ -204,12 +208,13 @@
                 isLoggedIn: true <br />
             };<br />
 
-            ReactDOM.createRoot(document.getElementById("root")).render(<br />
-                &#60;userContext.Provider
+            ReactDOM.createRoot(document.getElementById("root"))<br />
+                .render(<br />
+                    &#60;userContext.Provider
             value={contextValue}><br />
-                    &#60;App /><br />
-                &#60;/userContext.Provider><br />
-            );
+                        &#60;App /><br />
+                    &#60;/userContext.Provider><br />
+                );
           </p>
         </div>
       </div>
@@ -222,17 +227,15 @@
           користувача. Рендеримо меню користувача
           <i>UserMenu</i>.
         </p>
-        <div class="m-bottom-min bcg-box print-bcg-box">
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-fs-13"
+        >
           <p>
             <i>// src/components/App.jsx</i><br />
-            <br />
             import { UserMenu } from "./UserMenu";<br />
-            <br />
             const App = () => {<br />
                 return (<br />
-                    &#60;div><br />
-                        &#60;UserMenu /><br />
-                    &#60;/div><br />
+                    &#60;div>&#60;UserMenu />&#60;/div><br />
                 );<br />
             };
           </p>
@@ -243,20 +246,113 @@
           <b>useUser</b> в <b>UserMenu</b> для доступу до
           значення контексту та виводимо ім'я користувача.
         </p>
-        <div class="m-bottom-min bcg-box print-bcg-box">
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-fs-13"
+        >
           <p>
-            <i>// src/components/UserMenu.jsx<br /> </i
-            ><br />
+            <i>// src/components/UserMenu.jsx </i><br />
             import { useUser } from "../userContext";<br />
-            <br />
             export const UserMenu = () => {<br />
                 const { username } = useUser();<br />
-                <br />
                 return (<br />
                     &#60;div><br />
                         &#60;p>Welcome,
             {username}!&#60;/p><br />
-                    &#60;button>Log out&#60;/button><br />
+                        &#60;button>Log out&#60;/button><br />
+                    &#60;/div><br />
+                );<br />
+            };
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="m-bottom-min">
+      Кастомний компонент провайдера
+    </h3>
+    <div class="print-flex-box">
+      <div>
+        <p class="m-bottom-min">
+          До цого значення контексту не динамічне.
+          Користувач може зареєструватися та розлогінитися,
+          зберігатимемо це в стані компонента і методи для
+          його зміни.
+        </p>
+        <div
+          class="bcg-box print-bcg-box print-m-left-none print-fs-13"
+        >
+          <p>
+            <i>// src/userContext.jsx</i><br />
+            import { createContext, useContext, useState }
+            from "react";<br />
+            const userContext = createContext();<br />
+            export const useUser = () =>
+            useContext(userContext);<br />
+            export const UserProvider = ({ children }) =>
+            {<br />
+                const [ isLoggedIn, setIsLoggedIn ] =
+            useState(false);<br />
+                const [ username, setUsername ] =
+            useState(null);<br />
+                const logIn = () => {<br />
+                    setIsLoggedIn(true);<br />
+                    setUsername("Mango");<br />
+                };<br />
+                const logOut = () => {<br />
+                    setIsLoggedIn(false);<br />
+                    setUsername(null);<br />
+                };<br />
+                    return (<br />
+                    &#60;userContext.Provider value={{<br />
+                        isLoggedIn, username, logIn,
+            logOut<br />
+                    }}><br />
+                        {children}<br />
+                    &#60;/userContext.Provider><br />
+                );<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-fs-13"
+        >
+          <p>
+            <i>// src/main.jsx </i><br />
+            import { UserProvider } from "./userContext";<br />
+
+            ReactDOM.createRoot(document.getElementById("root"))<br />
+                .render(<br />
+                    &#60;UserProvider><br />
+                        &#60;App /><br />
+                    &#60;/UserProvider><br />
+            );
+          </p>
+        </div>
+
+        <div class="bcg-box print-bcg-box print-fs-13">
+          <p>
+            <i>// src/components/UserMenu.jsx</i><br />
+
+            import { useUser } from "../userContext";<br />
+
+            export const UserMenu = () => {<br />
+                const { isLoggedIn, username, logOut, logIn
+            } = useUser();<br />
+                    return (<br />
+                    &#60;div><br />
+                        {isLoggedIn ? (<br />
+                            &#60;><br />
+                                &#60;p>{username}&#60;/p><br />
+                                &#60;button
+            onClick={logOut}>Log out&#60;/button><br />
+                            &#60;/><br />
+                            ) : (<br />
+                                &#60;button
+            onClick={logIn}>Log in&#60;/button><br />
+                        )}<br />
                     &#60;/div><br />
                 );<br />
             };
