@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>HTTP-Redux</title>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+
+    <h1 class="m-bottom center-text">
+      Асинхронність в Redux
+    </h1>
+
+    <p>
+      <b>HTTP-запити</b> це <i>асинхронні операції</i>, які
+      представлені <i>промісами</i>, тому їх можна розбити
+      на три складові: процес
+      <i>запиту</i> (<b>pending</b>),
+      <i>успішне</i> завершення запиту (<b>fulfilled</b>) та
+      завершення запиту з <i>помилкою</i>
+      (<b>rejected</b>).
+    </p>
+
+    <!-- Операції -->
+    <section class="print-m-bottom-max">
+      <h2 class="m-bottom-min">Операції</h2>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>Завдання</b>: завантаження даних, обробки
+            індикатора завантаження та помилки виконання
+            запиту. Оголосимо слайс списку завдань, у стані
+            якого будемо зберігати масив завдань, прапор
+            статусу завантаження та дані можливої помилки.
+          </p>
+          <p>
+            Додамо редюсер для обробки кожного з можливих
+            станів запиту.
+          </p>
+          <ul class="list-style">
+            <li>
+              Прапор завантаження
+              <b>isLoading</b> встановлюємо в <b>true</b> на
+              старті запиту, та <b>false</b> у будь-якому
+              іншому випадку, тому що запит завершено.
+            </li>
+            <li>
+              При виконанні запиту з помилкою змінюємо
+              значення властивості <b>error</b>, записавши в
+              нього те, що прийде в <b>action.payload</b> -
+              інформація про помилку.
+            </li>
+            <li>
+              У разі успішного виконання запиту, скидаємо
+              значення помилки та записуємо в
+              <b>items</b> отримані дані з
+              <b>action.payload</b> - масив завдань.
+            </li>
+          </ul>
+        </div>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>tasksSlice.js</i><br />
+            <br />
+
+            import { createSlice } from
+            '@reduxjs/toolkit';<br />
+            <br />
+            const tasksInitialState = {<br />
+                items: [],<br />
+                isLoading: false,<br />
+                error: null,<br />
+            };<br />
+            <br />
+            const tasksSlice = createSlice({<br />
+                name: 'tasks',<br />
+                initialState: tasksInitialState,<br />
+                <b>reducers</b>: {<br />
+                    <b>fetchingInProgress(state)</b> {<br />
+                        state.<b>isLoading</b> = true;<br />
+                    },<br />
+                   
+            <b>fetchingSuccess(state, action)</b> {<br />
+                        state.<b>isLoading</b> = false;<br />
+                        state.<b>error</b> = null;<br />
+                        state.<b>items</b> =
+            <b>action.payload</b>;<br />
+                    },<br />
+                   
+            <b>fetchingError(state, action)</b> {<br />
+                        state.<b>isLoading</b> = false;<br />
+                        state.<b>error</b> =
+            <b>action.payload</b>;<br />
+                    },<br />
+                },<br />
+            });<br />
+            export const { fetchingInProgress,
+            fetchingSuccess, fetchingError } =<br />
+                tasksSlice.actions;<br />
+            export const tasksReducer = tasksSlice.reducer;
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="m-bottom print-flex-box print-m-bottom-max"
+      >
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-m-left-none"
+        >
+          <p>
+            <i>store.js</i><br />
+            <br />
+
+            import { configureStore } from
+            '@reduxjs/toolkit';<br />
+            import { tasksReducer } from './tasksSlice';<br />
+            <br />
+            export const store = configureStore({<br />
+                reducer: {<br />
+                    tasks: tasksReducer,<br />
+                },<br />
+            });
+          </p>
+        </div>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>selectors.js</i><br />
+            <br />
+
+            export const getTasks = (state) => state.tasks;
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для того, щоб при відправленні екшену виконати
+            асинхронний код, необхідно оголосити
+            <b>«операцію»</b> -
+            <i>асинхронний генератор екшену</i>, в
+            <i>тілі</i> якого викликаються інші,
+            <i>синхронні генератори екшенів</i>.
+            <i>Операція</i> не повертає екшен замість цього
+            вона <i>повертає іншу функцію</i>, яка
+            <i>аргументом</i> набуває <b>dispatch</b>. У
+            тілі цієї функції можна виконувати асинхронні
+            дії, наприклад, HTTP-запит. Для запитів
+            використовуємо бібліотеку axios.
+          </p>
+          <p class="m-bottom-min">
+            Усередині операції надсилаємо
+            <i>синхронні екшени</i> для обробки трьох
+            ситуацій: встановлення індикатора завантаження,
+            отримання даних при успішному запиті та обробка
+            помилки.
+          </p>
+          <p class="border-box">
+            <b>Цікаво!</b> Можливість оголошувати асинхронні
+            генератори екшенів та виконувати асинхронні дії
+            надає розширення стора <b>redux-thunk</b>, яке
+            за умовчанням включено до Redux Toolkit.
+          </p>
+        </div>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>operations.js</i><br />
+            <br />
+
+            import axios from 'axios';<br />
+            import {<br />
+                fetchingInProgress,<br />
+                fetchingSuccess,<br />
+                fetchingError,<br />
+            } from './tasksSlice';<br />
+            <br />
+            axios.defaults.baseURL =<br />
+               
+            'https://62584f320c918296a49543e7.mockapi.io';<br />
+            <br />
+            export const <b>fetchTasks</b> = () =>
+            <b>async (dispatch)</b> => {<br />
+                try {<br />
+                   
+            <b>dispatch</b>(fetchingInProgress());<br />
+                    const response = await
+            axios.get('/tasks');<br />
+                   
+            <b>dispatch</b
+            >(fetchingSuccess(response.data));<br />
+                } catch (e) {<br />
+                   
+            <b>dispatch</b>(fetchingError(e.message));<br />
+                }<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom print-flex-box">
+        <div
+          class="m-bottom-min bcg-box print-bcg-box print-m-left-none"
+        >
+          <p>
+            <i>main.jsx</i><br />
+            <br />
+
+            import React from 'react';<br />
+            import ReactDOM from 'react-dom/client';<br />
+            import { Provider } from 'react-redux';<br />
+            import { App } from './App.jsx';<br />
+            import { store } from './redux/store';<br />
+            import './index.css';<br />
+            <br />
+            ReactDOM.createRoot(document<br />
+                .getElementById('root')).render(<br />
+                    &#60;React.StrictMode ><br />
+                        &#60;Provider store="{store}" ><br />
+                            &#60;App /><br />
+                        &#60;/Provider ><br />
+                    &#60;/React.StrictMode ><br />
+                );
+          </p>
+        </div>
+        <div class="m-bottom-min bcg-box print-bcg-box">
+          <p>
+            <i>App.jsx</i><br />
+            <br />
+            import { useEffect } from 'react';<br />
+            import { useDispatch, useSelector } from
+            'react-redux';<br />
+            import { fetchTasks } from
+            './redux/operations';<br />
+            import { getTasks } from './redux/selectors';<br />
+            <br />
+            export const App = () => {<br />
+                const dispatch = useDispatch();<br />
+                const { items, isLoading, error } =<br />
+                    useSelector(getTasks);<br />
+                <br />
+                useEffect(() => {<br />
+                    dispatch(fetchTasks());<br />
+                }, [dispatch]);<br />
+                <br />
+                return (<br />
+                    &#60;div><br />
+                        {isLoading &&
+            <b>Loading tasks...</b>}<br />
+                        {error && <b>{error}</b>}<br />
+                        &#60;p><br />
+                            {items.length > 0 &&<br />
+                                JSON.stringify(items, null,
+            2)}<br />
+                        &#60;/p><br />
+                    &#60;/div><br />
+                );<br />
+            };
+          </p>
+        </div>
+      </div>
+
+      <div class="m-bottom print-flex-box"></div>
+    </section>
+
+    <!-- createAsyncThunk -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">createAsyncThunk</h2>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            <b>createAsyncThunk()</b> - функція Redux
+            Toolkit спрощує процес оголошення асинхронного
+            генератора екшену.
+            <i>Першим аргументом</i> приймає
+            <b>тип екшену</b>, а <i>другим</i>
+            <b>функцію</b>, яка повинна виконати HTTP-запит
+            і повернути проміс із даними, які стануть
+            значенням <b>payload</b>. Повертає
+            <i>асинхронний генератор екшену (операцію)</i>
+            при запуску якого виконається функція з кодом
+            запиту.
+          </p>
+          <p>
+            Функція <b>createAsyncThunk()</b>
+            <i>автоматично</i> створює <i>екшени</i>, що
+            представляють життєвий цикл HTTP-запиту, і
+            відправляє їх у правильному порядку, залежно від
+            статусу запиту.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <i>// src/redux/operations.js</i><br />
+            <br />
+            import axios from "axios";<br />
+            import { createAsyncThunk } from
+            "@reduxjs/toolkit";<br />
+            <br />
+            axios.defaults.baseURL =<br />
+               
+            "https://62584f320c918296a49543e7.mockapi.io";<br />
+            <br />
+            export const fetchTasks = createAsyncThunk(<br />
+                "tasks/fetchAll",<br />
+                async () => {<br />
+                    const response = await
+            axios.get("/tasks");<br />
+                    return response.data;<br />
+                }<br />
+            );
+          </p>
+        </div>
+      </div>
+
+      <p>
+        <i
+          >Тип створених екшенів складається з рядка,
+          зазначеного першим аргументом
+          (<b>"tasks/fetchAll"</b>), до якого додається
+          постфікси <b>"pending"</b>, <b>"fulfilled"</b> або
+          <b>"rejected"</b></i
+        >, залежно від того, який стан запиту описує екшен.
+      </p>
+      <ul class="list-style m-bottom-min">
+        <li>
+          <b>"tasks/fetchAll/pending"</b> - початок запиту;
+        </li>
+        <li>
+          <b>"tasks/fetchAll/fulfilled"</b> - успішне
+          завершення запиту;
+        </li>
+        <li>
+          <b>"tasks/fetchAll/rejected"</b> - завершення
+          запиту з помилкою.
+        </li>
+      </ul>
+
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Функція <b>createAsyncThunk</b>
+            <i>не створює</i> <b>редюсер</b>, тому що не
+            може знати, як ми хочемо відстежувати стан
+            завантаження, з якими даними завершиться запит
+            та як їх правильно обробити. Тому наступним
+            кроком буде зміна коду слайсу так, щоб він
+            обробляв <b>нові екшени</b>.
+          </p>
+          <p class="m-bottom-min">
+            Властивість
+            <b>extraReducers</b> використовується щоб
+            оголосити
+            <i>редюсери для «зовнішніх» типів екшенів</i>,
+            тобто тих, які не згенеровані з властивості
+            <b>reducers</b>. Оскільки ці редюсери обробляють
+            «зовнішні» екшени, для них не буде створено
+            генератори екшенів в <b>slice.actions</b>,
+            <i>в цьому немає необхідності</i>.
+          </p>
+          <p class="">
+            <i>Генератори екшенів</i>, які мають життєвий
+            цикл запиту, зберігаються в об'єкті операції як
+            властивості <b>pending</b>, <b>fulfilled</b> та
+            <b>rejected</b>. Вони автоматично створюються за
+            допомогою <b>createAction</b> і тому мають
+            властивість <b>type</b> і перевизначений метод
+            <b>toString()</b>, який повертає рядок типу
+            екшену.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <i>// src/redux/tasksSlice.js </i><br />
+            <br />
+            import { createSlice } from
+            "@reduxjs/toolkit";<br />
+            import { fetchTasks } from "./operations";<br />
+            <br />
+            const tasksSlice = createSlice({<br />
+                name: "tasks",<br />
+                initialState: {<br />
+                    items: [],<br />
+                    isLoading: false,<br />
+                    error: null,<br />
+                },<br />
+                <b>extraReducers</b>: builder => {<br />
+                    builder<br />
+                        .addCase(fetchTasks.<b>pending</b>,
+            (state, action) => {<br />
+                            state.isLoading = true;<br />
+                        })<br />
+                       
+            .addCase(fetchTasks.<b>fulfilled</b>, (state,
+            action) => {<br />
+                            state.isLoading = false;<br />
+                            state.error = null;<br />
+                            state.items = action.payload;<br />
+                        })<br />
+                        .addCase(fetchTasks.<b>rejected</b>,
+            (state, action) => {<br />
+                            state.isLoading = false;<br />
+                            state.error = action.payload;<br />
+                        });<br />
+                },<br />
+            });<br />
+            <br />
+            export const tasksReducer = tasksSlice.reducer;
+
+            <br />
+            export default Product;
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
