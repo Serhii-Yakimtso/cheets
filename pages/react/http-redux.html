@@ -20,7 +20,7 @@
       Асинхронність в Redux
     </h1>
 
-    <p>
+    <p class="m-bottom">
       <b>HTTP-запити</b> це <i>асинхронні операції</i>, які
       представлені <i>промісами</i>, тому їх можна розбити
       на три складові: процес
@@ -35,6 +35,12 @@
       <h2 class="m-bottom-min">Операції</h2>
       <div class="m-bottom-min print-flex-box">
         <div>
+          <p class="m-bottom-min">
+            HTTP-запити - це операції і зберігаються у
+            окремих файлах. іменування йде окремо для
+            кожного слайсу (tasksOps.js, filterOps.js).
+          </p>
+
           <p class="m-bottom-min">
             <b>Завдання</b>: завантаження даних, обробки
             індикатора завантаження та помилки виконання
@@ -283,9 +289,10 @@
             генератора екшену.
             <i>Першим аргументом</i> приймає
             <b>тип екшену</b>, а <i>другим</i>
-            <b>функцію</b>, яка повинна виконати HTTP-запит
-            і повернути проміс із даними, які стануть
-            значенням <b>payload</b>. Повертає
+            <b>функцію</b> (<i>завжди асинхрону</i>), яка
+            повинна виконати HTTP-запит і повернути проміс
+            із даними, які стануть значенням <b>payload</b>.
+            Повертає
             <i>асинхронний генератор екшену (операцію)</i>
             при запуску якого виконається функція з кодом
             запиту.
@@ -310,14 +317,17 @@
                
             "https://62584f320c918296a49543e7.mockapi.io";<br />
             <br />
-            export const fetchTasks = createAsyncThunk(<br />
-                "tasks/fetchAll",<br />
-                async () => {<br />
-                    const response = await
-            axios.get("/tasks");<br />
-                    return response.data;<br />
-                }<br />
-            );
+            export const fetchTasks =
+            <b
+              >createAsyncThunk(<br />
+                  "tasks/fetchAll",<br />
+                  async () => {<br />
+                      const response = await
+              axios.get("/tasks");<br />
+                      return response.data;<br />
+                  }<br />
+              )</b
+            >;
           </p>
         </div>
       </div>
@@ -345,7 +355,9 @@
         </li>
       </ul>
 
-      <div class="m-bottom print-flex-box">
+      <div
+        class="m-bottom print-flex-box print-m-bottom-max"
+      >
         <div>
           <p class="m-bottom-min">
             Функція <b>createAsyncThunk</b>
@@ -367,7 +379,7 @@
             генератори екшенів в <b>slice.actions</b>,
             <i>в цьому немає необхідності</i>.
           </p>
-          <p class="">
+          <p class="m-bottom-min">
             <i>Генератори екшенів</i>, які мають життєвий
             цикл запиту, зберігаються в об'єкті операції як
             властивості <b>pending</b>, <b>fulfilled</b> та
@@ -376,6 +388,12 @@
             властивість <b>type</b> і перевизначений метод
             <b>toString()</b>, який повертає рядок типу
             екшену.
+          </p>
+          <p class="border-box">
+            <b>Цікаво!</b> На відміну від <b>reducers</b>,
+            які сприймають тільки синхроні функції,
+            <b>extraReducers</b> сприймають як синхроні так
+            і асинхроні.
           </p>
         </div>
         <div class="bcg-box print-bcg-box">
@@ -418,6 +436,95 @@
 
             <br />
             export default Product;
+          </p>
+        </div>
+      </div>
+
+      <h3 class="m-bottom-min">
+        Додавання обробки запиту, що завершився з помилкою
+      </h3>
+      <div class="m-bottom print-flex-box">
+        <div>
+          <p class="m-bottom-min">
+            Для цього необхідно доповнити код створення
+            операції (<b>fetchTasks</b>) так, щоб у випадку
+            помилки запиту повертався <i>проміс</i>, який
+            буде відхилено. Тоді на екшені помилки запиту
+            з'явиться властивість <b>payload</b>.
+          </p>
+          <p class="">
+            Колбек функція, в якій виконується запит,
+            називається <b>payloadCreator</b> і відповідає
+            за складання значення властивості
+            <b>payload</b>. Вона буде викликана з двома
+            аргументами: <b>arg</b> та <b>thunkAPI</b>.
+          </p>
+          <div class="bcg-box">
+            payloadCreator(arg, thunkAPI)
+          </div>
+
+          <ul class="list-style">
+            <li>
+              <b>arg</b> - значення, яке було передано
+              операції під час виклику. Використовується,
+              наприклад, для передачі ідентифікаторів
+              об'єктів при видаленні, тексту нотаток при
+              створенні, тощо.
+            </li>
+            <li>
+              <b>thunkAPI</b> - об'єкт, який передається в
+              асинхронний генератор екшену в redux-thunk.
+              Містить властивості та методи доступу до
+              стору, відправки екшенів, а також деякі
+              додаткові.
+            </li>
+          </ul>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <i>// src/redux/operations.js</i><br />
+            <br />
+            import { createAsyncThunk } from
+            "@reduxjs/toolkit";<br />
+            import axios from "axios";<br />
+            <br />
+            axios.defaults.baseURL =<br />
+               
+            "https://62584f320c918296a49543e7.mockapi.io";<br />
+            <br />
+            export const fetchTasks = createAsyncThunk(<br />
+                "tasks/fetchAll",<br />
+            <i>
+                  // Використовуємо символ підкреслення
+              як<br />
+                  //ім'я першого параметра,<br />
+                  // тому що в цій операції він нам не
+              потрібен<br
+            /></i>
+                async <b>(_, thunkAPI)</b> => {<br />
+                    try {<br />
+                        const response = await
+            axios.get("/tasks");<br />
+            <i>
+                          // При успішному запиті
+              повертаємо<br />
+                          //проміс із даними<br
+            /></i>
+                        return response.data;<br />
+                    } catch (e) {<br />
+            <i>
+                          // При помилці запиту
+              повертаємо<br />
+                          // проміс який буде відхилений
+              з<br />
+                          // текстом помилки<br
+            /></i>
+                        return
+            <b>thunkAPI.rejectWithValue(e.message)</b
+            >;<br />
+                    }<br />
+                }<br />
+            );
           </p>
         </div>
       </div>
