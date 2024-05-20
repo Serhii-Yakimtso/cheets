@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Redux</title>
+    <script type="text/javascript" nonce="1ab1cdd14f524de290f066ee4eb" src="//local.adguard.org?ts=1716217930715&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.2%26permmsgid%3Dmsg-f%3A1799578970630561212%26th%3D18f9638a09b29dbc%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ-2eoa0bJEo86BPn9tQEFX_6G2ZttN5gAmUWRCQLUwFGY1T7iLGKlb-6i0SQHKw4Jqr85SEM7VcFxOmmaA446TSh-yGcTGOGV0Wg6psvOet8jXOj9mZA-g9Hl8kFIbcMDJgKpho4QICgRBwD0QwRmSsVP4813Fmml18X24DCIg5rLmuSPYTUlDujrlJdqzb-N3Nl6WnwI_qKrx0x27mtH2kRqwXdjG8a3ZJfK4qwTc_rHrhVIG7eLIA_NPJ2DYgWoj9IkdwPw0l-WqI4a6D5VP-EsouztAZcuynZ3uKBYNi0JQgWbm19b8tjG9UzRWJLI9wWFpGFOYaRXhZT0DRI-dbUpYnWcUVhXIEhTm8pPhAsaNfc676bH9XGTbTKIiyGuBT1vSDZobdS1iqddsaAFYfb_GQkOMD6-a6yu4zYgt3cJMHLJMZimbC5xCmbxApA5jxVACvWfQLkGwm3-Ok2z0Q59dXOqClzdJQ9KVhdu7AJzh-RA7PdKSn_AnLIf-QF9WtwyM-UHClpLfyJUa_wJt1Vxw1k7bSYIvAGCZs5wxuXZpMvQOTqVHURqa_R43dDZ-_YmALOq7OYzJr4-aHQgbCwgXLY5p5VWJXypMvJuHe1t3YmPAGoZAd-NJuXepfyovXuBlfZKv9cXhTPlJrnemFGes4NSVPsx3rkm96_mbv_GJZeNjeIyuvpSC2-xuS9wmwZyN6oZ-1-BOfmfl1Z45St611jTDvm1Mvk2_Kk2tShNTa7Wa9gPVHcW97he3rpPhp64AHIAI4lQwYao7w0AZAFSWYXueduWHDvd_kUCghiLC8ORBHacJA4etmsF6MaEDyXNV5-YUzP4ge2NlHYjAkr6H_Qpb2_txofu_ooyrDoJUtYaW_OaM-FwiNUD2ZvOuWa_LR0Mxbs0VSg9vVuOs1Gba9zxJh_PeiTxCGN_QLInLzWpBx7XjEkW-SrjZVv_-A5-Rp7fCY144KrmYTmsPARSyhuqIRULuvGWNMwbXkMcajzsPTaEDJKrE&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="1ab1cdd14f524de290f066ee4eb" src="//local.adguard.org?ts=1716217930715&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">
+      Реєстрація та логін користувача
+    </h1>
+
+    <!-- Права доступу -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Права доступу</h2>
+      <p class="m-bottom-min">
+        <b>Аутентифікація (authentication)</b> - це процес
+        перевірки облікових даних користувача
+        (логін/пароль). Перевірка аутентифікації користувача
+        шляхом порівняння введеного ним логіна/паролю з
+        даними збереженими в базі даних.
+      </p>
+      <p class="m-bottom-min">
+        <b>Авторизація (authorization)</b> - це перевірка
+        прав користувача на доступ до певних ресурсів.
+        Правом доступу може бути якесь унікальне значення,
+        яке фронтенд передає з кожним HTTP запитом на
+        бекенд.
+      </p>
+      <p>
+        Наприклад, після аутентифікації користувач отримує
+        право запитувати та отримувати від ресурсу
+        my-api.com/tasks деякі дані. При кожному зверненні
+        користувача до ресурсу tasks система авторизації
+        перевірить, чи має він право звертатися до цього
+        ресурсу, внаслідок чого пропускає чи відсікає запит.
+        Право доступу до ресурсу визначається за наявністю
+        якогось унікального значення у запиті (токену).
+      </p>
+    </section>
+
+    <!-- JSON Web Token -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">JSON Web Token</h2>
+      <p class="m-bottom-min">
+        Один із механізмів авторизації це JWT (JSON Web
+        Token). Токени надають собою засіб авторизації для
+        кожного запиту від фронтенду до бекенду. Токени
+        створюються на бекенді ґрунтуючись на секретному
+        ключі, який зберігається на сервері, та якихось
+        унікальних для користувача даних, наприклад пошта
+        тощо. Токен у результаті зберігається на фронтенді і
+        використовується за необхідності авторизації
+        будь-якого запиту.
+      </p>
+      <p>
+        Кожен токен це унікальний зашифрований рядок, який
+        містить три блоки:
+        <b
+          >заголовок (header), набір полів (payload) та
+          сигнатуру</b
+        >. При спробі зловмисником підмінити дані в header
+        або payload, токен стане не валідним, оскільки
+        сигнатура не відповідатиме початковим значенням. А
+        можливість згенерувати нову сигнатуру у зловмисника
+        відсутня, оскільки секретний ключ для зашифрування
+        лежить на сервері.
+      </p>
+    </section>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>main.jsx</i><br />
+        <br />
+        import React from 'react';<br />
+        import { HelmetProvider } from
+        'react-helmet-async';<br />
+        import ReactDOM from 'react-dom/client';<br />
+        import { BrowserRouter } from 'react-router-dom';<br />
+        import { PersistGate } from
+        'redux-persist/integration/react';<br />
+        import { Provider } from 'react-redux';<br />
+        import { App } from './components/App';<br />
+        import { store, persistor } from './redux/store';<br />
+        import 'modern-normalize';<br />
+        import './index.css';<br />
+        <br />
+        ReactDOM.createRoot(document.getElementById('root')).render(<br />
+            &#60;React.StrictMode><br />
+                &#60;Provider store={store}><br />
+                    &#60;PersistGate loading={null}
+        persistor={persistor}><br />
+                        &#60;BrowserRouter><br />
+                            &#60;HelmetProvider><br />
+                                &#60;App /><br />
+                            &#60;/HelmetProvider><br />
+                        &#60;/BrowserRouter><br />
+                    &#60;/PersistGate><br />
+                &#60;/Provider><br />
+            &#60;/React.StrictMode><br />
+        );
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/store.js</i>
+        <br />
+        import { configureStore } from
+        '@reduxjs/toolkit';<br />
+        import {<br />
+            persistStore,<br />
+            persistReducer,<br />
+            FLUSH,<br />
+            REHYDRATE,<br />
+            PAUSE,<br />
+            PERSIST,<br />
+            PURGE,<br />
+            REGISTER,<br />
+        } from 'redux-persist';<br />
+        import storage from 'redux-persist/lib/storage';<br />
+        import { tasksReducer } from './tasks/slice';<br />
+        import { authReducer } from './auth/slice';<br />
+        <br />
+        <i
+          >// Persisting token field from auth slice to
+          localstorage</i
+        ><br />
+        const authPersistConfig = {<br />
+            key: 'auth',<br />
+            storage,<br />
+            whitelist: ['token'],<br />
+        };<br />
+        <br />
+        export const store = configureStore({<br />
+            reducer: {<br />
+                auth: persistReducer(authPersistConfig,
+        authReducer),<br />
+                tasks: tasksReducer,<br />
+            },<br />
+            middleware: (getDefaultMiddleware) =><br />
+                getDefaultMiddleware({<br />
+                    serializableCheck: {<br />
+                        ignoredActions: [FLUSH, REHYDRATE,
+        PAUSE, PERSIST, PURGE, REGISTER],<br />
+                    },<br />
+                }),<br />
+            devTools: process.env.NODE_ENV ===
+        'development',<br />
+        });<br />
+        <br />
+        export const persistor = persistStore(store);
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/auth/operations.js</i><br />
+        <br />
+        import axios from 'axios';<br />
+        import { createAsyncThunk } from
+        '@reduxjs/toolkit';<br />
+        <br />
+        axios.defaults.baseURL =
+        'https://goit-task-manager.herokuapp.com/';<br />
+        <br />
+        // Utility to add JWT<br />
+        const setAuthHeader = (token) => {<br />
+        axios.defaults.headers.common.Authorization =
+        `Bearer ${token}`;<br />
+        };<br />
+        <br />
+        // Utility to remove JWT<br />
+        const clearAuthHeader = () => {<br />
+        axios.defaults.headers.common.Authorization = '';<br />
+        };<br />
+        <br />
+        /*<br />
+        * POST @ /users/signup<br />
+        * body: { name, email, password }<br />
+        */<br />
+        export const register = createAsyncThunk(<br />
+            'auth/register',<br />
+            async (credentials, thunkAPI) => {<br />
+                try {<br />
+                    const res = await
+        axios.post('/users/signup', credentials);<br />
+                    // After successful registration, add
+        the token to the HTTP header<br />
+                    setAuthHeader(res.data.token);<br />
+                    return res.data;<br />
+                } catch (error) {<br />
+                    return
+        thunkAPI.rejectWithValue(error.message);<br />
+                }<br />
+            }<br />
+        );<br />
+        <br />
+        /*<br />
+        * POST @ /users/login<br />
+        * body: { email, password }<br />
+        */<br />
+        export const logIn = createAsyncThunk(<br />
+            'auth/login',<br />
+            async (credentials, thunkAPI) => {<br />
+                try {<br />
+                    const res = await
+        axios.post('/users/login', credentials);<br />
+                    // After successful login, add the token
+        to the HTTP header<br />
+                    setAuthHeader(res.data.token);<br />
+                    return res.data;<br />
+                } catch (error) {<br />
+                    return
+        thunkAPI.rejectWithValue(error.message);<br />
+                }<br />
+            }<br />
+        );<br />
+        <br />
+        /*<br />
+        * POST @ /users/logout<br />
+        * headers: Authorization: Bearer token<br />
+        */<br />
+        export const logOut =
+        createAsyncThunk('auth/logout', async (_, thunkAPI)
+        => {<br />
+            try {<br />
+                await axios.post('/users/logout');<br />
+                // After a successful logout, remove the
+        token from the HTTP header<br />
+                clearAuthHeader();<br />
+            } catch (error) {<br />
+                return
+        thunkAPI.rejectWithValue(error.message);<br />
+            }<br />
+        });<br />
+        <br />
+        /*<br />
+        * GET @ /users/me<br />
+        * headers: Authorization: Bearer token<br />
+        */<br />
+        export const refreshUser = createAsyncThunk(<br />
+            'auth/refresh',<br />
+            async (_, thunkAPI) => {<br />
+                // Reading the token from the state via
+        getState()<br />
+                const state = thunkAPI.getState();<br />
+                const persistedToken = state.auth.token;<br />
+            <br />
+                if (persistedToken === null) {<br />
+                    // If there is no token, exit without
+        performing any request<br />
+                    return thunkAPI.rejectWithValue('Unable
+        to fetch user');<br />
+                }<br />
+            <br />
+                try {<br />
+                    // If there is a token, add it to the
+        HTTP header and perform the request<br />
+                    setAuthHeader(persistedToken);<br />
+                    const res = await
+        axios.get('/users/me');<br />
+                    return res.data;<br />
+                } catch (error) {<br />
+                    return
+        thunkAPI.rejectWithValue(error.message);<br />
+                }<br />
+            }<br />
+        );
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/auth/selectors.js</i><br />
+        <br />
+        export const selectIsLoggedIn = (state) =>
+        state.auth.isLoggedIn;<br />
+        <br />
+        export const selectUser = (state) =>
+        state.auth.user;<br />
+        <br />
+        export const selectIsRefreshing = (state) =>
+        state.auth.isRefreshing;
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/auth/slice.js</i><br />
+        import { createSlice } from '@reduxjs/toolkit';<br />
+        import { register, logIn, logOut, refreshUser } from
+        './operations';<br />
+        <br />
+        const authSlice = createSlice({<br />
+            name: 'auth',<br />
+            initialState: {<br />
+                user: {<br />
+                    name: null,<br />
+                    email: null,<br />
+                },<br />
+                token: null,<br />
+                isLoggedIn: false,<br />
+                isRefreshing: false,<br />
+            },<br />
+            extraReducers: (builder) => {<br />
+                builder<br />
+                    .addCase(register.fulfilled, (state,
+        action) => {<br />
+                        state.user = action.payload.user;<br />
+                        state.token =
+        action.payload.token;<br />
+                        state.isLoggedIn = true;<br />
+                    })<br />
+                    .addCase(logIn.fulfilled, (state,
+        action) => {<br />
+                        state.user = action.payload.user;<br />
+                        state.token =
+        action.payload.token;<br />
+                        state.isLoggedIn = true;<br />
+                    })<br />
+                    .addCase(logOut.fulfilled, (state) =>
+        {<br />
+                        state.user = { name: null, email:
+        null };<br />
+                        state.token = null;<br />
+                        state.isLoggedIn = false;<br />
+                    })<br />
+                    .addCase(refreshUser.pending, (state) =>
+        {<br />
+                        state.isRefreshing = true;<br />
+                    })<br />
+                    .addCase(refreshUser.fulfilled, (state,
+        action) => {<br />
+                        state.user = action.payload;<br />
+                        state.isLoggedIn = true;<br />
+                        state.isRefreshing = false;<br />
+                    })<br />
+                    .addCase(refreshUser.rejected, (state)
+        => {<br />
+                        state.isRefreshing = false;<br />
+                    });<br />
+            },<br />
+        }); export const authReducer = authSlice.reducer;
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/tasks/operations.js</i><br />
+        <br />
+        import { createAsyncThunk } from
+        '@reduxjs/toolkit';<br />
+        import axios from 'axios';<br />
+        <br />
+        // GET @ /tasks<br />
+        export const fetchTasks = createAsyncThunk(<br />
+            'tasks/fetchAll',<br />
+            async (_, thunkAPI) => {<br />
+                try {<br />
+                    const res = await
+        axios.get('/tasks');<br />
+                    return res.data;<br />
+                } catch (error) {<br />
+                    return
+        thunkAPI.rejectWithValue(error.message);<br />
+                }<br />
+            }<br />
+        );<br />
+        <br />
+        // POST @ /tasks<br />
+        export const addTask = createAsyncThunk(<br />
+            'tasks/addTask',<br />
+            async (text, thunkAPI) => {<br />
+                try {<br />
+                    const response = await
+        axios.post('/tasks', { text });<br />
+                    return response.data;<br />
+                } catch (e) {<br />
+                    return
+        thunkAPI.rejectWithValue(e.message);<br />
+                }<br />
+            }<br />
+        );<br />
+        <br />
+        // DELETE @ /tasks/:id<br />
+        export const deleteTask = createAsyncThunk(<br />
+            'tasks/deleteTask',<br />
+            async (taskId, thunkAPI) => {<br />
+                try {<br />
+                    const response = await
+        axios.delete(`/tasks/${taskId}`);<br />
+                    return response.data;<br />
+                } catch (e) {<br />
+                    return
+        thunkAPI.rejectWithValue(e.message);<br />
+                }<br />
+            }<br />
+        );
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/tasks/selectors.js</i><br />
+        <br />
+        export const selectLoading = (state) =>
+        state.tasks.loading;<br />
+        <br />
+        export const selectFilter = (state) =>
+        state.tasks.filter;<br />
+        <br />
+        export const selectAllTasks = (state) =>
+        state.tasks.items;
+      </p>
+    </div>
+
+    <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        <i>redux/tasks/slice.js</i><br />
+        <br />
+        import { createSlice } from '@reduxjs/toolkit';<br />
+        import { logOut } from '../auth/operations';<br />
+        import { fetchTasks, addTask, deleteTask } from
+        './operations';<br />
+        <br />
+        const handlePending = (state) => {<br />
+            state.isLoading = true;<br />
+        };<br />
+        <br />
+        const handleRejected = (state, action) => {<br />
+            state.isLoading = false;<br />
+            state.error = action.payload;<br />
+        };<br />
+        <br />
+        const tasksSlice = createSlice({<br />
+            name: 'tasks',<br />
+            initialState: {<br />
+                items: [],<br />
+                isLoading: false,<br />
+                error: null,<br />
+            },<br />
+            extraReducers: (builder) => {<br />
+                builder<br />
+                    .addCase(fetchTasks.pending,
+        handlePending)<br />
+                    .addCase(fetchTasks.fulfilled, (state,
+        action) => {<br />
+                        state.isLoading = false;<br />
+                        state.error = null;<br />
+                        state.items = action.payload;<br />
+                    })<br />
+                    .addCase(fetchTasks.rejected,
+        handleRejected)<br />
+                    .addCase(addTask.pending,
+        handlePending)<br />
+                    .addCase(addTask.fulfilled, (state,
+        action) => {<br />
+                        state.isLoading = false;<br />
+                        state.error = null;<br />
+                        state.items.push(action.payload);<br />
+                    })<br />
+                    .addCase(addTask.rejected,
+        handleRejected)<br />
+                    .addCase(deleteTask.pending,
+        handlePending)<br />
+                    .addCase(deleteTask.fulfilled, (state,
+        action) => {<br />
+                        state.isLoading = false;<br />
+                        state.error = null;<br />
+                        const index =
+        state.items.findIndex(<br />
+                            (task) => task.id ===
+        action.payload.id<br />
+                        );<br />
+                        state.items.splice(index, 1);<br />
+                    })<br />
+                    .addCase(deleteTask.rejected,
+        handleRejected)<br />
+                    .addCase(logOut.fulfilled, (state) =>
+        {<br />
+                        state.items = [];<br />
+                        state.error = null;<br />
+                        state.isLoading = false;<br />
+                    });<br />
+            },<br />
+        });<br />
+        <br />
+        export const tasksReducer = tasksSlice.reducer;
+      </p>
+    </div>
+
+    <!-- <div class="m-bottom-min bcg-box print-bcg-box">
+      <p>
+        const Product = () => {<br />
+            return (<br />
+                &#60;div&#62;<br />
+                    &#60;h2&#62;Cookies&#60;/h2&#62;<br />
+                    &#60;p&#62;Price: 999
+        credits&#60;/p&#62;<br />
+                &#60;/div&#62;<br />
+            );<br />
+        }<br />
+        <i>redux/store.js</i><br />
+      </p>
+    </div> -->
+  </body>
+</html>
