@@ -8,6 +8,16 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>HTTP-Redux</title>
+    <script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1716125325785&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.1%26permmsgid%3Dmsg-f%3A1799306726674685535%26th%3D18f86bef4d6a5e5f%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ_TBEPIq2R9yPC9O2MK2wq4u50wB8vIGV8h3gdcypTVl_9p_17g1D5gTRYAMROzOyJ6YKJsS5ejjypYg1I06xBbDkWdIjBCOcqS213Rr7VHJv9H6532ZU-TYwUJ29A67wmtuaWLNhjR0_jdkyj3Mqi_VbDkzjSkwEPUNp0VK8yoWMmX3SHKq7xjAMUCCCdiZ1NPWn7Wkb_r9YKXiFFbnkfcE03Tmv7zFHQWROuIoy-k6Z_pQqhiERjjLemLDGJ_vIH4-s6q6PnKWqUUpYecIOov0U6aMYVewRGLD1NylHmLN14HFUevgrXbpubgVDgGYhWNGnurWbKjNLlL0aHhleS6VBZOrEQ5E_tWOZJNsc9nDM1zYQp5b_l6w8--hd8zOiWT6pTouoQNEcYYzTVWSVG95vPv6GjoBZz7sXeTW9ws02K5KDhRDEyn9tbEmwHkpO67-GsB0dlY_Yo_RXhPfZUwlNK65rj1roqCY8WhwEC2tSwpSOhOcetjQE7qHsu6GTo1hQWjmZA2DJcqA-QMefJDRjHxyDq57xbTijyN7TzvD6SRrNTiUrYx-H4vjOusMI2Kpc3btbPX1uNaO-aGVn4K85JFo8ZfkCWCE4sJsWK2mqG0WghhOGGuG9ka1bbWTfCSR2z1SJa5Hyx3WFpNMVnU8_yw8vrVX5Ner5XUfphOjwYA8OJOQ7hswQM_B8BEWnjE7I2oHdBCFfN8Vd6OHL1zyGeEDx4uMfxnBn0FhOvTt0fUgMJ3tHjq-_lDaQEZqmQIAGy9cBqyZY3epWM8MDoko-QCMHxW3oPZ_XNplS02Ma4nIznAz74UgPOQWOwyriQTXWc1NIBfbEYHPrUd4ZyOwzzJW4Ap-3GrArriDUjN4PjqP7rHNyZrN2MpHXM5wyMM5JUNhLB8xdfmkcsqyXXLcPFAo5aS6yUduUPe_bVcpzimdxyBhx9LX5JWz5Nq7E79ki11rHCB2iQwks6IMR_A2glnRXazOuK0pYN_qVC-1GeE_5fjlEp9fdk&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1716125325785&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"
+    ></script>
     <link rel="stylesheet" href="../../css/reset.css" />
     <link rel="stylesheet" href="../../css/react.css" />
   </head>
@@ -35,12 +45,6 @@
       <h2 class="m-bottom-min">Операції</h2>
       <div class="m-bottom-min print-flex-box">
         <div>
-          <p class="m-bottom-min">
-            HTTP-запити - це операції і зберігаються у
-            окремих файлах. іменування йде окремо для
-            кожного слайсу (tasksOps.js, filterOps.js).
-          </p>
-
           <p class="m-bottom-min">
             <b>Завдання</b>: завантаження даних, обробки
             індикатора завантаження та помилки виконання
@@ -289,10 +293,9 @@
             генератора екшену.
             <i>Першим аргументом</i> приймає
             <b>тип екшену</b>, а <i>другим</i>
-            <b>функцію</b> (<i>завжди асинхрону</i>), яка
-            повинна виконати HTTP-запит і повернути проміс
-            із даними, які стануть значенням <b>payload</b>.
-            Повертає
+            <b>функцію</b>, яка повинна виконати HTTP-запит
+            і повернути проміс із даними, які стануть
+            значенням <b>payload</b>. Повертає
             <i>асинхронний генератор екшену (операцію)</i>
             при запуску якого виконається функція з кодом
             запиту.
@@ -317,17 +320,14 @@
                
             "https://62584f320c918296a49543e7.mockapi.io";<br />
             <br />
-            export const fetchTasks =
-            <b
-              >createAsyncThunk(<br />
-                  "tasks/fetchAll",<br />
-                  async () => {<br />
-                      const response = await
-              axios.get("/tasks");<br />
-                      return response.data;<br />
-                  }<br />
-              )</b
-            >;
+            export const fetchTasks = createAsyncThunk(<br />
+                "tasks/fetchAll",<br />
+                async () => {<br />
+                    const response = await
+            axios.get("/tasks");<br />
+                    return response.data;<br />
+                }<br />
+            );
           </p>
         </div>
       </div>
@@ -355,9 +355,7 @@
         </li>
       </ul>
 
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
+      <div class="m-bottom print-flex-box">
         <div>
           <p class="m-bottom-min">
             Функція <b>createAsyncThunk</b>
@@ -379,7 +377,7 @@
             генератори екшенів в <b>slice.actions</b>,
             <i>в цьому немає необхідності</i>.
           </p>
-          <p class="m-bottom-min">
+          <p class="">
             <i>Генератори екшенів</i>, які мають життєвий
             цикл запиту, зберігаються в об'єкті операції як
             властивості <b>pending</b>, <b>fulfilled</b> та
@@ -388,12 +386,6 @@
             властивість <b>type</b> і перевизначений метод
             <b>toString()</b>, який повертає рядок типу
             екшену.
-          </p>
-          <p class="border-box">
-            <b>Цікаво!</b> На відміну від <b>reducers</b>,
-            які сприймають тільки синхроні функції,
-            <b>extraReducers</b> сприймають як синхроні так
-            і асинхроні.
           </p>
         </div>
         <div class="bcg-box print-bcg-box">
@@ -439,95 +431,38 @@
           </p>
         </div>
       </div>
+    </section>
 
-      <h3 class="m-bottom-min">
-        Додавання обробки запиту, що завершився з помилкою
-      </h3>
-      <div class="m-bottom print-flex-box">
+    <!-- Селектори -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">Селектори</h2>
+      <div class="m-bottom-min print-flex-box">
         <div>
           <p class="m-bottom-min">
-            Для цього необхідно доповнити код створення
-            операції (<b>fetchTasks</b>) так, щоб у випадку
-            помилки запиту повертався <i>проміс</i>, який
-            буде відхилено. Тоді на екшені помилки запиту
-            з'явиться властивість <b>payload</b>.
+            <b>Селектори</b> - функції, які інкапсулюють у
+            собі читання значень із стану Redux.
           </p>
           <p class="">
-            Колбек функція, в якій виконується запит,
-            називається <b>payloadCreator</b> і відповідає
-            за складання значення властивості
-            <b>payload</b>. Вона буде викликана з двома
-            аргументами: <b>arg</b> та <b>thunkAPI</b>.
+            У компонентах використовуємо хук
+            <b>useSelector(selector)</b>, якому передається
+            посилання на функцію селектор.
           </p>
-          <div class="bcg-box">
-            payloadCreator(arg, thunkAPI)
-          </div>
-
-          <ul class="list-style">
-            <li>
-              <b>arg</b> - значення, яке було передано
-              операції під час виклику. Використовується,
-              наприклад, для передачі ідентифікаторів
-              об'єктів при видаленні, тексту нотаток при
-              створенні, тощо.
-            </li>
-            <li>
-              <b>thunkAPI</b> - об'єкт, який передається в
-              асинхронний генератор екшену в redux-thunk.
-              Містить властивості та методи доступу до
-              стору, відправки екшенів, а також деякі
-              додаткові.
-            </li>
-          </ul>
         </div>
         <div class="bcg-box print-bcg-box">
           <p>
-            <i>// src/redux/operations.js</i><br />
+            const <b>valueSelector</b> = state =>
+            state.some.value;<br />
             <br />
-            import { createAsyncThunk } from
-            "@reduxjs/toolkit";<br />
-            import axios from "axios";<br />
-            <br />
-            axios.defaults.baseURL =<br />
-               
-            "https://62584f320c918296a49543e7.mockapi.io";<br />
-            <br />
-            export const fetchTasks = createAsyncThunk(<br />
-                "tasks/fetchAll",<br />
-            <i>
-                  // Використовуємо символ підкреслення
-              як<br />
-                  //ім'я першого параметра,<br />
-                  // тому що в цій операції він нам не
-              потрібен<br
-            /></i>
-                async <b>(_, thunkAPI)</b> => {<br />
-                    try {<br />
-                        const response = await
-            axios.get("/tasks");<br />
-            <i>
-                          // При успішному запиті
-              повертаємо<br />
-                          //проміс із даними<br
-            /></i>
-                        return response.data;<br />
-                    } catch (e) {<br />
-            <i>
-                          // При помилці запиту
-              повертаємо<br />
-                          // проміс який буде відхилений
-              з<br />
-                          // текстом помилки<br
-            /></i>
-                        return
-            <b>thunkAPI.rejectWithValue(e.message)</b
-            >;<br />
-                    }<br />
-                }<br />
-            );
+            const value = <b>useSelector(valueSelector)</b>;
           </p>
         </div>
       </div>
+      <p class="m-bottom-min">
+        Таким чином компоненти не знають про форму стану
+        Redux та процес обчислення необхідного їм значення.
+        При зміні структури стану необхідно буде оновити
+        лише селектори, компоненти не будуть порушені.
+      </p>
     </section>
   </body>
 </html>
