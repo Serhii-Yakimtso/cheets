@@ -2388,9 +2388,6 @@
           </div>
           <div class="bcg-box print-bcg-box">
             <p>
-              <i>//store.js</i><br />
-              <br />
-
               import balanceReducer from
               "./balanceSlice";<br />
               <br />
@@ -2421,8 +2418,6 @@
           </div>
           <div class="bcg-box print-bcg-box">
             <p>
-              <i>//store.js</i><br />
-              <br />
               const <b>balancePersistConfig</b> = {<br />
                   <b>key</b>: <i>"balanceValue"</i>,<br />
                   <b>storage</b>,<br />
@@ -2441,8 +2436,6 @@
           </div>
           <div class="bcg-box print-bcg-box">
             <p>
-              <i>//store.js</i><br />
-              <br />
               export const store = configureStore({<br />
                   reducer: {<br />
                       balance: <b>pBalanceReducer</b>,<br />
@@ -2464,10 +2457,155 @@
           </div>
           <div class="bcg-box print-bcg-box">
             <p>
-              <i>//store.js</i><br />
-              <br />
               export const <b>persistor</b> =
               <b>persistStore</b>(store);
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Необхідно огорнути додаток за допомогою
+              <b>PersistGate</b> із обов'зковим пропсом
+              <b>persistor</b>. Додатково можна передати
+              пропс <b>loading</b> (loading = {}).
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>//main.jsx</i><br />
+              import { PersistGate } from
+              "redux-persist/integration/react";<br />
+              import App from "./components/App/App";<br />
+              import { store, persistor } from
+              "./redux/store";<br />
+              <br />
+              ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                  &#60;React.StrictMode><br />
+                      &#60;Provider store={store}><br />
+                          &#60;PersistGate
+              persistor={persistor}><br />
+                              &#60;App /><br />
+                          &#60;/PersistGate><br />
+                      &#60;/Provider><br />
+                  &#60;/React.StrictMode><br />
+              );
+            </p>
+          </div>
+        </div>
+
+        <!-- фінал -->
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Фінальний вигляд файл <b>store.js</b> має
+            </p>
+            <p class="border-box m-bottom-min">
+              В action не можна передавати функції, але
+              бібліотека redax-persist їх передає. Для
+              виключення помилок із redux необхідно неохідно
+              імпортувати усі action`и та додати властивість
+              <b>middleware</b> із налаштуваннями у
+              <b>store</b>
+            </p>
+            <div
+              class="bcg-box print-bcg-box print-m-left-none"
+            >
+              <p>
+                <b
+                  >import {<br />
+                      persistStore,<br />
+                      persistReducer,<br />
+                      FLUSH,<br />
+                      REHYDRATE,<br />
+                      PAUSE,<br />
+                      PERSIST,<br />
+                      PURGE,<br />
+                      REGISTER,<br />
+                  } from "redux-persist";<br
+                /></b>
+                <br />
+                export const <b>store</b> =
+                configureStore({<br />
+                    reducer: {<br />
+                        balance: pBalanceReducer,<br />
+                    },<br />
+                   
+                <b
+                  >middleware: (getDefaultMiddleware) =><br />
+                          getDefaultMiddleware({<br />
+                              serializableCheck: {<br />
+                                  ignoredActions: [<br />
+                                      FLUSH,<br />
+                                      REHYDRATE,<br />
+                                      PAUSE,<br />
+                                      PERSIST,<br />
+                                      PURGE,<br />
+                                      REGISTER<br />
+                                  ],<br />
+                          },<br />
+                      })</b
+                >,<br />
+                });<br />
+                <br />
+                export const persistor =
+                persistStore(store);
+              </p>
+            </div>
+          </div>
+          <div class="bcg-box print-bcg-box print-fs-15">
+            <p>
+              <i>//store.js</i><br />
+              <br />
+              import { configureStore } from
+              "@reduxjs/toolkit";<br />
+              import {<br />
+                  persistStore,<br />
+                  persistReducer,<br />
+                  FLUSH,<br />
+                  REHYDRATE,<br />
+                  PAUSE,<br />
+                  PERSIST,<br />
+                  PURGE,<br />
+                  REGISTER,<br />
+              } from "redux-persist";<br />
+              import storage from
+              "redux-persist/lib/storage";<br />
+              import balanceReducer from
+              "./balanceSlice";<br />
+              <br />
+              const balancePersistConfig = {<br />
+                  key: "balanceValue",<br />
+                  storage,<br />
+                  whitelist: ["value"],<br />
+              };<br />
+              <br />
+              const pBalanceReducer = persistReducer(<br />
+                  balancePersistConfig,<br />
+                  balanceReducer<br />
+              );<br />
+              <br />
+              export const store = configureStore({<br />
+                  reducer: {<br />
+                      balance: pBalanceReducer,<br />
+                  },<br />
+                  middleware: (getDefaultMiddleware) =><br />
+                      getDefaultMiddleware({<br />
+                          serializableCheck: {<br />
+                              ignoredActions: [<br />
+                                  FLUSH,<br />
+                                  REHYDRATE,<br />
+                                  PAUSE,<br />
+                                  PERSIST,<br />
+                                  PURGE,<br />
+                                  REGISTER<br />
+                              ],<br />
+                      },<br />
+                  }),<br />
+              });<br />
+              <br />
+              export const persistor = persistStore(store);
             </p>
           </div>
         </div>
