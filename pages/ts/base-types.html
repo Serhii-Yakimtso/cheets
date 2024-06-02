@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>TS Типізація</title>
+    <script type="text/javascript" nonce="1ab1cdd14f524de290f066ee4eb" src="//local.adguard.org?ts=1717311987893&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.3%26permmsgid%3Dmsg-f%3A1800575366999225069%26th%3D18fcedc1a54eb2ed%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ-G7yDa_wN0d6vMKecJS7KgE8STYvSZiGQ9e7KSHd6ySoX2ZMQP082ohQXikS92L3W94s_Hq0eMV8bIjCxDBmcc2oqSmTX40FxFt1jmiwklklXcSzgRQiTPCxd0ud6PjGCJ9QWPyHp8o_M997BpFjsRv3C2ta37espUJmld8b0Shf6EZRiCb5HvGAGlctK916KtKdQG2yvyqDTX79ngtUMbItheAmTEoA0R8NEKv9fUQKorYKiEn9zcit11VE4seFHPZo5TZn5z63ZbiYzUUIfl1VKk9wBd8bRYp1m746UfkM1rbEN8FU23-6nbtrrIxsP08cYRGIE9ASZbzF3k1DK4VfIhKMu5C9BAttZlxNUpc6IO1BXiw8QN_UtU1H1kxOyGSFpvYHDi5kQCcS1khtqqLM7ZU250tt8s1vAPU5C3g_7y1R8JYR8ghwcnpJutRLN8RYxPiXBp4WMfiU7iI-YSxZnWCZZFa3rx9cItvdVqFbPDPWr72WbTNx0tGFQDJBPIxgdUVUZT2btGaTLrMqsJVHoMA1pR0QCIYD3WPwqQpQr39mDRKxt8nD3pZ65gV0pF3pK04BhlREyEnXVvucLWP38bH8xR6s4jIo51pC-9eN9PEltiwovAmZXuklMRZMuC8NZGb0BSLa7NXro6W_hY-dqFd07i6Knc9DWjYzq_iCFKgGdlqycAtgTH7G9VG4leixpA_o2hYiBjpUwiEVrQbeYGO3DNZ97KKhOqr5-Z69G_e4T2ZdVKYTwt0hqmjoTUbPpOXYNyb27F_RcR_YouQUdbTc2mhwytSoQkGB2873nWvkLXaEKDOpxlWX7Q3Ljp3QKRkXuIemh5jH56v4b5xhDynCkA_iC3Qid1z5Mrh5L6e4nqBn53cTKnLzCxZPYZEMDOIuN6marqDNg5UjMB0jqnRmK3lfvVFtbYwrpHmW6hgUTDKFJcr_wja_iHfhdpaaVuj-9Rf12IglOYtES8A-N-oKbrB_dJkHbCo-tNkxrY5FAgN7aX0a4&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="1ab1cdd14f524de290f066ee4eb" src="//local.adguard.org?ts=1717311987893&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Типізація</h1>
+
+    <!-- Базові типи -->
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom-min">Базові типи</h2>
+
+      <!-- Загальне -->
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p class="">
+            Синтаксично типи присвоюються зміним шляхом
+            вказання двокрапки ("<b>:</b>") після ім'я
+            змінної, та зазначення типу, після чого вже
+            присвоюють значення змінній.
+          </p>
+          <p class="">
+            Також, можна окремо визначити тип за допомогої
+            ключового слова <b>type</b>, після чого
+            присвоїти його змінній (назва типу пишеться з
+            великої літери).
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            let message: <b>string</b> = false;<br />
+            <br />
+            <b>type Text</b> = string<br />
+            let message: <b>Text</b> = false;
+          </p>
+        </div>
+      </div>
+
+      <!-- Прості (скалярні) типи -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Прості (скалярні) типи</h3>
+        <p class="m-bottom-min">
+          Cкалярні типи - це прості типи, що містять одне
+          значення.
+        </p>
+
+        <!-- boolean -->
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>boolean</b>: логічний тип даних, який може
+              приймати значення <b>true</b> або
+              <b>false</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>let isDone: <b>boolean</b> = false;</p>
+          </div>
+        </div>
+
+        <!-- number -->
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>number</b>: числовий тип даних для цілих та
+              дійсних <b>чисел</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let decimal: <b>number</b> = 6;
+              <i>// десяткові</i><br />
+              let float: <b>number</b> = 3.14;
+              <i>// речові або число з плаваючою крапкою</i
+              ><br />
+              let binary: <b>number</b> = 0b1010;
+              <i>// двійкове</i><br />
+              <!-- let hex: <b>number</b> = 0xf00d;
+              <i>// шістнадцяткове</i><br /> -->
+              <!-- let octal: <b>number</b> = 0o744;
+              <i>// вісімкове</i><br /> -->
+            </p>
+          </div>
+        </div>
+
+        <!-- string -->
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>string</b>: текстовий тип даних для
+              <b>символів</b> та <b>рядків</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>let color: <b>string</b> = "blue";</p>
+          </div>
+        </div>
+
+        <!-- null та undefined -->
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>null</b> та <b>undefined</b>: два
+              спеціальні типи, що відповідають значенням
+              null і undefined відповідно.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let empty: <b>null</b> = null; <br />
+              let notParam: <b>undefined</b> = undefined;
+            </p>
+          </div>
+        </div>
+
+        <div class="border-box">
+          <div class="print-flex-box">
+            <div>
+              <p class="m-bottom-min">
+                <i>Не обов'язково</i> вказувати тип даних,
+                якщо він передається явно.
+              </p>
+              <p>
+                Також, якщо задається значення за
+                замовчуванням у функції, тип вказувати не
+                потрібно.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                const num = <b>10</b>;<br />
+                const str = <b>'Some string'</b>;<br />
+                const bool = <b>true</b>;<br />
+                const empty = <b>null</b>;<br />
+                const notParam = <b>undefined</b>;
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                function foo (<br />
+                    num = <b>10</b>, <br />
+                    str = <b>'Some string'</b>,<br />
+                <!--     bool = <b>true</b>, <br /> -->
+                <!--     empty = <b>null</b>){<br /> -->
+                        <i>// Some logic</i><br />
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Складні типи -->
+      <div class="">
+        <h3 class="m-bottom-min">Складні типи</h3>
+
+        <!-- Object -->
+        <div class="m-bottom">
+          <h4 class="m-bottom-min">Object</h4>
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p>
+                Тип <b>Object</b> використовується для
+                зберігання колекції даних або більш складних
+                структур. Він є структурою даних, яка може
+                містити дані різних типів.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                const obj: <b>object</b> = {};<br />
+                const obj: <b>{}</b> = {};
+              </p>
+            </div>
+          </div>
+
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p>
+                Використання типу <b></b> не дає контролю
+                над формою цього об'єкта.
+                <i
+                  >Необхідно окремо зазначити типи значеннь
+                  властивостей об'єкту</i
+                >.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                let user:
+                <b
+                  >{ name: <b>string</b>; age:
+                  <b>number</b> }</b
+                >
+                = {<br />
+                    name: "Tom",<br />
+                    age: 30<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <div class="border-box print-flex-box">
+            <div>
+              <p>
+                Як і зі скалярними типами даних, ми можемо
+                <i>не уточнювати</i>, що це <b>Object</b>.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                let user = {   name: "Tom",   age: 30   };
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Array -->
+        <div>
+          <h4 class="m-bottom-min">Array</h4>
+
+          <div class="m-bottom-min print-flex-box">
+            <div>
+              <p>
+                <b>Масиви</b> — це структури, які є
+                впорядкованим набором елементів. Для
+                оголошення масиву в TypeScript
+                використовується конструкція з квадратними
+                дужками <b>[]</b> або загальний тип
+                <b>Array</b>. Обов'язково необхідно вказати
+                тип даних що міститиме масив.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                let arrString: <b>string[]</b>; <br />
+                let arrNumber: <b>number[]</b>; <br />
+                let matrix: <b>number[][]</b> = [[1, 2], [3,
+                4]];
+                <br />
+                let mixed: <b>(number | string)[]</b> = [1,
+                'two'];
+                <br />
+                let numbers: <b>Array&#60;number></b> = [1,
+                2, 3]; <br />
+              </p>
+            </div>
+          </div>
+
+          <!-- <div class="print-flex-box">
+            <div>
+              <p>Масив об'єктів</p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                let users: <b>{</b><br />
+                    name: string;<br />
+                    age: number;<br />
+                <b>}[]</b> = [<br />
+                    { name: 'Tom', age: 30 },<br />
+                    { name: 'Jack', age: 25 },<br />
+                ];
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                <b
+                  >type User = {<br />
+                      name: string;<br />
+                      age: number;<br />
+                  }</b
+                >;<br />
+                let users: <b>User[]</b> = [<br />
+                    { name: 'Tom', age: 30 },<br />
+                    { name: 'Jack', age: 25 },<br />
+                ];
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Типи для змінних та аргументів -->
+    <section class="m-bottom print-m-bottom-max">
+      <h2 class="m-bottom-min">
+        Типи для змінних та аргументів
+      </h2>
+
+      <!-- Any -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Any</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="">
+              <b>Any</b> — це тип даних, який
+              використовується, коли ви не знаєте, який тип
+              даних може міститися у змінній. Змінні з типом
+              any дозволяють викликати
+              <i>будь-які властивості</i> та методи без
+              перевірок типів. Дозволяє присвоїти значення
+              змінної типу <b>Any</b> іншій змінній з
+              конкретним типом без явного приведення типів.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let notSure: <b>any</b> = 4;<br />
+              notSure = 'maybe a string instead';<br />
+              notSure = false;<br />
+              notSure = {};
+              <br />
+              let num: number;<br />
+              num = notSure;
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box border-box">
+          <div>
+            <p>
+              <b>Корисний</b> коли працюємо з бібліотекою на
+              JS, що може повертати різні типи даних, або в
+              ситуаціях, коли конкретний тип даних не має
+              значення в контексті нашого коду. Або коли
+              функція приймає аргумент, тип якого не
+              відомий, і який загалом не важливий у цьому
+              контексті. Це може бути, наприклад, певна
+              колбек-функція.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function fetchData(id: string, callback:
+              (data: any) => void): void {<br />
+                  const responseData = { name: 'Tom' };<br />
+                  callback(responseData);<br />
+              }<br />
+              <br />
+              fetchData('123', (data) => {<br />
+                  console.log(data.name);<br />
+              // TypeScript не викличе помилку });
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unknown -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Unknown</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="">
+              <b>Unknown</b> — багато в чому схожий на
+              <b>any</b>, але він забезпечує більше безпеки
+              під час роботи зі змінними. Якщо ми спробуємо
+              присвоїти значення змінної типу
+              <b>unknown</b> іншій змінній з конкретним
+              типом без явного приведення типів, TS видасть
+              помилку. Це допомагає запобігти випадковому
+              присвоєнню значень неправильного типу.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let notSure: <b>unknown</b> = 4;<br />
+              notSure = 'maybe a string instead';<br />
+              notSure = false;<br />
+              <br />
+              let num: number;<br />
+              num = notSure; <i>// error</i>
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box border-box">
+          <div>
+            <p>
+              <b>Корисний</b> для сценаріїв, коли не знаємо
+              точного типу даних, але все ж таки потрібно
+              підтримувати сувору перевірку типів. Змінні
+              цього типу слід перевіряти перед їх
+              використанням.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function fetchUserData() {<br />
+                  return 'Tom';<br />
+              }<br />
+              let userData: unknown = fetchUserData();<br />
+              if (<b>typeof userData === 'string'</b>) {<br />
+                  console.log(userData.toUpperCase());<br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuple -->
+      <div class="m-bottom print-m-bottom-max">
+        <h3 class="m-bottom-min">Tuple</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="">
+              <b>Tuple (Кортеж)</b> — е незмінний масив. Тип
+              даних, що дозволяє визначити масив з
+              фіксованою кількістю елементів, типи яких
+              відомі, але не обов'язково повинні бути
+              однаковими. Він створюється як масив, але
+              замість значень передаються типи даних.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let tupleType: <b>[string, boolean]</b>;
+              <br />
+              <br />
+              tupleType = ['hello', true]; <i>// OK</i
+              ><br />
+              tupleType = [true, 'hello'];
+              <i>// Error. Неправильні типи</i><br />
+              tupleType = ['hello', true, true];
+              <i>// Error. Більше значень </i>
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box border-box">
+          <div>
+            <p>
+              <b>Корисний</b> коли потрібно зберегти в масив
+              фіксовані значення (<i
+                >наприклад, день, місяць та рік</i
+              >).
+            </p>
+            <p>
+              <b>Важливо!</b> якщо додамо
+              <i>елемент у кортеж</i> через метод
+              <b>push</b>, то TS не заперечуватиме - він не
+              відстежує реальний вміст масиву. Для створення
+              кортежів змінної довжини необхідно використати
+              оператор розширення (<b>...</b>). Тоді перший
+              елемент кортежу має бути рядком, проте всі
+              наступні — числами.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let tuple: [<b>string, ...number[]</b>];<br />
+              <br />
+              tuple = ['hello', 42, 100, 200];
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Union Type -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Union Type</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="">
+              <b>Union Type</b> - дозволяє вказати, що
+              значенням може бути один із кількох типів.
+              Типи перераховуються через вертикальну риску
+              <b>|</b>
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              let mixedType:
+              <b>string | number | boolean</b>;<br />
+              <br />
+              mixedType = 'string'; <i>// OK</i><br />
+              mixedType = 10; <i>// OK</i><br />
+              mixedType = true; <i>// OK</i><br />
+              mixedType = {}; <i>// Error</i> <br />
+            </p>
+          </div>
+        </div>
+
+        <div class="print-flex-box border-box">
+          <div>
+            <p class="m-bottom-min">
+              Union Type працює не лише з базовими типами, а
+              й з об'єктами. У цьому прикладі змінна pet
+              може бути або об'єктом типу Dog, або об'єктом
+              типу Fish. <br />
+            </p>
+            <p>
+              Однак існує важливе обмеження: коли ми
+              працюємо зі змінною <b>Union Type</b>, ми
+              можемо використовувати лише ті властивості та
+              методи, які існують у всіх типів цього
+              об'єднання. У прикладі вище не можемо
+              викликати <b>pet.bark()</b>, якщо <b>pet</b> є
+              типом <b>Fish</b>. Нам доведеться перевіряти,
+              чи існує цей метод.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              type Dog = {<br />
+                 legs: 4;<br />
+                 bark: () => void;<br />
+              }<br />
+              <br />
+              type Fish = {<br />
+                 fins: 2;<br />
+                 swim: () => void;<br />
+              }<br />
+              <br />
+              let pet: <b>Dog | Fish</b><br />
+              <br />
+              function isDog(pet: Dog | Fish): pet is Dog
+              {<br />
+                  return 'bark' in pet;<br />
+              }<br />
+              <br />
+              if (isDog(pet)) {<br />
+                  pet.bark();<br />
+              } else {<br />
+                  pet.swim(); <br />
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intersection Type -->
+      <div class="m-bottom print-m-bottom-max">
+        <h3 class="m-bottom-min">Intersection Type</h3>
+        <div class="print-flex-box">
+          <div>
+            <p class="">
+              <b>Intersection Type</b> - способом об'єднання
+              декількох типів в один за допомогою символу
+              <b>&</b>. Це дозволяє створювати складні типи,
+              комбінуючи прості.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              type <b>Employee</b> = {<br />
+                  name: string;<br />
+                  id: number;<br />
+              };<br />
+              <br />
+              type <b>Manager</b> = {<br />
+                  employees: Employee[];<br />
+              };<br />
+              <br />
+              type <b>CEO = Employee & Manager</b>;<br />
+              <br />
+              const ceo: <b>CEO</b> = {<br />
+                  name: 'Alice',<br />
+                  id: 1,<br />
+                  employees: [<br />
+                      {<br />
+                          name: 'Bob',<br />
+                          id: 2,<br />
+                      },<br />
+                  ],<br />
+              };
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Literal Type -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Literal Type</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>Literal Type</b> - це тип, що набуває
+              конкретного значення. Дозволяє визначити тип
+              змінної так, щоб він набував
+              <i>лише</i> певних значень, що задані.
+            </p>
+            <p class="border-box">
+              Відмінність від <b>Union Type</b> в тому, що в
+              <b>Literal Type</b> задаються саме
+              <i>значення</i>, а в <b>Union Type</b> -
+              <i>типи</i>.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              type OneOrTwo = <b>1 | 2</b>;<br />
+              let value: OneOrTwo;<br />
+              value = 1; <i>// OK</i><br />
+              value = 2; <i>// OK</i><br />
+              value = 3; <i>// Error</i><br />
+              <br />
+              type YesOrNo = <b>'yes' | 'no'</b>;<br />
+              let answer: YesOrNo;<br />
+              answer = 'yes'; <i>// OK</i><br />
+              answer = 'no'; <i>// OK</i><br />
+              answer = 'maybe'; <i>// Error</i>
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              type <b>BtnSize</b> =
+              <b>'small' | 'large'</b>;<br />
+              <br />
+              function getBtnSize(size: <b>BtnSize</b> )
+              {<br />
+                  switch (size) {<br />
+                      case <b>'small'</b>:<br />
+                          return { fontSize: '10px' };<br />
+                      case <b>'large'</b>:<br />
+                          return { fontSize: '18px' };<br />
+                      default:<br />
+                          return { fontSize: '14px' };<br />
+                  }<br />
+              }<br />
+              <br />
+              let myBtnSize = getBtnSize(<b>'small'</b>);
+              <i>// OK</i><br />
+              myBtnSize = getBtnSize(<b>'medium'</b>);
+              <i>// Error</i>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enum -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Enum</h3>
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="">
+              <b>Enum</b> - засіб для визначення та
+              використання <i>'іменованих констант'</i> у
+              TypeScript. Імена змінних цього типу мають
+              починатися з великої літери.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p></p>
+          </div>
+        </div>
+
+        <div class="print-flex-box border-box">
+          <div>
+            <p></p>
+            <p></p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Типи для методів та функцій -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">
+        Типи для методів та функцій
+      </h2>
+
+      <!-- Return Type -->
+      <div>
+        <h3 class="m-bottom-min">Return Type</h3>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>Return type</b> — це тип даних, який
+              функція повертає під час її виклику. TS
+              дозволяє вказувати тип значення, що
+              повертається для функцій.
+              <b>Return type</b> вказується після
+              закриваючих дужок параметрів функціїї та
+              двокрапки (<b>:</b>).
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function greet()<b>: string</b> {<br />
+                  return "Hello!"; <i>// Ok</i><br />
+              }<br />
+              <br />
+              let result = greet();<br />
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function greet()<b>: string</b> {<br />
+                  return 100; <i>// Error</i><br />
+              }<br />
+              <br />
+              let result = greet();<br />
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Void -->
+      <div>
+        <h3 class="m-bottom-min">Void</h3>
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>Void</b> — позначає відсутність будь-якого
+              типу взагалі при поверненні значення функції.
+            </p>
+            <p>
+              Використовується для функцій, що нічого не
+              повертають, колбек-функціях або у функціях
+              зворотнього типу.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              function logMessage(message: string):
+              <b>void</b> {<br />
+                  console.log(message);<br />
+              }<br />
+              <br />
+              function doSomething(callback: () =>
+              <b>void</b> ) {<br />
+                  callback();<br />
+              }<br />
+              <br />
+              doSomething(() => {<br />
+                  console.log('Callback function!');<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Never -->
+      <!-- Function Type -->
+    </section>
+  </body>
+</html>
