@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Node.js</title>
+    <script type="text/javascript" nonce="cfb024385fc24947a606eb051d7" src="//local.adguard.org?ts=1718732874605&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.1%26permmsgid%3Dmsg-f%3A1802206670040005143%26th%3D1902b96afb92fa17%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ8hCtcH5zYtgD8NFnuVMOHoVp7NsHPx3TNWhGyrTbeJXfIbDwm9uRLowtH03QmHkhO5Bk5lrcEuBK01KvwhU1IM58qbGqx9CdGNJMTxt51tAvjgupU3cyCm_0Z0L-QV7TOudK8vdkNeDbstGMA6W46e1W846aNMQ8ksMHsqslFQFyW3xbeYIaewnb4JWfF_TxTpdAUjPAdw4_fM1Wc4Jxcg3986VPibjsxhnd1x_roXRzMyxiJMwKQHpSE2EGP54d7vOucFPaCNOL83-Mk8Ar8dNwt2o1_CO2pOhZWN3LsoClWbd3mhFANxRTTHGL9al5tx5THalKrrqZN61BBIrR7sDQ4pWqAJmv4wd7DSgtN5TjulDo9rJPi0UgfvLXhSUuh1Id1cRoBu3nzwYTMjAPK6LOefUcI8BgnUHqu1mBi_F-n6oGXimZPqdgqFcIXO67tf8WjzGnhnNXhhNCCQgvYBbMK_kAiEIYHr4IhC7auu32qdDSzoxPS2uPqmp9dSBnFgQu-I7S8Z5hWMKLV7JdUN_xXM7Q0Nx4hQv1YMjbpxyHnxQhBN7ZAkmosWQkPNCDEwvPzd99wuy8m5XXFoqfCvvWoanVcO3G6nVQIF9Tw92a8cFdOeKVSLlV4NFxv_cgBn9qJ_RjUhbarT0ew4414XPJyzUOC9pa_N9xaoUEJYWkzbRzGaBjy1pZyKAaqOUsYoRX6OHmhyh_73O2MIO08G1_1h_YbE3SnBbZCpGLCtUHEsBukoJAgWmmNpRt6cqwCh1utdeQ_Zg0-v1LweneWXpNOavcpr32NZ7L3GEZ9JWJrP_hMfqSxDEJdktEEUMhJDMnZh7TIJOPUwK6nOYKQGGFB1ydRB6nLxjNorPMjgHMSAkR6GBWAQ5a3JHePV2qd0Oup1wwWh7yYWCyUjIdlzl7TXyj72bxT0dVHSwyMmJ9o1TXKeSPpjPUcYoMsALHVr59AveONMOxWPljXn683cQP-mMPTqp_pqi2sz090pXjIf3txX21s3XDU&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="cfb024385fc24947a606eb051d7" src="//local.adguard.org?ts=1718732874605&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1717311987893&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.3%26permmsgid%3Dmsg-f%3A1800575366999225069%26th%3D18fcedc1a54eb2ed%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ-G7yDa_wN0d6vMKecJS7KgE8STYvSZiGQ9e7KSHd6ySoX2ZMQP082ohQXikS92L3W94s_Hq0eMV8bIjCxDBmcc2oqSmTX40FxFt1jmiwklklXcSzgRQiTPCxd0ud6PjGCJ9QWPyHp8o_M997BpFjsRv3C2ta37espUJmld8b0Shf6EZRiCb5HvGAGlctK916KtKdQG2yvyqDTX79ngtUMbItheAmTEoA0R8NEKv9fUQKorYKiEn9zcit11VE4seFHPZo5TZn5z63ZbiYzUUIfl1VKk9wBd8bRYp1m746UfkM1rbEN8FU23-6nbtrrIxsP08cYRGIE9ASZbzF3k1DK4VfIhKMu5C9BAttZlxNUpc6IO1BXiw8QN_UtU1H1kxOyGSFpvYHDi5kQCcS1khtqqLM7ZU250tt8s1vAPU5C3g_7y1R8JYR8ghwcnpJutRLN8RYxPiXBp4WMfiU7iI-YSxZnWCZZFa3rx9cItvdVqFbPDPWr72WbTNx0tGFQDJBPIxgdUVUZT2btGaTLrMqsJVHoMA1pR0QCIYD3WPwqQpQr39mDRKxt8nD3pZ65gV0pF3pK04BhlREyEnXVvucLWP38bH8xR6s4jIo51pC-9eN9PEltiwovAmZXuklMRZMuC8NZGb0BSLa7NXro6W_hY-dqFd07i6Knc9DWjYzq_iCFKgGdlqycAtgTH7G9VG4leixpA_o2hYiBjpUwiEVrQbeYGO3DNZ97KKhOqr5-Z69G_e4T2ZdVKYTwt0hqmjoTUbPpOXYNyb27F_RcR_YouQUdbTc2mhwytSoQkGB2873nWvkLXaEKDOpxlWX7Q3Ljp3QKRkXuIemh5jH56v4b5xhDynCkA_iC3Qid1z5Mrh5L6e4nqBn53cTKnLzCxZPYZEMDOIuN6marqDNg5UjMB0jqnRmK3lfvVFtbYwrpHmW6hgUTDKFJcr_wja_iHfhdpaaVuj-9Rf12IglOYtES8A-N-oKbrB_dJkHbCo-tNkxrY5FAgN7aX0a4&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1717311987893&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"
+    ></script>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Основи</h1>
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">
+        Особливості та переваги Node.js
+      </h2>
+      <ul class="list-style m-bottom-min">
+        <li>
+          <b>Асинхронний ввід/вивід (I/O)</b> Як ми вже
+          зазначали, <b>JavaScript</b> у <b>Node.js</b> діє
+          як посередник, делегуючи задачі іншим частинам
+          системи. Це дозволяє йому постійно бути готовим
+          приймати "запити" зовнішнього світу. Сервіси
+          <b>Node.js</b> здатні підтримувати високу
+          пропускну спроможність <b>RPC</b>
+          (requests per second, запити в секунду).
+        </li>
+        <li>
+          <b
+            >Єдина мова програмування для фронтенду та
+            бекенду</b
+          >
+          Це дає можливість повторно використовувати код
+          (власні бібліотеки, <b>NPM</b>) та мати
+          розробників, які працюватимуть "з обох сторін"
+          (фронтенд і бекенд), тобто мати
+          фулстек-розробників. Як результат, зростає
+          швидкість розробки та потенційно зменшується її
+          вартість.
+        </li>
+        <li>
+          <b>Легка та кросплатформенна технологія</b>
+          JavaScript має широкий спектр застосування,
+          включаючи веброзробка, мобільну розробку, розробку
+          для настільних платформ, вбудовані системи тощо, в
+          тому числі завдяки Node.js.
+        </li>
+        <li>
+          <b>Написана на C++ і С</b> Це надає нам швидкість,
+          розширюваність через <b>N-API</b> та можливість
+          багатопоточності. (<b>JavaScript</b> є
+          однопоточним, але <b>Node.js</b> - ні).
+        </li>
+      </ul>
+
+      <p>Node.js використовується:</p>
+      <ul class="list-style m-bottom-min">
+        <li>
+          Бекенд для MVP (прототипів, які потребують
+          швидкого часу розробки)
+        </li>
+        <li>Стримінгові сервіси (завдяки StreamsAPI)</li>
+        <li>
+          Serverless (функції Lambda, поговоримо про це
+          пізніше в курсі)
+        </li>
+        <li>Чати та інші real-time додатки</li>
+        <li>IoT(internet of things)</li>
+        <li>REST API’s</li>
+        <li>
+          Основа для SSR (Next.js,Nuxt.js та інші SSR
+          фреймворки)
+        </li>
+        <li>
+          Як середовище розробки для односторінкових
+          додатків (SPA).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Робота із файловою системою -->
+    <section class="m-bottom">
+      <h2 class="m-bottom-min">
+        Робота із файловою системою
+      </h2>
+
+      <!-- Модуль path. -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">Модуль path.</h3>
+
+        <!-- import  -->
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Модуль <b>path</b> інструмент, який уніфікує
+              роботу зі шляхами в незалежності від OS
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Модуль path не перевіряє, чи є
+              за вказаним шляхом відповідний файл або папка!
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              import <b>path</b> from <b>'node:path'</b>;
+            </p>
+          </div>
+        </div>
+
+        <!-- process.cwd() -->
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="">
+              <b>process.cwd()</b> - глобальна зміна
+              <b>process</b> і метод <b>cwd()</b> дозволяє
+              отримати шлях до кореневої директорії
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>workdir = <b>process.cwd()</b></p>
+          </div>
+        </div>
+
+        <!-- path.join -->
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="">
+              <b>path.join(...paths[])</b> - метод приймає
+              аргументами рядки, які будуть перетворені у
+              правильно форматований шлях базуючись на
+              операційній системі, на якій запущена
+              програма.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              const somePath =
+              <b
+                >path.join('some_folder',
+                'some_file.txt')</b
+              >; <br />
+              <i
+                >// somePath буде
+                'some_folder/some_file.txt' на MacOs </i
+              ><br />
+              <i
+                >// somePath буде
+                'some_folder\\some_file.txt' на Windows</i
+              ><br />
+              <br />
+              <i>// можна комбінувати</i> <br />
+
+              const pathToWorkDir =
+              path.join(process.cwd());<br />
+              const pathToFile = path.join(pathToWorkDir,
+              'some_folder', 'some_file.txt');<br />
+            </p>
+          </div>
+        </div>
+
+        <!-- path.parse(path) -->
+        <div class="print-flex-box">
+          <div>
+            <p class="">
+              <b>path.parse(path)</b> - метод дозволяє
+              отримати інформацію по шляху, який був
+              переданий аргументом
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <b
+                >path.parse('C:\\\\path\\\\dir\\\\file.txt')</b
+              >;<br />
+              // { root: 'C:\\\\',<br />
+              // dir: 'C:\\\\path\\\\dir',<br />
+              // base: 'file.txt',<br />
+              // ext: '.txt',<br />
+              // name: 'file' }
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Принципи бібліотек Nide.js -->
+      <div class="m-bottom">
+        <h3 class="m-bottom-min">
+          Принципи бібліотек Nide.js
+        </h3>
+        <p class="m-bottom-min">
+          В багатьох модулях кожна з функцій представлена у
+          вигляді 3 різновидів — <b>синхронна функція</b>,
+          <b>асинхронна з колбеком</b> або
+          <b>асинхронна на промісах</b> ( є виключення,
+          наприклад, модуль path).
+        </p>
+        <ul>
+          <li class="m-bottom-min print-flex-box">
+            <div>
+              <p>
+                <b>Синхронна функція</b>. Зазвичай, такі
+                методи містять допис <b>sync</b> в назві
+                метода. Виконання певних операцій синхронно
+                здатне різко знизити швидкодію.
+                <i
+                  >Краще уникати використання цього
+                  варіанту</i
+                >. Використовувати якщо робити якусь дію
+                разово (наприклад, зчитувати конфіги перед
+                запуском додатка).
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'node:fs'; <br />
+                <br />
+                const fileContent =
+                fs.readFileSync('path_to_file');
+              </p>
+            </div>
+          </li>
+          <li class="m-bottom-min">
+            <div class="print-flex-box">
+              <div>
+                <p>
+                  <b>Асинхронна з колбеком</b>. На відміну
+                  від синхронної функції, така не буде
+                  блокуючою і швидкодію додатка знижувати не
+                  буде. Логіку по подальшій роботі з цією
+                  функцією треба писати в колбеці. Методи в
+                  Node.js мають контракт
+                  <b>error first - callback last</b>. Тобто,
+                  <i>колбек</i> завжди іде останнім
+                  аргументом у функціях, а в самому колбеці
+                  <i
+                    >першим аргументом прокидується
+                    помилка</i
+                  >.
+                </p>
+              </div>
+              <div class="bcg-box print-bcg-box">
+                <p>
+                  import fs from 'node:fs';<br />
+                  <br />
+                  fs.readFile('path_to_file',
+                  <b>(err, fileContent) => {</b><br />
+                  <i>/* код */</i><br />
+                  <b>}</b> );<br />
+                </p>
+              </div>
+            </div>
+            <p>
+              <i>Перевага</i>: найбільша швидкодія. Цей
+              варіант буде працювати в декілька разів
+              швидше, ніж варіант із промісами.
+            </p>
+            <p>
+              <i>Мінус</i>: <b>callback hell</b> - якщо буде
+              багато вкладених колбеків, то різко впаде
+              читабельність коду
+            </p>
+          </li>
+          <li class="m-bottom-min print-flex-box">
+            <div>
+              <p>
+                <b>Асинхронна з промісами</b>. Імпорт має
+                <b>promises</b> у шляху. Цей варіант
+                використовується найбільш часто в написанні
+                продуктового коду, оскільки він дає
+                читабельність на рівні синхронного коду, але
+                не є блокуючим.
+              </p>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'node:fs/<b>promises</b>';<br />
+                <br />
+                const fileContent = await
+                fs.readFile('path_to_file');
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Buffers -->
+      <div class="m-bottom print-m-bottom-max">
+        <h3 class="m-bottom-min">Buffers</h3>
+        <div class="m-bottom-min">
+          <p>
+            <b>Buffers</b> - це тимчасове сховище даних в
+            пам'яті, яке використовується для збереження та
+            обробки інформації. Буфери використовуються для
+            оптимальної обробки бінарних даних, таких як
+            зображення або відео.
+          </p>
+          <p>
+            Будь-який файл складається із бітів та байтів.
+          </p>
+          <p>
+            <b>Біт</b> — це 1 або 0. Ось просто так і є. Це
+            виражене у двійковій системі “так” або “ні”.
+          </p>
+          <p>
+            <b>Байт</b> — це набір із 8 бітів. Загалом у
+            двійковій системі це 256 можливих комбінацій 0
+            та 1.
+          </p>
+          <p>
+            Тобто, <b>Buffer</b> — це такий собі масив
+            байтів (array of bytes).
+          </p>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              <b>Читаємо</b> зміст файлу за дорогою метода
+              <b>readFile</b> і отримаємо відповідь у у
+              шістнадцятковій (<b>hexadecimal</b>) системі
+              числення.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              import fs from 'node:fs/promises';<br />
+              <br />
+              <b
+                >const buffer = await
+                fs.readFile('hello.txt')</b
+              >;<br />
+                 
+              <i
+                >// припустимо, що в файлі hello.txt був
+                текст Hello World!</i
+              ><br />
+
+              console.log(buffer);<br />
+                 
+              <i
+                >//&#60;Buffer 48 65 6c 6c 6f 20 57 6f 72 6c
+                64 21></i
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Щоб привести буфер до рядка, ми можемо
+              викликати у нього метод <b>toString()</b>,
+              вказавши у дужках кодування <b>"utf-8"</b>
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              import fs from 'node:fs/promises';<br />
+              <br />
+              const buffer = await
+              fs.readFile('hello.txt');<br />
+                 
+              <i
+                >// припустимо, що в файлі hello.txt був
+                текст Hello World!</i
+              ><br />
+
+              console.log(<b>buffer.toString("utf-8")</b>);<br />
+                  <i>// Hello World!</i>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Модуль fs -->
+      <div>
+        <h3 class="m-bottom-min">Модуль fs</h3>
+      </div>
+      <p class="m-bottom-min">
+        <b>Модуль fs</b> дає можливості працювати із файлами
+        та папками.
+      </p>
+      <ul>
+        <!-- readFile -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне читання даних із файлу (readFile)
+          </h4>
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.readFile(path [, options])</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>path</b> (<i>string</i>): шлях до
+                  файлу, який потрібно прочитати.
+                </li>
+                <li>
+                  <b>options</b> (<i>об'єкт</i>)
+                  (<i>опціонально</i>): параметри, що
+                  визначають режим читання. Може бути
+                  вказано кодування файлу або інші
+                  параметри.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+                <br />
+                (async () => {<br />
+                    try {<br />
+                        const data = await
+                fs.readFile('file.txt', 'utf8');<br />
+                        console.log('Вміст файлу:',
+                data);<br />
+                    } catch (err) {<br />
+                        console.error('Помилка читання
+                файлу:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції читання файлу.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено з вмістом файлу у випадку успішного
+              читання
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції читання
+            </li>
+          </ul>
+        </li>
+
+        <!-- writeFile -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне запису даних у файл (writeFile)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.writeFile(file, data [, options])</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>file</b> (<i>string</i>): назва файлу
+                  або шлях до файлу, в який потрібно
+                  записати дані.
+                </li>
+                <li>
+                  <b>data</b> (<i>string або Buffer</i>):
+                  дані, які потрібно записати у файл. Може
+                  бути представлено рядком або об'єктом
+                  Buffer.
+                </li>
+                <li>
+                  <b>options</b> (<i>string або об'єкт</i>)
+                  (<i>опціонально</i>): параметри, що
+                  визначають режим запису. Наприклад,
+                  кодування для текстових файлів або
+                  прапорці режиму запису.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+                <br />
+                <i>// Запис даних у файл 'output.txt'</i
+                ><br />
+                (async () => {<br />
+                    const data = 'дані для запису у
+                файл.';<br />
+                    try {<br />
+                        await fs.writeFile('output.txt',
+                data, 'utf8');<br />
+                        console.log('Дані успішно записані у
+                файл.');<br />
+                    } catch (err) {<br />
+                        console.error('Помилка запису у
+                файл:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції запису в файл.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено без аргументів, якщо операція запису
+              пройшла успішно.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції запису.
+            </li>
+          </ul>
+        </li>
+
+        <!-- appendFile -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне додавання даних у кінець файлу.
+            (appendFile)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.appendFile(path, data [, options])</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>path</b> (<i>string</i>): шлях до
+                  файлу, в який потрібно додати дані.
+                </li>
+                <li>
+                  <b>data</b> (<i>string або Buffer</i>):
+                  дані, які потрібно додати до файлу. Може
+                  бути представлено рядком або об'єктом
+                  Buffer.
+                </li>
+                <li>
+                  <b>options</b> (<i>string або об'єкт</i>)
+                  (<i>опціонально</i>): параметри, що
+                  визначають режим додавання. Наприклад,
+                  кодування для текстових файлів або
+                  прапорці режиму додавання.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+                <br />
+                <i>// Додаємо дані до файлу 'output.txt'</i
+                ><br />
+                (async () => {<br />
+                    const data = 'дані, для додавання до
+                файлу.';<br />
+                    try {<br />
+                        await fs.appendFile('output.txt',
+                data, 'utf8');<br />
+                        console.log('Дані успішно додані до
+                файлу.');<br />
+                    } catch (err) {<br />
+                        console.error('Помилка додавання
+                даних до файлу:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції додавання даних до
+            файлу.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено без аргументів, якщо операція
+              додавання даних пройшла успішно.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції додавання даних.
+            </li>
+          </ul>
+        </li>
+
+        <!-- rename -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне перейменування або переміщення файлу
+            чи каталогу. (rename)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.rename(oldPath, newPath)</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>oldPath</b> (<i>string</i>): поточний
+                  шлях до файлу або каталогу, який потрібно
+                  перейменувати або перемістити.
+                </li>
+                <li>
+                  <b>newPath</b> (<i>string</i>) новий шлях
+                  до файлу або каталогу, куди потрібно
+                  перейменувати або перемістити файл чи
+                  каталог
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+
+                <i
+                  >// Перейменовуємо або переміщуємо файл чи
+                  каталог зі шляху 'oldfile.txt' до
+                  'newfile.txt'</i
+                ><br />
+                (async () => {<br />
+                    try {<br />
+                        await fs.rename('oldfile.txt',
+                'newfile.txt');<br />
+                        console.log('Файл або каталог
+                успішно перейменовано або переміщено.');<br />
+                    } catch (err) {<br />
+                        console.error('Помилка
+                перейменування або переміщення:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції перейменування або
+            переміщення.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено без аргументів, якщо операція пройшла
+              успішно.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції.
+            </li>
+          </ul>
+        </li>
+        <!-- unlink -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне видалення файлу. (unlink)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.unlink(path)</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>path</b> (<i>string</i>): шлях до
+                  файлу, який потрібно видалити.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+                <br />
+                <i>// Видаляємо файл за шляхом 'file.txt'</i
+                ><br />
+                (async () => {<br />
+                    try {<br />
+                        await fs.unlink('file.txt');<br />
+                        console.log('Файл успішно
+                видалено.');<br />
+                    } catch (err) {<br />
+                        console.error('Помилка видалення
+                файлу:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції видалення.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено без аргументів, якщо операція
+              видалення пройшла успішно.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції.
+            </li>
+          </ul>
+        </li>
+        <!-- readdir -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронне отримання списку файлів та каталогів
+            у заданому каталозі. (readdir)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.readdir(path)</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>path</b> (<i>string</i>): шлях до
+                  каталогу, з якого потрібно отримати список
+                  файлів і каталогів.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+                <br />
+                <i
+                  >// Отримуємо список файлів і каталогів у
+                  поточному каталозі</i
+                ><br />
+                (async () => {<br />
+                    try {<br />
+                        const files = await
+                fs.readdir('.');<br />
+                        console.log('Список файлів і
+                каталогів:', files);<br />
+                    } catch (err) {<br />
+                        console.error('Помилка отримання
+                списку файлів і каталогів:', err);<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції отримання списку
+            файлів і каталогів.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено з масивом рядків, який містить імена
+              файлів і каталогів у заданому каталозі.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції.
+            </li>
+          </ul>
+        </li>
+        <!-- access -->
+        <li class="m-bottom">
+          <h4 class="m-bottom-min">
+            Асинхронна перевірка доступу до ресурсу /
+            наявність папок. (access)
+          </h4>
+
+          <div class="print-flex-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>fs.access(path [, mode])</p>
+              </div>
+
+              <p>Аргументи:</p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  <b>path </b> (<i>string</i>): шлях до
+                  файлу або каталогу, доступність якого
+                  потрібно перевірити.
+                </li>
+                <li>
+                  <b>mode </b> (<i>integer або константа</i
+                  >) (<i>опціонально</i>): режим доступу,
+                  який потрібно перевірити. Це може бути
+                  комбінація констант
+                  <b>fs.constants.F_OK</b>,
+                  <b>fs.constants.R_OK</b>,
+                  <b>fs.constants.W_OK</b>,
+                  <b>fs.constants.X_OK</b>, які вказують на
+                  існування, читання, запис або виконання
+                  файлу.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box print-bcg-box">
+              <p>
+                import fs from 'fs/promises';<br />
+
+                <i
+                  >// Перейменовуємо або переміщуємо файл чи
+                  каталог зі шляху 'oldfile.txt' до
+                  'newfile.txt'</i
+                ><br />
+                (async () => {<br />
+                    try {<br />
+                        await fs.rename('oldfile.txt',
+                'newfile.txt');<br />
+                        console.log('Файл або каталог
+                успішно перейменовано або переміщено.');<br />
+                    } catch (err) {<br />
+                        console.error('Помилка
+                перейменування або переміщення:', err);<br />
+                    }<br />
+                })(); import fs from 'fs/promises';<br />
+                <br />
+                // Перевіряємо доступність файлу або
+                каталогу за вказаним шляхом<br />
+                (async () => {<br />
+                    const path = 'file.txt';<br />
+                    try {<br />
+                        await fs.access(path);<br />
+                        console.log(`Файл або каталог
+                '${path}' доступний.`);<br />
+                    } catch (err) {<br />
+                        if (err.code === 'ENOENT') {<br />
+                            console.log(`Файл або каталог
+                '${path}' не існує.`);<br />
+                        } else {<br />
+                            console.error(<br />
+                                `Помилка перевірки
+                доступності файлу або каталогу
+                '${path}':`,<br />
+                                err,<br />
+                            );<br />
+                        }<br />
+                    }<br />
+                })();
+              </p>
+            </div>
+          </div>
+          <p class="">
+            Результатом повертається об'єкт
+            <b>Promise</b>, який буде вирішено або відхилено
+            після завершення операції перевірки доступності.
+          </p>
+          <ul class="list-style">
+            <li>
+              Вирішено без аргументів, якщо операція
+              перевірки доступності пройшла успішно. Це
+              означає, що файл або каталог існує та
+              відповідає вказаним режимам доступу.
+            </li>
+            <li>
+              Відхилено з об'єктом помилки у випадку невдачі
+              операції. Помилка може вказувати на те, що
+              файл або каталог не існує, або на відсутність
+              необхідних прав доступу.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
