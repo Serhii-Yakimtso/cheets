@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Express</title>
+    <script
+      type="text/javascript"
+      nonce="cfb024385fc24947a606eb051d7"
+      src="//local.adguard.org?ts=1718732874605&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.1%26permmsgid%3Dmsg-f%3A1802206670040005143%26th%3D1902b96afb92fa17%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ8hCtcH5zYtgD8NFnuVMOHoVp7NsHPx3TNWhGyrTbeJXfIbDwm9uRLowtH03QmHkhO5Bk5lrcEuBK01KvwhU1IM58qbGqx9CdGNJMTxt51tAvjgupU3cyCm_0Z0L-QV7TOudK8vdkNeDbstGMA6W46e1W846aNMQ8ksMHsqslFQFyW3xbeYIaewnb4JWfF_TxTpdAUjPAdw4_fM1Wc4Jxcg3986VPibjsxhnd1x_roXRzMyxiJMwKQHpSE2EGP54d7vOucFPaCNOL83-Mk8Ar8dNwt2o1_CO2pOhZWN3LsoClWbd3mhFANxRTTHGL9al5tx5THalKrrqZN61BBIrR7sDQ4pWqAJmv4wd7DSgtN5TjulDo9rJPi0UgfvLXhSUuh1Id1cRoBu3nzwYTMjAPK6LOefUcI8BgnUHqu1mBi_F-n6oGXimZPqdgqFcIXO67tf8WjzGnhnNXhhNCCQgvYBbMK_kAiEIYHr4IhC7auu32qdDSzoxPS2uPqmp9dSBnFgQu-I7S8Z5hWMKLV7JdUN_xXM7Q0Nx4hQv1YMjbpxyHnxQhBN7ZAkmosWQkPNCDEwvPzd99wuy8m5XXFoqfCvvWoanVcO3G6nVQIF9Tw92a8cFdOeKVSLlV4NFxv_cgBn9qJ_RjUhbarT0ew4414XPJyzUOC9pa_N9xaoUEJYWkzbRzGaBjy1pZyKAaqOUsYoRX6OHmhyh_73O2MIO08G1_1h_YbE3SnBbZCpGLCtUHEsBukoJAgWmmNpRt6cqwCh1utdeQ_Zg0-v1LweneWXpNOavcpr32NZ7L3GEZ9JWJrP_hMfqSxDEJdktEEUMhJDMnZh7TIJOPUwK6nOYKQGGFB1ydRB6nLxjNorPMjgHMSAkR6GBWAQ5a3JHePV2qd0Oup1wwWh7yYWCyUjIdlzl7TXyj72bxT0dVHSwyMmJ9o1TXKeSPpjPUcYoMsALHVr59AveONMOxWPljXn683cQP-mMPTqp_pqi2sz090pXjIf3txX21s3XDU&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="cfb024385fc24947a606eb051d7"
+      src="//local.adguard.org?ts=1718732874605&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1717311987893&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.3%26permmsgid%3Dmsg-f%3A1800575366999225069%26th%3D18fcedc1a54eb2ed%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ-G7yDa_wN0d6vMKecJS7KgE8STYvSZiGQ9e7KSHd6ySoX2ZMQP082ohQXikS92L3W94s_Hq0eMV8bIjCxDBmcc2oqSmTX40FxFt1jmiwklklXcSzgRQiTPCxd0ud6PjGCJ9QWPyHp8o_M997BpFjsRv3C2ta37espUJmld8b0Shf6EZRiCb5HvGAGlctK916KtKdQG2yvyqDTX79ngtUMbItheAmTEoA0R8NEKv9fUQKorYKiEn9zcit11VE4seFHPZo5TZn5z63ZbiYzUUIfl1VKk9wBd8bRYp1m746UfkM1rbEN8FU23-6nbtrrIxsP08cYRGIE9ASZbzF3k1DK4VfIhKMu5C9BAttZlxNUpc6IO1BXiw8QN_UtU1H1kxOyGSFpvYHDi5kQCcS1khtqqLM7ZU250tt8s1vAPU5C3g_7y1R8JYR8ghwcnpJutRLN8RYxPiXBp4WMfiU7iI-YSxZnWCZZFa3rx9cItvdVqFbPDPWr72WbTNx0tGFQDJBPIxgdUVUZT2btGaTLrMqsJVHoMA1pR0QCIYD3WPwqQpQr39mDRKxt8nD3pZ65gV0pF3pK04BhlREyEnXVvucLWP38bH8xR6s4jIo51pC-9eN9PEltiwovAmZXuklMRZMuC8NZGb0BSLa7NXro6W_hY-dqFd07i6Knc9DWjYzq_iCFKgGdlqycAtgTH7G9VG4leixpA_o2hYiBjpUwiEVrQbeYGO3DNZ97KKhOqr5-Z69G_e4T2ZdVKYTwt0hqmjoTUbPpOXYNyb27F_RcR_YouQUdbTc2mhwytSoQkGB2873nWvkLXaEKDOpxlWX7Q3Ljp3QKRkXuIemh5jH56v4b5xhDynCkA_iC3Qid1z5Mrh5L6e4nqBn53cTKnLzCxZPYZEMDOIuN6marqDNg5UjMB0jqnRmK3lfvVFtbYwrpHmW6hgUTDKFJcr_wja_iHfhdpaaVuj-9Rf12IglOYtES8A-N-oKbrB_dJkHbCo-tNkxrY5FAgN7aX0a4&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
+    ></script>
+    <script
+      type="text/javascript"
+      nonce="1ab1cdd14f524de290f066ee4eb"
+      src="//local.adguard.org?ts=1717311987893&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"
+    ></script>
+    <link rel="stylesheet" href="../../css/reset.css" />
+    <link rel="stylesheet" href="../../css/react.css" />
+  </head>
+  <body>
+    <a class="print-home-link" href="../../index.html"
+      >На головну</a
+    >
+    <h1 class="m-bottom center-text">Express</h1>
+
+    <section class="m-bottom">
+      <p class="m-bottom-min">
+        <b>Express</b> - це популярна JavaScript бібліотека,
+        яка призначена для розробки вебдодатків і API.
+        Express побудований на базі Node.js і надає простий
+        та ефективний спосіб створення серверних
+        застосунків. Реалізує лише маршрутизацію (роутінг) і
+        не має великої кількості вбудованих інструментів для
+        розв'язання типових задач (логування, робота з базою
+        даних, побудови архітектури, валідації запитів
+        тощо).
+      </p>
+
+      <p>Express вирішує наступні завдання:</p>
+      <ul>
+        <li>
+          <b>I/O (введення/виведення)</b>: всі програми, які
+          взаємодіють з користувачем або зовнішніми
+          системами, виконують введення та виведення даних.
+          У веброзробці це означає отримання запитів від
+          клієнтів та відправлення їм відповідей. Наприклад,
+          коли користувач відкриває сторінку вашого
+          вебсайту, його браузер надсилає запит на сервер, а
+          сервер повертає сторінку або JSON-дані
+          користувачеві. Express допомагає вирішувати ці
+          завдання, обробляючи запити та відправляючи
+          відповіді.
+        </li>
+        <li>
+          <b>Маршрутизація запитів</b>: у веброзробці
+          маршрутизація визначає, як сервер повинен
+          реагувати на різні URL-шляхи та типи HTTP-запитів,
+          такі як GET, POST, PUT, DELETE тощо. Наприклад,
+          коли користувач відкриває головну сторінку вашого
+          сайту (наприклад, http://example.com/), це
+          викликає обробник, який повертає вміст головної
+          сторінки. Коли користувач намагається
+          зареєструватися на вашому сайті (наприклад,
+          відправляє дані форми), це може викликати
+          обробник, який додає нового користувача до бази
+          даних. Express надає можливість визначати ці
+          маршрути та обробники (request handler) для різних
+          запитів.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="m-bottom-min">Створення вебсервісу</h2>
+      <div class="m-bottom-min print-flex-box">
+        <div>
+          <p>
+            Щоб додати Express у Node.js додаток необхідно
+            встановити відповідний NPM-пакет.
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>npm install <b>express</b></p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
