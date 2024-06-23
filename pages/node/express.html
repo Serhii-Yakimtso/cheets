@@ -263,5 +263,419 @@
         </div>
       </div>
     </section>
+
+    <!-- Middleware -->
+    <section class="print-m-bottom-max">
+      <h2 class="m-bottom-min">Middleware</h2>
+
+      <div class="m-bottom-min">
+        <p class="m-bottom-min">
+          <b>Middleware</b> (мідлве́р, проміжне програмне
+          забезпечення) — це функції, які обробляють запити
+          до сервера перед тим, як вони дійдуть до ваших
+          обробників запитів. Вони дозволяють виконувати
+          певні дії для кожного запиту, такі як логування,
+          перевірка авторизації, обробка помилок та багато
+          іншого. В кінці цього ланцюга після усіх
+          middleware знаходиться controller
+          (функція-обробник запиту).
+        </p>
+        <p class="m-bottom-min">
+          У Express.js <b>middleware</b> має два варіанти
+          оголошення. Вони можуть бути загальними
+          (<b>CommonMiddleware</b>) або призначеними для
+          обробки помилок (<b>ErrorMiddleware</b>).
+          Відрізняються вони кількістю аргументів:
+        </p>
+        <p>
+          <b>CommonMiddleware</b> функція, яка приймає три
+          аргументи:
+        </p>
+        <ul class="m-bottom-min list-style">
+          <li><b>req</b> - об'єкт запиту</li>
+          <li><b>res</b> - об'єкт відповіді</li>
+          <li>
+            <b>next</b> - функція, яка викликається, щоб
+            передати обробку наступному middleware у
+            ланцюжку
+          </li>
+        </ul>
+        <p>
+          <b>ErrorMiddleware</b> спеціалізована функція для
+          обробки помилок, яка приймає чотири аргументи:
+        </p>
+        <ul class="list-style">
+          <li><b>err</b> - помилка</li>
+          <li><b>req</b> - об'єкт запиту</li>
+          <li><b>res</b> - об'єкт відповіді</li>
+          <li>
+            <b>next</b> - функція для передачі обробки
+          </li>
+        </ul>
+      </div>
+
+      <div class="m-bottom-min">
+        <div class="print-flex-box">
+          <div>
+            <p>
+              Для включення <b>middleware</b> в застосунок
+              потрібно на сервері викликати метод
+              <b>use</b>, передавши йому:
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>app.<b>use</b>(paths, middleware)</p>
+          </div>
+        </div>
+        <ul class="list-style">
+          <li>
+            <i>першим аргументом</i>
+            <b>paths</b> (визначає шляхи, до яких буде
+            застосований цей <i>middleware</i>)
+          </li>
+          <li>
+            <i>другим</i> — власне сам <b>middleware</b>
+          </li>
+        </ul>
+      </div>
+
+      <div class="border-box m-bottom-min">
+        <div class="print-flex-box">
+          <div>
+            <p>
+              <b>Уважно!</b> Якщо до виклику <b>app.use</b>
+              <i>не передати перший аргумент</i> зі шляхом
+              або передати рядок <b>'*'</b> , то тоді
+              <b>middleware</b> буде застосований до всіх
+              можливих роутів (маршрутів) на сервері:
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              app.use(middleware) <br />
+              app.use('*', middleware)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-bottom-min">
+        <p>
+          Кожен middleware має виконати якийсь код далі. Він
+          має:
+        </p>
+        <ul class="list-style">
+          <li>
+            або передати обслуговування запиту наступному
+            обробнику викликавши функцію <b>next()</b> без
+            аргументів.
+          </li>
+          <li>
+            або 'забракувати' поточну обробку запиту,
+            викликавши <b>next(err)</b>, де <b>err</b> - це
+            причина 'несправності'.
+          </li>
+        </ul>
+      </div>
+
+      <div class="m-bottom-min border-box">
+        <p>
+          <b>Увага!</b> Якщо поточний middleware не завершує
+          обробку запиту(реквесту) - тобто, не викликає
+          методи response, такі як json(), send(), text()
+          тощо, то він повинен викликати next() для передачі
+          управління наступній функції проміжної обробки.
+          Інакше обробка запиту 'зависне'.
+        </p>
+      </div>
+
+      <div class="m-bottom-min border-box">
+        <p>
+          <b>Увага!</b> Middleware для
+          <b
+            >обробки помилок додається завжди самим
+            останнім</b
+          >, після всіх інших middleware та маршрутів, тому
+          що він призначений для обробки помилок, які
+          виникають під час обробки запитів і виконання
+          інших middleware або обробників маршрутів.
+        </p>
+      </div>
+
+      <div class="m-bottom-min border-box">
+        <p>
+          <b>Увага!</b> Проходження запиту в Express через
+          middleware відбувається відповідно
+          <i
+            >до порядку, в якому middleware
+            <b>були додані</b></i
+          >.
+        </p>
+      </div>
+
+      <div class="m-bottom-min border-box">
+        <div class="print-flex-box">
+          <div>
+            <p>
+              <b>Приклад!</b> middleware для логування часу
+              запиту
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/index.js</i><br />
+              import express from 'express';<br />
+              <br />
+              const PORT = 3000;<br />
+              const app = express();<br />
+              <br />
+              app.use((req, res, next) => {<br />
+                  console.log(`Time: ${new
+              Date().toLocaleString()}`);<br />
+                  next();<br />
+              });<br />
+              <br />
+              app.listen(PORT, () => {<br />
+                  console.log(`Server is running on port
+              ${PORT}`);<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-bottom-min border-box">
+        <div class="print-flex-box">
+          <div>
+            <p>
+              <b>Приклад!</b>
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              <i>// src/index.js</i><br />
+
+              import express from 'express';<br />
+              <br />
+              const PORT = 3000;<br />
+              const app = express();<br />
+              <br />
+              app.use((req, res, next) => {<br />
+                  console.log(`Time: ${new
+              Date().toLocaleString()}`);<br />
+                  next();<br />
+              });<br />
+              <br />
+              app.use(express.json());<br />
+              <br />
+              app.get('/', (req, res) => {<br />
+                  res.json({<br />
+                      message: 'Hello, World!',<br />
+                  });<br />
+              });<br />
+              <br />
+              app.use((err, req, res, next) => {<br />
+                  res.status(500).json({<br />
+                      message: 'Something went wrong',<br />
+                  });<br />
+              });<br />
+              <br />
+              app.listen(PORT, () => {<br />
+                  console.log(`Server is running on port
+              ${PORT}`);<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-bottom">
+        <p>Приклади використання <b>middleware</b>:</p>
+        <ul class="list-style">
+          <li>
+            <b>Логування</b>: Запис інформації про кожен
+            запит (метод, URL, час, IP тощо).
+          </li>
+          <li>
+            <b>Обробка JSON-даних</b>: Розпакування та
+            обробка даних у форматі JSON, що надходять від
+            клієнта.
+          </li>
+          <li>
+            <b>Обробка URL-кодованих даних</b>: Розкодування
+            та обробка даних, що надходять у формі
+            URL-кодування.
+          </li>
+          <li>
+            <b>Аутентифікація та авторизація</b>: Перевірка
+            інформації про аутентифікацію користувача та
+            його прав доступу.
+          </li>
+          <li>
+            <b>Захист від атак</b>: Включення заходів
+            безпеки, таких як обробка CORS, захист від атак
+            типу CSRF, перевірка параметрів запиту.
+          </li>
+          <li>
+            <b>Робота з сесіями та cookies</b>: Обробка
+            сесій, зберігання та читання інформації у
+            cookies.
+          </li>
+          <li>
+            <b>Обробка статичних файлів</b>: Надання
+            можливості сервера обслуговувати та повертати
+            статичні файли.
+          </li>
+          <li>
+            <b>Обробка помилок</b>: Визначення middleware
+            для обробки помилок на рівні додатку.
+          </li>
+          <li>
+            <b>Моніторинг та аналітика</b>: Збір та обробка
+            аналітичної інформації про використання
+            застосунку.
+          </li>
+          <li>
+            <b>Кешування</b>: Реалізація middleware для
+            кешування результатів запитів та оптимізації
+            швидкодії застосунку.
+          </li>
+          <li>
+            <b>Підготовка запитів до обробки</b>: Валідація,
+            перетворення або обробка даних до їх подальшої
+            обробки в маршрутах.
+          </li>
+          <li>
+            <b>Маршрутизація</b>: Реалізація middleware, які
+            визначають маршрути та викликають відповідні
+            обробники маршрутів.
+          </li>
+          <li>
+            <b>Аналіз та обробка хедерів</b>: Взаємодія з
+            хедерами запиту та відповіді для певного
+            обробника.
+          </li>
+          <li>
+            <b>Перевірка здоров'я застосунку</b>: Реалізація
+            middleware, що перевіряє стан здоров'я сервера
+            та повертає статус.
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="m-bottom-min">
+          Кастомні middleware для обробки помилок
+        </h3>
+
+        <div class="m-bottom-min print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Middleware для обробки випадку, коли клієнт
+              звертається до неіснуючого маршруту, тобто до
+              якогось URL, який наш сервіс не підтримує і
+              ніяк його не опрацьовує.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              app.use('*', (req, res, next) => {<br />
+                  res.status(404).json({<br />
+                      message: 'Route not found',<br />
+                  });<br />
+              });
+            </p>
+          </div>
+        </div>
+
+        <div class="m-bottom print-flex-box">
+          <div>
+            <p class="m-bottom-min">
+              Middleware для обробки помилок, зокрема, для
+              випадків, коли виникає помилка, яку не було
+              передбачено (так звані 500-ті помилки).
+              Помилка <b>err</b>, яку приймає першим
+              аргументом наш middleware, включає такі
+              ключові властивості, як <b>message</b>,
+              <b>name</b> та <b>stack</b>, які можна
+              ефективно використовувати для аналізу проблем.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              app.use((err, req, res, next) => {<br />
+                  res.status(500).json({<br />
+                      message: 'Something went wrong',<br />
+                      error: err.message,<br />
+                  });<br />
+              });
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Файлова структура застосунку -->
+    <section>
+      <h2 class="m-bottom-min">
+        Файлова структура застосунку
+      </h2>
+
+      <p>
+        Весь JS код додатка зберігається у папці
+        <b>src</b>, в якій будуть наступні папки та файли:
+      </p>
+      <ul class="m-bottom-min list-style">
+        <li>
+          <b>constants</b> - константі значення нашого
+          застосунку
+        </li>
+        <li><b>controllers</b> - контролери</li>
+        <li><b>db</b> - усе, що повʼязане із базою</li>
+        <li><b>middlewares</b> - кастомні мідлвари</li>
+        <li>
+          <b>routers</b> - express-роутери, які будуть
+          використані в застосунку
+        </li>
+        <li>
+          <b>services</b> - основне місце, де ми будемо
+          прописувати логіку
+        </li>
+        <li><b>templates</b> - шаблони для email</li>
+        <li>
+          <b>utils</b> - різні функції, які допомагатимуть
+          нам робити певні перетворення чи маніпуляції
+        </li>
+        <li><b>validation</b> - валідаційні схеми</li>
+        <li>
+          <b>index.js</b> - файл, з якого буде починатися
+          виконання нашої програми
+        </li>
+        <li>
+          <b>server.js</b> - файл, де ми опишемо наш
+          express-сервер
+        </li>
+      </ul>
+
+      <div class="print-flex-box">
+        <div>
+          <p>
+            Оскільки ініціалізація сервера відбувається у
+            файлі
+            <b>src/server.js</b>, то вміст файлу
+            <b>src/index.js</b>
+            виглядає наступним чином:
+          </p>
+        </div>
+        <div class="bcg-box print-bcg-box">
+          <p>
+            <i>// src/index.js</i> <br />
+            import { <b>startServer</b> } from
+            './server.js';<br />
+            <b>startServer()</b>;
+          </p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
