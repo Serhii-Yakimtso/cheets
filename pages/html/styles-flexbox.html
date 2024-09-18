@@ -6,429 +6,449 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Flexbox</title>
     <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-other.css"
+    />
   </head>
   <body>
-    <a class="home-link" href="../../index.html"
+    <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1>Flexbox</h1>
+    <section class="section">
+      <h1 class="center-text">Flexbox</h1>
 
-    <div class="flex-common m-bottom">
-      <img
-        src="../../images/flex-axis.jpg"
-        alt="flex axis"
-        width="300"
-      />
-      <ul>
-        <li>
-          <p>
-            <span class="accent">Main axis</span> — головна
-            вісь flex-контейнера, вздовж якої розміщуються
-            елементи
-          </p>
-        </li>
-        <li>
-          <p>
-            <span class="accent">Cross axis</span> -
-            поперечна вісь, яка завжди перпендикулярна
-            головній осі
-          </p>
-        </li>
-        <li>
-          <p>
-            <span class="accent">main-start</span> і
-            <span class="accent">main-end</span> — елементи
-            в контейнері завжди розташовуються від
-            main-start (початок головної осі) і до main-end
-            (кінець головної осі).
-          </p>
-        </li>
-        <li>
-          <p>
-            <span class="accent">cross-start</span> і
-            <span class="accent">cross-end</span> - початок
-            і кінець поперечної осі cross axis вздовж якої
-            розташовані рядки елементів
-          </p>
-        </li>
-      </ul>
-    </div>
+      <div class="flex m-bottom">
+        <img
+          src="../../images/flex-axis.jpg"
+          alt="flex axis"
+          width="300"
+        />
+        <ul class="fs-15">
+          <li>
+            <p>
+              <span class="accent">main axis</span> —
+              головна вісь flex-контейнера, вздовж якої
+              розміщуються елементи
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="accent">cross axis</span> -
+              поперечна вісь, яка завжди перпендикулярна
+              головній осі
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="accent">main-start</span> і
+              <span class="accent">main-end</span> —
+              елементи в контейнері завжди розташовуються
+              від main-start (початок головної осі) і до
+              main-end (кінець головної осі).
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="accent">cross-start</span> і
+              <span class="accent">cross-end</span> -
+              початок і кінець поперечної осі cross axis
+              вздовж якої розташовані рядки елементів
+            </p>
+          </li>
+        </ul>
+      </div>
 
-    <table class="flex-container-table m-bottom">
-      <caption>
-        Властивості Flex-контейнера
-      </caption>
-      <thead>
+      <!-- ======Властивості Flex-контейнера====== -->
+      <table class="flex-container-table m-bottom">
+        <caption>
+          Властивості Flex-контейнера
+        </caption>
+        <thead>
+          <tr>
+            <th class="">Опис</th>
+            <th class="">Властивість</th>
+            <th class="" style="width: 115px">Значення</th>
+            <th class="">Примітка</th>
+          </tr>
+        </thead>
+        <tbody class="fs-15">
+          <tr>
+            <td rowspan="2">Створення flex-контейнера</td>
+            <td rowspan="2">display</td>
+            <td>flex</td>
+            <td>блоковий контейнер</td>
+          </tr>
+          <tr>
+            <td>inline-flex</td>
+            <td>рядково-блоковий контейнер</td>
+          </tr>
+          <tr>
+            <td rowspan="4">напрямок головної вісі</td>
+            <td rowspan="4">flex-direction</td>
+            <td>row</td>
+            <td>
+              вісь починається зліва й закінчується праворуч
+              (за замовчуванням)
+            </td>
+          </tr>
+
+          <tr>
+            <td>row-reverse</td>
+            <td class="fs-14">
+              вісь починається праворуч й закінчується
+              ліворуч
+            </td>
+          </tr>
+          <tr>
+            <td>column</td>
+            <td>
+              головна вісь стає вертикально, початок зверху
+              та кінець знизу
+            </td>
+          </tr>
+          <tr>
+            <td>column-reverse</td>
+            <td>
+              головна вісь розташовується вертикально,
+              початок знизу, кінець зверху
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="3">
+              проміжок між flex-елементами
+            </td>
+            <td>gap</td>
+            <td>8px</td>
+            <td>проміжки між елементами</td>
+          </tr>
+          <tr>
+            <td>row-gap</td>
+            <td>8px</td>
+            <td>проміжки між рядками</td>
+          </tr>
+          <tr>
+            <td>column-gap</td>
+            <td>8px</td>
+            <td>проміжки між стовпцями</td>
+          </tr>
+
+          <tr class="justify-content">
+            <td rowspan="6">
+              позиціонуванням елементів на <b>main axis</b>
+            </td>
+            <td rowspan="6">justify-content</td>
+            <td>flex-start</td>
+            <td>
+              <div class="flex-container flex-start">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="justify-content">
+            <td>flex-end</td>
+            <td>
+              <div class="flex-container flex-end">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="justify-content">
+            <td>center</td>
+            <td>
+              <div class="flex-container center">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="justify-content">
+            <td>space-between</td>
+            <td>
+              <div class="flex-container space-between">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="justify-content">
+            <td>space-around</td>
+            <td>
+              <div class="flex-container space-around">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="justify-content">
+            <td>space-evenly</td>
+            <td>
+              <div class="flex-container space-evenly">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-items">
+            <td rowspan="5">
+              позиціонуванням елементів на <b>cross axis</b>
+            </td>
+            <td rowspan="5">align-items</td>
+            <td>flex-start</td>
+            <td>
+              <div class="flex-container flex-start">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-items">
+            <td>flex-end</td>
+            <td>
+              <div class="flex-container flex-end">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-items">
+            <td>center</td>
+            <td>
+              <div class="flex-container center">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-items">
+            <td>stretch</td>
+            <td>
+              <div class="flex-container stretch">
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+                <div class="flex-element"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="align-items">
+            <td>baseline</td>
+            <td>
+              <div class="flex-container baseline">
+                <div class="flex-element">text</div>
+                <div class="flex-element">text</div>
+                <div class="flex-element">text</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="3">перенос елементів</td>
+            <td rowspan="3">flex-wrap</td>
+            <td>nowrap</td>
+            <td>
+              усі елементи будуть на одному рядку (за
+              замовчуванням)
+            </td>
+          </tr>
+          <tr>
+            <td>wrap</td>
+            <td>
+              дозволяє елементам перестрибувати на інші
+              рядки, які за замовчуванням розташовуються
+              зверху вниз (уздовж <b>cross axis</b>)
+            </td>
+          </tr>
+          <tr>
+            <td>wrap-reverse</td>
+            <td>
+              дозволяє елементам перестрибувати на інші
+              рядки, які розташовуються знизу вгору (уздовж
+              <b>cross axis</b>)
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="7">
+              вирівнювання усіх рядків багаторядкового
+              контейнера уздовж cross axis
+            </td>
+            <td rowspan="7">align-content</td>
+            <td>flex-start</td>
+            <td>
+              рядки притискаються до старту cross axis
+            </td>
+          </tr>
+          <tr>
+            <td>flex-end</td>
+            <td>рядки притискаються до кінця cross axis</td>
+          </tr>
+          <tr>
+            <td>center</td>
+          </tr>
+          <tr>
+            <td>space-between</td>
+          </tr>
+          <tr>
+            <td>space-around</td>
+          </tr>
+          <tr>
+            <td>space-evenly</td>
+          </tr>
+          <tr>
+            <td>stretch</td>
+            <td>
+              рядки рівномірно розтягуються, щоб зайняти все
+              місце (за замовчуванням)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ======Властивості Flex-елементів====== -->
+      <table class="flex-element-table">
+        <caption>
+          Властивості Flex-елементів
+        </caption>
         <tr>
           <th class="head-name">Опис</th>
           <th class="head-property">Властивість</th>
           <th class="head-value">Значення</th>
           <th class="head-note">Примітка</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="2">Створення flex-контейнера</td>
-          <td rowspan="2">display</td>
-          <td>flex</td>
-          <td>блоковий контейнер</td>
-        </tr>
-        <tr>
-          <td>inline-flex</td>
-          <td>рядково-блоковий контейнер</td>
-        </tr>
-        <tr>
-          <td rowspan="4">напрямок головної вісі</td>
-          <td rowspan="4">flex-direction</td>
-          <td>row</td>
-          <td>
-            вісь починається зліва й закінчується праворуч
-            (за замовчуванням)
-          </td>
-        </tr>
-
-        <tr>
-          <td>row-reverse</td>
-          <td>
-            вісь починається праворуч й закінчується ліворуч
-          </td>
-        </tr>
-        <tr>
-          <td>column</td>
-          <td>
-            головна вісь стає вертикально, початок зверху та
-            кінець знизу
-          </td>
-        </tr>
-        <tr>
-          <td>column-reverse</td>
-          <td>
-            головна вісь розташовується вертикально, початок
-            знизу, кінець зверху
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="3">проміжок між flex-елементами</td>
-          <td>gap</td>
-          <td>8px</td>
-          <td>проміжки між елементами</td>
-        </tr>
-        <tr>
-          <td>row-gap</td>
-          <td>8px</td>
-          <td>проміжки між рядками</td>
-        </tr>
-        <tr>
-          <td>column-gap</td>
-          <td>8px</td>
-          <td>проміжки між стовпцями</td>
-        </tr>
-
-        <tr class="justify-content">
-          <td rowspan="6">
-            позиціонуванням елементів на <b>main axis</b>
-          </td>
-          <td rowspan="6">justify-content</td>
-          <td>flex-start</td>
-          <td>
-            <div class="flex-container flex-start">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="justify-content">
-          <td>flex-end</td>
-          <td>
-            <div class="flex-container flex-end">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="justify-content">
-          <td>center</td>
-          <td>
-            <div class="flex-container center">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="justify-content">
-          <td>space-between</td>
-          <td>
-            <div class="flex-container space-between">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="justify-content">
-          <td>space-around</td>
-          <td>
-            <div class="flex-container space-around">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="justify-content">
-          <td>space-evenly</td>
-          <td>
-            <div class="flex-container space-evenly">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="align-items">
-          <td rowspan="5">
-            позиціонуванням елементів на <b>cross axis</b>
-          </td>
-          <td rowspan="5">align-items</td>
-          <td>flex-start</td>
-          <td>
-            <div class="flex-container flex-start">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="align-items">
-          <td>flex-end</td>
-          <td>
-            <div class="flex-container flex-end">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="align-items">
-          <td>center</td>
-          <td>
-            <div class="flex-container center">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="align-items">
-          <td>stretch</td>
-          <td>
-            <div class="flex-container stretch">
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-              <div class="flex-element"></div>
-            </div>
-          </td>
-        </tr>
-        <tr class="align-items">
-          <td>baseline</td>
-          <td>
-            <div class="flex-container baseline">
-              <div class="flex-element">text</div>
-              <div class="flex-element">text</div>
-              <div class="flex-element">text</div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="3">перенос елементів</td>
-          <td rowspan="3">flex-wrap</td>
-          <td>nowrap</td>
-          <td>
-            усі елементи будуть на одному рядку (за
-            замовчуванням)
-          </td>
-        </tr>
-        <tr>
-          <td>wrap</td>
-          <td>
-            дозволяє елементам перестрибувати на інші рядки,
-            які за замовчуванням розташовуються зверху вниз
-            (уздовж <b>cross axis</b>)
-          </td>
-        </tr>
-        <tr>
-          <td>wrap-reverse</td>
-          <td>
-            дозволяє елементам перестрибувати на інші рядки,
-            які розташовуються знизу вгору (уздовж
-            <b>cross axis</b>)
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="7">
-            вирівнювання усіх рядків багаторядкового
-            контейнера уздовж cross axis
-          </td>
-          <td rowspan="7">align-content</td>
-          <td>flex-start</td>
-          <td>рядки притискаються до старту cross axis</td>
-        </tr>
-        <tr>
-          <td>flex-end</td>
-          <td>рядки притискаються до кінця cross axis</td>
-        </tr>
-        <tr>
-          <td>center</td>
-        </tr>
-        <tr>
-          <td>space-between</td>
-        </tr>
-        <tr>
-          <td>space-around</td>
-        </tr>
-        <tr>
-          <td>space-evenly</td>
-        </tr>
-        <tr>
-          <td>stretch</td>
-          <td>
-            рядки рівномірно розтягуються, щоб зайняти все
-            місце (за замовчуванням)
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="flex-element-table">
-      <caption>
-        Властивості Flex-елементів
-      </caption>
-      <tr>
-        <th class="head-name">Опис</th>
-        <th class="head-property">Властивість</th>
-        <th class="head-value">Значення</th>
-        <th class="head-note">Примітка</th>
-      </tr>
-      <tbody>
-        <tr>
-          <td rowspan="4">
-            початковий розмір flex-елемента у
-            flex-контейнері
-          </td>
-          <td rowspan="3">flex-basis</td>
-          <td>auto</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>значення</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>відсоток</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <ul class="list-style">
-              <li>
-                Якщо застосовано обидві властивості,
-                <b>flex-basis</b> і <b>width</b>, то
-                властивість <b>width</b>
-                ігнорується.
-              </li>
-              <li>
-                Властивість <b>flex-basis</b> може визначати
-                висоту, а не ширину елемента. Це
-                відбувається, коли напрямок головної осі
-                вертикальний
-              </li>
-              <li>
-                Властивості <b>min-width</b> і
-                <b>max-width</b> працюють, як обмежувачі
-                розміру елемента, навіть якщо у нього
-                вказано <b>flex-basis</b>
-              </li>
-              <li>
-                Властивість <b>flex-basis</b> — це не
-                фінальний розмір елемента, а розмір до
-                розподілу вільного простору, який
-                регулюється властивостями <b>flex-grow</b> і
-                <b>flex-shrink</b>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            здатність елемента займати більше місця (рости),
-            ніж початковий розмір
-          </td>
-          <td>flex-grow</td>
-          <td>частка</td>
-          <td>
-            За замовчуванням 0. Керує пропорціями елементів
-            щодо один одного
-          </td>
-        </tr>
-        <tr>
-          <td>
-            здатність елемента займати менше місця
-            (стискатися), ніж початковий розмір
-          </td>
-          <td>flex-shrink</td>
-          <td>частка</td>
-          <td>
-            За замовчуванням - 1. 0 заборонить елементу
-            стискатися. Негативні значення задавати не можна
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="6">
-            зміна свого розташування на <b>cross axis</b>
-          </td>
-          <td rowspan="6">align-self</td>
-          <td>auto</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>flex-start</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>flex-end</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>center</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>baseline</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>stretch</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            візуально змінити порядок розташування елементів
-            уздовж <b>main axis</b>
-          </td>
-          <td>order</td>
-          <td>позиція</td>
-          <td>
-            застосовується вкрай рідко через те, що порушує
-            зв'язок між візуальним порядком елементів і тим,
-            як їх бачить браузер і асистивні технології
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody class="fs-14">
+          <tr>
+            <td rowspan="4">
+              початковий розмір flex-елемента у
+              flex-контейнері
+            </td>
+            <td rowspan="3">flex-basis</td>
+            <td>auto</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>значення</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>відсоток</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <ul class="list-style">
+                <li>
+                  Якщо застосовано обидві властивості,
+                  <b>flex-basis</b> і <b>width</b>, то
+                  властивість <b>width</b>
+                  ігнорується.
+                </li>
+                <li>
+                  Властивість <b>flex-basis</b> може
+                  визначати висоту, а не ширину елемента. Це
+                  відбувається, коли напрямок головної осі
+                  вертикальний
+                </li>
+                <li>
+                  Властивості <b>min-width</b> і
+                  <b>max-width</b> працюють, як обмежувачі
+                  розміру елемента, навіть якщо у нього
+                  вказано <b>flex-basis</b>
+                </li>
+                <li>
+                  Властивість <b>flex-basis</b> — це не
+                  фінальний розмір елемента, а розмір до
+                  розподілу вільного простору, який
+                  регулюється властивостями
+                  <b>flex-grow</b> і
+                  <b>flex-shrink</b>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              здатність елемента займати більше місця
+              (рости), ніж початковий розмір
+            </td>
+            <td>flex-grow</td>
+            <td>частка</td>
+            <td>
+              За замовчуванням 0. Керує пропорціями
+              елементів щодо один одного
+            </td>
+          </tr>
+          <tr>
+            <td>
+              здатність елемента займати менше місця
+              (стискатися), ніж початковий розмір
+            </td>
+            <td>flex-shrink</td>
+            <td>частка</td>
+            <td>
+              За замовчуванням - 1. 0 заборонить елементу
+              стискатися. Негативні значення задавати не
+              можна
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="6">
+              зміна свого розташування на <b>cross axis</b>
+            </td>
+            <td rowspan="6">align-self</td>
+            <td>auto</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>flex-start</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>flex-end</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>center</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>baseline</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>stretch</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              візуально змінити порядок розташування
+              елементів уздовж <b>main axis</b>
+            </td>
+            <td>order</td>
+            <td>позиція</td>
+            <td>
+              застосовується вкрай рідко через те, що
+              порушує зв'язок між візуальним порядком
+              елементів і тим, як їх бачить браузер і
+              асистивні технології
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>

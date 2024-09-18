@@ -1,0 +1,9 @@
+::selection {
+  color: gold;
+  background: red;
+}
+
+p::selection {
+  color: white;
+  background: blue;
+}

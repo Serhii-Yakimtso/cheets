@@ -1,37 +1,38 @@
 * {
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
+body {
+  /* font-family: 'Tinos', serif; */
+}
+
+body,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p {
+p,
+ul {
   margin: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
 }
+
 button {
+  font-family: inherit;
   cursor: pointer;
   border: none;
   border-radius: 4px;
 }
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
 
-ul.list-style,
-ol.list-style {
-  list-style: inside;
-}
+/* ===== TABLE ===== */
 
 table {
   border-collapse: collapse;
@@ -52,10 +53,29 @@ tr {
   border: 2px solid black;
 }
 
+/* ===== CLASSES ===== */
+
 .section {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid grey;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 4px;
+
+  width: 720px;
+
+  /* border-bottom: 1px dashed grey; */
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 4px;
+
+  width: 720px;
+}
+
+.noList {
+  list-style: none;
+  padding: 0;
 }
 
 .accent {
@@ -70,19 +90,23 @@ tr {
   font-style: italic;
 }
 
-.box {
+/* .box {
   width: 100px;
   height: 100px;
   border: 2px dotted red;
   background-color: green;
-}
+} */
 
 .bcg-box {
-  padding: 8px 15px;
-  margin: 0 auto;
-  max-width: max-content;
+  padding: 4px;
+  margin-left: auto;
+  margin-right: 0;
+  min-width: max-content;
+
   border-radius: 4px;
   background-color: lightgray;
+
+  font-size: 14px;
 }
 
 .border-box {
@@ -97,6 +121,17 @@ tr {
 
 .bcg-color-head {
   background-color: lightgray;
+  width: fit-content;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.flow-box {
+  display: flow-root;
 }
 
 .m-bottom {
@@ -120,446 +155,34 @@ tr {
   text-align: center;
 }
 
-@media print {
-  .home-link {
-    display: none;
-  }
-  .print-home-link {
-    display: none;
-  }
-
-  .flex-box {
-    display: flex;
-    justify-content: space-between;
-  }
-  .print-flex-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .m-bottom-max {
-    margin-bottom: 1000px;
-  }
-  .print-m-bottom-max {
-    margin-bottom: 1000px;
-  }
-
-  .fs-13 {
-    font-size: 13px;
-  }
-}
-/* ===== Стилі (загальна інформація) ===== */
-
-/* ===== Підключення стилів ===== */
-.connecting-table {
-  margin-bottom: 20px;
-  width: 750px;
-
-  font-size: 13px;
-}
-.connecting-table .head-connecting {
-  width: 105px;
-}
-.connecting-table .head-use {
-  width: 250px;
-}
-.connecting-table .head-connect {
-  width: 250px;
-}
-.connecting-table ..head-note {
-  /* width: 105px; */
-  max-width: 105px;
+.text-no-wrap {
+  /* word-wrap: ; */
 }
 
-/* ===== Селектори ===== */
-.selectors-table {
-  margin-bottom: 20px;
-  width: 750px;
+.fs-10 {
+  font-size: 10px;
 }
-.selectors-table .head-selector {
-  width: 150px;
+.fs-11 {
+  font-size: 11px;
 }
-.selectors-table .head-glif {
-  width: 120px;
-}
-.selectors-table .head-discription {
-  width: 350px;
-}
-.selectors-table .head-note {
-  width: 130px;
-}
-
-/* ===== Псевдокласи ===== */
-.pseudoclass-table {
-  margin-bottom: 20px;
-  width: 750px;
-}
-.pseudoclass-table .head-pseudoclass {
-  width: 120px;
-}
-.pseudoclass-table .head-discription {
-  width: 480px;
-}
-.pseudoclass-table .head-note {
-  width: 150px;
-}
-
-/* ===== Специфічність селекторів ===== */
-.specific-table {
-  margin-bottom: 20px;
-  width: 750px;
-}
-.specific-table .head-rang {
-  width: 130px;
-}
-.specific-table .head-discription {
-  width: 490px;
-}
-.specific-table .head-note {
-  width: 130px;
-}
-
-/* ===== Стилі. Шрифти ===== */
-
-/* ===== Стилі шрифтів ===== */
-.font-table {
-  width: 750px;
-}
-.font-table .head-name {
-  width: 100px;
-}
-.font-table .head-property {
-  width: 100px;
-}
-.font-table .head-value {
-  width: 150px;
-}
-.font-table .head-note {
-  width: 400px;
-}
-
-/* ===== Псевдоелементи тексту ===== */
-
-.pseudoelement-font-table {
-  width: 750px;
-}
-
-/* ===== Стили. Геометрия ===== */
-
-/* ===== Визначення ===== */
-.geometry-common {
-  display: flex;
-  width: 750px;
-  /* margin-bottom: 20px; */
-}
-.geometry-common img {
-  margin-right: 20px;
-  object-fit: scale-down;
-}
-
-/* ===== Типи елементів ===== */
-.type-element-table {
-  width: 750px;
-  margin-bottom: 150px;
-}
-.type-element-table .head-name {
-}
-.type-element-table .head-property {
-}
-.type-element-table .head-value {
-}
-.type-element-table .head-note {
-}
-
-/* ===== Геометрія елементів ===== */
-.geometry-table {
-  margin-bottom: 20px;
-  width: 750px;
-}
-.geometry-table .head-name {
-  width: 100px;
-}
-.geometry-table .head-property {
-  width: 150px;
-}
-.geometry-table .head-value {
-  width: 100px;
-}
-.geometry-table .head-note {
-  width: 400px;
-}
-
-/* ===== Структурні псевдокласи ===== */
-
-.structure-pseudoclass-table .pseudoclass-container {
-  display: flex;
-  gap: 8px;
-}
-
-.pseudoclass-container {
-  padding: 4px;
-}
-
-.pseudoclass-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  border: 2px solid black;
-  border-radius: 50%;
+.fs-12 {
   font-size: 12px;
 }
-
-.structure-pseudoclass-table
-  .pseudoclass-container.first-child
-  li:first-child {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.structure-pseudoclass-table
-  .pseudoclass-container.not-selector
-  li:not(:first-child) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.structure-pseudoclass-table
-  .pseudoclass-container.nth-child
-  li:nth-child(4n + 1) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.structure-pseudoclass-table
-  .pseudoclass-container.nth-last-child
-  li:nth-last-child(4n + 1) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.nth-child-table .pseudoclass-container {
-  display: flex;
-  gap: 8px;
-}
-
-.nth-child-table
-  .pseudoclass-container.nth-child-b
-  li:nth-child(2) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.nth-child-table
-  .pseudoclass-container.nth-child-even
-  li:nth-child(2n) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.nth-child-table
-  .pseudoclass-container.nth-child-odd
-  li:nth-child(2n + 1) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.nth-child-table
-  .pseudoclass-container.nth-child-n-3
-  li:nth-child(n + 3) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-.nth-child-table
-  .pseudoclass-container.nth-child--n-3
-  li:nth-child(-n + 3) {
-  font-weight: bold;
-  background-color: lightgray;
-}
-
-/* ===== Flexbox ===== */
-
-.flex-common {
-  display: flex;
-  width: 750px;
-}
-
-.flex-common img {
-  margin-right: 20px;
-}
-
-/* ===== Властивості Flex-контейнера ===== */
-.flex-container-table {
-  margin-bottom: 20px;
-  width: 750px;
-}
-.flex-container-table .head-name {
-  width: 100px;
-}
-.flex-container-table .head-property {
-  width: 110px;
-}
-.flex-container-table .head-value {
-  width: 110px;
-}
-.flex-container-table .head-note {
-  width: 380px;
-}
-
-.flex-container {
-  display: flex;
-
-  margin: 0 auto;
-  padding: 4px;
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 4px;
-
-  background-color: lightblue;
-}
-
-.justify-content .flex-container {
-  height: 30px;
-}
-
-.flex-element {
-  width: 40px;
-  border: 1px solid black;
-  border-radius: 4px;
-  background-color: orange;
-}
-
-.justify-content .flex-element {
-  height: 100%;
-}
-
-.justify-content .flex-container.flex-start {
-  justify-content: flex-start;
-  gap: 8px;
-}
-.justify-content .flex-container.flex-end {
-  justify-content: flex-end;
-  gap: 8px;
-}
-.justify-content .flex-container.center {
-  justify-content: center;
-  gap: 8px;
-}
-.justify-content .flex-container.space-between {
-  justify-content: space-between;
-  gap: 8px;
-}
-.justify-content .flex-container.space-around {
-  justify-content: space-around;
-  gap: 8px;
-}
-.justify-content .flex-container.space-evenly {
-  justify-content: space-evenly;
-  gap: 8px;
-}
-
-.align-items .flex-container {
-  height: 40px;
-}
-
-.align-items .flex-element {
-  min-height: 50%;
-}
-
-.align-items .flex-container.flex-start {
-  align-items: flex-start;
-  gap: 20px;
-}
-.align-items .flex-container.flex-end {
-  align-items: flex-end;
-  gap: 20px;
-}
-.align-items .flex-container.center {
-  align-items: center;
-  gap: 20px;
-}
-.align-items .flex-container.stretch {
-  align-items: stretch;
-  gap: 20px;
-}
-.align-items .flex-container.baseline {
-  align-items: baseline;
-  gap: 20px;
-}
-
-.align-items .baseline .flex-element {
-  text-decoration: underline;
-  text-align: center;
-}
-.align-items .baseline .flex-element:nth-child(1) {
-  font-size: 12px;
-}
-.align-items .baseline .flex-element:nth-child(2) {
-  font-size: 24px;
-}
-.align-items .baseline .flex-element:nth-child(3) {
-  font-size: 16px;
-}
-
-/* ===== Властивості Flex-елементів ===== */
-.flex-element-table {
-  width: 750px;
-}
-.flex-element-table .head-name {
-  width: 200px;
-}
-.flex-element-table .head-property {
-  width: 100px;
-}
-.flex-element-table .head-value {
-  width: 100px;
-}
-.flex-element-table .head-note {
-  width: 350px;
-}
-
-/* ===== Фон елементу ===== */
-.backgraund-element-table {
+.fs-13 {
   font-size: 13px;
 }
-
-/* ===== Форми ===== */
-.forms-elements {
-  font-size: 13px;
+.fs-14 {
+  font-size: 14px;
+}
+.fs-15 {
+  font-size: 15px;
 }
 
-.forms-example-table {
-  width: 750px;
-  font-size: 13px;
+.bold {
+  font-weight: 700;
 }
 
-.forms-example-table .selector {
-  width: 100px;
-}
-.forms-example-table .discribe {
-  width: 250px;
-}
-.forms-example-table .example {
-  width: 750px;
-}
-
-/* JS Розгалудження */
-.ramifications-img-pattern {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.ramifications-img-pattern > li {
-  width: calc(50% - 2px);
-
-  border: 1px solid grey;
-  border-radius: 4px;
-}
-
-.objects-this-img-pattern {
-  width: calc((50% - 2px));
-  border-radius: 4px;
+.print-home-link {
+  position: sticky;
+  top: 0;
 }

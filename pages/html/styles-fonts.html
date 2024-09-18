@@ -7,392 +7,677 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Стилізація тексту</title>
     <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
-    <a class="home-link" href="../../index.html"
+    <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
 
-    <!-- <h1 class="page-title">Стилі шрифтів</h1> -->
+    <h1 class="center-text">Стилізація тексту</h1>
 
-    <table class="font-table m-bottom">
-      <caption>
-        Стилі шрифтів
-      </caption>
-      <thead>
-        <tr>
-          <th class="head-name">Опис</th>
-          <th class="head-property">Властивість</th>
-          <th class="head-value">Значення</th>
-          <th class="head-note">Примітка</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="8">
-            колір фону елемента, <br /><br />
-            колір тексту елемента
-          </td>
-          <td rowspan="8">
-            background-color<br /><br />color
-          </td>
-          <td>white;</td>
-          <td>ключове слово</td>
-        </tr>
-        <tr>
-          <td>rgb(255, 0, 0);</td>
-          <td>RGB (red, green, blue)</td>
-        </tr>
-        <tr>
-          <td>rgb(100%, 0%, 0%);</td>
-          <td>RGB (red, green, blue)</td>
-        </tr>
-        <tr>
-          <td>rgba(255, 0, 0, 0.3);</td>
-          <td>
-            RGBА (red, green, blue, alfa-chanal) -
-            Прозорість кольору
-          </td>
-        </tr>
-        <tr>
-          <td>#ff0000;</td>
-          <td>Hexadecimal</td>
-        </tr>
-        <tr>
-          <td>transparent</td>
-          <td>
-            прозорий (тільки для background-color, значення
-            за замовчуванням)
-          </td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
-        <tr>
-          <td>currentColor;</td>
-          <td>
-            наслідування стилю предка (використовується
-            тільки для посилань)
-          </td>
-        </tr>
-        <tr>
-          <td>сімейство шрифту</td>
-          <td>font-family</td>
-          <td>'Roboto'</td>
-          <td>
-            в кінці обов'язково вказувати сімейство шрифтів:
-            <ul class="list-style">
-              <li>шрифти із засічками (serif);</li>
-              <li>шрифти без засічок (sans-serif);</li>
-              <li>моноширинні (monospace).</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>розмір шрифту</td>
-          <td>font-size</td>
-          <td>20px</td>
-          <td>за замовчуванням 16px</td>
-        </tr>
-        <tr>
-          <td>товщина шрифту</td>
-          <td>font-weight</td>
-          <td>700</td>
-          <td>
-            діапазон 100-900 (400 - normal,
-            <span style="font-weight: 700">700 - bold</span
-            >)
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="5">стиль (накреслення) шрифту</td>
-          <td rowspan="5">font-style</td>
-          <td>normal</td>
-          <td class="italic">за замовчуванням</td>
-        </tr>
-        <tr>
-          <td>italic</td>
-          <td style="font-style: italic">
-            текст курсивом (з нахилом)
-          </td>
-        </tr>
-        <tr>
-          <td>oblique</td>
-          <td style="font-style: oblique"></td>
-        </tr>
-        <tr>
-          <td>initial</td>
-          <td style="font-style: initial"></td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
-        <tr>
-          <td rowspan="5">оформлення тексту</td>
-          <td rowspan="5">text-decoration</td>
-          <td>none</td>
-          <td>без підкреслювання</td>
-        </tr>
-        <tr>
-          <td>underline</td>
-          <td style="text-decoration: underline">
-            текст підкресленний
-          </td>
-        </tr>
-        <tr>
-          <td>line-through</td>
-          <td style="text-decoration: line-through">
-            лінія проходить крізь текст
-          </td>
-        </tr>
-        <tr>
-          <td>overline</td>
-          <td style="text-decoration: overline">
-            лінія проходить над текстом
-          </td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
+    <section class="section m-bottom">
+      <!-- ======Стилі шрифтів====== -->
+      <table class="m-bottom">
+        <caption>
+          Стилі шрифтів
+        </caption>
+        <thead>
+          <tr>
+            <th class="">Опис</th>
+            <th class="">Властивість</th>
+            <th class="">Значення</th>
+            <th class="">Примітка</th>
+          </tr>
+        </thead>
+        <tbody class="fs-15">
+          <tr>
+            <td rowspan="8">
+              колір фону елемента, <br /><br /><br /><br />
+              колір тексту елемента
+            </td>
+            <td rowspan="8">
+              background-color<br /><br /><br />color
+            </td>
+            <td>white;</td>
+            <td>ключове слово</td>
+          </tr>
+          <tr>
+            <td>rgb(255, 0, 0);</td>
+            <td>RGB (red, green, blue)</td>
+          </tr>
+          <tr>
+            <td class="fs-11">rgb(100%, 0%, 0%);</td>
+            <td>RGB (red, green, blue)</td>
+          </tr>
+          <tr>
+            <td class="fs-11">rgba(255, 0, 0, 0.3);</td>
+            <td>
+              RGBА (red, green, blue, alfa-chanal) -
+              прозорість кольору
+            </td>
+          </tr>
+          <tr>
+            <td>#ff0000;</td>
+            <td>Hexadecimal</td>
+          </tr>
+          <tr>
+            <td>transparent</td>
+            <td>прозорий (тільки для background-color)</td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
+          <tr>
+            <td>currentColor;</td>
+            <td>
+              наслідування стилю предка (використовується
+              тільки для посилань)
+            </td>
+          </tr>
 
-        <tr>
-          <td rowspan="5">регістр символів у тексті</td>
-          <td rowspan="5">text-transform</td>
-          <td>none</td>
-          <td>(за замовчуванням)</td>
-        </tr>
-        <tr>
-          <td>uppercase</td>
-          <td style="text-transform: uppercase">
-            усі літери великі
-          </td>
-        </tr>
-        <tr>
-          <td>lowercase</td>
-          <td style="text-transform: lowercase">
-            усі літери маленькі
-          </td>
-        </tr>
-        <tr>
-          <td>capitalize</td>
-          <td style="text-transform: capitalize">
-            кожне слово починається з великої літери
-          </td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
+          <!-- =================== -->
+          <tr>
+            <td>сімейство шрифту</td>
+            <td>font-family</td>
+            <td>'Roboto'</td>
+            <td>
+              в кінці обов'язково вказувати сімейство
+              шрифтів:
+              <ul class="">
+                <li>шрифти із засічками (serif);</li>
+                <li>шрифти без засічок (sans-serif);</li>
+                <li>моноширинні (monospace).</li>
+              </ul>
+            </td>
+          </tr>
 
-        <tr>
-          <td rowspan="5">
-            вирівнюванням текстового вмісту
-          </td>
-          <td rowspan="5">text-align</td>
-          <td>left</td>
-          <td>
-            вирівнювання по лівому краю (за замовчуванням)
-          </td>
-        </tr>
-        <tr>
-          <td>right</td>
-          <td>вирівнювання по правому краю</td>
-        </tr>
-        <tr>
-          <td>center</td>
-          <td>вирівнювання по центру</td>
-        </tr>
-        <tr>
-          <td>justify</td>
-          <td>
-            вирівнювання по лівому і правому краям, з
-            розтягуванням пробілів
-          </td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
+          <!-- =================== -->
+          <tr>
+            <td>розмір шрифту</td>
+            <td>font-size</td>
+            <td>20px</td>
+            <td>за замовчуванням 16px</td>
+          </tr>
+          <tr>
+            <td>товщина шрифту</td>
+            <td>font-weight</td>
+            <td>700</td>
+            <td>
+              діапазон 100-900 (400 - normal,
+              <span class="bold">700 - bold</span>)
+            </td>
+          </tr>
 
-        <tr>
-          <td rowspan="5">
-            міжрядковий інтервал (інтерліньяж, висоту рядка)
-            тексту
-          </td>
-          <td rowspan="5">line-height</td>
-          <td>множник</td>
-          <td>
-            висота рядка 24px / розмір шрифту 16px = 1.5
-          </td>
-        </tr>
-        <tr>
-          <td>значення</td>
-          <td>16px</td>
-        </tr>
-        <tr>
-          <td>відсотки</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td>normal</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="3">інтервал між символами</td>
-          <td rowspan="3">letter-spacing</td>
-          <td>значення</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>normal</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="3">
-            величина відступу першого рядка текстового блоку
-            (абзац)
-          </td>
-          <td rowspan="3">text-indent</td>
-          <td>значення</td>
-          <td>16px</td>
-        </tr>
-        <tr>
-          <td>відсотки</td>
-          <td>70%</td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td>наслідування стилю предка</td>
-        </tr>
-        <tr>
-          <td rowspan="5">тінь тексту</td>
-          <td rowspan="4">text-shadow</td>
-          <td>зміщення по x</td>
-          <td>2px</td>
-        </tr>
-        <tr>
-          <td>зміщення по y</td>
-          <td>2px</td>
-        </tr>
-        <tr>
-          <td>радіус розмиття</td>
-          <td>4px</td>
-        </tr>
-        <tr>
-          <td>колір</td>
-          <td>black</td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            text-shadow: 2px 2px 4px black
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="4">
-            довжина пробілу між словами та тегами
-          </td>
-          <td rowspan="4">word-spacing</td>
-          <td>значення</td>
-          <td>4px</td>
-        </tr>
-        <tr>
-          <td>normal</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>відсоток</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="5">форматування тексту</td>
-          <td rowspan="5">word-space</td>
-          <td>normal</td>
-          <td>
-            усі пробіли об'єднуються і виглядають як один,
-            автоматичний перенос рядків (за замовчуванням)
-          </td>
-        </tr>
-        <tr>
-          <td>nowrap</td>
-          <td>
-            усі пробіли об'єднуються і виглядають як один,
-            перенос рядків відсутній (<b>&#60;br&#62;</b> -
-            працює), текст виглядає як один рядок
-          </td>
-        </tr>
-        <tr>
-          <td>pre</td>
-          <td>
-            пробіли та переноси виглядають так, як записані
-            в HTML-документі, якщо рядок не вміщюється -
-            додається горизонтальний скролл
-          </td>
-        </tr>
-        <tr>
-          <td>pre-wrap</td>
-          <td>
-            пробіли та переноси виглядають так, як записані
-            в HTML-документі, якщо рядок не вміщюється -
-            автоматично переноситься
-          </td>
-        </tr>
-        <tr>
-          <td>pre-line</td>
-          <td>
-            усі пробіли об'єднуються і виглядають як один,
-            текст автоматично переноситься на наступний
-            рядок
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- =================== -->
+          <tr>
+            <td rowspan="5">стиль (накреслення) шрифту</td>
+            <td rowspan="5">font-style</td>
+            <td>normal</td>
+            <td class="italic">за замовчуванням</td>
+          </tr>
+          <tr>
+            <td>italic</td>
+            <td style="font-style: italic">
+              текст курсивом (з нахилом)
+            </td>
+          </tr>
+          <tr>
+            <td>oblique</td>
+            <td style="font-style: oblique"></td>
+          </tr>
+          <tr>
+            <td>initial</td>
+            <td style="font-style: initial"></td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
 
-    <table class="pseudoelement-font-table">
-      <caption>
-        Псевдоелементи тексту
-      </caption>
-      <thead>
-        <tr>
-          <th>Псевдоелемент</th>
-          <th>Опис</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>::first-letter</td>
-          <td>
-            керує стилем першого символу в тексті елементу
-            (використовуються тільки властивості оформлення
-            шрифтів, кольори, фону, геометрії)
-          </td>
-        </tr>
-        <tr>
-          <td>::selector</td>
-          <td>
-            керує стилем <i>виділення</i> тексту,
-            перевизначаючи стандартні значення із таблиці
-            стилей браузера (використовуються тільки
-            <i>color</i> та <i>background-color</i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- =================== -->
+          <tr>
+            <td rowspan="5">оформлення тексту</td>
+            <td rowspan="5">text-decoration</td>
+            <td>none</td>
+            <td>без підкреслювання</td>
+          </tr>
+          <tr>
+            <td>underline</td>
+            <td style="text-decoration: underline">
+              текст підкресленний
+            </td>
+          </tr>
+          <tr>
+            <td>line-through</td>
+            <td style="text-decoration: line-through">
+              лінія проходить крізь текст
+            </td>
+          </tr>
+          <tr>
+            <td>overline</td>
+            <td style="text-decoration: overline">
+              лінія проходить над текстом
+            </td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
+
+          <!-- =================== -->
+          <tr>
+            <td rowspan="5">регістр символів у тексті</td>
+            <td rowspan="5">text-transform</td>
+            <td>none</td>
+            <td>(за замовчуванням)</td>
+          </tr>
+          <tr>
+            <td>uppercase</td>
+            <td style="text-transform: uppercase">
+              усі літери великі
+            </td>
+          </tr>
+          <tr>
+            <td>lowercase</td>
+            <td style="text-transform: lowercase">
+              усі літери маленькі
+            </td>
+          </tr>
+          <tr>
+            <td>capitalize</td>
+            <td style="text-transform: capitalize">
+              кожне слово починається з великої літери
+            </td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
+
+          <!-- ================= -->
+          <tr>
+            <td rowspan="5">тінь тексту</td>
+            <td rowspan="4">text-shadow</td>
+            <td>зміщення по x</td>
+            <td>2px</td>
+          </tr>
+          <tr>
+            <td>зміщення по y</td>
+            <td>2px</td>
+          </tr>
+          <tr>
+            <td>радіус розмиття</td>
+            <td>4px</td>
+          </tr>
+          <tr>
+            <td>колір</td>
+            <td>black</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              text-shadow: 2px 2px 4px black
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ======Стилі макетів шрифтів====== -->
+      <table class="m-bottom">
+        <caption>
+          Стилі макетів шрифтів
+        </caption>
+        <thead>
+          <tr>
+            <th class="">Опис</th>
+            <th class="">Властивість</th>
+            <th class="">Значення</th>
+            <th class="">Примітка</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          <!-- =========text-align========= -->
+          <tr>
+            <td rowspan="5">
+              вирівнюванням текстового вмісту
+            </td>
+            <td rowspan="5">text-align</td>
+            <td>left</td>
+            <td>
+              вирівнювання по лівому краю (за замовчуванням)
+            </td>
+          </tr>
+          <tr>
+            <td>right</td>
+            <td>вирівнювання по правому краю</td>
+          </tr>
+          <tr>
+            <td>center</td>
+            <td>вирівнювання по центру</td>
+          </tr>
+          <tr>
+            <td>justify</td>
+            <td>
+              вирівнювання по лівому і правому краям, з
+              розтягуванням пробілів
+            </td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
+
+          <!-- =========line-height========= -->
+          <tr>
+            <td rowspan="5">
+              міжрядковий інтервал (інтерліньяж, висоту
+              рядка) тексту
+            </td>
+            <td rowspan="5">line-height</td>
+            <td>множник</td>
+            <td>
+              висота рядка 24px / розмір шрифту 16px=1.5
+            </td>
+          </tr>
+          <tr>
+            <td>значення</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td>відсотки</td>
+            <td>70%</td>
+          </tr>
+          <tr>
+            <td>normal</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td></td>
+          </tr>
+
+          <!-- =========letter-spacing========= -->
+          <tr>
+            <td rowspan="3">інтервал між символами</td>
+            <td rowspan="3">letter-spacing</td>
+            <td>значення</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>normal</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td></td>
+          </tr>
+
+          <!-- =========word-spacing========= -->
+          <tr>
+            <td rowspan="4">
+              довжина пробілу між словами та тегами
+            </td>
+            <td rowspan="4">word-spacing</td>
+            <td>значення</td>
+            <td>4px</td>
+          </tr>
+          <tr>
+            <td>normal</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>відсоток</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td></td>
+          </tr>
+
+          <!-- =========white-space========= -->
+          <tr>
+            <td rowspan="5">форматування тексту</td>
+            <td rowspan="5">white-space</td>
+            <td>normal</td>
+            <td>
+              усі пробіли об'єднуються і виглядають як один,
+              автоматичний перенос рядків (за замовчуванням)
+            </td>
+          </tr>
+          <tr>
+            <td>nowrap</td>
+            <td>
+              усі пробіли об'єднуються і виглядають як один,
+              перенос рядків відсутній (<b>&#60;br&#62;</b>
+              - працює), текст виглядає як один рядок
+            </td>
+          </tr>
+          <tr>
+            <td>pre</td>
+            <td>
+              пробіли та переноси виглядають так, як
+              записані в HTML-документі, якщо рядок не
+              вміщюється - додається горизонтальний скролл
+            </td>
+          </tr>
+          <tr>
+            <td>pre-wrap</td>
+            <td>
+              пробіли та переноси виглядають так, як
+              записані в HTML-документі, якщо рядок не
+              вміщюється - автоматично переноситься
+            </td>
+          </tr>
+          <tr>
+            <td>pre-line</td>
+            <td>
+              усі пробіли об'єднуються і виглядають як один,
+              текст автоматично переноситься на наступний
+              рядок
+            </td>
+          </tr>
+
+          <!-- =========text-indent========= -->
+          <tr>
+            <td rowspan="3">
+              величина відступу першого рядка текстового
+              блоку (абзац)
+            </td>
+            <td rowspan="3">text-indent</td>
+            <td>значення</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td>відсотки</td>
+            <td>70%</td>
+          </tr>
+          <tr>
+            <td>inherit</td>
+            <td>наслідування стилю предка</td>
+          </tr>
+
+          <!-- =========text-overflow========= -->
+          <tr>
+            <td rowspan="2">
+              керує відображенням тексту при переповненні
+              ним контейнеру
+            </td>
+            <td rowspan="2">text-overflow</td>
+            <td>clip</td>
+            <td>текст обрубується контейнером</td>
+          </tr>
+          <tr>
+            <td>ellipsis</td>
+            <td>граничний текст замінюється на "..."</td>
+          </tr>
+
+          <!-- =========text-wrap========= -->
+          <tr>
+            <td rowspan="3">
+              керує переносом тексту при переповненні
+              контейнеру
+            </td>
+            <td rowspan="3">text-wrap</td>
+            <td>wrap</td>
+            <td>переносить текст</td>
+          </tr>
+          <tr>
+            <td>nowrap</td>
+            <td>блокує перенос тексту</td>
+          </tr>
+          <tr>
+            <td>balance</td>
+            <td>
+              переносить текст, але розподіляє кількість
+              символів так, щоб вони розміщувались
+              рівномірно на всіх рядках
+            </td>
+          </tr>
+
+          <!-- =========overflow-wrap========= -->
+          <tr>
+            <td rowspan="2">
+              керує переносом слів тексту, що переповнює
+              контейнер.
+            </td>
+            <td rowspan="2">overflow-wrap</td>
+            <td>normal</td>
+            <td>
+              розрив рядків виконується згідно пробілів
+            </td>
+          </tr>
+          <tr>
+            <td>break-word</td>
+            <td>
+              розрив рядків виконується в будь-якій точці
+              слова, що не уміщується в контейнер
+            </td>
+          </tr>
+
+          <!-- =========hyphens========= -->
+          <tr>
+            <td rowspan="2">
+              керує переносом слів через дефіс тексту, що
+              переповнює контейнер.
+            </td>
+            <td rowspan="2">hyphens</td>
+            <td>none</td>
+            <td>слова не розриваються</td>
+          </tr>
+          <tr>
+            <td>manual / auto</td>
+            <td>слова розриваються</td>
+          </tr>
+
+          <!-- =========direction========= -->
+          <tr>
+            <td rowspan="2">керує напрямком тексту</td>
+            <td rowspan="2">direction</td>
+            <td>ltr</td>
+            <td>з ліва на право</td>
+          </tr>
+          <tr>
+            <td>rtl</td>
+            <td>з права на ліво</td>
+          </tr>
+
+          <!-- =========writing-mode========= -->
+          <tr>
+            <td rowspan="4">керує напрямком тексту</td>
+            <td rowspan="4">writing-mode</td>
+            <td>horizontal-tb</td>
+            <td>
+              з ліва на право, з верху в низ (наступна
+              горизонтальна лінія - нижче попередньої)
+            </td>
+          </tr>
+          <tr>
+            <td>horizontal-bt</td>
+            <td>
+              з ліва на право, з низу в верх (наступна
+              горизонтальна лінія - вище попередньої)
+            </td>
+          </tr>
+          <tr>
+            <td>vertical-rl</td>
+            <td>
+              з верху в низ, з права на ліво (наступна
+              вертикальная лінія - лівіше попередньої)
+            </td>
+          </tr>
+          <tr>
+            <td>vertical-lr</td>
+            <td>
+              з верху в низ, з ліва на право (наступна
+              вертикальная лінія - правіше попередньої)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ======Стилі списків====== -->
+      <table class="">
+        <caption>
+          Стилі списків
+        </caption>
+        <thead>
+          <tr>
+            <th class="">Опис</th>
+            <th class="">Властивість</th>
+            <th class="">Значення</th>
+            <th class="">Примітка</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          <!-- ======list-style-type====== -->
+          <tr>
+            <td rowspan="11">
+              тип маркерів, які будуть використовуватися в
+              списку
+            </td>
+            <td rowspan="11">list-style-type</td>
+            <td>disc</td>
+            <td>суцільний диск із заливкою</td>
+          </tr>
+          <tr>
+            <td>circle</td>
+            <td>коло без заливки</td>
+          </tr>
+          <tr>
+            <td>square</td>
+            <td>квадрат із заливкою</td>
+          </tr>
+          <tr>
+            <td>decimal</td>
+            <td>цифрова нумерація</td>
+          </tr>
+          <tr>
+            <td>decimal-leading-zero</td>
+            <td>цифрова нумерація із нулем на початку</td>
+          </tr>
+          <tr>
+            <td>lower-roman</td>
+            <td>римська нумерація у нижньому реєстрі</td>
+          </tr>
+          <tr>
+            <td>upper-roman</td>
+            <td>римська нумерація у верхньому реєстрі</td>
+          </tr>
+          <tr>
+            <td>lower-alpha, lower-latin</td>
+            <td>латинська нумерація у нижньому реєстрі</td>
+          </tr>
+          <tr>
+            <td>upper-alpha, upper-latin</td>
+            <td>латинська нумерація у верхньому реєстрі</td>
+          </tr>
+          <tr>
+            <td>"-"</td>
+            <td>
+              маркер у вигляді символу, що вказаний між
+              лапками
+            </td>
+          </tr>
+          <tr>
+            <td>none</td>
+            <td>без маркеру</td>
+          </tr>
+
+          <!-- ======list-style-position====== -->
+          <tr>
+            <td rowspan="2">
+              визначає месцеположення маркеру
+            </td>
+            <td rowspan="2">list-style-position</td>
+            <td>inside</td>
+            <td>
+              маркер всередині контейнеру елементу списку
+            </td>
+          </tr>
+          <tr>
+            <td>outside</td>
+            <td>маркер зовні контейнеру елементу списку</td>
+          </tr>
+
+          <!-- ======list-style-image====== -->
+          <tr>
+            <td rowspan="2">
+              використання зовнішнього зображення замість
+              маркеру
+            </td>
+            <td rowspan="2">list-style-image</td>
+            <td>url("...")</td>
+            <td>шлях до зображення</td>
+          </tr>
+          <tr>
+            <td>none</td>
+            <td>без зображення, використовується маркер</td>
+          </tr>
+
+          <!-- ======list-style====== -->
+          <tr>
+            <td rowspan="1">комплексна властивість</td>
+            <td rowspan="1">list-style</td>
+            <td colspan="2">
+              list-style-image list-style-position
+              list-style-type
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section m-bottom">
+      <!-- ======Псевдоелементи тексту====== -->
+      <table class="">
+        <caption>
+          Псевдоелементи тексту
+        </caption>
+        <thead>
+          <tr>
+            <th>Псевдоелемент</th>
+            <th>Опис</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>::first-letter</td>
+            <td>
+              керує стилем першого символу в тексті елементу
+              (використовуються тільки властивості
+              оформлення шрифтів, кольори, фону, геометрії)
+            </td>
+          </tr>
+          <tr>
+            <td>::selector</td>
+            <td>
+              керує стилем <i>виділення</i> тексту,
+              перевизначаючи стандартні значення із таблиці
+              стилей браузера (використовуються тільки
+              <i>color</i> та <i>background-color</i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2 class="m-bottom-min">Стилізація посилань</h2>
+      <ul>
+        <li><b>color</b> — колір тексту;</li>
+        <li>
+          <b>cursor</b> — стилізація курсору миші при
+          наведені;
+        </li>
+        <li><b>outline</b> — стиль контуру тексту;</li>
+        <li><b>text-decoration</b> — нижнє підкреслення</li>
+      </ul>
+    </section>
   </body>
 </html>

@@ -7,46 +7,61 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Геометрия елементів</title>
     <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-other.css"
+    />
   </head>
   <body>
-    <a class="home-link" href="../../index.html"
+    <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
 
-    <h1 class="m-bottom">Стили. Геометрия</h1>
+    <h1 class="center-text m-bottom">
+      Геометрия елементів
+    </h1>
 
-    <div class="geometry-common m-bottom">
-      <img
-        src="../../images/block-model.png"
-        alt="блоковая модель"
-        width="230"
-      />
+    <section class="section m-bottom">
+      <div class="flex">
+        <img
+          src="../../images/block-model.png"
+          alt="блоковая модель"
+          width="230"
+        />
 
-      <ul>
+        <ul class="m-bottom-min">
+          <li class="m-bottom-min">
+            <b>content (область вмісту)</b>
+            — це контент елемента, наприклад текст,
+            зображення, відео чи вкладені елементи. За
+            замовчуванням висота (height) області вмісту
+            визначається контентом, ширина (width) — типом
+            елемента (блоковий або рядковий).
+          </li>
+          <li>
+            <b>padding (внутрішній відступ)</b>
+            — це відстань між контентом елемента і його
+            рамкою (border). Використовується для
+            декоративних ефектів. Не можна вказувати
+            негативні значення.
+          </li>
+        </ul>
+      </div>
+      <ul class="m-bottom">
         <li class="m-bottom-min">
-          <b>Область вмісту (content)</b>
-          — це контент елемента, наприклад текст,
-          зображення, відео чи вкладені елементи. За
-          замовчуванням висота (height) області вмісту
-          визначається контентом, ширина (width) — типом
-          елемента (блоковий або рядковий).
-        </li>
-        <li class="m-bottom-min">
-          <b>Падінг (англ. padding, внутрішнє поле)</b>
-          — це відстань між контентом елемента і його рамкою
-          (border). Використовується для декоративних
-          ефектів. Не можна вказувати негативні значення.
-        </li>
-        <li class="m-bottom-min">
-          <b>Рамка (border)</b> — межа елемента. За
+          <b>border (рамка)</b> — межа елемента. За
           замовчуванням її ширина дорівнює нулю. Якщо колір
           рамки не встановлено, вона приймає колір основного
           вмісту, наприклад тексту.
         </li>
         <li>
-          <b>Маржин (англ. margin, зовнішній відступ)</b>
+          <b>margin (зовнішній відступ)</b>
           — додає відступ ззовні елемента, від зовнішньої
           межі (рамки) до сусідніх елементів, тим самим
           розділяючи їх на сторінці. Маржину можна вказувати
@@ -54,777 +69,841 @@
           відступ не поширюється.
         </li>
       </ul>
-    </div>
 
-    <table class="type-element-table">
-      <caption>
-        Типи елементів
-      </caption>
-      <thead>
-        <tr>
-          <th class="head-name">Опис</th>
-          <th class="head-property">Властивість</th>
-          <th class="head-value">Значення</th>
-          <th class="head-note">Примітка</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="5">тип елементу</td>
-          <td rowspan="5">display</td>
-          <td>block</td>
-          <td>
-            <p>
-              блоковий елемент (прямокутні області, що йдуть
-              одна за одною зверху вниз)
-            </p>
-            <ul class="list-style">
-              <li>
-                займає всю доступну ширину рядка всередині
-                батьківського елемента.
-              </li>
-              <li>
-                висота визначається вмістом, якщо явно не
-                задана у властивості height.
-              </li>
-              <li>
-                завжди починається з нового рядка, тому
-                кілька сусідніх блокових елементів
-                розташовані вертикально один під одним.
-              </li>
-              <li>
-                можна задавати будь-які властивості
-                геометрії елемента: ширину, висоту, падінги,
-                рамки та маржини.
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>inline</td>
-          <td>
-            <p>рядковий елемент</p>
-            <ul class="list-style">
-              <li>
-                ширина та висота залежать тільки від вмісту,
-                явно задати їх не можна, тобто властивості
-                width і height не мають жодного ефекту.
-              </li>
-              <li>
-                розташовується в рядку, доки в ньому є
-                достатньо місця, після чого нові елементи
-                переносяться на наступний рядок.
-              </li>
-              <li>
-                можна задавати лише горизонтальну геометрію:
-                ліві та праві маржини, падінги та рамки,
-                тобто вони ігнорують значення верхніх і
-                нижніх <b>margin</b>, <b>padding</b> і
-                <b>border</b>.
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>inline-block</td>
-          <td>
-            <p>
-              рядково-блоковий елемент (використовуються,
-              коли рядковим елементам потрібно додати
-              декоративні ефекти)
-            </p>
-            <ul class="list-style">
-              <li>
-                ширина і висота залежать від вмісту, але
-                можна явно задати властивості width і
-                height.
-              </li>
-              <li>
-                розташовується в рядку доти, поки в ньому є
-                достатньо місця, після чого нові
-                переносяться на наступний рядок.
-              </li>
-              <li>
-                можна задавати будь-які властивості
-                геометрії елемента: ширину, висоту, поля,
-                рамки та відступи.
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <i
-              >у кнопок, посилань, зображень, спанів і інших
-              рядкових елементів за умовчанням буде проміжок
-              1/4 розміру шрифту найближчого батьківського
-              елемента. можно це виправити за допомогою
-              display: block</i
-            >
-          </td>
-        </tr>
-        <tr>
-          <td>none</td>
-          <td>
-            повністю приховати елемент, звільнивши його
-            простір для інших, елемент вилучається з потоку
-            документа, візуально приховується й відсутній у
-            розкладці сторінки
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <!-- ======Типи елементів====== -->
+      <table class="m-bottom">
+        <caption>
+          Типи елементів
+        </caption>
+        <thead>
+          <tr>
+            <th class="">Опис</th>
+            <th class="">Властивість</th>
+            <th class="">Значення</th>
+            <th class="">Примітка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5">тип елементу</td>
+            <td rowspan="5">display</td>
+            <td>block</td>
+            <td>
+              <p>Блоковий елемент</p>
+              <ul class="">
+                <li>
+                  займає всю доступну ширину рядка всередині
+                  батьківського елемента;
+                </li>
+                <li>
+                  висота визначається вмістом, якщо явно не
+                  задана у властивості <b>height</b>;
+                </li>
+                <li>
+                  починається з нового рядка, тому кілька
+                  сусідніх блокових елементів розташовані
+                  вертикально один під одним;
+                </li>
+                <li>
+                  можна задавати будь-які властивості
+                  геометрії елемента: ширину, висоту,
+                  падінги, рамки та маржини.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>inline</td>
+            <td>
+              <p>Рядковий елемент</p>
+              <ul class="">
+                <li>
+                  ширина та висота залежать тільки від
+                  вмісту, явно задати їх не можна, тобто
+                  властивості <b>width</b> і
+                  <b>height</b> не мають жодного ефекту;
+                </li>
+                <li>
+                  розташовується в рядку, доки в ньому є
+                  достатньо місця, після чого нові елементи
+                  переносяться на наступний рядок;
+                </li>
+                <li>
+                  можна задавати лише горизонтальну
+                  геометрію: ліві та праві <b>margin</b>,
+                  <b>padding</b> і <b>border</b>, тобто вони
+                  ігнорують значення верхніх і нижніх
+                  <b>margin</b>, <b>padding</b> і
+                  <b>border</b>.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>inline-block</td>
+            <td>
+              <p>
+                Рядково-блоковий елемент (використовуються,
+                коли рядковим елементам потрібно додати
+                декоративні ефекти)
+              </p>
+              <ul class="">
+                <li>
+                  ширина і висота залежать від вмісту, але
+                  можна явно задати властивості width і
+                  height.
+                </li>
+                <li>
+                  розташовується в рядку доти, поки в ньому
+                  є достатньо місця, після чого нові
+                  переносяться на наступний рядок.
+                </li>
+                <li>
+                  можна задавати будь-які властивості
+                  геометрії елемента: ширину, висоту, поля,
+                  рамки та відступи.
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <i
+                >У кнопок, посилань, зображень, спанів і
+                інших рядкових елементів за умовчанням буде
+                проміжок 1/4 розміру шрифту найближчого
+                батьківського елемента. можно це виправити
+                за допомогою display: block</i
+              >.
+            </td>
+          </tr>
+          <tr>
+            <td>none</td>
+            <td>
+              Повністю приховати елемент, звільнивши його
+              простір для інших, елемент вилучається з
+              потоку документа, візуально приховується й
+              відсутній у розкладці сторінки.
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-    <table class="geometry-table">
-      <caption>
-        Геометрія елементів
-      </caption>
-      <thead>
-        <tr>
-          <th class="head-name">Опис</th>
-          <th class="head-property">Властивість</th>
-          <th class="head-value">Значення</th>
-          <th class="head-note">Примітка</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="10">
-            зовнішні відступи /<br />
-            внутрішні відступи
-          </td>
-          <td rowspan="4">
-            margin /<br />
-            padding
-          </td>
-          <td>20px</td>
-          <td>Однакові поля по 20px з усіх боків</td>
-        </tr>
-        <tr>
-          <td>10px 20px</td>
-          <td>
-            Поля зверху та знизу по 10px, зліва та праворуч
-            по 20px
-          </td>
-        </tr>
-        <tr>
-          <td>10px 20px 5px</td>
-          <td>
-            Поле зверху 10px, ліворуч і праворуч по 20px,
-            знизу 5px
-          </td>
-        </tr>
-        <tr>
-          <td>10px 15px 20px 25px</td>
-          <td>
-            Поле зверху 10px, праворуч 15px, знизу 20px,
-            ліворуч 25px
-          </td>
-        </tr>
+      <!-- ======Геометрія елементів====== -->
+      <table
+        class="geometry-table m-bottom print-m-bottom-max"
+      >
+        <caption>
+          Геометрія елементів
+        </caption>
+        <thead>
+          <tr>
+            <th class="head-name">Опис</th>
+            <th class="head-property">Властивість</th>
+            <th class="head-value">Значення</th>
+            <th class="head-note">Примітка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ======margin / padding====== -->
+          <tr>
+            <td rowspan="6">
+              зовнішні відступи /<br />
+              внутрішні відступи
+            </td>
+            <td rowspan="4">
+              margin /<br />
+              padding
+            </td>
+            <td>20px</td>
+            <td>Однакові поля по 20px з усіх боків</td>
+          </tr>
+          <tr>
+            <td>10px 20px</td>
+            <td>
+              Поля зверху та знизу по 10px, зліва та
+              праворуч по 20px
+            </td>
+          </tr>
+          <tr>
+            <td>10px 20px 5px</td>
+            <td>
+              Поле зверху 10px, ліворуч і праворуч по 20px,
+              знизу 5px
+            </td>
+          </tr>
+          <tr>
+            <td>10px 15px 20px 25px</td>
+            <td>
+              Поле зверху 10px, праворуч 15px, знизу 20px,
+              ліворуч 25px
+            </td>
+          </tr>
 
-        <tr>
-          <td>margin-top</td>
-          <td>10px</td>
-          <td>верхній відступ (так само і для padding)</td>
-        </tr>
-        <tr>
-          <td rowspan="2">margin-right</td>
-          <td>10px</td>
-          <td>правий відступ (так само і для padding)</td>
-        </tr>
-        <tr>
-          <td>auto</td>
-          <td>
-            притиснути до лівого краю (тільки для margin)
-          </td>
-        </tr>
-        <tr>
-          <td>margin-bottom</td>
-          <td>10px</td>
-          <td>нижній відступ (так само і для padding)</td>
-        </tr>
-        <tr>
-          <td rowspan="2">margin-left</td>
-          <td>10px</td>
-          <td>лівий відступ (так само і для padding)</td>
-        </tr>
-        <tr>
-          <td>auto</td>
-          <td>
-            притиснути до правого краю (тільки для margin)
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="23">рамка</td>
-          <td>border</td>
-          <td>5px solid red</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>border-top</td>
-          <td>5px solid red</td>
-          <td>верхня рамка</td>
-        </tr>
-        <tr>
-          <td>border-right</td>
-          <td>5px solid red</td>
-          <td>права рамка</td>
-        </tr>
-        <tr>
-          <td>border-bottom</td>
-          <td>5px solid red</td>
-          <td>нижня рамка</td>
-        </tr>
-        <tr>
-          <td>border-left</td>
-          <td>5px solid red</td>
-          <td>ліва рамка</td>
-        </tr>
+          <tr>
+            <!-- <td>margin-left</td> -->
+            <td>margin-top (<i>right/bottom/left</i>)</td>
+            <td>10px</td>
+            <td>
+              верхній (<i>правий/нижній/лівий</i>) відступ
+              (так само і для padding)
+            </td>
+          </tr>
+          <tr>
+            <td>margin-right(<i>left</i>)</td>
+            <td>auto</td>
+            <td>
+              притиснути до лівого (<i>правого</i>) краю
+              (тільки для margin)
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>auto</td>
+            <td>
+              притиснути до лівого краю (тільки для margin)
+            </td>
+          </tr>
+          <tr>
+            <td>margin-bottom</td>
+            <td>10px</td>
+            <td>нижній відступ (так само і для padding)</td>
+          </tr>
+          <tr>
+            <td rowspan="2">margin-left</td>
+            <td>10px</td>
+            <td>лівий відступ (так само і для padding)</td>
+          </tr>
+          <tr>
+            <td>auto</td>
+            <td>
+              притиснути до правого краю (тільки для margin)
+            </td>
+          </tr> -->
 
-        <tr>
-          <td>border-width</td>
-          <td>10px</td>
-          <td>ширина</td>
-        </tr>
-        <tr>
-          <td rowspan="10">border-style</td>
-          <td>solid</td>
-          <td>суцільна лінія</td>
-        </tr>
-        <tr>
-          <td>dashed</td>
-          <td>пунктирна лінія</td>
-        </tr>
-        <tr>
-          <td>dotted</td>
-          <td>лінія з точок</td>
-        </tr>
-        <tr>
-          <td>none</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>hidden</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>groove</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>ridge</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>inset</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>outset</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>double</td>
-          <td>подвійна лінія</td>
-        </tr>
-        <tr>
-          <td rowspan="2">border-color</td>
-          <td>RGB</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>HEX</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>border-radius</td>
-          <td>10px</td>
-          <td>Заокруглена рамка</td>
-        </tr>
-        <tr>
-          <td>border-top-left-radius</td>
-          <td>20%</td>
-          <td>верхній лівий кут</td>
-        </tr>
-        <tr>
-          <td>border-top-right-radius</td>
-          <td>50%</td>
-          <td>верхній правий кут</td>
-        </tr>
-        <tr>
-          <td>border-bottom-right-radius</td>
-          <td></td>
-          <td>нижній правий кут</td>
-        </tr>
-        <tr>
-          <td>border-bottom-left-radius</td>
-          <td></td>
-          <td>нижній лівий кут</td>
-        </tr>
+          <!-- ======border====== -->
+          <tr>
+            <td rowspan="17">рамка</td>
+            <!-- <td rowspan="23">рамка</td> -->
+            <td>border</td>
+            <td class="fs-15">5px solid red</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>border-top (<i>right/bottom/left</i>)</td>
+            <td class="fs-15">5px solid red</td>
+            <td>верхня (<i>права/нижня/ліва</i>) рамка</td>
+          </tr>
+          <!-- <tr>
+            <td>border-right</td>
+            <td class="fs-15">5px solid red</td>
+            <td>права рамка</td>
+          </tr>
+          <tr>
+            <td>border-bottom</td>
+            <td class="fs-15">5px solid red</td>
+            <td>нижня рамка</td>
+          </tr>
+          <tr>
+            <td>border-left</td>
+            <td class="fs-15">5px solid red</td>
+            <td>ліва рамка</td>
+          </tr> -->
 
-        <tr>
-          <td rowspan="3">ширина елементу</td>
-          <td rowspan="3">width</td>
-          <td>10px</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>50%</td>
-          <td>
-            відсоток від ширини батьківського елемента
-          </td>
-        </tr>
-        <tr>
-          <td>calc()%</td>
-          <td>
-            функція для розрахунку динамічної ширини
-            елемента
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="2">мінімальна ширина елементу</td>
-          <td rowspan="2">min-width</td>
-          <td>20px</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>30%</td>
-          <td>
-            елемент займає 30% ширини батьківського простору
-          </td>
-        </tr>
-        <tr>
-          <td rowspan="2">максимальна ширина елементу</td>
-          <td rowspan="2">max-width</td>
-          <td>90px</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>100%</td>
-          <td>
-            елемент займає 100% ширини батьківського
-            простору
-          </td>
-        </tr>
+          <tr>
+            <td>border-width</td>
+            <td>10px</td>
+            <td>ширина</td>
+          </tr>
+          <tr>
+            <td rowspan="10">border-style</td>
+            <td>solid</td>
+            <td>суцільна лінія</td>
+          </tr>
+          <tr>
+            <td>dashed</td>
+            <td>пунктирна лінія</td>
+          </tr>
+          <tr>
+            <td>dotted</td>
+            <td>лінія з точок</td>
+          </tr>
+          <tr>
+            <td>none</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>hidden</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>groove</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ridge</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>inset</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>outset</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>double</td>
+            <td>подвійна лінія</td>
+          </tr>
+          <tr>
+            <td rowspan="2">border-color</td>
+            <td>RGB</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>HEX</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>border-radius</td>
+            <td>10px</td>
+            <td>Заокруглена рамка</td>
+          </tr>
+          <tr>
+            <td>
+              border-top(<i>bottom</i>)-left(<i>right</i>)-radius
+            </td>
+            <td>20%</td>
+            <td>
+              верхній (<i>нижній</i>) лівий (<i>правий</i>)
+              кут
+            </td>
+          </tr>
+          <!-- <tr>
+            <td>border-top-right-radius</td>
+            <td>50%</td>
+            <td>верхній правий кут</td>
+          </tr>
+          <tr>
+            <td>border-bottom-right-radius</td>
+            <td></td>
+            <td>нижній правий кут</td>
+          </tr>
+          <tr>
+            <td>border-bottom-left-radius</td>
+            <td></td>
+            <td>нижній лівий кут</td>
+          </tr> -->
 
-        <tr>
-          <td>висота елементу</td>
-          <td>height</td>
-          <td></td>
-          <td></td>
-        </tr>
+          <!-- ======width====== -->
+          <tr>
+            <td rowspan="6">ширина елементу</td>
+            <td rowspan="6">width</td>
+            <td>10px</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>50%</td>
+            <td class="fs-15">
+              відсоток від ширини батьківського елемента
+            </td>
+          </tr>
+          <tr>
+            <td>calc()%</td>
+            <td class="fs-15">
+              функція для розрахунку динамічної ширини
+            </td>
+          </tr>
+          <tr>
+            <td>min-content</td>
+            <td>
+              елемент займає ширину згідно мінімільної
+              ширини свого контенту
+            </td>
+          </tr>
+          <tr>
+            <td>max-content</td>
+            <td>
+              елемент займає ширину згідно максимальної
+              ширини свого контенту
+            </td>
+          </tr>
+          <tr>
+            <td>fit-content</td>
+            <td>
+              елемент займає ширину доступного простору, але
+              не більше max-content
+            </td>
+          </tr>
 
-        <tr>
-          <td rowspan="5">
-            тип розміщення елемента в контейнері, коли
-            контейнер менший за елемент
-          </td>
-          <td rowspan="5">object-fit</td>
-          <td>fill</td>
-          <td>
-            зображення масштабується без збереження
-            пропорцій, щоб повністю заповнити контейнер
-          </td>
-        </tr>
-        <tr>
-          <td>contain</td>
-          <td>
-            зображення масштабується зі збереженням
-            пропорцій, щоб максимально заповнити контейнер
-          </td>
-        </tr>
-        <tr>
-          <td>cover</td>
-          <td>
-            зображення масштабується зі збереженням
-            пропорцій, щоб повністю заповнити контейнер
-            (<span class="italic">найпоширеніший</span>)
-          </td>
-        </tr>
-        <tr>
-          <td>none</td>
-          <td>
-            зберігаються вихідні розміри зображення, задана
-            висота та ширина не мають жодного ефекту
-          </td>
-        </tr>
-        <tr>
-          <td>scale-down</td>
-          <td>
-            буде вибрано значення none або contain, щоб
-            зображення було найменшого розміру. Мета —
-            вмістити все зображення без зміни пропорцій
-          </td>
-        </tr>
+          <!-- ======min-width====== -->
+          <tr>
+            <td>мінімальна ширина</td>
+            <td>min-width</td>
+            <td colspan="2">як у width</td>
+          </tr>
 
-        <tr>
-          <td rowspan="3">
-            тип блокової моделі елемента (алгоритм
-            розрахунку його розмірів)
-          </td>
-          <td rowspan="3">box-sizing</td>
+          <!-- ======max-width====== -->
+          <tr>
+            <td>максимальна ширина</td>
+            <td>max-width</td>
+            <td colspan="2">як у width</td>
+          </tr>
 
-          <td>content-box</td>
-          <td>
-            властивості <i>width</i> і <i>height</i> задають
-            ширину і висоту області вмісту і не включають
-            розміри полів (<i>padding</i>), рамок
-            (<i>border</i>) і відступів (<i>margin</i>). Це
-            значення за замовчуванням <br />
-            <br />
-            <b>Ширина</b> =
-            <i
-              >width + padding-left + padding-right +
-              border-left + border-right</i
-            ><br />
-            <b>Висота</b> =
-            <i
-              >height + padding-top + padding-bottom +
-              border-top + border-bottom</i
-            >
-          </td>
-        </tr>
-        <tr>
-          <td>border-box</td>
-          <td>
-            властивості <i>width</i> і <i>height</i> задають
-            кінцевий розмір елемента і включають значення
-            полів (<i>padding</i>), рамок (<i>border</i>),
-            але не зовнішніх відступів (<i>margin</i>)<br />
-            <br />
-            <b>Ширина</b> = <i>width</i><br />
-            <b>Висота</b> = <i>height</i>
-          </td>
-        </tr>
-        <tr>
-          <td>inherit</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="6">
-            поведінка вмісту елемента, якщо його розмір
-            перевищує припустиму висоту чи ширину
-          </td>
-          <td rowspan="4">overflow</td>
-          <td>visible</td>
-          <td>
-            вміст, що виходить за межі елемента,
-            відображається
-          </td>
-        </tr>
-        <tr>
-          <td>hidden</td>
-          <td>
-            вміст, що виходить за межі елемента,
-            <b>не</b> відображається
-          </td>
-        </tr>
-        <tr>
-          <td>scroll</td>
-          <td>
-            контент, що переповнює блок, - прихований, для
-            перегляду прихованого контенту з'являться
-            <b>скролбари</b> для
-            <i>кожної</i>
-            вісі
-          </td>
-        </tr>
-        <tr>
-          <td>auto</td>
-          <td>
-            схожий на <i>scroll</i>, але показуються тільки
-            ті скроллбари, які дійсно необхідні.
-          </td>
-        </tr>
-        <tr>
-          <td>overflow-x</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>overflow-y</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- ======height====== -->
+          <tr>
+            <td>висота елементу</td>
+            <td>height</td>
+            <td colspan="2"></td>
+          </tr>
 
-    <table class="structure-pseudoclass-table m-bottom">
-      <caption>
-        Структурні псевдокласи
-      </caption>
+          <!-- ======object-fit====== -->
+          <tr>
+            <td rowspan="5">
+              тип розміщення елемента в контейнері, коли
+              контейнер менший за елемент
+            </td>
+            <td rowspan="5">object-fit</td>
+            <td>fill</td>
+            <td>
+              зображення масштабується без збереження
+              пропорцій, щоб повністю заповнити контейнер
+            </td>
+          </tr>
+          <tr>
+            <td>contain</td>
+            <td>
+              зображення масштабується зі збереженням
+              пропорцій, щоб максимально заповнити контейнер
+            </td>
+          </tr>
+          <tr>
+            <td>cover</td>
+            <td>
+              зображення масштабується зі збереженням
+              пропорцій, щоб повністю заповнити контейнер
+              (<span class="italic">найпоширеніший</span>)
+            </td>
+          </tr>
+          <tr>
+            <td>none</td>
+            <td>
+              зберігаються вихідні розміри зображення,
+              задана висота та ширина не мають жодного
+              ефекту
+            </td>
+          </tr>
+          <tr>
+            <td>scale-down</td>
+            <td>
+              буде вибрано значення none або contain, щоб
+              зображення було найменшого розміру. Мета —
+              вмістити все зображення без зміни пропорцій
+            </td>
+          </tr>
 
-      <thead>
-        <tr>
-          <th>Псевдоклас</th>
-          <th>Опис</th>
-          <th>Приклад</th>
-        </tr>
-      </thead>
+          <!-- ======box-sizing====== -->
+          <tr>
+            <td rowspan="2">
+              тип блокової моделі елемента (алгоритм
+              розрахунку його розмірів)
+            </td>
+            <td rowspan="2">box-sizing</td>
 
-      <tbody>
-        <tr>
-          <td>:first-child</td>
-          <td>обирає перший елемент</td>
-          <td>
-            <ul class="pseudoclass-container first-child">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:last-child</td>
-          <td>обирає останній елемент</td>
-          <td>
-            <ul class="pseudoclass-container last-child">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:not(selector)</td>
-          <td>
-            обирає елемент, що не підходить під критерій
-            (li:not(:first-child))
-          </td>
-          <td>
-            <ul class="pseudoclass-container not-selector">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-child(an+b)</td>
-          <td>
-            обирає елементи в коллекції сусідів по номеру,
-            через певний цикл (a - період циклу, крок; n -
-            лічильник циклу; b - зміщення, перший елемент)
-          </td>
-          <td>
-            <ul class="pseudoclass-container nth-child">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-last-child(an+b)</td>
-          <td>
-            аналог :nth-child(an+b), але рахунок ведеться з
-            кінця
-          </td>
-          <td>
-            <ul
-              class="pseudoclass-container nth-last-child"
-            >
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:first-of-type</td>
-          <td>обирає перший селектор даного типу</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:last-of-type</td>
-          <td>обирає останній селектор даного типу</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:only-of-type</td>
-          <td>
-            обирає селектор? що є єдиною дитиною такого типу
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:nth-of-type(an+b)</td>
-          <td>
-            обирає заданий в дужках номер селектора по
-            вказанному типу
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:nth-last-of-type(an+b)</td>
-          <td>
-            обирає заданий в дужках номер селектора по
-            вказанному типу з кінця колекції
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:only-child</td>
-          <td>
-            обирає елемент, який є єдиною дитиною з таким
-            селектором в колекції
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>:empty</td>
-          <td>
-            обирає пусті елементи (без нащадків та тексту)
-          </td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+            <td>content-box</td>
+            <td class="fs-15">
+              властивості <i>width</i> і
+              <i>height</i> задають ширину і висоту області
+              вмісту і не включають розміри полів
+              (<i>padding</i>), рамок (<i>border</i>) і
+              відступів (<i>margin</i>). Це значення за
+              замовчуванням <br />
+              <br />
+              <b>Ширина</b> =
+              <i
+                >width + padding-left + padding-right +
+                border-left + border-right</i
+              ><br />
+              <b>Висота</b> =
+              <i
+                >height + padding-top + padding-bottom +
+                border-top + border-bottom</i
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>border-box</td>
+            <td class="fs-15">
+              властивості <i>width</i> і
+              <i>height</i> задають кінцевий розмір елемента
+              і включають значення полів (<i>padding</i>),
+              рамок (<i>border</i>), але не зовнішніх
+              відступів (<i>margin</i>)<br />
+              <br />
+              <b>Ширина</b> = <i>width</i><br />
+              <b>Висота</b> = <i>height</i>
+            </td>
+          </tr>
 
-    <table class="nth-child-table">
-      <caption>
-        Псевдоклас :nth-child(an+b). Корисне
-      </caption>
-      <thead>
-        <tr>
-          <th>Псевдоклас</th>
-          <th>Опис</th>
-          <th>Приклад</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>:nth-child(2)</td>
-          <td>обрати 2-ий елемени (b=2)</td>
-          <td>
-            <ul class="pseudoclass-container nth-child-b">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-child(2n)</td>
-          <td>обрати кожен парний (<b>even</b>) елемент</td>
-          <td>
-            <ul
-              class="pseudoclass-container nth-child-even"
-            >
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-child(2n+1)</td>
-          <td>
-            обрати кожен непарний (<b>odd</b>) елемент
-          </td>
-          <td>
-            <ul class="pseudoclass-container nth-child-odd">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-child(n+3)</td>
-          <td>обрати усі елементи, починаючи з 3-го</td>
-          <td>
-            <ul class="pseudoclass-container nth-child-n-3">
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>:nth-child(-n+3)</td>
-          <td>обрати усі елементи, до 3-го</td>
-          <td>
-            <ul
-              class="pseudoclass-container nth-child--n-3"
-            >
-              <li class="pseudoclass-element">1</li>
-              <li class="pseudoclass-element">2</li>
-              <li class="pseudoclass-element">3</li>
-              <li class="pseudoclass-element">4</li>
-              <li class="pseudoclass-element">5</li>
-              <li class="pseudoclass-element">6</li>
-              <li class="pseudoclass-element">7</li>
-              <li class="pseudoclass-element">8</li>
-              <li class="pseudoclass-element">9</li>
-              <li class="pseudoclass-element">10</li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          <!-- ======overflow====== -->
+          <tr>
+            <td rowspan="6">
+              поведінка вмісту елемента, якщо його розмір
+              перевищує припустиму висоту чи ширину
+            </td>
+            <td rowspan="4">overflow</td>
+            <td>visible</td>
+            <td>
+              вміст, що виходить за межі елемента,
+              відображається
+            </td>
+          </tr>
+          <tr>
+            <td>hidden</td>
+            <td>
+              вміст, що виходить за межі елемента,
+              <b>не</b> відображається
+            </td>
+          </tr>
+          <tr>
+            <td>scroll</td>
+            <td>
+              контент, що переповнює блок, - прихований, для
+              перегляду прихованого контенту з'являться
+              <b>скролбари</b> для
+              <i>кожної</i>
+              вісі
+            </td>
+          </tr>
+          <tr>
+            <td>auto</td>
+            <td>
+              схожий на <i>scroll</i>, але показуються
+              тільки ті скроллбари, які дійсно необхідні.
+            </td>
+          </tr>
+          <tr>
+            <td>overflow-x</td>
+            <td colspan="2">
+              керує переповненням контейнеру по горизонталі
+            </td>
+          </tr>
+          <tr>
+            <td>overflow-y</td>
+            <td colspan="2">
+              керує переповненням контейнеру по вертикалі
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- ======Корисне====== -->
+      <table class="nth-child-table m-bottom">
+        <caption>
+          Псевдоклас :nth-child(an+b). Корисне
+        </caption>
+        <thead>
+          <tr>
+            <th>Псевдоклас</th>
+            <th>Опис</th>
+            <th>Приклад</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>:nth-child(2)</td>
+            <td>обрати 2-ий елемени (b=2)</td>
+            <td>
+              <ul class="pseudoclass-container nth-child-b">
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-child(2n)</td>
+            <td>
+              обрати кожен парний (<b>even</b>) елемент
+            </td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-child-even"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-child(2n+1)</td>
+            <td>
+              обрати кожен непарний (<b>odd</b>) елемент
+            </td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-child-odd"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-child(n+3)</td>
+            <td>обрати усі елементи, починаючи з 3-го</td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-child-n-3"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-child(-n+3)</td>
+            <td>обрати усі елементи, до 3-го</td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-child--n-3"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-last-child(-n + 3)</td>
+            <td>аналог <b>:nth-child</b>, але з кінця</td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-child--n-3-q"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ======Структурні псевдокласи====== -->
+      <table class="structure-pseudoclass-table">
+        <caption>
+          Структурні псевдокласи
+        </caption>
+
+        <thead>
+          <tr>
+            <th>Псевдоклас</th>
+            <th>Опис</th>
+            <th>Приклад</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>:first-child</td>
+            <td>обирає перший елемент</td>
+            <td>
+              <ul class="pseudoclass-container first-child">
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:last-child</td>
+            <td>обирає останній елемент</td>
+            <td>
+              <ul class="pseudoclass-container last-child">
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:not(selector)</td>
+            <td>
+              обирає елемент, що не підходить під критерій
+              (приклад, <b>li:not(:first-child)</b>)
+            </td>
+            <td>
+              <ul
+                class="pseudoclass-container not-selector"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-child(an+b)</td>
+            <td>
+              обирає елементи в коллекції сусідів по номеру,
+              через певний цикл (a - період циклу, крок; n -
+              лічильник циклу; b - зміщення, перший елемент)
+            </td>
+            <td>
+              <ul class="pseudoclass-container nth-child">
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:nth-last-child(an+b)</td>
+            <td>
+              аналог :nth-child(an+b), але рахунок ведеться
+              з кінця
+            </td>
+            <td>
+              <ul
+                class="pseudoclass-container nth-last-child"
+              >
+                <li class="pseudoclass-element">1</li>
+                <li class="pseudoclass-element">2</li>
+                <li class="pseudoclass-element">3</li>
+                <li class="pseudoclass-element">4</li>
+                <li class="pseudoclass-element">5</li>
+                <li class="pseudoclass-element">6</li>
+                <li class="pseudoclass-element">7</li>
+                <li class="pseudoclass-element">8</li>
+                <li class="pseudoclass-element">9</li>
+                <li class="pseudoclass-element">10</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>:first-of-type</td>
+            <td>обирає перший селектор даного типу</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:last-of-type</td>
+            <td>обирає останній селектор даного типу</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:only-of-type</td>
+            <td>
+              обирає селектор? що є єдиною дитиною такого
+              типу
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:nth-of-type(an+b)</td>
+            <td>
+              обирає заданий в дужках номер селектора по
+              вказанному типу
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:nth-last-of-type(an+b)</td>
+            <td>
+              обирає заданий в дужках номер селектора по
+              вказанному типу з кінця колекції
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:only-child</td>
+            <td>
+              обирає елемент, який є єдиною дитиною з таким
+              селектором в колекції
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>:empty</td>
+            <td>
+              обирає пусті елементи (без нащадків та тексту)
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>
