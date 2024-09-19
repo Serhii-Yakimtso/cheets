@@ -56,19 +56,13 @@ tr {
 /* ===== CLASSES ===== */
 
 .section {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 12px 4px;
-
-  width: 720px;
-
-  /* border-bottom: 1px dashed grey; */
+  padding: 12px 0;
 }
 
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding: 12px 4px;
+  padding: 0 4px;
 
   width: 720px;
 }
@@ -185,4 +179,8 @@ tr {
 .print-home-link {
   position: sticky;
   top: 0;
+}
+
+.thick-element {
+  width: 100%;
 }

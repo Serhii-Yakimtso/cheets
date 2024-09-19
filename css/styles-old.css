@@ -342,6 +342,8 @@ tr {
   background-color: lightgray;
 }
 
+/* nth-child-table */
+
 .nth-child-table .pseudoclass-container {
   display: flex;
   gap: 8px;

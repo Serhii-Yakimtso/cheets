@@ -27,4 +27,23 @@
   .print-m-left-none {
     margin-left: 0;
   }
+
+  .print-fs-10 {
+    font-size: 10px;
+  }
+  .print-fs-11 {
+    font-size: 11px;
+  }
+  .print-fs-12 {
+    font-size: 12px;
+  }
+  .print-fs-13 {
+    font-size: 13px;
+  }
+  .print-fs-14 {
+    font-size: 14px;
+  }
+  .print-fs-15 {
+    font-size: 15px;
+  }
 }
