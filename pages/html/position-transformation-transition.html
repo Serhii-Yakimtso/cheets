@@ -199,18 +199,40 @@
           та інтерактивності.
         </p>
         <p class="m-bottom-min">
-          За трансформацію відповідає властивість
-          <b>transform</b>.
-        </p>
-        <p class="m-bottom-min">
           <b>Трансформований елемент</b> — це елемент, що
           має будь-яке значення властивості
           <b>transform</b>, відмінне від
           <b>none</b>
         </p>
+        <p class="m-bottom-min">
+          За трансформацію відповідає властивість
+          <b>transform</b>.
+        </p>
+        <div class="flex m-bottom-min">
+          <p class="">
+            <b>transform-origin</b> - властивість, що
+            визначає початок перетворень елемента. в якості
+            значень використовуються <b>top</b>,
+            <b>right</b>, <b>bottom</b>, <b>left</b> та
+            значення у будь-яких одиницях виміру. Якщо
+            використати три значення - зміщення буде
+            відбуватись у трьох координатах (<b>X, Y, Z</b
+            >). За замовчуванням початок перетворень
+            знаходиться в центрі елемента
+          </p>
+          <div class="bcg-box print-bcg-box">
+            <p>
+              transform-origin: 2px;<br />
+              transform-origin: bottom;<br />
+              transform-origin: right top;<br />
+              transform-origin: left 2px;<br />
+              transform-origin: right bottom 2cm;
+            </p>
+          </div>
+        </div>
 
         <!-- Значення властивості transform -->
-        <table class="m-bottom-min print-fs-15">
+        <table class="m-bottom-min print-fs-13">
           <caption>
             Значення властивості transform
           </caption>
@@ -325,7 +347,7 @@
               <th>Центрування елемента</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="print-fs-13">
             <tr>
               <td colspan="2">
                 &#60;div class="box"&#62;<br />
@@ -380,7 +402,7 @@
     </section>
 
     <!-- ======CSS-переходи====== -->
-    <section class="section">
+    <section class="section print-m-bottom-max">
       <div class="container">
         <h2 class="m-bottom-min">CSS-переходи</h2>
 
@@ -550,6 +572,225 @@
                 transition: background-color 500ms linear
                 500ms, transform 500ms ease-in-out 500ms;
               </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======CSS-анімації====== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">CSS-анімації</h2>
+        <p>
+          CSS анімації дозволяють створювати плавні переходи
+          та рухи елементів на сторінці без використання
+          JavaScript.
+        </p>
+        <div class="flex m-bottom-min">
+          <p>
+            Властивість <b>animation</b> - визначає анімацію
+            для елемента. Складається з кількох параметрів:
+            <i>імені анімації</i>, <i>тривалості</i>,
+            <i>таймінгу</i>, <i>затримки</i> та
+            <i>кількості повторів</i>.
+          </p>
+          <div class="bcg-box print-bcg-box">
+            .my-element {<br />
+                <b>animation</b>: move 2s ease-in-out
+            infinite;<br />
+            }
+          </div>
+        </div>
+        <div class="flex m-bottom-min">
+          <div>
+            <ul class="m-bottom-min">
+              <li>
+                <b>move</b> — це ім'я анімації (визначається
+                за допомогою <b>@keyframes</b>);
+              </li>
+              <li>
+                <b>2s</b> — тривалість анімації (2 секунди);
+              </li>
+              <li>
+                <b>ease-in-out</b> — функція таймінгу
+                (початок та кінець повільний, а середина
+                швидша);
+              </li>
+              <li>
+                <b>infinite</b> — анімація повторюватиметься
+                безкінечно.
+              </li>
+            </ul>
+            <p>
+              <b>@keyframes</b> - визначає зміни
+              властивостей на різних етапах анімації. У
+              ньому описуються ключові моменти (відсотки)
+              від початку до кінця анімації.
+            </p>
+            <p class="border-box">
+              Ключові слова: <b>from</b> (<b>0%</b>) -
+              початок анімації, а <b>to</b>
+              (<b>100%</b>) - її кінець.
+            </p>
+          </div>
+          <div class="bcg-box print-bcg-box">
+            <b>@keyframes</b> move {<br />
+                0% {<br />
+                    transform: translateX(0);<br />
+                }<br />
+                50% {<br />
+                    transform: translateX(100px);<br />
+                }<br />
+                100% {<br />
+                    transform: translateX(0);<br />
+                }<br />
+            }
+          </div>
+        </div>
+
+        <table>
+          <caption></caption>
+          <thead>
+            <tr>
+              <th>Опис</th>
+              <th>Властивість</th>
+              <th>Значення</th>
+              <th>Примітка</th>
+            </tr>
+          </thead>
+          <tbody class="print-fs-13">
+            <tr>
+              <td>Назва анімації</td>
+              <td>animation-name</td>
+              <td>текст</td>
+              <td>
+                Має співпасти із визначенням у
+                <b>@keyframes</b>
+              </td>
+            </tr>
+            <tr>
+              <td>Тривалість анімації</td>
+              <td>animation-duration</td>
+              <td>s, ms</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="5">Тип таймінгу</td>
+              <td rowspan="5">animation-timing-function</td>
+              <td>ease</td>
+              <td>
+                перехід починається повільно, швидко
+                прискорюється, а потім знову сповільнюється
+                в кінці (за замовчуванням)
+              </td>
+            </tr>
+            <tr>
+              <td>linear</td>
+              <td>перехід має рівномірну швидкість</td>
+            </tr>
+            <tr>
+              <td>ease-in</td>
+              <td>
+                починається повільно, швидкість переходу
+                збільшується до повного завершення переходу
+              </td>
+            </tr>
+            <tr>
+              <td>ease-out</td>
+              <td>
+                починається швидко, уповільнюється протягом
+                переходу
+              </td>
+            </tr>
+            <tr>
+              <td>ease-in-out</td>
+              <td>
+                починається повільно, прискорюється, а потім
+                знову сповільнюється
+              </td>
+            </tr>
+
+            <tr>
+              <td>Затримка перед початком анімації</td>
+              <td>animation-delay</td>
+              <td>s, ms</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                Кількість повторів анімації
+              </td>
+              <td rowspan="2">animation-iteration-count</td>
+              <td>число</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>infinite</td>
+              <td>безкінечна кількість</td>
+            </tr>
+            <tr>
+              <td rowspan="4">Напрямок анімації</td>
+              <td rowspan="4">animation-direction</td>
+              <td>normal</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>reverse</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>alternate</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>alternate-reverse</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="4">
+                Поведінка елемента після або до завершення
+                анімації
+              </td>
+              <td rowspan="4">animation-fill-mode</td>
+              <td>none</td>
+              <td>
+                Стилі анімації не будуть застосовуватися до
+                елемента до або після його виконання
+              </td>
+            </tr>
+            <tr>
+              <td>forwards</td>
+              <td>
+                Коли анімація завершується, елемент зберігає
+                стилі останнього ключового кадру
+              </td>
+            </tr>
+            <tr>
+              <td>backwards</td>
+              <td>
+                Елемент збереже стиль першого ключового
+                кадру протягом періоду затримки анімації
+              </td>
+            </tr>
+            <tr>
+              <td>both</td>
+              <td>
+                Анімація поводитиметься так, ніби значення
+                вперед і назад встановлюються одночасно
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                Зупинка та відновлення анімації
+              </td>
+              <td rowspan="2">animation-play-state</td>
+              <td>running</td>
+              <td>Відтворюється анімація</td>
+            </tr>
+            <tr>
+              <td>paused</td>
+              <td>Анімація ставиться на паузу</td>
             </tr>
           </tbody>
         </table>
