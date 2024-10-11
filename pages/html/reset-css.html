@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Стартові стилі</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+  </head>
+  <body>
+    <h1 class="center-text m-bottom">Стартові стилі</h1>
+    <section class="section">
+      <div class="container flex">
+        <div>
+          <h2 class="center-text m-bottom-min">
+            reset.css
+          </h2>
+          <div class="flex">
+            <div class="bcg-box print-bcg-box">
+              body,<br />
+              h1,<br />
+              h2,<br />
+              h3,<br />
+              h4,<br />
+              h5,<br />
+              h6,<br />
+              p,<br />
+              ul,<br />
+              ol {<br />
+                  margin: 0;<br />
+              }<br />
+              <br />
+
+              body {<br />
+                  line-height: 1;<br />
+              }<br />
+              <br />
+
+              h1,<br />
+              h2,<br />
+              h3,<br />
+              h4,<br />
+              h5,<br />
+              h6,<br />
+              p {<br />
+                  font-size: inherit;<br />
+                  font-weight: inherit;<br />
+              }<br />
+              <br />
+
+              ul,<br />
+              ol {<br />
+                  list-style: none;<br />
+                  padding: 0;<br />
+              }<br />
+              <br />
+
+              input,<br />
+              textarea,<br />
+              button,<br />
+              select {<br />
+                  font-family: inherit;<br />
+                  font-size: inherit;<br />
+                  color: inherit;<br />
+                  background-color: transparent;<br />
+              }<br />
+              <br />
+
+              button,<br />
+              input[type="submit"] {<br />
+                  box-shadow: none;<br />
+                  background-color: transparent;<br />
+                  background: none;<br />
+              }<br />
+              <br />
+
+              input:focus,<br />
+              input:active,<br />
+              button:focus,<br />
+              button:active {<br />
+                  outline: none;<br />
+              }<br />
+              <br />
+            </div>
+            <div class="bcg-box print-bcg-box">
+              button {<br />
+                  border: none;<br />
+              }<br />
+              <br />
+
+              a,<br />
+              a:link,<br />
+              a:visited,<br />
+              a:hover {<br />
+                  text-decoration: none;<br />
+              }<br />
+              <br />
+
+              table {<br />
+                  border-collapse: collapse;<br />
+                  border-spacing: 0;<br />
+              }<br />
+              <br />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="center-text m-bottom-min">
+            common.css
+          </h2>
+          <div class="bcg-box print-bcg-box">
+            *,<br />
+            *::before,<br />
+            *::after {<br />
+                box-sizing: border-box;<br />
+                <i>/* outline: 1px solid tomato; */</i
+            ><br />
+            }<br />
+            <br />
+
+            img {<br />
+                display: block;<br />
+                max-width: 100%;<br />
+                height: auto;<br />
+                vertical-align: top;<br />
+            }<br />
+            <br />
+
+            button,<br />
+            input[type="submit"] {<br />
+                display: inline-block;<br />
+            }<br />
+            <br />
+
+            button,<br />
+            input[type="submit"], <br />
+            label {<br />
+                cursor: pointer;<br />
+            }<br />
+            <br />
+
+            address {<br />
+                font-style: normal;<br />
+            }<br />
+            <br />
+
+            table {<br />
+                border-collapse: collapse;<br />
+            }<br />
+            <br />
+
+            .section {<br />
+                padding-top: 12px;<br />
+                padding-bottom: 12px;<br />
+            }<br />
+            <br />
+
+            .container {<br />
+                margin-left: auto;<br />
+                margin-right: auto;<br />
+                padding-left: 8px;<br />
+                padding-right: 8px;<br />
+                <br />
+                width: 720px;<br />
+            }<br />
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
