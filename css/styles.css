@@ -15,7 +15,8 @@ h4,
 h5,
 h6,
 p,
-ul {
+ul,
+ol {
   margin: 0;
 }
 
@@ -91,6 +92,10 @@ tr {
   background-color: green;
 } */
 
+.i-block {
+  display: inline-block;
+}
+
 .bcg-box {
   padding: 4px;
   margin-left: auto;
@@ -151,6 +156,7 @@ tr {
 
 .text-no-wrap {
   /* word-wrap: ; */
+  word-spacing: nowrap;
 }
 
 .fs-10 {

@@ -8,13 +8,287 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Загальне</title>
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/react.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom center-text">Створення проекту</h1>
+
+    <!-- Загальні налаштування -->
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h1 class="m-bottom center-text">
+          Створення проекту
+        </h1>
+
+        <h2 class="m-bottom-min">Загальні налаштування</h2>
+        <ol>
+          <li class="m-bottom-min">
+            <p>
+              Створити порожній репозиторій (проєкт) на
+              GitHub.
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <p>
+              Клонувати цей репозиторій на свій комп'ютер.
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <div class="flex">
+              <p>
+                В терміналі запустити створення
+                React-проєкту.
+              </p>
+              <div class="bcg-box print-bcg-box">
+                <b>npm create vite@latest </b>
+              </div>
+            </div>
+          </li>
+          <li class="m-bottom-min">
+            <p>
+              <b>Prettier</b> - додати файл налаштувань у
+              корінь проєкту.
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <div class="flex">
+              <p>
+                Налаштуваня файлу <b>espnt.config.js</b>
+              </p>
+              <div class="bcg-box print-bcg-box fs-11">
+                import js from "@eslint/js";<br />
+                import globals from "globals";<br />
+                import react from "eslint-plugin-react";<br />
+                import reactHooks from
+                "eslint-plugin-react-hooks";<br />
+                import reactRefresh from
+                "eslint-plugin-react-refresh";<br />
+                <br />
+                export default [<br />
+                    {<br />
+                        files: ["**/*.{js,jsx}"],<br />
+                        ignores: ["dist"],<br />
+                        languageOptions: {<br />
+                            ecmaVersion: 2020,<br />
+                            globals: globals.browser,<br />
+                            parserOptions: {<br />
+                                ecmaVersion: "latest",<br />
+                                ecmaFeatures: { jsx: true
+                },<br />
+                                sourceType: "module",<br />
+                            },<br />
+                        },<br />
+                        settings: { react: { version: "18.3"
+                } },<br />
+                        plugins: {<br />
+                            react,<br />
+                            "react-hooks": reactHooks,<br />
+                            "react-refresh":
+                reactRefresh,<br />
+                        },<br />
+                        rules: {<br />
+                           
+                ...js.configs.recommended.rules,<br />
+                           
+                ...react.configs.recommended.rules,<br />
+                           
+                ...react.configs["jsx-runtime"].rules,<br />
+                           
+                ...reactHooks.configs.recommended.rules,<br />
+                           
+                <span class="fs-14"
+                  ><b>"react/prop-types": 0,</b></span
+                ><br />
+                            "react/jsx-no-target-blank":
+                "off",<br />
+                           
+                "react-refresh/only-export-components": [<br />
+                                "warn",<br />
+                                { allowConstantExport: true
+                },<br />
+                            ],<br />
+                        },<br />
+                    },<br />
+                ];
+              </div>
+            </div>
+          </li>
+          <li class="m-bottom-min">
+            <div class="flex">
+              <p>
+                Змінити налаштування файлу
+                <b>vite.config.js</b> на
+              </p>
+              <div class="bcg-box print-bcg-box fs-11">
+                import { defineConfig } from "vite";<br />
+                import react from
+                "@vitejs/plugin-react-swc";<br />
+                <br />
+                // https://vitejs.dev/config/<br />
+                export default defineConfig({<br />
+                    plugins: [react()],<br />
+                <span class="fs-14"
+                  ><b>
+                        build: {<br />
+                           sourcemap: true,<br />
+                        }<br /></b
+                ></span>
+                });
+              </div>
+            </div>
+          </li>
+          <li class="m-bottom-min">
+            <p>
+              Створити папку <b>components</b> у папці
+              <b>src</b>. Перенести туди файліи
+              <b>App.jsx</b> та <b>App.css</b>, створивши
+              для них власну папку. Скорегувати шлях
+              (import) до файлу <b>App.jsx</b> у файлі
+              <b>main.jsx</b>
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <p>
+              Внести скидання стилів та їх загальні
+              налаштування у файлі <b>index.css</b>
+            </p>
+          </li>
+          <li>
+            <div class="flex">
+              <p>
+                Для правильної роботи додатка з
+                маршрутизацією після розгортання на Vercel,
+                додати файл налаштувань <b>vercel.json</b> в
+                <i>кореневу папку</i>
+                проекту.
+              </p>
+              <div class="bcg-box print-bcg-box fs-14">
+                <b
+                  >{<br />
+                      "rewrites":  [<br />
+                          {"source": "/(.*)", "destination":
+                  "/"}<br />
+                      ]<br />
+                  }</b
+                >
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section m-bottom">
+      <div class="container">
+        <h2 class="m-bottom-min">Додаткові бібліотеки</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Опис</th>
+              <th>Термінал</th>
+              <th>Імпорт</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Типізація пропсів</td>
+              <td>npm install --save-dev prop-types</td>
+              <td>import PropTypes from 'prop-types';</td>
+            </tr>
+            <tr>
+              <td>Композиціонування класів</td>
+              <td>npm install clsx</td>
+              <td>import clsx from "clsx";</td>
+            </tr>
+            <tr>
+              <td>
+                Нормалізація стилів (імпортується в
+                <b>main.jsx</b>)
+              </td>
+              <td>npm install modern-normalize</td>
+              <td>import "modern-normalize";</td>
+            </tr>
+            <tr>
+              <td>Набір іконок</td>
+              <td>npm install react-icons</td>
+              <td>
+                import { HiUser } from "react-icons/hi";
+              </td>
+            </tr>
+            <tr>
+              <td>Робота та налагодження форм</td>
+              <td>npm install formik</td>
+              <td>
+                import { Formik, Form, Field, ErrorMessage }
+                from "formik";
+              </td>
+            </tr>
+            <tr>
+              <td>Валідація Formik</td>
+              <td>npm install yup</td>
+              <td>import * as Yup from "yup";</td>
+            </tr>
+            <tr>
+              <td>HTTP-запити</td>
+              <td>npm install axios</td>
+              <td>import axios from "axios";</td>
+            </tr>
+            <tr>
+              <td>Маршрутизація в React</td>
+              <td>npm install react-router-dom</td>
+              <td>
+                import { BrowserRouter } from
+                "react-router-dom";<br />
+                import { Routes, Route, NavLink } from
+                "react-router-dom";<br />
+                import { useParams } from
+                "react-router-dom";<br />
+                import { useNavigate } from
+                "react-router-dom";<br />
+                import { useSearchParams } from
+                "react-router-dom";<br />
+                import { useLocation } from
+                "react-router-dom";
+              </td>
+            </tr>
+            <tr>
+              <td>React Redux</td>
+              <td>npm install react-redux</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Redux Toolkit</td>
+              <td>npm install @reduxjs/toolkit</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </body>
 </html>
