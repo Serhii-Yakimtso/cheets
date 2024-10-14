@@ -21,6 +21,7 @@
 
     <h1 class="center-text m-bottom">Стилі</h1>
 
+    <!-- Загальна інформація -->
     <section class="section m-bottom">
       <div class="container">
         <h2 class="m-bottom-min">Загальна інформація</h2>
@@ -1935,6 +1936,183 @@
             </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Макет з кількома стовпцями -->
+    <section class="section m-bottom print-m-bottom-max">
+      <div class="container">
+        <h2 class="m-bottom-min">
+          Макет з кількома стовпцями
+        </h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Опис</th>
+              <th>Властивость</th>
+              <th>Значення</th>
+              <th>Примітка</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">Вказує кількість стовпців</td>
+              <td rowspan="2">column-count</td>
+              <td>число</td>
+              <td>жорстко всановлює кількість стовпців</td>
+            </tr>
+            <tr>
+              <td>auto</td>
+              <td>
+                кількість стовпців визначається іншими
+                властивостями CSS, такими як
+                <b>column-width</b>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                задає ідеальну ширину стовпця в
+                багатоколоночному макеті
+              </td>
+              <td rowspan="2">column-width</td>
+              <td>значення</td>
+              <td>120px</td>
+            </tr>
+            <tr>
+              <td>auto</td>
+              <td>
+                Ширина стовпця визначається іншими
+                властивостями CSS, такими як
+                <b>column-count</b>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="3">
+                розмір відступів між стовпцями
+              </td>
+              <td rowspan="3">column-gap</td>
+              <td>normal</td>
+              <td>стандартна відстань (1em)</td>
+            </tr>
+            <tr>
+              <td>значення</td>
+              <td>120px</td>
+            </tr>
+            <tr>
+              <td>процент</td>
+              <td>10%</td>
+            </tr>
+
+            <tr>
+              <td>додавання лінійки між стовпцями</td>
+              <td>column-rule</td>
+              <td>
+                ширина (значення), <br />
+                стиль, <br />
+                колір
+              </td>
+              <td>
+                5px solid red <br />
+                <b>Важливо!</b> лінійка не впливає на розмір
+                <b>column-gap</b>
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                ширина лінійки між стовпцями
+              </td>
+              <td rowspan="2">column-rule-width</td>
+              <td>значення</td>
+              <td>5px</td>
+            </tr>
+            <tr>
+              <td>ключове слово</td>
+              <td>thin, medium, thick</td>
+            </tr>
+
+            <tr>
+              <td rowspan="8">
+                стиль лінійки між стовпцями
+              </td>
+              <td rowspan="8">column-rule-style</td>
+              <td>solid</td>
+              <td>суцільна лінія</td>
+            </tr>
+            <tr>
+              <td>dotted</td>
+              <td>крапки</td>
+            </tr>
+            <tr>
+              <td>dashed</td>
+              <td>преривна лінія</td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>подвійна лінія</td>
+            </tr>
+            <tr>
+              <td>groove</td>
+              <td>двокольрова лінія</td>
+            </tr>
+            <tr>
+              <td>ridge</td>
+              <td>
+                двокольрова лінія (в зворотньому напрямку)
+              </td>
+            </tr>
+            <tr>
+              <td>hidden</td>
+              <td>прихована лінія</td>
+            </tr>
+            <tr>
+              <td>none</td>
+              <td>без лінійки</td>
+            </tr>
+
+            <tr>
+              <td rowspan="6">
+                колір лінійки між стовпцями
+              </td>
+              <td rowspan="6">column-rule-color</td>
+              <td>ключове слово</td>
+              <td>red</td>
+            </tr>
+            <tr>
+              <td>RGB</td>
+              <td>rgb(48, 125, 222)</td>
+            </tr>
+            <tr>
+              <td>RGBa</td>
+              <td>rgba(10%, 40%, 15%, 0.6)</td>
+            </tr>
+            <tr>
+              <td>HEX</td>
+              <td>#ffa0ad</td>
+            </tr>
+            <tr>
+              <td>currentcolor</td>
+              <td>колір шрифта</td>
+            </tr>
+            <tr>
+              <td>transparent</td>
+              <td>прозорий колір</td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                дозволяє елементу тягнутись через усі
+                стовпці
+              </td>
+              <td rowspan="2">column-span</td>
+              <td>all</td>
+              <td>тягнеться</td>
+            </tr>
+            <tr>
+              <td>none</td>
+              <td>не тягнеться</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
