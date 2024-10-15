@@ -1,0 +1,7 @@
+/* Теги. Таблиці. Специфічні CSS-властивості */
+.table-css-props col:nth-child(1) {
+  width: 17%;
+}
+.table-css-props col:nth-child(4) {
+  width: 42%;
+}
