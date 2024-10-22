@@ -5,3 +5,6 @@
 .table-css-props col:nth-child(4) {
   width: 42%;
 }
+.table-tegs col:nth-child(3) {
+  width: 18%;
+}

@@ -17,68 +17,14 @@
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
+
+    <!-- Медіазапити -->
     <section class="section">
       <div class="container">
-        <h1 class="center-text m-bottom-min">
+        <h1 class="center-text m-bottom">
           Адаптивний дизайн
         </h1>
 
-        <ul class="noList m-bottom-min">
-          <li class="m-bottom-min">
-            <b>Респонсивна</b> (responsive) веб-сторінка має
-            кілька варіантів відображення, переходи між ними
-            плавні, елементи і контейнер тягнуться, як
-            гумові. При зміні розміру в'юпорта блоки плавно
-            стискаються або розтягуються, а коли настає
-            точка перелому, змінюють своє розташування так,
-            щоб оптимально зайняти весь вільний простір по
-            горизонталі.
-          </li>
-          <li class="m-bottom-min">
-            <b>Адаптивна</b> (adaptive) веб-сторінка має
-            кілька варіантів відображення. На відміну від
-            респонсивної сторінки — це буквально різні
-            стани. Дизайн змінюється ривками в жорстко
-            заданих точках перелому і не тягнеться між ними.
-          </li>
-          <li class="m-bottom-min">
-            <b>Область перегляду</b> (в'юпорт, viewport) —
-            це видима, прямокутна область веб-сторінки, що
-            не включає адресний рядок, панель закладок та
-            інші службові елементи браузера.
-          </li>
-          <li class="m-bottom-min">
-            Мобільні браузери відображають сайт у
-            <b>віртуальному в'юпорті</b> (layout viewport).
-            Ширина віртуального в’юпорта залежить від
-            виробника пристрою.
-          </li>
-          <li class="">
-            <b>Фізичний в’юпорт</b> (visual viewport) — це
-            величина, що дорівнює ширині фізичного екрану
-            пристрою. У мобільних пристроях розмір фізичного
-            в’юпорта за замовчуванням не збігається з
-            віртуальним. Віртуальний в’юпорт ширший за
-            фізичний екран пристрою.
-          </li>
-        </ul>
-
-        <div class="flex">
-          <p>
-            Налаштування області перегляду на мобільних
-            пристроях
-          </p>
-          <div class="bcg-box print-bcg-box">
-            &#60;meta name="viewport"
-            content="width=device-width, initial-scale=1.0"
-            /&#62;<br />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
         <h2 class="m-bottom-min">Медіазапити</h2>
         <div class="flex m-bottom-min">
           <p>
@@ -132,6 +78,7 @@
               </p>
               <div class="bcg-box">
                 @media screen and (min-width: 900px) {<br />
+
                 }
               </div>
             </div>
@@ -140,7 +87,8 @@
       </div>
     </section>
 
-    <section class="section print-m-bottom-max">
+    <!-- Логічні оператори -->
+    <section class="section">
       <div class="container">
         <h2 class="m-bottom-min">Логічні оператори</h2>
         <ul>
@@ -152,6 +100,7 @@
             <div class="bcg-box">
               @media screen and (min-width: 400px) and
               (max-width: 800px) {<br />
+              <br />
               }
             </div>
           </li>
@@ -164,10 +113,11 @@
             <div class="bcg-box">
               @media screen and (max-width: 600px),
               (min-width: 900px) {<br />
+              <br />
               }
             </div>
           </li>
-          <li class="flex m-bottom-min">
+          <li class="flex">
             <p>
               <b>not (НЕ)</b> — передбачає інверсію, тобто
               твердження буде істинним від зворотного, коли
@@ -175,6 +125,7 @@
             </p>
             <div class="bcg-box">
               @media not print{<br />
+              <br />
               }<br />
             </div>
           </li>
@@ -182,10 +133,11 @@
       </div>
     </section>
 
+    <!-- Ретинізація графіки -->
     <section class="section">
       <div class="container">
-        <h2 class="m-bottom-min">Адаптивна графіка</h2>
-        <h3 class="m-bottom-min">Ретинізація графіки</h3>
+        <!-- <h2 class="m-bottom-min">Адаптивна графіка</h2> -->
+        <h2 class="m-bottom-min">Ретинізація графіки</h2>
         <p class="">
           Ретинізація — це техніка підготовки растрової
           графіки. Для цього потрібно експортувати з макета
@@ -274,8 +226,13 @@
             /&#62;
           </div>
         </div>
+      </div>
+    </section>
 
-        <h3 class="m-bottom-min">Фонові зображення</h3>
+    <!-- Фонові зображення -->
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Фонові зображення</h2>
         <p class="m-bottom-min">
           Медіафункції
           <b>resolution, min-resolution і max-resolution</b>
@@ -295,46 +252,55 @@
         </p>
 
         <div class="flex m-bottom-min">
-          <p class="">Загальні стилі</p>
-          <div class="bcg-box">
-            .box {<br />
-                width: 200px;<br />
-                height: 300px;<br />
-                background-image: url('photo.png');<br />
-                background-size: 200px 300px;<br />
-            }
+          <div class="m-bottom-min">
+            <p class="center-text">загальні стилі</p>
+            <div class="bcg-box">
+              .box {<br />
+                  width: 200px;<br />
+                  height: 300px;<br />
+                  background-image: url('photo.png');<br />
+                  background-size: 200px 300px;<br />
+              }
+            </div>
+          </div>
+
+          <div class="m-bottom-min">
+            <p class="center-text">або</p>
+            <div class="bcg-box">
+              .box {<br />
+                  width: 200px;<br />
+                  height: 300px;<br />
+                  background-image: url('photo.png');<br />
+                  background-size: cover;<br />
+              }
+            </div>
+          </div>
+
+          <div class="m-bottom-min">
+            <p class="center-text">
+              при щільності екрана як мінімум 2x
+            </p>
+            <div class="bcg-box">
+              @media (min-resolution: 192dpi) {<br />
+                  .box {<br />
+                      <b>. . .</b> <br />
+                      background-image:
+              url('photo@2x.png');<br />
+                  }<br />
+              }
+            </div>
           </div>
         </div>
 
-        <div class="flex m-bottom-min print-m-bottom-max">
-          <p class="">або</p>
-          <div class="bcg-box">
-            .box {<br />
-                background-image: url('photo.png');<br />
-                background-size: cover;<br />
-            }
+        <div class="flex">
+          <div>
+            <p class="">
+              Не усі браузери можуть підртимувати умову у
+              dpi
+              <br />
+              (min-resolution: 192dpi)
+            </p>
           </div>
-        </div>
-
-        <div class="flex m-bottom-min">
-          <p class="">
-            Якщо щільність екрана як мінімум 2x
-          </p>
-          <div class="bcg-box">
-            @media (min-resolution: 192dpi) {<br />
-                .box {<br />
-                    background-image:
-            url('photo@2x.png');<br />
-                }<br />
-            }
-          </div>
-        </div>
-
-        <div class="flex m-bottom-min">
-          <p class="">
-            Не усі браузери можуть підртимувати умову
-            (min-resolution: 192dpi)
-          </p>
           <div class="bcg-box">
             @media screen and (min-resolution: 192dpi),<br />
                 screen and (min-resolution: 2dppx),<br />
@@ -358,46 +324,62 @@
           відображається на різних пристроях та з екранами
           різної піксельної щільності
         </p>
-        <div class="bcg-box">
-          .banner {<br />
-              min-height: 600px;<br />
-              background-image:
-          url('./imags/image-mobile.jpg');<br />
-              background-position: center top;<br />
-              background-size: 960px 576px;<br />
-              background-repeat: no-repeat;<br />
-          }<br />
-          <br />
-          @media screen and (min-resolution: 192dpi) and
-          (max-width: 767px),<br />
-          screen and (min-resolution: 2dppx) and (max-width:
-          767px),<br />
-          screen and (min-device-pixel-ratio: 2) and
-          (max-width: 767px) {<br />
-              .banner {<br />
-                  background-image:
-          url('./imags/image-mobile@2x.jpg');<br />
-              }<br />
-          }<br />
-          <br />
-          @media screen and (min-width: 768px) {<br />
-              .banner {<br />
-                  background-image:
-          url('./imags/image-tablet.jpg');<br />
-              }<br />
-          }<br />
-          <br />
-          @media screen and (min-resolution: 192dpi) and
-          (min-width: 768px),<br />
-          screen and (min-resolution: 2dppx) and (min-width:
-          768px),<br />
-          screen and (min-device-pixel-ratio: 2) and
-          (min-width: 768px) {<br />
-              .banner {<br />
-                  background-image:
-          url('./imags/image-tablet@2x.jpg');<br />
-              }<br />
-          }
+        <div class="flex bcg-box m-bottom-min fs-12">
+          <div class="">
+            .banner {<br />
+                min-height: 600px;<br />
+                background-image:
+            url('./imags/image-mobile.jpg');<br />
+                background-position: center top;<br />
+                background-size: 960px 576px;<br />
+                background-repeat: no-repeat;<br />
+            }<br />
+            <br />
+            @media screen and (min-resolution: 192dpi) and
+            (max-width: 767px),<br />
+            screen and (min-resolution: 2dppx) and
+            (max-width: 767px),<br />
+            screen and (min-device-pixel-ratio: 2) and
+            (max-width: 767px) {<br />
+                .banner {<br />
+                    background-image:
+            url('./imags/image-mobile@2x.jpg');<br />
+                }<br />
+            }<br />
+          </div>
+
+          <div class="">
+            @media screen and (min-width: 768px) {<br />
+                .banner {<br />
+                    background-image:
+            url('./imags/image-tablet.jpg');<br />
+                }<br />
+            }<br />
+            <br />
+            @media screen and (min-resolution: 192dpi) and
+            (min-width: 768px),<br />
+            screen and (min-resolution: 2dppx) and
+            (min-width: 768px),<br />
+            screen and (min-device-pixel-ratio: 2) and
+            (min-width: 768px) {<br />
+                .banner {<br />
+                    background-image:
+            url('./imags/image-tablet@2x.jpg');<br />
+                }<br />
+            }
+          </div>
+        </div>
+
+        <div class="flex border-box">
+          <p>
+            <b>Цікаво!</b> Налаштування області перегляду на
+            мобільних пристроях у html-файлі
+          </p>
+          <div class="bcg-box print-bcg-box">
+            &#60;meta name="viewport"
+            content="width=device-width, initial-scale=1.0"
+            /&#62;<br />
+          </div>
         </div>
       </div>
     </section>
