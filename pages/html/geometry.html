@@ -8,7 +8,8 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Геометрия елементів</title>
-    <link rel="stylesheet" href="../../css/styles.css" />
+    <script type="text/javascript" nonce="c517ebcd4a7b4838a6349ab890f" src="//local.adguard.org?ts=1730133724780&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.3%26permmsgid%3Dmsg-f%3A1813893752860742226%26th%3D192c3ec1ff909252%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ8PDwsNdq08odnnh_4Lbt7DI9dYS5tO8TYzf8uf22ke9RXZDYP6bMFj0_EUFfCRp8cCJtQnu93rymgfBqDI7dSzSgKchFekPqc1F_1BCJS8ConJHmHNcRpgruj9mls8GBaLguvozlbI00LWzHpKo-2oPE8pCv8jQUgeA8wSshGKfz2bTtvwMJUYaSl8U_uLtxBe70Ojdzc9oiRdkSzDbZxoVxco5JFdGKW5y6xziGp9fSZ2WPN0i1A3Xn38sAatgyZXwYJHeiU_APx_dITDuFLFgnJoVVEUp8IZp-6fRZRv8B4OB6FxU7r2euWkoOuKNmQOlkav2RAVOE9qDYIY2655cG18ehT5c8yp-Z3tZLqudeG95rQVnyvxahB4YeP4MLI-IBr9ihek5KazsGWXm43hmeNNqNZwAuho9Oge3gCzIszinDxhcAthsgnsItbI3ReasXS-xRMGx6WwnM2nvXKZwC16v4ADM0_KcF5vWmtzdXKltUVgeXWDBbE_kpiuoCjzHA-lKr-KMCS32eiucMOV0i6zP7n9cDJaQyeZPtpGtD7QIG9hQaSSQBlOzCkTfT9WBfwTUrn3GVXczkVlCIdMOqVnUbOFb-9N9wniZhyLIsAPFCGyopUaSHEkwwcMkx0vL65KljBUUv-Anqhgv0O68wU8R7nkxu7wChmTa_7HC_LtRhmel11Rd16dYNZKSDsLRKeSXNxsSMFJeGDX4IS3Sj9LV0O0MS37-D5MMDTxzc6fLRPVomHGnQz96HpXekSnRwDe3Gbabq98hXWmjr1MFD7heH9TNCmRs-Wv1mc4oHO06bX8JGwBzIzZX6cnjzRMmN2HllI99MgH9L2bGDoPZRyKnRrTbfbQquiWpQzAbrxOrzYJ0ge4PCYONs313CHUBZJWeiICyRJlWNY1IOPpzblm5LsnPKDWmYpX1yNQlV_8yoIghNC95i1ZkoFLmQQ0WqZR8tazJupMT8OuaWXEmRqKiiHCTnZHMx3xMvM0NuKkksNjzGRJUpI&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="c517ebcd4a7b4838a6349ab890f" src="//local.adguard.org?ts=1730133724780&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet" href="../../css/styles.css" />
     <link
       rel="stylesheet"
       href="../../css/styles-print.css"
@@ -81,16 +82,16 @@
           </caption>
           <thead>
             <tr>
-              <th class="">Опис</th>
               <th class="">Властивість</th>
+              <th class="">Опис</th>
               <th class="">Значення</th>
               <th class="">Примітка</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th rowspan="5">display</th>
               <td rowspan="5">тип елементу</td>
-              <td rowspan="5">display</td>
               <td>block</td>
               <td>
                 <p>Блоковий елемент</p>
@@ -202,8 +203,8 @@
           </caption>
           <thead>
             <tr>
-              <th class="">Опис</th>
               <th class="">Властивість</th>
+              <th class="">Опис</th>
               <th class="">Значення</th>
               <th class="">Примітка</th>
             </tr>
@@ -211,13 +212,13 @@
           <tbody>
             <!-- ======margin / padding====== -->
             <tr>
-              <td rowspan="6">
-                зовнішні відступи /<br />
-                внутрішні відступи
-              </td>
-              <td rowspan="4">
+              <th rowspan="4">
                 margin /<br />
                 padding
+              </th>
+              <td rowspan="4">
+                зовнішні відступи /<br />
+                внутрішні відступи
               </td>
               <td>20px</td>
               <td>Однакові поля по 20px з усіх боків</td>
@@ -246,45 +247,54 @@
 
             <tr>
               <!-- <td>margin-left</td> -->
-              <td>margin-top (<i>right/bottom/left</i>)</td>
-              <td>10px</td>
+              <th>
+                margin-top <br />
+                padding-top<br />
+                (<i>right/bottom/left</i>)
+              </th>
               <td>
-                верхній (<i>правий/нижній/лівий</i>) відступ
-                (так само і для padding)
+                верхній зовнішній/внутрішній відступ
+                (<i>правий/нижній/лівий</i>)
               </td>
+              <td>10px</td>
+              <td></td>
             </tr>
             <tr>
-              <td>margin-right(<i>left</i>)</td>
-              <td>auto</td>
+              <th>margin-right(<i>left</i>)</th>
               <td>
                 притиснути до лівого (<i>правого</i>) краю
                 (тільки для margin)
               </td>
+
+              <td>auto</td>
+              <td></td>
             </tr>
 
             <!-- ======border====== -->
             <tr>
-              <td rowspan="17">рамка</td>
-              <!-- <td rowspan="23">рамка</td> -->
-              <td>border</td>
+              <th>border</th>
+              <td rowspan="">рамка</td>
               <td class="fs-15">5px solid red</td>
               <td></td>
             </tr>
             <tr>
-              <td>border-top (<i>right/bottom/left</i>)</td>
-              <td class="fs-15">5px solid red</td>
+              <th>border-top (<i>right/bottom/left</i>)</th>
               <td>
                 верхня (<i>права/нижня/ліва</i>) рамка
               </td>
+              <td class="fs-15">5px solid red</td>
+              <td></td>
             </tr>
 
             <tr>
-              <td>border-width</td>
+              <th>border-width</th>
+              <td>ширина рамки</td>
               <td>10px</td>
-              <td>ширина</td>
+              <td></td>
             </tr>
             <tr>
-              <td rowspan="10">border-style</td>
+              <th rowspan="10">border-style</th>
+              <td rowspan="10">стиль рамки</td>
               <td>solid</td>
               <td>суцільна лінія</td>
             </tr>
@@ -325,7 +335,8 @@
               <td>подвійна лінія</td>
             </tr>
             <tr>
-              <td rowspan="2">border-color</td>
+              <th rowspan="2">border-color</th>
+              <td rowspan="2">колір рамки</td>
               <td>RGB</td>
               <td></td>
             </tr>
@@ -334,25 +345,28 @@
               <td></td>
             </tr>
             <tr>
-              <td>border-radius</td>
+              <th>border-radius</th>
+              <td>заокруглена рамка</td>
               <td>10px</td>
-              <td>Заокруглена рамка</td>
+              <td></td>
             </tr>
             <tr>
-              <td>
+              <th>
                 border-top(<i>bottom</i>)-left(<i>right</i>)-radius
+              </th>
+              <td>
+                радіус скруглення верхнього
+                (<i>нижнього</i>) лівого (<i>правого</i>)
+                кута
               </td>
               <td>20%</td>
-              <td>
-                верхній (<i>нижній</i>) лівий
-                (<i>правий</i>) кут
-              </td>
+              <td></td>
             </tr>
 
             <!-- ======width====== -->
             <tr>
+              <th rowspan="6">width</th>
               <td rowspan="6">ширина елементу</td>
-              <td rowspan="6">width</td>
               <td>10px</td>
               <td></td>
             </tr>
@@ -392,32 +406,32 @@
 
             <!-- ======min-width====== -->
             <tr>
+              <th>min-width</th>
               <td>мінімальна ширина</td>
-              <td>min-width</td>
               <td colspan="2">як у width</td>
             </tr>
 
             <!-- ======max-width====== -->
             <tr>
+              <th>max-width</th>
               <td>максимальна ширина</td>
-              <td>max-width</td>
               <td colspan="2">як у width</td>
             </tr>
 
             <!-- ======height====== -->
             <tr>
+              <th>height</th>
               <td>висота елементу</td>
-              <td>height</td>
               <td colspan="2"></td>
             </tr>
 
             <!-- ======object-fit====== -->
             <tr>
+              <th rowspan="5">object-fit</th>
               <td rowspan="5">
                 тип розміщення елемента в контейнері, коли
                 контейнер менший за елемент
               </td>
-              <td rowspan="5">object-fit</td>
               <td>fill</td>
               <td>
                 зображення масштабується без збереження
@@ -459,12 +473,11 @@
 
             <!-- ======box-sizing====== -->
             <tr>
+              <th rowspan="2">box-sizing</th>
               <td rowspan="2">
                 тип блокової моделі елемента (алгоритм
                 розрахунку його розмірів)
               </td>
-              <td rowspan="2">box-sizing</td>
-
               <td>content-box</td>
               <td class="fs-15">
                 властивості <i>width</i> і
@@ -502,11 +515,11 @@
 
             <!-- ======overflow====== -->
             <tr>
-              <td rowspan="6">
+              <th rowspan="4">overflow</th>
+              <td rowspan="4">
                 поведінка вмісту елемента, якщо його розмір
                 перевищує припустиму висоту чи ширину
               </td>
-              <td rowspan="4">overflow</td>
               <td>visible</td>
               <td>
                 вміст, що виходить за межі елемента,
@@ -539,17 +552,21 @@
               </td>
             </tr>
             <tr>
-              <td>overflow-x</td>
-              <td colspan="2">
+              <th>overflow-x</th>
+              <td colspan="">
                 керує переповненням контейнеру по
                 горизонталі
               </td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
-              <td>overflow-y</td>
-              <td colspan="2">
+              <th>overflow-y</th>
+              <td colspan="">
                 керує переповненням контейнеру по вертикалі
               </td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
