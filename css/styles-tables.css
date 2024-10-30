@@ -1,3 +1,56 @@
+/* Стилі. Загальна інформація. Підключення стилів */
+.styles-on-style col:nth-child(1) {
+  width: 15%;
+}
+.styles-on-style col:nth-child(4) {
+  width: 22%;
+}
+
+/* Стилі. Загальна інформація. Псевдокласи стану */
+.style-pseudoclass td:nth-child(1) {
+  font-weight: 700;
+}
+
+/* Стилі. Загальна інформація. Псевдоелементи*/
+.style-pseudoelements td:nth-child(1) {
+  font-weight: 700;
+}
+
+/* Стилі. Загальна інформація. Псевдоелементи*/
+.style-at-rules td:nth-child(1) {
+  font-weight: 700;
+}
+
+/* Стилі. Стилізація тексту. Стилі шрифтів*/
+.styles-fonts col:nth-child(1) {
+  width: 18%;
+}
+.styles-fonts col:nth-child(2) {
+  width: 15%;
+}
+
+/* Стилі. Стилізація тексту. Стилі макетів шрифтів*/
+.styles-fonts-markers col:nth-child(1) {
+  width: 14%;
+}
+.styles-fonts-markers col:nth-child(2) {
+  width: 20%;
+}
+.styles-fonts-markers col:nth-child(3) {
+  width: 13%;
+}
+
+/* Стилі. Стилізація тексту. Макет з кількома стовпцями*/
+.styles-multicol col:nth-child(1) {
+  width: 20%;
+}
+.styles-multicol col:nth-child(3) {
+  width: 20%;
+}
+.styles-multicol col:nth-child(4) {
+  width: 40%;
+}
+
 /* Теги. Таблиці. Специфічні CSS-властивості */
 .table-css-props col:nth-child(1) {
   width: 17%;
@@ -7,4 +60,23 @@
 }
 .table-tegs col:nth-child(3) {
   width: 18%;
+}
+
+/* Розташування і динаміка елементів. CSS-переходи */
+.table-transition col:nth-child(1) {
+  width: 28%;
+}
+.table-transition col:nth-child(3) {
+  width: 17%;
+}
+
+/* Розташування і динаміка елементів. CSS-анімації */
+.table-animation col:nth-child(1) {
+  width: 18%;
+}
+.table-animation col:nth-child(2) {
+  width: 17%;
+}
+.table-animation col:nth-child(3) {
+  width: 15%;
 }

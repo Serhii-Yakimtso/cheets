@@ -7,11 +7,14 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Розташування і динаміка елементів</title>
-    <script type="text/javascript" nonce="c517ebcd4a7b4838a6349ab890f" src="//local.adguard.org?ts=1730133724780&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.4%26permmsgid%3Dmsg-f%3A1813893752860742226%26th%3D192c3ec1ff909252%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ8tOP1CNZST4TStvpuACgRaUqwF-tCXVBiz5IpRb8fCG7S66XY0B16g7JI2dP-SfvCyxk2VHfcP5LWblHRdsvtu8tA5b4U6PDNXf0DWLXSVaKMBVy640NCnorQIdPUrP84-u_TbbePMoQ-yhLuqEp7B61obaSgOkxAI9HOQaOKTwWzvnLOgyyfCnVJA02g755bNPQbD-TApFqLSSJetQ2fH1P82DaWjgcJlFi0w7T7nDwWxMW2QUU7QPFxM2bXVuAC2p9Ywb9G2Dzk3fqAPtddpng8mkTUR0BqVT3fIxU7XahCxpu54lczVPkm1dbd4N9gAyguSdKwKEOgDDDCq1sXdJ1kD6nFH1vU6VFzf22vHjH1WvZFMaTCoosjgEZBVoPMb5epeOienXt4tjg_5HozbQNH8aMGLVFYQvyHDdx5G0bfjNWfQqGD--uiJIcijMFxW_U7kFDPDfaeoq-C-RBcavBq__krCXRzPYBTfUePOAgec5ITD-rqf8BjDStF3bzouUXA_dcTQITXtombN9pXGDlMnPoEbSDrXDQTKHhfJ37Dgr1apy0c8Xfe8i2d8RCLXp9V6FBcdgQIEehqE3hnokD3cr8KMcgKU_TcoOFZ5gZyEJL3O8Gx_86ZYPr744rOp87M11lWGvmyUVl4ZqJR5ZMI71NTQk4iJ9Ci9Fm0Ya6mbKTjlqqdHyp3JAI8QKSlRPDHbIp9pWTuP_Q3YjJ1VzsgkvuTAB_VFKjweyzLUaY8IgNXkGEypcukbiDQYnCtbxFZSne166V7K7oF835YpWOx2MCIgzTartFCHZZcVFUOiTuPYOsiXxgtghH2u63vVpCOiJWWq42MEYzgDFhIfd97a0am73JkdWors5wdUhRSxSV_U-ZW-NITkTSl9s5d1vpvgvQZHYB3azKozfq8HmSVdPRmf2F2Uk6Iv2vB9in_vqqldx1YW5kvysN9nrX_DcbyJ3POyVTxIPssyjmIGZ505TZA3aFKVIOGOJ28hKGgf7tgxTm0VMzM&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-<script type="text/javascript" nonce="c517ebcd4a7b4838a6349ab890f" src="//local.adguard.org?ts=1730133724780&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
     <link
       rel="stylesheet"
       href="../../css/styles-print.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-tables.css"
     />
   </head>
   <body>
@@ -57,10 +60,10 @@
           </thead>
           <tbody class="print-fs-15">
             <tr>
+              <th rowspan="5">position</th>
               <td rowspan="5">
                 тип позиціонування елемента
               </td>
-              <td rowspan="5">position</td>
               <td>static</td>
               <td>
                 Статичне позиціонування (за замовчуванням)
@@ -132,35 +135,35 @@
               </td>
             </tr>
             <tr>
+              <th>top</th>
               <td rowspan="4">
                 налаштування положення елемента при
                 позиціонуванні
               </td>
-              <td>top</td>
               <td>px, %</td>
               <td>відстань від верхнього краю</td>
             </tr>
             <tr>
-              <td>left</td>
+              <th>left</th>
               <td>px, %</td>
               <td>відстань від лівого краю</td>
             </tr>
             <tr>
-              <td>bottom</td>
+              <th>bottom</th>
               <td>px, %</td>
               <td>відстань від нижнього краю</td>
             </tr>
             <tr>
-              <td>right</td>
+              <th>right</th>
               <td>px, %</td>
               <td>відстань від правого краю</td>
             </tr>
             <tr>
+              <th>z-index</th>
               <td>
                 глибина (положення) елемента на осі Z від
                 очей користувача до екрану
               </td>
-              <td>z-index</td>
               <td>число</td>
               <td>
                 <ul class="">
@@ -237,18 +240,24 @@
           <caption>
             Значення властивості transform
           </caption>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
-              <th>Опис</th>
               <th style="width: 140px">Значення</th>
+              <th>Опис</th>
               <th>Тип значення</th>
               <th>Примітка</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th>scaleX(tx)</th>
               <td rowspan="3">Масштабування</td>
-              <td>scaleX(tx)</td>
               <td rowspan="3">число</td>
               <td rowspan="3">
                 Масштабують блок по ширині та/або висоті, не
@@ -260,14 +269,14 @@
               </td>
             </tr>
             <tr>
-              <td>scaleY(ty)</td>
+              <th>scaleY(ty)</th>
             </tr>
             <tr>
-              <td>scale(tx, ty)</td>
+              <th>scale(tx, ty)</th>
             </tr>
             <tr>
+              <th rowspan="2">rotate(кут)</th>
               <td rowspan="2">Поворот</td>
-              <td rowspan="2">rotate(кут)</td>
               <td>deg</td>
               <td>
                 Повертає елементи на задану кількість
@@ -284,8 +293,8 @@
               </td>
             </tr>
             <tr>
+              <th>translateX(tx)</th>
               <td rowspan="3">Зміщення</td>
-              <td>translateX(tx)</td>
               <td rowspan="3">
                 px <br />
                 %
@@ -315,14 +324,14 @@
               </td>
             </tr>
             <tr>
-              <td>translateY(ty)</td>
+              <th>translateY(ty)</th>
             </tr>
             <tr>
-              <td>translate(tx, ty)</td>
+              <th>translate(tx, ty)</th>
             </tr>
             <tr>
+              <th>skewX(кут)</th>
               <td rowspan="3">Викривлення</td>
-              <td>skewX(кут)</td>
               <td rowspan="3">deg</td>
               <td rowspan="3">
                 Параметри викривлення (нахилу, деформування)
@@ -330,10 +339,10 @@
               </td>
             </tr>
             <tr>
-              <td>skewY(кут)</td>
+              <th>skewY(кут)</th>
             </tr>
             <tr>
-              <td>skew(x-кут, y-кут)</td>
+              <th>skew(x-кут, y-кут)</th>
             </tr>
           </tbody>
         </table>
@@ -456,23 +465,29 @@
           </div>
         </div>
 
-        <table>
+        <table class="table-transition">
           <caption></caption>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
-              <th class="">Опис</th>
               <th class="">Властивість</th>
+              <th class="">Опис</th>
               <th class="">Значення</th>
               <th class="">Примітка</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th>transition-property</th>
               <td>
                 задає властивості, до яких буде застосовано
                 ефект переходу
               </td>
-              <td>transition-property</td>
               <td>властивість</td>
               <td>
                 одна чи список властивостей через кому (за
@@ -480,11 +495,11 @@
               </td>
             </tr>
             <tr>
+              <th rowspan="2">transition-duration</th>
               <td rowspan="2">
                 задає проміжок часу, протягом якого має
                 здійснитися перехід
               </td>
-              <td rowspan="2">transition-duration</td>
               <td>секунди (0.5s)</td>
               <td rowspan="2">
                 Якщо різні властивості мають різні значення
@@ -496,12 +511,12 @@
               <td>мілісекунди (500ms)</td>
             </tr>
             <tr>
+              <th rowspan="5">
+                transition-timing-function
+              </th>
               <td rowspan="5">
                 задає функцію розподілу часу, тобто
                 поведінку анімації
-              </td>
-              <td rowspan="5">
-                transition-timing-function
               </td>
               <td>ease</td>
               <td>
@@ -536,11 +551,11 @@
               </td>
             </tr>
             <tr>
+              <th rowspan="2">transition-delay</th>
               <td rowspan="2">
                 визначає затримку, після якої розпочинається
                 анімація переходу
               </td>
-              <td rowspan="2">transition-delay</td>
               <td>секунди (0.5s)</td>
               <td rowspan="2">(за замовчуванням 0s)</td>
             </tr>
@@ -548,11 +563,11 @@
               <td>мілісекунди (500ms)</td>
             </tr>
             <tr>
+              <th rowspan="5">transition</th>
               <td rowspan="5">
                 Всі властивості переходу поєднати в одну
                 складову
               </td>
-              <td rowspan="5">transition</td>
               <td>property</td>
               <td>background-color</td>
             </tr>
@@ -650,20 +665,26 @@
           </div>
         </div>
 
-        <table>
+        <table class="table-animation">
           <caption></caption>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
-              <th>Опис</th>
               <th>Властивість</th>
+              <th>Опис</th>
               <th>Значення</th>
               <th>Примітка</th>
             </tr>
           </thead>
-          <tbody class="print-fs-13">
+          <tbody class="fs-13">
             <tr>
+              <th>animation-name</th>
               <td>Назва анімації</td>
-              <td>animation-name</td>
               <td>текст</td>
               <td>
                 Має співпасти із визначенням у
@@ -671,14 +692,14 @@
               </td>
             </tr>
             <tr>
+              <th>animation-duration</th>
               <td>Тривалість анімації</td>
-              <td>animation-duration</td>
               <td>s, ms</td>
               <td></td>
             </tr>
             <tr>
+              <th rowspan="5">animation-timing-function</th>
               <td rowspan="5">Тип таймінгу</td>
-              <td rowspan="5">animation-timing-function</td>
               <td>ease</td>
               <td>
                 перехід починається повільно, швидко
@@ -713,16 +734,16 @@
             </tr>
 
             <tr>
+              <th>animation-delay</th>
               <td>Затримка перед початком анімації</td>
-              <td>animation-delay</td>
               <td>s, ms</td>
               <td></td>
             </tr>
             <tr>
+              <th rowspan="2">animation-iteration-count</th>
               <td rowspan="2">
                 Кількість повторів анімації
               </td>
-              <td rowspan="2">animation-iteration-count</td>
               <td>число</td>
               <td></td>
             </tr>
@@ -731,8 +752,8 @@
               <td>безкінечна кількість</td>
             </tr>
             <tr>
+              <th rowspan="4">animation-direction</th>
               <td rowspan="4">Напрямок анімації</td>
-              <td rowspan="4">animation-direction</td>
               <td>normal</td>
               <td></td>
             </tr>
@@ -749,11 +770,11 @@
               <td></td>
             </tr>
             <tr>
+              <th rowspan="4">animation-fill-mode</th>
               <td rowspan="4">
                 Поведінка елемента після або до завершення
                 анімації
               </td>
-              <td rowspan="4">animation-fill-mode</td>
               <td>none</td>
               <td>
                 Стилі анімації не будуть застосовуватися до
@@ -782,10 +803,10 @@
               </td>
             </tr>
             <tr>
+              <th rowspan="2">animation-play-state</th>
               <td rowspan="2">
                 Зупинка та відновлення анімації
               </td>
-              <td rowspan="2">animation-play-state</td>
               <td>running</td>
               <td>Відтворюється анімація</td>
             </tr>
