@@ -8,16 +8,6 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Геометрия елементів</title>
-    <script
-      type="text/javascript"
-      nonce="c517ebcd4a7b4838a6349ab890f"
-      src="//local.adguard.org?ts=1730133724780&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3De3835ee7bf%26attid%3D0.3%26permmsgid%3Dmsg-f%3A1813893752860742226%26th%3D192c3ec1ff909252%26view%3Datt%26disp%3Dsafe%26saddbat%3DANGjdJ8PDwsNdq08odnnh_4Lbt7DI9dYS5tO8TYzf8uf22ke9RXZDYP6bMFj0_EUFfCRp8cCJtQnu93rymgfBqDI7dSzSgKchFekPqc1F_1BCJS8ConJHmHNcRpgruj9mls8GBaLguvozlbI00LWzHpKo-2oPE8pCv8jQUgeA8wSshGKfz2bTtvwMJUYaSl8U_uLtxBe70Ojdzc9oiRdkSzDbZxoVxco5JFdGKW5y6xziGp9fSZ2WPN0i1A3Xn38sAatgyZXwYJHeiU_APx_dITDuFLFgnJoVVEUp8IZp-6fRZRv8B4OB6FxU7r2euWkoOuKNmQOlkav2RAVOE9qDYIY2655cG18ehT5c8yp-Z3tZLqudeG95rQVnyvxahB4YeP4MLI-IBr9ihek5KazsGWXm43hmeNNqNZwAuho9Oge3gCzIszinDxhcAthsgnsItbI3ReasXS-xRMGx6WwnM2nvXKZwC16v4ADM0_KcF5vWmtzdXKltUVgeXWDBbE_kpiuoCjzHA-lKr-KMCS32eiucMOV0i6zP7n9cDJaQyeZPtpGtD7QIG9hQaSSQBlOzCkTfT9WBfwTUrn3GVXczkVlCIdMOqVnUbOFb-9N9wniZhyLIsAPFCGyopUaSHEkwwcMkx0vL65KljBUUv-Anqhgv0O68wU8R7nkxu7wChmTa_7HC_LtRhmel11Rd16dYNZKSDsLRKeSXNxsSMFJeGDX4IS3Sj9LV0O0MS37-D5MMDTxzc6fLRPVomHGnQz96HpXekSnRwDe3Gbabq98hXWmjr1MFD7heH9TNCmRs-Wv1mc4oHO06bX8JGwBzIzZX6cnjzRMmN2HllI99MgH9L2bGDoPZRyKnRrTbfbQquiWpQzAbrxOrzYJ0ge4PCYONs313CHUBZJWeiICyRJlWNY1IOPpzblm5LsnPKDWmYpX1yNQlV_8yoIghNC95i1ZkoFLmQQ0WqZR8tazJupMT8OuaWXEmRqKiiHCTnZHMx3xMvM0NuKkksNjzGRJUpI&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"
-    ></script>
-    <script
-      type="text/javascript"
-      nonce="c517ebcd4a7b4838a6349ab890f"
-      src="//local.adguard.org?ts=1730133724780&amp;name=Adguard%20Assistant&amp;name=Adguard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;type=user-script"
-    ></script>
     <link rel="stylesheet" href="../../css/styles.css" />
     <link
       rel="stylesheet"
@@ -1354,7 +1344,7 @@
           дозволяючи легко контролювати розміри,
           позиціонування та вирівнювання елементів.
         </p>
-        <ul class="noList m-bottom-min">
+        <ul class="noList m-bottom">
           <li class="m-bottom-min">
             <b>Grid-контейнер</b> — елемент, якому присвоєно
             властивість <b>display: grid;</b>. Він стає
@@ -1380,6 +1370,164 @@
             охоплюють кілька grid-комірок. Можуть бути
             визначені для більш контрольованого розміщення
             елементів.
+          </li>
+        </ul>
+
+        <h3>
+          Специфічні значення розмірів властивостей Grid
+        </h3>
+        <ul class="m-bottom-min">
+          <li class="m-bottom-min">
+            <div class="flex">
+              <p>
+                <b>fr (фракція)</b> — показує, скільки
+                частин доступного простору має займати кожен
+                стовпець або рядок, порівняно з іншими
+                елементами в сітці.
+              </p>
+              <div class="bcg-box">
+                grid-template-columns: 1fr 2fr;<br />
+                grid-template-columns: 200px 1fr 2fr;
+              </div>
+            </div>
+            <p>
+              <i>
+                Використовується для адаптивних макетів чи
+                контейнера , де потрібно рівномірно чи
+                пропорційно розподіляти доступний
+                простір.</i
+              >
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <div class="flex">
+              <p>
+                <b>auto</b> — дозволяє колонці або рядку
+                автоматично підлаштовуватися під контекст.
+              </p>
+              <div class="bcg-box">
+                grid-template-columns: auto 1fr;
+              </div>
+            </div>
+            <p>
+              <i>
+                Використовується якщо необхідно, щоб ширина
+                або висота стовпця чи рядка підлаштовувалася
+                під розмір вмісту або коли потрібно створити
+                комбінацію з елементами різного розміру, де
+                деякі з них повинні залишатися
+                пропорційними, а інші — зафіксовані під
+                вміст.</i
+              >
+            </p>
+          </li>
+          <li class="m-bottom-min">
+            <div class="flex">
+              <div>
+                <p>
+                  <b>функція repeat()</b> — налаштовує
+                  повторювальний шаблон колонок і рядків та
+                  їх розмірів
+                </p>
+                <div
+                  class="bcg-box center-element"
+                  style="width: min-content"
+                >
+                  repeat(count, size)
+                </div>
+                <ul>
+                  <li>
+                    <b>count</b> — кількість повторів. Це
+                    число або значення auto-fill чи
+                    auto-fit.
+                  </li>
+                  <li>
+                    <b>size</b> — розмір кожного
+                    повторюваного стовпця або рядка. Може
+                    бути заданий у будь-якій одиниці: px, %,
+                    fr, auto, тощо.
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box">
+                grid-template-columns: repeat(4, 100px);<br />
+                grid-template-columns: repeat(4, 100px
+                200px);<br /><br />
+                grid-template-columns: repeat(4, 1fr);<br />
+                grid-template-columns: repeat(4, 1fr
+                2fr);<br /><br />
+                grid-template-columns: repeat(4, 15%);<br /><br />
+                grid-template-columns: 200px repeat(2, 1fr)
+                auto ;<br />
+              </div>
+            </div>
+            <p>
+              <i>
+                Використовується коли потрібно створити
+                однакові стовпці або рядки, щоб не дублювати
+                код або для адаптивних сіток з різними
+                розмірами, де використання
+                <b>auto-fill</b> або <b>auto-fit</b> спрощує
+                додавання елементів.</i
+              >
+            </p>
+            <p>
+              Спеціальні ключові слова в CSS Grid, які
+              використовуються з функцією repeat()
+            </p>
+            <ul>
+              <li>
+                <b>auto-fill</b> — заповнює контейнер
+                максимальною кількістю колонок або рядків
+                певного розміру, навіть якщо залишаються
+                порожні комірки. Коли ширина контейнера
+                збільшується, додаються нові колонки або
+                рядки відповідно до вказаного розміру.
+              </li>
+              <li>
+                <b>auto-fit</b> (подібний до
+                <i>auto-fill</i>) — якщо залишаються
+                незаповнені стовпці або рядки, вони
+                "колапсують", тобто стискаються, щоб
+                заповнити доступний простір. Це означає, що
+                комірки розширюються, щоб зайняти більше
+                простору, коли в контейнері залишаються
+                порожні місця.
+              </li>
+            </ul>
+            <div class="border-box">
+              <p><b>Цікаво!</b></p>
+              <ul>
+                <li>
+                  <b>auto-fill</b>: додає колонки чи рядки
+                  постійно, навіть якщо залишаються порожні
+                  місця.
+                </li>
+                <li>
+                  <b>auto-fit</b>: розширює комірки, щоб
+                  заповнити порожній простір, адаптуючи їх
+                  під наявні елементи.
+                </li>
+              </ul>
+              <p><b>Важливо!</b> Використовується</p>
+              <ul>
+                <li>
+                  <b>auto-fill</b> — коли потрібно заповнити
+                  сітку максимальною кількістю
+                  колонок/рядків, навіть якщо деякі з них
+                  залишаться порожніми.
+                </li>
+                <li>
+                  <b>auto-fit</b> — коли бажано, щоб
+                  колонки/рядки автоматично розтягувалися,
+                  заповнюючи весь доступний простір
+                  контейнера.
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <p><b>функція minmax()</b> —</p>
           </li>
         </ul>
 
@@ -1558,6 +1706,42 @@
             </tr>
             <tr>
               <td>align-self</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><b>grid-column-start</b>: 1;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>grid-column-end: 5;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>grid-column: 1 / 5;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>grid-row-start: 1;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>grid-row-end: 2;</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>grid-row: 1 / 2;</td>
               <td></td>
               <td></td>
               <td></td>
