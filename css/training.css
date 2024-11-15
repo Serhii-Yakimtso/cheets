@@ -1,78 +1,54 @@
-/* .box {
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-} */
-
-/* .wrapper {
-  float: left;
-} */
-
-/* .text {
-  width: max-content;
-} */
-
-p {
-  /* column-count: auto; */
-  /* column-count: 4; */
-  /* column-width: 100px; */
-  /* column-rule: 100px solid rgba(10%, 40%, 15%, 0.1); */
-  /* column-gap: 100px; */
-  /* column-rule-style: none; */
-  /* column-rule-style: hidden; */
-  /* column-rule-style: dotted; */
-  /* column-rule-style: dashed; */
-  /* column-rule-style: solid; */
-  /* column-rule-style: double; */
-  /* column-rule-style: groove; */
-  /* column-rule-style: ridge; */
-  /* column-rule-style: inset; */
-  /* column-rule-style: outset; */
+/* Basic styles */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-/* Отступы */
-
-table {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-  border: 3px solid purple;
+html {
+  box-sizing: border-box;
+  font-weight: 900;
+  font-size: 10px;
+  color: #333333;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
 }
 
-thead th:nth-child(1) {
-  width: 30%;
+body {
+  min-height: calc(100vh - 100px);
+  margin: 50px;
+  letter-spacing: -1px;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #ffeead;
 }
 
-thead th:nth-child(2) {
-  width: 20%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 5px 0;
 }
 
-thead th:nth-child(3) {
-  width: 15%;
+.grid-item {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 35px;
+  background-color: #ff6f69;
+  color: #ffeead;
 }
 
-thead th:nth-child(4) {
-  width: 35%;
+.item p {
+  margin: 0 0 5px 0;
 }
 
-th,
-td {
-  padding: 20px;
-}
-/* Полосатая зебра */
-
-tbody tr:nth-child(odd) {
-  background-color: #ff33cc;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #e495e4;
-}
-
-tbody tr {
-  background-image: url(noise.png);
-}
-
-table {
-  background-color: #ff33cc;
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(3, 150px);
+  border: 10px solid black;
 }
