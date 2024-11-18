@@ -8,931 +8,963 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Компоненти</title>
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/react.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
     <a class="print-home-link" href="../../index.html"
       >На головну</a
     >
-    <h1 class="m-bottom center-text">Компоненти</h1>
+    <section class="section">
+      <div class="container">
+        <h1 class="m-bottom center-text">Компоненти</h1>
 
-    <p class="m-bottom">
-      Інтерфейс користувача складається з невеликих
-      елементів, таких як кнопки, текст і зображення. React
-      дозволяє об'єднувати їх у багаторазово використовувані
-      компоненти — основні будівельні блоки
-      React-застосунків, за допомогою яких інтерфейс
-      розділяється на незалежні частини.
-    </p>
+        <p class="">
+          Інтерфейс користувача складається з невеликих
+          елементів, таких як кнопки, текст і зображення.
+          React дозволяє об'єднувати їх у багаторазово
+          використовувані компоненти — основні будівельні
+          блоки React-застосунків, за допомогою яких
+          інтерфейс розділяється на незалежні частини.
+        </p>
+      </div>
+    </section>
 
     <!-- Оголошення компонента -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Оголошення компонента</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            В коді компонент — це функція, яка отримує
-            об'єкт властивостей ( <b>props</b> ), і повертає
-            React-елементи (HTML розмітку).
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Ім'я компонента обов'язково
-            повинно починатися з великої літери. Назви
-            компонентів з маленької літери зарезервовані для
-            HTML-елементів. Якщо ви спробуєте назвати
-            компонент product, а не Product, під час рендеру
-            React проігнорує його та відрендерить тег
-            <b>&#60;product&#62;&#60;/product&#62;</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const Product = () => {<br />
-                return (<br />
-                    &#60;div&#62;<br />
-                        &#60;h2&#62;Cookies&#60;/h2&#62;<br />
-                        &#60;p&#62;Price: 999
-            credits&#60;/p&#62;<br />
-                    &#60;/div&#62;<br />
-                );<br />
-            }
-          </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Оголошення компонента</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              В коді компонент — це функція, яка отримує
+              об'єкт властивостей ( <b>props</b> ), і
+              повертає React-елементи (HTML розмітку).
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Ім'я компонента обов'язково
+              повинно починатися з великої літери. Назви
+              компонентів з маленької літери зарезервовані
+              для HTML-елементів. Якщо ви спробуєте назвати
+              компонент product, а не Product, під час
+              рендеру React проігнорує його та відрендерить
+              тег
+              <b>&#60;product&#62;&#60;/product&#62;</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const Product = () => {<br />
+                  return (<br />
+                      &#60;div&#62;<br />
+                         
+              &#60;h2&#62;Cookies&#60;/h2&#62;<br />
+                          &#60;p&#62;Price: 999
+              credits&#60;/p&#62;<br />
+                      &#60;/div&#62;<br />
+                  );<br />
+              }
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Імпорт та експорт компонентів -->
-    <section class="m-bottom print-m-bottom-max">
-      <h2 class="m-bottom-min">
-        Імпорт та експорт компонентів
-      </h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Для кожного компонента створюється окремий файл,
-            тому необхідно експортувати компонент із його
-            файлу.
-          </p>
-          <p class="m-bottom-min border-box">
-            <b>Важливо!</b> Ім'я
-            <b>файлу компонента</b> (Product.jsx) збігається
-            з назвою самого <b>компонента</b> (Product). Це
-            неофіційний стандарт.
-          </p>
-          <p class="m-bottom border-box">
-            <b>Важливо!</b> У модулях можна використовувати
-            експорт за замовчуванням (<b>export default</b>)
-            або іменований експорт (<b>export const</b>).
-            Так як компонент — це головна сутність модуля,
-            то використовується для нього експорт за
-            замовчуванням (<b>export default</b>).
-          </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">
+          Імпорт та експорт компонентів
+        </h2>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              Для кожного компонента створюється окремий
+              файл, тому необхідно експортувати компонент із
+              його файлу.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Важливо!</b> Ім'я
+              <b>файлу компонента</b> (Product.jsx)
+              збігається з назвою самого
+              <b>компонента</b> (Product). Це неофіційний
+              стандарт.
+            </p>
+            <p class="m-bottom border-box">
+              <b>Важливо!</b> У модулях можна
+              використовувати експорт за замовчуванням (<b
+                >export default</b
+              >) або іменований експорт (<b>export const</b
+              >). Так як компонент — це головна сутність
+              модуля, то використовується для нього експорт
+              за замовчуванням (<b>export default</b>).
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i> // src/Product.jsx </i> <br />
+              const Product = () => {<br />
+                  return (<br />
+                      &#60;div&#62;<br />
+                          &#60;h2&#62;Tacos&#60;/h2&#62;<br />
+                          &#60;p&#62;Price: 999
+              credits&#60;/p&#62;<br />
+                      &#60;/div&#62;<br />
+                  );<br />
+              }
+              <br />
+              export default Product;
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/Product.jsx </i> <br />
-            const Product = () => {<br />
-                return (<br />
-                    &#60;div&#62;<br />
-                        &#60;h2&#62;Tacos&#60;/h2&#62;<br />
-                        &#60;p&#62;Price: 999
-            credits&#60;/p&#62;<br />
-                    &#60;/div&#62;<br />
-                );<br />
-            }
-            <br />
-            export default Product;
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              Імпорт компоненту <b>Product</b> в компоненті
+              <b>App</b>
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Важливо!</b> Всі <i>компоненти</i> і
+              <i>файли стилів</i> для них зберігаються у
+              <i>папці</i> <b>components</b>, всередині
+              <i>папки</i> <b>src</b>.
+            </p>
+            <p>
+              Усі компоненти створюються в окремих файлах
+              <b>*.jsx</b>, які компонентами-батьками вищого
+              рівня імпортуються у єдиний файл
+              <b>App.jsx</b>, що в свою чергу імпортується у
+              головний файл <b>main.jsx</b>, який і
+              відрендерить розмітку.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i>// src/App.jsx</i> <br />
+              import Product from './Product';<br />
+              <br />
+              export default function App() {<br />
+                  return (<br />
+                      &#60;div&#62;<br />
+                          &#60;h1&#62;Best
+              selling&#60;/h1&#62;<br />
+                          &#60;Product /&#62;<br />
+                          &#60;Product /&#62;<br />
+                      &#60;/div&#62;<br />
+                  );<br />
+              }
+            </p>
+          </div>
         </div>
       </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Імпорт компоненту <b>Product</b> в компоненті
-            <b>App</b>
-          </p>
-          <p class="m-bottom border-box">
-            <b>Важливо!</b> Всі <i>компоненти</i> і
-            <i>файли стилів</i> для них зберігаються у
-            <i>папці</i> <b>components</b>, всередині
-            <i>папки</i> <b>src</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i>// src/App.jsx</i> <br />
-            import Product from './Product';<br />
-            <br />
-            export default function App() {<br />
-                return (<br />
-                    &#60;div&#62;<br />
-                        &#60;h1&#62;Best
-            selling&#60;/h1&#62;<br />
-                        <br />
-                        &#60;Product /&#62;<br />
-                        &#60;Product /&#62;<br />
-                    &#60;/div&#62;<br />
-                );<br />
-            }
-          </p>
-        </div>
-      </div>
-      <p>
-        Усі компоненти створюються в окремих файлах
-        <b>*.jsx</b>, які компонентами-батьками вищого рівня
-        імпортуються у єдиний файл <b>App.jsx</b>, що в свою
-        чергу імпортується у головний файл <b>main.jsx</b>,
-        який і відрендерить розмітку.
-      </p>
     </section>
 
     <!-- JSX — опис UI -->
-    <section class="m-bottom print-m-bottom-max">
-      <h2 class="m-bottom-min">JSX — опис UI</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="">
-            Синтаксис JSX дуже схожий на HTML, але має деякі
-            особливості, які слід враховувати. Якщо
-            <b>тег</b> <i>порожній</i> або
-            <i>самозакриваючийся</i>, його обов'язково треба
-            закрити за допомогою <b>/></b>.
-          </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">JSX — опис UI</h2>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="">
+              Синтаксис JSX дуже схожий на HTML, але має
+              деякі особливості, які слід враховувати. Якщо
+              <b>тег</b> <i>порожній</i> або
+              <i>самозакриваючийся</i>, його обов'язково
+              треба закрити за допомогою <b>/></b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              &#60;img src="" alt="" <b>/</b>&#62; <br />
+              &#60;input type="text" <b>/</b>&#62;
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            &#60;img src="" alt="" <b>/</b>&#62; <br />
-            &#60;input type="text" <b>/</b>&#62;
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="">
+              Під час рендерингу <b>компонента</b> також
+              використовується синтаксис JSX, тому
+              обов'язково треба закрити тег компонента зі
+              зворотним слешем (/) перед закриваючою дужкою
+              тега.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              &#60;App <b>/</b>&#62; <br />
+              &#60;Product <b>/</b>&#62;
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="">
-            Під час рендерингу <b>компонента</b> також
-            використовується синтаксис JSX, тому обов'язково
-            треба закрити тег компонента зі зворотним слешем
-            (/) перед закриваючою дужкою тега.
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="">
+              Деякі атрибути мають інші назви в порівнянні з
+              HTML. Наприклад, <i>атрибут</i>
+              <b>for</b> тега <i>label</i> в JSX називається
+              <b>htmlFor</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              &#60;label <b>htmlFor</b>="login"&#62; <br />
+                  &#60;input id="login" /&#62; <br />
+              &#60;/label&#62;
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            &#60;App <b>/</b>&#62; <br />
-            &#60;Product <b>/</b>&#62;
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              У будь-яких двох або більше сусідніх тегів
+              повинен бути спільний батько, інакше виникне
+              помилка.
+            </p>
+            <p class="">
+              Компонент повинен
+              <i>повертати лише одне значення</i>, тому
+              існує правило <b>спільного батька</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i> // src/components/Product.jsx </i><br />
+              export const Product = () => {<br />
+                  return (<br />
+                      <b>&#60;div&#62;</b><br />
+                          &#60;h2&#62;Tacos&#60;/h2&#62;<br />
+                          &#60;p&#62;Price: 999
+              credits&#60;/p&#62;<br />
+                      <b>&#60;/div&#62;</b><br />
+                  ); <br />
+              }
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="">
-            Деякі атрибути мають інші назви в порівнянні з
-            HTML. Наприклад, <i>атрибут</i> <b>for</b> тега
-            <i>label</i> в JSX називається <b>htmlFor</b>.
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              Якщо зайвий обгортальний тег не потрібен в
+              розмітці, використовуються <b>фрагменти</b>.
+              Синтаксис виглядає як <i>тег без імені</i>.
+            </p>
+            <p class="border-box">
+              <b>Цікаво!</b> Насправді замість "порожнього"
+              тега <b> &#60;&#62;</b><b>&#60;/&#62;</b>,
+              React вставляє вбудований компонент Fragment.
+              Цей вбудований компонент при рендері
+              розкривається, підставляючи свій вміст.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              ...<br />
+                  <b> &#60;&#62;</b> <br />
+                      &#60;h2&#62;Tacos&#60;/h2&#62;<br />
+                      &#60;p&#62;Price: 999
+              credits&#60;/p&#62;<br />
+                  <b>&#60;/&#62;</b> <br />...
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            &#60;label <b>htmlFor</b>="login"&#62; <br />
-                &#60;input id="login" /&#62; <br />
-            &#60;/label&#62;
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            У будь-яких двох або більше сусідніх тегів
-            повинен бути спільний батько, інакше виникне
-            помилка.
-          </p>
-          <p class="">
-            Компонент повинен
-            <i>повертати лише одне значення</i>, тому існує
-            правило <b>спільного батька</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/components/Product.jsx </i><br />
-            export const Product = () => {<br />
-                return (<br />
-                    <b>&#60;div&#62;</b><br />
-                        &#60;h2&#62;Tacos&#60;/h2&#62;<br />
-                        &#60;p&#62;Price: 999
-            credits&#60;/p&#62;<br />
-                    <b>&#60;/div&#62;</b><br />
-                ); <br />
-            }
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Якщо зайвий обгортальний тег не потрібен в
-            розмітці, використовуються <b>фрагменти</b>.
-            Синтаксис виглядає як <i>тег без імені</i>.
-          </p>
-          <p class="border-box">
-            <b>Цікаво!</b> Насправді замість "порожнього"
-            тега <b> &#60;&#62;</b><b>&#60;/&#62;</b>, React
-            вставляє вбудований компонент Fragment. Цей
-            вбудований компонент при рендері розкривається,
-            підставляючи свій вміст.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            ...<br />
-                <b> &#60;&#62;</b> <br />
-                    &#60;h2&#62;Tacos&#60;/h2&#62;<br />
-                    &#60;p&#62;Price: 999
-            credits&#60;/p&#62;<br />
-                <b>&#60;/&#62;</b> <br />...
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            У межах JSX можна використовувати будь-який
-            валідний вираз, заключаючи його у
-            <i>фігурні дужки</i>. Все інше буде розглядатися
-            як текст.
-          </p>
-          <p class="">
-            Значення <i>атрибутів</i> вказуються в
-            <b>подвійних лапках</b>, якщо це звичайний
-            <i>рядок</i>, та у <b>фігурних дужках</b>, якщо
-            значення <i>відрізняється від рядка</i> або
-            знаходиться в <i>змінній</i>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/components/Product.jsx</i><br />
-            export const Product = () => {<br />
-            const price = 999;<br />
-            const imgUrl =
-            "&#60;https://images.pexels.com/photos/461198/<br />pexels-photo-461198.jpeg?dpr=2&h=480&w=640>";
-            <br /><br />
-                return (<br />
-                    &#60;><br />
-                        &#60;h2>Tacos&#60;/h2><br />
-                        &#60;img src={imgUrl} alt="Tacos
-            With Lime" width="640" /><br />
-                        &#60;p>Price: {price}
-            credits&#60;/p><br />
-                    &#60;/><br />
-                ); <br />
-            }
-          </p>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              У межах JSX можна використовувати будь-який
+              валідний вираз, заключаючи його у
+              <i>фігурні дужки</i>. Все інше буде
+              розглядатися як текст.
+            </p>
+            <p class="">
+              Значення <i>атрибутів</i> вказуються в
+              <b>подвійних лапках</b>, якщо це звичайний
+              <i>рядок</i>, та у <b>фігурних дужках</b>,
+              якщо значення
+              <i>відрізняється від рядка</i> або знаходиться
+              в <i>змінній</i>.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-13">
+            <p>
+              <i> // src/components/Product.jsx</i><br />
+              export const Product = () => {<br />
+              const price = 999;<br />
+              const imgUrl =
+              "&#60;https://img.com/photos/photo.jpeg?dpr=2&h=480&w=640>";
+              <br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;h2>Tacos&#60;/h2><br />
+                          &#60;img src={imgUrl} alt="Tacos
+              With Lime" width="640" /><br />
+                          &#60;p>Price: {price}
+              credits&#60;/p><br />
+                      &#60;/><br />
+                  ); <br />
+              }
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Властивості компонента (props) -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">
-        Властивості компонента (props)
-      </h2>
-      <div>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">
+          Властивості компонента (props)
+        </h2>
+        <div>
+          <p class="m-bottom-min">
+            Компоненти приймають довільні властивості
+            (налаштування, <b>пропси</b>) і повертають
+            розмітку, яку потрібно відрендерити в DOM.
+          </p>
+          <p class="m-bottom-min">
+            Без пропсів компонент завжди повертає однакову
+            розмітку
+          </p>
+        </div>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              Пропсом може бути текст кнопки, зображення,
+              URL, будь-які дані для компонента. Пропси
+              можуть бути рядками або результатом JS-виразу.
+              Пропси передаються в компонент в місці його
+              використання, аналогічно аргументам функції.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-12">
+            <p>
+              <i> // src/components/App.jsx</i><br />
+              import { Product } from './Product';<br />
+              export default function App() {<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h1>Best selling&#60;/h1><br />
+                          &#60;Product
+              <b>name="Tacos With Lime"</b> /><br />
+                          &#60;Product
+              <b>name="Fries and Burger"</b> /><br />
+                      &#60;/div><br />
+                  ); <br />
+              }
+            </p>
+          </div>
+          <div class="bcg-box print-fs-12">
+            <p>
+              <i> // src/components/Product.jsx</i><br />
+              export const Product = props => {<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h2>
+              <b>{props.name}</b>&#60;/h2><br />
+                          &#60;p>Price: 999
+              credits&#60;/p><br />
+                      &#60;/div><br />
+                  ); <br />
+              }
+            </p>
+          </div>
+        </div>
         <p class="m-bottom-min">
-          Компоненти приймають довільні властивості
-          (налаштування, <b>пропси</b>) і повертають
-          розмітку, яку потрібно відрендерити в DOM.
-        </p>
-        <p class="m-bottom-min">
-          Без пропсів компонент завжди повертає однакову
-          розмітку
-        </p>
-        <p class="m-bottom-min">
-          Пропсом може бути текст кнопки, зображення, URL,
-          будь-які дані для компонента. Пропси можуть бути
-          рядками або результатом JS-виразу. Пропси
-          передаються в компонент в місці його використання,
-          аналогічно аргументам функції.
-        </p>
-        <p class="m-bottom">
           Будь-який компонент, в тому числі Product,
           оголошує один параметр — <i>props</i>, це завжди
           буде <i>об'єкт</i>, що містить
           <i>усі передані пропси</i>.
         </p>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div
-          class="bcg-box print-bcg-box print-m-left-none"
-        >
-          <p>
-            <i> // src/components/App.jsx</i><br />
-            import { Product } from './Product';<br />
-            <br />
-            export default function App() {<br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h1>Best selling&#60;/h1><br />
-                <br />
-                        &#60;Product
-            <b>name="Tacos With Lime"</b> /><br />
-                        &#60;Product
-            <b>name="Fries and Burger"</b> /><br />
-                    &#60;/div><br />
-                ); <br />
-            }
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/components/Product.jsx</i><br />
-            export const Product = props => {<br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h2>
-            <b>{props.name}</b>&#60;/h2><br />
-                        &#60;p>Price: 999 credits&#60;/p><br />
-                    &#60;/div><br />
-                ); <br />
-            }
-          </p>
-        </div>
-      </div>
-      <div>
-        <p class="m-bottom-min">
-          Пропси використовуються для передачі динамічних
-          значень для компонента, наприклад, для
-          використання в JSX-розмітці, використовуючи
-          синтаксис <b>{}</b>
-        </p>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div
-          class="bcg-box print-bcg-box print-m-left-none"
-        >
-          <p>
-            <i> // src/components/App.jsx </i><br />
-            ...<br />
-                &#60;div><br />
-                    &#60;Product<br />
-                       
-            <b
-              >name="Tacos With Lime"<br />
-                         
-              imgUrl="https://images.com/photo-4.jpeg<br />
-                          price={10.99}</b
-            ><br />
-                    /><br />
-                    &#60;Product<br />
-                       
-            <b
-              >name="Fries and Burger"<br />
-                         
-              imgUrl="https://images.com/photo-7.jpeg<br />
-                          price={14.29}</b
-            ><br />
-                    /><br />
-                &#60;/div><br />
-            ...
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/components/Product.jsx</i><br />
-            export const Product = props => {<br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h2>
-            <b>{props.name}</b>&#60;/h2><br />
-                        &#60;img <br />
-                            src=<b>{props.imgUrl}</b><br />
-                            alt=<b>{props.name}</b><br />
-                            width="480"<br />
-                        /><br />
-                        &#60;p>Price:
-            <b>{props.price}</b> credits&#60;/p><br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <h3 class="">
-            <b>Деструктуризація</b>
-          </h3>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            export const Product = (<b
-              >{ name, imgUrl, price }</b
-            >
-            ) => {<br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h2>
-            <b>{name}</b>&#60;/h2><br />
-                        &#60;img src=<b>{imgUrl}</b> alt=<b
-              >{name}</b
-            >
-            width="480" /><br />
-                        &#60;p>Price:
-            <b>{price}</b> credits&#60;/p><br />
-                    &#60;/div><br />
-                );<br />
-            };<br />
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <h3 class="m-bottom-min">
-            Значення пропсів за замовчуванням
-          </h3>
+        <div class="m-bottom flex">
           <p class="m-bottom-min">
-            Якщо компонент очікує яке-небудь значення, а
-            його не передати — під час звернення до
-            властивості об'єкта <i>props</i> отримаємо
-            <b>undefined</b>.
+            Пропси використовуються для передачі динамічних
+            значень для компонента, наприклад, для
+            використання в JSX-розмітці, використовуючи
+            синтаксис <b>{}</b>
           </p>
-          <p>
-            Щоб вказати значення властивостей за
-            замовчуванням, використовується синтаксис
-            значень за замовчуванням
-            <i>під час деструктуризації</i> пропсів.
-          </p>
+          <div class="bcg-box print-fs-12">
+            <p>
+              <i> // src/components/App.jsx </i><br />
+              ...<br />
+                  &#60;div><br />
+                      &#60;Product<br />
+                         
+              <b
+                >name="Tacos With Lime"<br />
+                           
+                imgUrl="https://images.com/photo-4.jpeg<br />
+                            price={10.99}</b
+              ><br />
+                      /><br />
+                      &#60;Product<br />
+                         
+              <b
+                >name="Fries and Burger"<br />
+                           
+                imgUrl="https://images.com/photo-7.jpeg<br />
+                            price={14.29}</b
+              ><br />
+                      /><br />
+                  &#60;/div><br />
+              ...
+            </p>
+          </div>
+          <div class="bcg-box print-fs-12">
+            <p>
+              <i> // src/components/Product.jsx</i><br />
+              export const Product = props => {<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h2>
+              <b>{props.name}</b>&#60;/h2><br />
+                          &#60;img <br />
+                              src=<b>{props.imgUrl}</b
+              ><br />
+                              alt=<b>{props.name}</b><br />
+                              width="480"<br />
+                          /><br />
+                          &#60;p>Price:
+              <b>{props.price}</b> credits&#60;/p><br />
+                      &#60;/div><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i>// src/components/Product.jsx</i> <br />
-            const Product = ({<br />
-                name,<br />
-               
-            <b
-              >imgUrl =
-              "https://dummyimage.com/photo-5.jpg"</b
-            >,<br />
-                price,<br />
-            }) => (<br />
-                &#60;div><br />
-                    &#60;h2>{name}&#60;/h2><br />
-                    &#60;img src={imgUrl} alt={name}
-            width="480" /><br />
-                    &#60;p>Price: {price} credits&#60;/p><br />
-                &#60;/div><br />
-            );
-          </p>
+
+        <div class="m-bottom flex">
+          <div>
+            <h3 class="">
+              <b>Деструктуризація</b>
+            </h3>
+          </div>
+          <div class="bcg-box">
+            <p>
+              export const Product = (<b
+                >{ name, imgUrl, price }</b
+              >
+              ) => {<br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h2>
+              <b>{name}</b>&#60;/h2><br />
+                          &#60;img src=<b>{imgUrl}</b>
+              alt=<b>{name}</b> width="480" /><br />
+                          &#60;p>Price:
+              <b>{price}</b> credits&#60;/p><br />
+                      &#60;/div><br />
+                  );<br />
+              };<br />
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="m-bottom border-box">
-        <p>
-          <b>Важливо!</b>
-          Значення за замовчуванням не потрібно задавати
-          всім пропсам; абсолютна більшість це обов'язкові
-          значення для правильної роботи компонента. Проте,
-          наприклад, значення зображення за замовчуванням
-          може бути корисним.
-        </p>
-      </div>
-      <div>
-        <h3 class="m-bottom-min">Підсумок</h3>
-        <ul class="list-style">
-          <li>
-            пропси використовуються для передачі даних від
-            батька до дитини;
-          </li>
-          <li>
-            пропси передаються лише вниз по дереву від
-            батьківського компонента;
-          </li>
-          <li>
-            пропси доступні лише для читання, їх не можна
-            змінити.
-          </li>
-        </ul>
+        <div class="m-bottom flex">
+          <div>
+            <h3 class="m-bottom-min">
+              Значення пропсів за замовчуванням
+            </h3>
+            <p class="m-bottom-min">
+              Якщо компонент очікує яке-небудь значення, а
+              його не передати — під час звернення до
+              властивості об'єкта <i>props</i> отримаємо
+              <b>undefined</b>.
+            </p>
+            <p class="m-bottom-min">
+              Щоб вказати значення властивостей за
+              замовчуванням, використовується синтаксис
+              значень за замовчуванням
+              <i>під час деструктуризації</i> пропсів.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b>
+              Значення за замовчуванням не потрібно задавати
+              всім пропсам; абсолютна більшість це
+              обов'язкові значення для правильної роботи
+              компонента. Проте, наприклад, значення
+              зображення за замовчуванням може бути
+              корисним.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i>// src/components/Product.jsx</i> <br />
+              const Product = ({<br />
+                  name,<br />
+                 
+              <b>imgUrl = "https://image.com/photo-5.jpg"</b
+              >,<br />
+                  price,<br />
+              }) => (<br />
+                  &#60;div><br />
+                      &#60;h2>{name}&#60;/h2><br />
+                      &#60;img <br />
+                          src={imgUrl} <br />
+                          alt={name} <br />
+                          width="480" <br />
+                      /><br />
+                      &#60;p>Price: {price}
+              credits&#60;/p><br />
+                  &#60;/div><br />
+              );
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3 class="m-bottom-min">Підсумок</h3>
+          <ul class="list-style">
+            <li>
+              пропси використовуються для передачі даних від
+              батька до дитини;
+            </li>
+            <li>
+              пропси передаються лише вниз по дереву від
+              батьківського компонента;
+            </li>
+            <li>
+              пропси доступні лише для читання, їх не можна
+              змінити.
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- Умовний рендеринг -->
-    <section class="m-bottom print-m-bottom-max">
-      <h2 class="m-bottom-min">Умовний рендеринг</h2>
-      <p class="m-bottom-min">
-        <b>Умовний рендеринг</b> в React — це механізм, який
-        дозволяє відображати різний контент або компоненти
-        на основі <b>умови</b>.
-      </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom">Умовний рендеринг</h2>
+        <p class="m-bottom">
+          <b>Умовний рендеринг</b> в React — це механізм,
+          який дозволяє відображати різний контент або
+          компоненти на основі <b>умови</b>.
+        </p>
 
-      <h3 class="m-bottom-min">Оператор &&</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Логічний оператор <b>&&</b> використовується для
-            рендера розмітки лише у випадку, якщо умова
-            виконується, тобто приводиться до <b>true</b>.
-          </p>
+        <h3 class="m-bottom-min">Оператор &&</h3>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="">
+              Логічний оператор <b>&&</b> використовується
+              для рендера розмітки лише у випадку, якщо
+              умова виконується, тобто приводиться до
+              <b>true</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>{умова && розмітка}<br /></p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>{умова && розмітка}<br /></p>
-        </div>
-      </div>
 
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            <i>Зліва</i> ставиться умова рендеру,
-            <i>справа</i> JSX розмітка, що буде відрендерена
-            якщо умова зліва наближається до true. В іншому
-            випадку результатом виразу буде false -
-            значення, яке не рендериться.
-          </p>
-          <p class="m-bottom-min">
-            У JSX вираз обгортається в <b>{}</b>, щоб
-            відобразити його результат.
-          </p>
-          <p class="border-box">
-            Якщо за умови нічого не повинно бути
-            відрендерено, можна повернути <b>null</b>,
-            <b>undefined</b> або <b>false</b>. Ці значення
-            <i>не будуть відображені</i>.
-          </p>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              <i>Зліва</i> ставиться умова рендеру,
+              <i>справа</i> JSX розмітка, що буде
+              відрендерена якщо умова зліва наближається до
+              true. В іншому випадку результатом виразу буде
+              false - значення, яке не рендериться.
+            </p>
+            <p class="m-bottom-min">
+              У JSX вираз обгортається в <b>{}</b>, щоб
+              відобразити його результат.
+            </p>
+            <p class="border-box">
+              Якщо за умови нічого не повинно бути
+              відрендерено, можна повернути <b>null</b>,
+              <b>undefined</b> або <b>false</b>. Ці значення
+              <i>не будуть відображені</i>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const Mailbox = ({ username, messages }) =>
+              {<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;p>Hello {username}&#60;/p><br />
+                         
+              <b
+                >{messages.length > 0 && (<br />
+                                &#60;p><br />
+                                    You have
+                {messages.length}<br />
+                                    unread messages<br />
+                                &#60;/p><br />
+                            )}</b
+              ><br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const Mailbox = ({ username, messages }) => {<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;p>Hello {username}&#60;/p><br />
-                       
-            <b
-              >{messages.length > 0 && (<br />
-                          &#60;p>You have
-              {messages.length}<br />
-              unread messages&#60;/p><br />
-                          )}</b
-            ><br />
-                    &#60;/><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
 
-      <h3 class="m-bottom-min">Тернарний оператор</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Використовується, якщо в результаті перевірки
-            умови потрібно відобразити
-            <b>різну розмітку</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            умова ? вміст_якщо_умова_true :
-            вміст_якщо_умова_false<br />
-          </p>
+        <h3 class="m-bottom-min">Тернарний оператор</h3>
+        <div class="flex">
+          <div>
+            <p class="">
+              Використовується, якщо в результаті перевірки
+              умови потрібно відобразити
+              <b>різну розмітку</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              умова ? вміст_якщо_умова_true :
+              вміст_якщо_умова_false<br />
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Колекції -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Колекції</h2>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Колекції</h2>
 
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Для того щоб відрендерити колекцію елементів,
-            використовується масив даних і метод map(), що
-            для кожного елемента колекції повертає розмітку.
-          </p>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Для того щоб відрендерити колекцію елементів,
+              використовується масив даних і метод map(), що
+              для кожного елемента колекції повертає
+              розмітку.
+            </p>
 
-          <p class="m-bottom-min">
-            В JSX цей вираз обгортається у фігурні дужки {}.
-          </p>
+            <p class="m-bottom-min">
+              В JSX цей вираз обгортається у фігурні дужки
+              {}.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              &#60;div><br />
+              <b
+                >    {[1, 2, 3].map(item => {<br />
+                        return &#60;div>{item}&#60;/div>;<br />
+                    })}</b
+              ><br />
+              &#60;/div>
+              <br />
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            &#60;div><br />
-            <b
-              >    {[1, 2, 3].map(item => {<br />
-                      return &#60;div>{item}&#60;/div>;<br />
-                  })}</b
-            ><br />
-            &#60;/div>
-            <br />
-          </p>
+
+        <h3 class="m-bottom-min">Ключі елементів</h3>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              <b>Ключ (key)</b> — це спеціальний проп, який
+              потрібно задати під час створення елементів
+              колекції.
+            </p>
+
+            <p class="m-bottom-min">
+              React використовує ключі, щоб визначити, які з
+              елементів в колекції необхідно оновити,
+              уникнувши перестворення всіх елементів
+              колекції при змінах.
+            </p>
+
+            <p>Ключі повинні бути:</p>
+            <ul class="list-style m-bottom-min">
+              <li>
+                <i>унікальними</i> — ключ елемента повинен
+                бути унікальним лише всередині однієї
+                колекції. Глобально унікальні ключі не мають
+                сенсу;
+              </li>
+              <li>
+                <i>стабільними</i> — ключ елемента не
+                повинен змінюватися з часом, зі зміною
+                порядку елементів або після оновлення
+                сторінки.
+              </li>
+            </ul>
+
+            <p>Для ключа не можна використовувати:</p>
+            <ul class="list-style m-bottom-min">
+              <li>
+                <b>індекси масиву</b> унікальні, проте вони
+                не стабільні — при видаленні або перетасовці
+                елементів індекси змінюються (<i
+                  >вікористовувати лише, якщо всі інщі
+                  варіанти не підходять</i
+                >);
+              </li>
+              <li>
+                <b>дата і час</b> унікальні, але не
+                стабільні, оскільки постійно збільшуються.
+                Таким чином, при кожному рендері створюються
+                нові ключі;
+              </li>
+              <li>
+                <b>випадкові числа</b> не є унікальними або
+                стабільними.
+              </li>
+            </ul>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const favouriteBooks = [<br />
+                  { id: "id-1", name: "JS for beginners"
+              },<br />
+                  { id: "id-2", name: "React basics" },<br />
+                  { id: "id-3", name: "React Router" }<br />
+              ];<br />
+              <br />
+              const BookList = ({ books }) => {<br />
+                  return (<br />
+                      &#60;ul><br />
+                          {books.map((book) => {<br />
+                              return <br />
+                                  &#60;li
+              <b>key={book.id}</b>> {book.name}&#60;/li>;<br />
+                          })}<br />
+                      &#60;/ul><br />
+                  );<br />
+              };<br />
+              <br />
+              const App = () => {<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;h1>Books of the
+              week&#60;/h1><br />
+                          &#60;BookList
+              books={favouriteBooks} /><br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
-      </div>
-
-      <h3 class="m-bottom-min">Ключі елементів</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            <b>Ключ (key)</b> — це спеціальний проп, який
-            потрібно задати під час створення елементів
-            колекції.
-          </p>
-
-          <p class="m-bottom-min">
-            React використовує ключі, щоб визначити, які з
-            елементів в колекції необхідно оновити,
-            уникнувши перестворення всіх елементів колекції
-            при змінах.
-          </p>
-
-          <p>Ключі повинні бути:</p>
-          <ul class="list-style m-bottom-min">
-            <li>
-              <i>унікальними</i> — ключ елемента повинен
-              бути унікальним лише всередині однієї
-              колекції. Глобально унікальні ключі не мають
-              сенсу;
-            </li>
-            <li>
-              <i>стабільними</i> — ключ елемента не повинен
-              змінюватися з часом, зі зміною порядку
-              елементів або після оновлення сторінки.
-            </li>
-          </ul>
-
-          <p>Для ключа не можна використовувати:</p>
-          <ul class="list-style m-bottom-min">
-            <li>
-              <b>індекси масиву</b> унікальні, проте вони не
-              стабільні — при видаленні або перетасовці
-              елементів індекси змінюються (<i
-                >вікористовувати лише, якщо всі інщі
-                варіанти не підходять</i
-              >);
-            </li>
-            <li>
-              <b>дата і час</b> унікальні, але не стабільні,
-              оскільки постійно збільшуються. Таким чином,
-              при кожному рендері створюються нові ключі;
-            </li>
-            <li>
-              <b>випадкові числа</b> не є унікальними або
-              стабільними.
-            </li>
-          </ul>
-
-          <p class="border-box">
-            Найкращий спосіб задати ключ — використовувати
-            статичний рядок, який
-            <i>ідентифікує елемент списку</i> серед інших.
-            Найчастіше використовуються id об'єктів,
-            створених базою даних, – постійні, незмінні
-            значення. Також підходить будь-яке унікальне
-            значення якої-небудь властивості об'єкта.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const favouriteBooks = [<br />
-                { id: "id-1", name: "JS for beginners" },<br />
-                { id: "id-2", name: "React basics" },<br />
-                { id: "id-3", name: "React Router" }<br />
-            ];<br />
-            <br />
-            const BookList = ({ books }) => {<br />
-                return (<br />
-                    &#60;ul><br />
-                        {books.map((book) => {<br />
-                            return <br />
-                                &#60;li
-            <b>key={book.id}</b>><br />
-                                    {book.name}<br />
-                                &#60;/li>;<br />
-                        })}<br />
-                    &#60;/ul><br />
-                );<br />
-            };<br />
-            <br />
-            const App = () => {<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;h1>Books of the
-            week&#60;/h1><br />
-                        &#60;BookList books={favouriteBooks}
-            /><br />
-                    &#60;/><br />
-                );<br />
-            };
-          </p>
-        </div>
+        <p class="border-box">
+          Найкращий спосіб задати ключ — використовувати
+          статичний рядок, який
+          <i>ідентифікує елемент списку</i> серед інших.
+          Найчастіше використовуються id об'єктів, створених
+          базою даних, – постійні, незмінні значення. Також
+          підходить будь-яке унікальне значення якої-небудь
+          властивості об'єкта.
+        </p>
       </div>
     </section>
 
     <!-- Властивість props.children -->
-    <section class="m-bottom print-m-bottom-max">
-      <h2 class="m-bottom-min">
-        Властивість props.children
-      </h2>
-      <div class="m-bottom-min print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Щоб відобразити компонент із вмістом між
-            відкриваючим і закриваючим тегами необхідно
-            використати службовий пропс и
-            <b>props.children</b>.
-          </p>
-          <p class="border-box">
-            Значенням props.children може бути будь-що,
-            включаючи теги та інші компоненти будь-якої
-            складності.
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h2 class="m-bottom-min">
+          Властивість props.children
+        </h2>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              Щоб відобразити компонент із вмістом між
+              відкриваючим і закриваючим тегами необхідно
+              використати службовий пропс и
+              <b>props.children</b>.
+            </p>
+            <p class="border-box">
+              Значенням props.children може бути будь-що,
+              включаючи теги та інші компоненти будь-якої
+              складності.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <i>// Оголошення</i><br />
+            const Card = ({ children }) => {<br />
+                return &#60;div>{children}&#60;/div> ;<br />
+            };<br />
+            <br />
+            <i>// Використання</i><br />
+            &#60;Card>Text between opening and closing
+            tag&#60;/Card ><br />
+          </div>
+        </div>
+        <div class="bcg-box" style="width: max-content">
+          <p class="">
+            <i>// Оголошення</i><br />
+            const Card = ({ children }) => {<br />
+                return &#60;div>{children}&#60;/div>;<br />
+            };<br /><br />
+            <i>// Використання</i><br />
+            &#60;Card><br />
+                &#60;h1>Card title&#60;/h1><br />
+                &#60;p>Text between opening and closing
+            tag&#60;/p><br />
+            &#60;/Card>
           </p>
         </div>
-        <div class="bcg-box print-bcg-box">
-          // Оголошення<br />
-          const Card = ({ children }) => {<br />
-              return &#60;div>{children}&#60;/div> ;<br />
-          };<br />
-          <br />
-          // Використання<br />
-          &#60;Card>Text between opening and closing
-          tag&#60;/Card ><br />
-        </div>
-      </div>
-      <div
-        class="print-flex-box bcg-box"
-        style="gap: 155px"
-      >
-        <p class="print-m-left-none">
-          // Оголошення<br />
-          const Card = ({ children }) => {<br />
-              return &#60;div>{children}&#60;/div>;<br />
-          };
-        </p>
-        <p class="print-bcg-box">
-          // Використання<br />
-          &#60;Card><br />
-              &#60;h1>Card title&#60;/h1><br />
-              &#60;p>Text between opening and closing
-          tag&#60;/p><br />
-          &#60;/Card>
-        </p>
       </div>
     </section>
 
     <!-- Рендер додатка в DOM -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Рендер додатка в DOM</h2>
-      <div class="m-bottom-min print-flex-box">
-        <div>
-          <p class="">
-            Щоб відрендерити всі компоненти додатка в DOM, у
-            файлі <b>main.jsx</b> використовують методи
-            createRoot(container) та render(element), які
-            працюють разом.
-          </p>
-          <ul class="m-bottom-min list-style">
-            <li>
-              метод <b>createRoot</b> приймає посилання на
-              існуючий DOM-елемент, наприклад,
-              <i>div#root</i> з <i>index.html</i>, і створює
-              корінь, в який буде рендеритися додаток;
-            </li>
-            <li>
-              метод <b>render</b> приймає посилання на
-              компонент, який потрібно відрендерити. Завжди
-              рендериться App — кореневий компонент додатка.
-            </li>
-          </ul>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Рендер додатка в DOM</h2>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="">
+              Щоб відрендерити всі компоненти додатка в DOM,
+              у файлі <b>main.jsx</b> використовують методи
+              createRoot(container) та render(element), які
+              працюють разом.
+            </p>
+            <ul class="list-style">
+              <li>
+                метод <b>createRoot</b> приймає посилання на
+                існуючий DOM-елемент, наприклад,
+                <i>div#root</i> з <i>index.html</i>, і
+                створює корінь, в який буде рендеритися
+                додаток;
+              </li>
+              <li>
+                метод <b>render</b> приймає посилання на
+                компонент, який потрібно відрендерити.
+                Завжди рендериться App — кореневий компонент
+                додатка.
+              </li>
+            </ul>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i>// src/main.jsx </i><br />
+              import React from "react";<br />
+              import ReactDOM from "react-dom/client";<br />
+              import App from "./App.jsx";<br />
+              <br />
+              ReactDOM.<b>createRoot</b>(document.getElementById("root"))<br />
+                  .<b>render</b>(<br />
+                      &#60;React.StrictMode><br />
+                          &#60;App /><br />
+                      &#60;/React.StrictMode><br />
+                  );
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i>// src/main.jsx </i><br />
-            import React from "react";<br />
-            import ReactDOM from "react-dom/client";<br />
-            import App from "./App.jsx";<br />
-            <br />
-            ReactDOM.<b>createRoot</b>(document.getElementById("root"))<br />
-                .<b>render</b>(<br />
-                    &#60;React.StrictMode><br />
-                        &#60;App /><br />
-                    &#60;/React.StrictMode><br />
-                );
-          </p>
-        </div>
-      </div>
-      <p class="">
-        <b>&#60;React.StrictMode></b> — вбудований
-        компонент, який дозволяє виявляти потенційні
-        проблеми в компонентах додатка та попереджати про
-        них під час розробки. Він не впливає на виконання
-        додатка у продакшені, але допомагає знаходити та
-        виправляти проблеми під час розробки. Його основні
-        функції:
-      </p>
-      <ul class="m-bottom-min list-style">
-        <li>
-          сповіщення про використання застарілих методів і
-          функцій в React, які можуть бути вилучені в
-          майбутніх версіях;
-        </li>
-        <li>
-          виявлення побічних ефектів під час рендерингу
-          компонентів, що може призвести до непередбачуваної
-          поведінки;
-        </li>
-        <li>
-          сповіщення про потенційні проблеми в
-          render-методах, такі як виклик нечистих функцій
-          під час рендерингу;
-        </li>
-        <li>
-          виявлення помилок у функціях обробки подій та їх
-          інших частинах життєвого циклу компонентів.
-        </li>
-      </ul>
-      <p class="m-bottom-min border-box">
-        <b>Важливо!</b> Достатньо використовувати лише один
-        виклик render для того, щоб відрендерити найвищий
-        компонент в ієрархії (App), що призведе до рендеру
-        всіх інших компонентів додатка.
-      </p>
+        <p class="">
+          <b>&#60;React.StrictMode></b> — вбудований
+          компонент, який дозволяє виявляти потенційні
+          проблеми в компонентах додатка та попереджати про
+          них під час розробки. Він не впливає на виконання
+          додатка у продакшені, але допомагає знаходити та
+          виправляти проблеми під час розробки. Його основні
+          функції:
+        </p>
+        <ul class="m-bottom-min list-style">
+          <li>
+            сповіщення про використання застарілих методів і
+            функцій в React, які можуть бути вилучені в
+            майбутніх версіях;
+          </li>
+          <li>
+            виявлення побічних ефектів під час рендерингу
+            компонентів, що може призвести до
+            непередбачуваної поведінки;
+          </li>
+          <li>
+            сповіщення про потенційні проблеми в
+            render-методах, такі як виклик нечистих функцій
+            під час рендерингу;
+          </li>
+          <li>
+            виявлення помилок у функціях обробки подій та їх
+            інших частинах життєвого циклу компонентів.
+          </li>
+        </ul>
+        <p class="m-bottom-min border-box">
+          <b>Важливо!</b> Достатньо використовувати лише
+          один виклик render для того, щоб відрендерити
+          найвищий компонент в ієрархії (App), що призведе
+          до рендеру всіх інших компонентів додатка.
+        </p>
 
-      <p class="border-box">
-        <b>Цікаво!</b> Односторінковий застосунок (SPA -
-        Single Page Application) — cучасний підхід, сайт, на
-        якому користувач ніколи не переходить на інші
-        HTML-сторінки. Інтерфейс, замість запиту
-        HTML-документів з сервера, перемальовується у
-        браузері, на одній і тій самій сторінці, без
-        перезавантаження.
-      </p>
+        <p class="border-box">
+          <b>Цікаво!</b> Односторінковий застосунок (SPA -
+          Single Page Application) — cучасний підхід, сайт,
+          на якому користувач ніколи не переходить на інші
+          HTML-сторінки. Інтерфейс, замість запиту
+          HTML-документів з сервера, перемальовується у
+          браузері, на одній і тій самій сторінці, без
+          перезавантаження.
+        </p>
+      </div>
     </section>
 
     <!-- Типізація пропсів -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Типізація пропсів</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Перевірка типів отриманих компонентом пропсів
-            допомагає виявити помилки (наприклад, очікуємо у
-            пропсі масив, але передали число або інше
-            неприпустиме значення).
-          </p>
-          <p class="m-bottom-min">
-            Пакет <b>prop-types</b> надає низку валідаторів
-            для перевірки коректності отриманих типів даних
-            під час виконання коду, повідомляючи про
-            невідповідності в консолі.
-          </p>
-          <div class="m-bottom-min bcg-box">
-            <p>npm install --save-dev prop-types</p>
-          </div>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Типізація пропсів</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Перевірка типів отриманих компонентом пропсів
+              допомагає виявити помилки (наприклад, очікуємо
+              у пропсі масив, але передали число або інше
+              неприпустиме значення).
+            </p>
+            <p class="m-bottom-min">
+              Пакет <b>prop-types</b> надає низку
+              валідаторів для перевірки коректності
+              отриманих типів даних під час виконання коду,
+              повідомляючи про невідповідності в консолі.
+            </p>
+            <div class="m-bottom-min bcg-box">
+              <p>npm install --save-dev prop-types</p>
+            </div>
 
-          <p class="">
-            Для опису пропсів компонента необхідно описати
-            їх типи, що він отримує, в спеціальній
-            властивості <b>propTypes</b>.
-          </p>
+            <p class="">
+              Для опису пропсів компонента необхідно описати
+              їх типи, що він отримує, в спеціальній
+              властивості <b>propTypes</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              <i> // src/components/Product.jsx </i><br />
+              import PropTypes from 'prop-types';<br /><br />
+              const Product = ({<br />
+                  name,<br />
+                  imgUrl =
+              "https://dummyimage.com/image-1.jpg",<br />
+                  price,<br />
+              }) => (<br />
+                  &#60;div><br />
+                      &#60;img src={imgUrl} alt={name}
+              width="480" /><br />
+                      &#60;h2>{name}&#60;/h2><br />
+                      &#60;p>Price: {price}
+              credits&#60;/p><br />
+                  &#60;/div><br />
+              );<br />
+              <br />
+              // Опис типів пропсів компонента <br />
+              <b
+                >Product.propTypes = {<br />
+                    name: PropTypes.string.isRequired,<br />
+                    imgUrl: PropTypes.string,<br />
+                    price: PropTypes.number.isRequired,<br />
+                };<br
+              /></b>
+              export default Product;<br />
+            </p>
+          </div>
+          <ul>
+            <li>
+              <h2 class="text"></h2>
+              <p class="text"></p>
+              <a href="" class="text"></a>
+            </li>
+            <li>
+              <h2 class="text"></h2>
+              <p class="text"></p>
+              <a href="" class="text"></a>
+            </li>
+          </ul>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i> // src/components/Product.jsx </i><br />
-            import PropTypes from 'prop-types';<br /><br />
-            const Product = ({<br />
-                name,<br />
-                imgUrl =
-            "https://dummyimage.com/image-1.jpg",<br />
-                price,<br />
-            }) => (<br />
-                &#60;div><br />
-                    &#60;img src={imgUrl} alt={name}
-            width="480" /><br />
-                    &#60;h2>{name}&#60;/h2><br />
-                    &#60;p>Price: {price} credits&#60;/p><br />
-                &#60;/div><br />
-            );<br />
-            <br />
-            // Опис типів пропсів компонента <br />
-            <b
-              >Product.propTypes = {<br />
-                  name: PropTypes.string.isRequired,<br />
-                  imgUrl: PropTypes.string,<br />
-                  price: PropTypes.number.isRequired,<br />
-              };<br
-            /></b>
-            export default Product;<br />
-          </p>
-        </div>
-        <ul>
-          <li>
-            <h2 class="text"></h2>
-            <p class="text"></p>
-            <a href="" class="text"></a>
-          </li>
-          <li>
-            <h2 class="text"></h2>
-            <p class="text"></p>
-            <a href="" class="text"></a>
-          </li>
-        </ul>
       </div>
     </section>
   </body>

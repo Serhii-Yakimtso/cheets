@@ -8,8 +8,11 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Обробка подій</title>
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/react.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
     <a class="print-home-link" href="../../index.html"
@@ -17,111 +20,115 @@
     >
     <h1 class="m-bottom center-text">Обробка подій</h1>
     <!-- Загальне -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Загальне</h2>
-      <div class="m-bottom-min print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            <b>Обробники подій</b> - це власні функції, які
-            будуть викликані відповідно до взаємодій, таких
-            як клікання, наведення, фокусування на полях
-            введення форм і таке інше.
-          </p>
-          <p class="">
-            Щоб додати обробник подій до JSX-елементу,
-            потрібно передати йому проп, який описує тип
-            події. Значенням пропа повинно бути посилання на
-            функцію зворотного виклику, яка буде викликана
-            при настанні події. Для цього необхідно:
-          </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Загальне</h2>
+        <div class="m-bottom-min flex">
+          <div>
+            <p class="m-bottom-min">
+              <b>Обробники подій</b> - це власні функції,
+              які будуть викликані відповідно до взаємодій,
+              таких як клікання, наведення, фокусування на
+              полях введення форм і таке інше.
+            </p>
+            <p class="">
+              Щоб додати обробник подій до JSX-елементу,
+              потрібно передати йому проп, який описує тип
+              події. Значенням пропа повинно бути посилання
+              на функцію зворотного виклику, яка буде
+              викликана при настанні події. Для цього
+              необхідно:
+            </p>
+            <ul class="list-style">
+              <li>
+                об'явити функцію всередині компонента
+                (<b>handleClick</b>);
+              </li>
+              <li>
+                задати в середині функції логіку
+                (<b>alert</b>);
+              </li>
+              <li>
+                додати пропс до JSX-коду
+                (<b>onClick={handleClick}</b>).
+              </li>
+            </ul>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+                  const <b>handleClick</b> = () => {<br />
+                      <b>alert</b>("I'm a button!");<br />
+                  };<br />
+                  return <br />
+                  &#60;button
+              <b>onClick={handleClick}</b>><br />
+                      Click me!<br />
+                  &#60;/button>;<br />
+              };
+            </p>
+          </div>
+        </div>
+        <div class="m-bottom-min">
+          <p>Основні моменти:</p>
           <ul class="list-style">
             <li>
-              об'явити функцію всередині компонента
-              (<b>handleClick</b>);
+              <i>пропи</i> подій визначаються в React та
+              мають ім'я в стилі <b>camelCase</b>, починаючи
+              з префікса <b>on</b>, після чого йде назва
+              події (<b>onClick, onSubmit, onChange</b>);
             </li>
             <li>
-              задати в середині функції логіку
-              (<b>alert</b>);
+              <i>функції обробників подій</i> визначаються
+              всередині компонентів (<b>handleClick</b>);
             </li>
             <li>
-              додати пропс до JSX-коду
+              за конвенцією ім'я обробника подій починається
+              з
+              <b>handle</b>,
+              <i>за яким слідує назва події</i>
               (<b>onClick={handleClick}</b>).
             </li>
           </ul>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                const <b>handleClick</b> = () => {<br />
-                    <b>alert</b>("I'm a button!");<br />
-                };<br />
-                return <br />
-                &#60;button
-            <b>onClick={handleClick}</b>><br />
-                    Click me!<br />
-                &#60;/button>;<br />
-            };
-          </p>
-        </div>
-      </div>
-      <div class="m-bottom-min">
-        <p>Основні моменти:</p>
-        <ul class="list-style">
-          <li>
-            <i>пропи</i> подій визначаються в React та мають
-            ім'я в стилі <b>camelCase</b>, починаючи з
-            префікса <b>on</b>, після чого йде назва події
-            (<b>onClick, onSubmit, onChange</b>);
-          </li>
-          <li>
-            <i>функції обробників подій</i> визначаються
-            всередині компонентів (<b>handleClick</b>);
-          </li>
-          <li>
-            за конвенцією ім'я обробника подій починається з
-            <b>handle</b>,
-            <i>за яким слідує назва події</i>
-            (<b>onClick={handleClick}</b>).
-          </li>
-        </ul>
-      </div>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Можна визначити обробник подій безпосередньо
-            всередині JSX як анонімну інлайн-функцію.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Встроєні обробники подій зручні
-            для коротких функцій. Але великі інлайн-функції
-            в JSX можуть ускладнити читабельність розмітки
-            компонента.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                return <br />
-                    &#60;button onClick={<b
-              >() => alert("I'm a button!")</b
-            >} ><br />
-                        Click me!<br />
-                    &#60;/button>;<br />
-            };
-          </p>
+        <div class="flex">
+          <div>
+            <p class="m-bottom-min">
+              Можна визначити обробник подій безпосередньо
+              всередині JSX як анонімну інлайн-функцію.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Встроєні обробники подій
+              зручні для коротких функцій. Але великі
+              інлайн-функції в JSX можуть ускладнити
+              читабельність розмітки компонента.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+                  return <br />
+                      &#60;button onClick={<b
+                >() => alert("I'm a button!")</b
+              >} ><br />
+                          Click me!<br />
+                      &#60;/button>;<br />
+              };
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Посилання на функцію -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Посилання на функцію</h2>
-      <div class="m-bottom">
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Посилання на функцію</h2>
         <p class="m-bottom-min">
           Функції, які передаються обробникам подій, повинні
           бути передані як посилання, а не викликані.
         </p>
-        <div class="print-flex-box">
+        <div class="flex">
           <div>
             <p class="m-bottom-min">
               У <i>першому</i> прикладі функція
@@ -137,7 +144,7 @@
               рендерингу, не дочекавшись події кліку.
             </p>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
               <i>// ✅ Передача функції (правильно)</i
               ><br />
@@ -154,547 +161,558 @@
     </section>
 
     <!-- Об'єкт події -->
-    <section class="print-m-bottom-max">
-      <h2 class="m-bottom-min">Об'єкт події</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Callback-функція, яка передається як обробник
-            події, незалежно від її типу, гарантовано
-            отримає один аргумент -
-            <b>об'єкт події</b> браузера.
-          </p>
-          <p class="border-box">
-            <b>Цікаво!</b> Для подій браузера у React
-            створюється об'єкт-обгортка
-            <b>SyntheticEvent</b>, призначення якоі полягає
-            в уникненні проблем, пов'язаних з
-            кросбраузерністю. З точки зору розробника,
-            використання SyntheticEvent не відрізняється від
-            роботи з нативними подіями.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                const
-            <b>handleClick = evt => console.log(evt)</b
-            >;<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;button
-            <b>onClick={handleClick}</b>>First
-            button&#60;/button><br />
-                        &#60;button
-            <b>onClick={evt => console.log(evt)}</b>><br />
-                            Second button<br />
-                        &#60;/button><br />
-                    &#60;/><br />
-                );<br />
-            };
-          </p>
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h2 class="m-bottom-min">Об'єкт події</h2>
+        <div class="flex">
+          <div>
+            <p class="m-bottom-min">
+              Callback-функція, яка передається як обробник
+              події, незалежно від її типу, гарантовано
+              отримає один аргумент -
+              <b>об'єкт події</b> браузера.
+            </p>
+            <p class="border-box">
+              <b>Цікаво!</b> Для подій браузера у React
+              створюється об'єкт-обгортка
+              <b>SyntheticEvent</b>, призначення якоі
+              полягає в уникненні проблем, пов'язаних з
+              кросбраузерністю. З точки зору розробника,
+              використання SyntheticEvent не відрізняється
+              від роботи з нативними подіями.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+                  const
+              <b>handleClick = evt => console.log(evt)</b
+              >;<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;button
+              <b>onClick={handleClick}</b>>First
+              button&#60;/button><br />
+                          &#60;button
+              <b>onClick={evt => console.log(evt)}</b
+              >><br />
+                              Second button<br />
+                          &#60;/button><br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Читання props -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Читання props</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Обробники подій оголошуються всередині
-            компонента, отже, вони
-            <b>мають доступ до пропсів компонента</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const Button = ({ <b>message</b>, children }) =>
-            {<br />
-                return (<br />
-                    &#60;button onClick={() =>
-            alert(<b>message</b>)}> {children}
-            &#60;/button><br />
-                );<br />
-            };<br />
-            <br />
-            const App = () => {<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;Button
-            <b>message="Playing music!"</b>> Play music
-            &#60;/Button><br />
-                    &#60;/><br />
-                );<br />
-            }
-          </p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Читання props</h2>
+        <div class="flex">
+          <div>
+            <p class="m-bottom-min">
+              Обробники подій оголошуються всередині
+              компонента, отже, вони
+              <b>мають доступ до пропсів компонента</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const Button = ({ <b>message</b>, children })
+              => {<br />
+                  return (<br />
+                      &#60;button onClick={() =>
+              alert(<b>message</b>)}> {children}
+              &#60;/button><br />
+                  );<br />
+              };<br />
+              <br />
+              const App = () => {<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;Button
+              <b>message="Playing music!"</b>> Play music
+              &#60;/Button><br />
+                      &#60;/><br />
+                  );<br />
+              }
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Стан компонента -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Стан компонента</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Компонентам потрібно змінювати те, що
-            відображається на екрані внаслідок взаємодії з
-            користувачем (введення даних в форму повинно
-            оновлювати поле вводу, клікання в слайдері
-            зображень).
-          </p>
-          <p class="m-bottom-min">
-            <b>Стан (state)</b> - вид пам'яті, що
-            специфічний для компонента.
-          </p>
-          <p class="m-bottom-min">
-            <b>Пропси (props)</b> - це дані, які передаються
-            компоненту ззовні, а <b>стан (state)</b> - це
-            його внутрішні динамічні дані.
-          </p>
-          <p class="m-bottom-min">
-            Коли стан або пропси компонента змінюються,
-            відбувається оновлення та повторний рендер JSX.
-            Іншими словами, стан - це реактивні дані, які
-            контролюють те, що відображається в інтерфейсі.
-          </p>
-          <p class="m-bottom-min">
-            Зміна стану компонента ніколи не впливає на його
-            батьків чи сусідів, а тільки на його дочірні
-            елементи.
-          </p>
-          <p>Отже:</p>
-          <ul class="m-bottom-min list-style">
-            <li>
-              у стані зберігається мінімально необхідний
-              набір даних, на основі яких можна обчислити
-              все необхідне для рендеру інтерфейсу;
-            </li>
-            <li>
-              у стані може зберігатися будь-який тип даних;
-            </li>
-            <li>
-              стан може змінюватися відповідно до дій
-              користувача;
-            </li>
-            <li>
-              під час зміни стану компонент повертає
-              оновлену розмітку і змінює інтерфейс.
-            </li>
-          </ul>
-          <div class="m-bottom-min border-box">
-            <p><b>Важливо!</b></p>
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Стан компонента</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Компонентам потрібно змінювати те, що
+              відображається на екрані внаслідок взаємодії з
+              користувачем (введення даних в форму повинно
+              оновлювати поле вводу, клікання в слайдері
+              зображень).
+            </p>
+            <p class="m-bottom-min">
+              <b>Стан (state)</b> - вид пам'яті, що
+              специфічний для компонента.
+            </p>
+            <p class="m-bottom-min">
+              <b>Пропси (props)</b> - це дані, які
+              передаються компоненту ззовні, а
+              <b>стан (state)</b> - це його внутрішні
+              динамічні дані.
+            </p>
+            <p class="m-bottom-min">
+              Коли стан або пропси компонента змінюються,
+              відбувається оновлення та повторний рендер
+              JSX. Іншими словами, стан - це реактивні дані,
+              які контролюють те, що відображається в
+              інтерфейсі.
+            </p>
+            <p class="m-bottom-min">
+              Зміна стану компонента ніколи не впливає на
+              його батьків чи сусідів, а тільки на його
+              дочірні елементи.
+            </p>
+            <p>Отже:</p>
             <ul class="m-bottom-min list-style">
               <li>
-                Локальні змінні не зберігаються між
-                рендерами. Коли React рендерить компонент
-                вдруге, він рендерить його з нуля — не
-                враховує жодних змін у локальних змінних.
+                у стані зберігається мінімально необхідний
+                набір даних, на основі яких можна обчислити
+                все необхідне для рендеру інтерфейсу;
               </li>
               <li>
-                Зміни локальних змінних не викликають
-                повторних рендерів. React не усвідомлює
-                необхідності повторного рендерингу
-                компонента з новими даними.
+                у стані може зберігатися будь-який тип
+                даних;
+              </li>
+              <li>
+                стан може змінюватися відповідно до дій
+                користувача;
+              </li>
+              <li>
+                під час зміни стану компонент повертає
+                оновлену розмітку і змінює інтерфейс.
               </li>
             </ul>
-            <p>
-              Для оновлення компонента новими даними
-              потрібно:
-            </p>
-            <ul class="list-style">
-              <li>зберегти дані між рендерами;</li>
-              <li>
-                заставити React рендерити компонент з новими
-                даними (повторний рендеринг).
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Хуки -->
-      <h3 class="m-bottom-min">Хуки</h3>
-      <div class="print-m-bottom-max">
-        <p class="m-bottom-min">
-          <b>Хук</b> - функція за допомогою якої можна
-          "підключитися" до різних можливостей React, що
-          починається з <b>use</b> (useState, useEffect...).
-        </p>
-        <div class="print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Для використання хуку, необхідно
-              <b>імпортувати</b> його в файлі компонента з
-              бібліотеки React.
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>import { useState } from 'react';</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Хук useState -->
-      <h3 class="m-bottom-min">Хук useState</h3>
-      <div class="m-bottom">
-        <div class="m-bottom print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Хук <b>useState</b> повідомляє React, щоб цей
-              компонент запам'ятовував щось.
-            </p>
-            <ul class="list-style">
-              <li class="">
-                <b
-                  >const [clicks, setClicks] =
-                  useState(0)</b
-                >
-              </li>
-              <li>
-                <b>[ clicks, setClicks ]</b> -
-                деструктуризованний масив
-              </li>
-              <li><b>clicks</b> - змінна стану</li>
-              <li>
-                <b>setClicks</b> - функція для динамічного
-                встановлення стану
-              </li>
-              <li>
-                <b>useState(0)</b> - встановлення
-                початкового стану
-              </li>
-            </ul>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              import { useState } from 'react';<br />
-              <br />
-              const App = () => {<br />
-                 
-              <b>const [clicks, setClicks] = useState(0)</b
-              >;<br />
-              <br />
-                  const handleClick = () => {<br />
-                      <b>setClicks</b>(<b>clicks</b> +
-              1);<br />
-                  };<br />
-              <br />
-                  return &#60;button
-              onClick={handleClick}>Current:
-              {<b>clicks</b>}&#60;/button><br />
-              };
-            </p>
-          </div>
-        </div>
-        <div>
-          <p class="m-bottom-min">
-            Єдиний аргумент для <b>useState</b> - початкове
-            значення змінної стану.
-          </p>
-          <p>
-            Кожного разу, коли компонент рендериться,
-            useState повертає масив, що містить два
-            значення:
-          </p>
-
-          <ul class="m-bottom-min list-style">
-            <li>
-              Змінну стану (<b>clicks</b>) зі збереженим
-              поточним значенням.
-            </li>
-            <li>
-              Функцію встановлення стану (<b>setClicks</b>),
-              яка може оновлювати змінну стану і викликати
-              повторний рендеринг компонента.
-            </li>
-          </ul>
-          <p class="border-box">
-            <b>Цікаво!</b> Використовуючи деструктуризацію,
-            можна задати будь-які імена змінних.
-            Рекомендовано називати цю пару як
-            [<b>something</b>, <b>setSomething</b>].
-          </p>
-        </div>
-      </div>
-
-      <!-- Декілька станів -->
-      <h3 class="m-bottom-min">Декілька станів</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            Можна мати стільки змінних стану, скільки
-            потрібно в одному компонентії. Для кожного
-            використовуйте окремий <b>useState</b>.
-          </p>
-          <p class="">
-            Кожен зі станів <b>clicks</b> та
-            <b>isOpen </b> незалежний і оновлюється своїми
-            відповідними функціями встановлення
-            <b>setClicks</b> та <b>setIsOpen</b> відповідно.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-               
-            <b>const [clicks, setClicks] = useState(0)</b
-            >;<br />
-               
-            <b
-              >const [isOpen, setIsOpen] =
-              useState(false)</b
-            >;<br />
-                <br />
-                const handleClick = () => {<br />
-                    setClicks(clicks + 1);<br />
-                };<br />
-            <br />
-                const handleToggle = () => {<br />
-                    setIsOpen(!isOpen);<br />
-                };     <br />
-                return (<br />
-                    &#60;><br />
-                        &#60;button
-            onClick={handleClick}><br />
-                            Current: {clicks}<br />
-                        &#60;/button><br />
-                        &#60;button
-            onClick={handleToggle}><br />
-                            {isOpen ? "Hide" : "Show"}<br />
-                        &#60;/button><br />
-                        {isOpen && &#60;div>Now you can see
-            me!&#60;/div>}<br />
-                    &#60;/><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Ізоляція стану -->
-      <h3 class="m-bottom-min">Ізоляція стану</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Стан є локальним для екземпляра компонента. Якщо
-            відобразити один і той самий компонент декілька
-            разів, кожна копія матиме абсолютно ізольований
-            стан! Зміна одного з них не вплине на інший.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Компонент <b>App</b> нічого не
-            знає про стан <b></b>. На відміну від
-            <b>props</b>, стан є повністю приватним для
-            компонента, що його визначає.
-            <b
-              >Батьківський компонент не може його
-              змінити.</b
-            >
-            Це дозволяє додавати чи видаляти стан до
-            будь-якого компонента без впливу на решту
-            компонентів.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const ClickCounter = () => {<br />
-                const [clicks, setClicks] = useState(0);<br />
-            <br />
-                const handleClick = () => {<br />
-                    setClicks(clicks + 1);<br />
-                };<br />
-            <br />
-                return &#60;button
-            onClick={handleClick}>Current:
-            {clicks}&#60;/button><br />
-            };<br />
-
-            const App = () => {<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;ClickCounter /><br />
-                        &#60;ClickCounter /><br />
-                    &#60;/><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Підняття стану -->
-      <h3 class="m-bottom-min">Підняття стану</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Для того щоб стан відстежувався одразу на двох
-            компонентах, його необхідно створити на
-            спільному батьку. При цьому, дочірні компоненти
-            ничого не будуть знати про стан
-            батька-компонента.
-          </p>
-          <p class="">
-            Через пропси необхідно передати значення стану
-            та метод зміни стану.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const ClickCounter = ({ <b>value</b>,
-            <b>onUpdate</b> }) => {<br />
-                return &#60;button
-            onClick={<b>onUpdate</b>}>Current:
-            {<b>value</b>}&#60;/button><br />
-            };<br />
-            <br />
-            const App = () => {<br />
-                const [clicks, setClicks] = useState(0);<br />
-                const <i>handleClick</i> = () =>
-            setClicks(clicks + 1);<br />
-            <br />
-                return (<br />
-                &#60;><br />
-                    &#60;ClickCounter <b>value</b>={clicks}
-            <b>onUpdate</b>={<i>handleClick</i>} /><br />
-                    &#60;ClickCounter <b>value</b>={clicks}
-            <b>onUpdate</b>={<i>handleClick</i>} /><br />
-                &#60;/><br />
-                );<br />
-            };<br />
-          </p>
-        </div>
-      </div>
-
-      <!-- Обмеження хуків -->
-      <h3 class="m-bottom-min">Обмеження хуків</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            Будь-які хуки можна викликати лише на верхньому
-            рівні функції компонента. Це означає, що хуки
-            повинні
-            <b
-              >знаходитися безпосередньо в тілі функції
-              компонента</b
-            >, а не всередині циклів, умов, вкладених
-            функцій і так далі.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Викликати хуки лише на верхньому
-            рівні функції компонента, так само, як
-            імпортування модулів лише на верхньому рівні
-            файлу.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                // ❌ Буде помилка<br />
-                if (isLoggedIn) {<br />
-                    const [username, setUsername] =
-            useState("");<br />
-                }<br />
-                // ❌ Буде помилка<br />
-                for(let i = 0; i < 10; i++) {<br />
-                    const [valiue, setValue] =
-            useState(0);<br />
-                }<br />
-            };<br />
-            // ✅ Так правильно<br />
-            const App = () => {<br />
-                const [username, setUsername] =
-            useState("");<br />
-                const [valiue, setValue] = useState(0);<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Оновлення об'єктів -->
-      <h3 class="m-bottom-min">Оновлення об'єктів</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Стан може містити будь-який тип значення,
-            включаючи об'єкти.
-          </p>
-          <p class="m-bottom-min">
-            Оновлювати дані об'єкту мутацією <b>не можна</b>
-            <b>( const updateX = () => values.x += 1 )</b>
-          </p>
-          <p class="m-bottom-min">
-            Об'єкти, як і будь-який інший стан, оновлюються
-            за допомогою
-            <b>функції-сеттера.</b> (<b>setValues</b>).
-          </p>
-          <div class="border-box">
-            <p class="m-bottom-min">
-              <b>Важливо!</b> Якщо в об'єкті більше однієї
-              властивості, то при оновлені будь-якої з них,
-              усі інщі - зникнить (функція-сеттер записує
-              отримане значення (об'єкт) поверх існуючого
-              стану). Для того щоб цього уникнути потрібно
-              зробити копію існуючого (<b>spread</b>).
-            </p>
-
-            <div class="bcg-box">
+            <div class="m-bottom-min border-box">
+              <p><b>Важливо!</b></p>
+              <ul class="m-bottom-min list-style">
+                <li>
+                  Локальні змінні не зберігаються між
+                  рендерами. Коли React рендерить компонент
+                  вдруге, він рендерить його з нуля — не
+                  враховує жодних змін у локальних змінних.
+                </li>
+                <li>
+                  Зміни локальних змінних не викликають
+                  повторних рендерів. React не усвідомлює
+                  необхідності повторного рендерингу
+                  компонента з новими даними.
+                </li>
+              </ul>
               <p>
-                const updateX = () => {<br />
-                    setValues({<br />
-                        ...values,<br />
-                        x: values.x + 1<br />
-                    });<br />
-                };
+                Для оновлення компонента новими даними
+                потрібно:
               </p>
+              <ul class="list-style">
+                <li>зберегти дані між рендерами;</li>
+                <li>
+                  заставити React рендерити компонент з
+                  новими даними (повторний рендеринг).
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                const [values, setValues] = useState({<br />
-                    x: 0,<br />
-                    y: 0,<br />
-                });<br />
-            <br />
-            const updateX = () => {<br />
-            <b
-              >    setValues({<br />
-                      ...values,<br />
-                      x: values.x + 1<br />
-                  })</b
-            >;<br />
-            };<br />
-            <br />
-            const updateY = () => {<br />
-            <b
-              >    setValues({<br />
-                      ...values,<br />
-                      y: values.y + 1<br />
-                  })</b
-            >;<br />
-            };<br />
-            <br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;p> x: {values.x}, y: {values.y}
-            &#60;/p><br />
-                    <br />
-                        &#60;button onClick={updateX}>Update
-            x&#60;/button><br />
-                        &#60;button onClick={updateY}>Update
-            y&#60;/button><br />
-                    &#60;/div><br />
-                );<br />
-            };
+        <!-- Хуки -->
+        <h3 class="m-bottom-min">Хуки</h3>
+        <div class="m-bottom print-m-bottom-max">
+          <p class="m-bottom-min">
+            <b>Хук</b> - функція за допомогою якої можна
+            "підключитися" до різних можливостей React, що
+            починається з <b>use</b> (useState,
+            useEffect...).
           </p>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                Для використання хуку, необхідно
+                <b>імпортувати</b> його в файлі компонента з
+                бібліотеки React.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>import { useState } from 'react';</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Хук useState -->
+        <h3 class="m-bottom-min">Хук useState</h3>
+        <div class="m-bottom">
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Хук <b>useState</b> повідомляє React, щоб
+                цей компонент запам'ятовував щось.
+              </p>
+              <ul class="list-style">
+                <li class="">
+                  <b
+                    >const [clicks, setClicks] =
+                    useState(0)</b
+                  >
+                </li>
+                <li>
+                  <b>[ clicks, setClicks ]</b> -
+                  деструктуризованний масив
+                </li>
+                <li><b>clicks</b> - змінна стану</li>
+                <li>
+                  <b>setClicks</b> - функція для динамічного
+                  встановлення стану
+                </li>
+                <li>
+                  <b>useState(0)</b> - встановлення
+                  початкового стану
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { useState } from 'react';<br />
+                <br />
+                const App = () => {<br />
+                   
+                <b
+                  >const [clicks, setClicks] =
+                  useState(0)</b
+                >;<br />
+                <br />
+                    const handleClick = () => {<br />
+                        <b>setClicks</b>(<b>clicks</b> +
+                1);<br />
+                    };<br />
+                <br />
+                    return &#60;button
+                onClick={handleClick}>Current:
+                {<b>clicks</b>}&#60;/button><br />
+                };
+              </p>
+            </div>
+          </div>
+          <div>
+            <p class="m-bottom-min">
+              Єдиний аргумент для <b>useState</b> -
+              початкове значення змінної стану.
+            </p>
+            <p>
+              Кожного разу, коли компонент рендериться,
+              useState повертає масив, що містить два
+              значення:
+            </p>
+
+            <ul class="m-bottom-min list-style">
+              <li>
+                Змінну стану (<b>clicks</b>) зі збереженим
+                поточним значенням.
+              </li>
+              <li>
+                Функцію встановлення стану
+                (<b>setClicks</b>), яка може оновлювати
+                змінну стану і викликати повторний рендеринг
+                компонента.
+              </li>
+            </ul>
+            <p class="border-box">
+              <b>Цікаво!</b> Використовуючи
+              деструктуризацію, можна задати будь-які імена
+              змінних. Рекомендовано називати цю пару як
+              [<b>something</b>, <b>setSomething</b>].
+            </p>
+          </div>
+        </div>
+
+        <!-- Декілька станів -->
+        <h3 class="m-bottom-min">Декілька станів</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Можна мати стільки змінних стану, скільки
+              потрібно в одному компонентії. Для кожного
+              використовуйте окремий <b>useState</b>.
+            </p>
+            <p class="">
+              Кожен зі станів <b>clicks</b> та
+              <b>isOpen </b> незалежний і оновлюється своїми
+              відповідними функціями встановлення
+              <b>setClicks</b> та
+              <b>setIsOpen</b> відповідно.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+                 
+              <b>const [clicks, setClicks] = useState(0)</b
+              >;<br />
+                 
+              <b
+                >const [isOpen, setIsOpen] =
+                useState(false)</b
+              >;<br />
+                  const handleClick = () => {<br />
+                      setClicks(clicks + 1);<br />
+                  };<br />
+                  const handleToggle = () => {<br />
+                      setIsOpen(!isOpen);<br />
+                  }; <br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;button
+              onClick={handleClick}>Current:
+              {clicks}&#60;/button><br />
+                          &#60;button
+              onClick={handleToggle}><br />
+                              {isOpen ? "Hide" : "Show"}<br />
+                          &#60;/button><br />
+                          {isOpen && &#60;div>Now you can
+              see me!&#60;/div>}<br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Ізоляція стану -->
+        <h3 class="m-bottom-min">Ізоляція стану</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Стан є локальним для екземпляра компонента.
+              Якщо відобразити один і той самий компонент
+              декілька разів, кожна копія матиме абсолютно
+              ізольований стан! Зміна одного з них не вплине
+              на інший.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Компонент <b>App</b> нічого не
+              знає про стан <b></b>. На відміну від
+              <b>props</b>, стан є повністю приватним для
+              компонента, що його визначає.
+              <b
+                >Батьківський компонент не може його
+                змінити.</b
+              >
+              Це дозволяє додавати чи видаляти стан до
+              будь-якого компонента без впливу на решту
+              компонентів.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const ClickCounter = () => {<br />
+                  const [clicks, setClicks] =
+              useState(0);<br />
+              <br />
+                  const handleClick = () => {<br />
+                      setClicks(clicks + 1);<br />
+                  };<br />
+                  return &#60;button
+              onClick={handleClick}>Current:
+              {clicks}&#60;/button><br />
+              };<br />
+
+              const App = () => {<br />
+                  return (<br />
+                      &#60;><br />
+                          &#60;ClickCounter /><br />
+                          &#60;ClickCounter /><br />
+                      &#60;/><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Підняття стану -->
+        <h3 class="m-bottom-min">Підняття стану</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Для того щоб стан відстежувався одразу на двох
+              компонентах, його необхідно створити на
+              спільному батьку. При цьому, дочірні
+              компоненти ничого не будуть знати про стан
+              батька-компонента.
+            </p>
+            <p class="">
+              Через пропси необхідно передати значення стану
+              та метод зміни стану.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-13">
+            <p>
+              const ClickCounter = ({ <b>value</b>,
+              <b>onUpdate</b> }) => {<br />
+                  return &#60;button
+              onClick={<b>onUpdate</b>}>Current:
+              {<b>value</b>}&#60;/button><br />
+              };<br />
+              const App = () => {<br />
+                  const [clicks, setClicks] =
+              useState(0);<br />
+                  const <i>handleClick</i> = () =>
+              setClicks(clicks + 1);<br />
+              <br />
+                  return (<br />
+                  &#60;><br />
+                      &#60;ClickCounter
+              <b>value</b>={clicks}
+              <b>onUpdate</b>={<i>handleClick</i>} /><br />
+                      &#60;ClickCounter
+              <b>value</b>={clicks}
+              <b>onUpdate</b>={<i>handleClick</i>} /><br />
+                  &#60;/><br />
+                  );<br />
+              };<br />
+            </p>
+          </div>
+        </div>
+
+        <!-- Обмеження хуків -->
+        <h3 class="m-bottom-min">Обмеження хуків</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Будь-які хуки можна викликати лише на
+              верхньому рівні функції компонента. Це
+              означає, що хуки повинні
+              <b
+                >знаходитися безпосередньо в тілі функції
+                компонента</b
+              >, а не всередині циклів, умов, вкладених
+              функцій і так далі.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Викликати хуки лише на
+              верхньому рівні функції компонента, так само,
+              як імпортування модулів лише на верхньому
+              рівні файлу.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-13">
+            <p>
+              const App = () => {<br />
+                  // ❌ Буде помилка<br />
+                  if (isLoggedIn) {<br />
+                      const [username, setUsername] =
+              useState("");<br />
+                  }<br />
+                  // ❌ Буде помилка<br />
+                  for(let i = 0; i < 10; i++) {<br />
+                      const [valiue, setValue] =
+              useState(0);<br />
+                  }<br />
+              };<br />
+              // ✅ Так правильно<br />
+              const App = () => {<br />
+                  const [username, setUsername] =
+              useState("");<br />
+                  const [valiue, setValue] = useState(0);<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Оновлення об'єктів -->
+        <h3 class="m-bottom-min">Оновлення об'єктів</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Стан може містити будь-який тип значення,
+              включаючи об'єкти.
+            </p>
+            <p class="m-bottom-min">
+              Оновлювати дані об'єкту мутацією
+              <b>не можна</b>
+              <b>( const updateX = () => values.x += 1 )</b>
+            </p>
+            <p class="m-bottom-min">
+              Об'єкти, як і будь-який інший стан,
+              оновлюються за допомогою
+              <b>функції-сеттера.</b> (<b>setValues</b>).
+            </p>
+            <div class="border-box">
+              <p class="m-bottom-min">
+                <b>Важливо!</b> Якщо в об'єкті більше однієї
+                властивості, то при оновлені будь-якої з
+                них, усі інщі - зникнить (функція-сеттер
+                записує отримане значення (об'єкт) поверх
+                існуючого стану). Для того щоб цього
+                уникнути потрібно зробити копію існуючого
+                (<b>spread</b>).
+              </p>
+
+              <div class="bcg-box">
+                <p>
+                  const updateX = () => {<br />
+                      setValues({<br />
+                          ...values,<br />
+                          x: values.x + 1<br />
+                      });<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bcg-box print-fs-13">
+            <p>
+              const App = () => {<br />
+                  const [values, setValues] = useState({<br />
+                      x: 0,<br />
+                      y: 0,<br />
+                  });<br />
+              const updateX = () => {<br />
+              <b
+                >    setValues({<br />
+                        ...values,<br />
+                        x: values.x + 1<br />
+                    })</b
+              >;<br />
+              };<br />
+              const updateY = () => {<br />
+              <b
+                >    setValues({<br />
+                        ...values,<br />
+                        y: values.y + 1<br />
+                    })</b
+              >;<br />
+              };<br />
+              <br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;p> x: {values.x}, y:
+              {values.y} &#60;/p><br />
+                      <br />
+                          &#60;button
+              onClick={updateX}>Update x&#60;/button><br />
+                          &#60;button
+              onClick={updateY}>Update y&#60;/button><br />
+                      &#60;/div><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
       </div>
     </section>

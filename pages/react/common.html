@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Загальне</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
@@ -24,14 +25,14 @@
     >
 
     <!-- Загальні налаштування -->
-    <section class="section print-m-bottom-max">
+    <section class="section">
       <div class="container">
         <h1 class="m-bottom center-text">
           Створення проекту
         </h1>
 
         <h2 class="m-bottom-min">Загальні налаштування</h2>
-        <ol>
+        <ol class="m-bottom-min print-m-bottom-max">
           <li class="m-bottom-min">
             <p>
               Створити порожній репозиторій (проєкт) на
@@ -185,10 +186,87 @@
             </div>
           </li>
         </ol>
+
+        <!-- Нормалізація стилів -->
+        <h3 class="m-bottom-min">Нормалізація стилів</h3>
+        <div class="m-bottom">
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                Необхідно встановити через термінал
+                залежності в проекті для нормалізатора
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p><b>npm install modern-normalize</b></p>
+            </div>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Після цього в файлі <b>main.jsx</b> ми
+                <i>імпортуємо</i>
+                стилі нормалізації. Це додасть стилі з файлу
+                нормалізації до проекту.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import React from "react"; <br />
+                import ReactDOM from "react-dom/client";<br />
+                <b>import "modern-normalize"</b>;<br />
+              </p>
+            </div>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Крім стандартизації зовнішнього вигляду
+                елементів, корисно скинути або додати деякі
+                глобальні стилі для елементів. Це можна
+                зробити в файлі <b>index.css</b>.
+              </p>
+            </div>
+            <div class="bcg-box flex">
+              <p>
+                <i>/* src/index.css */ </i> <br />
+                body {<br />
+                    font-family: sans-serif;<br />
+                    line-height: 1.5;<br />
+                }<br />
+                <br />
+                <br />
+              </p>
+              <p>
+                h1,<br />
+                h2,<br />
+                h3,<br />
+                h4,<br />
+                h5,<br />
+                h6,<br />
+                p {<br />
+                    margin: 0;<br />
+                }<br />
+              </p>
+              <p>
+                ul,<br />
+                ol {<br />
+                    margin: 0;<br />
+                    padding: 0;<br />
+                }<br />
+                <br />
+                img {<br />
+                    display: block;<br />
+                    max-width: 100%;<br />
+                }
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section m-bottom">
+    <section class="section">
       <div class="container">
         <h2 class="m-bottom-min">Додаткові бібліотеки</h2>
         <table>
