@@ -8,8 +8,11 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Форми</title>
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/react.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
     <a class="print-home-link" href="../../index.html"
@@ -18,197 +21,43 @@
     <h1 class="m-bottom center-text">Форми</h1>
 
     <!-- Загальне -->
-    <section class="m-bottom print-m-bottom-max">
-      <!-- <h2 class="m-bottom-min">Загальне</h2> -->
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Для обробки відправки форми, елементу форми
-            передається колбек-функція в пропс
-            <b>onSubmit</b>.
-          </p>
-          <p class="">
-            Колбек-функція отримає єдиний аргумент - об'єкт
-            події відправки форми. Використовуючи його, ми
-            завдаємо запобігання типової поведінці
-            HTML-форми за допомогою методу
-            <b>preventDefault</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const LoginForm = () => {<br />
-            <br />
-               
-            <b
-              >const handleSubmit = (evt) => {<br />
-                      evt.preventDefault();<br />
-                      console.log(evt);<br />
-                  };</b
-            ><br />
-            <br />
-                return (<br />
-                    &#60;form
-            <b>onSubmit={handleSubmit}</b>><br />
-                        &#60;input type="text" name="login"
-            /><br />
-                        &#60;input type="password"
-            name="password" /><br />
-                        &#60;button
-            type="submit">Login&#60;/button><br />
-                    &#60;/form><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Неконтрольована форма -->
-      <h3 class="m-bottom-min">Неконтрольована форма</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Якщо значення полів форми потрібні лише в момент
-            її відправки, то така форма називається
-            <b>неконтрольованою</b>.
-          </p>
-          <p class="">
-            Доступ до значень елементів отримуємо через
-            властивість <b>elements</b>, яка
-            <i
-              >зберігає посилання на інтерактивні елементи
-              форми</i
-            >:
-          </p>
-          <ul class="list-style">
-            <li>
-              властивість <b>elements</b> зберігає об'єкт із
-              властивостями, імена яких збігаються зі
-              значеннями
-              <i>атрибутів <b>name</b></i> елементів форми,
-            </li>
-            <li>
-              значенням кожної властивості буде
-              <i>посилання на DOM-елемент поля</i>,
-            </li>
-            <li>
-              щоб отримати доступ до значень полів,
-              звертаємося до властивості <b>value</b>,
-            </li>
-            <li>
-              щоб <i>скинути значення полів форми</i> в
-              початкові, використовується вбудований
-              DOM-метод
-              <b>reset</b>
-              елемента form.
-            </li>
-          </ul>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const LoginForm = () => {<br />
-            <br />
-                const handleSubmit = (evt) => {<br />
-                    evt.preventDefault();<br />
-            <br />
-                    <b>const form = evt.target</b>;<br />
-                   
-            <b>const { login, password } = form.elements</b
-            >;<br />
-            <br />
-                    <i>// Посилання на DOM-елементи</i
-            ><br />
-                    console.log(<b>login, password</b>
-            );<br />
-                    <i>// Значення полів</i><br />
-                    console.log(<b
-              >login.value, password.value</b
-            >)<br />
-                   
-            <i>// Скидаємо значення полів після відправки</i
-            ><br />
-                    <b>form.reset()</b>;<br />
-                };<br />
-            <br />
-                return (<br />
-                    &#60;form onSubmit={handleSubmit}><br />
-                        &#60;input type="text"
-            <b>name</b>="login" /><br />
-                        &#60;input type="password"
-            <b>name</b>="password" /><br />
-                        &#60;button
-            type="submit">Login&#60;/button><br />
-                    &#60;/form><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Хук useId -->
-      <h3 class="m-bottom-min">Хук useId</h3>
-      <div class="m-bottom">
-        <div class="m-bottom print-flex-box">
-          <div>
-            <p class="">
-              Хук<b>useId</b> використовується для генерації
-              унікальних ідентифікаторів, які можна
-              передавати атрибутам доступності полів форми:
-            </p>
-            <ul class="list-style m-bottom-min">
-              <li>не приймає жодних параметрів,</li>
-              <li>
-                повертає унікальний рядок ідентифікатора.
-              </li>
-            </ul>
-            <p class="border-box">
-              <b>Важливо!</b> Не слід використовувати
-              <b>useId</b> для генерації ключів у списку,
-              він призначений лише для створення
-              ідентифікаторів полів форми.
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              import { useId } from 'react';<br />
-              <br />
-              const MyComponent = () => {<br />
-                  <b>const id = useId()</b>;<br />
-              };
-            </p>
-          </div>
-        </div>
-        <div class="m-bottom print-flex-box">
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <!-- <h2 class="m-bottom-min">Загальне</h2> -->
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
-              HTML-атрибут <b>for</b> тегу <b>label</b>,
-              який в React представлений
-              <i>jsx-атрибутом</i> <b>htmlFor</b>, допомагає
-              асистивним технологіям, связуючи <i>поле</i> і
-              <i>label</i> за <i>ідентифікатором</i>.
+              Для обробки відправки форми, елементу форми
+              передається колбек-функція в пропс
+              <b>onSubmit</b>.
             </p>
             <p class="">
-              Для кожної форми можна створити стільки
-              ідентифікаторів, скільки потрібно. Кожен
-              ідентифікатор зберігається в окремій змінній.
+              Колбек-функція отримає єдиний аргумент -
+              об'єкт події відправки форми. Використовуючи
+              його, ми завдаємо запобігання типової
+              поведінці HTML-форми за допомогою методу
+              <b>preventDefault</b>.
             </p>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
               const LoginForm = () => {<br />
-                  <b>const loginId = useId()</b>;<br />
-                  <b>const passwordId = useId()</b>;<br />
-                  <br />
+              <br />
+                 
+              <b
+                >const handleSubmit = (evt) => {<br />
+                        evt.preventDefault();<br />
+                        console.log(evt);<br />
+                    };</b
+              ><br />
+              <br />
                   return (<br />
-                      &#60;form><br />
-                          &#60;label
-              htmlFor={<b>loginId</b>}>Login&#60;/label><br />
+                      &#60;form
+              <b>onSubmit={handleSubmit}</b>><br />
                           &#60;input type="text"
-              name="login" id={<b>loginId</b>} /><br />
-                          &#60;label
-              htmlFor={<b>passwordId</b>}>Password&#60;/label><br />
+              name="login" /><br />
                           &#60;input type="password"
-              name="password" id={<b>passwordId</b>} /><br />
+              name="password" /><br />
                           &#60;button
               type="submit">Login&#60;/button><br />
                       &#60;/form><br />
@@ -217,239 +66,456 @@
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Використання форми -->
-      <h3 class="m-bottom-min">Використання форми</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            На практиці <b>форма</b> це окремий компонент,
-            який в більшості випадків повинен турбуватися
-            тільки про <i>збір значень своїх полів</i>. Те,
-            що з цими значеннями потрібно зробити,
-            передається формі у вигляді
-            <i>пропса від батьківського компонента</i>, де
-            форма рендериться.
-          </p>
-          <p class="m-bottom-min">
-            Використовуємо <i>форму в компоненті</i>
-            <b>App</b> і передаємо їй <i>пропс</i>
-            <b>onLogin</b>, значенням якого буде
-            колбек-функція, що приймає один параметр -
-            об'єкт даних користувача.
-          </p>
-          <p class="m-bottom-min">
-            У компоненті форми деструктуризуємо пропс
-            onLogin, це функція, тому викликаємо її при
-            сабміті форми і передаємо їй значення полів.
-          </p>
-          <p class="border-box">
-            <b>Уважно!</b> Зверніть увагу на те, що в пропс
-            onLogin ми передаємо дані полів форми, а не
-            об'єкт події. Об'єкт події використовується лише
-            всередині форми для скасування типової поведінки
-            і роботи з її елементами. Передавати об'єкт
-            події в пропс - це антипаттерн.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-            <br />
-               
-            <i
-              >// Колбек-функція для обробки сабміту
-              форми</i
-            ><br />
-                <b>const handleLogin = (userData) => {</b
-            ><br />
-                   
-            <i>// Виконуємо необхідні операції з даними</i
-            ><br />
-                    <b>console.log(userData)</b>;<br />
-                };<br />
-                <br />
-                return (<br />
-                   
-            <i>// Передаємо колбек як пропс форми</i>
-            <br />
-                    &#60;LoginForm
-            <b>onLogin={handleLogin}</b> /><br />
-
-                );<br />
-            };<br />
-            <br />
-            const LoginForm = ({ <b>onLogin</b> }) => {<br />
-                <b>const handleSubmit = (evt) => {</b><br />
-                    <b>evt.preventDefault();</b><br />
-            <br />
-                    <b>const form = evt.target;</b><br />
-                   
-            <b>const { login, password } = form.elements;</b
-            ><br />
-                    <br />
-                    <i>// Викликаємо пропс onLogin</i><br />
-                    onLogin({<br />
-                       
-            <b
-              >login: login.value,<br />
-                          password: password.value,<br />
-                      });</b
-            ><br />
-                    <br />
-                    form.reset();<br />
-                };<br />
-                <br />
-                return (<br />
-                    &#60;form
-            <b>onSubmit={handleSubmit}</b>><br />
-                        &#60;input type="text" name="login"
-            /><br />
-                        &#60;input type="password"
-            name="password" /><br />
-                        &#60;button
-            type="submit">Login&#60;/button><br />
-                    &#60;/form><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Контрольовані елементи -->
-      <h3 class="m-bottom-min">Контрольовані елементи</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Якщо значення елементів форми потрібно отримати
-            кожен раз у момент зміни поля і зробити щось
-            динамічно, вони мають бути <b>контрольовані</b>.
-            Значення таких полів
-            <i>зберігаються в стані компонента</i>.
-          </p>
-          <p class="m-bottom-min">
-            <b>Приклад.</b>
-            <i
-              >компонент <b>SearchBar</b> складається з
-              текстового поля. При введенні тексту в поле
-              необхідно відобразити це значення в абзаці.</i
-            >
-          </p>
-          <p class="border-box m-bottom-min">
-            <b>Важливо!</b> Контрольовані елементи
-            використовуються не тільки як частина форми, але
-            і без неї. Наприклад, для створення полів
-            пошуку, фільтрів та інших динамічних елементів
-            інтерфейсу. Елементи всередині однієї форми
-            повинні бути або всі контрольовані, або всі
-            неконтрольовані, перемішувати їх не можна.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Для
-            <i>контрольованого</i> елемента форми обовзяково
-            необхідно передавати атрибути <b>value</b> і
-            <b>onChange</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const SearchBar = () => {<br />
-               
-            <b
-              >const [inputValue, setInputValue] =
-              useState("");</b
-            ><br />
-                <br />
-               
-            <b
-              >const handleChange = (evt) => {<br />
-                      setInputValue(evt.target.value);<br />
-                  };</b
-            ><br />
-                <br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;input<br />
-                            type="text"<br />
-                            <b>value={inputValue}</b><br />
-                            <b>onChange={handleChange}</b
-            ><br />
-                        /><br />
-                       
-            &#60;p>{<b>inputValue</b>}&#60;/p><br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Елемент select -->
-      <h3 class="m-bottom-min">Елемент select</h3>
-      <div>
-        <div class="m-bottom-min print-flex-box">
+        <!-- Неконтрольована форма -->
+        <h3 class="m-bottom-min">Неконтрольована форма</h3>
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
-              Селект складається з самого елемента
-              <b>select</b> та вкладеного набору
-              <b>option</b>, у яких необхідно вказати
-              атрибут <b>value</b>.
+              Якщо значення полів форми потрібні лише в
+              момент її відправки, то така форма називається
+              <b>неконтрольованою</b>.
             </p>
             <p class="">
-              Якщо селект використовується поза формою, то
-              ми працюємо з ним як з
-              <b>контрольованим елементом</b>:
+              Доступ до значень елементів отримуємо через
+              властивість <b>elements</b>, яка
+              <i
+                >зберігає посилання на інтерактивні елементи
+                форми</i
+              >:
             </p>
-            <ul class="list-style m-bottom-min">
-              <li>зберігаємо поточне значення в стані;</li>
+            <ul class="list-style">
               <li>
-                передаємо значення стану як атрибут value;
+                властивість <b>elements</b> зберігає об'єкт
+                із властивостями, імена яких збігаються зі
+                значеннями
+                <i>атрибутів <b>name</b></i> елементів
+                форми,
               </li>
-              <li>змінюємо стан при події onChange.</li>
+              <li>
+                значенням кожної властивості буде
+                <i>посилання на DOM-елемент поля</i>,
+              </li>
+              <li>
+                щоб отримати доступ до значень полів,
+                звертаємося до властивості <b>value</b>,
+              </li>
+              <li>
+                щоб <i>скинути значення полів форми</i> в
+                початкові, використовується вбудований
+                DOM-метод
+                <b>reset</b>
+                елемента form.
+              </li>
             </ul>
-            <p class="border-box m-bottom-min">
-              <b>Важливо!</b> Якщо селект є частиною
-              <b>неконтрольованої форми</b>, то спочатку ми
-              задаємо йому атрибут <b>name</b>, а потім
-              отримуємо значення селекта
-              <i>під час сабміту форми</i> через її
-              властивість
+          </div>
+          <div class="bcg-box">
+            <p>
+              const LoginForm = () => {<br />
+              <br />
+                  const handleSubmit = (evt) => {<br />
+                      evt.preventDefault();<br />
+              <br />
+                      <b>const form = evt.target</b>;<br />
+                     
               <b
-                >evt.target.elements.<i>selectName</i>.value</b
-              >, де <b><i>selectName</i></b> - це значення
-              атрибута <i>name</i>.
+                >const { login, password } =
+                form.elements</b
+              >;<br />
+              <br />
+                      <i>// Посилання на DOM-елементи</i
+              ><br />
+                      console.log(<b>login, password</b>
+              );<br />
+                      <i>// Значення полів</i><br />
+                      console.log(<b
+                >login.value, password.value</b
+              >)<br />
+                     
+              <i
+                >// Скидаємо значення полів після
+                відправки</i
+              ><br />
+                      <b>form.reset()</b>;<br />
+                  };<br />
+              <br />
+                  return (<br />
+                      &#60;form onSubmit={handleSubmit}><br />
+                          &#60;input type="text"
+              <b>name</b>="login" /><br />
+                          &#60;input type="password"
+              <b>name</b>="password" /><br />
+                          &#60;button
+              type="submit">Login&#60;/button><br />
+                      &#60;/form><br />
+                  );<br />
+              };
             </p>
-            <div
-              class="bcg-box print-bcg-box print-fs-13 print-m-left-none"
-            >
+          </div>
+        </div>
+
+        <!-- Хук useId -->
+        <h3 class="m-bottom-min">Хук useId</h3>
+        <div class="m-bottom">
+          <div class="m-bottom flex">
+            <div>
+              <p class="">
+                Хук<b>useId</b> використовується для
+                генерації унікальних ідентифікаторів, які
+                можна передавати атрибутам доступності полів
+                форми:
+              </p>
+              <ul class="list-style m-bottom-min">
+                <li>не приймає жодних параметрів,</li>
+                <li>
+                  повертає унікальний рядок ідентифікатора.
+                </li>
+              </ul>
+              <p class="border-box">
+                <b>Важливо!</b> Не слід використовувати
+                <b>useId</b> для генерації ключів у списку,
+                він призначений лише для створення
+                ідентифікаторів полів форми.
+              </p>
+            </div>
+            <div class="bcg-box">
               <p>
-                const LangSwitcher = () => {<br />
-                    const <i>selectId</i> = useId();<br />
-                   
-                <b>const [lang, setLang] = useState("uk")</b
-                >;<br />
+                import { useId } from 'react';<br />
+                <br />
+                const MyComponent = () => {<br />
+                    <b>const id = useId()</b>;<br />
+                };
+              </p>
+            </div>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                HTML-атрибут <b>for</b> тегу <b>label</b>,
+                який в React представлений
+                <i>jsx-атрибутом</i> <b>htmlFor</b>,
+                допомагає асистивним технологіям, связуючи
+                <i>поле</i> і <i>label</i> за
+                <i>ідентифікатором</i>.
+              </p>
+              <p class="">
+                Для кожної форми можна створити стільки
+                ідентифікаторів, скільки потрібно. Кожен
+                ідентифікатор зберігається в окремій
+                змінній.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                const LoginForm = () => {<br />
+                    <b>const loginId = useId()</b>;<br />
+                    <b>const passwordId = useId()</b>;<br />
+                    <br />
+                    return (<br />
+                        &#60;form><br />
+                            &#60;label
+                htmlFor={<b>loginId</b>}>Login&#60;/label><br />
+                            &#60;input type="text"
+                name="login" id={<b>loginId</b>} /><br />
+                            &#60;label
+                htmlFor={<b>passwordId</b>}>Password&#60;/label><br />
+                            &#60;input type="password"
+                name="password" id={<b>passwordId</b>} /><br />
+                            &#60;button
+                type="submit">Login&#60;/button><br />
+                        &#60;/form><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Використання форми -->
+        <h3 class="m-bottom-min">Використання форми</h3>
+        <div class="m-bottom flex print-m-bottom-max">
+          <div>
+            <p class="m-bottom-min">
+              На практиці <b>форма</b> це окремий компонент,
+              який в більшості випадків повинен турбуватися
+              тільки про <i>збір значень своїх полів</i>.
+              Те, що з цими значеннями потрібно зробити,
+              передається формі у вигляді
+              <i>пропса від батьківського компонента</i>, де
+              форма рендериться.
+            </p>
+            <p class="m-bottom-min">
+              Використовуємо <i>форму в компоненті</i>
+              <b>App</b> і передаємо їй <i>пропс</i>
+              <b>onLogin</b>, значенням якого буде
+              колбек-функція, що приймає один параметр -
+              об'єкт даних користувача.
+            </p>
+            <p class="m-bottom-min">
+              У компоненті форми деструктуризуємо пропс
+              onLogin, це функція, тому викликаємо її при
+              сабміті форми і передаємо їй значення полів.
+            </p>
+            <p class="border-box">
+              <b>Уважно!</b> Зверніть увагу на те, що в
+              пропс onLogin ми передаємо дані полів форми, а
+              не об'єкт події. Об'єкт події використовується
+              лише всередині форми для скасування типової
+              поведінки і роботи з її елементами. Передавати
+              об'єкт події в пропс - це антипаттерн.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+              <br />
+                 
+              <i
+                >// Колбек-функція для обробки сабміту
+                форми</i
+              ><br />
+                  <b>const handleLogin = (userData) => {</b
+              ><br />
+                     
+              <i>// Виконуємо необхідні операції з даними</i
+              ><br />
+                      <b>console.log(userData)</b>;<br />
+                  };<br />
+                  <br />
+                  return (<br />
+                     
+              <i>// Передаємо колбек як пропс форми</i>
+              <br />
+                      &#60;LoginForm
+              <b>onLogin={handleLogin}</b> /><br />
+
+                  );<br />
+              };<br />
+              <br />
+              const LoginForm = ({ <b>onLogin</b> }) => {<br />
+                  <b>const handleSubmit = (evt) => {</b
+              ><br />
+                      <b>evt.preventDefault();</b><br />
+              <br />
+                      <b>const form = evt.target;</b><br />
+                     
+              <b
+                >const { login, password } =
+                form.elements;</b
+              ><br />
+                      <br />
+                      <i>// Викликаємо пропс onLogin</i
+              ><br />
+                      onLogin({<br />
+                         
+              <b
+                >login: login.value,<br />
+                            password: password.value,<br />
+                        });</b
+              ><br />
+                      <br />
+                      form.reset();<br />
+                  };<br />
+                  <br />
+                  return (<br />
+                      &#60;form
+              <b>onSubmit={handleSubmit}</b>><br />
+                          &#60;input type="text"
+              name="login" /><br />
+                          &#60;input type="password"
+              name="password" /><br />
+                          &#60;button
+              type="submit">Login&#60;/button><br />
+                      &#60;/form><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Контрольовані елементи -->
+        <h3 class="m-bottom-min">Контрольовані елементи</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Якщо значення елементів форми потрібно
+              отримати кожен раз у момент зміни поля і
+              зробити щось динамічно, вони мають бути
+              <b>контрольовані</b>. Значення таких полів
+              <i>зберігаються в стані компонента</i>.
+            </p>
+            <p class="m-bottom-min">
+              <b>Приклад.</b>
+              <i
+                >компонент <b>SearchBar</b> складається з
+                текстового поля. При введенні тексту в поле
+                необхідно відобразити це значення в
+                абзаці.</i
+              >
+            </p>
+            <p class="border-box m-bottom-min">
+              <b>Важливо!</b> Контрольовані елементи
+              використовуються не тільки як частина форми,
+              але і без неї. Наприклад, для створення полів
+              пошуку, фільтрів та інших динамічних елементів
+              інтерфейсу. Елементи всередині однієї форми
+              повинні бути або всі контрольовані, або всі
+              неконтрольовані, перемішувати їх не можна.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Для
+              <i>контрольованого</i> елемента форми
+              обовзяково необхідно передавати атрибути
+              <b>value</b> і <b>onChange</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const SearchBar = () => {<br />
+                 
+              <b
+                >const [inputValue, setInputValue] =
+                useState("");</b
+              ><br />
+                  <br />
+                 
+              <b
+                >const handleChange = (evt) => {<br />
+                        setInputValue(evt.target.value);<br />
+                    };</b
+              ><br />
+                  <br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;input<br />
+                              type="text"<br />
+                              <b>value={inputValue}</b
+              ><br />
+                              <b>onChange={handleChange}</b
+              ><br />
+                          /><br />
+                         
+              &#60;p>{<b>inputValue</b>}&#60;/p><br />
+                      &#60;/div><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Елемент select -->
+        <h3 class="m-bottom-min">Елемент select</h3>
+        <div>
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                Селект складається з самого елемента
+                <b>select</b> та вкладеного набору
+                <b>option</b>, у яких необхідно вказати
+                атрибут <b>value</b>.
+              </p>
+              <p class="">
+                Якщо селект використовується поза формою, то
+                ми працюємо з ним як з
+                <b>контрольованим елементом</b>:
+              </p>
+              <ul class="list-style m-bottom-min">
+                <li>
+                  зберігаємо поточне значення в стані;
+                </li>
+                <li>
+                  передаємо значення стану як атрибут value;
+                </li>
+                <li>змінюємо стан при події onChange.</li>
+              </ul>
+              <p class="border-box m-bottom-min">
+                <b>Важливо!</b> Якщо селект є частиною
+                <b>неконтрольованої форми</b>, то спочатку
+                ми задаємо йому атрибут <b>name</b>, а потім
+                отримуємо значення селекта
+                <i>під час сабміту форми</i> через її
+                властивість
+                <b
+                  >evt.target.elements.<i>selectName</i>.value</b
+                >, де <b><i>selectName</i></b> - це значення
+                атрибута <i>name</i>.
+              </p>
+              <div
+                class="bcg-box print-fs-13 print-m-left-none"
+              >
+                <p>
+                  const LangSwitcher = () => {<br />
+                      const <i>selectId</i> = useId();<br />
+                     
+                  <b
+                    >const [lang, setLang] =
+                    useState("uk")</b
+                  >;<br />
+                      return (<br />
+                          &#60;div><br />
+                              &#60;label
+                  htmlFor={<i>selectId</i>}>Choose
+                  language&#60;/label><br />
+                              &#60;select<br />
+                                  id={<i>selectId</i>}<br />
+                                  <b>value={lang}</b><br />
+                                 
+                  <b
+                    >onChange={(evt) =>
+                    setLang(evt.target.value)}</b
+                  ><br />
+                              ><br />
+                                  &#60;option
+                  <b>value</b
+                  >="uk">Ukrainian&#60;/option><br />
+                                  &#60;option
+                  <b>value</b
+                  >="en">English&#60;/option><br />
+                              &#60;/select><br />
+                          &#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+            <div class="bcg-box print-fs-13">
+              <p>
+                const App = () => {<br />
+                    const [<b>lang</b>, <b>setLang</b>] =
+                useState("uk");<br />
+                    <br />
+                    return (<br />
+                        &#60;><br />
+                            &#60;p>Selected language:
+                {<b>lang</b>}&#60;/p><br />
+                            &#60;LangSwitcher
+                <b><i>value</i></b
+                >={<b>lang</b>} <b><i>onSelect</i></b
+                >={<b>setLang</b>} /><br />
+                        &#60;/><br />
+                    );<br />
+                };<br />
+                <br />
+                const LangSwitcher = ({ <b><i>value</i></b
+                >, <b><i>onSelect</i></b> }) => {<br />
+                    const selectId = useId();<br />
+                    <br />
                     return (<br />
                         &#60;div><br />
                             &#60;label
-                htmlFor={<i>selectId</i>}>Choose
+                htmlFor={selectId}>Choose
                 language&#60;/label><br />
-                            &#60;select<br />
-                                id={<i>selectId</i>}<br />
-                                <b>value={lang}</b><br />
-                               
-                <b
-                  >onChange={(evt) =>
-                  setLang(evt.target.value)}</b
-                ><br />
-                            ><br />
+                            &#60;select <br />
+                                id={selectId}<br />
+                                value={<b><i>value</i></b
+                >}<br />
+                                onChange={(evt) =>
+                <b><i>onSelect</i></b
+                >(evt.target.value)} ><br />
                                 &#60;option
-                <b>value</b
-                >="uk">Ukrainian&#60;/option><br />
+                value="uk">Ukrainian&#60;/option><br />
                                 &#60;option
-                <b>value</b>="en">English&#60;/option><br />
+                value="en">English&#60;/option><br />
                             &#60;/select><br />
                         &#60;/div><br />
                     );<br />
@@ -457,313 +523,368 @@
               </p>
             </div>
           </div>
-          <div class="bcg-box print-bcg-box print-fs-13">
+          <div class="m-bottom"></div>
+        </div>
+
+        <!-- Радіо-кнопки -->
+        <h3 class="m-bottom-min">Радіо-кнопки</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="">
+              <b>Радіо-кнопки</b> є альтернативою
+              <i>select</i>, оскільки в групі може бути
+              обрано <i>лише один варіант</i>. Головне:
+            </p>
+            <ul class="list-style m-bottom-min">
+              <li>
+                групування радіо-кнопок відбувається за
+                допомогою однакового значення атрибута
+                <b>name</b>;
+              </li>
+              <li>
+                значення кожної опції зберігається у
+                атрибуті
+                <b>value</b>.
+              </li>
+              <li>
+                обране значення <i>зберігається</i> в
+                <b>стані</b>.
+              </li>
+            </ul>
+            <p class="border-box">
+              <b>Важливо!</b> Для визначення, чи обрано
+              опцію чи ні, атрибуту <b>checked</b> необхідно
+              передати <b>true</b> чи <b>false</b> (атрибуту
+              <b>checked</b> передається
+              <i
+                >результат порівняння стану і значення
+                атрибута value</i
+              >
+              конкретної радіо-кнопки).
+            </p>
+          </div>
+          <div class="bcg-box print-fs-15">
             <p>
               const App = () => {<br />
-                  const [<b>lang</b>, <b>setLang</b>] =
-              useState("uk");<br />
-                  <br />
+                  const [<b>coffeeSize</b>,
+              <b>setCoffeeSize</b>] = useState("sm");<br />
+                  const <b>handleSizeChange</b> = (evt) =>
+              {<br />
+                     
+              <b>setCoffeeSize</b>(evt.target.value);<br />
+                  };<br />
                   return (<br />
                       &#60;><br />
-                          &#60;p>Selected language:
-              {<b>lang</b>}&#60;/p><br />
-                          &#60;LangSwitcher
-              <b><i>value</i></b
-              >={<b>lang</b>} <b><i>onSelect</i></b
-              >={<b>setLang</b>} /><br />
+                          &#60;h1>Select coffee
+              size&#60;/h1><br />
+                          &#60;label><br />
+                              &#60;input<br />
+                                  type="radio"<br />
+                                  <b>name="coffeeSize"</b
+              ><br />
+                                  <b>value="sm"</b><br />
+                                 
+              <b>checked={coffeeSize === "sm"}</b><br />
+                                 
+              <b>onChange={handleSizeChange}</b><br />
+                              /><br />
+                              Small<br />
+                          &#60;/label><br />
+                          &#60;label><br />
+                              &#60;input<br />
+                                  type="radio"<br />
+                                  <b>name="coffeeSize"</b
+              ><br />
+                                  <b>value="md"</b><br />
+                                 
+              <b>checked={coffeeSize === "md"}</b><br />
+                                 
+              <b>onChange={handleSizeChange}</b><br />
+                              /><br />
+                              Meduim<br />
+                          &#60;/label><br />
                       &#60;/><br />
                   );<br />
               };<br />
-              <br />
-              const LangSwitcher = ({ <b><i>value</i></b
-              >, <b><i>onSelect</i></b> }) => {<br />
-                  const selectId = useId();<br />
-                  <br />
+            </p>
+          </div>
+        </div>
+
+        <!-- Чекбокси -->
+        <h3 class="m-bottom-min">Чекбокси</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              <b>Чекбокси</b>,на відміну від радіо-кнопок,
+              дозволяють <b>обрати багато з багатьох</b>.
+              Чекбокс, так само, як і радіо-кнопка, може
+              знаходитися в двох станах: обраний або ні.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> При роботі з
+              <i>групою чекбоксів</i> їх значення
+              зберігаються в властивості <b>value</b>, як і
+              в разі з радіо-кнопками, а
+              <b
+                >обрані значення зберігаються в стані як
+                масив чи об'єкт</b
+              >. Це потрібно в більш складних формах.
+            </p>
+
+            <p>
+              Приклад. Кнопка має бути активною лише тоді,
+              коли чекбокс обраний, і користувач не зможе
+              пройти далі, не прийнявши умови використання.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const App = () => {<br />
+                  const
+              <b
+                >[hasAccepted, setHasAccepted] =
+                useState(false)</b
+              >;<br />
+                  const <b>handleChange</b> = (evt) => {<br />
+                      <b>setHasAccepted</b>(<evt
+                class="target b"
+                >checked</evt
+              >);<br />
+                  };<br />
                   return (<br />
                       &#60;div><br />
-                          &#60;label
-              htmlFor={selectId}>Choose
-              language&#60;/label><br />
-                          &#60;select <br />
-                              id={selectId}<br />
-                              value={<b><i>value</i></b
-              >}<br />
-                              onChange={(evt) =>
-              <b><i>onSelect</i></b
-              >(evt.target.value)} ><br />
-                              &#60;option
-              value="uk">Ukrainian&#60;/option><br />
-                              &#60;option
-              value="en">English&#60;/option><br />
-                          &#60;/select><br />
+                          &#60;label><br />
+                              &#60;input<br />
+                                  type="checkbox"<br />
+                                  name="terms"<br />
+                                 
+              <b>checked={hasAccepted}</b><br />
+                                 
+              <b>onChange={handleChange}</b><br />
+                              /><br />
+                              I accept terms and
+              conditions<br />
+                          &#60;/label><br />
+                          &#60;button type="button"
+              disabled={<b>hasAccepted</b>}><br />
+                                  Proceed<br />
+                          &#60;/button><br />
                       &#60;/div><br />
                   );<br />
               };
             </p>
           </div>
         </div>
-        <div class="m-bottom"></div>
-      </div>
-
-      <!-- Радіо-кнопки -->
-      <h3 class="m-bottom-min">Радіо-кнопки</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="">
-            <b>Радіо-кнопки</b> є альтернативою
-            <i>select</i>, оскільки в групі може бути обрано
-            <i>лише один варіант</i>. Головне:
-          </p>
-          <ul class="list-style m-bottom-min">
-            <li>
-              групування радіо-кнопок відбувається за
-              допомогою однакового значення атрибута
-              <b>name</b>;
-            </li>
-            <li>
-              значення кожної опції зберігається у атрибуті
-              <b>value</b>.
-            </li>
-            <li>
-              обране значення <i>зберігається</i> в
-              <b>стані</b>.
-            </li>
-          </ul>
-          <p class="border-box">
-            <b>Важливо!</b> Для визначення, чи обрано опцію
-            чи ні, атрибуту <b>checked</b> необхідно
-            передати <b>true</b> чи <b>false</b> (атрибуту
-            <b>checked</b> передається
-            <i
-              >результат порівняння стану і значення
-              атрибута value</i
-            >
-            конкретної радіо-кнопки).
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box print-fs-15">
-          <p>
-            const App = () => {<br />
-                const [<b>coffeeSize</b>,
-            <b>setCoffeeSize</b>] = useState("sm");<br />
-                const <b>handleSizeChange</b> = (evt) =>
-            {<br />
-                   
-            <b>setCoffeeSize</b>(evt.target.value);<br />
-                };<br />
-                return (<br />
-                    &#60;><br />
-                        &#60;h1>Select coffee
-            size&#60;/h1><br />
-                        &#60;label><br />
-                            &#60;input<br />
-                                type="radio"<br />
-                                <b>name="coffeeSize"</b
-            ><br />
-                                <b>value="sm"</b><br />
-                               
-            <b>checked={coffeeSize === "sm"}</b><br />
-                               
-            <b>onChange={handleSizeChange}</b><br />
-                            /><br />
-                            Small<br />
-                        &#60;/label><br />
-                        &#60;label><br />
-                            &#60;input<br />
-                                type="radio"<br />
-                                <b>name="coffeeSize"</b
-            ><br />
-                                <b>value="md"</b><br />
-                               
-            <b>checked={coffeeSize === "md"}</b><br />
-                               
-            <b>onChange={handleSizeChange}</b><br />
-                            /><br />
-                            Meduim<br />
-                        &#60;/label><br />
-                    &#60;/><br />
-                );<br />
-            };<br />
-          </p>
-        </div>
-      </div>
-
-      <!-- Чекбокси -->
-      <h3 class="m-bottom-min">Чекбокси</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            <b>Чекбокси</b>,на відміну від радіо-кнопок,
-            дозволяють <b>обрати багато з багатьох</b>.
-            Чекбокс, так само, як і радіо-кнопка, може
-            знаходитися в двох станах: обраний або ні.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> При роботі з
-            <i>групою чекбоксів</i> їх значення зберігаються
-            в властивості <b>value</b>, як і в разі з
-            радіо-кнопками, а
-            <b
-              >обрані значення зберігаються в стані як масив
-              чи об'єкт</b
-            >. Це потрібно в більш складних формах.
-          </p>
-
-          <p>
-            Приклад. Кнопка має бути активною лише тоді,
-            коли чекбокс обраний, і користувач не зможе
-            пройти далі, не прийнявши умови використання.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const App = () => {<br />
-                const
-            <b
-              >[hasAccepted, setHasAccepted] =
-              useState(false)</b
-            >;<br />
-                const <b>handleChange</b> = (evt) => {<br />
-                    <b>setHasAccepted</b>(<evt
-              class="target b"
-              >checked</evt
-            >);<br />
-                };<br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;label><br />
-                            &#60;input<br />
-                                type="checkbox"<br />
-                                name="terms"<br />
-                                <b>checked={hasAccepted}</b
-            ><br />
-                               
-            <b>onChange={handleChange}</b><br />
-                            /><br />
-                            I accept terms and conditions<br />
-                        &#60;/label><br />
-                        &#60;button type="button"
-            disabled={<b>hasAccepted</b>}><br />
-                                Proceed<br />
-                        &#60;/button><br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
       </div>
     </section>
 
     <!-- Контрольована форма -->
-    <section class="m-bottom print-m-bottom-max">
-      <!-- Контрольована форма -->
-      <h2 class="m-bottom-min">Контрольована форма</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Якщо значення полів форми є не лише необхідними
-            у момент її відправлення, а й
-            <i>кожного разу при зміні значень</i>,
-            наприклад, для додавання валідації полів, то
-            таку форму називають <b>контрольованою</b>.
-          </p>
-          <p class="m-bottom-min">
-            Дані всіх елементів контрольованої форми
-            зберігаються у стані та передаються як значення
-            їх атрибута <b>value</b>.
-          </p>
-          <p class="m-bottom-min border-box">
-            <b>Цікаво!</b> імена властивостей об'єкта стану
-            (<b>login</b> та <b>password</b>) збігаються зі
-            значеннями атрибутів name елементів форми. Це
-            використається пізніше для оптимізації обробки
-            значень.
-          </p>
-          <div class="border-box m-bottom-min">
-            <p>
-              <b>Цікаво!</b> Якщо уважно погляднути на
-              функції оновлення стану, можна помітити, що
-              вони практично ідентичні:
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <!-- Контрольована форма -->
+        <h2 class="m-bottom-min">Контрольована форма</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Якщо значення полів форми є не лише
+              необхідними у момент її відправлення, а й
+              <i>кожного разу при зміні значень</i>,
+              наприклад, для додавання валідації полів, то
+              таку форму називають <b>контрольованою</b>.
             </p>
-            <ul class="list-style m-bottom-min">
-              <li>отримують <i>об'єкт події</i>;</li>
-              <li>
-                викликають функцію зміни стану
-                <b>setValues</b>;
-              </li>
-              <li>
-                використовують <b>evt.target.value</b>, щоб
-                отримати значення поля;
-              </li>
-              <li>
-                різниця лише в <i>властивості об'єкта</i>,
-                яка оновлюється.
-              </li>
-            </ul>
-            <p>Їх можна замінити на:</p>
-            <div class="bcg-box">
+            <p class="m-bottom-min">
+              Дані всіх елементів контрольованої форми
+              зберігаються у стані та передаються як
+              значення їх атрибута <b>value</b>.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Цікаво!</b> імена властивостей об'єкта
+              стану (<b>login</b> та <b>password</b>)
+              збігаються зі значеннями атрибутів name
+              елементів форми. Це використається пізніше для
+              оптимізації обробки значень.
+            </p>
+            <div class="border-box m-bottom-min">
               <p>
-                const handleChange = (evt) => {<br />
-                    setValues({<br />
-                        ...values,<br />
-                        [evt.target.name]:
-                evt.target.value,<br />
-                    });<br />
-                };
+                <b>Цікаво!</b> Якщо уважно погляднути на
+                функції оновлення стану, можна помітити, що
+                вони практично ідентичні:
               </p>
+              <ul class="list-style m-bottom-min">
+                <li>отримують <i>об'єкт події</i>;</li>
+                <li>
+                  викликають функцію зміни стану
+                  <b>setValues</b>;
+                </li>
+                <li>
+                  використовують <b>evt.target.value</b>,
+                  щоб отримати значення поля;
+                </li>
+                <li>
+                  різниця лише в <i>властивості об'єкта</i>,
+                  яка оновлюється.
+                </li>
+              </ul>
+              <p>Їх можна замінити на:</p>
+              <div class="bcg-box">
+                <p>
+                  const handleChange = (evt) => {<br />
+                      setValues({<br />
+                          ...values,<br />
+                          [evt.target.name]:
+                  evt.target.value,<br />
+                      });<br />
+                  };
+                </p>
+              </div>
             </div>
+            <p class="border-box">
+              <b>Важливо!</b> Складні контрольовані форми,
+              особливо з валідацією, зазвичай створюються не
+              вручну, а за допомогою бібліотек.
+            </p>
           </div>
-          <p class="border-box">
-            <b>Важливо!</b> Складні контрольовані форми,
-            особливо з валідацією, зазвичай створюються не
-            вручну, а за допомогою бібліотек.
-          </p>
+          <div class="bcg-box">
+            <p>
+              const LoginForm = () => {<br />
+                  const [<b>values, setValues</b>] =
+              useState({<br />
+                      <b><i>login</i></b
+              >: "",<br />
+                      <b><i>password</i></b
+              >: "",<br />
+                  });<br />
+                  <br />
+                  const <b>handleLoginChange</b> = (evt) =>
+              {<br />
+                      <b>setValues</b>({<br />
+                          ...<b>values</b>,<br />
+                          <b><i>login</i></b
+              >: evt.target.<b>value</b>,<br />
+                      });<br />
+                  };<br />
+                  <br />
+                  const handlePwdChange = (evt) => {<br />
+                      <b>setValues</b>({<br />
+                          ...<b>values</b>,<br />
+                          <b><i>password</i></b
+              >: evt.target.<b>value</b>,<br />
+                      });<br />
+                  };<br />
+                  <br />
+                  return (<br />
+                      &#60;form><br />
+                          &#60;input<br />
+                              type="text"<br />
+                              name="<b>login</b>"<br />
+                              <b>value={values.login}</b
+              ><br />
+                             
+              <b>onChange={handleLoginChange}</b><br />
+                          /><br />
+                          &#60;input<br />
+                              type="password"<br />
+                              name="<b>password</b>"<br />
+                              <b>value={values.password}</b
+              ><br />
+                             
+              <b>onChange={handlePwdChange}</b><br />
+                          /><br />
+                          &#60;button
+              type="submit">Login&#60;/button><br />
+                      &#60;/form><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
+
+        <h3 class="m-bottom-min">Відправка форми</h3>
+        <div class="m-bottom flex print-m-bottom-max">
+          <div>
+            <p class="m-bottom-min">
+              Щоб отримати значення полів контрольованої
+              форми під час відправлення, необхідно створити
+              функцію, (наприклад <b>handleSubmit</b>), в
+              якій звернутися до стану форми.
+            </p>
+            <p class="m-bottom-min">
+              Саму Функцію передати як значення
+              <i>вбудованного атрибута</i>
+              <b>onSubmit</b> елемента <b>form</b>.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> Часто, після отримання значень
+              із форми, стан необхідно очистити.
+            </p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              const <b>handleSumit</b> = (evt) => {<br />
+                  evt.preventDefault();<br />
+                  <br />
+                  <i>// Значення полів</i><br />
+                  <b><i>console.log(values)</i></b
+              >;<br />
+                  <i>// Очищаємо форму</i><br />
+                 
+              <b
+                ><i
+                  >setValues({<br />
+                          login: "",<br />
+                          password: "",<br />
+                      })</i
+                ></b
+              >;<br />
+              };<br />
+              <br />
+              &#60;form onSubmit={<b>handleSumit</b>}>
+            </p>
+          </div>
+        </div>
+        <p class="m-bottom-min">
+          Ось повний код прикладу форми для входу.
+        </p>
+        <div class="bcg-box">
           <p>
             const LoginForm = () => {<br />
-                const [<b>values, setValues</b>] =
-            useState({<br />
-                    <b><i>login</i></b
-            >: "",<br />
-                    <b><i>password</i></b
-            >: "",<br />
+                const [values, setValues] = useState({<br />
+                    login: "",<br />
+                    password: "",<br />
                 });<br />
                 <br />
-                const <b>handleLoginChange</b> = (evt) =>
-            {<br />
-                    <b>setValues</b>({<br />
-                        ...<b>values</b>,<br />
-                        <b><i>login</i></b
-            >: evt.target.<b>value</b>,<br />
+                const handleChange = (evt) => {<br />
+                    setValues({<br />
+                        ...values,<br />
+                        [evt.target.name]:
+            evt.target.value,<br />
                     });<br />
                 };<br />
                 <br />
-                const handlePwdChange = (evt) => {<br />
-                    <b>setValues</b>({<br />
-                        ...<b>values</b>,<br />
-                        <b><i>password</i></b
-            >: evt.target.<b>value</b>,<br />
+                const handleSumit = (evt) => {<br />
+                    evt.preventDefault();<br />
+                    <br />
+                    console.log(values);<br />
+                    <br />
+                    setValues({<br />
+                        login: "",<br />
+                        password: "",<br />
                     });<br />
                 };<br />
                 <br />
                 return (<br />
-                    &#60;form><br />
+                    &#60;form onSubmit={handleSumit}><br />
                         &#60;input<br />
                             type="text"<br />
-                            name="<b>login</b>"<br />
-                            <b>value={values.login}</b
-            ><br />
-                           
-            <b>onChange={handleLoginChange}</b><br />
+                            name="login"<br />
+                            value={values.login}<br />
+                            onChange={handleChange}<br />
                         /><br />
                         &#60;input<br />
                             type="password"<br />
-                            name="<b>password</b>"<br />
-                            <b>value={values.password}</b
-            ><br />
-                            <b>onChange={handlePwdChange}</b
-            ><br />
+                            name="password"<br />
+                            value={values.password}<br />
+                            onChange={handleChange}<br />
                         /><br />
                         &#60;button
             type="submit">Login&#60;/button><br />
@@ -773,747 +894,766 @@
           </p>
         </div>
       </div>
-
-      <h3 class="m-bottom-min">Відправка форми</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            Щоб отримати значення полів контрольованої форми
-            під час відправлення, необхідно створити
-            функцію, (наприклад <b>handleSubmit</b>), в якій
-            звернутися до стану форми.
-          </p>
-          <p class="m-bottom-min">
-            Саму Функцію передати як значення
-            <i>вбудованного атрибута</i>
-            <b>onSubmit</b> елемента <b>form</b>.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Часто, після отримання значень
-            із форми, стан необхідно очистити.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const <b>handleSumit</b> = (evt) => {<br />
-                evt.preventDefault();<br />
-                <br />
-                <i>// Значення полів</i><br />
-                <b><i>console.log(values)</i></b
-            >;<br />
-                <i>// Очищаємо форму</i><br />
-               
-            <b
-              ><i
-                >setValues({<br />
-                        login: "",<br />
-                        password: "",<br />
-                    })</i
-              ></b
-            >;<br />
-            };<br />
-            <br />
-            &#60;form onSubmit={<b>handleSumit</b>}>
-          </p>
-        </div>
-      </div>
-      <p class="m-bottom-min">
-        Ось повний код прикладу форми для входу.
-      </p>
-      <div class="bcg-box">
-        <p>
-          const LoginForm = () => {<br />
-              const [values, setValues] = useState({<br />
-                  login: "",<br />
-                  password: "",<br />
-              });<br />
-              <br />
-              const handleChange = (evt) => {<br />
-                  setValues({<br />
-                      ...values,<br />
-                      [evt.target.name]:
-          evt.target.value,<br />
-                  });<br />
-              };<br />
-              <br />
-              const handleSumit = (evt) => {<br />
-                  evt.preventDefault();<br />
-                  <br />
-                  console.log(values);<br />
-                  <br />
-                  setValues({<br />
-                      login: "",<br />
-                      password: "",<br />
-                  });<br />
-              };<br />
-              <br />
-              return (<br />
-                  &#60;form onSubmit={handleSumit}><br />
-                      &#60;input<br />
-                          type="text"<br />
-                          name="login"<br />
-                          value={values.login}<br />
-                          onChange={handleChange}<br />
-                      /><br />
-                      &#60;input<br />
-                          type="password"<br />
-                          name="password"<br />
-                          value={values.password}<br />
-                          onChange={handleChange}<br />
-                      /><br />
-                      &#60;button
-          type="submit">Login&#60;/button><br />
-                  &#60;/form><br />
-              );<br />
-          };
-        </p>
-      </div>
     </section>
 
     <!-- Колекція елементів -->
-    <section class="m-bottom print-m-bottom-max">
-      <h2 class="m-bottom-min">Колекція елементів</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="">
-            Розглянемо, як працювати з колекцією елементів,
-            тобто масивом об'єктів. Задачі:
-          </p>
-          <ul class="list-style m-bottom-min">
-            <li>
-              оновлювати стан, якщо в ньому зберігається
-              масив;
-            </li>
-            <li>додавати новий елемент до колекції;</li>
-            <li>
-              видаляти елемент з колекції за його
-              ідентифікатором;
-            </li>
-            <li>фільтрувати колекцію.</li>
-          </ul>
-          <p class="border-box m-bottom-min">
-            <b>Важливо!</b> При роботі із колекцією
-            елементів (масиви, об'єкти), рекомендується
-            використовувати у сеттері стану функціональну
-            форму ( <b>( ) => { }</b> ).
-          </p>
-          <p>Кроки:</p>
-          <ol class="list-style">
-            <li class="m-bottom-min">
-              Додаємо новий елемент до колекції:
-              <ul class="list-style list-mid-lvl">
-                <li>
-                  <b>App.jsx.</b> Додаємо у стан нову
-                  задачу:
-                  <ul class="list-style list-style-type">
-                    <li class="">
-                      оголошуємо стан
-                      <b
-                        >[tasks, setTasks] =
-                        useState(initialTasks)</b
-                      >
-                      (початковий стан - імпортований *.json
-                      <b>initialTasks</b> - коллекція
-                      задач);
-                    </li>
-
-                    <li>
-                      <i>функція</i> <b>addTask</b> -
-                      приймає нову задачу (<b>newTask</b>)
-                      із <i>компонента</i> <b>Form</b> та
-                      створює новий об'єкт, розпиливши
-                      попередній перелік задач
-                      (<b>prevTasks</b>) та додавший нову
-                      задачу;
-                    </li>
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>компонента</i>
-                      <b>Form</b>
-                      <b>onAdd={addTask}</b>;
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Form.jsx.</b> Приймаємо <i>props</i>
-                  <b>onAdd</b> та обробляємо сабміт:
-                  <ul class="list-style list-style-type">
-                    <li>
-                      <i>функція</i> <b>handleSubmit</b> -
-                      створює об'єкт куди передає як
-                      властивості назву нової таски з
-                      <b>input</b> та новий <b>id</b>, після
-                      чого очищує поле <b>input</b>;
-                    </li>
-                    <li>
-                      передаємо у <i>props</i> <i>тега</i>
-                      <b>form</b>
-                      <b>onSubmit={handleSubmit}</b>.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li class="m-bottom-min">
-              Видаляємо існуючий елемент із колекції
-              <ul class="list-style list-mid-lvl">
-                <li class="">
-                  <b>App.jsx.</b> Видаляємо зі стану
-                  існуючий елемент:
-                  <ul class="list-style list-style-type">
-                    <li>
-                      <i>функція</i> <b>deleteTask</b> -
-                      приймає <b>id</b> елемента
-                      (<b>taskId</b>) із <i>компонента</i>
-                      <b>TaskList</b>, що необхідно видалити
-                      та фільтрує старий об'єкт
-                      (<b>prevTasks</b>), шляхом порівняння
-                      <b>id</b>
-                      елементів із отриманим
-                      (<b>taskId</b>);
-                    </li>
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>компонента</i>
-                      <b>TaskList</b>
-                      <b>onDelete={deleteTask}</b>.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>TaskList.jsx.</b> Приймаємо
-                  <i>props</i> <b>onDelete</b> та отримуємо
-                  <b>id</b> елемента для видалення
-                  (<i>транзитом</i>):
-                  <ul class="list-style list-style-type">
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>компонента</i>
-                      <b>Task</b>
-                      <b>onDelete={onDelete}</b> (із тим же
-                      самим ім'ям).
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Task.jsx.</b> Приймаємо <i>props</i>
-                  <b>onDelete</b> та id елементів коллекції
-                  (<i
-                    >попередньо деструктуризувавши масив
-                    колекції компонентів</i
-                  >) та отримуємо <b>id</b> елемента для
-                  видалення:
-                  <ul class="list-style list-style-type">
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>тега</i>
-                      <b>button</b>
-                      <b>onClick={() => onDelete(id)</b>.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="m-bottom-min">
-              Фільтруємо колекцію.
-              <ul class="list-style list-mid-lvl">
-                <li>
-                  <b>App.jsx.</b> Отримуємо текст для
-                  фільтру:
-                  <ul class="list-style list-style-type">
-                    <li class="">
-                      оголошуємо стан
-                      <b
-                        >[filter, setFilter] =
-                        useState('')</b
-                      >
-                      (початковий стан - порожній рядок).
-                    </li>
-
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>компонента</i>
-                      <b>Filter</b>
-                      <b>value={filter}</b> та
-                      <b>onFilter={setFilter}</b> зі стану.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>Filter.jsx.</b> Приймаємо <i>props</i>
-                  <b>value</b> та <b>onFilter</b> та
-                  отримуємо текст для фільтру і передаємо до
-                  <b>App.jsx.</b>:
-                  <ul class="list-style list-style-type">
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>тега</i>
-                      <b>input</b> <b>value={value}</b> та
-                      <b
-                        >onChange={(e) =>
-                        onFilter(e.target.value)</b
-                      >.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <b>App.jsx.</b> фільтруємо масив елементів
-                  на предмет наявності ключового тексту
-                  <ul class="list-style list-style-type">
-                    <li>
-                      <i>функція</i>
-                      <b>visibleTasks</b> приймає масив
-                      елементів задач із стану
-                      <b>tasks</b> та фільтрує по наявності
-                      фільтруючого тексту зі стану
-                      <b>filter</b> (самі стани залишаються
-                      не зміними);
-                    </li>
-                    <li>
-                      передаємо у <i>props</i>
-                      <i>компонента</i>
-                      <b>TaskList</b>
-                      <b>tasks={visibleTasks}</b>
-                      для рендеру <i>компонентів</i>
-                      <b>Task</b> (на початку він ренедився
-                      із <b>initialTasks</b>).
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ol>
-        </div>
-        <div>
-          <div
-            class="bcg-box print-bcg-box m-bottom-min print-fs-15"
-          >
-            <p>
-              <i>// App.jsx</i><br />
-              import TaskList from
-              '../TaskList/TaskList';<br />
-              import <b>initialTasks</b> from
-              '../../tasks.json';<br />
-              import Form from '../Form/Form';<br />
-              import Filter from '../Filter/Filter';<br />
-              import css from './App.module.css';<br />
-              import { useState } from 'react';<br />
-              <br />
-              export default function App() {<br />
-                  const
-              <b
-                >[tasks, setTasks] =
-                useState(initialTasks)</b
-              >;<br />
-                  const [filter, setFilter] =
-              useState('');<br />
-                  <br />
-                  const <b>addTask</b> = (newTask) => {<br />
-                      setTasks((prevTasks) => {<br />
-                          return [...prevTasks, newTask];<br />
-                      });<br />
-                  };<br />
-                  const <b>deleteTask</b> = (taskId) => {<br />
-                      setTasks((prevTasks) => {<br />
-                          return prevTasks.filter((task) =>
-              task.id !== taskId);<br />
-                      });<br />
-                  };<br />
-                  const <b>visibleTasks</b> =
-              tasks.filter((task) =><br />
-                     
-              task.text.toLowerCase().includes(filter.toLowerCase())<br />
-                  );<br />
-                  <br />
-                  return (<br />
-                      &#60;div className={css.container}><br />
-                          &#60;Form
-              <b>onAdd={addTask}</b> /><br />
-                          &#60;Filter <b>value={filter}</b>
-              <b>onFilter={setFilter}</b> /><br />
-                          &#60;TaskList
-              tasks={<b>visibleTasks</b>}
-              <b>onDelete={deleteTask}</b> /><br />
-                      &#60;/div><br />
-                  );<br />
-              }
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h2 class="m-bottom-min">Колекція елементів</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="">
+              Розглянемо, як працювати з колекцією
+              елементів, тобто масивом об'єктів. Задачі:
             </p>
+            <ul class="list-style m-bottom-min">
+              <li>
+                оновлювати стан, якщо в ньому зберігається
+                масив;
+              </li>
+              <li>додавати новий елемент до колекції;</li>
+              <li>
+                видаляти елемент з колекції за його
+                ідентифікатором;
+              </li>
+              <li>фільтрувати колекцію.</li>
+            </ul>
+            <p class="border-box m-bottom-min">
+              <b>Важливо!</b> При роботі із колекцією
+              елементів (масиви, об'єкти), рекомендується
+              використовувати у сеттері стану функціональну
+              форму ( <b>( ) => { }</b> ).
+            </p>
+            <p>Кроки:</p>
+            <ol class="list-style">
+              <li class="m-bottom-min">
+                Додаємо новий елемент до колекції:
+                <ul class="list-style list-mid-lvl">
+                  <li>
+                    <b>App.jsx.</b> Додаємо у стан нову
+                    задачу:
+                    <ul class="list-style list-style-type">
+                      <li class="">
+                        оголошуємо стан
+                        <b
+                          >[tasks, setTasks] =
+                          useState(initialTasks)</b
+                        >
+                        (початковий стан - імпортований
+                        *.json
+                        <b>initialTasks</b> - коллекція
+                        задач);
+                      </li>
+
+                      <li>
+                        <i>функція</i> <b>addTask</b> -
+                        приймає нову задачу (<b>newTask</b>)
+                        із <i>компонента</i> <b>Form</b> та
+                        створює новий об'єкт, розпиливши
+                        попередній перелік задач
+                        (<b>prevTasks</b>) та додавший нову
+                        задачу;
+                      </li>
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>компонента</i>
+                        <b>Form</b>
+                        <b>onAdd={addTask}</b>;
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>Form.jsx.</b> Приймаємо <i>props</i>
+                    <b>onAdd</b> та обробляємо сабміт:
+                    <ul class="list-style list-style-type">
+                      <li>
+                        <i>функція</i> <b>handleSubmit</b> -
+                        створює об'єкт куди передає як
+                        властивості назву нової таски з
+                        <b>input</b> та новий <b>id</b>,
+                        після чого очищує поле <b>input</b>;
+                      </li>
+                      <li>
+                        передаємо у <i>props</i> <i>тега</i>
+                        <b>form</b>
+                        <b>onSubmit={handleSubmit}</b>.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="m-bottom-min">
+                Видаляємо існуючий елемент із колекції
+                <ul class="list-style list-mid-lvl">
+                  <li class="">
+                    <b>App.jsx.</b> Видаляємо зі стану
+                    існуючий елемент:
+                    <ul class="list-style list-style-type">
+                      <li>
+                        <i>функція</i> <b>deleteTask</b> -
+                        приймає <b>id</b> елемента
+                        (<b>taskId</b>) із
+                        <i>компонента</i> <b>TaskList</b>,
+                        що необхідно видалити та фільтрує
+                        старий об'єкт (<b>prevTasks</b>),
+                        шляхом порівняння
+                        <b>id</b>
+                        елементів із отриманим
+                        (<b>taskId</b>);
+                      </li>
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>компонента</i>
+                        <b>TaskList</b>
+                        <b>onDelete={deleteTask}</b>.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>TaskList.jsx.</b> Приймаємо
+                    <i>props</i> <b>onDelete</b> та
+                    отримуємо <b>id</b> елемента для
+                    видалення (<i>транзитом</i>):
+                    <ul class="list-style list-style-type">
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>компонента</i>
+                        <b>Task</b>
+                        <b>onDelete={onDelete}</b> (із тим
+                        же самим ім'ям).
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>Task.jsx.</b> Приймаємо <i>props</i>
+                    <b>onDelete</b> та id елементів
+                    коллекції (<i
+                      >попередньо деструктуризувавши масив
+                      колекції компонентів</i
+                    >) та отримуємо <b>id</b> елемента для
+                    видалення:
+                    <ul class="list-style list-style-type">
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>тега</i>
+                        <b>button</b>
+                        <b>onClick={() => onDelete(id)</b>.
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="m-bottom-min">
+                Фільтруємо колекцію.
+                <ul class="list-style list-mid-lvl">
+                  <li>
+                    <b>App.jsx.</b> Отримуємо текст для
+                    фільтру:
+                    <ul class="list-style list-style-type">
+                      <li class="">
+                        оголошуємо стан
+                        <b
+                          >[filter, setFilter] =
+                          useState('')</b
+                        >
+                        (початковий стан - порожній рядок).
+                      </li>
+
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>компонента</i>
+                        <b>Filter</b>
+                        <b>value={filter}</b> та
+                        <b>onFilter={setFilter}</b> зі
+                        стану.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>Filter.jsx.</b> Приймаємо
+                    <i>props</i> <b>value</b> та
+                    <b>onFilter</b> та отримуємо текст для
+                    фільтру і передаємо до <b>App.jsx.</b>:
+                    <ul class="list-style list-style-type">
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>тега</i>
+                        <b>input</b> <b>value={value}</b> та
+                        <b
+                          >onChange={(e) =>
+                          onFilter(e.target.value)</b
+                        >.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <b>App.jsx.</b> фільтруємо масив
+                    елементів на предмет наявності ключового
+                    тексту
+                    <ul class="list-style list-style-type">
+                      <li>
+                        <i>функція</i>
+                        <b>visibleTasks</b> приймає масив
+                        елементів задач із стану
+                        <b>tasks</b> та фільтрує по
+                        наявності фільтруючого тексту зі
+                        стану <b>filter</b> (самі стани
+                        залишаються не зміними);
+                      </li>
+                      <li>
+                        передаємо у <i>props</i>
+                        <i>компонента</i>
+                        <b>TaskList</b>
+                        <b>tasks={visibleTasks}</b>
+                        для рендеру <i>компонентів</i>
+                        <b>Task</b> (на початку він
+                        ренедився із <b>initialTasks</b>).
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ol>
           </div>
+          <div>
+            <div class="bcg-box m-bottom-min print-fs-15">
+              <p>
+                <i>// App.jsx</i><br />
+                import TaskList from
+                '../TaskList/TaskList';<br />
+                import <b>initialTasks</b> from
+                '../../tasks.json';<br />
+                import Form from '../Form/Form';<br />
+                import Filter from '../Filter/Filter';<br />
+                import css from './App.module.css';<br />
+                import { useState } from 'react';<br />
+                <br />
+                export default function App() {<br />
+                    const
+                <b
+                  >[tasks, setTasks] =
+                  useState(initialTasks)</b
+                >;<br />
+                    const [filter, setFilter] =
+                useState('');<br />
+                    <br />
+                    const <b>addTask</b> = (newTask) => {<br />
+                        setTasks((prevTasks) => {<br />
+                            return [...prevTasks,
+                newTask];<br />
+                        });<br />
+                    };<br />
+                    const <b>deleteTask</b> = (taskId) =>
+                {<br />
+                        setTasks((prevTasks) => {<br />
+                            return prevTasks.filter((task)
+                => task.id !== taskId);<br />
+                        });<br />
+                    };<br />
+                    const <b>visibleTasks</b> =
+                tasks.filter((task) =><br />
+                       
+                task.text.toLowerCase().includes(filter.toLowerCase())<br />
+                    );<br />
+                    <br />
+                    return (<br />
+                        &#60;div
+                className={css.container}><br />
+                            &#60;Form
+                <b>onAdd={addTask}</b> /><br />
+                            &#60;Filter
+                <b>value={filter}</b>
+                <b>onFilter={setFilter}</b> /><br />
+                            &#60;TaskList
+                tasks={<b>visibleTasks</b>}
+                <b>onDelete={deleteTask}</b> /><br />
+                        &#60;/div><br />
+                    );<br />
+                }
+              </p>
+            </div>
 
-          <div
-            class="bcg-box print-bcg-box m-bottom-min print-fs-15"
-          >
-            <p>
-              <i>// Form.jsx</i><br />
-              import css from './Form.module.css';<br />
-              <br />
-              export default function Form({ <b>onAdd</b> })
-              {<br />
-                  const <b>handleSubmit</b> = (e) => {<br />
-                      e.preventDefault();<br />
-              <br />
-                      <b>onAdd</b>({<br />
-                          id: Date.now(),<br />
-                          text:
-              e.target.elements.text.value,<br />
-                      });<br />
-                      e.target.reset();<br />
-                  };<br />
-                  <br />
-                  return (<br />
-                      &#60;form className={css.form}
-              <b>onSubmit={handleSubmit}</b>><br />
-                          &#60;input className={css.field}
-              type="text" name="text" /><br />
-                          &#60;button type="submit">Add
-              task&#60;/button><br />
-                      &#60;/form><br />
-                  );<br />
-              }
-            </p>
-          </div>
+            <div class="bcg-box m-bottom-min print-fs-15">
+              <p>
+                <i>// Form.jsx</i><br />
+                import css from './Form.module.css';<br />
+                <br />
+                export default function Form({
+                <b>onAdd</b> }) {<br />
+                    const <b>handleSubmit</b> = (e) => {<br />
+                        e.preventDefault();<br />
+                <br />
+                        <b>onAdd</b>({<br />
+                            id: Date.now(),<br />
+                            text:
+                e.target.elements.text.value,<br />
+                        });<br />
+                        e.target.reset();<br />
+                    };<br />
+                    <br />
+                    return (<br />
+                        &#60;form className={css.form}
+                <b>onSubmit={handleSubmit}</b>><br />
+                            &#60;input className={css.field}
+                type="text" name="text" /><br />
+                            &#60;button type="submit">Add
+                task&#60;/button><br />
+                        &#60;/form><br />
+                    );<br />
+                }
+              </p>
+            </div>
 
-          <div
-            class="bcg-box print-bcg-box m-bottom-min print-fs-15"
-          >
-            <p>
-              <i>// Filter.jsx</i><br />
-              <br />
-              import css from './Filter.module.css';<br />
-              <br />
-              export default function Filter({
-              <b>value, onFilter</b> }) {<br />
-                  return (<br />
-                      &#60;div><br />
-                          &#60;p
-              className={css.label}>Search by
-              name&#60;/p><br />
-                          &#60;input<br />
-                              type="text"<br />
-                              <b>value={value}</b><br />
-                             
-              <b
-                >onChange={(e) =>
-                onFilter(e.target.value)}</b
-              ><br />
-                          /><br />
-                      &#60;/div><br />
-                  );<br />
-              }
-            </p>
-          </div>
+            <div class="bcg-box m-bottom-min print-fs-15">
+              <p>
+                <i>// Filter.jsx</i><br />
+                <br />
+                import css from './Filter.module.css';<br />
+                <br />
+                export default function Filter({
+                <b>value, onFilter</b> }) {<br />
+                    return (<br />
+                        &#60;div><br />
+                            &#60;p
+                className={css.label}>Search by
+                name&#60;/p><br />
+                            &#60;input<br />
+                                type="text"<br />
+                                <b>value={value}</b><br />
+                               
+                <b
+                  >onChange={(e) =>
+                  onFilter(e.target.value)}</b
+                ><br />
+                            /><br />
+                        &#60;/div><br />
+                    );<br />
+                }
+              </p>
+            </div>
 
-          <div
-            class="bcg-box print-bcg-box m-bottom-min print-fs-15"
-          >
-            <p>
-              <i>// TaskList.jsx</i><br />
-              <br />
-              import Task from '../Task/Task';<br />
-              import css from './TaskList.module.css';<br />
-              <br />
-              export default function TaskList({ tasks,
-              <b>onDelete</b> }) {<br />
-                  return (<br />
-                      &#60;ul className={css.list}><br />
-                          {tasks.map((task) => (<br />
-                              &#60;li className={css.item}
-              key={task.id}><br />
-                                  &#60;Task data={task}
-              <b>onDelete={onDelete}</b> /><br />
-                              &#60;/li><br />
-                          ))}<br />
-                      &#60;/ul><br />
-                  );<br />
-              }
-            </p>
-          </div>
+            <div class="bcg-box m-bottom-min print-fs-15">
+              <p>
+                <i>// TaskList.jsx</i><br />
+                <br />
+                import Task from '../Task/Task';<br />
+                import css from './TaskList.module.css';<br />
+                <br />
+                export default function TaskList({ tasks,
+                <b>onDelete</b> }) {<br />
+                    return (<br />
+                        &#60;ul className={css.list}><br />
+                            {tasks.map((task) => (<br />
+                                &#60;li className={css.item}
+                key={task.id}><br />
+                                    &#60;Task data={task}
+                <b>onDelete={onDelete}</b> /><br />
+                                &#60;/li><br />
+                            ))}<br />
+                        &#60;/ul><br />
+                    );<br />
+                }
+              </p>
+            </div>
 
-          <div
-            class="bcg-box print-bcg-box m-bottom-min print-fs-15"
-          >
-            <p>
-              <i>// Task.jsx</i><br />
+            <div class="bcg-box m-bottom-min print-fs-15">
+              <p>
+                <i>// Task.jsx</i><br />
 
-              <br />
-              import css from './Task.module.css';<br />
-              <br />
-              export default function Task({ data: {
-              <b>id</b>, text }, <b>onDelete</b> }) {<br />
-                  return (<br />
-                      &#60;div className={css.container}><br />
-                          &#60;p
-              className={css.text}>{text}&#60;/p><br />
-                          &#60;button<br />
-                              className={css.btn}<br />
-                             
-              <b>onClick={() => onDelete(id)}</b><br />
-                          ><br />
-                              Delete<br />
-                          &#60;/button><br />
-                      &#60;/div><br />
-                  );<br />
-              }
-            </p>
+                <br />
+                import css from './Task.module.css';<br />
+                <br />
+                export default function Task({ data: {
+                <b>id</b>, text }, <b>onDelete</b> }) {<br />
+                    return (<br />
+                        &#60;div
+                className={css.container}><br />
+                            &#60;p
+                className={css.text}>{text}&#60;/p><br />
+                            &#60;button<br />
+                                className={css.btn}<br />
+                               
+                <b>onClick={() => onDelete(id)}</b><br />
+                            ><br />
+                                Delete<br />
+                            &#60;/button><br />
+                        &#60;/div><br />
+                    );<br />
+                }
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Бібліотека Formik -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Бібліотека Formik</h2>
-      <div class="m-bottom">
-        <div class="m-bottom print-flex-box">
-          <div class="m-bottom-min">
-            <p>
-              <b>Formik!</b> (https://formik.org/)
-              бібліотека для роботи з <i>формами</i> в React
-              та React Native.
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>npm install formik</p>
-          </div>
-        </div>
-        <p>
-          Дбає про рутинні аспекти розробки — відстеження
-          значень/помилок/відвіданих полів, валідація та
-          обробка даних. Для внутрішньої логіки Formik
-          використовує лише звичайний стан та властивості
-          React. Залишаючись в межах основного фреймворку
-          React, Formik робить налагодження та мислення про
-          форми легкими.
-        </p>
-      </div>
-
-      <!-- Контейнер форми -->
-      <h3 class="m-bottom-min">Контейнер форми</h3>
-      <div class="m-bottom">
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Побудова форми починається з
-              компонента-контейнера <b>Formik</b>.
-            </p>
-            <div class="border-box">
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Бібліотека Formik</h2>
+        <div class="m-bottom">
+          <div class="m-bottom flex">
+            <div class="m-bottom-min">
               <p>
-                <b>Важливо!</b> Його необхідно
-                <b>імпортувати</b> та при
-                <i>виклику передати два пропси</i>:
+                <b>Formik!</b> (https://formik.org/)
+                бібліотека для роботи з <i>формами</i> в
+                React та React Native.
               </p>
-              <ul class="list-style">
-                <li>
-                  <b>initialValues</b> - об'єкт початкових
-                  значень полів, наразі передамо порожній
-                  об'єкт.
-                </li>
-                <li>
-                  <b>onSubmit</b> - функція, яка буде
-                  викликана при сабміті форми..
-                </li>
-              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>npm install formik</p>
             </div>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <p>
+            Дбає про рутинні аспекти розробки — відстеження
+            значень/помилок/відвіданих полів, валідація та
+            обробка даних. Для внутрішньої логіки Formik
+            використовує лише звичайний стан та властивості
+            React. Залишаючись в межах основного фреймворку
+            React, Formik робить налагодження та мислення
+            про форми легкими.
+          </p>
+        </div>
+
+        <!-- Контейнер форми -->
+        <h3 class="m-bottom-min">Контейнер форми</h3>
+        <div class="m-bottom">
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                Побудова форми починається з
+                компонента-контейнера <b>Formik</b>.
+              </p>
+              <div class="border-box">
+                <p>
+                  <b>Важливо!</b> Його необхідно
+                  <b>імпортувати</b> та при
+                  <i>виклику передати два пропси</i>:
+                </p>
+                <ul class="list-style">
+                  <li>
+                    <b>initialValues</b> - об'єкт початкових
+                    значень полів, наразі передамо порожній
+                    об'єкт.
+                  </li>
+                  <li>
+                    <b>onSubmit</b> - функція, яка буде
+                    викликана при сабміті форми..
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bcg-box">
+              <p>
+                <b>import { Formik } from 'formik'</b
+                >;<br />
+                <br />
+                const FeedbackForm = () => {<br />
+                    return (<br />
+                       
+                <b
+                  >&#60;Formik initialValues={{}}
+                  onSubmit={() => {}}></b
+                ><br />
+                            ...<br />
+                        <b>&#60;/Formik></b><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                Усередині компонента
+                <i>Formik</i> вкладаються елементи форми,
+                але <i>не вбудовані теги</i>, такі як
+                <b>form</b> чи <b>input</b>, а ті, що надає
+                бібліотека.
+              </p>
+              <p class="">
+                <i>Компонент</i> <b>Form</b> рендерить
+                звичайний <i>тег</i> <b>form</b>, але з
+                розширеним функціоналом бібліотеки Formik.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { Formik, <b>Form</b> } from
+                'formik';<br />
+                <br />
+                const FeedbackForm = () => {<br />
+                    return (         &#60;Formik
+                initialValues={{}} onSubmit={() => {}}><br />
+                        <b>&#60;Form></b><br />
+                            &#60;button
+                type="submit">Submit&#60;/button><br />
+                        <b>&#60;/Form></b><br />
+                        &#60;/Formik><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Поля форми -->
+        <h3 class="m-bottom-min">Поля форми</h3>
+        <div class="m-bottom flex print-m-bottom-max">
+          <div>
+            <p class="m-bottom-min">
+              Для додавання полів форми використовується
+              <i>компонент</i> <b>Field</b>, який за
+              замовчуванням рендерить <i>тег</i>
+              <b>input</b>. Кожному полю обов'язково
+              потрібно вказати <i>атрибут</i> <b>name</b>.
+            </p>
+            <p class="m-bottom-min">
+              Тег <b>Field</b>, як і тег <b>Form</b>,
+              <i
+                >пов'язує поля форми і внутрішню логіку
+                бібліотеки</i
+              >, яка зберігається в тезі <b>Formik</b>.
+            </p>
+          </div>
+          <div class="bcg-box">
             <p>
-              <b>import { Formik } from 'formik'</b>;<br />
+              import { Formik, Form, Field } from
+              'formik';<br />
               <br />
-              const FeedbackForm = () => {<br />
-                  return (<br />
-                     
-              <b
-                >&#60;Formik initialValues={{}} onSubmit={()
-                => {}}></b
+                  const FeedbackForm = () => {<br />
+                      return (<br />
+                          &#60;Formik initialValues={{}}
+              onSubmit={() => {}}><br /><br />
+                              &#60;Form><br />
+                                  &#60;<b
+                >Field type="text" name="username" /></b
               ><br />
-                          ...<br />
-                      <b>&#60;/Formik></b><br />
+                                  &#60;<b
+                >Field type="email" name="email" /></b
+              ><br />
+                                  &#60;button
+              type="submit">Submit&#60;/button><br />
+                              &#60;/Form><br />
+                          &#60;/Formik><br />
                   );<br />
               };
             </p>
           </div>
         </div>
-        <div class="print-flex-box">
+
+        <!-- Стилізація -->
+        <h3 class="m-bottom-min">Стилізація</h3>
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
-              Усередині компонента <i>Formik</i> вкладаються
-              елементи форми, але <i>не вбудовані теги</i>,
-              такі як <b>form</b> чи <b>input</b>, а ті, що
-              надає бібліотека.
+              <i>Компоненти</i> з бібліотеки Formik
+              стилізуються за допомогою <i>пропса</i>
+              <b>className</b> і <b>CSS-модулів</b>.
+              Значення <i>пропса</i>
+              <b>className</b> передається тегу, який
+              рендерить компонент, і відповідно стилізація
+              застосовується до необхідного тегу.
             </p>
-            <p class="">
-              <i>Компонент</i> <b>Form</b> рендерить
-              звичайний <i>тег</i> <b>form</b>, але з
-              розширеним функціоналом бібліотеки Formik.
+            <p class="border-box">
+              <b>Важливо!</b> Компонент
+              <b>Formik не стилізується</b>, оскільки не
+              рендерить жодного тегу, а зберігає логіку
+              роботи з формою..
             </p>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
-              import { Formik, <b>Form</b> } from
+              import { Formik, Form, Field } from
               'formik';<br />
+              <b
+                >import css from
+                "./FeedbackForm.module.css"</b
+              >;<br />
               <br />
               const FeedbackForm = () => {<br />
-                  return (         &#60;Formik
-              initialValues={{}} onSubmit={() => {}}><br />
-                      <b>&#60;Form></b><br />
-                          &#60;button
+                  return (<br />
+                      &#60;Formik initialValues={{}}
+              onSubmit={() => {}}><br />
+                          &#60;Form
+              <b>className={css.form}</b>><br />
+                              &#60;Field
+              <b>className={css.field}</b> type="text"
+              name="username" /><br />
+                              &#60;Field
+              <b>className={css.field}</b> type="email"
+              name="email" /><br />
+                              &#60;button
+              <b>classname={css.btn}</b>
               type="submit">Submit&#60;/button><br />
-                      <b>&#60;/Form></b><br />
+                          &#60;/Form><br />
                       &#60;/Formik><br />
                   );<br />
               };
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Поля форми -->
-      <h3 class="m-bottom-min">Поля форми</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            Для додавання полів форми використовується
-            <i>компонент</i> <b>Field</b>, який за
-            замовчуванням рендерить <i>тег</i> <b>input</b>.
-            Кожному полю обов'язково потрібно вказати
-            <i>атрибут</i> <b>name</b>.
-          </p>
-          <p class="m-bottom-min">
-            Тег <b>Field</b>, як і тег <b>Form</b>,
-            <i
-              >пов'язує поля форми і внутрішню логіку
-              бібліотеки</i
-            >, яка зберігається в тезі <b>Formik</b>.
-          </p>
+        <!-- Початкове значення полів -->
+        <h3 class="m-bottom-min">
+          Початкове значення полів
+        </h3>
+        <div class="m-bottom print-m-bottom-max">
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Форми, створені за допомогою бібліотеки
+                Formik -
+                <b>контрольовані форми</b>,
+                <i>значення кожного поля зберігається в</i>
+                <b>стані</b>. Не потрібно оголошувати та
+                змінювати стан, це
+                <i>вже виконує</i> компонент <b>Formik</b>.
+              </p>
+              <p class="m-bottom-min">
+                <i>Пропсу</i> <b>initialValues</b> необхідно
+                передати об'єкт з початковими значеннями
+                полів.
+              </p>
+              <p class="border-box">
+                <b>Уважно!</b> Усередині Formik зберігає
+                стан у вигляді об'єкта, де імена полів - це
+                імена властивостей у стані, а значення полів
+                - це значення властивостей.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { Formik, Form, Field } from
+                "formik";<br />
+                <br />
+                const FeedbackForm = () => {<br />
+                    return (<br />
+                        &#60;Formik<br />
+                           
+                <b
+                  >initialValues={{<br />
+                                  username: "",<br />
+                                  email: ""<br />
+                              }}</b
+                ><br />
+                            onSubmit={() => {}}<br />
+                        ><br />
+                            &#60;Form><br />
+                                &#60;Field type="text"
+                <b>name="username"</b> /><br />
+                                &#60;Field type="email"
+                <b>name="email"</b> /><br />
+                                &#60;button
+                type="submit">Submit&#60;/button><br />
+                            &#60;/Form><br />
+                        &#60;/Formik><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                <i>Якщо форма велика</i>, зручно винести
+                об'єкт початкових значень полів в
+                <b>зовнішню змінну</b>.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                <b
+                  >const initialValues = {<br />
+                      username: "",<br />
+                      email: ""<br />
+                  };</b
+                ><br />
+                <br />
+                &#60;Formik
+                <b>initialValues={initialValues}</b>
+                onSubmit={() => {}}><br />
+                &#60;/Formik><br />
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            import { Formik, Form, Field } from 'formik';<br />
-            <br />
-                const FeedbackForm = () => {<br />
-                    return (<br />
-                        &#60;Formik initialValues={{}}
-            onSubmit={() => {}}><br /><br />
-                            &#60;Form><br />
-                                &#60;<b
-              >Field type="text" name="username" /></b
-            ><br />
-                                &#60;<b
-              >Field type="email" name="email" /></b
-            ><br />
-                                &#60;button
-            type="submit">Submit&#60;/button><br />
-                            &#60;/Form><br />
-                        &#60;/Formik><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
 
-      <!-- Стилізація -->
-      <h3 class="m-bottom-min">Стилізація</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            <i>Компоненти</i> з бібліотеки Formik
-            стилізуються за допомогою <i>пропса</i>
-            <b>className</b> і <b>CSS-модулів</b>. Значення
-            <i>пропса</i> <b>className</b> передається тегу,
-            який рендерить компонент, і відповідно
-            стилізація застосовується до необхідного тегу.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> Компонент
-            <b>Formik не стилізується</b>, оскільки не
-            рендерить жодного тегу, а зберігає логіку роботи
-            з формою..
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            import { Formik, Form, Field } from 'formik';<br />
-            <b
-              >import css from
-              "./FeedbackForm.module.css"</b
-            >;<br />
-            <br />
-            const FeedbackForm = () => {<br />
-                return (<br />
-                    &#60;Formik initialValues={{}}
-            onSubmit={() => {}}><br />
-                        &#60;Form
-            <b>className={css.form}</b>><br />
-                            &#60;Field
-            <b>className={css.field}</b> type="text"
-            name="username" /><br />
-                            &#60;Field
-            <b>className={css.field}</b> type="email"
-            name="email" /><br />
-                            &#60;button
-            <b>classname={css.btn}</b>
-            type="submit">Submit&#60;/button><br />
-                        &#60;/Form><br />
-                    &#60;/Formik><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Початкове значення полів -->
-      <h3 class="m-bottom-min">Початкове значення полів</h3>
-      <div class="m-bottom print-m-bottom-max">
-        <div class="m-bottom print-flex-box">
+        <!-- Відправка форми -->
+        <h3 class="m-bottom-min">Відправка форми</h3>
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
-              Форми, створені за допомогою бібліотеки Formik
-              -
-              <b>контрольовані форми</b>,
-              <i>значення кожного поля зберігається в</i>
-              <b>стані</b>. Не потрібно оголошувати та
-              змінювати стан, це
-              <i>вже виконує</i> компонент <b>Formik</b>.
+              При відправці форми викликається
+              <i>колбек-функція</i>, (<i>пропс</i>
+              <b>onSubmit</b> <i>компоненту Formik</i>).
+              Зручною є ідея зробити її іменованою функцією
+              <b>handleSubmit</b> і передати посилання на
+              неї в <b>onSubmit</b>.
             </p>
-            <p class="m-bottom-min">
-              <i>Пропсу</i> <b>initialValues</b> необхідно
-              передати об'єкт з початковими значеннями
-              полів.
+            <p class="">
+              Функція відправки форми має два параметри:
             </p>
-            <p class="border-box">
-              <b>Уважно!</b> Усередині Formik зберігає стан
-              у вигляді об'єкта, де імена полів - це імена
-              властивостей у стані, а значення полів - це
-              значення властивостей.
+            <ul class="m-bottom-min list-style">
+              <li>
+                <b>values</b> - об'єкт значень полів форми в
+                момент її відправки.
+              </li>
+              <li>
+                <b>actions</b> - об'єкт з допоміжними
+                методами. Наприклад, метод <b>resetForm</b>
+                використовується для очищення полів форми
+                після відправки.
+              </li>
+            </ul>
+            <p class="">
+              Функція відправки форми не отримує об'єкт
+              події, що є зайвим. Formik в момент відправки
+              форми:
             </p>
+            <ul class="list-style">
+              <li>
+                викликає метод <b>preventDefault</b>, щоб
+                уникнути перезавантаження сторінки;
+              </li>
+              <li>
+                збирає значення полів форми в
+                <b>один об'єкт</b>, де
+                <i
+                  >ім'я властивості - це ім'я поля, а
+                  значення поля - це значення властивості</i
+                >.
+              </li>
+            </ul>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
               import { Formik, Form, Field } from
               "formik";<br />
               <br />
+              <br />
               const FeedbackForm = () => {<br />
+              <br />
+              <b
+                >    const handleSubmit = (values, actions)
+                => {<br />
+                        console.log(values);<br />
+                        actions.resetForm();<br />
+                    };<br
+              /></b>
+                  <br />
                   return (<br />
                       &#60;Formik<br />
-                         
-              <b
-                >initialValues={{<br />
-                                username: "",<br />
-                                email: ""<br />
-                            }}</b
+                          initialValues={{}}<br />
+                          <b>onSubmit={handleSubmit}</b
               ><br />
-                          onSubmit={() => {}}<br />
                       ><br />
                           &#60;Form><br />
                               &#60;Field type="text"
-              <b>name="username"</b> /><br />
+              name="username" /><br />
                               &#60;Field type="email"
-              <b>name="email"</b> /><br />
+              name="email" /><br />
                               &#60;button
               type="submit">Submit&#60;/button><br />
                           &#60;/Form><br />
@@ -1523,440 +1663,346 @@
             </p>
           </div>
         </div>
-        <div class="print-flex-box">
+
+        <!-- Елементи форми -->
+        <h3 class="m-bottom-min">Елементи форми</h3>
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
-              <i>Якщо форма велика</i>, зручно винести
-              об'єкт початкових значень полів в
-              <b>зовнішню змінну</b>.
+              В бібліотеці <b>Formik</b> немає компонентів
+              для створення <b>label</b>, <b>fieldset</b>,
+              <b>legend</b> та інших семантичних елементів
+              форми. Для цього використовуються звичайні
+              теги. Обов'язково необхідно використовувати
+              хук <b>useId</b> для створення унікальних
+              ідентифікаторів полів.
             </p>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
-              <b
-                >const initialValues = {<br />
-                    username: "",<br />
-                    email: ""<br />
-                };</b
-              ><br />
+              import { useId } from "react";<br />
+              import { Formik, Form, Field } from
+              "formik";<br />
               <br />
-              &#60;Formik
-              <b>initialValues={initialValues}</b>
+              const FeedbackForm = () => {<br />
+                  const <b>nameId</b> = useId();<br />
+                  const <b>emailId</b> = useId();<br />
+                  <br />
+                  return (<br />
+                      &#60;Formik initialValues={{}}
               onSubmit={() => {}}><br />
-              &#60;/Formik><br />
+                          &#60;Form><br />
+                              &#60;label
+              htmlFor={<b>nameId</b>}>Username&#60;/label><br />
+                              &#60;Field type="text"
+              name="username" id={<b>nameId</b>} /><br />
+                              &#60;label
+              htmlFor={<b>emailId</b>}>Email&#60;/label><br />
+                              &#60;Field type="email"
+              name="email" id={<b>emailId</b>} /><br />
+
+                          &#60;/Form><br />
+                      &#60;/Formik><br />
+                  );<br />
+              };
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Відправка форми -->
-      <h3 class="m-bottom-min">Відправка форми</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            При відправці форми викликається
-            <i>колбек-функція</i>, (<i>пропс</i>
-            <b>onSubmit</b> <i>компоненту Formik</i>).
-            Зручною є ідея зробити її іменованою функцією
-            <b>handleSubmit</b> і передати посилання на неї
-            в <b>onSubmit</b>.
-          </p>
-          <p class="">
-            Функція відправки форми має два параметри:
-          </p>
-          <ul class="m-bottom-min list-style">
-            <li>
-              <b>values</b> - об'єкт значень полів форми в
-              момент її відправки.
-            </li>
-            <li>
-              <b>actions</b> - об'єкт з допоміжними
-              методами. Наприклад, метод <b>resetForm</b>
-              використовується для очищення полів форми
-              після відправки.
-            </li>
-          </ul>
-          <p class="">
-            Функція відправки форми не отримує об'єкт події,
-            що є зайвим. Formik в момент відправки форми:
-          </p>
-          <ul class="list-style">
-            <li>
-              викликає метод <b>preventDefault</b>, щоб
-              уникнути перезавантаження сторінки;
-            </li>
-            <li>
-              збирає значення полів форми в
-              <b>один об'єкт</b>, де
+        <!-- Типи полів -->
+        <h3 class="m-bottom-min">Типи полів</h3>
+        <div class="m-bottom flex print-m-bottom-max">
+          <div>
+            <p class="m-bottom-min">
+              За замовчуванням <i>компонент</i>
+              <b>Field</b> рендерить <i>тег</i>
+              <b>input</b>. Щоб змінити тип поля, необхідно
+              передати
+              <i>компоненту Field пропс</i>
+              <b>as</b> значенням якого є рядок -
+              <i>тип тега</i> (наприклад,
+              <b>input, select, textarea</b>).
+            </p>
+            <p></p>
+          </div>
+          <div class="bcg-box">
+            <p>
+              &#60;Field <br />
+                  <b>as="textarea"</b><br />
+                  name="message"<br />
+                  cols="20"<br />
+                  rows="5"<br />
+                  id={massageId}<br />
+              />
+            </p>
+          </div>
+        </div>
+
+        <!-- Селект -->
+        <h3 class="m-bottom-min">Селект</h3>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              Для використання <b>select</b> компоненту
+              <b>Field</b> передається пропс
+              <b>as="select"</b>. Список опцій вказується
+              тегами <b>option</b> між відкриваючим та
+              закриваючим тегами <b>Field</b>.
+            </p>
+            <p class="border-box">
+              <b>Важливо!</b> До об'єкта
+              <i>початкових значень</i> необхідно додати
               <i
-                >ім'я властивості - це ім'я поля, а значення
-                поля - це значення властивості</i
-              >.
-            </li>
-          </ul>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            import { Formik, Form, Field } from "formik";<br />
-            <br />
-            <br />
-            const FeedbackForm = () => {<br />
-            <br />
-            <b
-              >    const handleSubmit = (values, actions) =>
-              {<br />
-                      console.log(values);<br />
-                      actions.resetForm();<br />
-                  };<br
-            /></b>
-                <br />
-                return (<br />
-                    &#60;Formik<br />
-                        initialValues={{}}<br />
-                        <b>onSubmit={handleSubmit}</b><br />
-                    ><br />
-                        &#60;Form><br />
-                            &#60;Field type="text"
-            name="username" /><br />
-                            &#60;Field type="email"
-            name="email" /><br />
-                            &#60;button
-            type="submit">Submit&#60;/button><br />
-                        &#60;/Form><br />
-                    &#60;/Formik><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Елементи форми -->
-      <h3 class="m-bottom-min">Елементи форми</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            В бібліотеці <b>Formik</b> немає компонентів для
-            створення <b>label</b>, <b>fieldset</b>,
-            <b>legend</b> та інших семантичних елементів
-            форми. Для цього використовуються звичайні теги.
-            Обов'язково необхідно використовувати хук
-            <b>useId</b> для створення унікальних
-            ідентифікаторів полів.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            import { useId } from "react";<br />
-            import { Formik, Form, Field } from "formik";<br />
-            <br />
-            const FeedbackForm = () => {<br />
-                const <b>nameId</b> = useId();<br />
-                const <b>emailId</b> = useId();<br />
-                <br />
-                return (<br />
-                    &#60;Formik initialValues={{}}
-            onSubmit={() => {}}><br />
-                        &#60;Form><br />
-                            &#60;label
-            htmlFor={<b>nameId</b>}>Username&#60;/label><br />
-                            &#60;Field type="text"
-            name="username" id={<b>nameId</b>} /><br />
-                            &#60;label
-            htmlFor={<b>emailId</b>}>Email&#60;/label><br />
-                            &#60;Field type="email"
-            name="email" id={<b>emailId</b>} /><br />
-
-                        &#60;/Form><br />
-                    &#60;/Formik><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Типи полів -->
-      <h3 class="m-bottom-min">Типи полів</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            За замовчуванням <i>компонент</i>
-            <b>Field</b> рендерить <i>тег</i> <b>input</b>.
-            Щоб змінити тип поля, необхідно передати
-            <i>компоненту Field пропс</i>
-            <b>as</b> значенням якого є рядок -
-            <i>тип тега</i> (наприклад,
-            <b>input, select, textarea</b>).
-          </p>
-          <p></p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            &#60;Field <br />
-                <b>as="textarea"</b><br />
-                name="message"<br />
-                cols="20"<br />
-                rows="5"<br />
-                id={massageId}<br />
-            />
-          </p>
-        </div>
-      </div>
-
-      <!-- Селект -->
-      <h3 class="m-bottom-min">Селект</h3>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Для використання <b>select</b> компоненту
-            <b>Field</b> передається пропс
-            <b>as="select"</b>. Список опцій вказується
-            тегами <b>option</b> між відкриваючим та
-            закриваючим тегами <b>Field</b>.
-          </p>
-          <p class="border-box">
-            <b>Важливо!</b> До об'єкта
-            <i>початкових значень</i> необхідно додати
-            <i>властивість із значенням за замовчуванням</i
-            >. А <b>тегам option</b> - атрибут <b>value</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            import { useId } from "react";<br />
-            import { Formik, Form, Field } from "formik";<br />
-            <br />
-            const initialValues = {<br />
-                <b>level: "good"</b>,<br />
-            };<br />
-            <br />
-            const FeedbackForm = () => {<br />
-                const levelId = useId();<br />
-                <br />
-                return (<br />
-                    &#60;Formik
-            initialValues={initialValues} onSubmit={() =>
-            {}}&#60;/Formik><br />
-                        &#60;Form><br />
-                            &#60;label
-            htmlFor="levelId">Service satisfaction
-            level&#60;/label><br />
-                            &#60;Field
-            <b>as="select"</b> name="<b>level</b>"
-            id={levelId}><br />
-                                &#60;option
-            <b>value="good"</b>>Good&#60;/option><br />
-
-                                &#60;option
-            <b>value="bad"</b>>Bad&#60;/option><br />
-                            &#60;/Field><br />
-                        &#60;/Form><br />
-                    &#60;/Formik><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Валідація -->
-      <h3 class="m-bottom-min">Валідація</h3>
-      <div class="m-bottom">
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              <b>Валідація</b> - це перевірка введених
-              користувачем значень на відповідність деяким
-              критеріям. Валідація - це передусім захист від
-              неправильно введених значень перед їх
-              відправленням на сервер.
-            </p>
-            <p class="">
-              В <i>Formik</i> валідація виконується
-              <i>автоматично</i>, все, що потрібно зробити,
-              це налаштувати її. Для цього необхідно
-              встановити бібліотеку валідації <b>Yup</b> та
-              імпортувати її в компонент форми.
+                >властивість із значенням за
+                замовчуванням</i
+              >. А <b>тегам option</b> - атрибут
+              <b>value</b>.
             </p>
           </div>
-          <div>
-            <div class="m-bottom-min bcg-box print-bcg-box">
-              <p>
-                <i>// terminal</i><br />
-                <b>npm install yup</b>
+          <div class="bcg-box">
+            <p>
+              import { useId } from "react";<br />
+              import { Formik, Form, Field } from
+              "formik";<br />
+              <br />
+              const initialValues = {<br />
+                  <b>level: "good"</b>,<br />
+              };<br />
+              <br />
+              const FeedbackForm = () => {<br />
+                  const levelId = useId();<br />
+                  <br />
+                  return (<br />
+                      &#60;Formik
+              initialValues={initialValues} onSubmit={() =>
+              {}}&#60;/Formik><br />
+                          &#60;Form><br />
+                              &#60;label
+              htmlFor="levelId">Service satisfaction
+              level&#60;/label><br />
+                              &#60;Field
+              <b>as="select"</b> name="<b>level</b>"
+              id={levelId}><br />
+                                  &#60;option
+              <b>value="good"</b>>Good&#60;/option><br />
+
+                                  &#60;option
+              <b>value="bad"</b>>Bad&#60;/option><br />
+                              &#60;/Field><br />
+                          &#60;/Form><br />
+                      &#60;/Formik><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Валідація -->
+        <h3 class="m-bottom-min">Валідація</h3>
+        <div class="m-bottom">
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                <b>Валідація</b> - це перевірка введених
+                користувачем значень на відповідність деяким
+                критеріям. Валідація - це передусім захист
+                від неправильно введених значень перед їх
+                відправленням на сервер.
+              </p>
+              <p class="">
+                В <i>Formik</i> валідація виконується
+                <i>автоматично</i>, все, що потрібно
+                зробити, це налаштувати її. Для цього
+                необхідно встановити бібліотеку валідації
+                <b>Yup</b> та імпортувати її в компонент
+                форми.
               </p>
             </div>
-            <div class="bcg-box print-bcg-box">
+            <div>
+              <div class="m-bottom-min bcg-box">
+                <p>
+                  <i>// terminal</i><br />
+                  <b>npm install yup</b>
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>// Form.jsx</i><br />
+                  <b>import * as Yup from "yup"; </b>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                Валідатор Yup використовує схеми валідації
+                для перевірки значень. Значення форми
+                зберігаються в стані Formik у вигляді
+                об'єкта з властивостями.
+              </p>
+            </div>
+            <div class="bcg-box">
               <p>
-                <i>// Form.jsx</i><br />
-                <b>import * as Yup from "yup"; </b>
+                const FeedbackSchema =
+                Yup.object().shape({});
+              </p>
+            </div>
+          </div>
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">Приклад валідації</p>
+              <p class="">
+                Для поля <b>username</b> валідується
+                наступне:
+              </p>
+              <ul class="m-bottom-min list-style">
+                <li>це рядок;</li>
+                <li>
+                  рядок повинен бути принаймні 2 символи;
+                </li>
+                <li>
+                  рядок повинен бути максимум 50 символів;
+                </li>
+                <li>
+                  властивість обов'язкова для заповнення.
+                </li>
+              </ul>
+              <p class="">
+                Функції Yup.string(), Yup.min(), Yup.max(),
+                Yup.required() і інші - це валідатори, які
+                дозволяють додати певний критерій валідації.
+                Кожен валідатор може приймати від нуля до
+                двох параметрів.
+              </p>
+              <ul class="list-style">
+                <li>
+                  перший - це критерій валідації, наприклад,
+                  довжина рядка чи значення числа;
+                </li>
+                <li>
+                  другий - це рядок, який буде використаний
+                  як помилка у разі валідації.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>
+                const FeedbackSchema =
+                Yup.object().shape({<br />
+                    username: Yup.string().min(2, "Too
+                Short!")<br />
+                                .max(50, "Too
+                Long!").required("Required"),<br /><br />
+                    email: Yup.string().email("Must be a
+                valid email!")<br />
+                                .required("Required"),<br /><br />
+                    message: Yup.string().min(3, "Too
+                short")<br />
+                                .max(256, "Too
+                long").required("Required"),<br /><br />
+                    level: Yup.string().oneOf(["good",
+                "neutral", "bad"])<br />
+                                .required("Required")<br />
+                });
+              </p>
+            </div>
+          </div>
+          <p class="m-bottom-min border-box">
+            <b>Цікаво!</b> Значенням текстового поля типу
+            може бути будь-який рядок, а в разі з
+            <b>селектом</b> - лише заздалегідь визначене
+            значення з набору опцій, тому використовуємо
+            інший валідатор <b>oneOf()</b>, якому
+            передається масив всіх можливих значень.
+          </p>
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                Схема валідації передається у Formik як
+                третій пропс.
+              </p>
+              <p>
+                Після додавання валідації, ми не зможемо
+                відправити форму, якщо в одному з полів буде
+                введено невалідне значення.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                &#60;Formik<br />
+                    initialValues={{}}<br />
+                    onSubmit={() => {}}<br />
+                    <b>validationSchema={FeedbackSchema}</b
+                ><br />
+                >
               </p>
             </div>
           </div>
         </div>
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Валідатор Yup використовує схеми валідації для
-              перевірки значень. Значення форми зберігаються
-              в стані Formik у вигляді об'єкта з
-              властивостями.
-            </p>
+
+        <!-- Помилки валідації -->
+        <h3 class="m-bottom-min">Помилки валідації</h3>
+        <div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Для того щоб відобразити користувачу помилки
+                валідації, використовується компонент
+                <b>ErrorMessage</b>.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>import { ErrorMessage } from "formik";</p>
+            </div>
           </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              const FeedbackSchema = Yup.object().shape({});
-            </p>
-          </div>
-        </div>
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">Приклад валідації</p>
-            <p class="">
-              Для поля <b>username</b> валідується наступне:
-            </p>
-            <ul class="m-bottom-min list-style">
-              <li>це рядок;</li>
-              <li>
-                рядок повинен бути принаймні 2 символи;
-              </li>
-              <li>
-                рядок повинен бути максимум 50 символів;
-              </li>
-              <li>
-                властивість обов'язкова для заповнення.
-              </li>
-            </ul>
-            <p class="">
-              Функції Yup.string(), Yup.min(), Yup.max(),
-              Yup.required() і інші - це валідатори, які
-              дозволяють додати певний критерій валідації.
-              Кожен валідатор може приймати від нуля до двох
-              параметрів.
-            </p>
-            <ul class="list-style">
-              <li>
-                перший - це критерій валідації, наприклад,
-                довжина рядка чи значення числа;
-              </li>
-              <li>
-                другий - це рядок, який буде використаний як
-                помилка у разі валідації.
-              </li>
-            </ul>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              const FeedbackSchema = Yup.object().shape({<br />
-                  username: Yup.string().min(2, "Too
-              Short!")<br />
-                              .max(50, "Too
-              Long!").required("Required"),<br /><br />
-                  email: Yup.string().email("Must be a valid
-              email!")<br />
-                              .required("Required"),<br /><br />
-                  message: Yup.string().min(3, "Too
-              short")<br />
-                              .max(256, "Too
-              long").required("Required"),<br /><br />
-                  level: Yup.string().oneOf(["good",
-              "neutral", "bad"])<br />
-                              .required("Required")<br />
-              });
-            </p>
-          </div>
-        </div>
-        <p class="m-bottom-min border-box">
-          <b>Цікаво!</b> Значенням текстового поля типу може
-          бути будь-який рядок, а в разі з <b>селектом</b> -
-          лише заздалегідь визначене значення з набору
-          опцій, тому використовуємо інший валідатор
-          <b>oneOf()</b>, якому передається масив всіх
-          можливих значень.
-        </p>
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Схема валідації передається у Formik як третій
-              пропс.
-            </p>
-            <p>
-              Після додавання валідації, ми не зможемо
-              відправити форму, якщо в одному з полів буде
-              введено невалідне значення.
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              &#60;Formik<br />
-                  initialValues={{}}<br />
-                  onSubmit={() => {}}<br />
-                  <b>validationSchema={FeedbackSchema}</b
-              ><br />
+          <div class="m-bottom flex">
+            <div>
+              <p class="">
+                Компонент <b>ErrorMessage</b> додаєтья в
+                розмітку після кожного поля із валідацією
+              </p>
+              <ul class="list-style">
+                <li>
+                  значення атрибута <b>name</b> компонентів
+                  <b>ErrorMessage</b> та
+                  <b>Field</b> повинно співпадати. Це
+                  потрібно для того, щоб
+                  <b>ErrorMessage</b> виводиво повідомлення
+                  про помилку валідації для пов'язаного
+                  поля;
+                </li>
+                <li>
+                  за замовчуванням
+                  <b>ErrorMessage</b> відображає текст без
+                  тега, це не зручно, оскільки текст
+                  неможливо стилізувати. Проп
+                  <b>component</b> вказує, в якому тезі
+                  рендерити текст помилки.
+                </li>
+                <li>
+                  атрибут <b>className</b> дозволяє
+                  стилізувати компонент
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+                  &#60;label htmlFor="{nameFieldId}"><br />
+                      Username<br />
+                  &#60;/label><br />
+                  &#60;Field<br />
+                      type="text"<br />
+                      <b>name="username"</b><br />
+                      id="{nameFieldId}"<br />
+                  /><br />
+                 <b
+                >&#60;ErrorMessage<br />
+                        className={css.error}<br />
+                        name="username"<br />
+                        component="span"<br />
+                    /></b
               >
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Помилки валідації -->
-      <h3 class="m-bottom-min">Помилки валідації</h3>
-      <div>
-        <div class="m-bottom print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              Для того щоб відобразити користувачу помилки
-              валідації, використовується компонент
-              <b>ErrorMessage</b>.
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box">
-            <p>import { ErrorMessage } from "formik";</p>
-          </div>
-        </div>
-        <div class="m-bottom print-flex-box">
-          <div>
-            <p class="">
-              Компонент <b>ErrorMessage</b> додаєтья в
-              розмітку після кожного поля із валідацією
-            </p>
-            <ul class="list-style">
-              <li>
-                значення атрибута <b>name</b> компонентів
-                <b>ErrorMessage</b> та <b>Field</b> повинно
-                співпадати. Це потрібно для того, щоб
-                <b>ErrorMessage</b> виводиво повідомлення
-                про помилку валідації для пов'язаного поля;
-              </li>
-              <li>
-                за замовчуванням
-                <b>ErrorMessage</b> відображає текст без
-                тега, це не зручно, оскільки текст неможливо
-                стилізувати. Проп <b>component</b> вказує, в
-                якому тезі рендерити текст помилки.
-              </li>
-              <li>
-                атрибут <b>className</b> дозволяє
-                стилізувати компонент
-              </li>
-            </ul>
-          </div>
-          <div class="bcg-box print-bcg-box">
-                &#60;label htmlFor="{nameFieldId}"><br />
-                    Username<br />
-                &#60;/label><br />
-                &#60;Field<br />
-                    type="text"<br />
-                    <b>name="username"</b><br />
-                    id="{nameFieldId}"<br />
-                /><br />
-               <b
-              >&#60;ErrorMessage<br />
-                      className={css.error}<br />
-                      name="username"<br />
-                      component="span"<br />
-                  /></b
-            >
+            </div>
           </div>
         </div>
       </div>
