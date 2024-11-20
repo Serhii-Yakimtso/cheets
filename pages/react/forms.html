@@ -69,7 +69,7 @@
 
         <!-- Неконтрольована форма -->
         <h3 class="m-bottom-min">Неконтрольована форма</h3>
-        <div class="m-bottom flex">
+        <div class="m-bottom flex print-m-bottom-max">
           <div>
             <p class="m-bottom-min">
               Якщо значення полів форми потрібні лише в
@@ -84,7 +84,7 @@
                 форми</i
               >:
             </p>
-            <ul class="list-style">
+            <ul class="">
               <li>
                 властивість <b>elements</b> зберігає об'єкт
                 із властивостями, імена яких збігаються зі
@@ -165,7 +165,7 @@
                 можна передавати атрибутам доступності полів
                 форми:
               </p>
-              <ul class="list-style m-bottom-min">
+              <ul class="m-bottom-min">
                 <li>не приймає жодних параметрів,</li>
                 <li>
                   повертає унікальний рядок ідентифікатора.
@@ -281,7 +281,6 @@
               ><br />
                       <b>console.log(userData)</b>;<br />
                   };<br />
-                  <br />
                   return (<br />
                      
               <i>// Передаємо колбек як пропс форми</i>
@@ -296,7 +295,6 @@
                   <b>const handleSubmit = (evt) => {</b
               ><br />
                       <b>evt.preventDefault();</b><br />
-              <br />
                       <b>const form = evt.target;</b><br />
                      
               <b
@@ -316,7 +314,6 @@
                       <br />
                       form.reset();<br />
                   };<br />
-                  <br />
                   return (<br />
                       &#60;form
               <b>onSubmit={handleSubmit}</b>><br />
@@ -406,7 +403,7 @@
         <!-- Елемент select -->
         <h3 class="m-bottom-min">Елемент select</h3>
         <div>
-          <div class="m-bottom-min flex">
+          <div class="m-bottom-min flex print-m-bottom-max">
             <div>
               <p class="m-bottom-min">
                 Селект складається з самого елемента
@@ -419,7 +416,7 @@
                 ми працюємо з ним як з
                 <b>контрольованим елементом</b>:
               </p>
-              <ul class="list-style m-bottom-min">
+              <ul class="m-bottom-min">
                 <li>
                   зберігаємо поточне значення в стані;
                 </li>
@@ -535,7 +532,7 @@
               <i>select</i>, оскільки в групі може бути
               обрано <i>лише один варіант</i>. Головне:
             </p>
-            <ul class="list-style m-bottom-min">
+            <ul class="m-bottom-min">
               <li>
                 групування радіо-кнопок відбувається за
                 допомогою однакового значення атрибута
@@ -710,7 +707,7 @@
                 функції оновлення стану, можна помітити, що
                 вони практично ідентичні:
               </p>
-              <ul class="list-style m-bottom-min">
+              <ul class="m-bottom-min">
                 <li>отримують <i>об'єкт події</i>;</li>
                 <li>
                   викликають функцію зміни стану
@@ -906,7 +903,7 @@
               Розглянемо, як працювати з колекцією
               елементів, тобто масивом об'єктів. Задачі:
             </p>
-            <ul class="list-style m-bottom-min">
+            <ul class="m-bottom-min">
               <li>
                 оновлювати стан, якщо в ньому зберігається
                 масив;
@@ -925,14 +922,14 @@
               форму ( <b>( ) => { }</b> ).
             </p>
             <p>Кроки:</p>
-            <ol class="list-style">
-              <li class="m-bottom-min">
+            <ol class="">
+              <li class="m-bottom-min print-m-bottom-max">
                 Додаємо новий елемент до колекції:
-                <ul class="list-style list-mid-lvl">
+                <ul class=" ">
                   <li>
                     <b>App.jsx.</b> Додаємо у стан нову
                     задачу:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li class="">
                         оголошуємо стан
                         <b
@@ -965,7 +962,7 @@
                   <li>
                     <b>Form.jsx.</b> Приймаємо <i>props</i>
                     <b>onAdd</b> та обробляємо сабміт:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         <i>функція</i> <b>handleSubmit</b> -
                         створює об'єкт куди передає як
@@ -985,11 +982,11 @@
 
               <li class="m-bottom-min">
                 Видаляємо існуючий елемент із колекції
-                <ul class="list-style list-mid-lvl">
+                <ul class=" ">
                   <li class="">
                     <b>App.jsx.</b> Видаляємо зі стану
                     існуючий елемент:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         <i>функція</i> <b>deleteTask</b> -
                         приймає <b>id</b> елемента
@@ -1015,7 +1012,7 @@
                     <i>props</i> <b>onDelete</b> та
                     отримуємо <b>id</b> елемента для
                     видалення (<i>транзитом</i>):
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         передаємо у <i>props</i>
                         <i>компонента</i>
@@ -1033,7 +1030,7 @@
                       колекції компонентів</i
                     >) та отримуємо <b>id</b> елемента для
                     видалення:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         передаємо у <i>props</i>
                         <i>тега</i>
@@ -1046,11 +1043,11 @@
               </li>
               <li class="m-bottom-min">
                 Фільтруємо колекцію.
-                <ul class="list-style list-mid-lvl">
+                <ul class=" ">
                   <li>
                     <b>App.jsx.</b> Отримуємо текст для
                     фільтру:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li class="">
                         оголошуємо стан
                         <b
@@ -1075,7 +1072,7 @@
                     <i>props</i> <b>value</b> та
                     <b>onFilter</b> та отримуємо текст для
                     фільтру і передаємо до <b>App.jsx.</b>:
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         передаємо у <i>props</i>
                         <i>тега</i>
@@ -1091,7 +1088,7 @@
                     <b>App.jsx.</b> фільтруємо масив
                     елементів на предмет наявності ключового
                     тексту
-                    <ul class="list-style list-style-type">
+                    <ul class=" ">
                       <li>
                         <i>функція</i>
                         <b>visibleTasks</b> приймає масив
@@ -1331,7 +1328,7 @@
                   <b>імпортувати</b> та при
                   <i>виклику передати два пропси</i>:
                 </p>
-                <ul class="list-style">
+                <ul class="">
                   <li>
                     <b>initialValues</b> - об'єкт початкових
                     значень полів, наразі передамо порожній
@@ -1595,7 +1592,7 @@
             <p class="">
               Функція відправки форми має два параметри:
             </p>
-            <ul class="m-bottom-min list-style">
+            <ul class="m-bottom-min">
               <li>
                 <b>values</b> - об'єкт значень полів форми в
                 момент її відправки.
@@ -1612,7 +1609,7 @@
               події, що є зайвим. Formik в момент відправки
               форми:
             </p>
-            <ul class="list-style">
+            <ul class="">
               <li>
                 викликає метод <b>preventDefault</b>, щоб
                 уникнути перезавантаження сторінки;
@@ -1856,7 +1853,7 @@
                 Для поля <b>username</b> валідується
                 наступне:
               </p>
-              <ul class="m-bottom-min list-style">
+              <ul class="m-bottom-min">
                 <li>це рядок;</li>
                 <li>
                   рядок повинен бути принаймні 2 символи;
@@ -1875,7 +1872,7 @@
                 Кожен валідатор може приймати від нуля до
                 двох параметрів.
               </p>
-              <ul class="list-style">
+              <ul class="">
                 <li>
                   перший - це критерій валідації, наприклад,
                   довжина рядка чи значення числа;
@@ -1962,7 +1959,7 @@
                 Компонент <b>ErrorMessage</b> додаєтья в
                 розмітку після кожного поля із валідацією
               </p>
-              <ul class="list-style">
+              <ul class="">
                 <li>
                   значення атрибута <b>name</b> компонентів
                   <b>ErrorMessage</b> та

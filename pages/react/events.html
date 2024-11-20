@@ -457,7 +457,7 @@
               <b>setIsOpen</b> відповідно.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-12">
             <p>
               const App = () => {<br />
                  
@@ -494,7 +494,7 @@
 
         <!-- Ізоляція стану -->
         <h3 class="m-bottom-min">Ізоляція стану</h3>
-        <div class="m-bottom flex">
+        <div class="m-bottom flex print-m-bottom-max">
           <div>
             <p class="m-bottom-min">
               Стан є локальним для екземпляра компонента.
@@ -517,7 +517,7 @@
               компонентів.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-14">
             <p>
               const ClickCounter = () => {<br />
                   const [clicks, setClicks] =
@@ -559,7 +559,7 @@
               та метод зміни стану.
             </p>
           </div>
-          <div class="bcg-box print-fs-13">
+          <div class="bcg-box print-fs-12">
             <p>
               const ClickCounter = ({ <b>value</b>,
               <b>onUpdate</b> }) => {<br />
@@ -572,7 +572,6 @@
               useState(0);<br />
                   const <i>handleClick</i> = () =>
               setClicks(clicks + 1);<br />
-              <br />
                   return (<br />
                   &#60;><br />
                       &#60;ClickCounter
@@ -609,7 +608,7 @@
               рівні файлу.
             </p>
           </div>
-          <div class="bcg-box print-fs-13">
+          <div class="bcg-box print-fs-12">
             <p>
               const App = () => {<br />
                   // ❌ Буде помилка<br />
@@ -635,7 +634,7 @@
 
         <!-- Оновлення об'єктів -->
         <h3 class="m-bottom-min">Оновлення об'єктів</h3>
-        <div class="m-bottom flex">
+        <div class="flex">
           <div>
             <p class="m-bottom-min">
               Стан може містити будь-який тип значення,
@@ -675,7 +674,7 @@
             </div>
           </div>
 
-          <div class="bcg-box print-fs-13">
+          <div class="bcg-box print-fs-12">
             <p>
               const App = () => {<br />
                   const [values, setValues] = useState({<br />

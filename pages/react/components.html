@@ -55,8 +55,8 @@
               <b>&#60;product&#62;&#60;/product&#62;</b>.
             </p>
           </div>
-          <div class="bcg-box">
-            <p>
+          <div>
+            <p class="bcg-box">
               const Product = () => {<br />
                   return (<br />
                       &#60;div&#62;<br />
@@ -93,7 +93,7 @@
               <b>компонента</b> (Product). Це неофіційний
               стандарт.
             </p>
-            <p class="m-bottom border-box">
+            <p class="border-box">
               <b>Важливо!</b> У модулях можна
               використовувати експорт за замовчуванням (<b
                 >export default</b
@@ -103,8 +103,8 @@
               за замовчуванням (<b>export default</b>).
             </p>
           </div>
-          <div class="bcg-box">
-            <p>
+          <div>
+            <p class="bcg-box">
               <i> // src/Product.jsx </i> <br />
               const Product = () => {<br />
                   return (<br />
@@ -176,8 +176,8 @@
               треба закрити за допомогою <b>/></b>.
             </p>
           </div>
-          <div class="bcg-box">
-            <p>
+          <div>
+            <p class="bcg-box">
               &#60;img src="" alt="" <b>/</b>&#62; <br />
               &#60;input type="text" <b>/</b>&#62;
             </p>
@@ -230,7 +230,7 @@
               існує правило <b>спільного батька</b>.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-12">
             <p>
               <i> // src/components/Product.jsx </i><br />
               export const Product = () => {<br />
@@ -260,8 +260,8 @@
               розкривається, підставляючи свій вміст.
             </p>
           </div>
-          <div class="bcg-box">
-            <p>
+          <div>
+            <p class="bcg-box print-fs-12">
               ...<br />
                   <b> &#60;&#62;</b> <br />
                       &#60;h2&#62;Tacos&#60;/h2&#62;<br />
@@ -288,8 +288,8 @@
               в <i>змінній</i>.
             </p>
           </div>
-          <div class="bcg-box print-fs-13">
-            <p>
+          <div>
+            <p class="bcg-box print-fs-12">
               <i> // src/components/Product.jsx</i><br />
               export const Product = () => {<br />
               const price = 999;<br />
@@ -488,7 +488,7 @@
               корисним.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-12">
             <p>
               <i>// src/components/Product.jsx</i> <br />
               const Product = ({<br />
@@ -514,7 +514,7 @@
         </div>
         <div>
           <h3 class="m-bottom-min">Підсумок</h3>
-          <ul class="list-style">
+          <ul class="">
             <li>
               пропси використовуються для передачі даних від
               батька до дитини;
@@ -552,8 +552,8 @@
               <b>true</b>.
             </p>
           </div>
-          <div class="bcg-box">
-            <p>{умова && розмітка}<br /></p>
+          <div>
+            <p class="bcg-box">{умова && розмітка}<br /></p>
           </div>
         </div>
 
@@ -577,7 +577,7 @@
               <i>не будуть відображені</i>.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-12">
             <p>
               const Mailbox = ({ username, messages }) =>
               {<br />
@@ -670,7 +670,7 @@
             </p>
 
             <p>Ключі повинні бути:</p>
-            <ul class="list-style m-bottom-min">
+            <ul class="m-bottom-min">
               <li>
                 <i>унікальними</i> — ключ елемента повинен
                 бути унікальним лише всередині однієї
@@ -686,7 +686,7 @@
             </ul>
 
             <p>Для ключа не можна використовувати:</p>
-            <ul class="list-style m-bottom-min">
+            <ul class="m-bottom-min">
               <li>
                 <b>індекси масиву</b> унікальні, проте вони
                 не стабільні — при видаленні або перетасовці
@@ -813,7 +813,7 @@
               createRoot(container) та render(element), які
               працюють разом.
             </p>
-            <ul class="list-style">
+            <ul class="">
               <li>
                 метод <b>createRoot</b> приймає посилання на
                 існуючий DOM-елемент, наприклад,
@@ -854,7 +854,7 @@
           виправляти проблеми під час розробки. Його основні
           функції:
         </p>
-        <ul class="m-bottom-min list-style">
+        <ul class="m-bottom-min">
           <li>
             сповіщення про використання застарілих методів і
             функцій в React, які можуть бути вилучені в
@@ -898,7 +898,7 @@
     <section class="section">
       <div class="container">
         <h2 class="m-bottom-min">Типізація пропсів</h2>
-        <div class="m-bottom flex">
+        <div class="flex">
           <div>
             <p class="m-bottom-min">
               Перевірка типів отриманих компонентом пропсів
