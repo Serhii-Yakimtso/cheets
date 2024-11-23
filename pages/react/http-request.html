@@ -8,158 +8,165 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>HTTP-запити</title>
-    <link rel="stylesheet" href="../../css/reset.css" />
-    <link rel="stylesheet" href="../../css/react.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
   </head>
   <body>
-    <a class="print-home-link" href="../../index.html"
-      >На головну</a
-    >
-    <h1 class="m-bottom center-text">HTTP-запити</h1>
+    <header class="header">
+      <nav class="nav">
+        <a class="" href="../../index.html">На головну</a>
+        <a class="" href="#http-request"
+          >До початку секції</a
+        >
+      </nav>
+    </header>
 
-    <section class="m-bottom print-m-bottom-max">
-      <!-- <h2 class="m-bottom-min">HTTP-запити</h2> -->
-      <div class="m-bottom print-m-bottom-max">
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              У React немає вбудованого модуля для роботи з
-              HTTP-запитами, тому можемо використовувати
-              звичайні інструменти, наприклад бібліотеку
-              Axios.
-            </p>
-            <p class="m-bottom-min">
-              Її, звісно, необхідно імпортувати у
-              компоненті.
-            </p>
-            <p>
-              HTTP-запити можна виконувати як за подією,
-              наприклад, при кліку на елементі чи відправці
-              форми, так і без очікування дій користувача,
-              тобто при монтажі компонента. У останньому
-              випадку використовується ефект, який
-              виконується після етапу монтажу, оскільки
-              компонент вже був відображений у DOM і готовий
-              до подальшого оновлення стану.
-            </p>
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h1 id="http-request" class="m-bottom center-text">
+          HTTP-запити
+        </h1>
+        <div class="m-bottom">
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                У React немає вбудованого модуля для роботи
+                з HTTP-запитами, тому можемо використовувати
+                звичайні інструменти, наприклад бібліотеку
+                Axios.
+              </p>
+              <p class="m-bottom-min">
+                Її, звісно, необхідно імпортувати у
+                компоненті.
+              </p>
+              <p>
+                HTTP-запити можна виконувати як за подією,
+                наприклад, при кліку на елементі чи
+                відправці форми, так і без очікування дій
+                користувача, тобто при монтажі компонента. У
+                останньому випадку використовується ефект,
+                який виконується після етапу монтажу,
+                оскільки компонент вже був відображений у
+                DOM і готовий до подальшого оновлення стану.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                <i>// terminal</i><br />
+                npm install axios<br /><br />
+                import axios from "axios";<br />
+                <br />
+                const App = () => {<br />
+
+                    useEffect(() => {<br />
+                        <i>// HTTP-запит</i><br />
+                    }, []);<br />
+                <br />
+                    return ( ... );<br />
+                };
+              </p>
+            </div>
           </div>
-          <div class="bcg-box print-bcg-box">
-            <p>
-              <i>// terminal</i><br />
-              npm install axios<br /><br />
-              import axios from "axios";<br />
-              <br />
-              const App = () => {<br />
-
-                  useEffect(() => {<br />
-                      <i>// HTTP-запит</i><br />
-                  }, []);<br />
-              <br />
-                  return ( ... );<br />
-              };
-            </p>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                Колбек-функція, що передається
+                <b>useEffect</b>,
+                <i>не може бути асинхронною</i>. Щоб
+                використовувати синтаксис
+                <b>async/await</b>, всередині колбек-функції
+                необхідно оголосити ще одну функцію, яка
+                буде <i>асинхронною</i>, і
+                <i>викликати її одразу після оголошення</i>.
+                HTTP-запити слід виконувати всередині цієї
+                функції.
+              </p>
+              <p class="border-box">
+                <b>Висновок!</b> При монтуванні компонента
+                App усередині ефекту буде виконуватися
+                HTTP-запит. Також можна виконувати запити
+                при діях користувача, але вже не в ефекті, а
+                в обробниках подій, наприклад, кліка чи
+                відправки форми.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                const App = () => {<br />
+                <br />
+                    useEffect(() => {<br />
+                        async function fetchArticles() {<br />
+                            const response = await
+                axios.get(<br />
+                               
+                "&#60;https://hn.algolia.com/api/v1/search?query=react>"<br />
+                            );<br />
+                            console.log(response);<br />
+                        }<br />
+                        <br />
+                        fetchArticles();<br />
+                    }, []);<br />
+                    <br />
+                    return ( ... );<br />
+                };
+              </p>
+            </div>
           </div>
         </div>
-        <div class="print-flex-box">
-          <div>
+
+        <!-- Обробка даних запиту -->
+        <h2 class="m-bottom-min">Обробка даних запиту</h2>
+        <div class="m-bottom flex">
+          <div class="">
             <p class="m-bottom-min">
-              Колбек-функція, що передається
-              <b>useEffect</b>,
-              <i>не може бути асинхронною</i>. Щоб
-              використовувати синтаксис <b>async/await</b>,
-              всередині колбек-функції необхідно оголосити
-              ще одну функцію, яка буде <i>асинхронною</i>,
-              і <i>викликати її одразу після оголошення</i>.
-              HTTP-запити слід виконувати всередині цієї
-              функції.
-            </p>
-            <p class="border-box">
-              <b>Висновок!</b> При монтуванні компонента App
-              усередині ефекту буде виконуватися HTTP-запит.
-              Також можна виконувати запити при діях
-              користувача, але вже не в ефекті, а в
-              обробниках подій, наприклад, кліка чи
-              відправки форми.
+              Щоб відобразити результат HTTP-запиту, його
+              необхідно <i>зберегти в стані компонента</i>,
+              іншого способу немає. Оголосимо стан articles
+              і збережемо в ньому результат HTTP-запиту.
+              Оскільки з бекенда буде приходити масив даних,
+              <i
+                >початковим значенням стану буде порожній
+                масив</i
+              >.
             </p>
           </div>
-          <div class="bcg-box print-bcg-box">
+          <div class="bcg-box">
             <p>
-              const App = () => {<br />
+              <b
+                >const [articles, setArticles] =
+                useState([])</b
+              >;<br />
               <br />
-                  useEffect(() => {<br />
-                      async function fetchArticles() {<br />
-                          const response = await
-              axios.get(<br />
-                             
-              "&#60;https://hn.algolia.com/api/v1/search?query=react>"<br />
-                          );<br />
-                          console.log(response);<br />
-                      }<br />
-                      <br />
-                      fetchArticles();<br />
-                  }, []);<br />
+              useEffect(() => {<br />
+                  async function fetchArticles() {<br />
+                      const response = await axios.get(<br />
+                         
+              "<https://hn.algolia.com/api/v1/search?query=react>"<br />
+                      );<br />
+                     
+              <b>setArticles(response.data.hits)</b>;<br />
+                  }<br />
                   <br />
-                  return ( ... );<br />
-              };
+                  fetchArticles();<br />
+              }, []);
             </p>
           </div>
         </div>
-      </div>
 
-      <!-- Обробка даних запиту -->
-      <h2 class="m-bottom-min">Обробка даних запиту</h2>
-      <h3 class="m-bottom-min">Обробка даних запиту</h3>
-      <div class="m-bottom print-flex-box">
-        <div class="">
-          <p class="m-bottom-min">
-            Щоб відобразити результат HTTP-запиту, його
-            необхідно <i>зберегти в стані компонента</i>,
-            іншого способу немає. Оголосимо стан articles і
-            збережемо в ньому результат HTTP-запиту.
-            Оскільки з бекенда буде приходити масив даних,
-            <i
-              >початковим значенням стану буде порожній
-              масив</i
-            >.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <b
-              >const [articles, setArticles] =
-              useState([])</b
-            >;<br />
-            <br />
-            useEffect(() => {<br />
-                async function fetchArticles() {<br />
-                    const response = await axios.get(<br />
-                       
-            "<https://hn.algolia.com/api/v1/search?query=react>"<br />
-                    );<br />
-                   
-            <b>setArticles(response.data.hits)</b>;<br />
-                }<br />
-                <br />
-                fetchArticles();<br />
-            }, []);
-          </p>
-        </div>
-      </div>
-
-      <!-- Відображення даних -->
-      <h3 class="m-bottom-min">Відображення даних</h3>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
+        <!-- Відображення даних -->
+        <h3 class="m-bottom-min">Відображення даних</h3>
+        <div class="m-bottom-min flex print-m-bottom-max">
+          <p class="">
             При зміні стану компонент оновиться, тому можна
             використовувати стан для відображення
             JSX-розмітки. Використовуємо відображення за
             умовою і додаємо розмітку у випадку, якщо у
             масиві є хоча б один елемент.
           </p>
-          <p class="border-box m-bottom-min">
+          <p class="border-box">
             <b>Уважно!</b> умовний рендерінг відбувається в
             батьківському компоненті <b>App</b>. Компонент
             <b>ArticleList</b> не знає, коли рендерити
@@ -168,9 +175,11 @@
             <b>ArticleList</b> або рендериться, або ні, і це
             вирішує компонент <b>App</b>.
           </p>
+        </div>
+        <div class="m-bottom flex">
           <div class="border-box">
             <p>По крокове перелік дій</p>
-            <ol class="list-style">
+            <ol class="">
               <li>
                 Виконати HTTP-запит, будь-то в ефекті чи при
                 події
@@ -193,403 +202,130 @@
               </li>
             </ol>
           </div>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            const ArticleList = ({ items }) => (<br />
-                &#60;ul><br />
-                    {items.map(({ objectID, url, title }) =>
-            (<br />
-                        &#60;li key={objectID}><br />
-                            &#60;a href={url}
-            target="_blank" rel="noreferrer noopener"><br />
-                                {title}<br />
-                            &#60;/a><br />
-                        &#60;/li><br />
-                    ))}<br />
-                &#60;/ul><br />
-            );<br />
-            <br />
-            const App = () => {<br />
-                const [articles, setArticles] =
-            useState([]);<br />
-                <br />
-                useEffect(() => {<br />
-                    async function fetchArticles() {<br />
-                        const response = await axios.get(<br />
-                               
-            "&#60;https://hn.algolia.com/api/v1/search?query=react>"<br />
-                            );<br />
-                           
-            setArticles(response.data.hits);<br />
-                        }<br />
-                    <br />
-                    fetchArticles();<br />
-                }, []);<br />
-                <br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h1>Latest articles&#60;/h1><br />
-                        {articles.length > 0 &&
-            &#60;ArticleList items="{articles}" />}<br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Індикатор завантаження -->
-      <h2 class="m-bottom-min">Індикатор завантаження</h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <p class="m-bottom-min">
-            Під час HTTP-запиту потрібно відображати
-            індикатор завантаження. щоб користувач не бачив
-            порожній блок інтерфейсу (попрожній компонент).
-          </p>
-          <p class="border-box m-bottom-min">
-            <b>Важливо!</b> Індикатор видно, доки запит
-            виконується, і як тільки він завершується,
-            індикатор приховується, а замість нього
-            відображається компонент із завантаженими
-            даними.
-          </p>
-          <p class="">
-            Індикатор завантаження є реактивним значенням,
-            тому воно зберігається в
-            <b>стані компонента</b> . У нього всього два
-            значення:
-          </p>
-          <ul class="list-style m-bottom-min">
-            <li>
-              <b>false</b> - запит ще не розпочався або вже
-              завершився.
-            </li>
-            <li><b>true</b> - запит виконується.</li>
-          </ul>
-          <p class="">
-            Перед HTTP-запитом потрібно встановити значення
-            стану <b>loading</b> в <b>true</b>, а після
-            запиту повернутися в <b>false</b>. Для цього у
-            асинхронній функції використовуємо
-            <b>try...catch</b>.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box print-fs-15">
-          <p>
-            const App = () => {<br />
-                const [articles, setArticles] =
-            useState([]);<br />
-               
-            <b
-              >const [loading, setLoading] =
-              useState(false)</b
-            >;<br />
-                <br />
-                useEffect(() => {<br />
-                    async function fetchArticles() {<br />
-                        try {<br />
-                            <b>setLoading(true)</b>;<br />
-                            <i>// код обробки запиту</i
-            ><br />
-                        } catch (error) {<br />
-                            <i>// код обробки помилки</i
-            ><br />
-                        } finally {<br />
-
-                           
-            <b>setLoading(false)</b>;<br />
-                        }<br />
-                    }<br />
-                    <br />
-                    fetchArticles();<br />
-                }, []);<br />
-                <br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h1>Latest articles&#60;/h1><br />
-                       
-            <b>{loading && &#60;p>Please wait...&#60;/p>}</b
-            ><br />
-                        {articles.length > 0 &&
-            &#60;ArticleList items={articles} />}<br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-
-      <!-- Обробка помилок -->
-      <h2 class="m-bottom-min">Обробка помилок</h2>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            У конструкції <b>try...catch</b> для обробки
-            помилок використовується блок <b>catch</b>. Якщо
-            він виконається, це означає, що проміс
-            (HTTP-запит) був виконаний з помилкою. Необхідно
-            додати ще один стан <b>error</b> для зберігання
-            помилки.
-          </p>
-          <p class="">
-            У JSX можна використовувати стан error, щоб
-            відобразити користувачеві повідомлення про
-            помилку.
-          </p>
-        </div>
-        <div class="bcg-box print-bcg-box print-fs-15">
-          <p>
-            const App = () => {<br />
-            const [articles, setArticles] = useState([]);<br />
-            const [loading, setLoading] =
-            useState(false);<br />
-            <b>const [error, setError] = useState(false)</b
-            >;<br />
-            <br />
-            useEffect(() => {<br />
-                async function fetchArticles() {<br />
-                    try {<br />
-                       
-            <i
-              >// код обробки індикатора завантаження та
-              запиту</i
-            ><br />
-                    }
-            <b>
-              catch (error) {<br />
-                          setError(true)</b
-            >;<br />
-                    } finally {<br />
-                        setLoading(false);<br />
-                    }<br />
-                }<br />
-            <br />
-                fetchArticles();<br />
-            }, []);<br />
-            <br />
-
-                return (<br />
-                    &#60;div><br />
-                        &#60;h1>Latest articles&#60;/h1><br />
-                        {loading && &#60;p style={{
-            fontSize: 20 }}>Please wait...&#60;/p>}<br />
-                       
-            <b
-              >{error && ( &#60;p> Whoops, something went
-              wrong!&#60;/p> )}</b
-            ><br />
-                        {articles.length > 0 &&
-            &#60;ArticleList items={articles} />}<br />
-                    &#60;/div>     ); };
-          </p>
-        </div>
-      </div>
-
-      <!-- Поділ відповідальності -->
-      <h2 class="m-bottom-min">Поділ відповідальності</h2>
-      <div
-        class="m-bottom print-flex-box print-m-bottom-max"
-      >
-        <div>
-          <p class="m-bottom-min">
-            Зберігати код, пов'язаний з HTTP-запитом,
-            безпосередньо в компоненті - не найкраща
-            практика. У застосунку буде багато різних
-            запитів до бекенду, можливо навіть до декількох
-            різних бекендів, і вони будуть використовуватися
-            в різних компонентах. До того ж код HTTP-запитів
-            може бути складним та громіздким.
-            <i
-              >Для покращення коду використовують окремий
-              файл *.js</i
-            >.
-          </p>
-          <div class="border-box">
-            <p>У новому файлі:</p>
-            <ul class="list-style">
-              <li>
-                Оголошуємо асинхронну функцію (async/await)
-                отримання списку статей за заголовком.
-              </li>
-              <li>
-                Функція виконує HTTP-запит і повертає його
-                результат - проміс із даними.
-              </li>
-              <li>
-                Обробка помилки запиту не входить до тіла
-                функції, це виконується в місці її
-                використання, тобто в компоненті.
-              </li>
-              <li>
-                Імпортуємо функцію fetchArticlesWithTopic із
-                файлу api.js в компонент і використовуємо її
-                в ефекті.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="bcg-box print-bcg-box">
-          <p>
-            <i>// src/articles-api.js</i><br />
-            import axios from "axios";<br />
-            <br />
-            <b
-              >axios.defaults.baseURL =
-              "&#60;https://hn.algolia.com/api/v1>";<br />
-              <br />
-              export const fetchArticlesWithTopic = async
-              topic => {<br />
-                  const response =
-              axios.get(`/search?query=${topic}`);<br />
-                  return response.data.hits;<br />
-              }</b
-            >;<br />
-            <br />
-            <i>// App.jsx</i><br />
-            import { fetchArticlesWithTopic } from
-            "../articles-api.js";<br />
-            <br />
-            const App = () => {<br />
-                const [articles, setArticles] =
-            useState([]);<br />
-                const [loading, setLoading] =
-            useState(false);<br />
-                const [error, setError] =
-            useState(false);<br />
-            <br />
-                useEffect(() => {<br />
-                    async function fetchArticles() {<br />
-                        try {<br />
-                            setLoading(true);<br />
-                           
-            <b
-              >const data = await
-              fetchArticlesWithTopic("react")</b
-            >;<br />
-                            setArticles(<b>data</b>);<br />
-                        } catch (error) {<br />
-                           setError(true);<br />
-                        } finally {<br />
-                            setLoading(false);<br />
-                        }<br />
-                    }<br />
-                <br />
-                    fetchArticles();<br />
-                }, []);<br />
-            <br />
-                return (<br />
-                    &#60;div><br />
-                        &#60;h1>Latest articles&#60;/h1><br />
-                        {loading && &#60;p>Loading data,
-            please wait...&#60;/p>}<br />
-                        {error && (<br />
-                            &#60;p>Whoops, something went
-            wrong!&#60;/p><br />
-                        )}<br />
-                        {articles.length > 0 &&
-            &#60;ArticleList items={articles} />}<br />
-                    &#60;/div><br />
-                );<br />
-            };
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Пошук через форму -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">Пошук через форму</h2>
-
-      <div>
-        <div class="m-bottom-min print-flex-box">
-          <div>
-            <p class="m-bottom-min">
-              <b>SearchForm</b> -
-              <i>неконтрольована форма</i> з одним текстовим
-              полем, значення якого потрібно лише при
-              поданні форми. Форма очікує один пропс
-              <b>onSearch</b> - колбек-функцію, якій
-              передасть значення поля при сабміті форми.
-            </p>
-            <p class="m-bottom-min">
-              Якщо <i>користувач нічого не ввів</i> у
-              текстове поле і намагається відправити форму,
-              потрібно повідомити його про це, оскільки
-              виконувати HTTP-запит без слова для пошуку не
-              потрібно. Для цього в компоненті форми, в
-              момент її відправлення, перевірте вміст
-              текстового поля, і тільки в тому випадку, якщо
-              введено щось, викличте пропс <b>onSearch</b>.
-            </p>
-            <p class="m-bottom-min">
-              Оскільки користувач сам вводить рядок для
-              пошуку статей, нам не потрібний ефект. Отже,
-              будемо писати код всередині функції
-              <b>handleSearch</b>, яка виконується при
-              сабміті форми. Робимо її <i>асинхронною</i> і
-              додаємо всередину код, пов'язаний з
-              HTTP-запитом.
-            </p>
-            <div class="border-box">
-              <p>
-                Зверніть увагу на дві речі перед кодом
-                HTTP-запиту в функції handleSearch
-              </p>
-              <ul class="list-style">
-                <li>
-                  Перше - це <b>setArticles([])</b>, за
-                  допомогою якого спеціально очищаємо стан
-                  <b>articles</b> перед новим запитом, щоб
-                  припинити відображення "старого" списку
-                  посилань.
-                </li>
-                <li>
-                  Друге - це <b>setError(false)</b>, щоб
-                  скинути помилку перед наступним запитом,
-                  на випадок, якщо вона була у попередньому
-                  запиті.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="bcg-box print-bcg-box print-fs-14">
+          <div class="bcg-box print-fs-14">
             <p>
-              <i>// src/components/App.jsx</i><br />
+              const ArticleList = ({ items }) => (<br />
+                  &#60;ul><br />
+                      {items.map(({ objectID, url, title })
+              => (<br />
+                          &#60;li key={objectID}><br />
+                              &#60;a href={url}
+              target="_blank" rel="noreferrer noopener"><br />
+                                  {title}<br />
+                              &#60;/a><br />
+                          &#60;/li><br />
+                      ))}<br />
+                  &#60;/ul><br />
+              );<br />
               <br />
               const App = () => {<br />
                   const [articles, setArticles] =
               useState([]);<br />
-                  const [loading, setLoading] =
-              useState(false);<br />
-                  const [error, setError] =
-              useState(false);<br />
                   <br />
-                  const <b>handleSearch</b> = async (topic)
-              => {<br />
-                      try {<br />
-                          setArticles([]);<br />
-                          setError(false);<br />
-                          setLoading(true);<br />
-                          const data = await
-              fetchArticlesWithTopic(topic);<br />
-                          setArticles(data);<br />
-                      } catch (error) {<br />
-                          setError(true);<br />
-                      } finally {<br />
-                          setLoading(false);<br />
-                      }<br />
-                  };<br />
+                  useEffect(() => {<br />
+                      async function fetchArticles() {<br />
+                          const response = await
+              axios.get(<br />
+                                 
+              "&#60;https://hn.algolia.com/api/v1/search?query=react>"<br />
+                              );<br />
+                             
+              setArticles(response.data.hits);<br />
+                          }<br />
+                      <br />
+                      fetchArticles();<br />
+                  }, []);<br />
                   <br />
                   return (<br />
                       &#60;div><br />
-                          &#60;SearchForm
-              <b>onSearch={handleSearch}</b> /><br />
-                          {loading && &#60;Loader />}<br />
-                          {error && &#60;Error />}<br />
+                          &#60;h1>Latest
+              articles&#60;/h1><br />
+                          {articles.length > 0 &&
+              &#60;ArticleList items="{articles}" />}<br />
+                      &#60;/div><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+
+        <!-- Індикатор завантаження -->
+        <h2 class="m-bottom-min">Індикатор завантаження</h2>
+        <div class="m-bottom flex print-m-bottom-max">
+          <div>
+            <p class="m-bottom-min">
+              Під час HTTP-запиту потрібно відображати
+              індикатор завантаження. щоб користувач не
+              бачив порожній блок інтерфейсу (попрожній
+              компонент).
+            </p>
+            <p class="border-box m-bottom-min">
+              <b>Важливо!</b> Індикатор видно, доки запит
+              виконується, і як тільки він завершується,
+              індикатор приховується, а замість нього
+              відображається компонент із завантаженими
+              даними.
+            </p>
+            <p class="">
+              Індикатор завантаження є реактивним значенням,
+              тому воно зберігається в
+              <b>стані компонента</b> . У нього всього два
+              значення:
+            </p>
+            <ul class="m-bottom-min">
+              <li>
+                <b>false</b> - запит ще не розпочався або
+                вже завершився.
+              </li>
+              <li><b>true</b> - запит виконується.</li>
+            </ul>
+            <p class="">
+              Перед HTTP-запитом потрібно встановити
+              значення стану <b>loading</b> в <b>true</b>, а
+              після запиту повернутися в <b>false</b>. Для
+              цього у асинхронній функції використовуємо
+              <b>try...catch</b>.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-14">
+            <p>
+              const App = () => {<br />
+                  const [articles, setArticles] =
+              useState([]);<br />
+                 
+              <b
+                >const [loading, setLoading] =
+                useState(false)</b
+              >;<br />
+                  <br />
+                  useEffect(() => {<br />
+                      async function fetchArticles() {<br />
+                          try {<br />
+                              <b>setLoading(true)</b>;<br />
+                              <i>// код обробки запиту</i
+              ><br />
+                          } catch (error) {<br />
+                              <i>// код обробки помилки</i
+              ><br />
+                          } finally {<br />
+
+                             
+              <b>setLoading(false)</b>;<br />
+                          }<br />
+                      }<br />
+                      <br />
+                      fetchArticles();<br />
+                  }, []);<br />
+                  <br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h1>Latest
+              articles&#60;/h1><br />
+                         
+              <b
+                >{loading && &#60;p>Please
+                wait...&#60;/p>}</b
+              ><br />
                           {articles.length > 0 &&
               &#60;ArticleList items={articles} />}<br />
                       &#60;/div><br />
@@ -598,61 +334,346 @@
             </p>
           </div>
         </div>
-        <div
-          class="bcg-box m-bottom-min print-bcg-box print-fs-14 print-m-left-none"
-        >
-          <p>
-            <i>// src/components/SearchForm.jsx</i><br />
-            <br />
-            export const <b>SearchForm</b> = ({
-            <b>onSearch</b> }) => {<br />
-                <br />
-            const handleSubmit = (evt) => {<br />
-                evt.preventDefault();<br />
-                const form = evt.target;<br />
-                const <b>topic</b> =
-            form.elements.topic.value;<br />
-               
-            <i
-              >// Якщо текстове поле порожнє, виводимо
-              повідомлення і припиняємо виконання
-              функції.</i
-            ><br />
-                if(form.elements.topic.value.trim() === "")
-            {<br />
-                    alert("Please enter search term!")<br />
-                    return;<br />
-                }<br />
-                <br />
-               
-            <i
-              >// У протилежному випадку викликаємо пропс і
-              передаємо йому значення поля<br />
-                  <b>onSearch</b>(<b>topic</b> )</i
-            >;<br />
-                form.reset();<br />
-                };<br />
-            <br />
-                return (<br />
-                    &#60;form onSubmit={handleSubmit}><br />
-                        &#60;input type="text" name="topic"
-            placeholder="Пошук статей..." /><br />
-                        &#60;button>Пошук&#60;/button><br />
-                    &#60;/form><br />
-                ); };
-          </p>
+
+        <!-- Обробка помилок -->
+        <h2 class="m-bottom-min">Обробка помилок</h2>
+        <div class="m-bottom flex">
+          <div>
+            <p class="m-bottom-min">
+              У конструкції <b>try...catch</b> для обробки
+              помилок використовується блок <b>catch</b>.
+              Якщо він виконається, це означає, що проміс
+              (HTTP-запит) був виконаний з помилкою.
+              Необхідно додати ще один стан <b>error</b> для
+              зберігання помилки.
+            </p>
+            <p class="">
+              У JSX можна використовувати стан error, щоб
+              відобразити користувачеві повідомлення про
+              помилку.
+            </p>
+          </div>
+          <div class="bcg-box print-fs-15">
+            <p>
+              const App = () => {<br />
+              const [articles, setArticles] =
+              useState([]);<br />
+              const [loading, setLoading] =
+              useState(false);<br />
+              <b
+                >const [error, setError] =
+                useState(false)</b
+              >;<br />
+              <br />
+              useEffect(() => {<br />
+                  async function fetchArticles() {<br />
+                      try {<br />
+                         
+              <i
+                >// код обробки індикатора завантаження та
+                запиту</i
+              ><br />
+                      }
+              <b>
+                catch (error) {<br />
+                            setError(true)</b
+              >;<br />
+                      } finally {<br />
+                          setLoading(false);<br />
+                      }<br />
+                  }<br />
+                  fetchArticles();<br />
+              }, []);<br />
+              <br />
+
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h1>Latest
+              articles&#60;/h1><br />
+                          {loading && &#60;p style={{
+              fontSize: 20 }}>Please wait...&#60;/p>}<br />
+                         
+              <b
+                >{error && ( &#60;p> Whoops, something went
+                wrong!&#60;/p> )}</b
+              ><br />
+                          {articles.length > 0 &&
+              &#60;ArticleList items={articles} />}<br />
+                      &#60;/div>     ); };
+            </p>
+          </div>
+        </div>
+
+        <!-- Поділ відповідальності -->
+        <h2 class="m-bottom-min">Поділ відповідальності</h2>
+        <div class="flex">
+          <div>
+            <p class="m-bottom-min">
+              Зберігати код, пов'язаний з HTTP-запитом,
+              безпосередньо в компоненті - не найкраща
+              практика. У застосунку буде багато різних
+              запитів до бекенду, можливо навіть до
+              декількох різних бекендів, і вони будуть
+              використовуватися в різних компонентах. До
+              того ж код HTTP-запитів може бути складним та
+              громіздким.
+              <i
+                >Для покращення коду використовують окремий
+                файл *.js</i
+              >.
+            </p>
+            <div class="border-box">
+              <p>У новому файлі:</p>
+              <ul class="">
+                <li>
+                  Оголошуємо асинхронну функцію
+                  (async/await) отримання списку статей за
+                  заголовком.
+                </li>
+                <li>
+                  Функція виконує HTTP-запит і повертає його
+                  результат - проміс із даними.
+                </li>
+                <li>
+                  Обробка помилки запиту не входить до тіла
+                  функції, це виконується в місці її
+                  використання, тобто в компоненті.
+                </li>
+                <li>
+                  Імпортуємо функцію fetchArticlesWithTopic
+                  із файлу api.js в компонент і
+                  використовуємо її в ефекті.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box fs-12">
+              <p>
+                <i>// src/articles-api.js</i><br />
+                import axios from "axios";<br />
+                <br />
+                <b
+                  >axios.defaults.baseURL =
+                  "&#60;https://hn.algolia.com/api/v1>";<br />
+                  <br />
+                  export const fetchArticlesWithTopic =
+                  async topic => {<br />
+                      const response =
+                  axios.get(`/search?query=${topic}`);<br />
+                      return response.data.hits;<br />
+                  }</b
+                >;
+              </p>
+            </div>
+          </div>
+          <div class="bcg-box fs-12">
+            <p>
+              <i>// App.jsx</i><br />
+              import { fetchArticlesWithTopic } from
+              "../articles-api.js";<br />
+              const App = () => {<br />
+                  const [articles, setArticles] =
+              useState([]);<br />
+                  const [loading, setLoading] =
+              useState(false);<br />
+                  const [error, setError] =
+              useState(false);<br />
+              <br />
+                  useEffect(() => {<br />
+                      async function fetchArticles() {<br />
+                          try {<br />
+                              setLoading(true);<br />
+                             
+              <b
+                >const data = await
+                fetchArticlesWithTopic("react")</b
+              >;<br />
+                              setArticles(<b>data</b>);<br />
+                          } catch (error) {<br />
+                             setError(true);<br />
+                          } finally {<br />
+                              setLoading(false);<br />
+                          }<br />
+                      }<br />
+                      fetchArticles();<br />
+                  }, []);<br />
+              <br />
+                  return (<br />
+                      &#60;div><br />
+                          &#60;h1>Latest
+              articles&#60;/h1><br />
+                          {loading && &#60;p>Loading data,
+              please wait...&#60;/p>}<br />
+                          {error && (<br />
+                              &#60;p>Whoops, something went
+              wrong!&#60;/p><br />
+                          )}<br />
+                          {articles.length > 0 &&
+              &#60;ArticleList items={articles} />}<br />
+                      &#60;/div><br />
+                  );<br />
+              };
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Пошук через форму -->
+    <section class="section print-m-bottom-max">
+      <div class="container">
+        <h2 class="m-bottom-min">Пошук через форму</h2>
+
+        <div>
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="m-bottom-min">
+                <b>SearchForm</b> -
+                <i>неконтрольована форма</i> з одним
+                текстовим полем, значення якого потрібно
+                лише при поданні форми. Форма очікує один
+                пропс <b>onSearch</b> - колбек-функцію, якій
+                передасть значення поля при сабміті форми.
+              </p>
+              <p class="m-bottom-min">
+                Якщо <i>користувач нічого не ввів</i> у
+                текстове поле і намагається відправити
+                форму, потрібно повідомити його про це,
+                оскільки виконувати HTTP-запит без слова для
+                пошуку не потрібно. Для цього в компоненті
+                форми, в момент її відправлення, перевірте
+                вміст текстового поля, і тільки в тому
+                випадку, якщо введено щось, викличте пропс
+                <b>onSearch</b>.
+              </p>
+              <p class="m-bottom-min">
+                Оскільки користувач сам вводить рядок для
+                пошуку статей, нам не потрібний ефект. Отже,
+                будемо писати код всередині функції
+                <b>handleSearch</b>, яка виконується при
+                сабміті форми. Робимо її
+                <i>асинхронною</i> і додаємо всередину код,
+                пов'язаний з HTTP-запитом.
+              </p>
+              <div class="border-box">
+                <p>
+                  Зверніть увагу на дві речі перед кодом
+                  HTTP-запиту в функції <b>handleSearch</b>
+                </p>
+                <ul class="">
+                  <li>
+                    Перше - це <b>setArticles([])</b>, за
+                    допомогою якого спеціально очищаємо стан
+                    <b>articles</b> перед новим запитом, щоб
+                    припинити відображення "старого" списку
+                    посилань.
+                  </li>
+                  <li>
+                    Друге - це <b>setError(false)</b>, щоб
+                    скинути помилку перед наступним запитом,
+                    на випадок, якщо вона була у
+                    попередньому запиті.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="bcg-box print-fs-14">
+              <p>
+                <i>// src/components/App.jsx</i><br />
+                <br />
+                const App = () => {<br />
+                    const [articles, setArticles] =
+                useState([]);<br />
+                    const [loading, setLoading] =
+                useState(false);<br />
+                    const [error, setError] =
+                useState(false);<br />
+                    <br />
+                    const <b>handleSearch</b> = async
+                (topic) => {<br />
+                        try {<br />
+                            setArticles([]);<br />
+                            setError(false);<br />
+                            setLoading(true);<br />
+                            const data = await
+                fetchArticlesWithTopic(topic);<br />
+                            setArticles(data);<br />
+                        } catch (error) {<br />
+                            setError(true);<br />
+                        } finally {<br />
+                            setLoading(false);<br />
+                        }<br />
+                    };<br />
+                    <br />
+                    return (<br />
+                        &#60;div><br />
+                            &#60;SearchForm
+                <b>onSearch={handleSearch}</b> /><br />
+                            {loading && &#60;Loader />}<br />
+                            {error && &#60;Error />}<br />
+                            {articles.length > 0 &&
+                &#60;ArticleList items={articles} />}<br />
+                        &#60;/div><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+          <div class="bcg-box print-fs-14">
+            <p>
+              <i>// src/components/SearchForm.jsx</i><br />
+              export const <b>SearchForm</b> = ({
+              <b>onSearch</b> }) => {<br />
+                  <br />
+              const handleSubmit = (evt) => {<br />
+                  evt.preventDefault();<br />
+                  const form = evt.target;<br />
+                  const <b>topic</b> =
+              form.elements.topic.value;<br />
+                 
+              <i
+                >// Якщо текстове поле порожнє, виводимо
+                повідомлення і припиняємо виконання
+                функції.</i
+              ><br />
+                  if(form.elements.topic.value.trim() ===
+              "") {<br />
+                      alert("Please enter search term!")<br />
+                      return;<br />
+                  }<br />
+                  <br />
+                 
+              <i
+                >// У протилежному випадку викликаємо пропс
+                і передаємо йому значення поля<br />
+                    <b>onSearch</b>(<b>topic</b> )</i
+              >;<br />
+                  form.reset();<br />
+                  };<br />
+              <br />
+                  return (<br />
+                      &#60;form onSubmit={handleSubmit}><br />
+                          &#60;input type="text"
+              name="topic" placeholder="Пошук статей..."
+              /><br />
+                          &#60;button>Пошук&#60;/button><br />
+                      &#60;/form><br />
+                  ); };
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Приклад -->
-    <section class="m-bottom">
-      <h2 class="m-bottom-min">
-        Приклад. Шаблоний код від Репети
-      </h2>
-      <div class="m-bottom print-flex-box">
-        <div>
-          <div class="bcg-box print-bcg-box print-fs-14">
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">
+          Приклад. Шаблоний код від Репети
+        </h2>
+        <div class="flex">
+          <div
+            class="bcg-box print-m-left-none print-fs-12"
+          >
             <p>
               <i>//src/components/App/App.jsx</i><br />
               import { useEffect, useState } from
@@ -752,70 +773,71 @@
               // }, []);<br /> -->
             </p>
           </div>
-        </div>
-        <div>
-          <div
-            class="m-bottom-min bcg-box print-bcg-box print-fs-14"
-          >
-            <p>
-              <i>//src/articles-api.js</i><br />
-              import axios from "axios";<br />
-              <br />
-              axios.defaults.baseURL =<br />
-                  "http://hn.algolia.com/api/v1";<br />
-              <br />
-              export const fetchArticles = async (<br />
-                  searchQuery,<br />
-                  currentPage<br />
-              ) => {<br />
-              <br />
-                  const response = await
-              axios.get("/search", {<br />
-                      params: {<br />
-                          query: searchQuery,<br />
-                          hitsPerPage: 10,<br />
-                          page: currentPage,<br />
-                      },<br />
-                  });<br />
-                  return response.data.hits;<br />
-              };
-            </p>
-          </div>
-          <div class="bcg-box print-bcg-box print-fs-14">
-            <p>
-              <i
-                >//src/components/SearchForm/SearchForm.jsx</i
-              ><br />
-              import { Field, Form, Formik } from
-              "formik";<br />
-              import css from "./SearchForm.module.css";<br />
-              <br />
-              export default function SearchForm({<br />
-                      onSearch<br />
-                  }) {<br />
-                  return (<br />
-                      &#60;Formik<br />
-                          initialValues={{ query: "" }}<br />
-                          onSubmit={(values, actions) =>
-              {<br />
-                              onSearch(values.query);<br />
-                              actions.resetForm();<br />
-                          }}<br />
-                        ><br />
-                          &#60;Form className={css.form}><br />
-                              &#60;Field<br />
-                                  className={css.input}<br />
-                                  type="text"<br />
-                                  name="query"<br />
-                              /><br />
-                              &#60;button type="submit"><br />
-                                  Search<br />
-                              &#60;/button><br />
-                          &#60;/Form><br />
-                      &#60;/Formik><br />
-                  );<br />
-              }
-            </p>
+          <div>
+            <div class="m-bottom-min bcg-box print-fs-14">
+              <p>
+                <i>//src/articles-api.js</i><br />
+                import axios from "axios";<br />
+                <br />
+                axios.defaults.baseURL =<br />
+                    "http://hn.algolia.com/api/v1";<br />
+                <br />
+                export const fetchArticles = async (<br />
+                    searchQuery,<br />
+                    currentPage<br />
+                ) => {<br />
+                <br />
+                    const response = await
+                axios.get("/search", {<br />
+                        params: {<br />
+                            query: searchQuery,<br />
+                            hitsPerPage: 10,<br />
+                            page: currentPage,<br />
+                        },<br />
+                    });<br />
+                    return response.data.hits;<br />
+                };
+              </p>
+            </div>
+            <div class="bcg-box print-fs-14">
+              <p>
+                <i
+                  >//src/components/SearchForm/SearchForm.jsx</i
+                ><br />
+                import { Field, Form, Formik } from
+                "formik";<br />
+                import css from
+                "./SearchForm.module.css";<br />
+                <br />
+                export default function SearchForm({<br />
+                        onSearch<br />
+                    }) {<br />
+                    return (<br />
+                        &#60;Formik<br />
+                            initialValues={{ query: "" }}<br />
+                            onSubmit={(values, actions) =>
+                {<br />
+                                onSearch(values.query);<br />
+                                actions.resetForm();<br />
+                            }}<br />
+                          ><br />
+                            &#60;Form
+                className={css.form}><br />
+                                &#60;Field<br />
+                                    className={css.input}<br />
+                                    type="text"<br />
+                                    name="query"<br />
+                                /><br />
+                                &#60;button
+                type="submit"><br />
+                                    Search<br />
+                                &#60;/button><br />
+                            &#60;/Form><br />
+                        &#60;/Formik><br />
+                    );<br />
+                }
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,24 +1,38 @@
 @media print {
-  .print-home-link {
+  .hidden {
+    display: none;
+  }
+  .header {
     display: none;
   }
 
-  .print-flex-box {
+  .title-section {
+    padding-top: 300px;
+
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+
+  .main-section {
+    margin-bottom: 1000px;
+  }
+
+  /* .print-flex-box {
     display: flex;
     justify-content: space-between;
     gap: 4px;
-  }
+  } */
 
   .print-center {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .print-bcg-box {
+  /* .print-bcg-box {
     margin-left: auto;
     margin-right: 0;
     min-width: max-content;
-  }
+  } */
 
   .print-m-bottom-max {
     margin-bottom: 1000px;

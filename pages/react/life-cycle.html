@@ -54,390 +54,15 @@
               видаляється з DOM.
             </li>
           </ul>
-          <p class="">
+          <p class="m-bottom-min">
             За допомогою <b>ефектів</b> можна виконувати код
             тільки тоді, коли це необхідно, тобто не кожен
             раз, коли компонент рендериться.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Хук useEffect -->
-    <section class="section">
-      <div class="container">
-        <h2 class="m-bottom-min">Хук useEffect</h2>
-        <div class="m-bottom">
-          <div class="m-bottom-min flex">
-            <div>
-              <p>
-                Хук
-                <b>useEffect(callback, deps)</b> оголошує
-                ефект при зміні стану, який приймає два
-                аргументи:
-              </p>
-              <ul class="m-bottom-min">
-                <li>
-                  <b>callback</b> - завжди є анонімною
-                  функцією, всередині якої виконується вся
-                  логіка ефекту. Наприклад, запити на
-                  сервер, запис у локальне сховище і т.п.;
-                </li>
-                <li>
-                  <b>deps</b> - це масив залежностей ефекту.
-                  Коли будь-яка з цих залежностей
-                  змінюється, ефект буде викликаний і
-                  виконувати callback. Це може бути стан,
-                  пропси або будь-яке локальне значення
-                  всередині компонента.
-                </li>
-              </ul>
-              <p>
-                Якщо не передати масив залежностей, ефект
-                буде викликаний при кожному оновленні
-                компонента, тобто кожного разу, коли
-                компонент оновлюється.
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                import { useState, useEffect } from
-                "react";<br />
-                <br />
-                const App = () => {<br />
-                    const [clicks, setClicks] =
-                useState(0);<br />
-                <br />
-                   
-                <b
-                  >useEffect(() => {<br />
-                          document.title = `You clicked
-                  ${clicks} times`;<br />
-                      })</b
-                >;<br />
-                <br />
-                    return (<br />
-                        &#60;button onClick={() =>
-                setClicks(clicks + 1)}><br />
-                            You clicked {clicks} times<br />
-                        &#60;/button><br />
-                    );<br />
-                };
-              </p>
-            </div>
-          </div>
-          <p class="border-box">
-            <b>Важливо!</b> Хук <b>useEffect</b> не повертає
-            жодного значення як результат своєї роботи, а
-            лише запускає виконання анонімної функції.
-            Іншими словами, неможливо виконати в середині
-            функції обчислення і повернути їх у зовнішній
-            код. Ефекти не призначені для цього!.
+          <p>
+            Життєвий цикл компоненту керується за допомогою
+            <b>хуку useEffect</b>
           </p>
-        </div>
-
-        <!-- Етап монтування -->
-        <h3 class="m-bottom-min">Етап монтування</h3>
-        <div class="m-bottom">
-          <div class="flex">
-            <p class="">
-              Якщо другим аргументом хука useEffect передати
-              <b>порожній масив</b>, то такий ефект
-              виконається лише
-              <i
-                >один раз - на етапі монтування
-                компонента</i
-              >, і більше ніколи. Такі ефекти
-              використовуються для виконання коду без
-              очікування дій користувача.
-            </p>
-            <div class="bcg-box">
-              <p>
-                useEffect(() => {<br />
-                    // ...<br />
-                }, <b>[]</b> )<br />
-              </p>
-            </div>
-          </div>
-          <p>Наприклад:</p>
-          <ul class="">
-            <li>HTTP-запити за початковими даними;</li>
-            <li>додавання слухачів на документ;</li>
-            <li>запуск таймерів;</li>
-            <li>зчитування з локального сховища.</li>
-          </ul>
-        </div>
-
-        <!-- Суворий режим -->
-        <h4 class="m-bottom-min">Суворий режим</h4>
-        <div class="m-bottom">
-          <div class="m-bottom flex print-m-bottom-max">
-            <div>
-              <p class="m-bottom-min">
-                Після монтування компонента в консолі
-                відображається одне й те ж повідомлення
-                двічі, а не один раз. Це пов'язано з
-                компонентом
-                <b>React.StrictMode</b>, який в режимі
-                розробки виконує ряд перевірок нашого коду.
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                ReactDOM.createRoot(document.getElementById("root"))<br />
-                    .render(<br />
-                        <b>&#60;React.StrictMode></b><br />
-                            &#60;App /><br />
-                        <b>&#60;/React.StrictMode></b><br />
-                );
-              </p>
-            </div>
-          </div>
-          <p class="m-bottom-min">
-            Окрім перевірок, суворий режим виконує подвійне
-            монтування кожного компонента в додатку, щоб
-            гарантувати стресостійкість коду, особливо тієї
-            його частини, де працюємо зі станом і його
-            оновленням.
-          </p>
-          <p>Алгоритм дій для компонента <b>App</b>.</p>
-          <ul class="">
-            <li>Компонент App монтується в DOM вперше.</li>
-            <li>
-              Виконується ефект, і в консоль виводиться
-              повідомлення.
-            </li>
-            <li>
-              Компонент App розмонтується і видаляється з
-              DOM.
-            </li>
-            <li>Компонент App монтується в DOM вдруге.</li>
-            <li>
-              Виконується ефект, і в консоль виводиться
-              повідомлення.
-            </li>
-            <li>
-              Компонент залишається в DOM і готовий до
-              оновлень.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Етап розмонтування -->
-        <h3 class="m-bottom-min">Етап розмонтування</h3>
-        <div class="m-bottom flex">
-          <div>
-            <p class="m-bottom-min">
-              При розмонтуванні компонента, можна стикнутися
-              з необхідністю <b>"почистити за собою"</b>,
-              наприклад, знімати обробники подій, зупиняти
-              таймери та скасовувати HTTP-запити і таке
-              інше.
-            </p>
-            <p>
-              Хук useEffect може оголошувати функцію
-              очищення ефекту, для цього
-              <b
-                >з колбек-функції потрібно повернути ще одну
-                функцію</b
-              >.
-            </p>
-          </div>
-          <div class="bcg-box">
-            <p>
-              const Modal = () => {<br />
-                  useEffect(() => {<br />
-                     
-              <i
-                >// Зберігаємо ідентифікатор інтервалу в
-                змінну</i
-              ><br />
-                      const intervalId = setInterval(() =>
-              {<br />
-                          console.log(`Interval -
-              ${Date.now()}`);<br />
-                      }, 2000);<br />
-                      <b>return () => {</b><br />
-                         
-              <i
-                >// Очищаємо інтервал за його
-                ідентифікатором</i
-              ><br />
-                          <b>clearInterval(intervalId);</b
-              ><br />
-                      <b>}</b>;<br />
-                  }, []);<br />
-                  <br />
-                  return &#60;div>Modal&#60;/div>;<br />
-              };<br />
-              <br />
-              const App = () => {<br />
-                  const [isOpen, setIsOpen] =
-              useState(false);<br />
-                  return (<br />
-                      &#60;div><br />
-                          &#60;button onClick={() =>
-              setIsOpen(!isOpen)}><br />
-                              {isOpen ? "Close" : "Open"}<br />
-                          &#60;/button><br />
-                          {isOpen && <Modal />}<br />
-                      &#60;/div><br />
-                  );<br />
-              };
-            </p>
-          </div>
-        </div>
-
-        <!-- Етап оновлення -->
-        <h3 class="m-bottom-min">Етап оновлення</h3>
-        <div class="m-bottom flex print-m-bottom-max">
-          <div>
-            <p class="m-bottom-min">
-              Ефект з <b>без масиву залежностей</b> буде
-              запускатися при кожному оновленні компонента
-            </p>
-
-            <p class="m-bottom-min">
-              Ефект з <b>пустим масивом залежностей</b> буде
-              запускатися лише один раз - на етапі
-              монтування компонента
-            </p>
-
-            <p class="m-bottom-min">
-              Ефект <b>з масивом залежностей</b> буде
-              запускатися один раз після монтажу компонента,
-              а потім кожного разу після оновлення будь-якої
-              залежності
-            </p>
-            <p class="border-box">
-              <b>Цікаво</b> Розширення у VSC
-              <b>ESLint</b> підкреслює масив залежностей,
-              якщо невірно вказані обов'язкові наявні
-              зовнішніх зміних (стан, пропси і т.п.)
-            </p>
-          </div>
-          <div class="bcg-box">
-            <p>
-              import { useState, useEffect } from
-              "react";<br />
-              <br />
-              const App = () => {<br />
-                  const [clicks, setClicks] =
-              useState(0);<br />
-              <br />
-                  useEffect(() => {<br />
-                      console.log("Clicks updated: ",
-              clicks);<br />
-                  }, [<b>clicks</b>]);<br />
-              <br />
-                  return (<br />
-                      &#60;button onClick={() =>
-              setClicks(clicks + 1)}><br />
-                          You clicked {clicks} times<br />
-                      &#60;/button><br />
-                  );<br />
-              };
-            </p>
-          </div>
-        </div>
-
-        <!-- Декілька ефектів -->
-        <h3 class="m-bottom-min">Декілька ефектів</h3>
-        <div class="">
-          <div>
-            <p class="m-bottom-min">
-              У компоненті можна оголошувати стільки
-              ефектів, скільки потрібно. Це дозволяє
-              згрупувати логіку, створивши ефект для кожної
-              незалежної операції.
-            </p>
-          </div>
-          <div class="m-bottom-min flex">
-            <div>
-              <p class="m-bottom-min">
-                Коли в компоненті є кілька станів, можна
-                використовувати ефекти, щоб реагувати на
-                зміни будь-якої комбінації значень і
-                виконувати певний код.
-              </p>
-              <p class="border-box">
-                <b>Важливо!</b> Кожен з цих ефектів
-                виконається також при монтуванні компонента
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                import { useState, useEffect } from
-                "react";<br />
-                <br />
-                const App = () => {<br />
-                    const [clicks, setClicks] =
-                useState(0);<br />
-                <br />
-                    <b>useEffect</b>(() => {<br />
-                        console.log("You can see me only
-                once!");<br />
-                    }, <b>[]</b>);<br />
-                <br />
-                    <b>useEffect</b>(() => {<br />
-                        console.log("Clicks updated: ",
-                clicks);<br />
-                    }, <b>[clicks]</b>);<br />
-                <br />
-                    <b>useEffect</b>(() => {<br />
-                        document.title = `You clicked
-                ${clicks}`;<br />
-                    });<br />
-                <br />
-                    return (<br />
-                        &#60;button onClick={<br />
-                            () => setClicks(clicks + 1)<br />
-                        }><br />
-                            You clicked {clicks} times<br />
-                        &#60;/button><br />
-                    );<br />
-                };
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                const App = () => {<br />
-                    const [first, setFirst] =
-                useState(0);<br />
-                    const [second, setSecond] =
-                useState(0);<br />
-                    <b>useEffect</b>(() => {<br />
-                        console.log("First updated: ",
-                first);<br />
-                    }, [<b>first</b>]);<br />
-                    <b>useEffect</b>(() => {<br />
-                        console.log("Second updated: ",
-                second);<br />
-                    }, [<b>second</b>]);<br />
-                    <b>useEffect</b>(() => {<br />
-                        console.log(<br />
-                            "First or second updated: ",<br />
-                            first + second);<br />
-                    }, [<b>first, second</b>]);<br />
-                <br />
-                    return (<br />
-                        &#60;><br />
-                            &#60;button onClick={() =>
-                setFirst(first + 1)}><br />
-                                First: {first}<br />
-                            &#60;/button><br />
-                            &#60;button onClick={<br />
-                                () => setSecond(second +
-                1)<br />
-                            }><br />
-                                Second: {second}<br />
-                            &#60;/button><br />
-                        &#60;/><br />
-                    );<br />
-                };
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -483,7 +108,6 @@
                 clicks)</b
               >;<br />
                   }, [clicks]);<br />
-              <br />
                   return (<br />
                       &#60;div><br />
                           &#60;button onClick={() =>
@@ -521,24 +145,8 @@
           </div>
         </div>
 
-        <div>
-          <div class="m-bottom-min border-box flex">
-            <p class="">
-              <b>Важливо!</b> Якщо необхідно отримати
-              складні типи даних, такі як об'єкт чи масив,
-              треба зробити розбір значення за допомогою
-              <b>JSON.parse</b>. В іншому випадку, замість
-              об'єкта чи масиву до стану запишуться їх
-              стрічне представлення.
-            </p>
-            <div>
-              <p class="bcg-box">JSON.parse(savedObject)</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="m-bottom-min">
-          <div class="bcg-box flex">
+        <div class="m-bottom-min flex print-m-bottom-max">
+          <div class="bcg-box print-m-left-none">
             <p>
               const [clicks, setClicks] = useState(() =>
               {<br />
@@ -567,15 +175,10 @@
                   return 0;<br />
               });<br />
             </p>
-            <p>або</p>
+          </div>
+          <p>або</p>
+          <div class="bcg-box print-m-left-none">
             <p>
-              <!-- <br />
-              <b
-                ><i
-                  >// ============== або ==============</i
-                ></b
-              >
-              <br /> -->
               const [obj, setObj] = useState(() => {<br />
                   <i>// Зчитуємо значення за ключем</i
               ><br />
@@ -604,7 +207,27 @@
             </p>
           </div>
         </div>
+
+        <div class="m-bottom-min">
+          <div class="border-box flex">
+            <p class="">
+              <b>Важливо!</b> Якщо необхідно отримати
+              складні типи даних, такі як об'єкт чи масив,
+              треба зробити розбір значення за допомогою
+              <b>JSON.parse</b>. В іншому випадку, замість
+              об'єкта чи масиву до стану запишуться їх
+              стрічне представлення.
+            </p>
+            <div>
+              <p class="bcg-box">
+                <b>JSON.parse(savedObject)</b>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <p class="m-bottom-min">Повний код прикладу</p>
+
         <div class="bcg-box">
           <p>
             const App = () => {<br />

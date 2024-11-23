@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Хуки</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/styles-print.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a class="" href="../../index.html">На головну</a>
+        <a class="" href="#hooks">До початку секції</a>
+      </nav>
+    </header>
+    <section>
+      <h1 id="hooks" class="m-bottom center-text">Хуки</h1>
+      <section class="section print-m-bottom-max">
+        <div class="container">
+          <div class="m-bottom">
+            <p class="m-bottom-min">
+              <b>Хук</b> - функція за допомогою якої можна
+              "підключитися" до різних можливостей React, що
+              починається з <b>use</b> (useState,
+              useEffect...).
+            </p>
+            <div class="flex">
+              <div>
+                <p class="m-bottom-min">
+                  Для використання хуку, необхідно
+                  <b>імпортувати</b> його в файлі компонента
+                  з бібліотеки React.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>import { useState } from 'react';</p>
+              </div>
+            </div>
+
+            <table class="thick-element">
+              <caption></caption>
+              <thead>
+                <tr>
+                  <th>hook</th>
+                  <th>Опис</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="#useState">useState</a></td>
+                  <td>
+                    додає стан до функціональних компонентів
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#useEffect">useEffect</a>
+                  </td>
+                  <td>
+                    управління побічними ефектами в
+                    компонентах функціонального типу
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#useId">useId</a></td>
+                  <td>
+                    генерація унікальних ідентифікаторів,
+                    які можна передавати атрибутам
+                    доступності полів форми
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#useMemo">useMemo</a></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><a href="#useRef">useRef</a></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#useContext">useContext</a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="#own-hooks">Власні хуки</a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>useToggle</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Хук useState -->
+      <section
+        id="useState"
+        class="section print-m-bottom-max"
+      >
+        <div class="container">
+          <h2 class="m-bottom-min">Хук useState</h2>
+          <div class="m-bottom">
+            <div class="m-bottom flex">
+              <div>
+                <p class="m-bottom-min">
+                  Хук <b>useState</b> повідомляє React, щоб
+                  цей компонент запам'ятовував щось.
+                </p>
+                <ul class="m-bottom-min">
+                  <li class="">
+                    <b
+                      >const [clicks, setClicks] =
+                      useState(0)</b
+                    >
+                  </li>
+                  <li>
+                    <b>[ clicks, setClicks ]</b> -
+                    деструктуризованний масив
+                  </li>
+                  <li><b>clicks</b> - змінна стану</li>
+                  <li>
+                    <b>setClicks</b> - функція для
+                    динамічного встановлення стану
+                  </li>
+                  <li>
+                    <b>useState(0)</b> - встановлення
+                    початкового стану
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useState } from 'react';<br />
+                  <br />
+                  const App = () => {<br />
+                     
+                  <b
+                    >const [clicks, setClicks] =
+                    useState(0)</b
+                  >;<br />
+                  <br />
+                      const handleClick = () => {<br />
+                          <b>setClicks</b>(<b>clicks</b> +
+                  1);<br />
+                      };<br />
+                  <br />
+                      return &#60;button
+                  onClick={handleClick}>Current:
+                  {<b>clicks</b>}&#60;/button><br />
+                  };
+                </p>
+              </div>
+            </div>
+            <div>
+              <p class="m-bottom-min">
+                Єдиний аргумент для <b>useState</b> -
+                початкове значення змінної стану.
+              </p>
+              <p>
+                Кожного разу, коли компонент рендериться,
+                useState повертає масив, що містить два
+                значення:
+              </p>
+
+              <ul class="m-bottom-min">
+                <li>
+                  Змінну стану (<b>clicks</b>) зі збереженим
+                  поточним значенням.
+                </li>
+                <li>
+                  Функцію встановлення стану
+                  (<b>setClicks</b>), яка може оновлювати
+                  змінну стану і викликати повторний
+                  рендеринг компонента.
+                </li>
+              </ul>
+              <p class="border-box">
+                <b>Цікаво!</b> Використовуючи
+                деструктуризацію, можна задати будь-які
+                імена змінних. Рекомендовано називати цю
+                пару як [<b>something</b>,
+                <b>setSomething</b>].
+              </p>
+            </div>
+          </div>
+
+          <!-- Декілька станів -->
+          <h3 class="m-bottom-min">Декілька станів</h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Можна мати стільки змінних стану, скільки
+                потрібно в одному компонентії. Для кожного
+                використовуйте окремий <b>useState</b>.
+              </p>
+              <p class="">
+                Кожен зі станів <b>clicks</b> та
+                <b>isOpen </b> незалежний і оновлюється
+                своїми відповідними функціями встановлення
+                <b>setClicks</b> та
+                <b>setIsOpen</b> відповідно.
+              </p>
+            </div>
+            <div class="bcg-box print-fs-12">
+              <p>
+                const App = () => {<br />
+                   
+                <b
+                  >const [clicks, setClicks] =
+                  useState(0)</b
+                >;<br />
+                   
+                <b
+                  >const [isOpen, setIsOpen] =
+                  useState(false)</b
+                >;<br />
+                    const handleClick = () => {<br />
+                        setClicks(clicks + 1);<br />
+                    };<br />
+                    const handleToggle = () => {<br />
+                        setIsOpen(!isOpen);<br />
+                    }; <br />
+                    return (<br />
+                        &#60;><br />
+                            &#60;button
+                onClick={handleClick}>Current:
+                {clicks}&#60;/button><br />
+                            &#60;button
+                onClick={handleToggle}><br />
+                                {isOpen ? "Hide" :
+                "Show"}<br />
+                            &#60;/button><br />
+                            {isOpen && &#60;div>Now you can
+                see me!&#60;/div>}<br />
+                        &#60;/><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <!-- Ізоляція стану -->
+          <h3 class="m-bottom-min">Ізоляція стану</h3>
+          <div class="m-bottom flex print-m-bottom-max">
+            <div>
+              <p class="m-bottom-min">
+                Стан є локальним для екземпляра компонента.
+                Якщо відобразити один і той самий компонент
+                декілька разів, кожна копія матиме абсолютно
+                ізольований стан! Зміна одного з них не
+                вплине на інший.
+              </p>
+              <p class="border-box">
+                <b>Важливо!</b> Компонент <b>App</b> нічого
+                не знає про стан. На відміну від
+                <b>props</b>, стан є повністю приватним для
+                компонента, що його визначає.
+                <b
+                  >Батьківський компонент не може його
+                  змінити.</b
+                >
+                Це дозволяє додавати чи видаляти стан до
+                компонента без впливу на решту компонентів.
+              </p>
+            </div>
+            <div class="bcg-box print-fs-12">
+              <p>
+                const ClickCounter = () => {<br />
+                    const [clicks, setClicks] =
+                useState(0);<br />
+                    const handleClick = () => {<br />
+                        setClicks(clicks + 1);<br />
+                    };<br />
+                    return &#60;button
+                onClick={handleClick}>Current:
+                {clicks}&#60;/button><br />
+                };<br />
+
+                const App = () => {<br />
+                    return (<br />
+                        &#60;><br />
+                            &#60;ClickCounter /><br />
+                            &#60;ClickCounter /><br />
+                        &#60;/><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <!-- Підняття стану -->
+          <h3 class="m-bottom-min">Підняття стану</h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Для того щоб стан відстежувався одразу на
+                двох компонентах, його необхідно створити на
+                спільному батьку. При цьому, дочірні
+                компоненти ничого не будуть знати про стан
+                батька-компонента.
+              </p>
+              <p class="">
+                Через пропси необхідно передати значення
+                стану та метод зміни стану.
+              </p>
+            </div>
+            <div class="bcg-box print-fs-12">
+              <p>
+                const ClickCounter = ({ <b>value</b>,
+                <b>onUpdate</b> }) => {<br />
+                    return &#60;button
+                onClick={<b>onUpdate</b>}>Current:
+                {<b>value</b>}&#60;/button><br />
+                };<br />
+                const App = () => {<br />
+                    const [clicks, setClicks] =
+                useState(0);<br />
+                    const <i>handleClick</i> = () =>
+                setClicks(clicks + 1);<br />
+                    return (<br />
+                    &#60;><br />
+                        &#60;ClickCounter
+                <b>value</b>={clicks}
+                <b>onUpdate</b>={<i>handleClick</i>} /><br />
+                        &#60;ClickCounter
+                <b>value</b>={clicks}
+                <b>onUpdate</b>={<i>handleClick</i>} /><br />
+                    &#60;/><br />
+                    );<br />
+                };<br />
+              </p>
+            </div>
+          </div>
+
+          <!-- Обмеження хуків -->
+          <h3 class="m-bottom-min">Обмеження хуків</h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Будь-які хуки можна викликати лише на
+                верхньому рівні функції компонента. Це
+                означає, що хуки повинні
+                <b
+                  >знаходитися безпосередньо в тілі функції
+                  компонента</b
+                >, а не всередині циклів, умов, вкладених
+                функцій і так далі.
+              </p>
+              <p class="border-box">
+                <b>Важливо!</b> Викликати хуки лише на
+                верхньому рівні функції компонента, так
+                само, як імпортування модулів лише на
+                верхньому рівні файлу.
+              </p>
+            </div>
+            <div class="bcg-box print-fs-12">
+              <p>
+                const App = () => {<br />
+                    // ❌ Буде помилка<br />
+                    if (isLoggedIn) {<br />
+                        const [username, setUsername] =
+                useState("");<br />
+                    }<br />
+                    // ❌ Буде помилка<br />
+                    for(let i = 0; i < 10; i++) {<br />
+                        const [valiue, setValue] =
+                useState(0);<br />
+                    }<br />
+                };<br />
+                // ✅ Так правильно<br />
+                const App = () => {<br />
+                    const [username, setUsername] =
+                useState("");<br />
+                    const [valiue, setValue] =
+                useState(0);<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <!-- Оновлення об'єктів -->
+          <h3 class="m-bottom-min">Оновлення об'єктів</h3>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                Стан може містити будь-який тип значення,
+                включаючи об'єкти.
+              </p>
+              <p class="m-bottom-min">
+                Оновлювати дані об'єкту мутацією
+                <b>не можна</b>
+                <b
+                  >( const updateX = () => values.x += 1
+                  )</b
+                >
+              </p>
+              <p class="m-bottom-min">
+                Об'єкти, як і будь-який інший стан,
+                оновлюються за допомогою
+                <b>функції-сеттера.</b> (<b>setValues</b>).
+              </p>
+              <div class="border-box">
+                <p class="m-bottom-min">
+                  <b>Важливо!</b> Якщо в об'єкті більше
+                  однієї властивості, то при оновлені
+                  будь-якої з них, усі інщі - зникнить
+                  (функція-сеттер записує отримане значення
+                  (об'єкт) поверх існуючого стану). Для того
+                  щоб цього уникнути потрібно зробити копію
+                  існуючого (<b>spread</b>).
+                </p>
+
+                <div class="bcg-box">
+                  <p>
+                    const updateX = () => {<br />
+                        setValues({<br />
+                            ...values,<br />
+                            x: values.x + 1<br />
+                        });<br />
+                    };
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bcg-box print-fs-12">
+              <p>
+                const App = () => {<br />
+                    const [values, setValues] =
+                useState({<br />
+                        x: 0,<br />
+                        y: 0,<br />
+                    });<br />
+                const updateX = () => {<br />
+                <b
+                  >    setValues({<br />
+                          ...values,<br />
+                          x: values.x + 1<br />
+                      })</b
+                >;<br />
+                };<br />
+                const updateY = () => {<br />
+                <b
+                  >    setValues({<br />
+                          ...values,<br />
+                          y: values.y + 1<br />
+                      })</b
+                >;<br />
+                };<br />
+                <br />
+                    return (<br />
+                        &#60;div><br />
+                            &#60;p> x: {values.x}, y:
+                {values.y} &#60;/p><br />
+                        <br />
+                            &#60;button
+                onClick={updateX}>Update x&#60;/button><br />
+                            &#60;button
+                onClick={updateY}>Update y&#60;/button><br />
+                        &#60;/div><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Хук useEffect -->
+      <section
+        id="useEffect"
+        class="section print-m-bottom-max"
+      >
+        <div class="container">
+          <h2 class="m-bottom-min">Хук useEffect</h2>
+          <div class="m-bottom">
+            <div class="m-bottom-min flex">
+              <div>
+                <p>
+                  Хук
+                  <b>useEffect(callback, deps)</b> оголошує
+                  ефект при зміні стану, який приймає два
+                  аргументи:
+                </p>
+                <ul class="m-bottom-min">
+                  <li>
+                    <b>callback</b> - завжди є анонімною
+                    функцією, всередині якої виконується вся
+                    логіка ефекту. Наприклад, запити на
+                    сервер, запис у локальне сховище і т.п.;
+                  </li>
+                  <li>
+                    <b>deps</b> - це масив залежностей
+                    ефекту. Коли будь-яка з цих залежностей
+                    змінюється, ефект буде викликаний і
+                    виконувати callback. Це може бути стан,
+                    пропси або будь-яке локальне значення
+                    всередині компонента.
+                  </li>
+                </ul>
+                <p>
+                  Якщо не передати масив залежностей, ефект
+                  буде викликаний при кожному оновленні
+                  компонента, тобто кожного разу, коли
+                  компонент оновлюється.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useState, useEffect } from
+                  "react";<br />
+                  <br />
+                  const App = () => {<br />
+                      const [clicks, setClicks] =
+                  useState(0);<br />
+                  <br />
+                     
+                  <b
+                    >useEffect(() => {<br />
+                            document.title = `You clicked
+                    ${clicks} times`;<br />
+                        })</b
+                  >;<br />
+                  <br />
+                      return (<br />
+                          &#60;button onClick={() =>
+                  setClicks(clicks + 1)}><br />
+                              You clicked {clicks} times<br />
+                          &#60;/button><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+            <p class="border-box">
+              <b>Важливо!</b> Хук <b>useEffect</b> не
+              повертає жодного значення як результат своєї
+              роботи, а лише запускає виконання анонімної
+              функції. Іншими словами, неможливо виконати в
+              середині функції обчислення і повернути їх у
+              зовнішній код. Ефекти не призначені для
+              цього!.
+            </p>
+          </div>
+
+          <!-- Етап монтування -->
+          <h3 class="m-bottom-min">Етап монтування</h3>
+          <div class="m-bottom">
+            <div class="flex">
+              <p class="">
+                Якщо другим аргументом хука useEffect
+                передати
+                <b>порожній масив</b>, то такий ефект
+                виконається лише
+                <i
+                  >один раз - на етапі монтування
+                  компонента</i
+                >, і більше ніколи. Такі ефекти
+                використовуються для виконання коду без
+                очікування дій користувача.
+              </p>
+              <div class="bcg-box">
+                <p>
+                  useEffect(() => {<br />
+                      // ...<br />
+                  }, <b>[]</b> )<br />
+                </p>
+              </div>
+            </div>
+            <p>Наприклад:</p>
+            <ul class="">
+              <li>HTTP-запити за початковими даними;</li>
+              <li>додавання слухачів на документ;</li>
+              <li>запуск таймерів;</li>
+              <li>зчитування з локального сховища.</li>
+            </ul>
+          </div>
+
+          <!-- Суворий режим -->
+          <h4 class="m-bottom-min">Суворий режим</h4>
+          <div class="m-bottom print-m-bottom-max">
+            <div class="m-bottom flex">
+              <div>
+                <p class="m-bottom-min">
+                  Після монтування компонента в консолі
+                  відображається одне й те ж повідомлення
+                  двічі, а не один раз. Це пов'язано з
+                  компонентом
+                  <b>React.StrictMode</b>, який в режимі
+                  розробки виконує ряд перевірок нашого
+                  коду.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  ReactDOM.createRoot(document.getElementById("root"))<br />
+                      .render(<br />
+                          <b>&#60;React.StrictMode></b
+                  ><br />
+                              &#60;App /><br />
+                          <b>&#60;/React.StrictMode></b
+                  ><br />
+                  );
+                </p>
+              </div>
+            </div>
+            <p class="m-bottom-min">
+              Окрім перевірок, суворий режим виконує
+              подвійне монтування кожного компонента в
+              додатку, щоб гарантувати стресостійкість коду,
+              особливо тієї його частини, де працюємо зі
+              станом і його оновленням.
+            </p>
+            <p>Алгоритм дій для компонента <b>App</b>.</p>
+            <ul class="">
+              <li>
+                Компонент App монтується в DOM вперше.
+              </li>
+              <li>
+                Виконується ефект, і в консоль виводиться
+                повідомлення.
+              </li>
+              <li>
+                Компонент App розмонтується і видаляється з
+                DOM.
+              </li>
+              <li>
+                Компонент App монтується в DOM вдруге.
+              </li>
+              <li>
+                Виконується ефект, і в консоль виводиться
+                повідомлення.
+              </li>
+              <li>
+                Компонент залишається в DOM і готовий до
+                оновлень.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Етап розмонтування -->
+          <h3 class="m-bottom-min">Етап розмонтування</h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                При розмонтуванні компонента, можна
+                стикнутися з необхідністю
+                <b>"почистити за собою"</b>, наприклад,
+                знімати обробники подій, зупиняти таймери та
+                скасовувати HTTP-запити і таке інше.
+              </p>
+              <p>
+                Хук useEffect може оголошувати функцію
+                очищення ефекту, для цього
+                <b
+                  >з колбек-функції потрібно повернути ще
+                  одну функцію</b
+                >.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                const Modal = () => {<br />
+                    useEffect(() => {<br />
+                       
+                <i
+                  >// Зберігаємо ідентифікатор інтервалу в
+                  змінну</i
+                ><br />
+                        const intervalId = setInterval(() =>
+                {<br />
+                            console.log(`Interval -
+                ${Date.now()}`);<br />
+                        }, 2000);<br />
+                        <b>return () => {</b><br />
+                           
+                <i
+                  >// Очищаємо інтервал за його
+                  ідентифікатором</i
+                ><br />
+                            <b>clearInterval(intervalId);</b
+                ><br />
+                        <b>}</b>;<br />
+                    }, []);<br />
+                    <br />
+                    return &#60;div>Modal&#60;/div>;<br />
+                };<br />
+                <br />
+                const App = () => {<br />
+                    const [isOpen, setIsOpen] =
+                useState(false);<br />
+                    return (<br />
+                        &#60;div><br />
+                            &#60;button onClick={() =>
+                setIsOpen(!isOpen)}><br />
+                                {isOpen ? "Close" :
+                "Open"}<br />
+                            &#60;/button><br />
+                            {isOpen && <Modal />}<br />
+                        &#60;/div><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <!-- Етап оновлення -->
+          <h3 class="m-bottom-min">Етап оновлення</h3>
+          <div class="m-bottom flex print-m-bottom-max">
+            <div>
+              <p class="m-bottom-min">
+                Ефект з <b>без масиву залежностей</b> буде
+                запускатися при кожному оновленні компонента
+              </p>
+
+              <p class="m-bottom-min">
+                Ефект з
+                <b>пустим масивом залежностей</b> буде
+                запускатися лише один раз - на етапі
+                монтування компонента
+              </p>
+
+              <p class="m-bottom-min">
+                Ефект <b>з масивом залежностей</b> буде
+                запускатися один раз після монтажу
+                компонента, а потім кожного разу після
+                оновлення будь-якої залежності
+              </p>
+              <p class="border-box">
+                <b>Цікаво</b> Розширення у VSC
+                <b>ESLint</b> підкреслює масив залежностей,
+                якщо невірно вказані обов'язкові наявні
+                зовнішніх зміних (стан, пропси і т.п.)
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { useState, useEffect } from
+                "react";<br />
+                <br />
+                const App = () => {<br />
+                    const [clicks, setClicks] =
+                useState(0);<br />
+                <br />
+                    useEffect(() => {<br />
+                        console.log("Clicks updated: ",
+                clicks);<br />
+                    }, [<b>clicks</b>]);<br />
+                <br />
+                    return (<br />
+                        &#60;button onClick={() =>
+                setClicks(clicks + 1)}><br />
+                            You clicked {clicks} times<br />
+                        &#60;/button><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <!-- Декілька ефектів -->
+          <h3 class="m-bottom-min">Декілька ефектів</h3>
+          <div class="">
+            <div>
+              <p class="m-bottom-min">
+                У компоненті можна оголошувати стільки
+                ефектів, скільки потрібно. Це дозволяє
+                згрупувати логіку, створивши ефект для
+                кожної незалежної операції.
+              </p>
+            </div>
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  Коли в компоненті є кілька станів, можна
+                  використовувати ефекти, щоб реагувати на
+                  зміни будь-якої комбінації значень і
+                  виконувати певний код.
+                </p>
+                <p class="border-box">
+                  <b>Важливо!</b> Кожен з цих ефектів
+                  виконається також при монтуванні
+                  компонента
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useState, useEffect } from
+                  "react";<br />
+                  <br />
+                  const App = () => {<br />
+                      const [clicks, setClicks] =
+                  useState(0);<br />
+                  <br />
+                      <b>useEffect</b>(() => {<br />
+                          console.log("You can see me only
+                  once!");<br />
+                      }, <b>[]</b>);<br />
+                  <br />
+                      <b>useEffect</b>(() => {<br />
+                          console.log("Clicks updated: ",
+                  clicks);<br />
+                      }, <b>[clicks]</b>);<br />
+                  <br />
+                      <b>useEffect</b>(() => {<br />
+                          document.title = `You clicked
+                  ${clicks}`;<br />
+                      });<br />
+                  <br />
+                      return (<br />
+                          &#60;button onClick={<br />
+                              () => setClicks(clicks + 1)<br />
+                          }><br />
+                              You clicked {clicks} times<br />
+                          &#60;/button><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  const App = () => {<br />
+                      const [first, setFirst] =
+                  useState(0);<br />
+                      const [second, setSecond] =
+                  useState(0);<br />
+                      <b>useEffect</b>(() => {<br />
+                          console.log("First updated: ",
+                  first);<br />
+                      }, [<b>first</b>]);<br />
+                      <b>useEffect</b>(() => {<br />
+                          console.log("Second updated: ",
+                  second);<br />
+                      }, [<b>second</b>]);<br />
+                      <b>useEffect</b>(() => {<br />
+                          console.log(<br />
+                              "First or second updated:
+                  ",<br />
+                              first + second);<br />
+                      }, [<b>first, second</b>]);<br />
+                  <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button onClick={() =>
+                  setFirst(first + 1)}><br />
+                                  First: {first}<br />
+                              &#60;/button><br />
+                              &#60;button onClick={<br />
+                                  () => setSecond(second +
+                  1)<br />
+                              }><br />
+                                  Second: {second}<br />
+                              &#60;/button><br />
+                          &#60;/><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Хук useId -->
+      <section
+        id="useId"
+        class="section print-m-bottom-max"
+      >
+        <div class="container">
+          <h2 class="m-bottom-min">Хук useId</h2>
+          <div class="m-bottom">
+            <div class="m-bottom flex">
+              <div>
+                <p class="">
+                  Хук<b>useId</b> використовується для
+                  генерації унікальних ідентифікаторів, які
+                  можна передавати атрибутам доступності
+                  полів форми:
+                </p>
+                <ul class="m-bottom-min">
+                  <li>не приймає жодних параметрів,</li>
+                  <li>
+                    повертає унікальний рядок
+                    ідентифікатора.
+                  </li>
+                </ul>
+                <p class="border-box">
+                  <b>Важливо!</b> Не слід використовувати
+                  <b>useId</b> для генерації ключів у
+                  списку, він призначений лише для створення
+                  ідентифікаторів полів форми.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useId } from 'react';<br />
+                  <br />
+                  const MyComponent = () => {<br />
+                      <b>const id = useId()</b>;<br />
+                  };
+                </p>
+              </div>
+            </div>
+            <div class="m-bottom flex">
+              <div>
+                <p class="m-bottom-min">
+                  HTML-атрибут <b>for</b> тегу <b>label</b>,
+                  який в React представлений
+                  <i>jsx-атрибутом</i> <b>htmlFor</b>,
+                  допомагає асистивним технологіям, связуючи
+                  <i>поле</i> і <i>label</i> за
+                  <i>ідентифікатором</i>.
+                </p>
+                <p class="">
+                  Для кожної форми можна створити стільки
+                  ідентифікаторів, скільки потрібно. Кожен
+                  ідентифікатор зберігається в окремій
+                  змінній.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  const LoginForm = () => {<br />
+                      <b>const loginId = useId()</b>;<br />
+                     
+                  <b>const passwordId = useId()</b>;<br />
+                      <br />
+                      return (<br />
+                          &#60;form><br />
+                              &#60;label
+                  htmlFor={<b>loginId</b>}>Login&#60;/label><br />
+                              &#60;input type="text"
+                  name="login" id={<b>loginId</b>} /><br />
+                              &#60;label
+                  htmlFor={<b>passwordId</b>}>Password&#60;/label><br />
+                              &#60;input type="password"
+                  name="password" id={<b>passwordId</b>}
+                  /><br />
+                              &#60;button
+                  type="submit">Login&#60;/button><br />
+                          &#60;/form><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Хук useMemo -->
+      <section
+        id="useMemo"
+        class="section print-m-bottom-max"
+      >
+        <div class="container">
+          <h2 class="m-bottom center-text">Хук useMemo</h2>
+
+          <p class="m-bottom-min">
+            Хук <b>useMemo</b> використовує концепцію
+            мемоізації, метод оптимізації комп'ютерних
+            програм шляхом збереження результатів викликів
+            функції та повернення кешованого результату при
+            повторенні тих самих вхідних даних. Мемоізована
+            функція «запам'ятовує» результат обчислень
+            відповідний набору аргументів. Наступні виклики
+            з такими самими значеннями аргументів повертають
+            запам'ятований результат, а не перераховують
+            його.
+          </p>
+
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="">
+                Хук useMemo приймає <b>два аругменти</b>:
+              </p>
+              <ul class="">
+                <li>
+                  Першим є анонімна функція, яка повертає
+                  значення, саме вона буде мемоізована.
+                </li>
+                <li>
+                  Другим є масив залежностей, при зміні
+                  якоїсь з них, викликається функція
+                  передана першим аргументом.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { useMemo } from "react";<br />
+                <br />
+                const memoizedValue = useMemo(() => {<br />
+                    return a + b;<br />
+                }, [a, b]);
+              </p>
+            </div>
+          </div>
+
+          <div class="m-bottom-min flex">
+            <div>
+              <p class="">
+                <b>Алгоритм</b> роботи хука useMemo:
+              </p>
+              <ul class="m-bottom-min">
+                <li>
+                  При першому рендері компонента
+                  викликається функція, результат
+                  запам'ятовується і повертається як
+                  результат роботи хука.
+                </li>
+                <li>
+                  Якщо за наступних рендерів залежності не
+                  змінюються, то хук не викликає функцію, а
+                  просто повертає збережений результат
+                  роботи.
+                </li>
+                <li>
+                  Якщо будь-яка залежність змінилася, то хук
+                  викликає функцію заново, запам'ятовує нове
+                  значення та повертає його.
+                </li>
+              </ul>
+              <div class="border-box">
+                <p class="m-bottom-min">
+                  <b>Опис прикладу!</b>
+                </p>
+                <p class="m-bottom-min">
+                  Кожного разу, коли зміниться значення
+                  <b>planets</b> або <b>query</b>, компонент
+                  буде оновлено.
+                </p>
+                <p class="m-bottom-min">
+                  Компонент <b>App</b> містить додатковий
+                  стан <b>clicks</b>, який ніяк
+                  <i>не впливає на планети</i>.
+                </p>
+                <p>
+                  Кожного разу, коли змінюється стан
+                  <b>clicks</b>, компонент буде оновлено, що
+                  призведе до обчислення
+                  <b>filteredPlanets</b>, хоча значення
+                  <b>planets</b> та <b>planets</b> не
+                  змінилися! Оскільки метод
+                  <b>filter</b> повертає посилання на новий
+                  масив, React сприймає це як абсолютно нові
+                  дані та список планет буде відображено
+                  заново. У такому разі варто мемоізувати
+                  обчислення <b>filteredPlanets</b>.
+                </p>
+              </div>
+            </div>
+            <div class="bcg-box">
+              <p>
+                <b>import { useMemo } from "react"</b
+                >;<br />
+                <br />
+                const App = () => {<br />
+                    const [<b>planets</b>, setPlanets] =
+                useState(<br />
+                        ["Earth", "Mars", "Jupiter",
+                "Venus"]<br />
+                    );<br />
+                    const [<b>query</b>, setQuery] =
+                useState("");<br />
+                    const [clicks, setClicks] =
+                useState(0);<br />
+                    <br />
+                   
+                <b
+                  >const filteredPlanets = useMemo(<br />
+                          () => planets.filter(<br />
+                              planet =>
+                  planet.includes(query)<br />
+                          ),<br />
+                          [planets, query]<br />
+                      )</b
+                >;<br />
+                    <br />
+                    return (<br />
+                        &#60;><br />
+                            &#60;button onClick={<br />
+                                () => setClicks(clicks +
+                1)<br />
+                            }><br />
+                                Number of clicks:
+                {clicks}<br />
+                            &#60;/button><br />
+                            &#60;ul><br />
+                                {filteredPlanets.map(planet
+                => (<br />
+                                    &#60;li
+                key={planet}>{planet}&#60;/li><br />
+                                ))}<br />
+                            &#60;/ul><br />
+                        &#60;/><br />
+                    );<br />
+                };
+              </p>
+            </div>
+          </div>
+
+          <p class="m-bottom-min">
+            Те ж саме стосується дорогих операцій, таких як
+            використання довгого циклу <b>for</b>. Дорогі
+            обчислення можуть бути витратними за часом, що
+            гарантовано призведе до погіршення роботи
+            інтерфейсу.
+          </p>
+          <p>
+            Не потрібно мемоізувати все поспіль, це може
+            призвести до втрат продуктивності, оскільки
+            мемоізація також займає обчислювальні ресурси.
+            Найчастіше повторні прості обчислення обійдуться
+            дешевше, ніж їхня мемоїзація. Використовуйте
+            useMemo() точково, в першу чергу при роботі з
+            масивами та для дорогих обчислень.
+          </p>
+        </div>
+      </section>
+
+      <!-- Хук useRef -->
+      <section class="section print-m-bottom-max">
+        <div class="container">
+          <h2 id="useRef" class="m-bottom center-text">
+            Хук useRef
+          </h2>
+
+          <div class="m-bottom-min">
+            <p>
+              <b>Рефи</b> дозволяють отримати прямий доступ
+              до DOM-вузлів або React-елементів із шаблону
+              компонента. Вони використовуються якщо
+              необхідно звернутися до DOM-методів та
+              властивостей елемента.
+            </p>
+            <ul class="">
+              <li>
+                Фокус елемента під час події, виділення
+                тексту.
+              </li>
+              <li>Контроль програвання медіаконтенту.</li>
+              <li>Інтеграція з DOM-бібліотеками.</li>
+              <li>
+                Доступ до DOM-властивостей, значення яких
+                неможливо отримати по-іншому - розміри
+                елемента, значення скрола тощо.
+              </li>
+            </ul>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="">
+                Рефи створюються хуком <b>useRef()</b> та
+                прив'язані до React-елементів за допомогою
+                атрибуту ref (скорочення від reference),
+                який зберігатиме посилання на DOM-елемент.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                <b>import { useRef } from "react"</b>;<br />
+                <br />
+                const App = () => {<br />
+                    <b>const btnRef = useRef()</b>;<br />
+                    <br />
+                    return &#60;button
+                <b>ref="{btnRef}"</b>>Button with
+                ref&#60;/button >;<br />
+                };
+              </p>
+            </div>
+          </div>
+          <div class="m-bottom">
+            <h3 class="m-bottom-min">Життєвий цикл рефа</h3>
+            <p>
+              React надає властивості <b>current</b>
+              <i>посилання на DOM-елемент</i> коли компонент
+              монтується та <i>undefined</i> при
+              розмонтуванні, тому
+              <b
+                >значення рефа доступне тільки після
+                монтування</b
+              >.
+            </p>
+            <ul class="">
+              <li>
+                <i>на першому рендері</i> буде
+                <b>undefined</b> - посилання на DOM-елемент
+                всі наступні;
+              </li>
+              <li>
+                ефекти (<b>useEffect</b>) виконуються після
+                монтування, тому завжди буде посиланням на
+                DOM-елемент;
+              </li>
+              <li>
+                <b>функції-події</b> будуть після
+                монтування, тому завжди буде посиланням на
+                DOM-елемент.
+              </li>
+            </ul>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <div class="m-bottom-min">
+                <h3 class="m-bottom-min">
+                  Відсутність реактивності
+                </h3>
+                <p class="m-bottom-min">
+                  Рефи це не стан, тобто вони не реактивні,
+                  тому зміна значення рефа не впливає на
+                  оновлення компонента і не викликає
+                  повторний рендер.
+                </p>
+                <p>
+                  Рефи також можна використовувати як
+                  сховище довільних значень, які не
+                  змінюються між рендерами компонента та на
+                  нього не впливають.
+                </p>
+              </div>
+
+              <div class="m-bottom-min">
+                <h3 class="m-bottom-min">
+                  Приклад. Відеоплеєр &#10142;
+                </h3>
+                <p class="m-bottom-min">
+                  Створимо компонент <b>Player</b> для
+                  програвання відео, використовуючи нативний
+                  тег <i>&#60;video></i>. Щоб запустити та
+                  зупинити програвання необхідно викликати
+                  методи <b>HTMLMediaElement.play()</b> та
+                  <b>HTMLMediaElement.pause()</b>, де
+                  <b>HTMLMediaElement</b> це елемент
+                  <i>&#60;video></i>. Використовуємо реф для
+                  отримання доступу до DOM-елементу та його
+                  методам.
+                </p>
+              </div>
+
+              <div
+                class="bcg-box print-fs-14 print-m-left-none"
+              >
+                <p>
+                  import { forwardRef, useRef, useEffect }
+                  from "react";<br />
+                  <br />
+                  const CustomButton = forwardRef((props,
+                  ref) => (<br />
+                      &#60;button
+                  ref={ref}>{props.children}&#60;/button><br />
+                  ));<br />
+                  <br />
+                  const App = () => {<br />
+                      const btnRef = useRef();<br />
+                  <br />
+                      useEffect(() =>
+                  btnRef.current.focus(), []);<br />
+                  <br />
+                      return &#60;CustomButton
+                  ref={btnRef}><br />
+                          Button with forwarded ref<br />
+                  &#60;/CustomButton>;<br />
+                  };
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="bcg-box print-fs-14 m-bottom-min">
+                <p>
+                  import { useRef } from "react";<br />
+                  <br />
+                  const Player = ({ source }) => {<br />
+                      const playerRef = useRef();<br />
+                      const play = () =>
+                  playerRef.current.play();<br />
+                      const pause = () =>
+                  playerRef.current.pause();<br />
+                      <br />
+                      return (<br />
+                          &#60;div><br />
+                              &#60;video ref={playerRef}
+                  src={source}><br />
+                                  Sorry, your browser does
+                  not<br />
+                                      support embedded
+                  videos.<br />
+                              &#60;/video><br />
+                              &#60;div><br />
+                                  &#60;button
+                  onClick={play}>Play&#60;/button><br />
+                                  &#60;button
+                  onClick={pause}>Pause&#60;/button><br />
+                              &#60;/div><br />
+                          &#60;/div><br />
+                      );<br />
+                  };<br />
+                  <br />
+                  const App = () => {<br />
+                      return &#60;Player<br />
+                         
+                  source=&#60;http://.../trailer.mp4>"/>;<br />
+                  };
+                </p>
+              </div>
+              <div>
+                <h3 class="m-bottom-min">
+                  &#129044; Перенаправлення рефів
+                </h3>
+
+                <p>
+                  При використанні рефів на компоненті,
+                  <i>проп</i> <b>ref</b>
+                  <i>не передається автоматично</i>. Це
+                  створює проблеми у випадку коли необхідно
+                  отримати <b>ref</b> на елемент усередині
+                  самого компонента, а не на сам компонент.
+                  Для цього використовується функція
+                  <b>forwardRef</b>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Context, useContext -->
+      <section id="useContext" class="section">
+        <div class="container">
+          <h2 class="m-bottom center-text">
+            Context, useContext
+          </h2>
+
+          <!-- Context -->
+          <h3 class="m-bottom-min">Context</h3>
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Контекст забезпечує спосіб передачі даних
+              глибоко по дереву компонентів без необхідності
+              явно передавати пропси в проміжні компоненти
+              вручну на кожному рівні. Тобто це щось схоже
+              на глобальну змінну, до якої можна отримати
+              доступ в будь-якій частині вашого коду.
+            </p>
+            <p class="m-bottom-min border-box">
+              <b>Важливо!</b> Контекст не використовується
+              для уникнення передачі пропсів на кілька
+              рівнів вниз. Цей механізм призначений для
+              вузького спектра завдань.
+            </p>
+
+            <div class="m-bottom-min flex">
+              <p class="">
+                Для створення контексту використовується
+                вбудована
+                <i>функція</i> <b>createContext</b>.
+                Результатом виклику цієї функції є
+                <i>об'єкт контексту</i>.
+              </p>
+              <div class="bcg-box">
+                <p>
+                  import { <b>createContext</b> } from
+                  "react";<br />
+                  <b>const myContext = createContext()</b>;
+                </p>
+              </div>
+            </div>
+            <p>
+              <i>Функції</i> <b>createContext</b> можна
+              передати один аргумент - значення контексту за
+              замовчуванням. На практиці, зазвичай його не
+              вказують, оскільки намагатися отримати доступ
+              до контексту, якого немає, не має сенсу.
+            </p>
+          </div>
+
+          <!-- Компонент <Provider> -->
+          <h4 class="m-bottom-min">
+            Компонент &#60;Provider>
+          </h4>
+          <div class="m-bottom flex">
+            <div>
+              <p class="">
+                У об'єкта контексту є властивість
+                <b>Provider</b> - компонент, який
+                використовується для передачі контексту, щоб
+                компоненти могли отримувати доступ до
+                значення контексту.
+              </p>
+              <ul class="">
+                <li>
+                  Обгортає всі компоненти додатка, так як в
+                  нього вкладений компонент <b>App</b>.
+                </li>
+                <li>
+                  Приймає проп <b>value</b> - значення
+                  контексту, яке буде доступне компонентам.
+                </li>
+                <li>
+                  Дозволяє компонентам підписуватись на
+                  зміни контексту незалежно від глибини
+                  вкладеності.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { createContext } from "react";<br />
+                import ReactDOM from "react-dom/client";<br />
+                <br />
+                const myContext = createContext();<br />
+                <br />
+                ReactDOM.createRoot(document.getElementById("root"))<br />
+                    .render(<br />
+                        &#60;myContext.Provider value={{
+                username: "Mango" }}><br />
+                            &#60;App /><br />
+                        &#60;/myContext.Provider><br />
+                );
+              </p>
+            </div>
+          </div>
+
+          <!-- Хук useContext() -->
+          <h3 class="m-bottom-min">Хук useContext()</h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="">
+                Дозволяє будь-якому вкладеному компоненту
+                отримати доступ до поточного значення
+                контексту.
+              </p>
+              <ul class="">
+                <li>
+                  Використовується в компонентах для доступу
+                  до контексту.
+                </li>
+                <li>
+                  Очікує єдиний аргумент – посилання на
+                  створений контекст.
+                </li>
+                <li>
+                  Повертає значення контексту від
+                  провайдера.
+                </li>
+                <li>
+                  Кожного разу, коли змінюється значення
+                  контексту, залежний компонент оновлюється.
+                </li>
+              </ul>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { createContext, useContext } from
+                "react";<br />
+                <br />
+                const myContext = createContext();<br />
+                <br />
+                const contextValue = useContext(myContext);
+              </p>
+            </div>
+          </div>
+          <div class="m-bottom flex print-m-bottom-max">
+            <div>
+              <p class="m-bottom-min">
+                Кожного разу імпортувати посилання на об'єкт
+                контексту може бути не дуже зручно. Тому
+                створюється власний хук для доступу до
+                контексту.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                import { createContext, useContext } from
+                "react";<br />
+                <br />
+                const myContext = createContext();<br />
+                <br />
+                <i
+                  >// Імпортуємо та використовуємо цей хук у
+                  компонентах </i
+                ><br />
+                export const useMyContext = () =>
+                useContext(myContext);
+              </p>
+            </div>
+          </div>
+
+          <!-- Приклад. Контекст користувача -->
+          <h3 class="m-bottom-min">
+            Приклад. Контекст користувача
+          </h3>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                <b>1</b>. Створимо контекст для зберігання
+                інформації про поточний стан користувача -
+                статусу логіну та особистої інформації
+                <b>userContext.js</b>.
+              </p>
+              <div
+                class="m-bottom-min bcg-box print-m-left-none print-fs-13"
+              >
+                <p>
+                  <i>// src/userContext.js</i><br />
+                  import { createContext, useContext } from
+                  "react";<br />
+                  <br />
+                  export const userContext =
+                  createContext();<br />
+                  <br />
+                  export const useUser = () =>
+                  useContext(userContext);
+                </p>
+              </div>
+
+              <p class="m-bottom-min">
+                <b>2</b>. Обгорнемо все дерево компонентів
+                провайдером. Це можна зробити в головному
+                файлі <b>main.jsx</b>.
+              </p>
+              <div class="bcg-box print-fs-13">
+                <p>
+                  <i>// src/main.jsx</i><br />
+                  import ReactDOM from
+                  "react-dom/client";<br />
+                  import { userContext } from
+                  "./userContext";<br />
+                  <br />
+                  const contextValue = { <br />
+                      username: "Mango", <br />
+                      isLoggedIn: true <br />
+                  };<br />
+
+                  ReactDOM.createRoot(document.getElementById("root"))<br />
+                      .render(<br />
+                          &#60;userContext.Provider
+                  value={contextValue}><br />
+                              &#60;App /><br />
+                          &#60;/userContext.Provider><br />
+                      );
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p class="m-bottom-min">
+                <b>3</b>. Додамо компонент меню користувача,
+                вкладений у <b>App.jsx</b>. В ньому будемо
+                отримувати значення контексту та відображати
+                ім'я користувача. Рендеримо меню користувача
+                <i>UserMenu</i>.
+              </p>
+              <div class="m-bottom-min bcg-box print-fs-13">
+                <p>
+                  <i>// src/components/App.jsx</i><br />
+                  import { UserMenu } from "./UserMenu";<br />
+                  const App = () => {<br />
+                      return (<br />
+                          &#60;div>&#60;UserMenu
+                  />&#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+
+              <p class="m-bottom-min">
+                <b>4</b>. Використовуємо власний хук
+                <b>useUser</b> в <b>UserMenu</b> для доступу
+                до значення контексту та виводимо ім'я
+                користувача.
+              </p>
+              <div class="m-bottom-min bcg-box print-fs-13">
+                <p>
+                  <i>// src/components/UserMenu.jsx </i
+                  ><br />
+                  import { useUser } from
+                  "../userContext";<br />
+                  export const UserMenu = () => {<br />
+                      const { username } = useUser();<br />
+                      return (<br />
+                          &#60;div><br />
+                              &#60;p>Welcome,
+                  {username}!&#60;/p><br />
+                              &#60;button>Log
+                  out&#60;/button><br />
+                          &#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="m-bottom-min">
+            Кастомний компонент провайдера
+          </h4>
+          <div class="flex">
+            <div>
+              <p class="m-bottom-min">
+                До цого значення контексту не динамічне.
+                Користувач може зареєструватися та
+                розлогінитися, зберігатимемо це в стані
+                компонента і методи для його зміни.
+              </p>
+              <div
+                class="bcg-box print-m-left-none print-fs-13"
+              >
+                <p>
+                  <i>// src/userContext.jsx</i><br />
+                  import { createContext, useContext,
+                  useState } from "react";<br />
+                  const userContext = createContext();<br />
+                  export const useUser = () =>
+                  useContext(userContext);<br />
+                  export const UserProvider = ({ children })
+                  => {<br />
+                      const [ isLoggedIn, setIsLoggedIn ] =
+                  useState(false);<br />
+                      const [ username, setUsername ] =
+                  useState(null);<br />
+                      const logIn = () => {<br />
+                          setIsLoggedIn(true);<br />
+                          setUsername("Mango");<br />
+                      };<br />
+                      const logOut = () => {<br />
+                          setIsLoggedIn(false);<br />
+                          setUsername(null);<br />
+                      };<br />
+                          return (<br />
+                          &#60;userContext.Provider
+                  value={{<br />
+                              isLoggedIn, username, logIn,
+                  logOut<br />
+                          }}><br />
+                              {children}<br />
+                          &#60;/userContext.Provider><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <div class="m-bottom-min bcg-box print-fs-13">
+                <p>
+                  <i>// src/main.jsx </i><br />
+                  import { UserProvider } from
+                  "./userContext";<br />
+
+                  ReactDOM.createRoot(document.getElementById("root"))<br />
+                      .render(<br />
+                          &#60;UserProvider><br />
+                              &#60;App /><br />
+                          &#60;/UserProvider><br />
+                  );
+                </p>
+              </div>
+
+              <div class="bcg-box print-fs-13">
+                <p>
+                  <i>// src/components/UserMenu.jsx</i
+                  ><br />
+
+                  import { useUser } from
+                  "../userContext";<br />
+
+                  export const UserMenu = () => {<br />
+                      const { isLoggedIn, username, logOut,
+                  logIn } = useUser();<br />
+                          return (<br />
+                          &#60;div><br />
+                              {isLoggedIn ? (<br />
+                                  &#60;><br />
+                                     
+                  &#60;p>{username}&#60;/p><br />
+                                      &#60;button
+                  onClick={logOut}>Log out&#60;/button><br />
+                                  &#60;/><br />
+                                  ) : (<br />
+                                      &#60;button
+                  onClick={logIn}>Log in&#60;/button><br />
+                              )}<br />
+                          &#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="own-hooks" class="section">
+        <div class="container">
+          <h2 class="m-bottom center-text">Власні хуки</h2>
+
+          <div class="m-bottom flex">
+            <div>
+              <p class="center-text"><b>Без хуку</b></p>
+              <div
+                class="m-bottom-min bcg-box print-m-left-none print-fs-15"
+              >
+                <p>
+                  <i>// ComponentA.jsx</i><br />
+                  const ComponentA = () => {<br />
+                      const [isModalOpen, setIsModalOpen] =
+                  useState(false);<br />
+                      const openModal = () =>
+                  setIsModalOpen(true);<br />
+                      const closeModal = () =>
+                  setIsModalOpen(false);<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button
+                  onClick={openModal}><br />
+                                  Open modal<br />
+                              &#60;/button><br />
+                              &#60;Modal<br />
+                                  isOpen={isModalOpen}<br />
+                                  onClose={closeModal}
+                  <br />
+                              /><br />
+                          &#60;/><br />
+                      );<br />
+                  };<br />
+                  <br />
+                  <i>// ComponentB.jsx</i><br />
+                  const ComponentB = () => {<br />
+                      const [isSidebarOpen,
+                  setIsSidebarOpen] = useState(false);<br />
+                      const openSidebar = () =>
+                  setIsSidebarOpen(true);<br />
+                      const closeSidebar = () =>
+                  setIsSidebarOpen(false);<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button
+                  onClick={openSidebar}><br />
+                                  Open sidebar<br />
+                              &#60;/button><br />
+                              &#60;Sidebar <br />
+                                  isOpen={isSidebarOpen}<br />
+                                  onClose={closeSidebar}
+                  <br />
+                              /><br />
+                          &#60;/><br />
+                      );<br />
+                  };<br />
+                </p>
+              </div>
+              <div class="m-bottom-min flex">
+                <p>
+                  Хук <b>useToggle</b> в приховує у собі
+                  створення стану та функцій роботи з ним
+                  (open, close).
+                </p>
+                <p>&#10132;</p>
+              </div>
+              <p class="border-box">
+                Власний хук може приймати будь-які аргументи
+                і повертати будь-що, правил немає, залежить
+                від реалізації.
+              </p>
+            </div>
+            <div>
+              <p class="center-text">
+                <b>Із власним хуком</b>
+              </p>
+
+              <div class="m-bottom-min bcg-box print-fs-15">
+                <p>
+                  <i>// src/hooks/useToggle.js</i><br />
+                  export const <b>useToggle</b> = () => {<br />
+                      const [isOpen, setIsOpen] =
+                  useState(false);<br />
+                      const open = () => setIsOpen(true);<br />
+                      const close = () =>
+                  setIsOpen(false);<br />
+                      <br />
+                      return { isOpen, open, close };<br />
+                  };
+                </p>
+              </div>
+              <div class="bcg-box print-fs-15">
+                <p>
+                  <i>// ComponentA.jsx</i><br />
+                  import { <b>useToggle</b> } from
+                  "../useToggle.js";<br />
+                  const ComponentA = () => {<br />
+                     
+                  <b
+                    >const { isOpen, open, close } =
+                    useToggle()</b
+                  >;<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button onClick={open}><br />
+                                  Open modal<br />
+                              &#60;/button><br />
+                              &#60;Modal<br />
+                                  isOpen={isOpen}<br />
+                                  onClose={close} <br />
+                              /><br />
+                          &#60;/><br />
+                      );<br />
+                  };<br />
+                  <br />
+                  <i>// ComponentB.jsx</i><br />
+                  import { <b>useToggle</b> } from
+                  "../useToggle.js";<br />
+                  const ComponentB = () => {<br />
+                     
+                  <b
+                    >const { isOpen, open, close } =
+                    useToggle()</b
+                  >;<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button onClick={open}><br />
+                                  Open sidebar<br />
+                              &#60;/button><br />
+                              &#60;Sidebar<br />
+                                  isOpen={isOpen}<br />
+                                  onClose={close} /><br />
+                              &#60;/><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="m-bottom flex">
+            <div>
+              <p class="m-bottom-min">
+                Хук <b>useToggle</b> можна розширити так,
+                щоб модальне вікно спочатку було відкритим.
+                При цьому, за замовчуванням - закрите.
+              </p>
+            </div>
+            <div class="bcg-box print-fs-15">
+              <p>
+                export const <b>useToggle</b> = (<b
+                  >initialState = false</b
+                >) => {<br />
+                    const [isOpen, setIsOpen] =
+                <b>useState(initialState)</b>;<br />
+                       
+                <i
+                  >// other code with func. "open" &
+                  "clkse"</i
+                ><br />
+                    return { isOpen, open, close };<br />
+                };<br />
+                <br />
+                const MyComponent = () => {<br />
+                    const { isOpen, open, close } =
+                <b>useToggle(true)</b>;<br />
+                        <i>// other code </i><br />
+                };
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

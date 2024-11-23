@@ -15,15 +15,18 @@
     />
   </head>
   <body>
-    <a class="print-home-link" href="../../index.html"
-      >На головну</a
-    >
+    <header class="header">
+      <nav class="nav">
+        <a class="" href="../../index.html">На головну</a>
+        <a class="" href="#hooks">До початку секції</a>
+      </nav>
+    </header>
     <h1 class="m-bottom center-text">Форми</h1>
 
     <!-- Загальне -->
-    <section class="section print-m-bottom-max">
+    <section class="section">
       <div class="container">
-        <!-- <h2 class="m-bottom-min">Загальне</h2> -->
+        <h2 class="m-bottom-min">Загальне</h2>
         <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
@@ -42,7 +45,6 @@
           <div class="bcg-box">
             <p>
               const LoginForm = () => {<br />
-              <br />
                  
               <b
                 >const handleSubmit = (evt) => {<br />
@@ -66,10 +68,14 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Неконтрольована форма -->
-        <h3 class="m-bottom-min">Неконтрольована форма</h3>
-        <div class="m-bottom flex print-m-bottom-max">
+    <!-- Неконтрольована форма -->
+    <section class="section">
+      <div class="container">
+        <h2 class="m-bottom-min">Неконтрольована форма</h2>
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
               Якщо значення полів форми потрібні лише в
@@ -112,10 +118,8 @@
           <div class="bcg-box">
             <p>
               const LoginForm = () => {<br />
-              <br />
                   const handleSubmit = (evt) => {<br />
                       evt.preventDefault();<br />
-              <br />
                       <b>const form = evt.target</b>;<br />
                      
               <b
@@ -154,108 +158,66 @@
           </div>
         </div>
 
-        <!-- Хук useId -->
-        <h3 class="m-bottom-min">Хук useId</h3>
-        <div class="m-bottom">
-          <div class="m-bottom flex">
-            <div>
-              <p class="">
-                Хук<b>useId</b> використовується для
-                генерації унікальних ідентифікаторів, які
-                можна передавати атрибутам доступності полів
-                форми:
-              </p>
-              <ul class="m-bottom-min">
-                <li>не приймає жодних параметрів,</li>
-                <li>
-                  повертає унікальний рядок ідентифікатора.
-                </li>
-              </ul>
-              <p class="border-box">
-                <b>Важливо!</b> Не слід використовувати
-                <b>useId</b> для генерації ключів у списку,
-                він призначений лише для створення
-                ідентифікаторів полів форми.
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                import { useId } from 'react';<br />
-                <br />
-                const MyComponent = () => {<br />
-                    <b>const id = useId()</b>;<br />
-                };
-              </p>
-            </div>
-          </div>
-          <div class="m-bottom flex">
-            <div>
-              <p class="m-bottom-min">
-                HTML-атрибут <b>for</b> тегу <b>label</b>,
-                який в React представлений
-                <i>jsx-атрибутом</i> <b>htmlFor</b>,
-                допомагає асистивним технологіям, связуючи
-                <i>поле</i> і <i>label</i> за
-                <i>ідентифікатором</i>.
-              </p>
-              <p class="">
-                Для кожної форми можна створити стільки
-                ідентифікаторів, скільки потрібно. Кожен
-                ідентифікатор зберігається в окремій
-                змінній.
-              </p>
-            </div>
-            <div class="bcg-box">
-              <p>
-                const LoginForm = () => {<br />
-                    <b>const loginId = useId()</b>;<br />
-                    <b>const passwordId = useId()</b>;<br />
-                    <br />
-                    return (<br />
-                        &#60;form><br />
-                            &#60;label
-                htmlFor={<b>loginId</b>}>Login&#60;/label><br />
-                            &#60;input type="text"
-                name="login" id={<b>loginId</b>} /><br />
-                            &#60;label
-                htmlFor={<b>passwordId</b>}>Password&#60;/label><br />
-                            &#60;input type="password"
-                name="password" id={<b>passwordId</b>} /><br />
-                            &#60;button
-                type="submit">Login&#60;/button><br />
-                        &#60;/form><br />
-                    );<br />
-                };
-              </p>
-            </div>
-          </div>
-        </div>
-
         <!-- Використання форми -->
         <h3 class="m-bottom-min">Використання форми</h3>
-        <div class="m-bottom flex print-m-bottom-max">
-          <div>
-            <p class="m-bottom-min">
-              На практиці <b>форма</b> це окремий компонент,
-              який в більшості випадків повинен турбуватися
-              тільки про <i>збір значень своїх полів</i>.
-              Те, що з цими значеннями потрібно зробити,
-              передається формі у вигляді
-              <i>пропса від батьківського компонента</i>, де
-              форма рендериться.
-            </p>
-            <p class="m-bottom-min">
-              Використовуємо <i>форму в компоненті</i>
-              <b>App</b> і передаємо їй <i>пропс</i>
-              <b>onLogin</b>, значенням якого буде
-              колбек-функція, що приймає один параметр -
-              об'єкт даних користувача.
-            </p>
-            <p class="m-bottom-min">
-              У компоненті форми деструктуризуємо пропс
-              onLogin, це функція, тому викликаємо її при
-              сабміті форми і передаємо їй значення полів.
-            </p>
+        <div class="m-bottom">
+          <div class="m-bottom flex print-m-bottom-max">
+            <div>
+              <p class="m-bottom-min">
+                На практиці <b>форма</b> це окремий
+                компонент, який в більшості випадків повинен
+                турбуватися тільки про
+                <i>збір значень своїх полів</i>. Те, що з
+                цими значеннями потрібно зробити,
+                передається формі у вигляді
+                <i>пропса від батьківського компонента</i>,
+                де форма рендериться.
+              </p>
+              <p class="m-bottom-min">
+                Використовуємо <i>форму в компоненті</i>
+                <b>App</b> і передаємо їй <i>пропс</i>
+                <b>onLogin</b>, значенням якого буде
+                колбек-функція, що приймає один параметр -
+                об'єкт даних користувача.
+              </p>
+              <p class="">
+                У компоненті форми деструктуризуємо пропс
+                onLogin, це функція, тому викликаємо її при
+                сабміті форми і передаємо їй значення полів.
+              </p>
+            </div>
+            <div class="bcg-box">
+              <p>
+                const App = () => {<br />
+                <br />
+                   
+                <i
+                  >// Колбек-функція для обробки сабміту
+                  форми</i
+                ><br />
+                   
+                <b>const handleLogin = (userData) => {</b
+                ><br />
+                       
+                <i
+                  >// Виконуємо необхідні операції з
+                  даними</i
+                ><br />
+                        <b>console.log(userData)</b>;<br />
+                    };<br />
+                    return (<br />
+                       
+                <i>// Передаємо колбек як пропс форми</i>
+                <br />
+                        &#60;LoginForm
+                <b>onLogin={handleLogin}</b> /><br />
+
+                    );<br />
+                };<br />
+              </p>
+            </div>
+          </div>
+          <div class="flex">
             <p class="border-box">
               <b>Уважно!</b> Зверніть увагу на те, що в
               пропс onLogin ми передаємо дані полів форми, а
@@ -264,69 +226,48 @@
               поведінки і роботи з її елементами. Передавати
               об'єкт події в пропс - це антипаттерн.
             </p>
-          </div>
-          <div class="bcg-box">
-            <p>
-              const App = () => {<br />
-              <br />
-                 
-              <i
-                >// Колбек-функція для обробки сабміту
-                форми</i
-              ><br />
-                  <b>const handleLogin = (userData) => {</b
-              ><br />
-                     
-              <i>// Виконуємо необхідні операції з даними</i
-              ><br />
-                      <b>console.log(userData)</b>;<br />
-                  };<br />
-                  return (<br />
-                     
-              <i>// Передаємо колбек як пропс форми</i>
-              <br />
-                      &#60;LoginForm
-              <b>onLogin={handleLogin}</b> /><br />
-
-                  );<br />
-              };<br />
-              <br />
-              const LoginForm = ({ <b>onLogin</b> }) => {<br />
-                  <b>const handleSubmit = (evt) => {</b
-              ><br />
-                      <b>evt.preventDefault();</b><br />
-                      <b>const form = evt.target;</b><br />
-                     
-              <b
-                >const { login, password } =
-                form.elements;</b
-              ><br />
-                      <br />
-                      <i>// Викликаємо пропс onLogin</i
-              ><br />
-                      onLogin({<br />
-                         
-              <b
-                >login: login.value,<br />
-                            password: password.value,<br />
-                        });</b
-              ><br />
-                      <br />
-                      form.reset();<br />
-                  };<br />
-                  return (<br />
-                      &#60;form
-              <b>onSubmit={handleSubmit}</b>><br />
-                          &#60;input type="text"
-              name="login" /><br />
-                          &#60;input type="password"
-              name="password" /><br />
-                          &#60;button
-              type="submit">Login&#60;/button><br />
-                      &#60;/form><br />
-                  );<br />
-              };
-            </p>
+            <div class="bcg-box">
+              <p>
+                <i>// ...продовження...</i><br />
+                const LoginForm = ({ <b>onLogin</b> }) =>
+                {<br />
+                    <b>const handleSubmit = (evt) => {</b
+                ><br />
+                        <b>evt.preventDefault();</b><br />
+                        <b>const form = evt.target;</b
+                ><br />
+                       
+                <b
+                  >const { login, password } =
+                  form.elements;</b
+                ><br />
+                        <br />
+                        <i>// Викликаємо пропс onLogin</i
+                ><br />
+                        onLogin({<br />
+                           
+                <b
+                  >login: login.value,<br />
+                              password: password.value,<br />
+                          });</b
+                ><br />
+                        <br />
+                        form.reset();<br />
+                    };<br />
+                    return (<br />
+                        &#60;form
+                <b>onSubmit={handleSubmit}</b>><br />
+                            &#60;input type="text"
+                name="login" /><br />
+                            &#60;input type="password"
+                name="password" /><br />
+                            &#60;button
+                type="submit">Login&#60;/button><br />
+                        &#60;/form><br />
+                    );<br />
+                };
+              </p>
+            </div>
           </div>
         </div>
 
@@ -402,44 +343,42 @@
 
         <!-- Елемент select -->
         <h3 class="m-bottom-min">Елемент select</h3>
-        <div>
-          <div class="m-bottom-min flex print-m-bottom-max">
-            <div>
-              <p class="m-bottom-min">
-                Селект складається з самого елемента
-                <b>select</b> та вкладеного набору
-                <b>option</b>, у яких необхідно вказати
-                атрибут <b>value</b>.
-              </p>
-              <p class="">
-                Якщо селект використовується поза формою, то
-                ми працюємо з ним як з
-                <b>контрольованим елементом</b>:
-              </p>
-              <ul class="m-bottom-min">
-                <li>
-                  зберігаємо поточне значення в стані;
-                </li>
-                <li>
-                  передаємо значення стану як атрибут value;
-                </li>
-                <li>змінюємо стан при події onChange.</li>
-              </ul>
-              <p class="border-box m-bottom-min">
-                <b>Важливо!</b> Якщо селект є частиною
-                <b>неконтрольованої форми</b>, то спочатку
-                ми задаємо йому атрибут <b>name</b>, а потім
-                отримуємо значення селекта
-                <i>під час сабміту форми</i> через її
-                властивість
-                <b
-                  >evt.target.elements.<i>selectName</i>.value</b
-                >, де <b><i>selectName</i></b> - це значення
-                атрибута <i>name</i>.
-              </p>
-              <div
-                class="bcg-box print-fs-13 print-m-left-none"
-              >
+        <div class="m-bottom">
+          <div class="m-bottom-min">
+            <p class="m-bottom-min">
+              Селект складається з самого елемента
+              <b>select</b> та вкладеного набору
+              <b>option</b>, у яких необхідно вказати
+              атрибут <b>value</b>.
+            </p>
+            <p class="">
+              Якщо селект використовується поза формою, то
+              ми працюємо з ним як з
+              <b>контрольованим елементом</b>:
+            </p>
+            <ul class="m-bottom-min">
+              <li>зберігаємо поточне значення в стані;</li>
+              <li>
+                передаємо значення стану як атрибут value;
+              </li>
+              <li>змінюємо стан при події onChange.</li>
+            </ul>
+            <p
+              class="border-box m-bottom-min print-m-bottom-max"
+            >
+              <b>Важливо!</b> Якщо селект є частиною
+              <b>неконтрольованої форми</b>, то спочатку ми
+              задаємо йому атрибут <b>name</b>, а потім
+              отримуємо значення селекта
+              <i>під час сабміту форми</i> через її
+              властивість
+              <b
+                >evt.target.elements.<i>selectName</i>.value</b
+              >, де <b><i>selectName</i></b> - це значення
+              атрибута <i>name</i>.
+            </p>
+            <div class="flex">
+              <div class="bcg-box print-m-left-none">
                 <p>
                   const LangSwitcher = () => {<br />
                       const <i>selectId</i> = useId();<br />
@@ -448,6 +387,7 @@
                     >const [lang, setLang] =
                     useState("uk")</b
                   >;<br />
+                  <br />
                       return (<br />
                           &#60;div><br />
                               &#60;label
@@ -474,58 +414,57 @@
                   };
                 </p>
               </div>
-            </div>
-            <div class="bcg-box print-fs-13">
-              <p>
-                const App = () => {<br />
-                    const [<b>lang</b>, <b>setLang</b>] =
-                useState("uk");<br />
-                    <br />
-                    return (<br />
-                        &#60;><br />
-                            &#60;p>Selected language:
-                {<b>lang</b>}&#60;/p><br />
-                            &#60;LangSwitcher
-                <b><i>value</i></b
-                >={<b>lang</b>} <b><i>onSelect</i></b
-                >={<b>setLang</b>} /><br />
-                        &#60;/><br />
-                    );<br />
-                };<br />
-                <br />
-                const LangSwitcher = ({ <b><i>value</i></b
-                >, <b><i>onSelect</i></b> }) => {<br />
-                    const selectId = useId();<br />
-                    <br />
-                    return (<br />
-                        &#60;div><br />
-                            &#60;label
-                htmlFor={selectId}>Choose
-                language&#60;/label><br />
-                            &#60;select <br />
-                                id={selectId}<br />
-                                value={<b><i>value</i></b
-                >}<br />
-                                onChange={(evt) =>
-                <b><i>onSelect</i></b
-                >(evt.target.value)} ><br />
-                                &#60;option
-                value="uk">Ukrainian&#60;/option><br />
-                                &#60;option
-                value="en">English&#60;/option><br />
-                            &#60;/select><br />
-                        &#60;/div><br />
-                    );<br />
-                };
-              </p>
+              <div class="bcg-box">
+                <p>
+                  const App = () => {<br />
+                      const [<b>lang</b>, <b>setLang</b>] =
+                  useState("uk");<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;p>Selected language:
+                  {<b>lang</b>}&#60;/p><br />
+                              &#60;LangSwitcher
+                  <b><i>value</i></b
+                  >={<b>lang</b>} <b><i>onSelect</i></b
+                  >={<b>setLang</b>} /><br />
+                          &#60;/><br />
+                      );<br />
+                  };<br />
+                  <br />
+                  const LangSwitcher = ({ <b><i>value</i></b
+                  >, <b><i>onSelect</i></b> }) => {<br />
+                      const selectId = useId();<br />
+                      <br />
+                      return (<br />
+                          &#60;div><br />
+                              &#60;label
+                  htmlFor={selectId}>Choose
+                  language&#60;/label><br />
+                              &#60;select <br />
+                                  id={selectId}<br />
+                                  value={<b><i>value</i></b
+                  >}<br />
+                                  onChange={(evt) =>
+                  <b><i>onSelect</i></b
+                  >(evt.target.value)} ><br />
+                                  &#60;option
+                  value="uk">Ukrainian&#60;/option><br />
+                                  &#60;option
+                  value="en">English&#60;/option><br />
+                              &#60;/select><br />
+                          &#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
             </div>
           </div>
-          <div class="m-bottom"></div>
         </div>
 
         <!-- Радіо-кнопки -->
         <h3 class="m-bottom-min">Радіо-кнопки</h3>
-        <div class="m-bottom flex">
+        <div class="m-bottom flex print-m-bottom-max">
           <div>
             <p class="">
               <b>Радіо-кнопки</b> є альтернативою
@@ -560,7 +499,7 @@
               конкретної радіо-кнопки).
             </p>
           </div>
-          <div class="bcg-box print-fs-15">
+          <div class="bcg-box">
             <p>
               const App = () => {<br />
                   const [<b>coffeeSize</b>,
@@ -617,7 +556,7 @@
               Чекбокс, так само, як і радіо-кнопка, може
               знаходитися в двох станах: обраний або ні.
             </p>
-            <p class="border-box">
+            <p class="border-box m-bottom-min">
               <b>Важливо!</b> При роботі з
               <i>групою чекбоксів</i> їх значення
               зберігаються в властивості <b>value</b>, як і
@@ -629,9 +568,10 @@
             </p>
 
             <p>
-              Приклад. Кнопка має бути активною лише тоді,
-              коли чекбокс обраний, і користувач не зможе
-              пройти далі, не прийнявши умови використання.
+              <b>Приклад</b>. Кнопка має бути активною лише
+              тоді, коли чекбокс обраний, і користувач не
+              зможе пройти далі, не прийнявши умови
+              використання.
             </p>
           </div>
           <div class="bcg-box">
@@ -680,7 +620,7 @@
       <div class="container">
         <!-- Контрольована форма -->
         <h2 class="m-bottom-min">Контрольована форма</h2>
-        <div class="m-bottom flex">
+        <div class="m-bottom flex print-m-bottom-max">
           <div>
             <p class="m-bottom-min">
               Якщо значення полів форми є не лише
@@ -741,7 +681,7 @@
               вручну, а за допомогою бібліотек.
             </p>
           </div>
-          <div class="bcg-box">
+          <div class="bcg-box print-fs-10">
             <p>
               const LoginForm = () => {<br />
                   const [<b>values, setValues</b>] =
@@ -797,7 +737,7 @@
         </div>
 
         <h3 class="m-bottom-min">Відправка форми</h3>
-        <div class="m-bottom flex print-m-bottom-max">
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
               Щоб отримати значення полів контрольованої
@@ -839,56 +779,58 @@
             </p>
           </div>
         </div>
-        <p class="m-bottom-min">
-          Ось повний код прикладу форми для входу.
-        </p>
-        <div class="bcg-box">
-          <p>
-            const LoginForm = () => {<br />
-                const [values, setValues] = useState({<br />
-                    login: "",<br />
-                    password: "",<br />
-                });<br />
-                <br />
-                const handleChange = (evt) => {<br />
-                    setValues({<br />
-                        ...values,<br />
-                        [evt.target.name]:
-            evt.target.value,<br />
-                    });<br />
-                };<br />
-                <br />
-                const handleSumit = (evt) => {<br />
-                    evt.preventDefault();<br />
-                    <br />
-                    console.log(values);<br />
-                    <br />
-                    setValues({<br />
-                        login: "",<br />
-                        password: "",<br />
-                    });<br />
-                };<br />
-                <br />
-                return (<br />
-                    &#60;form onSubmit={handleSumit}><br />
-                        &#60;input<br />
-                            type="text"<br />
-                            name="login"<br />
-                            value={values.login}<br />
-                            onChange={handleChange}<br />
-                        /><br />
-                        &#60;input<br />
-                            type="password"<br />
-                            name="password"<br />
-                            value={values.password}<br />
-                            onChange={handleChange}<br />
-                        /><br />
-                        &#60;button
-            type="submit">Login&#60;/button><br />
-                    &#60;/form><br />
-                );<br />
-            };
+        <div class="flex">
+          <p class="m-bottom-min">
+            Ось повний код прикладу форми для входу.
           </p>
+          <div class="bcg-box">
+            <p>
+              const LoginForm = () => {<br />
+                  const [values, setValues] = useState({<br />
+                      login: "",<br />
+                      password: "",<br />
+                  });<br />
+                  <br />
+                  const handleChange = (evt) => {<br />
+                      setValues({<br />
+                          ...values,<br />
+                          [evt.target.name]:
+              evt.target.value,<br />
+                      });<br />
+                  };<br />
+                  <br />
+                  const handleSumit = (evt) => {<br />
+                      evt.preventDefault();<br />
+                      <br />
+                      console.log(values);<br />
+                      <br />
+                      setValues({<br />
+                          login: "",<br />
+                          password: "",<br />
+                      });<br />
+                  };<br />
+                  <br />
+                  return (<br />
+                      &#60;form onSubmit={handleSumit}><br />
+                          &#60;input<br />
+                              type="text"<br />
+                              name="login"<br />
+                              value={values.login}<br />
+                              onChange={handleChange}<br />
+                          /><br />
+                          &#60;input<br />
+                              type="password"<br />
+                              name="password"<br />
+                              value={values.password}<br />
+                              onChange={handleChange}<br />
+                          /><br />
+                          &#60;button
+              type="submit">Login&#60;/button><br />
+                      &#60;/form><br />
+                  );<br />
+              };
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1041,7 +983,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="m-bottom-min">
+              <li class="">
                 Фільтруємо колекцію.
                 <ul class=" ">
                   <li>
@@ -1067,7 +1009,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li>
+                  <li class="print-m-bottom-max">
                     <b>Filter.jsx.</b> Приймаємо
                     <i>props</i> <b>value</b> та
                     <b>onFilter</b> та отримуємо текст для
@@ -1114,7 +1056,7 @@
             </ol>
           </div>
           <div>
-            <div class="bcg-box m-bottom-min print-fs-15">
+            <div class="bcg-box m-bottom-min">
               <p>
                 <i>// App.jsx</i><br />
                 import TaskList from
@@ -1171,7 +1113,9 @@
               </p>
             </div>
 
-            <div class="bcg-box m-bottom-min print-fs-15">
+            <div
+              class="bcg-box m-bottom-min print-m-bottom-max"
+            >
               <p>
                 <i>// Form.jsx</i><br />
                 import css from './Form.module.css';<br />
@@ -1202,7 +1146,7 @@
               </p>
             </div>
 
-            <div class="bcg-box m-bottom-min print-fs-15">
+            <div class="bcg-box m-bottom-min">
               <p>
                 <i>// Filter.jsx</i><br />
                 <br />
@@ -1230,7 +1174,7 @@
               </p>
             </div>
 
-            <div class="bcg-box m-bottom-min print-fs-15">
+            <div class="bcg-box m-bottom-min">
               <p>
                 <i>// TaskList.jsx</i><br />
                 <br />
@@ -1254,7 +1198,7 @@
               </p>
             </div>
 
-            <div class="bcg-box m-bottom-min print-fs-15">
+            <div class="bcg-box m-bottom-min">
               <p>
                 <i>// Task.jsx</i><br />
 
@@ -1379,7 +1323,6 @@
               <p>
                 import { Formik, <b>Form</b> } from
                 'formik';<br />
-                <br />
                 const FeedbackForm = () => {<br />
                     return (         &#60;Formik
                 initialValues={{}} onSubmit={() => {}}><br />
@@ -1397,7 +1340,7 @@
 
         <!-- Поля форми -->
         <h3 class="m-bottom-min">Поля форми</h3>
-        <div class="m-bottom flex print-m-bottom-max">
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
               Для додавання полів форми використовується
@@ -1418,22 +1361,21 @@
             <p>
               import { Formik, Form, Field } from
               'formik';<br />
-              <br />
-                  const FeedbackForm = () => {<br />
-                      return (<br />
-                          &#60;Formik initialValues={{}}
-              onSubmit={() => {}}><br /><br />
-                              &#60;Form><br />
-                                  &#60;<b
+              const FeedbackForm = () => {<br />
+                  return (<br />
+                      &#60;Formik initialValues={{}}
+              onSubmit={() => {}}><br />
+                          &#60;Form><br />
+                              &#60;<b
                 >Field type="text" name="username" /></b
               ><br />
-                                  &#60;<b
+                              &#60;<b
                 >Field type="email" name="email" /></b
               ><br />
-                                  &#60;button
+                              &#60;button
               type="submit">Submit&#60;/button><br />
-                              &#60;/Form><br />
-                          &#60;/Formik><br />
+                          &#60;/Form><br />
+                      &#60;/Formik><br />
                   );<br />
               };
             </p>
@@ -1496,7 +1438,7 @@
         <h3 class="m-bottom-min">
           Початкове значення полів
         </h3>
-        <div class="m-bottom print-m-bottom-max">
+        <div class="m-bottom">
           <div class="m-bottom flex">
             <div>
               <p class="m-bottom-min">
@@ -1708,7 +1650,7 @@
 
         <!-- Типи полів -->
         <h3 class="m-bottom-min">Типи полів</h3>
-        <div class="m-bottom flex print-m-bottom-max">
+        <div class="m-bottom flex">
           <div>
             <p class="m-bottom-min">
               За замовчуванням <i>компонент</i>
@@ -1737,7 +1679,7 @@
 
         <!-- Селект -->
         <h3 class="m-bottom-min">Селект</h3>
-        <div class="m-bottom flex">
+        <div class="m-bottom flex print-m-bottom-max">
           <div>
             <p class="m-bottom-min">
               Для використання <b>select</b> компоненту
@@ -1832,7 +1774,7 @@
           </div>
           <div class="m-bottom-min flex">
             <div>
-              <p class="m-bottom-min">
+              <p class="">
                 Валідатор Yup використовує схеми валідації
                 для перевірки значень. Значення форми
                 зберігаються в стані Formik у вигляді
@@ -1941,9 +1883,9 @@
         <!-- Помилки валідації -->
         <h3 class="m-bottom-min">Помилки валідації</h3>
         <div>
-          <div class="m-bottom flex">
+          <div class="m-bottom-min flex">
             <div>
-              <p class="m-bottom-min">
+              <p class="">
                 Для того щоб відобразити користувачу помилки
                 валідації, використовується компонент
                 <b>ErrorMessage</b>.
