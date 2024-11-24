@@ -462,7 +462,7 @@
       </section>
 
       <!-- Компоненти -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <div class="container">
           <h2 class="m-bottom center-text">Компоненти</h2>
 
@@ -1485,11 +1485,11 @@
 
       <!-- Стилі -->
       <section class="main-section hidden">
-        <h2 class="m-bottom center-text">Стилі</h2>
+        <div class="container">
+          <h2 class="m-bottom center-text">Стилі</h2>
 
-        <!-- Вбудовані стилі -->
-        <section>
-          <div class="container">
+          <!-- Вбудовані стилі -->
+          <section class="section print-m-bottom-max">
             <h3 class="m-bottom-min">Вбудовані стилі</h3>
             <div class="m-bottom flex">
               <div>
@@ -1499,6 +1499,7 @@
                   <b>style</b>, який у React приймає
                   <i>не рядок, а об'єкт стилів</i>.
                 </p>
+
                 <ul>
                   <li>
                     <i>імена властивостей</i>, що
@@ -1521,6 +1522,7 @@
                   </li>
                 </ul>
               </div>
+
               <div class="bcg-box">
                 <div class="bcg-box">
                   <p>
@@ -1552,6 +1554,7 @@
                   >
                 </p>
               </div>
+
               <div class="bcg-box">
                 <div class="bcg-box">
                   <p>
@@ -1586,14 +1589,14 @@
               </div>
             </div>
 
-            <h4 class="m-bottom-min">Динамічні стилі</h4>
-            <div>
-              <div>
-                <p class="m-bottom-min">
-                  Динамічні стилі - вбудовані стилі, які
-                  змінюються при виконанні умови.
-                </p>
-              </div>
+            <!-- Динамічні стилі -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">Динамічні стилі</h4>
+
+              <p class="m-bottom-min">
+                Динамічні стилі - вбудовані стилі, які
+                змінюються при виконанні умови.
+              </p>
               <div class="flex">
                 <div>
                   <div class="m-bottom-min bcg-box">
@@ -1614,6 +1617,7 @@
                       };<br />
                     </p>
                   </div>
+
                   <div class="border-box m-bottom-min">
                     <p><b>Підсумок:</b></p>
                     <ul>
@@ -1642,6 +1646,7 @@
                       </li>
                     </ul>
                   </div>
+
                   <div class="border-box">
                     <p>
                       <b>Важливо!</b>
@@ -1652,6 +1657,7 @@
                     </p>
                   </div>
                 </div>
+
                 <div class="bcg-box">
                   <p>
                     <i>// src/components/Alert.jsx </i
@@ -1687,85 +1693,84 @@
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          </section>
 
-        <!-- Ванільний CSS -->
-        <section>
-          <div class="container">
+          <!-- Ванільний CSS -->
+          <section class="section">
             <h3 class="m-bottom-min">Ванільний CSS</h3>
-            <div class="m-bottom">
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Стилі компонента винести до окремої
-                    таблиці стилів. Стилі кожного компонента
-                    оголошуються в окремому CSS-файлі з
-                    розширенням
-                    <b>*.css</b>. Ім'я файлу складається з
-                    <i>імені компонента</i> та
-                    <i>розширення</i> (Alert.css).
-                  </p>
-                  <p class="border-box">
-                    <b>Важливо!</b> Всередині файлу стилів
-                    можна написати будь-який валідний CSS
-                    код. Хорошою практикою буде писати CSS
-                    тільки для HTML-розмітки компонента до
-                    якого належить цей файл стилів.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i> /* src/components/Alert.css */ </i
-                    ><br /><br />
-                    .alert {<br />
-                        margin: 8px;<br />
-                        padding: 12px 16px;<br />
-                        border-radius: 4px;<br />
-                        background-color: gray;<br />
-                        color: white;<br />
-                    }
-                  </p>
-                </div>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  Стилі компонента винести до окремої
+                  таблиці стилів. Стилі кожного компонента
+                  оголошуються в окремому CSS-файлі з
+                  розширенням
+                  <b>*.css</b>. Ім'я файлу складається з
+                  <i>імені компонента</i> та
+                  <i>розширення</i> (Alert.css).
+                </p>
+                <p class="border-box">
+                  <b>Важливо!</b> Всередині файлу стилів
+                  можна написати будь-який валідний CSS код.
+                  Хорошою практикою буде писати CSS тільки
+                  для HTML-розмітки компонента до якого
+                  належить цей файл стилів.
+                </p>
               </div>
-              <div class="flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Стилі компонента
-                    <b
-                      >імпортуються у файл оголошення
-                      компонента</b
-                    >, після чого CSS-класи описані у
-                    таблиці стилів доступні для
-                    використання.
-                  </p>
-                  <p>
-                    У React HTML-атрибуту class відповідає
-                    JSX-атрибут <b>className</b>, куди можна
-                    передати рядок з перерахуванням усіх
-                    класів елемента.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i>// src/components/Alert.jsx </i
-                    ><br />
-                    <b>import "./Alert.css"</b>;<br />
-                    <br />
-                    const Alert = ({ children }) => {<br />
-                        return &#60;p
-                    className="alert">{children}
-                    &#60;/p>;<br />
-                    };
-                  </p>
-                </div>
+
+              <div class="bcg-box">
+                <p>
+                  <i> /* src/components/Alert.css */ </i
+                  ><br /><br />
+                  .alert {<br />
+                      margin: 8px;<br />
+                      padding: 12px 16px;<br />
+                      border-radius: 4px;<br />
+                      background-color: gray;<br />
+                      color: white;<br />
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div class="m-bottom flex">
+              <div>
+                <p class="m-bottom-min">
+                  Стилі компонента
+                  <b
+                    >імпортуються у файл оголошення
+                    компонента</b
+                  >, після чого CSS-класи описані у таблиці
+                  стилів доступні для використання.
+                </p>
+                <p>
+                  У React HTML-атрибуту class відповідає
+                  JSX-атрибут <b>className</b>, куди можна
+                  передати рядок з перерахуванням усіх
+                  класів елемента.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>// src/components/Alert.jsx </i><br />
+                  <b>import "./Alert.css"</b>;<br />
+                  <br />
+                  const Alert = ({ children }) => {<br />
+                      return &#60;p
+                  className="alert">{children} &#60;/p>;<br />
+                  };
+                </p>
               </div>
             </div>
 
             <!-- Композиція класів -->
-            <h4 class="m-bottom-min">Композиція класів</h4>
-            <div class="m-bottom print-m-bottom-max">
+            <section class="sub-section print-m-bottom-max">
+              <h4 class="m-bottom-min">
+                Композиція класів
+              </h4>
+
               <p class="m-bottom-min">
                 Процес обчислення
                 <i>фінального значення атрибуту</i>
@@ -1774,6 +1779,7 @@
                 використовуємо масив рядків та метод join
                 щоб отримати рядок класів.
               </p>
+
               <div class="flex">
                 <div class="bcg-box">
                   <p>
@@ -1856,20 +1862,18 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
             <!-- Бібліотека clsx -->
-            <h4 class="m-bottom-min">Бібліотека clsx</h4>
-            <div class="m-bottom">
+            <section class="sub-section">
+              <h4 class="m-bottom-min">Бібліотека clsx</h4>
               <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Бібліотека <b>clsx</b> дозволяє виріити
-                    більшість завдань, пов'язаних з безліччю
-                    класів, що задаються згідно з певними
-                    умовами.
-                  </p>
-                </div>
+                <p class="m-bottom-min">
+                  Бібліотека <b>clsx</b> дозволяє виріити
+                  більшість завдань, пов'язаних з безліччю
+                  класів, що задаються згідно з певними
+                  умовами.
+                </p>
                 <div class="bcg-box">
                   <p>
                     <i>// у терміналі</i> <br />
@@ -1899,6 +1903,7 @@
                           false ? "fourth" : "fifth"<br />
                     </b>
                     );<br />
+                    <br />
                     console.log(className); <br />
                         // "first 10 third fifth"
                   </p>
@@ -1907,6 +1912,7 @@
                   <i> // src/components/Alert.jsx </i><br />
                   import clsx from "clsx";<br />
                   import "./Alert.css";<br />
+                  <br />
                   const Alert = ({ variant, outlined,
                   elevated, children }) => {<br />
                       return (<br />
@@ -1953,6 +1959,7 @@
                     ><br />
                     import clsx from "clsx";<br />
                     import "./Alert.css";<br />
+                    <br />
                     const Alert = ({ variant, outlined,
                     elevated, children }) => {<br />
                         return (<br />
@@ -1989,73 +1996,79 @@
                   конвенцію іменування селекторів класу.
                 </li>
               </ul>
-            </div>
+            </section>
 
             <!-- Повторне використання стилів -->
-            <h4 class="m-bottom-min">
-              Повторне використання стилів
-            </h4>
-            <div class="m-bottom flex print-m-bottom-max">
-              <div>
-                <p class="m-bottom-min">
-                  Не рекомендується використовувати одні й
-                  ті самі CSS-класи в різних компонентах,
-                  для цього є композиція компонентів.
-                </p>
-                <p>
-                  Наприклад, замість використання базового
-                  CSS-класу <b>.button</b> у компонентах
-                  <b>&#60;LoginButton></b> та
-                  <b>&#60;FollowButton></b>, краще створити
-                  компонент <b>&#60;Button></b> зі своїми
-                  власними стилями, які можуть відображатись
-                  у кількох варіантах. Тоді компоненти
-                  <b>&#60;LoginButton></b> та
-                  <b>&#60;FollowButton></b> можуть
-                  використовувати компонент
-                  <b>&#60;Button></b>, а не просто CSS-клас.
-                </p>
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Повторне використання стилів
+              </h4>
+              <div class="m-bottom flex print-m-bottom-max">
+                <div>
+                  <p class="m-bottom-min">
+                    Не рекомендується використовувати одні й
+                    ті самі CSS-класи в різних компонентах,
+                    для цього є композиція компонентів.
+                  </p>
+                  <p>
+                    Наприклад, замість використання базового
+                    CSS-класу <b>.button</b> у компонентах
+                    <b>&#60;LoginButton></b> та
+                    <b>&#60;FollowButton></b>, краще
+                    створити компонент
+                    <b>&#60;Button></b> зі своїми власними
+                    стилями, які можуть відображатись у
+                    кількох варіантах. Тоді компоненти
+                    <b>&#60;LoginButton></b> та
+                    <b>&#60;FollowButton></b> можуть
+                    використовувати компонент
+                    <b>&#60;Button></b>, а не просто
+                    CSS-клас.
+                  </p>
+                </div>
+                <div class="bcg-box print-fs-12">
+                  <p>
+                    <i> // Button.jsx </i><br />
+                    const Button = ({ variant, children })
+                    => {<br />
+                       
+                    <i
+                      >// Базові стилі кнопки з кількома
+                      варіантами відображення</i
+                    ><br />
+                        return <br />
+                            &#60;button
+                    className={clsx("button",
+                    variant)}>{children}&#60;/button>;<br />
+                    };<br />
+                    <br />
+                    <i>// LoginButton.jsx</i><br />
+                    const LoginButton = () => {<br />
+                       
+                    <i>// Унікальна логіка кнопки логіна</i
+                    ><br />
+                        return &#60;Button
+                    variant="primary">Login&#60;/Button>;<br />
+                    };<br />
+                    <br />
+                    <i>// FollowButton.jsx</i><br />
+                    const FollowButton = () => {<br />
+                       
+                    <i
+                      >// Унікальна логіка кнопки
+                      підписки</i
+                    ><br />
+                        return &#60;Button
+                    variant="secondary">Follow&#60;/Button>;<br />
+                    };
+                  </p>
+                </div>
               </div>
-              <div class="bcg-box print-fs-12">
-                <p>
-                  <i> // Button.jsx </i><br />
-                  const Button = ({ variant, children }) =>
-                  {<br />
-                     
-                  <i
-                    >// Базові стилі кнопки з кількома
-                    варіантами відображення</i
-                  ><br />
-                      return <br />
-                          &#60;button
-                  className={clsx("button",
-                  variant)}>{children}&#60;/button>;<br />
-                  };<br />
-                  <br />
-                  <i>// LoginButton.jsx</i><br />
-                  const LoginButton = () => {<br />
-                     
-                  <i>// Унікальна логіка кнопки логіна</i
-                  ><br />
-                      return &#60;Button
-                  variant="primary">Login&#60;/Button>;<br />
-                  };<br />
-                  <br />
-                  <i>// FollowButton.jsx</i><br />
-                  const FollowButton = () => {<br />
-                     
-                  <i>// Унікальна логіка кнопки підписки</i
-                  ><br />
-                      return &#60;Button
-                  variant="secondary">Follow&#60;/Button>;<br />
-                  };
-                </p>
-              </div>
-            </div>
+            </section>
 
             <!-- CSS-модулі -->
-            <h4 class="m-bottom-min">CSS-модулі</h4>
-            <div class="m-bottom">
+            <section class="sub-section">
+              <h4 class="m-bottom-min">CSS-модулі</h4>
               <div class="m-bottom-min flex">
                 <div>
                   <p class="m-bottom-min">
@@ -2091,6 +2104,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="m-bottom-min flex">
                 <div>
                   <p class="m-bottom-min">
@@ -2127,6 +2141,7 @@
                     ><br />
                     console.log(css); // { alert:
                     "Alert_alert_ax7yz" }<br />
+                    <br />
                     const Alert = ({ children }) => {<br />
                         return &#60;p
                     className={<b>css.alert</b>}>{children}&#60;/p>;<br />
@@ -2134,6 +2149,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="m-bottom-min flex">
                 <div>
                   <p class="m-bottom-min">
@@ -2173,10 +2189,12 @@
                         padding: 12px 16px;<br />
                         background-color: gray;<br />
                     }<br />
+                    <br />
                     .success {<br />
                         composes: alert;<br />
                         background-color: green;<br />
                     }<br />
+                    <br />
                     .error {<br />
                         composes: alert;<br />
                         background-color: red;<br />
@@ -2184,40 +2202,39 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </section>
 
             <!-- Бібліотека React Icons -->
-            <h4 class="m-bottom-min">
-              Бібліотека React Icons
-            </h4>
-            <div class="m-bottom">
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Бібліотека React Icons
+              </h4>
+
               <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    React Icons
-                    (<i>https://react-icons.github.io/react-icons/</i>)
-                    - це набір іконок, спеціально створений
-                    для використання в React-додатках.
-                  </p>
-                </div>
+                <p class="m-bottom-min">
+                  React Icons
+                  (<i>https://react-icons.github.io/react-icons/</i>)
+                  - це набір іконок, спеціально створений
+                  для використання в React-додатках.
+                </p>
                 <div class="bcg-box">
                   <p>npm install react-icons</p>
                 </div>
               </div>
+
               <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Бібліотеку необхідно імпортувати у
-                    компонент, та підставити назву
-                    подтрібної іконки у код
-                  </p>
-                </div>
+                <p class="m-bottom-min">
+                  Бібліотеку необхідно імпортувати у
+                  компонент, та підставити назву подтрібної
+                  іконки у код
+                </p>
                 <div class="bcg-box">
                   <p>
                     <b
                       >import { HiUser } from
                       "react-icons/hi"; </b
                     ><br />
+                    <br />
                     const UserMenu = ({ name }) => {<br />
                         return &#60;p>
                     <b>&#60;HiUser /></b>
@@ -2226,6 +2243,7 @@
                   </p>
                 </div>
               </div>
+
               <div class="flex">
                 <div>
                   <p class="m-bottom-min">
@@ -2265,18 +2283,22 @@
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          </section>
+        </div>
       </section>
 
       <!-- Обробка подій -->
       <section class="main-section hidden">
-        <h2 class="m-bottom center-text">Обробка подій</h2>
-        <!-- Загальне -->
-        <section>
-          <div class="container">
+        <div class="container">
+          <h2 class="m-bottom center-text">
+            Обробка подій
+          </h2>
+
+          <!-- Загальне -->
+          <section class="section">
             <h3 class="m-bottom-min">Загальне</h3>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -2309,21 +2331,25 @@
                   </li>
                 </ul>
               </div>
+
               <div class="bcg-box">
                 <p>
                   const App = () => {<br />
                       const <b>handleClick</b> = () => {<br />
                           <b>alert</b>("I'm a button!");<br />
                       };<br />
-                      return <br />
-                      &#60;button
+                  <br />
+                      return (<br />
+                          &#60;button
                   <b>onClick={handleClick}</b>><br />
-                          Click me!<br />
-                      &#60;/button>;<br />
+                              Click me!<br />
+                          &#60;/button>;<br />
+                      )<br />
                   };
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min">
               <p>Основні моменти:</p>
               <ul>
@@ -2349,6 +2375,7 @@
                 </li>
               </ul>
             </div>
+
             <div class="flex">
               <div>
                 <p class="m-bottom-min">
@@ -2363,33 +2390,35 @@
                   читабельність розмітки компонента.
                 </p>
               </div>
+
               <div class="bcg-box">
                 <p>
                   const App = () => {<br />
-                      return <br />
-                          &#60;button onClick={<b
+                      return (<br />
+                              &#60;button onClick={<b
                     >() => alert("I'm a button!")</b
                   >} ><br />
-                              Click me!<br />
-                          &#60;/button>;<br />
+                                  Click me!<br />
+                              &#60;/button>;<br />
+                      ) <br />
                   };
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Посилання на функцію -->
-        <section>
-          <div class="container">
+          <!-- Посилання на функцію -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Посилання на функцію
             </h3>
+
             <p class="m-bottom-min">
               Функції, які передаються обробникам подій,
               повинні бути передані як посилання, а не
               викликані.
             </p>
+
             <div class="flex">
               <div>
                 <p class="m-bottom-min">
@@ -2406,6 +2435,7 @@
                   рендерингу, не дочекавшись події кліку.
                 </p>
               </div>
+
               <div class="bcg-box">
                 <p>
                   <i>// ✅ Передача функції (правильно)</i
@@ -2420,13 +2450,12 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Об'єкт події -->
-        <section>
-          <div class="container">
+          <!-- Об'єкт події -->
+          <section class="section print-m-bottom-max">
             <h3 class="m-bottom-min">Об'єкт події</h3>
+
             <div class="flex">
               <div>
                 <p class="m-bottom-min">
@@ -2446,6 +2475,7 @@
                   подіями.
                 </p>
               </div>
+
               <div class="bcg-box">
                 <p>
                   const App = () => {<br />
@@ -2454,6 +2484,7 @@
                     >handleClick = evt =>
                     console.log(evt)</b
                   >;<br />
+                  <br />
                       return (<br />
                           &#60;><br />
                               &#60;button
@@ -2470,21 +2501,18 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Читання props -->
-        <section>
-          <div class="container">
+          <!-- Читання props -->
+          <section class="section">
             <h3 class="m-bottom-min">Читання props</h3>
+
             <div class="flex">
-              <div>
-                <p class="m-bottom-min">
-                  Обробники подій оголошуються всередині
-                  компонента, отже, вони
-                  <b>мають доступ до пропсів компонента</b>.
-                </p>
-              </div>
+              <p class="m-bottom-min">
+                Обробники подій оголошуються всередині
+                компонента, отже, вони
+                <b>мають доступ до пропсів компонента</b>.
+              </p>
               <div class="bcg-box">
                 <p>
                   const Button = ({ <b>message</b>, children
@@ -2508,203 +2536,381 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Стан компонента -->
-        <section>
-          <div class="container">
+          <!-- Стан компонента -->
+          <section class="section">
             <h3 class="m-bottom-min">Стан компонента</h3>
-            <div>
-              <p class="m-bottom-min">
-                Компонентам потрібно змінювати те, що
-                відображається на екрані внаслідок взаємодії
-                з користувачем (введення даних в форму
-                повинно оновлювати поле вводу, клікання в
-                слайдері зображень).
-              </p>
-              <p class="m-bottom-min">
-                <b>Стан (state)</b> - вид пам'яті, що
-                специфічний для компонента.
-              </p>
-              <p class="m-bottom-min">
-                <b>Пропси (props)</b> - це дані, які
-                передаються компоненту ззовні, а
-                <b>стан (state)</b> - це його внутрішні
-                динамічні дані.
-              </p>
-              <p class="m-bottom-min">
-                Коли стан або пропси компонента змінюються,
-                відбувається оновлення та повторний рендер
-                JSX. Іншими словами, стан - це реактивні
-                дані, які контролюють те, що відображається
-                в інтерфейсі.
-              </p>
-              <p class="m-bottom-min">
-                Зміна стану компонента ніколи не впливає на
-                його батьків чи сусідів, а тільки на його
-                дочірні елементи.
-              </p>
-              <p>Отже:</p>
+
+            <p class="m-bottom-min">
+              Компонентам потрібно змінювати те, що
+              відображається на екрані внаслідок взаємодії з
+              користувачем (введення даних в форму повинно
+              оновлювати поле вводу, клікання в слайдері
+              зображень).
+            </p>
+
+            <p class="m-bottom-min">
+              <b>Стан (state)</b> - вид пам'яті, що
+              специфічний для компонента.
+            </p>
+
+            <p class="m-bottom-min">
+              <b>Пропси (props)</b> - це дані, які
+              передаються компоненту ззовні, а
+              <b>стан (state)</b> - це його внутрішні
+              динамічні дані.
+            </p>
+
+            <p class="m-bottom-min">
+              Коли стан або пропси компонента змінюються,
+              відбувається оновлення та повторний рендер
+              JSX. Іншими словами, стан - це реактивні дані,
+              які контролюють те, що відображається в
+              інтерфейсі.
+            </p>
+
+            <p class="m-bottom-min">
+              Зміна стану компонента ніколи не впливає на
+              його батьків чи сусідів, а тільки на його
+              дочірні елементи.
+            </p>
+
+            <p>Отже:</p>
+            <ul class="m-bottom-min">
+              <li>
+                у стані зберігається мінімально необхідний
+                набір даних, на основі яких можна обчислити
+                все необхідне для рендеру інтерфейсу;
+              </li>
+              <li>
+                у стані може зберігатися будь-який тип
+                даних;
+              </li>
+              <li>
+                стан може змінюватися відповідно до дій
+                користувача;
+              </li>
+              <li>
+                під час зміни стану компонент повертає
+                оновлену розмітку і змінює інтерфейс.
+              </li>
+            </ul>
+
+            <div class="m-bottom-min border-box">
+              <p><b>Важливо!</b></p>
               <ul class="m-bottom-min">
                 <li>
-                  у стані зберігається мінімально необхідний
-                  набір даних, на основі яких можна
-                  обчислити все необхідне для рендеру
-                  інтерфейсу;
+                  Локальні змінні не зберігаються між
+                  рендерами. Коли React рендерить компонент
+                  вдруге, він рендерить його з нуля — не
+                  враховує жодних змін у локальних змінних.
                 </li>
                 <li>
-                  у стані може зберігатися будь-який тип
-                  даних;
-                </li>
-                <li>
-                  стан може змінюватися відповідно до дій
-                  користувача;
-                </li>
-                <li>
-                  під час зміни стану компонент повертає
-                  оновлену розмітку і змінює інтерфейс.
+                  Зміни локальних змінних не викликають
+                  повторних рендерів. React не усвідомлює
+                  необхідності повторного рендерингу
+                  компонента з новими даними.
                 </li>
               </ul>
-              <div class="m-bottom-min border-box">
-                <p><b>Важливо!</b></p>
-                <ul class="m-bottom-min">
-                  <li>
-                    Локальні змінні не зберігаються між
-                    рендерами. Коли React рендерить
-                    компонент вдруге, він рендерить його з
-                    нуля — не враховує жодних змін у
-                    локальних змінних.
-                  </li>
-                  <li>
-                    Зміни локальних змінних не викликають
-                    повторних рендерів. React не усвідомлює
-                    необхідності повторного рендерингу
-                    компонента з новими даними.
-                  </li>
-                </ul>
-                <p>
-                  Для оновлення компонента новими даними
-                  потрібно:
-                </p>
-                <ul>
-                  <li>зберегти дані між рендерами;</li>
-                  <li>
-                    заставити React рендерити компонент з
-                    новими даними (повторний рендеринг).
-                  </li>
-                </ul>
-              </div>
               <p>
-                Станом компонента можна керувати за
-                допомогою
-                <b>хука</b> <b>useState</b>.
+                Для оновлення компонента новими даними
+                потрібно:
               </p>
+              <ul>
+                <li>зберегти дані між рендерами;</li>
+                <li>
+                  заставити React рендерити компонент з
+                  новими даними (повторний рендеринг).
+                </li>
+              </ul>
             </div>
-          </div>
-        </section>
+
+            <p>
+              Станом компонента можна керувати за допомогою
+              <b>хука</b> <b>useState</b>.
+            </p>
+          </section>
+        </div>
       </section>
 
       <!-- Життєвий цикл -->
       <section class="main-section hidden">
-        <h2 class="m-bottom center-text">
-          Життєвий цикл компонента
-        </h2>
+        <div class="container">
+          <h2 class="m-bottom center-text">
+            Життєвий цикл компонента
+          </h2>
 
-        <section>
-          <div class="container">
+          <!-- Життєвий цикл -->
+          <section class="section">
             <h3 class="m-bottom-min">Життєвий цикл</h3>
-            <div>
-              <p class="m-bottom-min">
-                Життєвий цикл компонентів складається з
-                кількох етапів -
-                <b>монтування, оновлення та розмонтування</b
-                >.
-              </p>
-              <p>Приклад, компонент модального вікна.</p>
-              <ul class="m-bottom-min">
-                <li>
-                  <b>Монтування</b> - момент, коли компонент
-                  вперше з'являється на екрані. Іншими
-                  словами, модальне вікно відкривається, і
-                  його HTML поміщається в DOM.
-                </li>
-                <li>
-                  <b>Оновлення</b> викликається зміною стану
-                  <i>state</i> самого компонента або
-                  <i>props</i>, які йому передаються.
-                </li>
-                <li>
-                  <b>Розмонтування</b> - відбувається при
-                  закритті модального вікна - його HTML
-                  видаляється з DOM.
-                </li>
-              </ul>
-              <p class="m-bottom-min">
-                За допомогою <b>ефектів</b> можна виконувати
-                код тільки тоді, коли це необхідно, тобто не
-                кожен раз, коли компонент рендериться.
-              </p>
-              <p>
-                Життєвий цикл компоненту керується за
-                допомогою
-                <b>хуку useEffect</b>
-              </p>
-            </div>
-          </div>
-        </section>
+            <p class="m-bottom-min">
+              Життєвий цикл компонентів складається з
+              кількох етапів -
+              <b>монтування, оновлення та розмонтування</b>.
+            </p>
 
-        <!-- Робота з LocalStorage -->
-        <section>
-          <div class="container">
+            <p>Приклад, компонент модального вікна.</p>
+            <ul class="m-bottom-min">
+              <li>
+                <b>Монтування</b> - момент, коли компонент
+                вперше з'являється на екрані. Іншими
+                словами, модальне вікно відкривається, і
+                його HTML поміщається в DOM.
+              </li>
+              <li>
+                <b>Оновлення</b> викликається зміною стану
+                <i>state</i> самого компонента або
+                <i>props</i>, які йому передаються.
+              </li>
+              <li>
+                <b>Розмонтування</b> - відбувається при
+                закритті модального вікна - його HTML
+                видаляється з DOM.
+              </li>
+            </ul>
+
+            <p class="m-bottom-min">
+              За допомогою <b>ефектів</b> можна виконувати
+              код тільки тоді, коли це необхідно, тобто не
+              кожен раз, коли компонент рендериться.
+            </p>
+
+            <p>
+              Життєвий цикл компоненту керується за
+              допомогою
+              <b>хуку useEffect</b>
+            </p>
+          </section>
+
+          <!-- Робота з LocalStorage -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Робота з LocalStorage
             </h3>
 
             <!-- Запис -->
-            <h4 class="m-bottom-min">Запис</h4>
-            <div class="m-bottom flex">
-              <div>
-                <p class="m-bottom-min">
-                  У ефект необхідно додати код запису в
-                  локальне сховище. Ключ - це довільний
-                  рядок, а значення - це стан.
-                </p>
-                <div class="border-box">
+            <section class="section">
+              <h4 class="m-bottom-min">Запис</h4>
+
+              <div class="m-bottom flex">
+                <div>
                   <p class="m-bottom-min">
-                    <b>Важливо!</b> Якщо необхідно додати
-                    складні типі даних, такі як об'єкт чи
-                    масив, треба перетворити збережене
-                    значення у рядок за допомогою
-                    <b>JSON.stringify</b>.
+                    У ефект необхідно додати код запису в
+                    локальне сховище. Ключ - це довільний
+                    рядок, а значення - це стан.
                   </p>
-                  <div class="bcg-box">
-                    <p>
-                      window.localStorage.setItem("key",
-                      JSON.stringify({}));
+                  <div class="border-box">
+                    <p class="m-bottom-min">
+                      <b>Важливо!</b> Якщо необхідно додати
+                      складні типі даних, такі як об'єкт чи
+                      масив, треба перетворити збережене
+                      значення у рядок за допомогою
+                      <b>JSON.stringify</b>.
+                    </p>
+                    <div class="bcg-box">
+                      <p>
+                        window.localStorage.setItem("key",
+                        JSON.stringify({}));
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bcg-box">
+                  <p>
+                    const App = () => {<br />
+                        const [clicks, setClicks] =
+                    useState(0);<br />
+                    <br />
+                        useEffect(() => {<br />
+                           
+                    <b
+                      >window.localStorage.setItem("saved-clicks",
+                      clicks)</b
+                    >;<br />
+                        }, [clicks]);<br />
+                    <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={() =>
+                    setClicks(clicks + 1)}><br />
+                                    You clicked {clicks}
+                    times<br />
+                                &#60;/button><br />
+                                &#60;button onClick={() =>
+                    setClicks(0)}>Reset&#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Читання -->
+            <section class="section">
+              <h4 class="m-bottom-min">Читання</h4>
+              <div class="m-bottom-min flex">
+                <p>
+                  <b>Ефекти</b> виконуються
+                  <b>асинхронно</b>,
+                  <i>після монтування компонента</i>. Щоб
+                  <i>синхронно</i> прочитати значення з
+                  локального сховища, ще до монтування, в
+                  хук <b>useState</b> необхідно передати
+                  початкове значення стану. Замість
+                  початкового значення треба передати
+                  <b>посилання на функцію</b>, яка повертає
+                  початкове значення.
+                </p>
+                <div>
+                  <p class="bcg-box">
+                    const [] = useState(() => {<br />
+                        return 0;<br />
+                    });
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="m-bottom-min flex print-m-bottom-max"
+              >
+                <div class="bcg-box print-m-left-none">
+                  <p>
+                    const [clicks, setClicks] = useState(()
+                    => {<br />
+                        <i>// Зчитуємо значення за ключем</i
+                    ><br />
+                        const savedClicks =
+                    window.localStorage.getItem(<br />
+                            "saved-clicks"<br />
+                        );<br />
+                    <br />
+                       
+                    <i>// Якщо там щось є, повертаємо це</i>
+                    <br />
+                       
+                    <i
+                      >// значення як початкове значення
+                      стану</i
+                    ><br />
+                        if (savedClicks !== null) {<br />
+                            return savedClicks;<br />
+                        }<br />
+                    <br />
+                       
+                    <i
+                      >// У протилежному випадку
+                      повертаємо</i
+                    >
+                    <br />
+                       
+                    <i
+                      >// яке-небудь значення за
+                      замовчуванням</i
+                    ><br />
+                        return 0;<br />
+                    });<br />
+                  </p>
+                </div>
+
+                <p>або</p>
+
+                <div class="bcg-box print-m-left-none">
+                  <p>
+                    const [obj, setObj] = useState(() =>
+                    {<br />
+                        <i>// Зчитуємо значення за ключем</i
+                    ><br />
+                        const savedObject =
+                    window.localStorage.getItem("key");<br />
+                    <br />
+                       
+                    <i
+                      >// Якщо там щось є, парсимо і
+                      повертаємо</i
+                    ><br />
+                       
+                    <i
+                      >// це значення як початкове значення
+                      стану</i
+                    ><br />
+                        if (savedObject !== null) {<br />
+                            return
+                    JSON.parse(savedObject);<br />
+                        }<br />
+                    <br />
+                       
+                    <i
+                      >// У протилежному випадку
+                      повертаємо</i
+                    ><br />
+                       
+                    <i
+                      >// яке-небудь значення за
+                      замовчуванням</i
+                    ><br />
+                        return {};<br />
+                    });<br />
+                  </p>
+                </div>
+              </div>
+
+              <div class="m-bottom-min">
+                <div class="border-box flex">
+                  <p>
+                    <b>Важливо!</b> Якщо необхідно отримати
+                    складні типи даних, такі як об'єкт чи
+                    масив, треба зробити розбір значення за
+                    допомогою <b>JSON.parse</b>. В іншому
+                    випадку, замість об'єкта чи масиву до
+                    стану запишуться їх стрічне
+                    представлення.
+                  </p>
+
+                  <div>
+                    <p class="bcg-box">
+                      <b>JSON.parse(savedObject)</b>
                     </p>
                   </div>
                 </div>
               </div>
+
+              <p class="m-bottom-min">
+                Повний код прикладу
+              </p>
+
               <div class="bcg-box">
                 <p>
                   const App = () => {<br />
-                      const [clicks, setClicks] =
-                  useState(0);<br />
-                      useEffect(() => {<br />
-                         
+                     
                   <b
-                    >window.localStorage.setItem("saved-clicks",
-                    clicks)</b
+                    >const [clicks, setClicks] = useState(()
+                    => {<br />
+                            const savedClicks =
+                    window.localStorage.getItem("saved-clicks");<br />
+                            if (savedClicks !== null) {<br />
+                                return savedClicks;<br />
+                            }<br />
+                            return 0;<br />
+                        })</b
                   >;<br />
-                      }, [clicks]);<br />
+                  <br />
+                     
+                  <b
+                    >useEffect(() => {<br />
+                           
+                    window.localStorage.setItem("saved-clicks",
+                    clicks);<br />
+                        }, [clicks])</b
+                  >;<br />
+                  <br />
                       return (<br />
                           &#60;div><br />
                               &#60;button onClick={() =>
-                  setClicks(clicks + 1)}><br />
-                                  You clicked {clicks}
-                  times<br />
-                              &#60;/button><br />
+                  setClicks(clicks + 1)}> You clicked
+                  {clicks} times &#60;/button><br />
                               &#60;button onClick={() =>
                   setClicks(0)}>Reset&#60;/button><br />
                           &#60;/div><br />
@@ -2712,170 +2918,13 @@
                   };
                 </p>
               </div>
-            </div>
-
-            <!-- Читання -->
-            <h4 class="m-bottom-min">Читання</h4>
-            <div class="m-bottom-min flex">
-              <p>
-                <b>Ефекти</b> виконуються <b>асинхронно</b>,
-                <i>після монтування компонента</i>. Щоб
-                <i>синхронно</i> прочитати значення з
-                локального сховища, ще до монтування, в хук
-                <b>useState</b> необхідно передати початкове
-                значення стану. Замість початкового значення
-                треба передати <b>посилання на функцію</b>,
-                яка повертає початкове значення.
-              </p>
-              <div>
-                <p class="bcg-box">
-                  const [] = useState(() => {<br />
-                      return 0;<br />
-                  });
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="m-bottom-min flex print-m-bottom-max"
-            >
-              <div class="bcg-box print-m-left-none">
-                <p>
-                  const [clicks, setClicks] = useState(() =>
-                  {<br />
-                      <i>// Зчитуємо значення за ключем</i
-                  ><br />
-                      const savedClicks =
-                  window.localStorage.getItem(<br />
-                          "saved-clicks"<br />
-                      );<br />
-                  <br />
-                     
-                  <i>// Якщо там щось є, повертаємо це</i>
-                  <br />
-                     
-                  <i
-                    >// значення як початкове значення
-                    стану</i
-                  ><br />
-                      if (savedClicks !== null) {<br />
-                          return savedClicks;<br />
-                      }<br />
-                  <br />
-                     
-                  <i
-                    >// У протилежному випадку повертаємо</i
-                  >
-                  <br />
-                     
-                  <i
-                    >// яке-небудь значення за
-                    замовчуванням</i
-                  ><br />
-                      return 0;<br />
-                  });<br />
-                </p>
-              </div>
-              <p>або</p>
-              <div class="bcg-box print-m-left-none">
-                <p>
-                  const [obj, setObj] = useState(() => {<br />
-                      <i>// Зчитуємо значення за ключем</i
-                  ><br />
-                      const savedObject =
-                  window.localStorage.getItem("key");<br />
-                  <br />
-                     
-                  <i
-                    >// Якщо там щось є, парсимо і
-                    повертаємо</i
-                  ><br />
-                     
-                  <i
-                    >// це значення як початкове значення
-                    стану</i
-                  ><br />
-                      if (savedObject !== null) {<br />
-                          return JSON.parse(savedObject);<br />
-                      }<br />
-                  <br />
-                     
-                  <i>// У протилежному випадку повертаємо</i
-                  ><br />
-                     
-                  <i
-                    >// яке-небудь значення за
-                    замовчуванням</i
-                  ><br />
-                      return {};<br />
-                  });<br />
-                </p>
-              </div>
-            </div>
-
-            <div class="m-bottom-min">
-              <div class="border-box flex">
-                <p>
-                  <b>Важливо!</b> Якщо необхідно отримати
-                  складні типи даних, такі як об'єкт чи
-                  масив, треба зробити розбір значення за
-                  допомогою <b>JSON.parse</b>. В іншому
-                  випадку, замість об'єкта чи масиву до
-                  стану запишуться їх стрічне представлення.
-                </p>
-                <div>
-                  <p class="bcg-box">
-                    <b>JSON.parse(savedObject)</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <p class="m-bottom-min">Повний код прикладу</p>
-
-            <div class="bcg-box">
-              <p>
-                const App = () => {<br />
-                   
-                <b
-                  >const [clicks, setClicks] = useState(()
-                  => {<br />
-                          const savedClicks =
-                  window.localStorage.getItem("saved-clicks");<br />
-                          if (savedClicks !== null) {<br />
-                              return savedClicks;<br />
-                          }<br />
-                          return 0;<br />
-                      })</b
-                >;<br />
-                <br />
-                   
-                <b
-                  >useEffect(() => {<br />
-                         
-                  window.localStorage.setItem("saved-clicks",
-                  clicks);<br />
-                      }, [clicks])</b
-                >;<br />
-                <br />
-                    return (<br />
-                        &#60;div><br />
-                            &#60;button onClick={() =>
-                setClicks(clicks + 1)}> You clicked {clicks}
-                times &#60;/button><br />
-                            &#60;button onClick={() =>
-                setClicks(0)}>Reset&#60;/button><br />
-                        &#60;/div><br />
-                    );<br />
-                };
-              </p>
-            </div>
-          </div>
-        </section>
+            </section>
+          </section>
+        </div>
       </section>
 
       <!-- Форми -->
-      <section class="main-section hidden">
+      <section class="main-section">
         <h2 class="m-bottom center-text">Форми</h2>
 
         <!-- Загальне -->
