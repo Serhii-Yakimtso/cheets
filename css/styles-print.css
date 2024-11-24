@@ -23,7 +23,15 @@
   }
 
   .print-m-bottom-max {
-    margin-bottom: 1000px !important;
+    /* margin-bottom: 1000px !important; */
+    break-after: page;
+  }
+
+  .new-page {
+    break-before: page;
+  }
+  .no-break {
+    break-inside: avoid;
   }
 
   .print-m-left-none {

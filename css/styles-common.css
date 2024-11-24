@@ -68,9 +68,9 @@ tr {
   margin-bottom: 16px;
 }
 
-/* .main-section .inner-section:not(:last-child) {
+.main-section .inner-section:not(:last-child) {
   margin-bottom: 16px;
-} */
+}
 
 .container {
   margin-left: auto;
