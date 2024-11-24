@@ -56,6 +56,42 @@ tr {
 
 /* ===== CLASSES ===== */
 
+.main-section {
+  padding-bottom: 48px;
+}
+
+.main-section .section:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.main-section .sub-section:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+/* .main-section .inner-section:not(:last-child) {
+  margin-bottom: 16px;
+} */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 4px;
+
+  width: 720px;
+}
+
+.m-bottom {
+  margin-bottom: 16px;
+}
+
+.m-bottom-min {
+  margin-bottom: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -73,53 +109,10 @@ tr {
   font-weight: 700;
 }
 
-.title-section {
-  /* text-align: center; */
-}
-
-.main-section {
-  padding-bottom: 24px;
-}
-
-.main-section .section:not(:last-child) {
-  margin-bottom: 24px;
-}
-
-.main-section .sub-section:not(:last-child) {
-  margin-bottom: 8px;
-}
-
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 4px;
-
-  width: 720px;
-}
-
 .noList {
   list-style: none;
   padding: 0;
 }
-
-.accent {
-  font-weight: 700;
-}
-
-.underspace {
-  height: 300px;
-}
-
-.italic {
-  font-style: italic;
-}
-
-/* .box {
-  width: 100px;
-  height: 100px;
-  border: 2px dotted red;
-  background-color: green;
-} */
 
 .i-block {
   display: inline-block;
@@ -136,15 +129,6 @@ tr {
   background-color: lightgray;
 
   font-size: 14px;
-}
-
-.bcg-color {
-  background-color: rgb(255, 248, 122);
-}
-
-.bcg-color-head {
-  background-color: lightgray;
-  width: fit-content;
 }
 
 .border-box {
@@ -165,14 +149,6 @@ tr {
   display: flow-root;
 }
 
-.m-bottom {
-  margin-bottom: 20px;
-}
-
-.m-bottom-min {
-  margin-bottom: 8px;
-}
-
 .center-element {
   margin-left: auto;
   margin-right: auto;
@@ -180,11 +156,6 @@ tr {
 
 .center-text {
   text-align: center;
-}
-
-.text-no-wrap {
-  /* word-wrap: ; */
-  word-spacing: nowrap;
 }
 
 .fs-10 {
@@ -206,10 +177,42 @@ tr {
   font-size: 15px;
 }
 
+.thick-element {
+  width: 100%;
+}
+
+.bcg-color {
+  background-color: rgb(255, 248, 122);
+}
+
+.bcg-color-head {
+  background-color: lightgray;
+  width: fit-content;
+}
+
+/* .accent {
+  font-weight: 700;
+} */
+
+/* .underspace {
+  height: 300px;
+} */
+
+/* .italic {
+  font-style: italic;
+} */
+
+/* .box {
+  width: 100px;
+  height: 100px;
+  border: 2px dotted red;
+  background-color: green;
+} */
+
 /* .bold {
   font-weight: 700;
 } */
 
-.thick-element {
-  width: 100%;
-}
+/* .text-no-wrap {
+  word-spacing: nowrap;
+} */

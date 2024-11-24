@@ -17,25 +17,13 @@
     margin-bottom: 1000px;
   }
 
-  /* .print-flex-box {
-    display: flex;
-    justify-content: space-between;
-    gap: 4px;
-  } */
-
   .print-center {
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* .print-bcg-box {
-    margin-left: auto;
-    margin-right: 0;
-    min-width: max-content;
-  } */
-
   .print-m-bottom-max {
-    margin-bottom: 1000px;
+    margin-bottom: 1000px !important;
   }
 
   .print-m-left-none {
@@ -61,3 +49,15 @@
     font-size: 15px;
   }
 }
+
+/* .print-flex-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+  } */
+
+/* .print-bcg-box {
+    margin-left: auto;
+    margin-right: 0;
+    min-width: max-content;
+  } */

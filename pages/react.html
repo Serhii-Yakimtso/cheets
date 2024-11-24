@@ -28,7 +28,7 @@
 
     <main>
       <!-- title -->
-      <section class="title-section main-section">
+      <section class="title-section main-section hidden">
         <div class="container">
           <h1 class="center-text">React</h1>
         </div>
@@ -38,6 +38,7 @@
       <section class="main-section hidden">
         <div class="container">
           <h2 class="m-bottom-min">Зміст</h2>
+
           <ul>
             <li>
               <a href="./pages/react/common.html"
@@ -93,411 +94,400 @@
       </section>
 
       <!-- Загальні налаштування -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <div class="container">
+          <h2 class="m-bottom center-text">
+            Створення проекту
+          </h2>
+
           <section class="section">
-            <h2 class="m-bottom center-text">
-              Створення проекту
-            </h2>
+            <h3 class="m-bottom-min">
+              Загальні налаштування
+            </h3>
 
+            <ol class="m-bottom-min print-m-bottom-max">
+              <li class="m-bottom-min">
+                <p>
+                  Створити порожній репозиторій (проєкт) на
+                  GitHub.
+                </p>
+              </li>
+              <li class="m-bottom-min">
+                <p>
+                  Клонувати цей репозиторій на свій
+                  комп'ютер.
+                </p>
+              </li>
+              <li class="m-bottom-min">
+                <div class="flex">
+                  <p>
+                    В терміналі запустити створення
+                    React-проєкту.
+                  </p>
+                  <div class="bcg-box">
+                    <b>npm create vite@latest </b>
+                  </div>
+                </div>
+              </li>
+              <li class="m-bottom-min">
+                <p>
+                  <b>Prettier</b> - додати файл налаштувань
+                  у корінь проєкту.
+                </p>
+              </li>
+              <li class="m-bottom-min">
+                <div class="flex">
+                  <p>
+                    Налаштуваня файлу
+                    <b>espnt.config.js</b>
+                  </p>
+                  <div class="bcg-box fs-11">
+                    import js from "@eslint/js";<br />
+                    import globals from "globals";<br />
+                    import react from
+                    "eslint-plugin-react";<br />
+                    import reactHooks from
+                    "eslint-plugin-react-hooks";<br />
+                    import reactRefresh from
+                    "eslint-plugin-react-refresh";<br />
+                    <br />
+                    export default [<br />
+                        {<br />
+                            files: ["**/*.{js,jsx}"],<br />
+                            ignores: ["dist"],<br />
+                            languageOptions: {<br />
+                                ecmaVersion: 2020,<br />
+                                globals: globals.browser,<br />
+                                parserOptions: {<br />
+                                    ecmaVersion:
+                    "latest",<br />
+                                    ecmaFeatures: { jsx:
+                    true },<br />
+                                    sourceType: "module",<br />
+                                },<br />
+                            },<br />
+                            settings: { react: { version:
+                    "18.3" } },<br />
+                            plugins: {<br />
+                                react,<br />
+                                "react-hooks":
+                    reactHooks,<br />
+                                "react-refresh":
+                    reactRefresh,<br />
+                            },<br />
+                            rules: {<br />
+                               
+                    ...js.configs.recommended.rules,<br />
+                               
+                    ...react.configs.recommended.rules,<br />
+                               
+                    ...react.configs["jsx-runtime"].rules,<br />
+                               
+                    ...reactHooks.configs.recommended.rules,<br />
+                               
+                    <span class="fs-14"
+                      ><b>"react/prop-types": 0,</b></span
+                    ><br />
+                                "react/jsx-no-target-blank":
+                    "off",<br />
+                               
+                    "react-refresh/only-export-components":
+                    [<br />
+                                    "warn",<br />
+                                    { allowConstantExport:
+                    true },<br />
+                                ],<br />
+                            },<br />
+                        },<br />
+                    ];
+                  </div>
+                </div>
+              </li>
+              <li class="m-bottom-min">
+                <div class="flex">
+                  <p>
+                    Змінити налаштування файлу
+                    <b>vite.config.js</b> на
+                  </p>
+                  <div class="bcg-box fs-11">
+                    import { defineConfig } from "vite";<br />
+                    import react from
+                    "@vitejs/plugin-react-swc";<br />
+                    <br />
+                    // https://vitejs.dev/config/<br />
+                    export default defineConfig({<br />
+                        plugins: [react()],<br />
+                    <span class="fs-14"
+                      ><b>
+                            build: {<br />
+                               sourcemap: true,<br />
+                            }<br /></b
+                    ></span>
+                    });
+                  </div>
+                </div>
+              </li>
+              <li class="m-bottom-min">
+                <p>
+                  Створити папку <b>components</b> у папці
+                  <b>src</b>. Перенести туди файліи
+                  <b>App.jsx</b> та <b>App.css</b>,
+                  створивши для них власну папку.
+                  Скорегувати шлях (import) до файлу
+                  <b>App.jsx</b> у файлі
+                  <b>main.jsx</b>
+                </p>
+              </li>
+              <li class="m-bottom-min">
+                <p>
+                  Внести скидання стилів та їх загальні
+                  налаштування у файлі <b>index.css</b>
+                </p>
+              </li>
+              <li>
+                <div class="flex">
+                  <p>
+                    Для правильної роботи додатка з
+                    маршрутизацією після розгортання на
+                    Vercel, додати файл налаштувань
+                    <b>vercel.json</b> в
+                    <i>кореневу папку</i>
+                    проекту.
+                  </p>
+                  <div class="bcg-box fs-14">
+                    <b
+                      >{<br />
+                          "rewrites":  [<br />
+                              {"source": "/(.*)",
+                      "destination": "/"}<br />
+                          ]<br />
+                      }</b
+                    >
+                  </div>
+                </div>
+              </li>
+            </ol>
+
+            <!-- Нормалізація стилів -->
             <section class="sub-section">
-              <h3 class="m-bottom-min">
-                Загальні налаштування
-              </h3>
-              <ol class="m-bottom-min print-m-bottom-max">
-                <li class="m-bottom-min">
-                  <p>
-                    Створити порожній репозиторій (проєкт)
-                    на GitHub.
-                  </p>
-                </li>
-                <li class="m-bottom-min">
-                  <p>
-                    Клонувати цей репозиторій на свій
-                    комп'ютер.
-                  </p>
-                </li>
-                <li class="m-bottom-min">
-                  <div class="flex">
-                    <p>
-                      В терміналі запустити створення
-                      React-проєкту.
-                    </p>
-                    <div class="bcg-box">
-                      <b>npm create vite@latest </b>
-                    </div>
-                  </div>
-                </li>
-                <li class="m-bottom-min">
-                  <p>
-                    <b>Prettier</b> - додати файл
-                    налаштувань у корінь проєкту.
-                  </p>
-                </li>
-                <li class="m-bottom-min">
-                  <div class="flex">
-                    <p>
-                      Налаштуваня файлу
-                      <b>espnt.config.js</b>
-                    </p>
-                    <div class="bcg-box fs-11">
-                      import js from "@eslint/js";<br />
-                      import globals from "globals";<br />
-                      import react from
-                      "eslint-plugin-react";<br />
-                      import reactHooks from
-                      "eslint-plugin-react-hooks";<br />
-                      import reactRefresh from
-                      "eslint-plugin-react-refresh";<br />
-                      <br />
-                      export default [<br />
-                          {<br />
-                              files: ["**/*.{js,jsx}"],<br />
-                              ignores: ["dist"],<br />
-                              languageOptions: {<br />
-                                  ecmaVersion: 2020,<br />
-                                  globals:
-                      globals.browser,<br />
-                                  parserOptions: {<br />
-                                      ecmaVersion:
-                      "latest",<br />
-                                      ecmaFeatures: { jsx:
-                      true },<br />
-                                      sourceType:
-                      "module",<br />
-                                  },<br />
-                              },<br />
-                              settings: { react: { version:
-                      "18.3" } },<br />
-                              plugins: {<br />
-                                  react,<br />
-                                  "react-hooks":
-                      reactHooks,<br />
-                                  "react-refresh":
-                      reactRefresh,<br />
-                              },<br />
-                              rules: {<br />
-                                 
-                      ...js.configs.recommended.rules,<br />
-                                 
-                      ...react.configs.recommended.rules,<br />
-                                 
-                      ...react.configs["jsx-runtime"].rules,<br />
-                                 
-                      ...reactHooks.configs.recommended.rules,<br />
-                                 
-                      <span class="fs-14"
-                        ><b>"react/prop-types": 0,</b></span
-                      ><br />
-                                 
-                      "react/jsx-no-target-blank": "off",<br />
-                                 
-                      "react-refresh/only-export-components":
-                      [<br />
-                                      "warn",<br />
-                                      { allowConstantExport:
-                      true },<br />
-                                  ],<br />
-                              },<br />
-                          },<br />
-                      ];
-                    </div>
-                  </div>
-                </li>
-                <li class="m-bottom-min">
-                  <div class="flex">
-                    <p>
-                      Змінити налаштування файлу
-                      <b>vite.config.js</b> на
-                    </p>
-                    <div class="bcg-box fs-11">
-                      import { defineConfig } from
-                      "vite";<br />
-                      import react from
-                      "@vitejs/plugin-react-swc";<br />
-                      <br />
-                      // https://vitejs.dev/config/<br />
-                      export default defineConfig({<br />
-                          plugins: [react()],<br />
-                      <span class="fs-14"
-                        ><b>
-                              build: {<br />
-                                 sourcemap: true,<br />
-                              }<br /></b
-                      ></span>
-                      });
-                    </div>
-                  </div>
-                </li>
-                <li class="m-bottom-min">
-                  <p>
-                    Створити папку <b>components</b> у папці
-                    <b>src</b>. Перенести туди файліи
-                    <b>App.jsx</b> та <b>App.css</b>,
-                    створивши для них власну папку.
-                    Скорегувати шлях (import) до файлу
-                    <b>App.jsx</b> у файлі
-                    <b>main.jsx</b>
-                  </p>
-                </li>
-                <li class="m-bottom-min">
-                  <p>
-                    Внести скидання стилів та їх загальні
-                    налаштування у файлі <b>index.css</b>
-                  </p>
-                </li>
-                <li>
-                  <div class="flex">
-                    <p>
-                      Для правильної роботи додатка з
-                      маршрутизацією після розгортання на
-                      Vercel, додати файл налаштувань
-                      <b>vercel.json</b> в
-                      <i>кореневу папку</i>
-                      проекту.
-                    </p>
-                    <div class="bcg-box fs-14">
-                      <b
-                        >{<br />
-                            "rewrites":  [<br />
-                                {"source": "/(.*)",
-                        "destination": "/"}<br />
-                            ]<br />
-                        }</b
-                      >
-                    </div>
-                  </div>
-                </li>
-              </ol>
-
-              <!-- Нормалізація стилів -->
               <h4 class="m-bottom-min">
                 Нормалізація стилів
               </h4>
-              <div class="m-bottom">
-                <div class="m-bottom-min flex">
-                  <div>
-                    <p>
-                      Необхідно встановити через термінал
-                      залежності в проекті для нормалізатора
-                    </p>
-                  </div>
-                  <div>
-                    <p class="bcg-box">
-                      <b>npm install modern-normalize</b>
-                    </p>
-                  </div>
-                </div>
-                <div class="m-bottom flex">
-                  <div>
-                    <p class="m-bottom-min">
-                      Після цього в файлі <b>main.jsx</b> ми
-                      <i>імпортуємо</i>
-                      стилі нормалізації. Це додасть стилі з
-                      файлу нормалізації до проекту.
-                    </p>
-                  </div>
-                  <div class="bcg-box">
-                    <p>
-                      import React from "react"; <br />
-                      import ReactDOM from
-                      "react-dom/client";<br />
-                      <b>import "modern-normalize"</b
-                      >;<br />
-                    </p>
-                  </div>
-                </div>
-                <div class="m-bottom flex">
-                  <div>
-                    <p class="m-bottom-min">
-                      Крім стандартизації зовнішнього
-                      вигляду елементів, корисно скинути або
-                      додати деякі глобальні стилі для
-                      елементів. Це можна зробити в файлі
-                      <b>index.css</b>.
-                    </p>
-                  </div>
-                  <div class="bcg-box flex">
-                    <p>
-                      <i>/* src/index.css */ </i> <br />
-                      body {<br />
-                          font-family: sans-serif;<br />
-                          line-height: 1.5;<br />
-                      }<br />
-                      <br />
-                      <br />
-                    </p>
-                    <p>
-                      h1,<br />
-                      h2,<br />
-                      h3,<br />
-                      h4,<br />
-                      h5,<br />
-                      h6,<br />
-                      p {<br />
-                          margin: 0;<br />
-                      }<br />
-                    </p>
-                    <p>
-                      ul,<br />
-                      ol {<br />
-                          margin: 0;<br />
-                          padding: 0;<br />
-                      }<br />
-                      <br />
-                      img {<br />
-                          display: block;<br />
-                          max-width: 100%;<br />
-                      }
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
 
-            <section class="sub-section">
-              <div class="container">
-                <h3 class="m-bottom-min">
-                  Додаткові бібліотеки
-                </h3>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Опис</th>
-                      <th>Термінал</th>
-                      <th>Імпорт</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Типізація пропсів</td>
-                      <td>
-                        npm install --save-dev prop-types
-                      </td>
-                      <td>
-                        import PropTypes from 'prop-types';
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Композиціонування класів</td>
-                      <td>npm install clsx</td>
-                      <td>import clsx from "clsx";</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Нормалізація стилів (імпортується в
-                        <b>main.jsx</b>)
-                      </td>
-                      <td>npm install modern-normalize</td>
-                      <td>import "modern-normalize";</td>
-                    </tr>
-                    <tr>
-                      <td>Набір іконок</td>
-                      <td>npm install react-icons</td>
-                      <td>
-                        import { HiUser } from
-                        "react-icons/hi";
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Робота та налагодження форм</td>
-                      <td>npm install formik</td>
-                      <td>
-                        import { Formik, Form, Field,
-                        ErrorMessage } from "formik";
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Валідація Formik</td>
-                      <td>npm install yup</td>
-                      <td>import * as Yup from "yup";</td>
-                    </tr>
-                    <tr>
-                      <td>HTTP-запити</td>
-                      <td>npm install axios</td>
-                      <td>import axios from "axios";</td>
-                    </tr>
-                    <tr>
-                      <td>Маршрутизація в React</td>
-                      <td>npm install react-router-dom</td>
-                      <td>
-                        import { BrowserRouter } from
-                        "react-router-dom";<br />
-                        import { Routes, Route, NavLink }
-                        from "react-router-dom";<br />
-                        import { useParams } from
-                        "react-router-dom";<br />
-                        import { useNavigate } from
-                        "react-router-dom";<br />
-                        import { useSearchParams } from
-                        "react-router-dom";<br />
-                        import { useLocation } from
-                        "react-router-dom";
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>React Redux</td>
-                      <td>npm install react-redux</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Redux Toolkit</td>
-                      <td>npm install @reduxjs/toolkit</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="m-bottom-min flex">
+                <p>
+                  Необхідно встановити через термінал
+                  залежності в проекті для нормалізатора
+                </p>
+
+                <div>
+                  <p class="bcg-box">
+                    <b>npm install modern-normalize</b>
+                  </p>
+                </div>
+              </div>
+
+              <div class="m-bottom flex">
+                <p class="m-bottom-min">
+                  Після цього в файлі
+                  <b>main.jsx</b> ми
+                  <i>імпортуємо</i>
+                  стилі нормалізації. Це додасть стилі з
+                  файлу нормалізації до проекту.
+                </p>
+
+                <div class="bcg-box">
+                  <p>
+                    import React from "react"; <br />
+                    import ReactDOM from
+                    "react-dom/client";<br />
+                    <b>import "modern-normalize"</b>;<br />
+                  </p>
+                </div>
+              </div>
+
+              <div class="m-bottom flex">
+                <p class="m-bottom-min">
+                  Крім стандартизації зовнішнього вигляду
+                  елементів, корисно скинути або додати
+                  деякі глобальні стилі для елементів. Це
+                  можна зробити в файлі
+                  <b>index.css</b>.
+                </p>
+
+                <div class="bcg-box flex">
+                  <p>
+                    <i>/* src/index.css */ </i> <br />
+                    body {<br />
+                        font-family: sans-serif;<br />
+                        line-height: 1.5;<br />
+                    }<br />
+                    <br />
+                    <br />
+                  </p>
+                  <p>
+                    h1,<br />
+                    h2,<br />
+                    h3,<br />
+                    h4,<br />
+                    h5,<br />
+                    h6,<br />
+                    p {<br />
+                        margin: 0;<br />
+                    }<br />
+                  </p>
+                  <p>
+                    ul,<br />
+                    ol {<br />
+                        margin: 0;<br />
+                        padding: 0;<br />
+                    }<br />
+                    <br />
+                    img {<br />
+                        display: block;<br />
+                        max-width: 100%;<br />
+                    }
+                  </p>
+                </div>
               </div>
             </section>
+          </section>
+
+          <section class="section">
+            <h3 class="m-bottom-min">
+              Додаткові бібліотеки
+            </h3>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Опис</th>
+                  <th>Термінал</th>
+                  <th>Імпорт</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Типізація пропсів</td>
+                  <td>npm install --save-dev prop-types</td>
+                  <td>
+                    import PropTypes from 'prop-types';
+                  </td>
+                </tr>
+                <tr>
+                  <td>Композиціонування класів</td>
+                  <td>npm install clsx</td>
+                  <td>import clsx from "clsx";</td>
+                </tr>
+                <tr>
+                  <td>
+                    Нормалізація стилів (імпортується в
+                    <b>main.jsx</b>)
+                  </td>
+                  <td>npm install modern-normalize</td>
+                  <td>import "modern-normalize";</td>
+                </tr>
+                <tr>
+                  <td>Набір іконок</td>
+                  <td>npm install react-icons</td>
+                  <td>
+                    import { HiUser } from "react-icons/hi";
+                  </td>
+                </tr>
+                <tr>
+                  <td>Робота та налагодження форм</td>
+                  <td>npm install formik</td>
+                  <td>
+                    import { Formik, Form, Field,
+                    ErrorMessage } from "formik";
+                  </td>
+                </tr>
+                <tr>
+                  <td>Валідація Formik</td>
+                  <td>npm install yup</td>
+                  <td>import * as Yup from "yup";</td>
+                </tr>
+                <tr>
+                  <td>HTTP-запити</td>
+                  <td>npm install axios</td>
+                  <td>import axios from "axios";</td>
+                </tr>
+                <tr>
+                  <td>Маршрутизація в React</td>
+                  <td>npm install react-router-dom</td>
+                  <td>
+                    import { BrowserRouter } from
+                    "react-router-dom";<br />
+                    import { Routes, Route, NavLink } from
+                    "react-router-dom";<br />
+                    import { useParams } from
+                    "react-router-dom";<br />
+                    import { useNavigate } from
+                    "react-router-dom";<br />
+                    import { useSearchParams } from
+                    "react-router-dom";<br />
+                    import { useLocation } from
+                    "react-router-dom";
+                  </td>
+                </tr>
+                <tr>
+                  <td>React Redux</td>
+                  <td>npm install react-redux</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Redux Toolkit</td>
+                  <td>npm install @reduxjs/toolkit</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </section>
         </div>
       </section>
 
       <!-- Компоненти -->
       <section class="main-section">
-        <section>
-          <div class="container">
-            <h2 class="m-bottom center-text">Компоненти</h2>
+        <div class="container">
+          <h2 class="m-bottom center-text">Компоненти</h2>
 
-            <p>
-              Інтерфейс користувача складається з невеликих
-              елементів, таких як кнопки, текст і
-              зображення. React дозволяє об'єднувати їх у
-              багаторазово використовувані компоненти —
-              основні будівельні блоки React-застосунків, за
-              допомогою яких інтерфейс розділяється на
-              незалежні частини.
-            </p>
-          </div>
-        </section>
+          <p>
+            Інтерфейс користувача складається з невеликих
+            елементів, таких як кнопки, текст і зображення.
+            React дозволяє об'єднувати їх у багаторазово
+            використовувані компоненти — основні будівельні
+            блоки React-застосунків, за допомогою яких
+            інтерфейс розділяється на незалежні частини.
+          </p>
 
-        <!-- Оголошення компонента -->
-        <section>
-          <div class="container">
+          <!-- Оголошення компонента -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Оголошення компонента
             </h3>
+
             <div class="m-bottom flex">
               <div>
                 <p class="m-bottom-min">
                   В коді компонент — це функція, яка отримує
-                  об'єкт властивостей ( <b>props</b> ), і
-                  повертає React-елементи (HTML розмітку).
+                  об'єкт властивостей (
+                  <b>props</b> ), і повертає React-елементи
+                  (HTML розмітку).
                 </p>
                 <p class="border-box">
                   <b>Важливо!</b> Ім'я компонента
@@ -526,15 +516,14 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Імпорт та експорт компонентів -->
-        <section>
-          <div class="container">
+          <!-- Імпорт та експорт компонентів -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Імпорт та експорт компонентів
             </h3>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -577,6 +566,7 @@
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -619,24 +609,21 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- JSX — опис UI -->
-        <section>
-          <div class="container">
+          <!-- JSX — опис UI -->
+          <section class="section">
             <h3 class="m-bottom-min">JSX — опис UI</h3>
+
             <div class="m-bottom-min flex">
-              <div>
-                <p>
-                  Синтаксис JSX дуже схожий на HTML, але має
-                  деякі особливості, які слід враховувати.
-                  Якщо
-                  <b>тег</b> <i>порожній</i> або
-                  <i>самозакриваючийся</i>, його обов'язково
-                  треба закрити за допомогою <b>/></b>.
-                </p>
-              </div>
+              <p>
+                Синтаксис JSX дуже схожий на HTML, але має
+                деякі особливості, які слід враховувати.
+                Якщо
+                <b>тег</b> <i>порожній</i> або
+                <i>самозакриваючийся</i>, його обов'язково
+                треба закрити за допомогою <b>/></b>.
+              </p>
               <div>
                 <p class="bcg-box">
                   &#60;img src="" alt="" <b>/</b>&#62;
@@ -645,16 +632,15 @@
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min flex">
-              <div>
-                <p>
-                  Під час рендерингу <b>компонента</b> також
-                  використовується синтаксис JSX, тому
-                  обов'язково треба закрити тег компонента
-                  зі зворотним слешем (/) перед закриваючою
-                  дужкою тега.
-                </p>
-              </div>
+              <p>
+                Під час рендерингу
+                <b>компонента</b> також використовується
+                синтаксис JSX, тому обов'язково треба
+                закрити тег компонента зі зворотним слешем
+                (/) перед закриваючою дужкою тега.
+              </p>
               <div class="bcg-box">
                 <p>
                   &#60;App <b>/</b>&#62; <br />
@@ -662,27 +648,29 @@
                 </p>
               </div>
             </div>
+
             <div
               class="m-bottom-min flex print-m-bottom-max"
             >
-              <div>
-                <p>
-                  Деякі атрибути мають інші назви в
-                  порівнянні з HTML. Наприклад,
-                  <i>атрибут</i> <b>for</b> тега
-                  <i>label</i> в JSX називається
-                  <b>htmlFor</b>.
-                </p>
-              </div>
+              <p>
+                Деякі атрибути мають інші назви в порівнянні
+                з HTML. Наприклад,
+                <i>атрибут</i> <b>for</b> тега
+                <i>label</i> в JSX називається
+                <b>htmlFor</b>.
+              </p>
+
               <div class="bcg-box">
                 <p>
                   &#60;label <b>htmlFor</b>="login"&#62;
                   <br />
-                      &#60;input id="login" /&#62; <br />
+                      &#60;input id="login" /&#62;
+                  <br />
                   &#60;/label&#62;
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -713,6 +701,7 @@
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -741,6 +730,7 @@
                 </p>
               </div>
             </div>
+
             <div class="m-bottom-min flex">
               <div>
                 <p class="m-bottom-min">
@@ -781,37 +771,36 @@
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Властивості компонента (props) -->
-        <section>
-          <div class="container">
+          <!-- Властивості компонента (props) -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Властивості компонента (props)
             </h3>
+
             <div>
               <p class="m-bottom-min">
                 Компоненти приймають довільні властивості
-                (налаштування, <b>пропси</b>) і повертають
-                розмітку, яку потрібно відрендерити в DOM.
+                (налаштування,
+                <b>пропси</b>) і повертають розмітку, яку
+                потрібно відрендерити в DOM.
               </p>
               <p class="m-bottom-min">
                 Без пропсів компонент завжди повертає
                 однакову розмітку
               </p>
             </div>
+
             <div class="m-bottom-min flex">
-              <div>
-                <p class="m-bottom-min">
-                  Пропсом може бути текст кнопки,
-                  зображення, URL, будь-які дані для
-                  компонента. Пропси можуть бути рядками або
-                  результатом JS-виразу. Пропси передаються
-                  в компонент в місці його використання,
-                  аналогічно аргументам функції.
-                </p>
-              </div>
+              <p class="m-bottom-min">
+                Пропсом може бути текст кнопки, зображення,
+                URL, будь-які дані для компонента. Пропси
+                можуть бути рядками або результатом
+                JS-виразу. Пропси передаються в компонент в
+                місці його використання, аналогічно
+                аргументам функції.
+              </p>
               <div class="bcg-box print-fs-12">
                 <p>
                   <i> // src/components/App.jsx</i><br />
@@ -824,7 +813,8 @@
                               &#60;Product
                   <b>name="Tacos With Lime"</b> /><br />
                               &#60;Product
-                  <b>name="Fries and Burger"</b> /><br />
+                  <b>name="Fries and Burger"</b>
+                  /><br />
                           &#60;/div><br />
                       ); <br />
                   }
@@ -847,18 +837,21 @@
                 </p>
               </div>
             </div>
+
             <p class="m-bottom-min">
               Будь-який компонент, в тому числі Product,
               оголошує один параметр — <i>props</i>, це
               завжди буде <i>об'єкт</i>, що містить
               <i>усі передані пропси</i>.
             </p>
+
             <div class="m-bottom flex print-m-bottom-max">
               <p class="m-bottom-min">
                 Пропси використовуються для передачі
                 динамічних значень для компонента,
                 наприклад, для використання в JSX-розмітці,
-                використовуючи синтаксис <b>{}</b>
+                використовуючи синтаксис
+                <b>{}</b>
               </p>
               <div class="bcg-box print-fs-12">
                 <p>
@@ -904,7 +897,8 @@
                                   width="480"<br />
                               /><br />
                               &#60;p>Price:
-                  <b>{props.price}</b> credits&#60;/p><br />
+                  <b>{props.price}</b>
+                  credits&#60;/p><br />
                           &#60;/div><br />
                       );<br />
                   };
@@ -912,88 +906,103 @@
               </div>
             </div>
 
-            <div class="m-bottom flex">
-              <div>
-                <h4>
-                  <b>Деструктуризація</b>
-                </h4>
-              </div>
-              <div class="bcg-box">
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                <b>Деструктуризація</b>
+              </h4>
+
+              <div class="flex">
                 <p>
-                  export const Product = (<b
-                    >{ name, imgUrl, price }</b
-                  >
-                  ) => {<br />
-                      return (<br />
-                          &#60;div><br />
-                              &#60;h3>
-                  <b>{name}</b>&#60;/h3><br />
-                              &#60;img src=<b>{imgUrl}</b>
-                  alt=<b>{name}</b> width="480" /><br />
-                              &#60;p>Price:
-                  <b>{price}</b> credits&#60;/p><br />
-                          &#60;/div><br />
-                      );<br />
-                  };<br />
+                  <b>props</b> – це об'єкт, отже можна
+                  деструктуризувати його у підписі функції.
+                  Це робить код чистішим і читабельнішим.
                 </p>
+                <div class="bcg-box">
+                  <p>
+                    export const Product = (<b
+                      >{ name, imgUrl, price }</b
+                    >
+                    ) => {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;h3>
+                    <b>{name}</b>&#60;/h3><br />
+                                &#60;img src=<b>{imgUrl}</b>
+                    alt=<b>{name}</b> width="480" /><br />
+                                &#60;p>Price:
+                    <b>{price}</b> credits&#60;/p><br />
+                            &#60;/div><br />
+                        );<br />
+                    };<br />
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="m-bottom flex">
-              <div>
-                <h4 class="m-bottom-min">
-                  Значення пропсів за замовчуванням
-                </h4>
-                <p class="m-bottom-min">
-                  Якщо компонент очікує яке-небудь значення,
-                  а його не передати — під час звернення до
-                  властивості об'єкта <i>props</i> отримаємо
-                  <b>undefined</b>.
-                </p>
-                <p class="m-bottom-min">
-                  Щоб вказати значення властивостей за
-                  замовчуванням, використовується синтаксис
-                  значень за замовчуванням
-                  <i>під час деструктуризації</i> пропсів.
-                </p>
-                <p class="border-box">
-                  <b>Важливо!</b>
-                  Значення за замовчуванням не потрібно
-                  задавати всім пропсам; абсолютна більшість
-                  це обов'язкові значення для правильної
-                  роботи компонента. Проте, наприклад,
-                  значення зображення за замовчуванням може
-                  бути корисним.
-                </p>
+            </section>
+
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Значення пропсів за замовчуванням
+              </h4>
+
+              <div class="flex">
+                <div>
+                  <p class="m-bottom-min">
+                    Якщо компонент очікує яке-небудь
+                    значення, а його не передати — під час
+                    звернення до властивості об'єкта
+                    <i>props</i> отримаємо <b>undefined</b>.
+                  </p>
+                  <p class="m-bottom-min">
+                    Щоб вказати значення властивостей за
+                    замовчуванням, використовується
+                    синтаксис значень за замовчуванням
+                    <i>під час деструктуризації</i>
+                    пропсів.
+                  </p>
+                  <p class="border-box">
+                    <b>Важливо!</b>
+                    Значення за замовчуванням не потрібно
+                    задавати всім пропсам; абсолютна
+                    більшість це обов'язкові значення для
+                    правильної роботи компонента. Проте,
+                    наприклад, значення зображення за
+                    замовчуванням може бути корисним.
+                  </p>
+                </div>
+                <div class="bcg-box print-fs-12">
+                  <p>
+                    <i>// src/components/Product.jsx</i>
+                    <br />
+                    const Product = ({<br />
+                        name,<br />
+                       
+                    <b
+                      >imgUrl =
+                      "https://image.com/photo-5.jpg"</b
+                    >,<br />
+                        price,<br />
+                    }) => { <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;h3>{name}&#60;/h3><br />
+                                &#60;img <br />
+                                    src={imgUrl} <br />
+                                    alt={name} <br />
+                                    width="480" <br />
+                                /><br />
+                                &#60;p>Price: {price}
+                    credits&#60;/p><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
               </div>
-              <div class="bcg-box print-fs-12">
-                <p>
-                  <i>// src/components/Product.jsx</i>
-                  <br />
-                  const Product = ({<br />
-                      name,<br />
-                     
-                  <b
-                    >imgUrl =
-                    "https://image.com/photo-5.jpg"</b
-                  >,<br />
-                      price,<br />
-                  }) => (<br />
-                      &#60;div><br />
-                          &#60;h3>{name}&#60;/h3><br />
-                          &#60;img <br />
-                              src={imgUrl} <br />
-                              alt={name} <br />
-                              width="480" <br />
-                          /><br />
-                          &#60;p>Price: {price}
-                  credits&#60;/p><br />
-                      &#60;/div><br />
-                  );
-                </p>
-              </div>
-            </div>
-            <div>
+            </section>
+
+            <section class="sub-section">
               <h4 class="m-bottom-min">Підсумок</h4>
+
               <ul>
                 <li>
                   пропси використовуються для передачі даних
@@ -1008,23 +1017,23 @@
                   можна змінити.
                 </li>
               </ul>
-            </div>
-          </div>
-        </section>
+            </section>
+          </section>
 
-        <!-- Умовний рендеринг -->
-        <section>
-          <div class="container">
-            <h3 class="m-bottom">Умовний рендеринг</h3>
+          <!-- Умовний рендеринг -->
+          <section class="section print-m-bottom-max">
+            <h3 class="m-bottom-min">Умовний рендеринг</h3>
+
             <p class="m-bottom">
               <b>Умовний рендеринг</b> в React — це
               механізм, який дозволяє відображати різний
               контент або компоненти на основі <b>умови</b>.
             </p>
 
-            <h4 class="m-bottom-min">Оператор &&</h4>
-            <div class="m-bottom-min flex">
-              <div>
+            <section class="sub-section">
+              <h4 class="m-bottom-min">Оператор &&</h4>
+
+              <div class="m-bottom-min flex">
                 <p>
                   Логічний оператор
                   <b>&&</b> використовується для рендера
@@ -1032,82 +1041,84 @@
                   виконується, тобто приводиться до
                   <b>true</b>.
                 </p>
+                <div>
+                  <p class="bcg-box">
+                    {умова && розмітка}<br />
+                  </p>
+                </div>
               </div>
-              <div>
-                <p class="bcg-box">
-                  {умова && розмітка}<br />
-                </p>
-              </div>
-            </div>
 
-            <div class="m-bottom flex">
-              <div>
-                <p class="m-bottom-min">
-                  <i>Зліва</i> ставиться умова рендеру,
-                  <i>справа</i> JSX розмітка, що буде
-                  відрендерена якщо умова зліва наближається
-                  до true. В іншому випадку результатом
-                  виразу буде false - значення, яке не
-                  рендериться.
-                </p>
-                <p class="m-bottom-min">
-                  У JSX вираз обгортається в <b>{}</b>, щоб
-                  відобразити його результат.
-                </p>
-                <p class="border-box">
-                  Якщо за умови нічого не повинно бути
-                  відрендерено, можна повернути <b>null</b>,
-                  <b>undefined</b> або <b>false</b>. Ці
-                  значення <i>не будуть відображені</i>.
-                </p>
+              <div class="flex">
+                <div>
+                  <p class="m-bottom-min">
+                    <i>Зліва</i> ставиться умова рендеру,
+                    <i>справа</i> JSX розмітка, що буде
+                    відрендерена якщо умова зліва
+                    наближається до true. В іншому випадку
+                    результатом виразу буде false -
+                    значення, яке не рендериться.
+                  </p>
+                  <p class="m-bottom-min">
+                    У JSX вираз обгортається в <b>{}</b>,
+                    щоб відобразити його результат.
+                  </p>
+                  <p class="border-box">
+                    Якщо за умови нічого не повинно бути
+                    відрендерено, можна повернути
+                    <b>null</b>, <b>undefined</b> або
+                    <b>false</b>. Ці значення
+                    <i>не будуть відображені</i>.
+                  </p>
+                </div>
+                <div class="bcg-box print-fs-12">
+                  <p>
+                    const Mailbox = ({ username, messages })
+                    => {<br />
+                        return (<br />
+                            &#60;><br />
+                                &#60;p>Hello
+                    {username}&#60;/p><br />
+                               
+                    <b
+                      >{messages.length > 0 && (<br />
+                                      &#60;p><br />
+                                          You have
+                      {messages.length}<br />
+                                          unread messages<br />
+                                      &#60;/p><br />
+                                  )}</b
+                    ><br />
+                            &#60;/><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
               </div>
-              <div class="bcg-box print-fs-12">
-                <p>
-                  const Mailbox = ({ username, messages })
-                  => {<br />
-                      return (<br />
-                          &#60;><br />
-                              &#60;p>Hello
-                  {username}&#60;/p><br />
-                             
-                  <b
-                    >{messages.length > 0 && (<br />
-                                    &#60;p><br />
-                                        You have
-                    {messages.length}<br />
-                                        unread messages<br />
-                                    &#60;/p><br />
-                                )}</b
-                  ><br />
-                          &#60;/><br />
-                      );<br />
-                  };
-                </p>
-              </div>
-            </div>
+            </section>
 
-            <h4 class="m-bottom-min">Тернарний оператор</h4>
-            <div class="flex">
-              <div>
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Тернарний оператор
+              </h4>
+
+              <div class="flex">
                 <p>
                   Використовується, якщо в результаті
                   перевірки умови потрібно відобразити
                   <b>різну розмітку</b>.
                 </p>
+                <div class="bcg-box">
+                  <p>
+                    умова ? вміст_якщо_умова_true :
+                    вміст_якщо_умова_false<br />
+                  </p>
+                </div>
               </div>
-              <div class="bcg-box">
-                <p>
-                  умова ? вміст_якщо_умова_true :
-                  вміст_якщо_умова_false<br />
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
+          </section>
 
-        <!-- Колекції -->
-        <section>
-          <div class="container">
+          <!-- Колекції -->
+          <section class="section">
             <h3 class="m-bottom-min">Колекції</h3>
 
             <div class="m-bottom flex">
@@ -1119,7 +1130,7 @@
                   колекції повертає розмітку.
                 </p>
 
-                <p class="m-bottom-min">
+                <p class="">
                   В JSX цей вираз обгортається у фігурні
                   дужки {}.
                 </p>
@@ -1139,113 +1150,116 @@
               </div>
             </div>
 
-            <h4 class="m-bottom-min">Ключі елементів</h4>
-            <div class="m-bottom-min flex">
-              <div>
-                <p class="m-bottom-min">
-                  <b>Ключ (key)</b> — це спеціальний проп,
-                  який потрібно задати під час створення
-                  елементів колекції.
-                </p>
+            <section class="sub-section">
+              <h4 class="m-bottom-min">Ключі елементів</h4>
 
-                <p class="m-bottom-min">
-                  React використовує ключі, щоб визначити,
-                  які з елементів в колекції необхідно
-                  оновити, уникнувши перестворення всіх
-                  елементів колекції при змінах.
-                </p>
+              <div class="m-bottom-min flex">
+                <div>
+                  <p class="m-bottom-min">
+                    <b>Ключ (key)</b> — це спеціальний проп,
+                    який потрібно задати під час створення
+                    елементів колекції.
+                  </p>
 
-                <p>Ключі повинні бути:</p>
-                <ul class="m-bottom-min">
-                  <li>
-                    <i>унікальними</i> — ключ елемента
-                    повинен бути унікальним лише всередині
-                    однієї колекції. Глобально унікальні
-                    ключі не мають сенсу;
-                  </li>
-                  <li>
-                    <i>стабільними</i> — ключ елемента не
-                    повинен змінюватися з часом, зі зміною
-                    порядку елементів або після оновлення
-                    сторінки.
-                  </li>
-                </ul>
+                  <p class="m-bottom-min">
+                    React використовує ключі, щоб визначити,
+                    які з елементів в колекції необхідно
+                    оновити, уникнувши перестворення всіх
+                    елементів колекції при змінах.
+                  </p>
 
-                <p>Для ключа не можна використовувати:</p>
-                <ul class="m-bottom-min">
-                  <li>
-                    <b>індекси масиву</b> унікальні, проте
-                    вони не стабільні — при видаленні або
-                    перетасовці елементів індекси змінюються
-                    (<i
-                      >вікористовувати лише, якщо всі інщі
-                      варіанти не підходять</i
-                    >);
-                  </li>
-                  <li>
-                    <b>дата і час</b> унікальні, але не
-                    стабільні, оскільки постійно
-                    збільшуються. Таким чином, при кожному
-                    рендері створюються нові ключі;
-                  </li>
-                  <li>
-                    <b>випадкові числа</b> не є унікальними
-                    або стабільними.
-                  </li>
-                </ul>
+                  <p>Ключі повинні бути:</p>
+                  <ul class="m-bottom-min">
+                    <li>
+                      <i>унікальними</i> — ключ елемента
+                      повинен бути унікальним лише всередині
+                      однієї колекції. Глобально унікальні
+                      ключі не мають сенсу;
+                    </li>
+                    <li>
+                      <i>стабільними</i> — ключ елемента не
+                      повинен змінюватися з часом, зі зміною
+                      порядку елементів або після оновлення
+                      сторінки.
+                    </li>
+                  </ul>
+
+                  <p>Для ключа не можна використовувати:</p>
+                  <ul class="">
+                    <li>
+                      <b>індекси масиву</b> унікальні, проте
+                      вони не стабільні — при видаленні або
+                      перетасовці елементів індекси
+                      змінюються (<i
+                        >вікористовувати лише, якщо всі інщі
+                        варіанти не підходять</i
+                      >);
+                    </li>
+                    <li>
+                      <b>дата і час</b> унікальні, але не
+                      стабільні, оскільки постійно
+                      збільшуються. Таким чином, при кожному
+                      рендері створюються нові ключі;
+                    </li>
+                    <li>
+                      <b>випадкові числа</b> не є
+                      унікальними або стабільними.
+                    </li>
+                  </ul>
+                </div>
+                <div class="bcg-box">
+                  <p>
+                    const favouriteBooks = [<br />
+                        { id: "id-1", name: "JS for
+                    beginners" },<br />
+                        { id: "id-2", name: "React basics"
+                    },<br />
+                        { id: "id-3", name: "React Router"
+                    }<br />
+                    ];<br />
+                    <br />
+                    const BookList = ({ books }) => {<br />
+                        return (<br />
+                            &#60;ul><br />
+                                {books.map((book) => {<br />
+                                    return <br />
+                                        &#60;li
+                    <b>key={book.id}</b>>
+                    {book.name}&#60;/li>;<br />
+                                })}<br />
+                            &#60;/ul><br />
+                        );<br />
+                    };<br />
+                    <br />
+                    const App = () => {<br />
+                        return (<br />
+                            &#60;><br />
+                                &#60;h2>Books of the
+                    week&#60;/h2><br />
+                                &#60;BookList
+                    books={favouriteBooks} /><br />
+                            &#60;/><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
               </div>
-              <div class="bcg-box">
-                <p>
-                  const favouriteBooks = [<br />
-                      { id: "id-1", name: "JS for beginners"
-                  },<br />
-                      { id: "id-2", name: "React basics"
-                  },<br />
-                      { id: "id-3", name: "React Router"
-                  }<br />
-                  ];<br />
-                  <br />
-                  const BookList = ({ books }) => {<br />
-                      return (<br />
-                          &#60;ul><br />
-                              {books.map((book) => {<br />
-                                  return <br />
-                                      &#60;li
-                  <b>key={book.id}</b>>
-                  {book.name}&#60;/li>;<br />
-                              })}<br />
-                          &#60;/ul><br />
-                      );<br />
-                  };<br />
-                  <br />
-                  const App = () => {<br />
-                      return (<br />
-                          &#60;><br />
-                              &#60;h2>Books of the
-                  week&#60;/h2><br />
-                              &#60;BookList
-                  books={favouriteBooks} /><br />
-                          &#60;/><br />
-                      );<br />
-                  };
-                </p>
-              </div>
-            </div>
-            <p class="border-box">
-              Найкращий спосіб задати ключ — використовувати
-              статичний рядок, який
-              <i>ідентифікує елемент списку</i> серед інших.
-              Найчастіше використовуються id об'єктів,
-              створених базою даних, – постійні, незмінні
-              значення. Також підходить будь-яке унікальне
-              значення якої-небудь властивості об'єкта.
-            </p>
-          </div>
-        </section>
 
-        <!-- Властивість props.children -->
-        <section>
-          <div class="container">
+              <p class="border-box">
+                Найкращий спосіб задати ключ —
+                використовувати статичний рядок, який
+                <i>ідентифікує елемент списку</i> серед
+                інших. Найчастіше використовуються id
+                об'єктів, створених базою даних, – постійні,
+                незмінні значення. Також підходить будь-яке
+                унікальне значення якої-небудь властивості
+                об'єкта.
+              </p>
+            </section>
+          </section>
+
+          <!-- Властивість props.children -->
+          <section class="section print-m-bottom-max">
             <h3 class="m-bottom-min">
               Властивість props.children
             </h3>
@@ -1275,6 +1289,7 @@
                 tag&#60;/Card ><br />
               </div>
             </div>
+
             <div class="bcg-box" style="width: max-content">
               <p>
                 <i>// Оголошення</i><br />
@@ -1289,15 +1304,14 @@
                 &#60;/Card>
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <!-- Рендер додатка в DOM -->
-        <section>
-          <div class="container">
+          <!-- Рендер додатка в DOM -->
+          <section class="section">
             <h3 class="m-bottom-min">
               Рендер додатка в DOM
             </h3>
+
             <div class="m-bottom-min flex">
               <div>
                 <p>
@@ -1307,6 +1321,7 @@
                   createRoot(container) та render(element),
                   які працюють разом.
                 </p>
+
                 <ul>
                   <li>
                     метод <b>createRoot</b> приймає
@@ -1340,6 +1355,7 @@
                 </p>
               </div>
             </div>
+
             <p>
               <b>&#60;React.StrictMode></b> — вбудований
               компонент, який дозволяє виявляти потенційні
@@ -1349,6 +1365,7 @@
               знаходити та виправляти проблеми під час
               розробки. Його основні функції:
             </p>
+
             <ul class="m-bottom-min">
               <li>
                 сповіщення про використання застарілих
@@ -1371,6 +1388,7 @@
                 компонентів.
               </li>
             </ul>
+
             <p class="m-bottom-min border-box">
               <b>Важливо!</b> Достатньо використовувати лише
               один виклик render для того, щоб відрендерити
@@ -1388,13 +1406,12 @@
               перемальовується у браузері, на одній і тій
               самій сторінці, без перезавантаження.
             </p>
-          </div>
-        </section>
+          </section>
 
-        <!-- Типізація пропсів -->
-        <section>
-          <div class="container">
+          <!-- Типізація пропсів -->
+          <section class="section">
             <h3 class="m-bottom-min">Типізація пропсів</h3>
+
             <div class="flex">
               <div>
                 <p class="m-bottom-min">
@@ -1404,6 +1421,7 @@
                   передали число або інше неприпустиме
                   значення).
                 </p>
+
                 <p class="m-bottom-min">
                   Пакет <b>prop-types</b> надає низку
                   валідаторів для перевірки коректності
@@ -1411,6 +1429,7 @@
                   коду, повідомляючи про невідповідності в
                   консолі.
                 </p>
+
                 <div
                   class="m-bottom-min bcg-box center-element center-text"
                   style="max-width: fit-content"
@@ -1421,7 +1440,8 @@
                 <p>
                   Для опису пропсів компонента необхідно
                   описати їх типи, що він отримує, в
-                  спеціальній властивості <b>propTypes</b>.
+                  спеціальній властивості
+                  <b>propTypes</b>.
                 </p>
               </div>
               <div class="bcg-box">
@@ -1454,16 +1474,17 @@
                     PropTypes.number.isRequired,<br />
                     };<br
                   /></b>
+                  <br />
                   export default Product;<br />
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </section>
 
       <!-- Стилі -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <h2 class="m-bottom center-text">Стилі</h2>
 
         <!-- Вбудовані стилі -->
@@ -2250,7 +2271,7 @@
       </section>
 
       <!-- Обробка подій -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <h2 class="m-bottom center-text">Обробка подій</h2>
         <!-- Загальне -->
         <section>
@@ -2585,7 +2606,7 @@
       </section>
 
       <!-- Життєвий цикл -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <h2 class="m-bottom center-text">
           Життєвий цикл компонента
         </h2>
@@ -2854,7 +2875,7 @@
       </section>
 
       <!-- Форми -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <h2 class="m-bottom center-text">Форми</h2>
 
         <!-- Загальне -->
@@ -4892,7 +4913,7 @@
       </section>
 
       <!-- HTTP-запити -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <section>
           <div class="container">
             <h2
@@ -5764,7 +5785,7 @@
       </section>
 
       <!-- Redux -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <section id="redux">
           <div class="container">
             <h2 class="m-bottom center-text">Redux</h2>
@@ -8652,7 +8673,7 @@
       </section>
 
       <!-- Асинхронність в Redux -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <section>
           <div class="container">
             <section>
@@ -9442,7 +9463,7 @@
       </section>
 
       <!-- Реєстрація та логін користувача -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <div class="container">
           <h2
             id="register-login"
@@ -10000,7 +10021,7 @@
       </section>
 
       <!-- Хуки -->
-      <section class="main-section">
+      <section class="main-section hidden">
         <h2 id="hooks" class="m-bottom center-text">
           Хуки
         </h2>
