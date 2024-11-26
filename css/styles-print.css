@@ -14,7 +14,8 @@
   }
 
   .main-section {
-    margin-bottom: 1000px;
+    padding-bottom: 0;
+    break-after: page;
   }
 
   .print-center {
@@ -24,6 +25,10 @@
 
   .print-m-bottom-max {
     /* margin-bottom: 1000px !important; */
+    break-after: page;
+  }
+
+  .next-page {
     break-after: page;
   }
 

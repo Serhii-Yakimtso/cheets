@@ -20,7 +20,7 @@
         <a class="nav-link button" href="../../index.html"
           >На головну</a
         >
-        <a class="nav-link button" href="#redux"
+        <a class="nav-link button" href="#main"
           >До початку секції</a
         >
       </nav>
@@ -34,67 +34,163 @@
         </div>
       </section>
 
+      <section class="main-section">
+        <div class="container">
+          <h2 class="m-bottom-min center-text">
+            Додаткові бібліотеки
+          </h2>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Опис</th>
+                <th>Термінал</th>
+                <th>Імпорт</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Типізація пропсів</td>
+                <td>npm install --save-dev prop-types</td>
+                <td>import PropTypes from 'prop-types';</td>
+              </tr>
+              <tr>
+                <td>Композиціонування класів</td>
+                <td>npm install clsx</td>
+                <td>import clsx from "clsx";</td>
+              </tr>
+              <tr>
+                <td>
+                  Нормалізація стилів (імпортується в
+                  <b>main.jsx</b>)
+                </td>
+                <td>npm install modern-normalize</td>
+                <td>import "modern-normalize";</td>
+              </tr>
+              <tr>
+                <td>Набір іконок</td>
+                <td>npm install react-icons</td>
+                <td>
+                  import { HiUser } from "react-icons/hi";
+                </td>
+              </tr>
+              <tr>
+                <td>Робота та налагодження форм</td>
+                <td>npm install formik</td>
+                <td>
+                  import { Formik, Form, Field, ErrorMessage
+                  } from "formik";
+                </td>
+              </tr>
+              <tr>
+                <td>Валідація Formik</td>
+                <td>npm install yup</td>
+                <td>import * as Yup from "yup";</td>
+              </tr>
+              <tr>
+                <td>HTTP-запити</td>
+                <td>npm install axios</td>
+                <td>import axios from "axios";</td>
+              </tr>
+              <tr>
+                <td>Маршрутизація в React</td>
+                <td>npm install react-router-dom</td>
+                <td>
+                  import { BrowserRouter } from
+                  "react-router-dom";<br />
+                  import { Routes, Route, NavLink } from
+                  "react-router-dom";<br />
+                  import { useParams } from
+                  "react-router-dom";<br />
+                  import { useNavigate } from
+                  "react-router-dom";<br />
+                  import { useSearchParams } from
+                  "react-router-dom";<br />
+                  import { useLocation } from
+                  "react-router-dom";
+                </td>
+              </tr>
+              <tr>
+                <td>React Redux</td>
+                <td>npm install react-redux</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Redux Toolkit</td>
+                <td>npm install @reduxjs/toolkit</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <!-- Зміст -->
-      <section class="main-section hidden">
+      <section id="main" class="main-section">
         <div class="container">
           <h2 class="m-bottom-min">Зміст</h2>
 
           <ul>
             <li>
-              <a href="./pages/react/common.html"
-                >Загальне
-              </a>
+              <a href="#common">Створення проекту </a>
             </li>
             <li>
-              <a href="./pages/react/components.html"
-                >Компоненти
-              </a>
+              <a href="#components">Компоненти </a>
             </li>
             <li>
-              <a href="./pages/react/styles.html">Стилі </a>
+              <a href="#styles">Стилі </a>
             </li>
             <li>
-              <a href="./pages/react/events.html"
-                >Обробка подій
-              </a>
+              <a href="#events">Обробка подій </a>
             </li>
             <li>
-              <a href="./pages/react/life-cycle.html"
+              <a href="#life-cycle"
                 >Життєвий цикл компонента
               </a>
             </li>
             <li>
-              <a href="./pages/react/forms.html">Форми </a>
+              <a href="#forms">Форми </a>
             </li>
             <li>
-              <a href="./pages/react/http-request.html"
-                >HTTP-запити
-              </a>
+              <a href="#http-request">HTTP-запити </a>
             </li>
             <li>
-              <a href="./pages/react/redux.html">Redux </a>
+              <a href="#redux">Redux </a>
             </li>
             <li>
-              <a href="./pages/react/http-redux.html"
+              <a href="#http-redux"
                 >Асинхронність в Redux
               </a>
             </li>
             <li>
-              <a href="./pages/react/register-login.html"
+              <a href="#register-login"
                 >Реєстрація та логін користувача
               </a>
             </li>
             <li>
-              <a href="./pages/react/hooks.html"
-                >React's hooks</a
-              >
+              <a href="#hooks">React's hooks</a>
             </li>
           </ul>
         </div>
       </section>
 
       <!-- Загальні налаштування -->
-      <section class="main-section">
+      <section id="common" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">
             Створення проекту
@@ -105,7 +201,7 @@
               Загальні налаштування
             </h3>
 
-            <ol class="m-bottom-min print-m-bottom-max">
+            <ol class="m-bottom-min">
               <li class="m-bottom-min">
                 <p>
                   Створити порожній репозиторій (проєкт) на
@@ -269,7 +365,7 @@
             </ol>
 
             <!-- Нормалізація стилів -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">
                 Нормалізація стилів
               </h4>
@@ -352,117 +448,11 @@
               </div>
             </section>
           </section>
-
-          <section class="section">
-            <h3 class="m-bottom-min">
-              Додаткові бібліотеки
-            </h3>
-
-            <table>
-              <thead>
-                <tr>
-                  <th>Опис</th>
-                  <th>Термінал</th>
-                  <th>Імпорт</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Типізація пропсів</td>
-                  <td>npm install --save-dev prop-types</td>
-                  <td>
-                    import PropTypes from 'prop-types';
-                  </td>
-                </tr>
-                <tr>
-                  <td>Композиціонування класів</td>
-                  <td>npm install clsx</td>
-                  <td>import clsx from "clsx";</td>
-                </tr>
-                <tr>
-                  <td>
-                    Нормалізація стилів (імпортується в
-                    <b>main.jsx</b>)
-                  </td>
-                  <td>npm install modern-normalize</td>
-                  <td>import "modern-normalize";</td>
-                </tr>
-                <tr>
-                  <td>Набір іконок</td>
-                  <td>npm install react-icons</td>
-                  <td>
-                    import { HiUser } from "react-icons/hi";
-                  </td>
-                </tr>
-                <tr>
-                  <td>Робота та налагодження форм</td>
-                  <td>npm install formik</td>
-                  <td>
-                    import { Formik, Form, Field,
-                    ErrorMessage } from "formik";
-                  </td>
-                </tr>
-                <tr>
-                  <td>Валідація Formik</td>
-                  <td>npm install yup</td>
-                  <td>import * as Yup from "yup";</td>
-                </tr>
-                <tr>
-                  <td>HTTP-запити</td>
-                  <td>npm install axios</td>
-                  <td>import axios from "axios";</td>
-                </tr>
-                <tr>
-                  <td>Маршрутизація в React</td>
-                  <td>npm install react-router-dom</td>
-                  <td>
-                    import { BrowserRouter } from
-                    "react-router-dom";<br />
-                    import { Routes, Route, NavLink } from
-                    "react-router-dom";<br />
-                    import { useParams } from
-                    "react-router-dom";<br />
-                    import { useNavigate } from
-                    "react-router-dom";<br />
-                    import { useSearchParams } from
-                    "react-router-dom";<br />
-                    import { useLocation } from
-                    "react-router-dom";
-                  </td>
-                </tr>
-                <tr>
-                  <td>React Redux</td>
-                  <td>npm install react-redux</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Redux Toolkit</td>
-                  <td>npm install @reduxjs/toolkit</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
         </div>
       </section>
 
       <!-- Компоненти -->
-      <section class="main-section">
+      <section id="components" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">Компоненти</h2>
 
@@ -649,9 +639,7 @@
               </div>
             </div>
 
-            <div
-              class="m-bottom-min flex print-m-bottom-max"
-            >
+            <div class="m-bottom-min flex">
               <p>
                 Деякі атрибути мають інші назви в порівнянні
                 з HTML. Наприклад,
@@ -671,7 +659,7 @@
               </div>
             </div>
 
-            <div class="m-bottom-min flex">
+            <div class="m-bottom-min flex new-page">
               <div>
                 <p class="m-bottom-min">
                   У будь-яких двох або більше сусідніх тегів
@@ -845,7 +833,7 @@
               <i>усі передані пропси</i>.
             </p>
 
-            <div class="m-bottom flex print-m-bottom-max">
+            <div class="m-bottom flex">
               <p class="m-bottom-min">
                 Пропси використовуються для передачі
                 динамічних значень для компонента,
@@ -906,7 +894,7 @@
               </div>
             </div>
 
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">
                 <b>Деструктуризація</b>
               </h4>
@@ -1021,7 +1009,7 @@
           </section>
 
           <!-- Умовний рендеринг -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <h3 class="m-bottom-min">Умовний рендеринг</h3>
 
             <p class="m-bottom">
@@ -1083,8 +1071,7 @@
                       >{messages.length > 0 && (<br />
                                       &#60;p><br />
                                           You have
-                      {messages.length}<br />
-                                          unread messages<br />
+                      {messages.length} messages<br />
                                       &#60;/p><br />
                                   )}</b
                     ><br />
@@ -1118,7 +1105,7 @@
           </section>
 
           <!-- Колекції -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Колекції</h3>
 
             <div class="m-bottom flex">
@@ -1259,7 +1246,7 @@
           </section>
 
           <!-- Властивість props.children -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <h3 class="m-bottom-min">
               Властивість props.children
             </h3>
@@ -1307,7 +1294,7 @@
           </section>
 
           <!-- Рендер додатка в DOM -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">
               Рендер додатка в DOM
             </h3>
@@ -1483,13 +1470,15 @@
         </div>
       </section>
 
+      <div class="next-page"></div>
+
       <!-- Стилі -->
-      <section class="main-section">
+      <section id="styles" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">Стилі</h2>
 
           <!-- Вбудовані стилі -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <h3 class="m-bottom-min">Вбудовані стилі</h3>
             <div class="m-bottom flex">
               <div>
@@ -1697,7 +1686,7 @@
           </section>
 
           <!-- Ванільний CSS -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Ванільний CSS</h3>
 
             <div class="m-bottom-min flex">
@@ -1766,7 +1755,7 @@
             </div>
 
             <!-- Композиція класів -->
-            <section class="sub-section print-m-bottom-max">
+            <section class="sub-section">
               <h4 class="m-bottom-min">
                 Композиція класів
               </h4>
@@ -1865,7 +1854,7 @@
             </section>
 
             <!-- Бібліотека clsx -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Бібліотека clsx</h4>
               <div class="m-bottom-min flex">
                 <p class="m-bottom-min">
@@ -1935,7 +1924,7 @@
                 </div>
               </div>
 
-              <div class="m-bottom flex">
+              <div class="flex">
                 <div>
                   <p class="m-bottom-min">
                     Можна комбінувати варіативну та об'єктну
@@ -1952,6 +1941,25 @@
                     посилаються, можуть перевизначати
                     властивості одне одного.
                   </p>
+
+                  <p><b>Підсумок</b>:</p>
+                  <ul>
+                    <li>слабка масштабованість;</li>
+                    <li>
+                      обмежене повторне використання стилів;
+                    </li>
+                    <li>
+                      для динамічних значень необхідно
+                      використовувати вбудовані стилі;
+                    </li>
+                    <li>
+                      проблема глобального простору імен;
+                    </li>
+                    <li>
+                      необхідність використовувати якусь
+                      конвенцію іменування селекторів класу.
+                    </li>
+                  </ul>
                 </div>
                 <div class="bcg-box print-fs-12">
                   <p>
@@ -1979,23 +1987,6 @@
                   </p>
                 </div>
               </div>
-
-              <p><b>Підсумок</b>:</p>
-              <ul>
-                <li>слабка масштабованість;</li>
-                <li>
-                  обмежене повторне використання стилів;
-                </li>
-                <li>
-                  для динамічних значень необхідно
-                  використовувати вбудовані стилі;
-                </li>
-                <li>проблема глобального простору імен;</li>
-                <li>
-                  необхідність використовувати якусь
-                  конвенцію іменування селекторів класу.
-                </li>
-              </ul>
             </section>
 
             <!-- Повторне використання стилів -->
@@ -2003,7 +1994,7 @@
               <h4 class="m-bottom-min">
                 Повторне використання стилів
               </h4>
-              <div class="m-bottom flex print-m-bottom-max">
+              <div class="m-bottom flex">
                 <div>
                   <p class="m-bottom-min">
                     Не рекомендується використовувати одні й
@@ -2067,7 +2058,7 @@
             </section>
 
             <!-- CSS-модулі -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">CSS-модулі</h4>
               <div class="m-bottom-min flex">
                 <div>
@@ -2290,7 +2281,7 @@
       </section>
 
       <!-- Обробка подій -->
-      <section class="main-section">
+      <section id="events" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">
             Обробка подій
@@ -2454,7 +2445,7 @@
           </section>
 
           <!-- Об'єкт події -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <h3 class="m-bottom-min">Об'єкт події</h3>
 
             <div class="flex">
@@ -2505,7 +2496,7 @@
           </section>
 
           <!-- Читання props -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Читання props</h3>
 
             <div class="flex">
@@ -2636,7 +2627,7 @@
       </section>
 
       <!-- Життєвий цикл -->
-      <section class="main-section">
+      <section id="life-cycle" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">
             Життєвий цикл компонента
@@ -2774,9 +2765,7 @@
                 </div>
               </div>
 
-              <div
-                class="m-bottom-min flex print-m-bottom-max"
-              >
+              <div class="m-bottom-min flex">
                 <div class="bcg-box print-m-left-none">
                   <p>
                     const [clicks, setClicks] = useState(()
@@ -2860,7 +2849,7 @@
                 </div>
               </div>
 
-              <div class="m-bottom-min">
+              <div class="m-bottom-min new-page">
                 <div class="border-box flex">
                   <p>
                     <b>Важливо!</b> Якщо необхідно отримати
@@ -2927,7 +2916,7 @@
       </section>
 
       <!-- Форми -->
-      <section class="main-section">
+      <section id="forms" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">Форми</h2>
 
@@ -3079,7 +3068,7 @@
                 Використання форми
               </h4>
 
-              <div class="flex print-m-bottom-max">
+              <div class="flex">
                 <div>
                   <p class="m-bottom-min">
                     На практиці <b>форма</b> це окремий
@@ -3145,7 +3134,7 @@
                 </div>
               </div>
 
-              <div class="flex">
+              <div class="flex new-page">
                 <p class="border-box">
                   <b>Уважно!</b> Зверніть увагу на те, що в
                   пропс onLogin ми передаємо дані полів
@@ -3310,9 +3299,7 @@
                 <li>змінюємо стан при події onChange.</li>
               </ul>
 
-              <p
-                class="border-box m-bottom-min print-m-bottom-max"
-              >
+              <p class="border-box m-bottom-min">
                 <b>Важливо!</b> Якщо селект є частиною
                 <b>неконтрольованої форми</b>, то спочатку
                 ми задаємо йому атрибут <b>name</b>, а потім
@@ -3325,7 +3312,7 @@
                 атрибута <i>name</i>.
               </p>
 
-              <div class="flex">
+              <div class="flex new-page">
                 <div class="bcg-box print-m-left-none">
                   <p>
                     const LangSwitcher = () => {<br />
@@ -3416,7 +3403,7 @@
             <section class="sub-section">
               <h4 class="m-bottom-min">Радіо-кнопки</h4>
 
-              <div class="flex print-m-bottom-max">
+              <div class="flex">
                 <div>
                   <p>
                     <b>Радіо-кнопки</b> є альтернативою
@@ -3509,7 +3496,7 @@
             </section>
 
             <!-- Чекбокси -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Чекбокси</h4>
 
               <div class="flex">
@@ -3584,13 +3571,13 @@
           </section>
 
           <!-- Контрольована форма -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <!-- Контрольована форма -->
             <h3 class="m-bottom-min">
               Контрольована форма
             </h3>
 
-            <div class="m-bottom flex print-m-bottom-max">
+            <div class="m-bottom flex">
               <div>
                 <p class="m-bottom-min">
                   Якщо значення полів форми є не лише
@@ -3711,7 +3698,7 @@
               </div>
             </div>
 
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Відправка форми</h4>
 
               <div class="m-bottom flex">
@@ -3822,7 +3809,7 @@
           </section>
 
           <!-- Колекція елементів -->
-          <section class="section print-m-bottom-max">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Колекція елементів</h3>
 
             <div class="flex">
@@ -3858,9 +3845,7 @@
                 <p>Кроки:</p>
 
                 <ol>
-                  <li
-                    class="m-bottom-min print-m-bottom-max"
-                  >
+                  <li class="m-bottom-min">
                     Додаємо новий елемент до колекції:
                     <ul class=" ">
                       <li>
@@ -3922,7 +3907,7 @@
                     </ul>
                   </li>
 
-                  <li class="m-bottom-min">
+                  <li class="m-bottom-min new-page">
                     Видаляємо існуючий елемент із колекції
                     <ul class=" ">
                       <li>
@@ -4015,7 +4000,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li class="print-m-bottom-max">
+                      <li class="">
                         <b>Filter.jsx.</b> Приймаємо
                         <i>props</i> <b>value</b> та
                         <b>onFilter</b> та отримуємо текст
@@ -4038,28 +4023,6 @@
                         <b>App.jsx.</b> фільтруємо масив
                         елементів на предмет наявності
                         ключового тексту
-                        <ul class=" ">
-                          <li>
-                            <i>функція</i>
-                            <b>visibleTasks</b> приймає
-                            масив елементів задач із стану
-                            <b>tasks</b> та фільтрує по
-                            наявності фільтруючого тексту зі
-                            стану <b>filter</b> (самі стани
-                            залишаються не зміними);
-                          </li>
-                          <li>
-                            передаємо у <i>props</i>
-                            <i>компонента</i>
-                            <b>TaskList</b>
-                            <b>tasks={visibleTasks}</b>
-                            для рендеру
-                            <i>компонентів</i>
-                            <b>Task</b> (на початку він
-                            ренедився із
-                            <b>initialTasks</b>).
-                          </li>
-                        </ul>
                       </li>
                     </ul>
                   </li>
@@ -4127,9 +4090,7 @@
                   </p>
                 </div>
 
-                <div
-                  class="bcg-box m-bottom-min print-m-bottom-max"
-                >
+                <div class="bcg-box m-bottom-min">
                   <p>
                     <i>// Form.jsx</i><br />
                     import css from './Form.module.css';<br />
@@ -4162,7 +4123,7 @@
                   </p>
                 </div>
 
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box m-bottom-min new-page">
                   <p>
                     <i>// Filter.jsx</i><br />
                     <br />
@@ -4219,7 +4180,7 @@
                   </p>
                 </div>
 
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box">
                   <p>
                     <i>// Task.jsx</i><br />
 
@@ -4249,10 +4210,40 @@
                 </div>
               </div>
             </div>
+
+            <!-- додаток до списку -->
+            <ul
+              class=""
+              style="
+                margin-left: 80px;
+                list-style-type: square;
+              "
+            >
+              <li>
+                <i>функція</i>
+                <b>visibleTasks</b> приймає масив елементів
+                задач із стану <b>tasks</b> та фільтрує по
+                наявності фільтруючого тексту зі стану
+                <b>filter</b> (самі стани залишаються не
+                зміними);
+              </li>
+              <li>
+                передаємо у <i>props</i>
+                <i>компонента</i>
+                <b>TaskList</b>
+                <b>tasks={visibleTasks}</b>
+                для рендеру
+                <i>компонентів</i>
+                <b>Task</b> (на початку він ренедився із
+                <b>initialTasks</b>).
+              </li>
+            </ul>
           </section>
 
+          <div class="new-page"></div>
+
           <!-- Бібліотека Formik -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Бібліотека Formik</h3>
 
             <div class="m-bottom-min flex">
@@ -4413,7 +4404,7 @@
             </section>
 
             <!-- Стилізація -->
-            <section class="sub-section print-m-bottom-max">
+            <section class="sub-section">
               <h4 class="m-bottom-min">Стилізація</h4>
 
               <div class="m-bottom flex">
@@ -4471,7 +4462,7 @@
             </section>
 
             <!-- Початкове значення полів -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">
                 Початкове значення полів
               </h4>
@@ -4561,7 +4552,7 @@
             </section>
 
             <!-- Відправка форми -->
-            <section class="sub-section print-m-bottom-max">
+            <section class="sub-section">
               <h4 class="m-bottom-min">Відправка форми</h4>
 
               <div class="flex">
@@ -4657,7 +4648,7 @@
             </section>
 
             <!-- Елементи форми -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Елементи форми</h4>
 
               <div class="flex">
@@ -4736,7 +4727,7 @@
             <section class="sub-section">
               <h4 class="m-bottom-min">Селект</h4>
 
-              <div class="flex print-m-bottom-max">
+              <div class="flex">
                 <div>
                   <p class="m-bottom-min">
                     Для використання
@@ -4800,7 +4791,7 @@
             </section>
 
             <!-- Валідація -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Валідація</h4>
 
               <div class="m-bottom-min flex">
@@ -5185,9 +5176,7 @@
                 Відображення даних
               </h4>
 
-              <div
-                class="m-bottom-min flex print-m-bottom-max"
-              >
+              <div class="m-bottom-min flex">
                 <p>
                   При зміні стану компонент оновиться, тому
                   можна використовувати стан для
@@ -5208,7 +5197,7 @@
                 </p>
               </div>
 
-              <div class="flex">
+              <div class="flex new-page">
                 <div class="border-box">
                   <p>По крокове перелік дій</p>
                   <ol>
@@ -5292,7 +5281,7 @@
               Індикатор завантаження
             </h3>
 
-            <div class="flex print-m-bottom-max">
+            <div class="flex">
               <div>
                 <p class="m-bottom-min">
                   Під час HTTP-запиту потрібно відображати
@@ -5380,7 +5369,7 @@
           </section>
 
           <!-- Обробка помилок -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min">Обробка помилок</h3>
 
             <div class="flex">
@@ -5914,13 +5903,15 @@
         </div>
       </section>
 
+      <div class="next-page"></div>
+
       <!-- Redux -->
       <section id="redux" class="main-section">
         <div class="container">
           <h2 class="m-bottom center-text">Redux</h2>
 
           <!-- Redux (vanila) -->
-          <section class="section print-m-bottom-max">
+          <section class="section">
             <h3 class="m-bottom-min center-text">
               Redux (vanila)
             </h3>
@@ -6025,7 +6016,7 @@
             </section>
 
             <!-- Створення структури для Redux -->
-            <section class="section print-m-bottom-max">
+            <section class="section">
               <h4 class="m-bottom-min">
                 Створення структури для Redux
               </h4>
@@ -6157,7 +6148,7 @@
             </section>
 
             <!-- Стор (store) -->
-            <section class="sub-section">
+            <section class="sub-section new-page">
               <h4 class="m-bottom-min">Стор (store)</h4>
 
               <p class="m-bottom-min">
@@ -6537,7 +6528,7 @@
                   Генератори екшенів
                 </h5>
 
-                <div class="flex print-m-bottom-max">
+                <div class="flex">
                   <p class="">
                     Екшени це <i>статичні об'єкти</i>,
                     значення властивості <b>payload</b> яких
@@ -6580,7 +6571,7 @@
               </section>
 
               <!-- Відправлення екшенів -->
-              <section class="inner-section">
+              <section class="inner-section new-page">
                 <h5 class="m-bottom-min">
                   Відправлення екшенів
                 </h5>
@@ -6923,7 +6914,7 @@
             </section>
 
             <!-- Висновки -->
-            <section class="sub-section print-m-bottom-max">
+            <section class="sub-section">
               <h4 class="m-bottom-min">Висновки</h4>
 
               <p>Алгоритм використання Redux</p>
@@ -6956,16 +6947,16 @@
             </section>
 
             <!-- Приклад -->
-            <section class="sub-section no-break">
+            <section class="sub-section no-break new-page">
               <h4 class="m-bottom-min center-text">
                 Приклад
               </h4>
 
-              <div class="flex print-fs-12 no-break">
+              <div class="flex print-fs-10">
                 <div style="margin-right: auto">
                   <!-- <p>Стан (Store)</p> -->
                   <div
-                    class="bcg-box print-m-left-none"
+                    class="bcg-box print-m-left-none print-fs-12"
                     style="
                       margin-right: auto;
                       margin-bottom: 4px;
@@ -6992,7 +6983,7 @@
 
                   <!-- <p>balanceSlice</p> -->
                   <div
-                    class="bcg-box print-m-left-none"
+                    class="bcg-box print-m-left-none print-fs-12"
                     style="
                       margin-right: auto;
                       margin-bottom: 4px;
@@ -7041,7 +7032,7 @@
 
                   <!-- <p>localeSlice.js</p> -->
                   <div
-                    class="bcg-box print-m-left-none"
+                    class="bcg-box print-m-left-none print-fs-12"
                     style="margin-right: auto"
                   >
                     <p>
@@ -7066,7 +7057,6 @@
                                           lang:
                       action.payload,<br />
                                       };<br />
-                                  <br />
                                   default:<br />
                                       return state;<br />
                           }<br />
@@ -7101,7 +7091,7 @@
                 <div class="print-m-left-none">
                   <!-- <p>App.jsx</p> -->
                   <div
-                    class="bcg-box"
+                    class="bcg-box print-fs-12"
                     style="margin-bottom: 4px"
                   >
                     <p>
@@ -7130,7 +7120,7 @@
 
                   <!-- <p>Balance</p> -->
                   <div
-                    class="bcg-box"
+                    class="bcg-box print-fs-12"
                     style="margin-bottom: 4px"
                   >
                     <p>
@@ -7177,7 +7167,7 @@
                   </div>
 
                   <!-- <p>LangSwitcher</p> -->
-                  <div class="bcg-box">
+                  <div class="bcg-box print-fs-12">
                     <p>
                       <i
                         >//
@@ -7208,8 +7198,6 @@
                       value="en">EN&#60;/option><br />
                                       &#60;option
                       value="uk">UK&#60;/option><br />
-                                      &#60;option
-                      value="pl">PL&#60;/option><br />
                                   &#60;/select><br />
                               &#60;/div><br />
                           );<br />
@@ -7222,7 +7210,7 @@
           </section>
 
           <!-- Redux Toolkit -->
-          <section class="section">
+          <section class="section new-page">
             <h3 class="m-bottom-min center-text">
               Redux Toolkit
             </h3>
@@ -7887,7 +7875,6 @@
                                   }<br />
                               });<br />
                       });<br />
-                      <br />
                       export const filtersReducer =
                       createReducer(filtersInitialState,
                       builder => {<br />
@@ -9434,20 +9421,18 @@
                       <p>
                         <i>// src/redux/selectors.js</i
                         ><br />
-                        <br />
                         import { <b>createSelector</b> }
                         from "@reduxjs/toolkit";<br />
                         <br />
                         export const
-                        <b>selectTasks</b> =<br />
-                            state => state.tasks.items;<br />
+                        <b>selectTasks</b> = state =>
+                        state.tasks.items;<br />
                         <br />
                         export const
                         <b>selectTaskCount</b> =
                         <b>createSelector</b>(<br />
                             [<b>selectTasks</b>],<br />
                             tasks => {<br />
-                        <br />
                             return tasks.reduce(<br />
                                 (count, task) => {<br />
                                     if (task.completed) {<br />
@@ -9471,20 +9456,14 @@
                           >//
                           src/components/TaskCounter/TaskCounter.jsx</i
                         ><br />
-                        <br />
-                        <br />
                         import { useSelector } from
                         "react-redux";<br />
                         import { <b>selectTaskCount</b> }
                         from "redux/selectors";<br />
-                        <br />
-                        <br />
                         export const TaskCounter = () =>
                         {<br />
                             const count =
                         useSelector(<b>selectTaskCount</b>);<br />
-                        <br />
-                        <br />
                             <i>// Рендер JSX розмітки</i
                         ><br />
                         };
@@ -11110,177 +11089,6 @@
             </section>
           </section>
 
-          <!-- Хук useMemo -->
-          <section id="useMemo" class="section new-page">
-            <h3 class="m-bottom-min center-text">
-              Хук useMemo
-            </h3>
-
-            <p class="m-bottom-min">
-              Хук <b>useMemo</b> використовує концепцію
-              мемоізації, метод оптимізації комп'ютерних
-              програм шляхом збереження результатів викликів
-              функції та повернення кешованого результату
-              при повторенні тих самих вхідних даних.
-              Мемоізована функція «запам'ятовує» результат
-              обчислень відповідний набору аргументів.
-              Наступні виклики з такими самими значеннями
-              аргументів повертають запам'ятований
-              результат, а не перераховують його.
-            </p>
-
-            <div class="m-bottom-min flex">
-              <div>
-                <p>
-                  Хук useMemo приймає
-                  <b>два аругменти</b>:
-                </p>
-                <ul>
-                  <li>
-                    Першим є анонімна функція, яка повертає
-                    значення, саме вона буде мемоізована.
-                  </li>
-                  <li>
-                    Другим є масив залежностей, при зміні
-                    якоїсь з них, викликається функція
-                    передана першим аргументом.
-                  </li>
-                </ul>
-              </div>
-              <div class="bcg-box">
-                <p>
-                  import { useMemo } from "react";<br />
-                  <br />
-                  const memoizedValue = useMemo(() => {<br />
-                      return a + b;<br />
-                  }, [a, b]);
-                </p>
-              </div>
-            </div>
-
-            <div class="m-bottom-min flex">
-              <div>
-                <p><b>Алгоритм</b> роботи хука useMemo:</p>
-                <ul class="m-bottom-min">
-                  <li>
-                    При першому рендері компонента
-                    викликається функція, результат
-                    запам'ятовується і повертається як
-                    результат роботи хука.
-                  </li>
-                  <li>
-                    Якщо за наступних рендерів залежності не
-                    змінюються, то хук не викликає функцію,
-                    а просто повертає збережений результат
-                    роботи.
-                  </li>
-                  <li>
-                    Якщо будь-яка залежність змінилася, то
-                    хук викликає функцію заново,
-                    запам'ятовує нове значення та повертає
-                    його.
-                  </li>
-                </ul>
-                <div class="border-box">
-                  <p class="m-bottom-min">
-                    <b>Опис прикладу!</b>
-                  </p>
-                  <p class="m-bottom-min">
-                    Кожного разу, коли зміниться значення
-                    <b>planets</b> або <b>query</b>,
-                    компонент буде оновлено.
-                  </p>
-                  <p class="m-bottom-min">
-                    Компонент <b>App</b> містить додатковий
-                    стан <b>clicks</b>, який ніяк
-                    <i>не впливає на планети</i>.
-                  </p>
-                  <p>
-                    Кожного разу, коли змінюється стан
-                    <b>clicks</b>, компонент буде оновлено,
-                    що призведе до обчислення
-                    <b>filteredPlanets</b>, хоча значення
-                    <b>planets</b> та <b>planets</b> не
-                    змінилися! Оскільки метод
-                    <b>filter</b> повертає посилання на
-                    новий масив, React сприймає це як
-                    абсолютно нові дані та список планет
-                    буде відображено заново. У такому разі
-                    варто мемоізувати обчислення
-                    <b>filteredPlanets</b>.
-                  </p>
-                </div>
-              </div>
-              <div class="bcg-box">
-                <p>
-                  <b>import { useMemo } from "react"</b
-                  >;<br />
-                  <br />
-                  const App = () => {<br />
-                      const [<b>planets</b>, setPlanets] =
-                  useState(<br />
-                          ["Earth", "Mars", "Jupiter",
-                  "Venus"]<br />
-                      );<br />
-                      const [<b>query</b>, setQuery] =
-                  useState("");<br />
-                      const [clicks, setClicks] =
-                  useState(0);<br />
-                      <br />
-                     
-                  <b
-                    >const filteredPlanets = useMemo(<br />
-                            () => planets.filter(<br />
-                                planet =>
-                    planet.includes(query)<br />
-                            ),<br />
-                            [planets, query]<br />
-                        )</b
-                  >;<br />
-                      <br />
-                      return (<br />
-                          &#60;><br />
-                              &#60;button onClick={<br />
-                                  () => setClicks(clicks +
-                  1)<br />
-                              }><br />
-                                  Number of clicks:
-                  {clicks}<br />
-                              &#60;/button><br />
-                              &#60;ul><br />
-                                 
-                  {filteredPlanets.map(planet => (<br />
-                                      &#60;li
-                  key={planet}>{planet}&#60;/li><br />
-                                  ))}<br />
-                              &#60;/ul><br />
-                          &#60;/><br />
-                      );<br />
-                  };
-                </p>
-              </div>
-            </div>
-
-            <p class="m-bottom-min">
-              Те ж саме стосується дорогих операцій, таких
-              як використання довгого циклу <b>for</b>.
-              Дорогі обчислення можуть бути витратними за
-              часом, що гарантовано призведе до погіршення
-              роботи інтерфейсу.
-            </p>
-
-            <p>
-              Не потрібно мемоізувати все поспіль, це може
-              призвести до втрат продуктивності, оскільки
-              мемоізація також займає обчислювальні ресурси.
-              Найчастіше повторні прості обчислення
-              обійдуться дешевше, ніж їхня мемоїзація.
-              Використовуйте useMemo() точково, в першу
-              чергу при роботі з масивами та для дорогих
-              обчислень.
-            </p>
-          </section>
-
           <!-- Хук useRef -->
           <section id="useRef" class="section new-page">
             <h3 id="useRef" class="m-bottom center-text">
@@ -11647,7 +11455,7 @@
               </div>
             </div>
 
-            <div class="m-bottom flex print-m-bottom-max">
+            <div class="m-bottom flex">
               <p class="">
                 Кожного разу імпортувати посилання на об'єкт
                 контексту може бути не дуже зручно. Тому
@@ -11672,7 +11480,7 @@
             </div>
 
             <!-- Приклад. Контекст користувача -->
-            <h4 class="m-bottom-min">
+            <h4 class="m-bottom-min new-page">
               Приклад. Контекст користувача
             </h4>
             <div class="m-bottom flex">
@@ -11880,6 +11688,177 @@
                 </div>
               </div>
             </div>
+          </section>
+
+          <!-- Хук useMemo -->
+          <section id="useMemo" class="section new-page">
+            <h3 class="m-bottom-min center-text">
+              Хук useMemo
+            </h3>
+
+            <p class="m-bottom-min">
+              Хук <b>useMemo</b> використовує концепцію
+              мемоізації, метод оптимізації комп'ютерних
+              програм шляхом збереження результатів викликів
+              функції та повернення кешованого результату
+              при повторенні тих самих вхідних даних.
+              Мемоізована функція «запам'ятовує» результат
+              обчислень відповідний набору аргументів.
+              Наступні виклики з такими самими значеннями
+              аргументів повертають запам'ятований
+              результат, а не перераховують його.
+            </p>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p>
+                  Хук useMemo приймає
+                  <b>два аругменти</b>:
+                </p>
+                <ul>
+                  <li>
+                    Першим є анонімна функція, яка повертає
+                    значення, саме вона буде мемоізована.
+                  </li>
+                  <li>
+                    Другим є масив залежностей, при зміні
+                    якоїсь з них, викликається функція
+                    передана першим аргументом.
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useMemo } from "react";<br />
+                  <br />
+                  const memoizedValue = useMemo(() => {<br />
+                      return a + b;<br />
+                  }, [a, b]);
+                </p>
+              </div>
+            </div>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p><b>Алгоритм</b> роботи хука useMemo:</p>
+                <ul class="m-bottom-min">
+                  <li>
+                    При першому рендері компонента
+                    викликається функція, результат
+                    запам'ятовується і повертається як
+                    результат роботи хука.
+                  </li>
+                  <li>
+                    Якщо за наступних рендерів залежності не
+                    змінюються, то хук не викликає функцію,
+                    а просто повертає збережений результат
+                    роботи.
+                  </li>
+                  <li>
+                    Якщо будь-яка залежність змінилася, то
+                    хук викликає функцію заново,
+                    запам'ятовує нове значення та повертає
+                    його.
+                  </li>
+                </ul>
+                <div class="border-box">
+                  <p class="m-bottom-min">
+                    <b>Опис прикладу!</b>
+                  </p>
+                  <p class="m-bottom-min">
+                    Кожного разу, коли зміниться значення
+                    <b>planets</b> або <b>query</b>,
+                    компонент буде оновлено.
+                  </p>
+                  <p class="m-bottom-min">
+                    Компонент <b>App</b> містить додатковий
+                    стан <b>clicks</b>, який ніяк
+                    <i>не впливає на планети</i>.
+                  </p>
+                  <p>
+                    Кожного разу, коли змінюється стан
+                    <b>clicks</b>, компонент буде оновлено,
+                    що призведе до обчислення
+                    <b>filteredPlanets</b>, хоча значення
+                    <b>planets</b> та <b>planets</b> не
+                    змінилися! Оскільки метод
+                    <b>filter</b> повертає посилання на
+                    новий масив, React сприймає це як
+                    абсолютно нові дані та список планет
+                    буде відображено заново. У такому разі
+                    варто мемоізувати обчислення
+                    <b>filteredPlanets</b>.
+                  </p>
+                </div>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <b>import { useMemo } from "react"</b
+                  >;<br />
+                  <br />
+                  const App = () => {<br />
+                      const [<b>planets</b>, setPlanets] =
+                  useState(<br />
+                          ["Earth", "Mars", "Jupiter",
+                  "Venus"]<br />
+                      );<br />
+                      const [<b>query</b>, setQuery] =
+                  useState("");<br />
+                      const [clicks, setClicks] =
+                  useState(0);<br />
+                      <br />
+                     
+                  <b
+                    >const filteredPlanets = useMemo(<br />
+                            () => planets.filter(<br />
+                                planet =>
+                    planet.includes(query)<br />
+                            ),<br />
+                            [planets, query]<br />
+                        )</b
+                  >;<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button onClick={<br />
+                                  () => setClicks(clicks +
+                  1)<br />
+                              }><br />
+                                  Number of clicks:
+                  {clicks}<br />
+                              &#60;/button><br />
+                              &#60;ul><br />
+                                 
+                  {filteredPlanets.map(planet => (<br />
+                                      &#60;li
+                  key={planet}>{planet}&#60;/li><br />
+                                  ))}<br />
+                              &#60;/ul><br />
+                          &#60;/><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+
+            <p class="m-bottom-min">
+              Те ж саме стосується дорогих операцій, таких
+              як використання довгого циклу <b>for</b>.
+              Дорогі обчислення можуть бути витратними за
+              часом, що гарантовано призведе до погіршення
+              роботи інтерфейсу.
+            </p>
+
+            <p>
+              Не потрібно мемоізувати все поспіль, це може
+              призвести до втрат продуктивності, оскільки
+              мемоізація також займає обчислювальні ресурси.
+              Найчастіше повторні прості обчислення
+              обійдуться дешевше, ніж їхня мемоїзація.
+              Використовуйте useMemo() точково, в першу
+              чергу при роботі з масивами та для дорогих
+              обчислень.
+            </p>
           </section>
 
           <!-- Власні хуки -->
