@@ -9927,6 +9927,46 @@
               </div>
             </div>
           </section>
+
+          <section class="section new-page">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+
+            <div class="flex">
+              <!-- src/components/Toggler/Toggler.jsx -->
+              <div class="bcg-box m-bottom-min">
+                <p>
+                  <i>
+                    // src/components/Toggler/Toggler.jsx </i
+                  ><br />
+                  <br />
+                  import { useState } from "react";<br />
+                  <br />
+                  export default function Toggler() {<br />
+                      const [isOpen, setIsOpen] =
+                  useState(false);<br />
+                      <br />
+                      const handleToggle = () => {<br />
+                          setIsOpen(!isOpen);<br />
+                      };<br />
+                      <br />
+                      return (<br />
+                          &#60;div><br />
+                              &#60;button
+                  onClick={handleToggle}><br />
+                                  {isOpen ? "Close" :
+                  "Open"}<br />
+                              &#60;/button><br />
+                              {isOpen && (&#60;p>Lorem
+                  ipsum,... &#60;/p>)}<br />
+                          &#60;/div><br />
+                      );<br />
+                  }
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
