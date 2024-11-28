@@ -3336,11 +3336,13 @@
             </p>
           </section>
 
-          <section class="section">
+          <!-- Фінальний приклад (приклад від Репети) -->
+          <section class="section new-page">
             <h3 class="m-bottom-min">
               Фінальний приклад (приклад від Репети)
             </h3>
-            <div class="flex">
+
+            <div class="flex m-bottom-min">
               <div class="m-bottom-min">
                 <!-- src/components/App/App.jsx -->
                 <div class="bcg-box m-bottom-min">
@@ -3349,8 +3351,7 @@
                     ><br />
                     <br />
                     import { useState } from "react";<br />
-                    import ClickCounter <br />
-                        from
+                    import ClickCounter from
                     "../ClickCounter/ClickCounter";<br />
                     import Toggler from
                     "../Toggler/Toggler";<br />
@@ -3403,7 +3404,7 @@
                 </div>
 
                 <!-- src/components/ClickCounter/ClickCounter.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box">
                   <p>
                     <i>
                       //
@@ -3411,16 +3412,21 @@
                     ><br />
                     <br />
 
-                    export default function ClickCounter({
-                    value, onUpdate }) {<br />
-                        return &#60;button
-                    onClick={onUpdate}><br />
-                            Clicks: {value}<br />
-                        &#60;/button>;<br />
+                    export default function
+                    ClickCounter({<br />
+
+                        value,<br />
+                        onUpdate<br />
+                    }) {<br />
+                        return
+                    &#60;buttononClick={onUpdate}> Clicks:
+                    {value} &#60;/button>;<br />
                     }<br />
                   </p>
                 </div>
+              </div>
 
+              <div>
                 <!-- src/components/Toggler/Toggler.jsx -->
                 <div class="bcg-box m-bottom-min">
                   <p>
@@ -3445,12 +3451,191 @@
                                     {isOpen ? "Close" :
                     "Open"}<br />
                                 &#60;/button><br />
-                                {isOpen && (<br />
-                                    &#60;p><br />
-                                        Lorem ipsum, ...<br />
-                                    &#60;/p><br />
-                                )}<br />
+                                {isOpen && (&#60;p>Lorem
+                    ipsum,... &#60;/p>)}<br />
                             &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/articles.json -->
+                <div class="bcg-box">
+                  <p>
+                    <i> // src/articles.json </i><br />
+                    <br />
+
+                    [<br />
+                        {<br />
+                            "id": 1,<br />
+                            "topic": "Web Technologies",<br />
+                            "text": "Web technologies
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 2,<br />
+                            "topic": "Frontend
+                    Development",<br />
+                            "text": "Frontend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 3,<br />
+                            "topic": "Backend
+                    Development",<br />
+                            "text": "Backend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 4,<br />
+                            "topic": "Database
+                    Management",<br />
+                            "text": "Database management
+                    i..."<br />
+                        },<br />
+                        {<br />
+                            "id": 5,<br />
+                            "topic": "Responsive Design",<br />
+                            "text": "Responsive design
+                    ..."<br />
+                        }<br />
+                    ]
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex new-page">
+              <div>
+                <!-- src/components/Reader/Reader.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      // src/components/Reader/Reader.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useState } from "react";<br />
+                    import Controls from
+                    "../Controls/Controls";<br />
+                    import Progress from
+                    "../Progress/Progress";<br />
+                    import ArticleView from
+                    "../ArticleView/ArticleView";<br />
+                    <br />
+                    export default function Reader({ items
+                    }) {<br />
+                        const [selectedIdx, setSelectedIdx]
+                    = useState(0);<br />
+                        <br />
+                        const handlePrev = () => {<br />
+                            setSelectedIdx(selectedIdx -
+                    1);<br />
+                        };<br />
+                        <br />
+                        const handleNext = () => {<br />
+                            setSelectedIdx(selectedIdx +
+                    1);<br />
+                        };<br />
+                        <br />
+                        const totalItems = items.length;<br />
+                        const isFirst = selectedIdx ===
+                    0;<br />
+                        const isLast = selectedIdx ===
+                    totalItems - 1;<br />
+                        const currentItem =
+                    items[selectedIdx];<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;Controls<br />
+                                    onPrev={handlePrev}<br />
+                                    onNext={handleNext}<br />
+                                    isFirst={isFirst}<br />
+                                    isLast={isLast}<br />
+                                /><br />
+                                &#60;Progress
+                    current={selectedIdx + 1}
+                    total={totalItems} /><br />
+                                &#60;ArticleView
+                    article={currentItem} /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/Controls/Controls.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/Controls/Controls.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function Controls({
+                    <br />
+                        isFirst,<br />
+                        isLast,<br />
+                        onPrev,<br />
+                        onNext<br />
+                    }) {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={onPrev}
+                    disabled={isFirst}><br />
+                                    Prev<br />
+                                &#60;/button><br />
+                                &#60;button onClick={onNext}
+                    disabled={isLast}><br />
+                                    Next<br />
+                                &#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/Progress/Progress.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/Progress/Progress.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function Progress({
+                    current, total }) {<br />
+                        return (<br />
+                            &#60;p><br />
+                                {current}/{total}<br />
+                            &#60;/p><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/ArticleView/ArticleView.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/ArticleView/ArticleView.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function ArticleView({<br />
+                        article: { topic, text }<br />
+                    }) {<br />
+                        return (<br />
+                            &#60;article><br />
+                                &#60;h2>{topic}&#60;/h2><br />
+                                &#60;p>{text}&#60;/p><br />
+                            &#60;/article><br />
                         );<br />
                     }
                   </p>
@@ -3747,6 +3932,228 @@
               </div>
             </section>
           </section>
+
+          <!-- Фінальний приклад (приклад від Репети) -->
+          <section class="section new-page">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+
+            <div class="flex">
+              <div>
+                <!-- src/components/App/App.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/components/App/App.jsx </i
+                    ><br />
+                    <br />
+
+                    import Reader from
+                    "../Reader/Reader";<br />
+                    import articles from
+                    "../../articles.json";<br />
+                    import css from "./App.module.css";<br />
+                    <br />
+                    export default function App() {<br />
+                    <br />
+                        return (<br />
+                            &#60;div
+                    className={css.container}><br />
+                                &#60;h1>Effects in
+                    React&#60;/h1><br />
+                                &#60;Reader items={articles}
+                    /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/articles.json -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/articles.json </i><br />
+                    <br />
+
+                    [<br />
+                        {<br />
+                            "id": 1,<br />
+                            "topic": "Web Technologies",<br />
+                            "text": "Web technologies
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 2,<br />
+                            "topic": "Frontend
+                    Development",<br />
+                            "text": "Frontend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 3,<br />
+                            "topic": "Backend
+                    Development",<br />
+                            "text": "Backend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 4,<br />
+                            "topic": "Database
+                    Management",<br />
+                            "text": "Database management
+                    i..."<br />
+                        },<br />
+                    ]
+                  </p>
+                </div>
+
+                <!-- src/components/Controls/Controls.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>
+                      //
+                      src/components/Controls/Controls.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function Controls({<br />
+                        isFirst,<br />
+                        isLast,<br />
+                        onPrev,<br />
+                        onNext<br />
+                    }) {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={onPrev}
+                    disabled={isFirst}><br />
+                                    Prev<br />
+                                &#60;/button><br />
+                                &#60;button onClick={onNext}
+                    disabled={isLast}><br />
+                                    Next<br />
+                                &#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/Reader/Reader.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      // src/components/Reader/Reader.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useEffect, useState } from
+                    "react";<br />
+                    import Controls from
+                    "../Controls/Controls";<br />
+                    import Progress from
+                    "../Progress/Progress";<br />
+                    import ArticleView from
+                    "../ArticleView/ArticleView";<br />
+                    <br />
+                    export default function Reader({ items
+                    }) {<br />
+                        const [selectedIdx, setSelectedIdx]
+                    = useState(() => {<br />
+                            const savedIdx =
+                    localStorage.getItem("article-idx");<br />
+                            return savedIdx !== null ?
+                    JSON.parse(savedIdx) : 0;<br />
+                        });<br />
+                        <br />
+                        useEffect(() => {<br />
+                           
+                    localStorage.setItem("article-idx",
+                    selectedIdx);<br />
+                        }, [selectedIdx]);<br />
+                        <br />
+                        const handlePrev = () => {<br />
+                            setSelectedIdx(selectedIdx -
+                    1);<br />
+                        };<br />
+                        <br />
+                        const handleNext = () => {<br />
+                            setSelectedIdx(selectedIdx +
+                    1);<br />
+                        };<br />
+                        <br />
+                        const totalItems = items.length;<br />
+                        const isFirst = selectedIdx ===
+                    0;<br />
+                        const isLast = selectedIdx ===
+                    totalItems - 1;<br />
+                        const currentItem =
+                    items[selectedIdx];<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;Controls<br />
+                                    onPrev={handlePrev}<br />
+                                    onNext={handleNext}<br />
+                                    isFirst={isFirst}<br />
+                                    isLast={isLast}<br />
+                                /><br />
+                                &#60;Progress
+                    current={selectedIdx + 1}
+                    total={totalItems} /><br />
+                                &#60;ArticleView
+                    article={currentItem} /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/Progress/Progress.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/Progress/Progress.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function Progress({
+                    current, total }) {<br />
+                        return (<br />
+                           
+                    &#60;p>{current}/{total}&#60;/p><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/ArticleView/ArticleView.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>
+                      //
+                      src/components/ArticleView/ArticleView.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function ArticleView({
+                    article: { topic, text } }) {<br />
+                        return (<br />
+                            &#60;article><br />
+                                &#60;h2>{topic}&#60;/h2><br />
+                                &#60;p>{text}&#60;/p><br />
+                            &#60;/article><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="new-page"></div>
         </div>
       </section>
 
