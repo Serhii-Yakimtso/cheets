@@ -34,13 +34,19 @@
         </div>
       </section>
 
+      <!-- Додаткові бібліотеки -->
       <section class="main-section">
         <div class="container">
           <h2 class="m-bottom-min center-text">
             Додаткові бібліотеки
           </h2>
 
-          <table>
+          <table class="table-react-libreries">
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
             <thead>
               <tr>
                 <th>Опис</th>
@@ -95,7 +101,7 @@
               <tr>
                 <td>Маршрутизація в React</td>
                 <td>npm install react-router-dom</td>
-                <td>
+                <td class="fs-13">
                   import { BrowserRouter } from
                   "react-router-dom";<br />
                   import { Routes, Route, NavLink } from
@@ -120,17 +126,92 @@
                 <td>npm install @reduxjs/toolkit</td>
                 <td></td>
               </tr>
-              <tr>
+              <tr class="empty-coin">
                 <td></td>
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
+              <tr class="empty-coin">
                 <td></td>
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="empty-coin">
                 <td></td>
                 <td></td>
                 <td></td>
@@ -1467,10 +1548,179 @@
               </div>
             </div>
           </section>
+
+          <!-- Фінальний приклад -->
+          <section class="section new-page">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+
+            <div class="flex">
+              <div>
+                <!-- src/components/PaymentCard.jsx -->
+                <div
+                  class="bcg-box m-bottom-min print-m-left-none"
+                >
+                  <p>
+                    <i>
+                      // src/components/PaymentCard.jsx </i
+                    ><br />
+                    <br />
+                    export default function PaymentCard({<br />
+                        payment: {<br />
+                            amount,<br />
+                            description,<br />
+                            cardNumber,<br />
+                            cardType,<br />
+                            cardOwner,<br />
+                            date,<br />
+                            isPaid,<br />
+                        },<br />
+                    }) {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;p>Amount: {amount}
+                    &#60;/p><br />
+                                &#60;p>Status: {isPaid ?
+                    "Paid" : "Pending"} &#60;/p><br />
+                                &#60;p>Description:
+                    {description}&#60;/p><br />
+                                &#60;p>Card Number:
+                    {cardNumber}&#60;/p><br />
+                                &#60;p>Card Type: {cardType}
+                    &#60;/p><br />
+                                &#60;p>Card Holder
+                    Name:{cardOwner}&#60;/p><br />
+                                &#60;p>Payment Date: {date}
+                    &#60;/p><br />
+                                &#60;hr /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/PaymentList.jsx -->
+                <div
+                  class="bcg-box m-bottom-min print-m-left-none"
+                >
+                  <p>
+                    <i>
+                      // src/components/PaymentList.jsx </i
+                    ><br /><br />
+
+                    import PaymentCard from
+                    "./PaymentCard";<br />
+                    <br />
+                    export default function PaymentList({
+                    payments }) {<br />
+                        return (<br />
+                           &#60;ul><br />
+                               {payments.map((payment) =>
+                    (<br />
+                                   &#60;li
+                    key={payment.id}><br />
+                                       &#60;PaymentCard
+                    payment={payment} /><br />
+                                   &#60;/li><br />
+                               ))}<br />
+                           &#60;/ul><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/PageTitle.jsx -->
+                <div class="bcg-box print-m-left-none">
+                  <p>
+                    <i> // src/components/PageTitle.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function PageTitle({ text
+                    }) {<br />
+                        return &#60;h1>{text}&#60;/h1>;<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- payments.json -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/payments.json </i><br />
+                    [<br />
+                        {<br />
+                            "id": "1",<br />
+                            "cardNumber": "1234 5678 9012
+                    3456",<br />
+                            "cardType": "Visa",<br />
+                            "cardOwner": "John Doe",<br />
+                            "date": "2024-01-01",<br />
+                            "amount": 100,<br />
+                            "description": "Payment for
+                    groceries",<br />
+                            "isPaid": true<br />
+                        },<br />
+                        {<br />
+                            "id": "2",<br />
+                            "cardNumber": "9876 5432 1098
+                    7654",<br />
+                            "cardType": "Mastercard",<br />
+                            "cardOwner": "Alice Smith",<br />
+                            "date": "2024-01-05",<br />
+                            "amount": 50,<br />
+                            "description": "Payment for
+                    utilities",<br />
+                            "isPaid": false<br />
+                        },<br />
+                        {<br />
+                            "id": "3",<br />
+                            "cardNumber": "2468 1357 8024
+                    6913",<br />
+                            "cardType": "American
+                    Express",<br />
+                            "cardOwner": "Bob Johnson",<br />
+                            "date": "2024-01-10",<br />
+                            "amount": 200,<br />
+                            "description": "Payment for
+                    rent",<br />
+                            "isPaid": true<br />
+                        },<br />
+                    ]
+                  </p>
+                </div>
+
+                <!-- src/components/App.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i> // src/components/App.jsx </i><br />
+                    <br />
+
+                    import PaymentList from
+                    "./PaymentList";<br />
+                    import PageTitle from "./PageTitle";<br />
+                    import initialPayments from
+                    "../payments.json";<br />
+                    <br />
+                    export default function App() {<br />
+                        return (<br />
+                            &#60;><br />
+                                &#60;PageTitle
+                    text="Payments" /><br />
+                                &#60;PaymentList
+                    payments={initialPayments} /><br />
+                            &#60;/><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
-
-      <div class="next-page"></div>
 
       <!-- Стилі -->
       <section id="styles" class="main-section">
@@ -2277,6 +2527,468 @@
               </div>
             </section>
           </section>
+
+          <section class="section new-page">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+
+            <div class="flex m-bottom-min">
+              <div>
+                <!-- main -->
+                <div class="m-bottom-min">
+                  <!-- src/main.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i> // src/main.jsx </i><br />
+                      <br />
+
+                      import React from "react";<br />
+                      import ReactDOM from
+                      "react-dom/client";<br />
+                      import App from
+                      "./components/App/App";<br />
+                      import "modern-normalize";<br />
+                      import "./index.css";<br />
+                      <br />
+                      ReactDOM.createRoot(document.getElementById("root"))<br />
+                          .render(<br />
+                              &#60;React.StrictMode><br />
+                                  <App /><br />
+                              &#60;/React.StrictMode><br />
+                      );
+                    </p>
+                  </div>
+
+                  <!-- src/index.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i> // src/index.css </i><br />
+                      <br />
+
+                      :root {<br />
+                          font-family: system-ui,
+                      -apple-system,<br />
+                          BlinkMacSystemFont, "Segoe UI",
+                      Roboto,<br />
+                              Oxygen, Ubuntu, Cantarell,<br />
+                          "Open Sans", "Helvetica Neue",
+                      sans-serif;<br />
+                          line-height: 1.5;<br />
+                          font-synthesis: none;<br />
+                          text-rendering:
+                      optimizeLegibility;<br />
+                          -webkit-font-smoothing:
+                      antialiased;<br />
+                          -moz-osx-font-smoothing:
+                      grayscale;<br />
+                      }<br />
+                      img {<br />
+                          display: block;<br />
+                          max-width: 100%;<br />
+                          object-fit: cover;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <!-- App -->
+                <div class="m-bottom-min">
+                  <!-- src/components/App/App.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i> // src/components/App/App.jsx </i
+                      ><br />
+                      <br />
+                      import PaymentList from
+                      "../PaymentList/PaymentList";<br />
+                      import PageTitle from
+                      "../PageTitle/PageTitle";<br />
+                      import initialPayments from
+                      "../../payments.json";<br />
+                      import css from "./App.module.css";<br />
+                      import Button from
+                      "../Button/Button";<br />
+                      <br />
+                      export default function App() {<br />
+                          return (<br />
+                              &#60;div
+                      className={css.container}><br />
+                                  &#60;PageTitle>Styling
+                      React Components&#60;/PageTitle><br />
+                                  &#60;Button
+                      variant="primary">First&#60;/Button><br />
+                                  &#60;Button
+                      variant="secondary" type="submit"><br />
+                                      Second<br />
+                                  &#60;/Button><br />
+                                  &#60;PaymentList
+                      payments={initialPayments} /><br />
+                              &#60;/div><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/App/App.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        // src/components/App/App.module.css </i
+                      ><br />
+                      <br />
+                      .container {<br />
+                          max-width: 960px;<br />
+                          margin: 0 auto;<br />
+                          padding: 0 16px;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <!-- payments.json -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/payments.json </i><br />
+                    [<br />
+                        {<br />
+                            "id": "1",<br />
+                            "cardNumber": "1234 5678 9012
+                    3456",<br />
+                            "cardType": "Visa",<br />
+                            "cardOwner": "John Doe",<br />
+                            "date": "2024-01-01",<br />
+                            "amount": 100,<br />
+                            "description": "Payment for
+                    groceries",<br />
+                            "isPaid": true<br />
+                        },<br />
+                        {<br />
+                            "id": "2",<br />
+                            "cardNumber": "9876 5432 1098
+                    7654",<br />
+                            "cardType": "Mastercard",<br />
+                            "cardOwner": "Alice Smith",<br />
+                            "date": "2024-01-05",<br />
+                            "amount": 50,<br />
+                            "description": "Payment for
+                    utilities",<br />
+                            "isPaid": false<br />
+                        },<br />
+                        {<br />
+                            "id": "3",<br />
+                            "cardNumber": "2468 1357 8024
+                    6913",<br />
+                            "cardType": "American
+                    Express",<br />
+                            "cardOwner": "Bob Johnson",<br />
+                            "date": "2024-01-10",<br />
+                            "amount": 200,<br />
+                            "description": "Payment for
+                    rent",<br />
+                            "isPaid": true<br />
+                        },<br />
+                    ]
+                  </p>
+                </div>
+
+                <!-- PageTitle -->
+                <div class="m-bottom-min">
+                  <!-- src/components/PageTitle/PageTitle.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        //
+                        src/components/PageTitle/PageTitle.jsx </i
+                      ><br />
+                      <br />
+
+                      import { HiAcademicCap } from
+                      "react-icons/hi";<br />
+                      import css from
+                      "./PageTitle.module.css";<br />
+                      <br />
+                      export default function PageTitle({
+                      children }) {<br />
+                          return (<br />
+                              &#60;h1
+                      className={css.text}><br />
+                                  &#60;HiAcademicCap
+                      className={css.icon} /><br />
+                                  {children}<br />
+                              &#60;/h1><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/PageTitle/PageTitle.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/PageTitle/PageTitle.module.css </i
+                      ><br />
+                      <br />
+
+                      .text {<br />
+                          display: flex;<br />
+                          align-items: center;<br />
+                          gap: 8px;<br />
+                          font-size: 32px;<br />
+                      }<br />
+                      <br />
+                      .icon {<br />
+                          width: 40px;<br />
+                          height: 40px;<br />
+                          color: orangered;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex new-page">
+              <div>
+                <!-- PaymentCard -->
+                <div class="m-bottom-min">
+                  <!-- src/components/PaymentCard/PaymentCard.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentCard/PaymentCard.jsx </i
+                      ><br />
+                      <br />
+
+                      export default function
+                      PaymentCard({<br />
+                          payment: {<br />
+                              amount,<br />
+                              description,<br />
+                              cardNumber,<br />
+                              cardType,<br />
+                              cardOwner,<br />
+                              date,<br />
+                              isPaid,<br />
+                          },<br />
+                      }) {<br />
+                          const amountClassNames = clsx(<br />
+                              css.text,<br />
+                              isPaid ? css.isPaid :
+                      css.isPending
+                      <br />
+                          );<br />
+                              return (<br />
+                              &#60;div
+                      className={css.container}><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Amount: {amount}<br />
+                                  &#60;/p><br />
+
+                                  &#60;p
+                      className={amountClassNames}><br />
+                                      Status: {isPaid ?
+                      "Paid" : "Pending"}<br />
+                                  &#60;/p><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Description:
+                      {description}<br />
+                                  &#60;/p><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Card Number:
+                      {cardNumber}<br />
+                                  &#60;/p><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Card Type: {cardType}
+                      <br />
+                                  &#60;/p><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Card Holder
+                      Name:{cardOwner} <br />
+                                  &#60;/p><br />
+                                  &#60;p
+                      className={css.text}><br />
+                                      Payment Date:
+                      {date}<br />
+                                  &#60;/p><br />
+                              &#60;/div><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/PaymentCard/PaymentCard.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentCard/PaymentCard.module.css </i
+                      ><br />
+                      <br />
+
+                      .container {<br />
+                          padding: 8px;<br />
+                          border: 1px solid black;<br />
+                          border-radius: 4px;<br />
+                      }<br />
+                      <br />
+                      .text {<br />
+                          margin: 0;<br />
+                      }<br />
+                      <br />
+                      .isPaid {<br />
+                          color: green;<br />
+                      }<br />
+                      <br />
+                      .isPending {<br />
+                          color: orangered;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <!-- PaymentList -->
+                <div class="m-bottom-min">
+                  <!-- src/components/PaymentList/PaymentList.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentList/PaymentList.jsx </i
+                      ><br />
+                      <br />
+
+                      import PaymentCard from
+                      "../PaymentCard/PaymentCard";<br />
+                      import css from
+                      "./PaymentList.module.css";<br />
+                      <br />
+                      export default function PaymentList({
+                      payments }) {<br />
+                          return (<br />
+                              &#60;ul
+                      className={css.list}><br />
+                                  {payments.map((payment) =>
+                      (<br />
+                                      &#60;li
+                      key={payment.id}
+                      className={css.listItem}><br />
+                                          &#60;PaymentCard
+                      payment={payment} /><br />
+                                      &#60;/li><br />
+                                  ))}<br />
+                              &#60;/ul><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/PaymentList/PaymentList.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentList/PaymentList.module.css </i
+                      ><br />
+
+                      .list {<br />
+                          display: flex;<br />
+                          flex-direction: column;<br />
+                          gap: 12px;<br />
+                          padding: 0;<br />
+                          margin: 0;<br />
+                          list-style: none;<br />
+                      }<br />
+                      .listItem {<br />
+                          padding: 8px;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Button -->
+                <div class="m-bottom-min">
+                  <!-- src/components/Button/Button.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        // src/components/Button/Button.jsx </i
+                      ><br />
+                      <br />
+                      import clsx from "clsx";<br />
+                      import css from
+                      "./Button.module.css";<br />
+                      <br />
+                      export default function Button({<br />
+
+                          variant,<br />
+                          type = "button",<br />
+                          children<br />
+                      }) {<br />
+                          const btnClasses = clsx(css.btn,
+                      {<br />
+                              [css.primary]: variant ==
+                      "primary",<br />
+                              [css.secondary]: variant ==
+                      "secondary",<br />
+                          });<br />
+                          return (<br />
+                              &#60;button
+                      className={btnClasses} type={type}><br />
+                                  {children}<br />
+                              &#60;/button><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/Button/Button.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/Button/Button.module.css </i
+                      ><br />
+                      .btn {<br />
+                          padding: 12px;<br />
+                          font-size: 20px;<br />
+                      }<br />
+                      .primary {<br />
+                          background-color: blue;<br />
+                          color: #fff;<br />
+                      }<br />
+                      .secondary {<br />
+                          background-color: orangered;<br />
+                          color: #fff;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -2622,6 +3334,129 @@
               Станом компонента можна керувати за допомогою
               <b>хука</b> <b>useState</b>.
             </p>
+          </section>
+
+          <section class="section">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+            <div class="flex">
+              <div class="m-bottom-min">
+                <!-- src/components/App/App.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/components/App/App.jsx </i
+                    ><br />
+                    <br />
+                    import { useState } from "react";<br />
+                    import ClickCounter <br />
+                        from
+                    "../ClickCounter/ClickCounter";<br />
+                    import Toggler from
+                    "../Toggler/Toggler";<br />
+                    import css from "./App.module.css";<br />
+                    import Reader from
+                    "../Reader/Reader";<br />
+                    import articles from
+                    "../../articles.json";<br />
+                    <br />
+                    export default function App() {<br />
+                        const [clicks, setClicks] =
+                    useState(0);<br />
+                    <br />
+                        const handleClick = () => {<br />
+                            setClicks(clicks + 1);<br />
+                        };<br />
+                    <br />
+                        return (<br />
+                            &#60;div
+                    className={css.container}><br />
+                                &#60;h1>State in
+                    React&#60;/h1><br />
+                                &#60;hr /><br />
+                                &#60;Reader items={articles}
+                    /><br />
+                                &#60;hr /><br />
+                                &#60;ClickCounter<br />
+                                    value={clicks}<br />
+                                   
+                    onUpdate={handleClick}<br />
+                                /><br />
+                                &#60;ClickCounter<br />
+                                    value={clicks}<br />
+                                   
+                    onUpdate={handleClick}<br />
+                                /><br />
+                                &#60;ClickCounter<br />
+                                    value={clicks}<br />
+                                   
+                    onUpdate={handleClick}<br />
+                                /><br />
+                                &#60;hr /><br />
+                                &#60;Toggler /><br />
+                                &#60;Toggler /><br />
+                                &#60;Toggler /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/ClickCounter/ClickCounter.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/ClickCounter/ClickCounter.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function ClickCounter({
+                    value, onUpdate }) {<br />
+                        return &#60;button
+                    onClick={onUpdate}><br />
+                            Clicks: {value}<br />
+                        &#60;/button>;<br />
+                    }<br />
+                  </p>
+                </div>
+
+                <!-- src/components/Toggler/Toggler.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      // src/components/Toggler/Toggler.jsx </i
+                    ><br />
+                    <br />
+                    import { useState } from "react";<br />
+                    <br />
+                    export default function Toggler() {<br />
+                        const [isOpen, setIsOpen] =
+                    useState(false);<br />
+                        <br />
+                        const handleToggle = () => {<br />
+                            setIsOpen(!isOpen);<br />
+                        };<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button
+                    onClick={handleToggle}><br />
+                                    {isOpen ? "Close" :
+                    "Open"}<br />
+                                &#60;/button><br />
+                                {isOpen && (<br />
+                                    &#60;p><br />
+                                        Lorem ipsum, ...<br />
+                                    &#60;/p><br />
+                                )}<br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </section>
@@ -10119,7 +10954,11 @@
                 </div>
               </div>
 
-              <table class="thick-element">
+              <table class="hooks-table thick-element">
+                <colgroup>
+                  <col />
+                  <col />
+                </colgroup>
                 <caption></caption>
                 <thead>
                   <tr>
@@ -10142,8 +10981,10 @@
                       <a href="#useState">useState</a>
                     </td>
                     <td>
-                      додає стан до функціональних
-                      компонентів
+                      додає локальний стан до функціональних
+                      компонентів (можливість зберігати й
+                      оновлювати дані під час роботи
+                      компонента)
                     </td>
                   </tr>
                   <tr>
@@ -10157,33 +10998,120 @@
                   </tr>
                   <tr>
                     <td><a href="#useMemo">useMemo</a></td>
-                    <td></td>
+                    <td>
+                      використовується для оптимізації
+                      продуктивності компонента (дозволяє
+                      запам'ятати обчислене значення між
+                      рендерами компонента, щоб уникнути
+                      зайвих обчислень)
+                    </td>
                   </tr>
                   <tr>
                     <td><a href="#useRef">useRef</a></td>
-                    <td></td>
+                    <td>
+                      спосіб створювати збереження змінних,
+                      які не викликають повторного рендеру
+                      компонента
+                    </td>
                   </tr>
                   <tr>
                     <td>
                       <a href="#useContext">useContext</a>
                     </td>
-                    <td></td>
+                    <td>
+                      отримання функціональними компонентами
+                      доступу до даних з контексту без
+                      необхідності обертати їх у компонент
+                      <b>Context.Consumer</b>
+                    </td>
                   </tr>
                   <tr>
                     <td>
                       <a href="#own-hooks">Власні хуки</a>
                     </td>
-                    <td></td>
+                    <td>створення власних хуків</td>
                   </tr>
-                  <tr>
-                    <td>useToggle</td>
-                    <td></td>
-                  </tr>
-                  <tr>
+                  <tr class="empty-coin">
                     <td></td>
                     <td></td>
                   </tr>
-                  <tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="empty-coin">
                     <td></td>
                     <td></td>
                   </tr>
@@ -11926,7 +12854,7 @@
                 </div>
                 <div class="m-bottom-min flex">
                   <p>
-                    Хук <b>useToggle</b> в приховує у собі
+                    Хук <b>useToggle</b> приховує у собі
                     створення стану та функцій роботи з ним
                     (open, close).
                   </p>

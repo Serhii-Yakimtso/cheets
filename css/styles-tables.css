@@ -80,3 +80,20 @@
 .table-animation col:nth-child(3) {
   width: 15%;
 }
+
+/* React. Бібліотеки. */
+.table-react-libreries col:nth-child(1) {
+  width: 20%;
+}
+.table-react-libreries col:nth-child(2) {
+  width: 32%;
+}
+
+/* React. Хуки */
+.hooks-table col:nth-child(1) {
+  width: 15%;
+}
+
+.empty-coin {
+  height: 28px;
+}
