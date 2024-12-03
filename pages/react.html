@@ -8990,6 +8990,29 @@
                   </div>
                 </div>
               </div>
+
+              <div class="bcg-box">
+                <p>
+                  <i>// src/main.jsx</i><br />
+
+                  import React from "react";<br />
+                  import ReactDOM from
+                  "react-dom/client";<br />
+                  import App from "./components/App";<br />
+                  import "modern-normalize";<br />
+                  import "./index.css";<br />
+                  import { Provider } from "react-redux";<br />
+                  import { store } from "./redux/store";<br />
+                  <br />
+                  ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                      &#60;React.StrictMode><br />
+                          &#60;Provider store={store}><br />
+                              &#60;App /><br />
+                          &#60;/Provider><br />
+                      &#60;/React.StrictMode><br />
+                  );
+                </p>
+              </div>
             </section>
           </section>
 
