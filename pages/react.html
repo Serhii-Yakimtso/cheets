@@ -2528,6 +2528,7 @@
             </section>
           </section>
 
+          <!-- Фінальний приклад (приклад від Репети) -->
           <section class="section new-page">
             <h3 class="m-bottom-min">
               Фінальний приклад (приклад від Репети)
@@ -5482,7 +5483,335 @@
             </ul>
           </section>
 
-          <div class="new-page"></div>
+          <!-- Фінальний приклад (приклад від Репети) -->
+          <section class="section new-page">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+            <div class="flex m-bottom-min">
+              <div>
+                <!-- src/components/App/App.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>// src/components/App/App.jsx</i
+                    ><br />
+                    <br />
+                    import { useState } from "react";<br />
+                    import UserForm from
+                    "../UserForm/UserForm";<br />
+                    import TextInput from
+                    "../TextInput/TextInput";<br />
+                    import LangSwitcher from
+                    "../LangSwitcher/LangSwitcher";<br />
+                    import OrderForm from
+                    "../OrderForm/OrderForm";<br />
+                    import css from "./App.module.css";<br />
+                    <br />
+                    export default function App() {<br />
+                        const [inputValue, setInputValue] =
+                    useState("");<br />
+                        const [lang, setLang] =
+                    useState("uk");<br />
+                        const handleAddUser = (newUser) =>
+                    {<br />
+                            console.log("handleAddUser",
+                    newUser);<br />
+                        };<br />
+                        const makeOrder = (newOrder) => {<br />
+                            console.log("makeOrder",
+                    newOrder);<br />
+                        };<br />
+                        return (<br />
+                            &#60;div
+                    className={css.container}><br />
+                                &#60;h1>Forms in
+                    React&#60;/h1><br />
+                                &#60;UserForm
+                    onAdd={handleAddUser} /><br />
+                                &#60;TextInput<br />
+                                    value={inputValue}<br />
+                                   
+                    onType={setInputValue}<br />
+                                /><br />
+                                &#60;p>Text:
+                    {inputValue}&#60;/p><br />
+                                &#60;LangSwitcher<br />
+                                    value={lang}<br />
+                                   
+                    onChangeLang={setLang}<br />
+                                /><br />
+                                &#60;p>Selected lang:
+                    {lang}&#60;/p><br />
+                                &#60;OrderForm
+                    onOrder={makeOrder} /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/LangSwitcher/LangSwitcher.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i
+                      >//
+                      src/components/LangSwitcher/LangSwitcher.jsx</i
+                    ><br />
+                    <br />
+
+                    import css from
+                    "./LangSwitcher.module.css";<br />
+                    <br />
+                    export default function
+                    LangSwitcher({<br />
+
+                        value,<br />
+                        onChangeLang<br />
+                        }) {<br />
+                            return (<br />
+                                &#60;div
+                    className={css.wrapper}><br />
+                                &#60;span>Lang
+                    switcher&#60;/span><br />
+                                &#60;select<br />
+                                    value={value}<br />
+                                    onChange={<br />
+                                        (event) =>
+                    onChangeLang(event.target.value)<br />
+                                    }<br />
+                                ><br />
+                                    &#60;option
+                    value="uk">UK&#60;/option><br />
+                                    &#60;option
+                    value="en">EN&#60;/option><br />
+                                    &#60;option
+                    value="pl">PL&#60;/option><br />
+                                &#60;/select><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/UserForm/UserForm.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i
+                      >//
+                      src/components/UserForm/UserForm.jsx</i
+                    ><br />
+                    <br />
+                    import { useId } from "react";<br />
+                    import css from
+                    "./UserForm.module.css";<br />
+                    <br />
+                    export default function UserForm({ onAdd
+                    }) {<br />
+                        const usernameId = useId();<br />
+                        const roleId = useId();<br />
+                        const handleSubmit = (event) => {<br />
+                            event.preventDefault();<br />
+                            const form = event.target;<br />
+                            onAdd({<br />
+                                username:
+                    form.elements.username.value,<br />
+                                role:
+                    form.elements.role.value,<br />
+                            });<br />
+                            <br />
+                            form.reset();<br />
+                        };<br />
+                        <br />
+                        return (<br />
+                            &#60;form<br />
+                                className={css.form}<br />
+                                onSubmit={handleSubmit}<br />
+                            ><br />
+                                &#60;div
+                    className={css.group}><br />
+                                    &#60;label
+                    htmlFor={usernameId}>Username&#60;/label><br />
+                                    &#60;input<br />
+                                        type="text"<br />
+                                        name="username"<br />
+                                        id={usernameId}<br />
+                                    /><br />
+                                &#60;/div><br />
+                                &#60;div
+                    className={css.group}><br />
+                                    &#60;label
+                    htmlFor={roleId}>Role&#60;/label><br />
+                                    &#60;select name="role"
+                    id={roleId}><br />
+                                        &#60;option
+                    value="guest">Guest&#60;/option><br />
+                                        &#60;option
+                    value="user">User&#60;/option><br />
+                                        &#60;option
+                    value="admin">Admin&#60;/option><br />
+                                    &#60;/select><br />
+                                &#60;/div><br />
+                                &#60;button
+                    type="submit">Submit&#60;/button><br />
+                            &#60;/form><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/TextInput/TextInput.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i
+                      >//
+                      src/components/TextInput/TextInput.jsx</i
+                    ><br />
+                    <br />
+                    import css from
+                    "./TextInput.module.css";<br />
+                    <br />
+                    export default function TextInput({
+                    value, onType }) {<br />
+                        return (<br />
+                            &#60;div
+                    className={css.wrapper}><br />
+                                &#60;span>Text
+                    input&#60;/span><br />
+                                &#60;input<br />
+                                    type="text"<br />
+                                    value={value}<br />
+                                    onChange={(event) =>
+                    onType(event.target.value)}<br />
+                                /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- src/components/OrderForm/OrderForm.jsx -->
+            <div class="flex bcg-box new-page">
+              <p>
+                <i
+                  >//
+                  src/components/OrderForm/OrderForm.jsx</i
+                ><br />
+                <br />
+
+                import { useId, useState } from "react";<br />
+                import { FaTshirt } from
+                "react-icons/fa";<br />
+                import css from "./OrderForm.module.css";<br />
+                <br />
+                const initialValues = {<br />
+                    size: "md",<br />
+                    color: "blue",<br />
+                };<br />
+                <br />
+                export default function OrderForm({ onOrder
+                }) {<br />
+                    const sizeId = useId();<br />
+                    const colorId = useId();<br />
+                    const [values, setValues] =
+                useState(initialValues);<br />
+                    <br />
+                <i>
+                      // const handleSize = (event) => {<br />
+                      //     setValues({<br />
+                      //         ...values,<br />
+                      //         size:
+                  event.target.value,<br />
+                      //     });<br />
+                      // };<br />
+                      <br />
+                      // const handleColor = (event) => {<br />
+                      //     setValues({<br />
+                      //         ...values,<br />
+                      //         color:
+                  event.target.value,<br />
+                      //     });<br />
+                      // };<br
+                /></i>
+                    <br />
+                    const handleChange = (event) => {<br />
+                        setValues({<br />
+                            ...values,<br />
+                            [event.target.name]:
+                event.target.value,<br />
+                        });<br />
+                    };<br />
+                    <br />
+                    const handleSubmit = (event) => {<br />
+                        event.preventDefault();<br />
+                        onOrder(values);<br />
+                        setValues(initialValues);<br />
+                    };<br />
+                   
+              </p>
+              <p>
+                <br /><br />
+                    return (<br />
+                        &#60;form<br />
+                            autoComplete="off"<br />
+                            noValidate<br />
+                            className={css.form}<br />
+                            onSubmit={handleSubmit}<br />
+                        ><br />
+                            &#60;FaTshirt size="160"
+                color={values.color} /><br />
+                            <br />
+                            &#60;div
+                className={css.group}><br />
+                                &#60;label
+                htmlFor={sizeId}>Size&#60;/label><br />
+                                &#60;select<br />
+                                    name="size"<br />
+                                    value={values.size}<br />
+                                   
+                onChange={handleChange}<br />
+                                    id={sizeId}<br />
+                                ><br />
+                                    &#60;option
+                value="sm">Small&#60;/option><br />
+                                    &#60;option
+                value="md">Medium&#60;/option><br />
+                                    &#60;option
+                value="lg">Large&#60;/option><br />
+                                &#60;/select><br />
+                            &#60;/div><br />
+                            <br />
+                            &#60;div
+                className={css.group}><br />
+                                &#60;label
+                htmlFor={colorId}>Color&#60;/label><br />
+                                &#60;select<br />
+                                    name="color"<br />
+                                    value={values.color}<br />
+                                   
+                onChange={handleChange}<br />
+                                    id={colorId}<br />
+                                ><br />
+                                    &#60;option
+                value="red">Red&#60;/option><br />
+                                    &#60;option
+                value="green">Green&#60;/option><br />
+                                    &#60;option
+                value="blue">Blue&#60;/option><br />
+                                &#60;/select><br />
+                            &#60;/div><br />
+                            <br />
+                            &#60;button
+                type="submit">Submit&#60;/button><br />
+                        &#60;/form><br />
+                    );<br />
+                }
+              </p>
+            </div>
+          </section>
 
           <!-- Бібліотека Formik -->
           <section class="section new-page">
@@ -6271,6 +6600,193 @@
                 </div>
               </div>
             </section>
+
+            <!-- Фінальний приклад (приклад від Репети) -->
+            <section class="sub-section new-page">
+              <h4 class="m-bottom-min">
+                Фінальний приклад (приклад від Репети)
+              </h4>
+              <div class="flex">
+                <div>
+                  <!-- // src/components/App/App.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i>// src/components/App/App.jsx</i
+                      ><br />
+                      <br />
+                      import UserForm from
+                      "../UserForm/UserForm";<br />
+                      import css from "./App.module.css";<br />
+                      <br />
+                      export default function App() {<br />
+                          const handleAddUser = (newUser) =>
+                      {<br />
+                              console.log("handleAddUser",
+                      newUser);<br />
+                          };<br />
+                          <br />
+                          return (<br />
+                              &#60;div
+                      className={css.container}><br />
+                                  &#60;h1>Forms with
+                      Formik&#60;/h1><br />
+                                  &#60;UserForm
+                      onAdd={handleAddUser} /><br />
+                              &#60;/div><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/UserForm/UserForm.jsx -->
+                  <div class="bcg-box">
+                    <p>
+                      <i
+                        >//
+                        src/components/UserForm/UserForm.jsx</i
+                      ><br />
+                      <br />
+                      import { Formik, Form, Field,
+                      ErrorMessage } from "formik";<br />
+                      import * as Yup from "yup";<br />
+                      import css from
+                      "./UserForm.module.css";<br />
+                      import { useId } from "react";<br />
+                      <br />
+                      const UserSchema =
+                      Yup.object().shape({<br />
+                          username: Yup.string()<br />
+                              .trim()<br />
+                              .min(3, "Min 3 chars!!!")<br />
+                              .required("Is
+                      required!!!"),<br />
+                          email: Yup.string()<br />
+                              .email("Must be a valid
+                      email!")<br />
+                              .required("Is
+                      required!!!"),<br />
+                          role: Yup.string()<br />
+                              .oneOf(["guest", "user",
+                      "admin"])<br />
+                              .required("Is
+                      required!!!"),<br />
+                          comment: Yup.string()<br />
+                              .max(256, "Max 256
+                      chars!!!")<br />
+                              .required("Is
+                      required!!!"),<br />
+                      });<br />
+                      <br />
+                      export default function UserForm({
+                      onAdd }) {<br />
+                          const usernameId = useId();<br />
+                          <br />
+                          const handleSubmit = (values,
+                      actions) => {<br />
+                              // console.log("handleSubmit",
+                      values);<br />
+                              onAdd(values);<br />
+                              actions.resetForm();<br />
+                          };<br />
+                          <br />
+                    </p>
+                  </div>
+                </div>
+                <div class="bcg-box">
+                  <p>
+                    <i
+                      >continue... //
+                      src/components/UserForm/UserForm.jsx</i
+                    ><br />
+                        return (<br />
+                            &#60;Formik<br />
+                                initialValues={{<br />
+                                    username: "",<br />
+                                    email: "",<br />
+                                    role: "user",<br />
+                                    comment: "Default
+                    comment value",<br />
+                                }}<br />
+                               
+                    validationSchema={UserSchema}<br />
+                                onSubmit={handleSubmit}<br />
+                            ><br />
+                    <br />
+                            &#60;Form
+                    className={css.form}><br />
+                                &#60;div
+                    className={css.group}><br />
+                                    &#60;label
+                    htmlFor={usernameId}>Username:&#60;/label><br />
+                                    &#60;Field
+                    name="username" id={usernameId} /><br />
+                                    &#60;ErrorMessage<br />
+                                       
+                    className={css.error}<br />
+                                        name="username"<br />
+                                        component="span"<br />
+                                    /><br />
+                                &#60;/div><br />
+                                <br />
+                                &#60;div
+                    className={css.group}><br />
+                                   
+                    &#60;label>Email:&#60;/label><br />
+                                    &#60;Field type="email"
+                    name="email" /><br />
+                                    &#60;ErrorMessage<br />
+                                    className={css.error}<br />
+                                    name="email"<br />
+                                    component="span"<br />
+                                    /><br />
+                                &#60;/div><br />
+                                <br />
+                                &#60;div
+                    className={css.group}><br />
+                                   
+                    &#60;label>Role:&#60;/label><br />
+                                    &#60;Field as="select"
+                    name="role"><br />
+                                        &#60;option
+                    value="guest">Guest&#60;/option><br />
+                                        &#60;option
+                    value="user">User&#60;/option><br />
+                                        &#60;option
+                    value="admin">Admin&#60;/option><br />
+                                    &#60;/Field><br />
+                                    &#60;ErrorMessage<br />
+                                       
+                    className={css.error}<br />
+                                        name="role"<br />
+                                        component="span"<br />
+                                    /><br />
+                                &#60;/div><br />
+                                <br />
+                                &#60;div
+                    className={css.group}><br />
+                                   
+                    &#60;label>Comment:&#60;/label><br />
+                                    &#60;Field as="textarea"
+                    name="comment" /><br />
+                                    &#60;ErrorMessage<br />
+                                       
+                    className={css.error}<br />
+                                        name="comment"<br />
+
+                                        component="span"<br />
+                                    /><br />
+                                &#60;/div><br />
+                                <br />
+                                &#60;button
+                    type="submit">Submit&#60;/button><br />
+                            &#60;/Form><br />
+                            &#60;/Formik><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </section>
           </section>
         </div>
       </section>
@@ -6962,8 +7478,9 @@
             </h3>
 
             <div class="flex">
+              <!-- src/components/App/App.jsx -->
               <div
-                class="bcg-box print-m-left-none print-fs-12"
+                class="bcg-box print-m-left-none print-fs-14"
               >
                 <p>
                   <i>//src/components/App/App.jsx</i><br />
@@ -6988,18 +7505,15 @@
                   useState(1);<br />
                       const [query, setQuery] =
                   useState("");<br />
-                  <br />
                       const handleSearch = (newQuery) =>
                   {<br />
                           setQuery(newQuery);<br />
                           setPage(1);<br />
                           setArticles([]);<br />
                       };<br />
-                  <br />
                       const handleLoadMore = () => {<br />
                           setPage(page + 1);<br />
                       };<br />
-                  <br />
                       useEffect(() => {<br />
                           if (query === "") {<br />
                               return;<br />
@@ -7069,17 +7583,17 @@
                 // }, []);<br /> -->
                 </p>
               </div>
+
               <div>
+                <!-- src/articles-api.js -->
                 <div
                   class="m-bottom-min bcg-box print-fs-14"
                 >
                   <p>
                     <i>//src/articles-api.js</i><br />
                     import axios from "axios";<br />
-                    <br />
                     axios.defaults.baseURL =<br />
                         "http://hn.algolia.com/api/v1";<br />
-                    <br />
                     export const fetchArticles = async (<br />
                         searchQuery,<br />
                         currentPage<br />
@@ -7097,7 +7611,11 @@
                     };
                   </p>
                 </div>
-                <div class="bcg-box print-fs-14">
+
+                <!-- src/components/SearchForm/SearchForm.jsx -->
+                <div
+                  class="bcg-box m-bottom-min print-fs-14"
+                >
                   <p>
                     <i
                       >//src/components/SearchForm/SearchForm.jsx</i
@@ -7106,7 +7624,6 @@
                     "formik";<br />
                     import css from
                     "./SearchForm.module.css";<br />
-                    <br />
                     export default function SearchForm({<br />
                             onSearch<br />
                         }) {<br />
@@ -7135,6 +7652,31 @@
                                     &#60;/button><br />
                                 &#60;/Form><br />
                             &#60;/Formik><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <div class="bcg-box">
+                  <p>
+                    <i
+                      >//
+                      src/components/ArticleList/ArticleList.jsx</i
+                    ><br />
+                    export default function ArticleList({
+                    items }) {<br />
+                        return (<br />
+                            &#60;ul className={css.list}><br />
+                                {items.map((item) => (<br />
+                                    &#60;li
+                    key={item.objectID}><br />
+                                        &#60;a
+                    className={css.link} href={item.url}><br />
+                                            {item.title}<br />
+                                        &#60;/a><br />
+                                    &#60;/li><br />
+                                ))}<br />
+                            &#60;/ul><br />
                         );<br />
                     }
                   </p>
