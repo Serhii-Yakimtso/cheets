@@ -116,45 +116,100 @@
                   "react-router-dom";
                 </td>
               </tr>
+              <tr class="">
+                <td>Redux</td>
+                <td>npm install redux</td>
+                <td>
+                  import { createStore } from "redux";<br />
+                  import { combineReducers } from "redux";
+                </td>
+              </tr>
               <tr>
                 <td>React Redux</td>
                 <td>npm install react-redux</td>
-                <td></td>
+                <td>
+                  import { useSelector } from
+                  "react-redux";<br />
+                  import { useDispatch } from
+                  "react-redux";<br />
+                  import { Provider } from "react-redux";
+                </td>
               </tr>
               <tr>
                 <td>Redux Toolkit</td>
                 <td>npm install @reduxjs/toolkit</td>
+                <td>
+                  import { configureStore } from
+                  "@reduxjs/toolkit";<br />
+                  import { createAction } from
+                  "@reduxjs/toolkit";<br />
+                  import { createReducer } from
+                  "@reduxjs/toolkit";<br />
+                  import { createSlice } from
+                  "@reduxjs/toolkit";<br />
+                  import { createSelector } from
+                  "@reduxjs/toolkit";<br />
+                  import { nanoid ??? } from
+                  "@reduxjs/toolkit";
+                </td>
+              </tr>
+              <tr class="">
+                <td></td>
+                <td>
+                  npm install @redux-devtools/extension
+                </td>
+                <td>
+                  import { devToolsEnhancer } from
+                  "@redux-devtools/extension";
+                </td>
+              </tr>
+              <tr class="">
+                <td></td>
+                <td></td>
+                <td>
+                  import { useState } from "react";<br />
+                  import { useEffect } from "react";<br />
+                  import { useId } from "react";<br />
+                  import { useRef } from "react";<br />
+                  import { forwardRef } from "react";<br />
+                  import { createContext } from "react";<br />
+                  import { useContext } from "react";<br />
+                  import { useMemo } from "react";
+                </td>
+              </tr>
+              <tr class="">
+                <td></td>
+                <td></td>
+                <td>import { nanoid } from "nanoid";</td>
+              </tr>
+              <tr class="">
+                <td></td>
+                <td>
+                  npm install @reduxjs/toolkit react-redux
+                </td>
                 <td></td>
               </tr>
-              <tr class="empty-coin">
+              <tr class="">
                 <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="empty-coin">
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="empty-coin">
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="empty-coin">
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="empty-coin">
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="empty-coin">
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>npm install redux-persist</td>
+                <td>
+                  import { persistStore } from
+                  "redux-persist";<br />
+                  import { persistReducer } from
+                  "redux-persist";<br />
+                  import { storage } from
+                  "redux-persist/lib/storage";<br />
+                  import { PersistGate } from
+                  "redux-persist/integration/react";<br />
+                  import {<br />
+                      FLUSH,<br />
+                      REHYDRATE,<br />
+                      PAUSE,<br />
+                      PERSIST,<br />
+                      PURGE,<br />
+                      REGISTER,<br />
+                  } from "redux-persist";
+                </td>
               </tr>
               <tr class="empty-coin">
                 <td></td>
@@ -1557,97 +1612,35 @@
 
             <div class="flex">
               <div>
-                <!-- src/components/PaymentCard.jsx -->
+                <!-- src/components/App.jsx -->
                 <div
                   class="bcg-box m-bottom-min print-m-left-none"
                 >
                   <p>
-                    <i>
-                      // src/components/PaymentCard.jsx </i
-                    ><br />
+                    <i> // src/components/App.jsx </i><br />
                     <br />
-                    export default function PaymentCard({<br />
-                        payment: {<br />
-                            amount,<br />
-                            description,<br />
-                            cardNumber,<br />
-                            cardType,<br />
-                            cardOwner,<br />
-                            date,<br />
-                            isPaid,<br />
-                        },<br />
-                    }) {<br />
+
+                    import PageTitle from "./PageTitle";<br />
+                    import PaymentList from
+                    "./PaymentList";<br />
+                    import initialPayments from
+                    "../payments.json";<br />
+                    <br />
+                    export default function App() {<br />
                         return (<br />
-                            &#60;div><br />
-                                &#60;p>Amount: {amount}
-                    &#60;/p><br />
-                                &#60;p>Status: {isPaid ?
-                    "Paid" : "Pending"} &#60;/p><br />
-                                &#60;p>Description:
-                    {description}&#60;/p><br />
-                                &#60;p>Card Number:
-                    {cardNumber}&#60;/p><br />
-                                &#60;p>Card Type: {cardType}
-                    &#60;/p><br />
-                                &#60;p>Card Holder
-                    Name:{cardOwner}&#60;/p><br />
-                                &#60;p>Payment Date: {date}
-                    &#60;/p><br />
-                                &#60;hr /><br />
-                            &#60;/div><br />
+                            &#60;><br />
+                                &#60;PageTitle
+                    text="Payments" /><br />
+                                &#60;PaymentList
+                    payments={initialPayments} /><br />
+                            &#60;/><br />
                         );<br />
                     }
                   </p>
                 </div>
 
-                <!-- src/components/PaymentList.jsx -->
-                <div
-                  class="bcg-box m-bottom-min print-m-left-none"
-                >
-                  <p>
-                    <i>
-                      // src/components/PaymentList.jsx </i
-                    ><br /><br />
-
-                    import PaymentCard from
-                    "./PaymentCard";<br />
-                    <br />
-                    export default function PaymentList({
-                    payments }) {<br />
-                        return (<br />
-                           &#60;ul><br />
-                               {payments.map((payment) =>
-                    (<br />
-                                   &#60;li
-                    key={payment.id}><br />
-                                       &#60;PaymentCard
-                    payment={payment} /><br />
-                                   &#60;/li><br />
-                               ))}<br />
-                           &#60;/ul><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-
-                <!-- src/components/PageTitle.jsx -->
-                <div class="bcg-box print-m-left-none">
-                  <p>
-                    <i> // src/components/PageTitle.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function PageTitle({ text
-                    }) {<br />
-                        return &#60;h1>{text}&#60;/h1>;<br />
-                    }
-                  </p>
-                </div>
-              </div>
-
-              <div>
                 <!-- payments.json -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box print-m-left-none">
                   <p>
                     <i> // src/payments.json </i><br />
                     [<br />
@@ -1691,27 +1684,87 @@
                     ]
                   </p>
                 </div>
+              </div>
 
-                <!-- src/components/App.jsx -->
+              <div>
+                <!-- src/components/PageTitle.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/components/PageTitle.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function PageTitle({ text
+                    }) {<br />
+                        return &#60;h1>{text}&#60;/h1>;<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/PaymentList.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      // src/components/PaymentList.jsx </i
+                    ><br /><br />
+
+                    import PaymentCard from
+                    "./PaymentCard";<br />
+                    <br />
+                    export default function PaymentList({
+                    payments }) {<br />
+                        return (<br />
+                           &#60;ul><br />
+                               {payments.map((payment) =>
+                    (<br />
+                                   &#60;li
+                    key={payment.id}><br />
+                                       &#60;PaymentCard
+                    payment={payment} /><br />
+                                   &#60;/li><br />
+                               ))}<br />
+                           &#60;/ul><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/PaymentCard.jsx -->
                 <div class="bcg-box">
                   <p>
-                    <i> // src/components/App.jsx </i><br />
+                    <i>
+                      // src/components/PaymentCard.jsx </i
+                    ><br />
                     <br />
-
-                    import PaymentList from
-                    "./PaymentList";<br />
-                    import PageTitle from "./PageTitle";<br />
-                    import initialPayments from
-                    "../payments.json";<br />
-                    <br />
-                    export default function App() {<br />
+                    export default function PaymentCard({<br />
+                        payment: {<br />
+                            amount,<br />
+                            description,<br />
+                            cardNumber,<br />
+                            cardType,<br />
+                            cardOwner,<br />
+                            date,<br />
+                            isPaid,<br />
+                        },<br />
+                    }) {<br />
                         return (<br />
-                            &#60;><br />
-                                &#60;PageTitle
-                    text="Payments" /><br />
-                                &#60;PaymentList
-                    payments={initialPayments} /><br />
-                            &#60;/><br />
+                            &#60;div><br />
+                                &#60;p>Amount: {amount}
+                    &#60;/p><br />
+                                &#60;p>Status: {isPaid ?
+                    "Paid" : "Pending"} &#60;/p><br />
+                                &#60;p>Description:
+                    {description}&#60;/p><br />
+                                &#60;p>Card Number:
+                    {cardNumber}&#60;/p><br />
+                                &#60;p>Card Type: {cardType}
+                    &#60;/p><br />
+                                &#60;p>Card Holder
+                    Name:{cardOwner}&#60;/p><br />
+                                &#60;p>Payment Date: {date}
+                    &#60;/p><br />
+                                &#60;hr /><br />
+                            &#60;/div><br />
                         );<br />
                     }
                   </p>
@@ -2605,15 +2658,15 @@
                       <i> // src/components/App/App.jsx </i
                       ><br />
                       <br />
-                      import PaymentList from
-                      "../PaymentList/PaymentList";<br />
                       import PageTitle from
                       "../PageTitle/PageTitle";<br />
+                      import Button from
+                      "../Button/Button";<br />
+                      import PaymentList from
+                      "../PaymentList/PaymentList";<br />
                       import initialPayments from
                       "../../payments.json";<br />
                       import css from "./App.module.css";<br />
-                      import Button from
-                      "../Button/Button";<br />
                       <br />
                       export default function App() {<br />
                           return (<br />
@@ -2760,6 +2813,130 @@
 
             <div class="flex new-page">
               <div>
+                <!-- Button -->
+                <div class="m-bottom-min">
+                  <!-- src/components/Button/Button.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        // src/components/Button/Button.jsx </i
+                      ><br />
+                      <br />
+                      import clsx from "clsx";<br />
+                      import css from
+                      "./Button.module.css";<br />
+                      <br />
+                      export default function Button({<br />
+
+                          variant,<br />
+                          type = "button",<br />
+                          children<br />
+                      }) {<br />
+                          const btnClasses = clsx(css.btn,
+                      {<br />
+                              [css.primary]: variant ==
+                      "primary",<br />
+                              [css.secondary]: variant ==
+                      "secondary",<br />
+                          });<br />
+                          return (<br />
+                              &#60;button
+                      className={btnClasses} type={type}><br />
+                                  {children}<br />
+                              &#60;/button><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/Button/Button.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/Button/Button.module.css </i
+                      ><br />
+                      .btn {<br />
+                          padding: 12px;<br />
+                          font-size: 20px;<br />
+                      }<br />
+                      .primary {<br />
+                          background-color: blue;<br />
+                          color: #fff;<br />
+                      }<br />
+                      .secondary {<br />
+                          background-color: orangered;<br />
+                          color: #fff;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <!-- PaymentList -->
+                <div class="m-bottom-min">
+                  <!-- src/components/PaymentList/PaymentList.jsx -->
+                  <div
+                    class="bcg-box m-bottom-min print-m-left-none"
+                  >
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentList/PaymentList.jsx </i
+                      ><br />
+                      <br />
+
+                      import PaymentCard from
+                      "../PaymentCard/PaymentCard";<br />
+                      import css from
+                      "./PaymentList.module.css";<br />
+                      <br />
+                      export default function PaymentList({
+                      payments }) {<br />
+                          return (<br />
+                              &#60;ul
+                      className={css.list}><br />
+                                  {payments.map((payment) =>
+                      (<br />
+                                      &#60;li
+                      key={payment.id}
+                      className={css.listItem}><br />
+                                          &#60;PaymentCard
+                      payment={payment} /><br />
+                                      &#60;/li><br />
+                                  ))}<br />
+                              &#60;/ul><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/PaymentList/PaymentList.module.css -->
+                  <div class="bcg-box print-m-left-none">
+                    <p>
+                      <i>
+                        //
+                        src/components/PaymentList/PaymentList.module.css </i
+                      ><br />
+
+                      .list {<br />
+                          display: flex;<br />
+                          flex-direction: column;<br />
+                          gap: 12px;<br />
+                          padding: 0;<br />
+                          margin: 0;<br />
+                          list-style: none;<br />
+                      }<br />
+                      .listItem {<br />
+                          padding: 8px;<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
                 <!-- PaymentCard -->
                 <div class="m-bottom-min">
                   <!-- src/components/PaymentCard/PaymentCard.jsx -->
@@ -2860,129 +3037,6 @@
                       <br />
                       .isPending {<br />
                           color: orangered;<br />
-                      }
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <!-- PaymentList -->
-                <div class="m-bottom-min">
-                  <!-- src/components/PaymentList/PaymentList.jsx -->
-                  <div
-                    class="bcg-box m-bottom-min print-m-left-none"
-                  >
-                    <p>
-                      <i>
-                        //
-                        src/components/PaymentList/PaymentList.jsx </i
-                      ><br />
-                      <br />
-
-                      import PaymentCard from
-                      "../PaymentCard/PaymentCard";<br />
-                      import css from
-                      "./PaymentList.module.css";<br />
-                      <br />
-                      export default function PaymentList({
-                      payments }) {<br />
-                          return (<br />
-                              &#60;ul
-                      className={css.list}><br />
-                                  {payments.map((payment) =>
-                      (<br />
-                                      &#60;li
-                      key={payment.id}
-                      className={css.listItem}><br />
-                                          &#60;PaymentCard
-                      payment={payment} /><br />
-                                      &#60;/li><br />
-                                  ))}<br />
-                              &#60;/ul><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/PaymentList/PaymentList.module.css -->
-                  <div class="bcg-box print-m-left-none">
-                    <p>
-                      <i>
-                        //
-                        src/components/PaymentList/PaymentList.module.css </i
-                      ><br />
-
-                      .list {<br />
-                          display: flex;<br />
-                          flex-direction: column;<br />
-                          gap: 12px;<br />
-                          padding: 0;<br />
-                          margin: 0;<br />
-                          list-style: none;<br />
-                      }<br />
-                      .listItem {<br />
-                          padding: 8px;<br />
-                      }
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Button -->
-                <div class="m-bottom-min">
-                  <!-- src/components/Button/Button.jsx -->
-                  <div
-                    class="bcg-box m-bottom-min print-m-left-none"
-                  >
-                    <p>
-                      <i>
-                        // src/components/Button/Button.jsx </i
-                      ><br />
-                      <br />
-                      import clsx from "clsx";<br />
-                      import css from
-                      "./Button.module.css";<br />
-                      <br />
-                      export default function Button({<br />
-
-                          variant,<br />
-                          type = "button",<br />
-                          children<br />
-                      }) {<br />
-                          const btnClasses = clsx(css.btn,
-                      {<br />
-                              [css.primary]: variant ==
-                      "primary",<br />
-                              [css.secondary]: variant ==
-                      "secondary",<br />
-                          });<br />
-                          return (<br />
-                              &#60;button
-                      className={btnClasses} type={type}><br />
-                                  {children}<br />
-                              &#60;/button><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/Button/Button.module.css -->
-                  <div class="bcg-box print-m-left-none">
-                    <p>
-                      <i>
-                        //
-                        src/components/Button/Button.module.css </i
-                      ><br />
-                      .btn {<br />
-                          padding: 12px;<br />
-                          font-size: 20px;<br />
-                      }<br />
-                      .primary {<br />
-                          background-color: blue;<br />
-                          color: #fff;<br />
-                      }<br />
-                      .secondary {<br />
-                          background-color: orangered;<br />
-                          color: #fff;<br />
                       }
                     </p>
                   </div>
@@ -3352,15 +3406,15 @@
                     ><br />
                     <br />
                     import { useState } from "react";<br />
+                    import Reader from
+                    "../Reader/Reader";<br />
                     import ClickCounter from
                     "../ClickCounter/ClickCounter";<br />
                     import Toggler from
                     "../Toggler/Toggler";<br />
-                    import css from "./App.module.css";<br />
-                    import Reader from
-                    "../Reader/Reader";<br />
                     import articles from
                     "../../articles.json";<br />
+                    import css from "./App.module.css";<br />
                     <br />
                     export default function App() {<br />
                         const [clicks, setClicks] =
@@ -3404,62 +3458,6 @@
                   </p>
                 </div>
 
-                <!-- src/components/ClickCounter/ClickCounter.jsx -->
-                <div class="bcg-box">
-                  <p>
-                    <i>
-                      //
-                      src/components/ClickCounter/ClickCounter.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function
-                    ClickCounter({<br />
-
-                        value,<br />
-                        onUpdate<br />
-                    }) {<br />
-                        return
-                    &#60;buttononClick={onUpdate}> Clicks:
-                    {value} &#60;/button>;<br />
-                    }<br />
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <!-- src/components/Toggler/Toggler.jsx -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i>
-                      // src/components/Toggler/Toggler.jsx </i
-                    ><br />
-                    <br />
-                    import { useState } from "react";<br />
-                    <br />
-                    export default function Toggler() {<br />
-                        const [isOpen, setIsOpen] =
-                    useState(false);<br />
-                        <br />
-                        const handleToggle = () => {<br />
-                            setIsOpen(!isOpen);<br />
-                        };<br />
-                        <br />
-                        return (<br />
-                            &#60;div><br />
-                                &#60;button
-                    onClick={handleToggle}><br />
-                                    {isOpen ? "Close" :
-                    "Open"}<br />
-                                &#60;/button><br />
-                                {isOpen && (&#60;p>Lorem
-                    ipsum,... &#60;/p>)}<br />
-                            &#60;/div><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-
                 <!-- src/articles.json -->
                 <div class="bcg-box">
                   <p>
@@ -3487,26 +3485,12 @@
                             "text": "Backend development
                     ..."<br />
                         },<br />
-                        {<br />
-                            "id": 4,<br />
-                            "topic": "Database
-                    Management",<br />
-                            "text": "Database management
-                    i..."<br />
-                        },<br />
-                        {<br />
-                            "id": 5,<br />
-                            "topic": "Responsive Design",<br />
-                            "text": "Responsive design
-                    ..."<br />
-                        }<br />
+
                     ]
                   </p>
                 </div>
               </div>
-            </div>
 
-            <div class="flex new-page">
               <div>
                 <!-- src/components/Reader/Reader.jsx -->
                 <div class="bcg-box m-bottom-min">
@@ -3565,11 +3549,9 @@
                     }
                   </p>
                 </div>
-              </div>
 
-              <div>
                 <!-- src/components/Controls/Controls.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box">
                   <p>
                     <i>
                       //
@@ -3599,7 +3581,11 @@
                     }
                   </p>
                 </div>
+              </div>
+            </div>
 
+            <div class="flex new-page">
+              <div>
                 <!-- src/components/Progress/Progress.jsx -->
                 <div class="bcg-box m-bottom-min">
                   <p>
@@ -3621,7 +3607,7 @@
                 </div>
 
                 <!-- src/components/ArticleView/ArticleView.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box">
                   <p>
                     <i>
                       //
@@ -3637,6 +3623,62 @@
                                 &#60;h2>{topic}&#60;/h2><br />
                                 &#60;p>{text}&#60;/p><br />
                             &#60;/article><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/ClickCounter/ClickCounter.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/ClickCounter/ClickCounter.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function
+                    ClickCounter({<br />
+
+                        value,<br />
+                        onUpdate<br />
+                    }) {<br />
+                        return
+                    &#60;buttononClick={onUpdate}> Clicks:
+                    {value} &#60;/button>;<br />
+                    }<br />
+                  </p>
+                </div>
+
+                <!-- src/components/Toggler/Toggler.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>
+                      // src/components/Toggler/Toggler.jsx </i
+                    ><br />
+                    <br />
+                    import { useState } from "react";<br />
+                    <br />
+                    export default function Toggler() {<br />
+                        const [isOpen, setIsOpen] =
+                    useState(false);<br />
+                        <br />
+                        const handleToggle = () => {<br />
+                            setIsOpen(!isOpen);<br />
+                        };<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button
+                    onClick={handleToggle}><br />
+                                    {isOpen ? "Close" :
+                    "Open"}<br />
+                                &#60;/button><br />
+                                {isOpen && (&#60;p>Lorem
+                    ipsum,... &#60;/p>)}<br />
+                            &#60;/div><br />
                         );<br />
                     }
                   </p>
@@ -3970,79 +4012,8 @@
                   </p>
                 </div>
 
-                <!-- src/articles.json -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i> // src/articles.json </i><br />
-                    <br />
-
-                    [<br />
-                        {<br />
-                            "id": 1,<br />
-                            "topic": "Web Technologies",<br />
-                            "text": "Web technologies
-                    ..."<br />
-                        },<br />
-                        {<br />
-                            "id": 2,<br />
-                            "topic": "Frontend
-                    Development",<br />
-                            "text": "Frontend development
-                    ..."<br />
-                        },<br />
-                        {<br />
-                            "id": 3,<br />
-                            "topic": "Backend
-                    Development",<br />
-                            "text": "Backend development
-                    ..."<br />
-                        },<br />
-                        {<br />
-                            "id": 4,<br />
-                            "topic": "Database
-                    Management",<br />
-                            "text": "Database management
-                    i..."<br />
-                        },<br />
-                    ]
-                  </p>
-                </div>
-
-                <!-- src/components/Controls/Controls.jsx -->
-                <div class="bcg-box">
-                  <p>
-                    <i>
-                      //
-                      src/components/Controls/Controls.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function Controls({<br />
-                        isFirst,<br />
-                        isLast,<br />
-                        onPrev,<br />
-                        onNext<br />
-                    }) {<br />
-                        return (<br />
-                            &#60;div><br />
-                                &#60;button onClick={onPrev}
-                    disabled={isFirst}><br />
-                                    Prev<br />
-                                &#60;/button><br />
-                                &#60;button onClick={onNext}
-                    disabled={isLast}><br />
-                                    Next<br />
-                                &#60;/button><br />
-                            &#60;/div><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-              </div>
-
-              <div>
                 <!-- src/components/Reader/Reader.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box">
                   <p>
                     <i>
                       // src/components/Reader/Reader.jsx </i
@@ -4105,6 +4076,77 @@
                     total={totalItems} /><br />
                                 &#60;ArticleView
                     article={currentItem} /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/articles.json -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/articles.json </i><br />
+                    <br />
+
+                    [<br />
+                        {<br />
+                            "id": 1,<br />
+                            "topic": "Web Technologies",<br />
+                            "text": "Web technologies
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 2,<br />
+                            "topic": "Frontend
+                    Development",<br />
+                            "text": "Frontend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 3,<br />
+                            "topic": "Backend
+                    Development",<br />
+                            "text": "Backend development
+                    ..."<br />
+                        },<br />
+                        {<br />
+                            "id": 4,<br />
+                            "topic": "Database
+                    Management",<br />
+                            "text": "Database management
+                    i..."<br />
+                        },<br />
+                    ]
+                  </p>
+                </div>
+
+                <!-- src/components/Controls/Controls.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>
+                      //
+                      src/components/Controls/Controls.jsx </i
+                    ><br />
+                    <br />
+
+                    export default function Controls({<br />
+                        isFirst,<br />
+                        isLast,<br />
+                        onPrev,<br />
+                        onNext<br />
+                    }) {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={onPrev}
+                    disabled={isFirst}><br />
+                                    Prev<br />
+                                &#60;/button><br />
+                                &#60;button onClick={onNext}
+                    disabled={isLast}><br />
+                                    Next<br />
+                                &#60;/button><br />
                             &#60;/div><br />
                         );<br />
                     }
@@ -6637,7 +6679,6 @@
                       }
                     </p>
                   </div>
-
                   <!-- src/components/UserForm/UserForm.jsx -->
                   <div class="bcg-box">
                     <p>
@@ -6689,101 +6730,103 @@
                               actions.resetForm();<br />
                           };<br />
                           <br />
+                          return (<br />
+                              &#60;Formik<br />
+                                  initialValues={{<br />
+                                      username: "",<br />
+                                      email: "",<br />
+                                      role: "user",<br />
+                                      comment: "Default
+                      comment value",<br />
+                                  }}<br />
+                                 
+                      validationSchema={UserSchema}<br />
+                                  onSubmit={handleSubmit}<br />
+                              ><br />
                     </p>
                   </div>
                 </div>
-                <div class="bcg-box">
-                  <p>
-                    <i
-                      >continue... //
-                      src/components/UserForm/UserForm.jsx</i
-                    ><br />
-                        return (<br />
-                            &#60;Formik<br />
-                                initialValues={{<br />
-                                    username: "",<br />
-                                    email: "",<br />
-                                    role: "user",<br />
-                                    comment: "Default
-                    comment value",<br />
-                                }}<br />
-                               
-                    validationSchema={UserSchema}<br />
-                                onSubmit={handleSubmit}<br />
-                            ><br />
-                    <br />
-                            &#60;Form
-                    className={css.form}><br />
-                                &#60;div
-                    className={css.group}><br />
-                                    &#60;label
-                    htmlFor={usernameId}>Username:&#60;/label><br />
-                                    &#60;Field
-                    name="username" id={usernameId} /><br />
-                                    &#60;ErrorMessage<br />
-                                       
-                    className={css.error}<br />
-                                        name="username"<br />
-                                        component="span"<br />
-                                    /><br />
-                                &#60;/div><br />
-                                <br />
-                                &#60;div
-                    className={css.group}><br />
-                                   
-                    &#60;label>Email:&#60;/label><br />
-                                    &#60;Field type="email"
-                    name="email" /><br />
-                                    &#60;ErrorMessage<br />
-                                    className={css.error}<br />
-                                    name="email"<br />
-                                    component="span"<br />
-                                    /><br />
-                                &#60;/div><br />
-                                <br />
-                                &#60;div
-                    className={css.group}><br />
-                                   
-                    &#60;label>Role:&#60;/label><br />
-                                    &#60;Field as="select"
-                    name="role"><br />
-                                        &#60;option
-                    value="guest">Guest&#60;/option><br />
-                                        &#60;option
-                    value="user">User&#60;/option><br />
-                                        &#60;option
-                    value="admin">Admin&#60;/option><br />
-                                    &#60;/Field><br />
-                                    &#60;ErrorMessage<br />
-                                       
-                    className={css.error}<br />
-                                        name="role"<br />
-                                        component="span"<br />
-                                    /><br />
-                                &#60;/div><br />
-                                <br />
-                                &#60;div
-                    className={css.group}><br />
-                                   
-                    &#60;label>Comment:&#60;/label><br />
-                                    &#60;Field as="textarea"
-                    name="comment" /><br />
-                                    &#60;ErrorMessage<br />
-                                       
-                    className={css.error}<br />
-                                        name="comment"<br />
+                <div>
+                  <div class="bcg-box">
+                    <p>
+                      <br />
+                              &#60;Form
+                      className={css.form}><br />
+                                  &#60;div
+                      className={css.group}><br />
+                                      &#60;label
+                      htmlFor={usernameId}>Username:&#60;/label><br />
+                                      &#60;Field
+                      name="username" id={usernameId} /><br />
+                                      &#60;ErrorMessage<br />
+                                         
+                      className={css.error}<br />
+                                          name="username"<br />
+                                         
+                      component="span"<br />
+                                      /><br />
+                                  &#60;/div><br />
+                                  <br />
+                                  &#60;div
+                      className={css.group}><br />
+                                     
+                      &#60;label>Email:&#60;/label><br />
+                                      &#60;Field
+                      type="email" name="email" /><br />
+                                      &#60;ErrorMessage<br />
+                                     
+                      className={css.error}<br />
+                                      name="email"<br />
+                                      component="span"<br />
+                                      /><br />
+                                  &#60;/div><br />
+                                  <br />
+                                  &#60;div
+                      className={css.group}><br />
+                                     
+                      &#60;label>Role:&#60;/label><br />
+                                      &#60;Field as="select"
+                      name="role"><br />
+                                          &#60;option
+                      value="guest">Guest&#60;/option><br />
+                                          &#60;option
+                      value="user">User&#60;/option><br />
+                                          &#60;option
+                      value="admin">Admin&#60;/option><br />
+                                      &#60;/Field><br />
+                                      &#60;ErrorMessage<br />
+                                         
+                      className={css.error}<br />
+                                          name="role"<br />
+                                         
+                      component="span"<br />
+                                      /><br />
+                                  &#60;/div><br />
+                                  <br />
+                                  &#60;div
+                      className={css.group}><br />
+                                     
+                      &#60;label>Comment:&#60;/label><br />
+                                      &#60;Field
+                      as="textarea" name="comment" /><br />
+                                      &#60;ErrorMessage<br />
+                                         
+                      className={css.error}<br />
+                                          name="comment"<br />
 
-                                        component="span"<br />
-                                    /><br />
-                                &#60;/div><br />
-                                <br />
-                                &#60;button
-                    type="submit">Submit&#60;/button><br />
-                            &#60;/Form><br />
-                            &#60;/Formik><br />
-                        );<br />
-                    }
-                  </p>
+                                         
+                      component="span"<br />
+                                      /><br />
+                                  &#60;/div><br />
+                                  <br />
+                                  &#60;button
+                      type="submit">Submit&#60;/button><br />
+                              &#60;/Form><br />
+                              &#60;/Formik><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -7471,25 +7514,25 @@
             </div>
           </section>
 
-          <!-- Приклад -->
+          <!-- Приклад. Шаблоний код від Репети -->
           <section class="section new-page">
             <h3 class="m-bottom-min">
               Приклад. Шаблоний код від Репети
             </h3>
 
             <div class="flex">
-              <!-- src/components/App/App.jsx -->
+              <!-- //src/components/App/App.jsx -->
               <div
-                class="bcg-box print-m-left-none print-fs-14"
+                class="bcg-box print-m-left-none print-fs-12"
               >
                 <p>
                   <i>//src/components/App/App.jsx</i><br />
                   import { useEffect, useState } from
                   "react";<br />
-                  import ArticleList from
-                  "../ArticleList/ArticleList";<br />
                   import SearchForm from
                   "../SearchForm/SearchForm";<br />
+                  import ArticleList from
+                  "../ArticleList/ArticleList";<br />
                   import { fetchArticles } from
                   "../../articles-api";<br />
                   import css from "./App.module.css";<br />
@@ -7505,15 +7548,18 @@
                   useState(1);<br />
                       const [query, setQuery] =
                   useState("");<br />
+                  <br />
                       const handleSearch = (newQuery) =>
                   {<br />
                           setQuery(newQuery);<br />
                           setPage(1);<br />
                           setArticles([]);<br />
                       };<br />
+                  <br />
                       const handleLoadMore = () => {<br />
                           setPage(page + 1);<br />
                       };<br />
+                  <br />
                       useEffect(() => {<br />
                           if (query === "") {<br />
                               return;<br />
@@ -7585,34 +7631,7 @@
               </div>
 
               <div>
-                <!-- src/articles-api.js -->
-                <div
-                  class="m-bottom-min bcg-box print-fs-14"
-                >
-                  <p>
-                    <i>//src/articles-api.js</i><br />
-                    import axios from "axios";<br />
-                    axios.defaults.baseURL =<br />
-                        "http://hn.algolia.com/api/v1";<br />
-                    export const fetchArticles = async (<br />
-                        searchQuery,<br />
-                        currentPage<br />
-                    ) => {<br />
-                    <br />
-                        const response = await
-                    axios.get("/search", {<br />
-                            params: {<br />
-                                query: searchQuery,<br />
-                                hitsPerPage: 10,<br />
-                                page: currentPage,<br />
-                            },<br />
-                        });<br />
-                        return response.data.hits;<br />
-                    };
-                  </p>
-                </div>
-
-                <!-- src/components/SearchForm/SearchForm.jsx -->
+                <!-- //src/components/SearchForm/SearchForm.jsx -->
                 <div
                   class="bcg-box m-bottom-min print-fs-14"
                 >
@@ -7657,12 +7676,15 @@
                   </p>
                 </div>
 
-                <div class="bcg-box">
+                <!-- src/components/ArticleList/ArticleList.jsx -->
+                <div class="bcg-box m-bottom-min">
                   <p>
                     <i
                       >//
                       src/components/ArticleList/ArticleList.jsx</i
                     ><br />
+                    import css from
+                    "./ArticleList.module.css";<br />
                     export default function ArticleList({
                     items }) {<br />
                         return (<br />
@@ -7681,13 +7703,39 @@
                     }
                   </p>
                 </div>
+
+                <!-- //src/articles-api.js -->
+                <div class="bcg-box print-fs-14">
+                  <p>
+                    <i>//src/articles-api.js</i><br />
+                    import axios from "axios";<br />
+                    <br />
+                    axios.defaults.baseURL =
+                    "http://hn.algolia.com/api/v1";<br />
+                    <br />
+                    export const fetchArticles = async (<br />
+                        searchQuery,<br />
+                        currentPage<br />
+                    ) => {<br />
+                        const response = await
+                    axios.get("/search", {<br />
+                            params: {<br />
+                                query: searchQuery,<br />
+                                hitsPerPage: 10,<br />
+                                page: currentPage,<br />
+                            },<br />
+                        });<br />
+                        return response.data.hits;<br />
+                    };
+                  </p>
+                </div>
               </div>
+
+              <div class="next-page"></div>
             </div>
           </section>
         </div>
       </section>
-
-      <div class="next-page"></div>
 
       <!-- Redux -->
       <section id="redux" class="main-section">
@@ -7760,9 +7808,9 @@
                 </div>
 
                 <p class="m-bottom-min">
-                  <b>Стора</b> (сховище, store) відповідає
-                  за централізоване зберігання всього стану
-                  та надає набір правил та методів для його
+                  <b>Стор</b> (сховище, store) відповідає за
+                  централізоване зберігання всього стану та
+                  надає набір правил та методів для його
                   зміни. Компонентам залишається викликати
                   методи для оновлення даних та підписатися
                   на оновлення. Потік даних у Redux завжди
@@ -8881,11 +8929,11 @@
                     <p>
                       <i>// src/components/App/App.jsx</i
                       ><br />
+                      import { useSelector } from
+                      "react-redux";<br />
                       import LangSwitcher from
                       "./LangSwitcher";<br />
                       import Balance from "./Balance";<br />
-                      import { useSelector } from
-                      "react-redux";<br />
                       export default function App() {<br />
                           const lang = useSelector((state)
                       => state.locale.lang);<br />
@@ -8913,11 +8961,11 @@
                         src/components/Balance/Balance.jsx</i
                       ><br />
 
+                      import { useState } from "react";<br />
                       import { useDispatch, useSelector }
                       from "react-redux";<br />
                       import { deposit, withdraw } from
                       "../redux/balanceSlice";<br />
-                      import { useState } from "react";<br />
                       <br />
                       export default function Balance() {<br />
                           const dispatch = useDispatch();<br />
@@ -8989,29 +9037,6 @@
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div class="bcg-box">
-                <p>
-                  <i>// src/main.jsx</i><br />
-
-                  import React from "react";<br />
-                  import ReactDOM from
-                  "react-dom/client";<br />
-                  import App from "./components/App";<br />
-                  import "modern-normalize";<br />
-                  import "./index.css";<br />
-                  import { Provider } from "react-redux";<br />
-                  import { store } from "./redux/store";<br />
-                  <br />
-                  ReactDOM.createRoot(document.getElementById("root")).render(<br />
-                      &#60;React.StrictMode><br />
-                          &#60;Provider store={store}><br />
-                              &#60;App /><br />
-                          &#60;/Provider><br />
-                      &#60;/React.StrictMode><br />
-                  );
-                </p>
               </div>
             </section>
           </section>
@@ -10493,42 +10518,326 @@
             </div>
           </section>
 
+          <!-- Фінальний приклад (приклад від Репети) -->
           <section class="section new-page">
             <h3 class="m-bottom-min">
               Фінальний приклад (приклад від Репети)
             </h3>
 
-            <div class="flex">
-              <!-- src/components/Toggler/Toggler.jsx -->
-              <div class="bcg-box m-bottom-min">
+            <div class="flex m-bottom-min">
+              <div>
+                <!-- src/main.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/main.jsx </i><br />
+                    <br />
+
+                    import React from "react";<br />
+                    import ReactDOM from
+                    "react-dom/client";<br />
+                    import { Provider } from
+                    "react-redux";<br />
+                    import { PersistGate } from
+                    "redux-persist/integration/react";<br />
+                    import "modern-normalize";<br />
+                    import App from
+                    "./components/App/App";<br />
+                    import { store, persistor } from
+                    "./redux/store";<br />
+                    import "./index.css";<br />
+                    <br />
+                    ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                        &#60;React.StrictMode><br />
+                            &#60;Provider store={store}><br />
+                                &#60;PersistGate
+                    persistor={persistor}><br />
+                                    &#60;App /><br />
+                                &#60;/PersistGate><br />
+                            &#60;/Provider><br />
+                        &#60;/React.StrictMode><br />
+                    );
+                  </p>
+                </div>
+
+                <!-- src/components/Balance.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i> // src/components/Balance.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useState } from "react";<br />
+                    import { useDispatch, useSelector } from
+                    "react-redux";<br />
+                    import { deposit, withdraw } from
+                    "../redux/balanceSlice";<br />
+                    <br />
+                    export default function Balance() {<br />
+                        const dispatch = useDispatch();<br />
+                        const balance = useSelector((state)
+                    => state.balance.value);<br />
+                        const [value, setValue] =
+                    useState(0);<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;p>Balance:
+                    {balance}&#60;/p><br />
+                                &#60;input<br />
+                                    type="number"<br />
+                                    value={value}<br />
+                                    onChange={(e) =>
+                    setValue(Number(e.target.value))}<br />
+                                /><br />
+                                &#60;button onClick={() =>
+                    dispatch(deposit(value))}><br />
+                                    Deposit<br />
+                                &#60;/button><br />
+                                &#60;button onClick={() =>
+                    dispatch(withdraw(value))}><br />
+                                    Withdraw<br />
+                                &#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/App/App.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/components/App/App.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useSelector } from
+                    "react-redux";<br />
+                    import LangSwitcher from
+                    "../LangSwitcher";<br />
+                    import Balance from "../Balance";<br />
+                    import css from "./App.module.css";<br />
+                    <br />
+                    export default function App() {<br />
+                        const lang = useSelector((state) =>
+                    state.locale.lang);<br />
+                        <br />
+                        return (<br />
+                            &#60;div
+                    className={css.container}><br />
+                                &#60;h1
+                    className={css.pageTitle}><br />
+                                    Redux Toolkit<br />
+                    &#60;/h1><br />
+                                &#60;Balance /><br />
+                                &#60;div><br />
+                                    &#60;LangSwitcher /><br />
+                                    &#60;p>Selected lang:
+                    {lang}&#60;/p><br />
+                                &#60;/div><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/LangSwitcher.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>
+                      // src/components/LangSwitcher.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useDispatch, useSelector } from
+                    "react-redux";<br />
+                    import { changeLang } from
+                    "../redux/localeSlice";<br />
+                    <br />
+                    export default function LangSwitcher()
+                    {<br />
+                        const dispatch = useDispatch();<br />
+                        const lang = useSelector((state) =>
+                    state.locale.lang);<br />
+                        <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;select<br />
+                                    value={lang}<br />
+                                    onChange={(e) =>
+                    dispatch(<br />
+                                       
+                    changeLang(e.target.value)<br />
+                                    )}<br />
+                                ><br />
+                                    &#60;option
+                    value="en">EN&#60;/option><br />
+                                    &#60;option
+                    value="uk">UK&#60;/option><br />
+                                    &#60;option
+                    value="pl">PL&#60;/option><br />
+                                &#60;/select><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex new-page">
+              <!-- src/redux/store.js -->
+              <div class="bcg-box print-m-left-none">
                 <p>
-                  <i>
-                    // src/components/Toggler/Toggler.jsx </i
-                  ><br />
+                  <i> // src/redux/store.js </i><br />
                   <br />
-                  import { useState } from "react";<br />
+
+                  import { configureStore } from
+                  "@reduxjs/toolkit";<br />
+                  import {<br />
+                      persistStore,<br />
+                      persistReducer,<br />
+                      FLUSH,<br />
+                      REHYDRATE,<br />
+                      PAUSE,<br />
+                      PERSIST,<br />
+                      PURGE,<br />
+                      REGISTER,<br />
+                  } from "redux-persist";<br />
+                  import storage from
+                  "redux-persist/lib/storage";<br />
+                  import balanceReducer from
+                  "./balanceSlice";<br />
+                  import localeReducer from
+                  "./localeSlice";<br />
                   <br />
-                  export default function Toggler() {<br />
-                      const [isOpen, setIsOpen] =
-                  useState(false);<br />
-                      <br />
-                      const handleToggle = () => {<br />
-                          setIsOpen(!isOpen);<br />
-                      };<br />
-                      <br />
-                      return (<br />
-                          &#60;div><br />
-                              &#60;button
-                  onClick={handleToggle}><br />
-                                  {isOpen ? "Close" :
-                  "Open"}<br />
-                              &#60;/button><br />
-                              {isOpen && (&#60;p>Lorem
-                  ipsum,... &#60;/p>)}<br />
-                          &#60;/div><br />
-                      );<br />
-                  }
+                  const balancePersistConfig = {<br />
+                      key: "balanceValue",<br />
+                      storage,<br />
+                      whitelist: ["value"],<br />
+                  };<br />
+                  <br />
+                  const pBalanceReducer = persistReducer(<br />
+                      balancePersistConfig,<br />
+                      balanceReducer<br />
+                  );<br />
+                  <br />
+                  const localePersistConfig = {<br />
+                      key: "langhaha",<br />
+                      storage,<br />
+                      whitelist: ["lang"],<br />
+                  };<br />
+                  <br />
+                  const pLocaleReducer = persistReducer(<br />
+                      localePersistConfig,<br />
+                      localeReducer<br />
+                  );<br />
+                  <br />
+                  export const store = configureStore({<br />
+                      reducer: {<br />
+                          balance: pBalanceReducer,<br />
+                          locale: pLocaleReducer,<br />
+                      },<br />
+                      middleware: (getDefaultMiddleware)
+                  =><br />
+                          getDefaultMiddleware({<br />
+                              serializableCheck: {<br />
+                                  ignoredActions: [<br />
+                                      FLUSH,<br />
+                                      REHYDRATE,<br />
+                                      PAUSE,<br />
+                                      PERSIST,<br />
+                                      PURGE,<br />
+                                      REGISTER<br />
+                                  ],<br />
+                              },<br />
+                          }),<br />
+                  });<br />
+                  <br />
+                  export const persistor =
+                  persistStore(store);
                 </p>
+              </div>
+
+              <div>
+                <!-- src/redux/balanceSlice.js -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i> // src/redux/balanceSlice.js </i
+                    ><br />
+                    <br />
+
+                    import { createSlice } from
+                    "@reduxjs/toolkit";<br />
+                    <br />
+                    const slice = createSlice({<br />
+                        name: "balance",<br />
+                        initialState: {<br />
+                            value: 1000,<br />
+                        },<br />
+                        reducers: {<br />
+                            deposit(state, action) {<br />
+                                state.value +=
+                    action.payload;<br />
+                            },<br />
+                            withdraw(state, action) {<br />
+                                state.value -=
+                    action.payload;<br />
+                            },<br />
+                        },<br />
+                    });<br />
+                    <br />
+                    export const { deposit, withdraw } =
+                    slice.actions;<br />
+                    <br />
+                    export default slice.reducer;
+                  </p>
+                </div>
+
+                <!-- src/redux/localeSlice.js -->
+                <div class="bcg-box">
+                  <p>
+                    <i> // src/redux/localeSlice.js </i
+                    ><br />
+                    <br />
+
+                    import { createSlice } from
+                    "@reduxjs/toolkit";<br />
+                    <br />
+                    const slice = createSlice({<br />
+                        name: "locale",<br />
+                        initialState: {<br />
+                            lang: "uk",<br />
+                        },<br />
+                        reducers: {<br />
+                            changeLang: {<br />
+                                reducer: (state, action) =>
+                    {<br />
+                                    state.lang =
+                    action.payload.lang;<br />
+                                },<br />
+                                prepare: (newLang) => {<br />
+                                    return {<br />
+                                        payload: {<br />
+                                            id:
+                    crypto.randomUUID(),<br />
+                                            lang:
+                    newLang,<br />
+                                        },<br />
+                                    };<br />
+                                },<br />
+                            },<br />
+                        },<br />
+                    });<br />
+                    <br />
+
+                    export const { changeLang } =
+                    slice.actions;<br />
+                    <br />
+                    export default slice.reducer;
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -11320,6 +11629,612 @@
                 </div>
               </section>
             </section>
+
+            <!-- Фінальний приклад (приклад від Репети) -->
+            <section class="section">
+              <h3 class="m-bottom-min">
+                Фінальний приклад (приклад від Репети)
+              </h3>
+
+              <div class="flex m-bottom-min">
+                <!-- src/main.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/main.jsx</i><br />
+
+                    import React from "react";<br />
+                    import ReactDOM from
+                    "react-dom/client";<br />
+                    import { Provider } from
+                    "react-redux";<br />
+                    import App from "./components/App";<br />
+                    import "modern-normalize";<br />
+                    import "./index.css";<br />
+                    import { store } from
+                    "./redux/store";<br />
+                    <br />
+                    ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                        &#60;React.StrictMode><br />
+                            &#60;Provider store={store}><br />
+                                &#60;App /><br />
+                            &#60;/Provider><br />
+                        &#60;/React.StrictMode><br />
+                    );
+                  </p>
+                </div>
+
+                <!-- src/redux/store.js -->
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/redux/store.js</i><br />
+
+                    import { configureStore } from
+                    "@reduxjs/toolkit";<br />
+                    import tasksReducer from
+                    "./tasksSlice";<br />
+                    import filtersReducer from
+                    "./filtersSlice";<br />
+                    <br />
+                    export const store = configureStore({<br />
+                        reducer: {<br />
+                            tasks: tasksReducer,<br />
+                            filters: filtersReducer,<br />
+                        },<br />
+                    });
+                  </p>
+                </div>
+              </div>
+
+              <!-- src/redux/tasksSlice.js -->
+              <div class="bcg-box flex m-bottom-min">
+                <p>
+                  <i>// src/redux/tasksSlice.js</i><br />
+
+                  import { createSlice, createSelector }
+                  from "@reduxjs/toolkit";<br />
+                  import { fetchTasks, addTask, deleteTask }
+                  from "./tasksOps";<br />
+                  import { selectTextFilter } from
+                  "./filtersSlice";<br />
+                  <br />
+                  const slice = createSlice({<br />
+                      name: "tasks",<br />
+                      initialState: {<br />
+                          items: [],<br />
+                          loading: false,<br />
+                          error: false,<br />
+                          a: 1,<br />
+                          b: 2,<br />
+                      },<br />
+                      extraReducers: builder =><br />
+                          builder<br />
+                              .addCase(fetchTasks.pending,
+                  state => {<br />
+                                  state.loading = true;<br />
+                              })<br />
+                              .addCase(fetchTasks.fulfilled,
+                  (state, action) => {<br />
+                                  state.loading = false;<br />
+                                  state.error = null;<br />
+                                  state.items =
+                  action.payload;<br />
+                              })<br />
+                              .addCase(fetchTasks.rejected,
+                  (state, action) => {<br />
+                                  state.loading = false;<br />
+                                  state.error =
+                  action.payload;<br />
+                              })<br />
+                              .addCase(addTask.pending,
+                  state => {<br />
+                                  state.loading = true;<br />
+                              })<br />
+                              .addCase(addTask.fulfilled,
+                  (state, action) => {<br />
+                                  state.isLoading =
+                  false;<br />
+                                  state.error = null;<br />
+                                 
+                  state.items.push(action.payload);<br />
+                              })<br />
+                              .addCase(addTask.rejected,
+                  (state, action) => {<br />
+                                  state.loading = false;<br />
+                                  state.error =
+                  action.payload;<br />
+                              })<br />
+                              .addCase(deleteTask.pending,
+                  state => {<br />
+                                  state.loading = true;<br />
+                              })<br />
+                </p>
+                <p>
+                              .addCase(deleteTask.fulfilled,
+                  (state, action) => {<br />
+                                  state.loading = false;<br />
+                                  state.error = null;<br />
+                                  const index =
+                  state.items.findIndex(<br />
+                                      task => task.id ===
+                  action.payload.id<br />
+                                  );<br />
+                                  state.items.splice(index,
+                  1);<br />
+                              })<br />
+                              .addCase(deleteTask.rejected,
+                  (state, action) => {<br />
+                                  state.loading = false;<br />
+                                  state.error =
+                  action.payload;<br />
+                              }),<br />
+                  });<br />
+                  <br />
+                  export const selectTasks = state =>
+                  state.tasks.items;<br />
+                  <br />
+                  export const selectLoading = state =>
+                  state.tasks.loading;<br />
+                  <br />
+                  export const selectError = state =>
+                  state.tasks.error;<br />
+                  <br />
+                  export const selectVisibleTasks =
+                  createSelector(<br />
+                      [selectTasks, selectTextFilter],<br />
+                      (tasks, textFilter) => {<br />
+                         
+                  console.log("selectVisibleTasks");<br />
+                          return tasks.filter(task =><br />
+                              task.text.toLowerCase()<br />
+                             
+                  .includes(textFilter.toLowerCase())<br />
+                          );<br />
+                      }<br />
+                  );<br />
+                  <br />
+                  export const selectSum =
+                  createSelector(<br />
+                      [state => state.tasks.a, state =>
+                  state.tasks.b],<br />
+                      (a, b) => {<br />
+                          console.log("selectSum");<br />
+                          return a + b;<br />
+                      }<br />
+                  );<br />
+                  <br />
+                  export default slice.reducer;
+                </p>
+              </div>
+
+              <div class="flex">
+                <div>
+                  <!-- src/redux/tasksOps.js -->
+                  <div
+                    class="bcg-box m-bottom-min new-page"
+                  >
+                    <p>
+                      <i>// src/redux/tasksOps.js</i><br />
+
+                      import axios from "axios";<br />
+                      import { createAsyncThunk } from
+                      "@reduxjs/toolkit";<br />
+                      <br />
+                      axios.defaults.baseURL =<br />
+                         
+                      "https://62584f320c918296a49543e7.mockapi.io";<br />
+                      <br />
+                      export const fetchTasks =
+                      createAsyncThunk(<br />
+                          "tasks/fetchAll",<br />
+                          async (_, thunkAPI) => {<br />
+                              try {<br />
+                                  const response = await
+                      axios.get("/tasks");<br />
+                                  return response.data;<br />
+                              } catch (e) {<br />
+                                  return
+                      thunkAPI.rejectWithValue(e.message);<br />
+                              }<br />
+                          }<br />
+                      );<br />
+                      <br />
+                      export const addTask =
+                      createAsyncThunk(<br />
+                          "tasks/addTask",<br />
+                          async (text, thunkAPI) => {<br />
+                              try {<br />
+                                  const response = await
+                      axios.post("/tasks", { text });<br />
+                                  return response.data;<br />
+                              } catch (e) {<br />
+                                  return
+                      thunkAPI.rejectWithValue(e.message);<br />
+                              }<br />
+                          }<br />
+                      );<br />
+                      <br />
+                      export const deleteTask =
+                      createAsyncThunk(<br />
+                          "tasks/deleteTask",<br />
+                          async (taskId, thunkAPI) => {<br />
+                              try {<br />
+                                  const response = await
+                      axios.delete(`/tasks/${taskId}`);<br />
+                                  return response.data;<br />
+                              } catch (e) {<br />
+                                  return
+                      thunkAPI.rejectWithValue(e.message);<br />
+                              }<br />
+                          }<br />
+                      );
+                    </p>
+                  </div>
+
+                  <!-- src/redux/filtersSlice.js -->
+                  <div class="bcg-box">
+                    <p>
+                      <i>// src/redux/filtersSlice.js</i
+                      ><br />
+
+                      import { createSlice } from
+                      "@reduxjs/toolkit";<br />
+                      <br />
+                      const filtersSlice = createSlice({<br />
+                          name: "filters",<br />
+                          initialState: {<br />
+                              text: "",<br />
+                          },<br />
+                          reducers: {<br />
+                              changeTextFilter(state,
+                      action) {<br />
+                                  state.text =
+                      action.payload;<br />
+                              },<br />
+                          },<br />
+                      });<br />
+                      <br />
+                      export const { changeTextFilter } =
+                      filtersSlice.actions;<br />
+                      <br />
+                      export const selectTextFilter = state
+                      => state.filters.text;<br />
+                      <br />
+                      export default filtersSlice.reducer;
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <!-- src/components/App.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i>// src/components/App.jsx</i><br />
+
+                      import { useEffect } from "react";<br />
+                      import { useDispatch, useSelector }
+                      from "react-redux";<br />
+                      import Layout from
+                      "./Layout/Layout";<br />
+                      import TaskList from
+                      "./TaskList/TaskList";<br />
+                      import Loader from
+                      "./Loader/Loader";<br />
+                      import Error from "./Error/Error";<br />
+                      import TaskForm from
+                      "./TaskForm/TaskForm";<br />
+                      import TextFilter from
+                      "./TextFilter/TextFilter";<br />
+                      import { fetchTasks } from
+                      "../redux/tasksOps";<br />
+                      import { selectLoading, selectError,
+                      selectSum }<br />
+                          from "../redux/tasksSlice";<br />
+                      <br />
+                      export default function App() {<br />
+                          const dispatch = useDispatch();<br />
+                          const loading =
+                      useSelector(selectLoading);<br />
+                          const error =
+                      useSelector(selectError);<br />
+                          const sum =
+                      useSelector(selectSum);<br />
+                          <br />
+                          useEffect(() => {<br />
+                              dispatch(fetchTasks());<br />
+                          }, [dispatch]);<br />
+                          <br />
+                          return (<br />
+                              &#60;Layout><br />
+                                  &#60;h1>Selector
+                      memoization: {sum}&#60;/h1><br />
+                                  &#60;TaskForm /><br />
+                                  &#60;TextFilter /><br />
+                                  {loading &&
+                      &#60;Loader>Please
+                      wait&#60;/Loader>}<br />
+                                  {error && &#60;Error>Error
+                      message&#60;/Error>}<br />
+                                  &#60;TaskList /><br />
+                              &#60;/Layout><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/Layout/Layout.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i
+                        >//
+                        src/components/Layout/Layout.jsx</i
+                      ><br />
+
+                      import css from
+                      "./Layout.module.css";<br />
+                      <br />
+                      export default function Layout({
+                      children }) {<br />
+                          return &#60;main
+                      className={css.container}><br />
+                              {children}<br />
+                      &#60;/main>;<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/Error/Error.jsx -->
+                  <div class="bcg-box">
+                    <p>
+                      <i
+                        >//
+                        src/components/Error/Error.jsx</i
+                      ><br />
+
+                      import css from
+                      "./Error.module.css";<br />
+                      <br />
+                      export default function Error({
+                      children }) {<br />
+                          return (<br />
+                              &#60;p
+                      className={css.text}><br />
+                                 
+                      &#60;b>{children}&#60;/b><br />
+                              &#60;/p><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div>
+                  <!-- src/components/Loader/Loader.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i
+                        >//
+                        src/components/Loader/Loader.jsx</i
+                      ><br />
+
+                      import { useState, useEffect } from
+                      "react";<br />
+                      import css from
+                      "./Loader.module.css";<br />
+                      <br />
+                      export default function Loader({
+                      children }) {<br />
+                          const [dots, setDots] =
+                      useState("");<br />
+                          useEffect(() => {<br />
+                              const interval =
+                      setInterval(() => {<br />
+                                  setDots((dots) => (<br />
+                                      dots.length &#60; 3 ?
+                      dots + "." : "")<br />
+                                  );<br />
+                              }, 250);<br />
+                              <br />
+                              return () =>
+                      clearInterval(interval);<br />
+                          }, []);<br />
+                          <br />
+                          return (<br />
+                              &#60;p
+                      className={css.text}><br />
+                                  &#60;b><br />
+                                      {children}<br />
+                                      {dots}<br />
+                                  &#60;/b><br />
+                              &#60;/p><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/TaskList/TaskList.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i
+                        >//
+                        src/components/TaskList/TaskList.jsx</i
+                      ><br />
+
+                      import { useSelector } from
+                      "react-redux";<br />
+                      import Task from "../Task/Task";<br />
+                      import { selectVisibleTasks } from
+                      "../../redux/tasksSlice";<br />
+                      import css from
+                      "./TaskList.module.css";<br />
+                      <br />
+                      export default function TaskList()
+                      {<br />
+                          const tasks =
+                      useSelector(selectVisibleTasks);<br />
+                          <br />
+                          return (<br />
+                              &#60;ul
+                      className={css.list}><br />
+                                  {tasks.map(task => (<br />
+                                      &#60;li
+                      key={task.id}><br />
+                                          &#60;Task
+                      task={task} /><br />
+                                      &#60;/li><br />
+                                  ))}<br />
+                              &#60;/ul><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/Task/Task.jsx -->
+                  <div class="bcg-box">
+                    <p>
+                      <i>// src/components/Task/Task.jsx</i
+                      ><br />
+
+                      import { useDispatch } from
+                      "react-redux";<br />
+                      import css from
+                      "./Task.module.css";<br />
+                      import { deleteTask } from
+                      "../../redux/tasksOps";<br />
+                      <br />
+                      export default function Task({ task })
+                      {<br />
+                          const dispatch = useDispatch();<br />
+                          const handleDelete = () =>
+                      dispatch(deleteTask(task.id));<br />
+                          <br />
+                          return (<br />
+                              &#60;div
+                      className={css.wrapper}><br />
+                                  &#60;p
+                      className={css.text}>{task.text}&#60;/p><br />
+                                  &#60;button
+                      className={css.btn}
+                      onClick={handleDelete}><br />
+                                      Delete<br />
+                                  &#60;/button><br />
+                              &#60;/div><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <!-- src/components/TextFilter/TextFilter.jsx -->
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i
+                        >//
+                        src/components/TextFilter/TextFilter.jsx</i
+                      ><br />
+
+                      import { useId } from "react";<br />
+                      import { useDispatch, useSelector }
+                      from "react-redux";<br />
+                      import { changeTextFilter,
+                      selectTextFilter }<br />
+                          from
+                      "../../redux/filtersSlice";<br />
+                      import css from
+                      "./TextFilter.module.css";<br />
+                      <br />
+                      export default function TextFilter()
+                      {<br />
+                          const dispatch = useDispatch();<br />
+                          const id = useId();<br />
+                          const textFilter =
+                      useSelector(selectTextFilter);<br />
+                          <br />
+                          const handleChange = event => {<br />
+                             
+                      dispatch(changeTextFilter(event.target.value));<br />
+                          };<br />
+                          <br />
+                          return (<br />
+                              &#60;div
+                      className={css.wrapper}><br />
+                                  &#60;label
+                      htmlFor={id}><br />
+                                      &#60;b>Filter by
+                      text&#60;/b><br />
+                                  &#60;/label><br />
+                                  &#60;input<br />
+                                     
+                      className={css.field}<br />
+                                      value={textFilter}<br />
+                                     
+                      onChange={handleChange}<br />
+                                      type="text"<br />
+                                      id={id}<br />
+                                  /><br />
+                              &#60;/div><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+
+                  <!-- src/components/TaskForm/TaskForm.jsx -->
+                  <div class="bcg-box">
+                    <p>
+                      <i
+                        >//
+                        src/components/TaskForm/TaskForm.jsx</i
+                      ><br />
+
+                      import { Formik, Form, Field } from
+                      "formik";<br />
+                      import { useDispatch } from
+                      "react-redux";<br />
+                      import { addTask } from
+                      "../../redux/tasksOps.js";<br />
+                      import css from
+                      "./TaskForm.module.css";<br />
+                      <br />
+                      export default function TaskForm()
+                      {<br />
+                          const dispatch = useDispatch();<br />
+                          <br />
+                          const handleSubmit = (values,
+                      actions) => {<br />
+                             
+                      dispatch(addTask(values.text));<br />
+                              actions.resetForm();<br />
+                          };<br />
+                          <br />
+                          return (<br />
+                              &#60;Formik<br />
+                                  initialValues={{<br />
+                                      text: "",<br />
+                                  }}<br />
+                                  onSubmit={handleSubmit}<br />
+                              ><br />
+                                  &#60;Form
+                      className={css.form}><br />
+                                      &#60;Field<br />
+                                         
+                      className={css.field}<br />
+                                          name="text"<br />
+                                          placeholder="Enter
+                      task text..."<br />
+                                      /><br />
+                                      &#60;button
+                      type="submit">Add task&#60;/button><br />
+                                  &#60;/Form><br />
+                              &#60;/Formik><br />
+                          );<br />
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
         </div>
       </section>
@@ -11540,10 +12455,10 @@
                 /></i>
                 export const register = createAsyncThunk(<br />
                     'auth/register',<br />
-                    async (credentials, thunkAPI) => {<br />
+                    async (userInfo, thunkAPI) => {<br />
                         try {<br />
                             const res = await
-                axios.post('/users/signup', credentials);<br />
+                axios.post('/users/signup', userInfo);<br />
                 <i
                   >            // After successful
                   registration, add the token<br />
@@ -11568,10 +12483,10 @@
                 /></i>
                 export const logIn = createAsyncThunk(<br />
                     'auth/login',<br />
-                    async (credentials, thunkAPI) => {<br />
+                    async (userInfo, thunkAPI) => {<br />
                         try {<br />
                             const res = await
-                axios.post('/users/login', credentials);<br />
+                axios.post('/users/login', userInfo);<br />
                 <i
                   >            // After successful login,
                   add the token<br />
