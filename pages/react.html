@@ -54,16 +54,11 @@
                 <th>Імпорт</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="fs-13">
               <tr>
                 <td>Типізація пропсів</td>
                 <td>npm install --save-dev prop-types</td>
                 <td>import PropTypes from 'prop-types';</td>
-              </tr>
-              <tr>
-                <td>Композиціонування класів</td>
-                <td>npm install clsx</td>
-                <td>import clsx from "clsx";</td>
               </tr>
               <tr>
                 <td>
@@ -72,6 +67,27 @@
                 </td>
                 <td>npm install modern-normalize</td>
                 <td>import "modern-normalize";</td>
+              </tr>
+              <tr>
+                <td>
+                  Вбудовані React-хуки та функції до них
+                </td>
+                <td></td>
+                <td>
+                  import { useState } from "react";<br />
+                  import { useEffect } from "react";<br />
+                  import { useId } from "react";<br />
+                  import { useRef } from "react";<br />
+                  import { forwardRef } from "react";<br />
+                  import { createContext } from "react";<br />
+                  import { useContext } from "react";<br />
+                  import { useMemo } from "react";
+                </td>
+              </tr>
+              <tr>
+                <td>Композиціонування класів</td>
+                <td>npm install clsx</td>
+                <td>import clsx from "clsx";</td>
               </tr>
               <tr>
                 <td>Набір іконок</td>
@@ -94,6 +110,11 @@
                 <td>import * as Yup from "yup";</td>
               </tr>
               <tr>
+                <td>Генерування ID</td>
+                <td>npm i nanoid</td>
+                <td>import { nanoid } from "nanoid";</td>
+              </tr>
+              <tr>
                 <td>HTTP-запити</td>
                 <td>npm install axios</td>
                 <td>import axios from "axios";</td>
@@ -101,7 +122,7 @@
               <tr>
                 <td>Маршрутизація в React</td>
                 <td>npm install react-router-dom</td>
-                <td class="fs-13">
+                <td>
                   import { BrowserRouter } from
                   "react-router-dom";<br />
                   import { Routes, Route, NavLink } from
@@ -116,8 +137,11 @@
                   "react-router-dom";
                 </td>
               </tr>
-              <tr class="">
-                <td>Redux</td>
+              <tr>
+                <td>
+                  Redux - набір функцій для роботи зі store,
+                  state та actions
+                </td>
                 <td>npm install redux</td>
                 <td>
                   import { createStore } from "redux";<br />
@@ -125,7 +149,24 @@
                 </td>
               </tr>
               <tr>
-                <td>React Redux</td>
+                <td>
+                  Ініціалізує логіку Redux з інструментами
+                  розробника.
+                </td>
+                <td>
+                  npm install @redux-devtools/extension
+                </td>
+                <td>
+                  import { devToolsEnhancer } from
+                  "@redux-devtools/extension";
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  React Redux - набір компонентів та хуків
+                  зв'язуючих компонентів React та Redux
+                  store
+                </td>
                 <td>npm install react-redux</td>
                 <td>
                   import { useSelector } from
@@ -136,7 +177,15 @@
                 </td>
               </tr>
               <tr>
-                <td>Redux Toolkit</td>
+                <td rowspan="2">
+                  Redux Toolkit - стандартизація та
+                  спрощення написання логіки Redux: <br />
+                  - @reduxjs/toolkit - написання логіки
+                  Redux;
+                  <br />
+                  - react-redux - зв'язок стора з
+                  компонентами.
+                </td>
                 <td>npm install @reduxjs/toolkit</td>
                 <td>
                   import { configureStore } from
@@ -149,48 +198,20 @@
                   "@reduxjs/toolkit";<br />
                   import { createSelector } from
                   "@reduxjs/toolkit";<br />
-                  import { nanoid ??? } from
-                  "@reduxjs/toolkit";
+                  import { nanoid } from "@reduxjs/toolkit";
                 </td>
               </tr>
-              <tr class="">
-                <td></td>
-                <td>
-                  npm install @redux-devtools/extension
-                </td>
-                <td>
-                  import { devToolsEnhancer } from
-                  "@redux-devtools/extension";
-                </td>
-              </tr>
-              <tr class="">
-                <td></td>
-                <td></td>
-                <td>
-                  import { useState } from "react";<br />
-                  import { useEffect } from "react";<br />
-                  import { useId } from "react";<br />
-                  import { useRef } from "react";<br />
-                  import { forwardRef } from "react";<br />
-                  import { createContext } from "react";<br />
-                  import { useContext } from "react";<br />
-                  import { useMemo } from "react";
-                </td>
-              </tr>
-              <tr class="">
-                <td></td>
-                <td></td>
-                <td>import { nanoid } from "nanoid";</td>
-              </tr>
-              <tr class="">
-                <td></td>
+              <tr>
                 <td>
                   npm install @reduxjs/toolkit react-redux
                 </td>
                 <td></td>
               </tr>
-              <tr class="">
-                <td></td>
+              <tr>
+                <td>
+                  Запис даних у localstorage та читання із
+                  нього
+                </td>
                 <td>npm install redux-persist</td>
                 <td>
                   import { persistStore } from
@@ -201,14 +222,10 @@
                   "redux-persist/lib/storage";<br />
                   import { PersistGate } from
                   "redux-persist/integration/react";<br />
-                  import {<br />
-                      FLUSH,<br />
-                      REHYDRATE,<br />
-                      PAUSE,<br />
-                      PERSIST,<br />
-                      PURGE,<br />
-                      REGISTER,<br />
-                  } from "redux-persist";
+                  import { FLUSH, REHYDRATE, PAUSE,
+                  PERSIST,<br />
+                      PURGE, REGISTER, } from
+                  "redux-persist";
                 </td>
               </tr>
               <tr class="empty-coin">
@@ -592,7 +609,7 @@
         <div class="container">
           <h2 class="m-bottom center-text">Компоненти</h2>
 
-          <p>
+          <p class="container">
             Інтерфейс користувача складається з невеликих
             елементів, таких як кнопки, текст і зображення.
             React дозволяє об'єднувати їх у багаторазово
@@ -1253,7 +1270,7 @@
                   колекції повертає розмітку.
                 </p>
 
-                <p class="">
+                <p>
                   В JSX цей вираз обгортається у фігурні
                   дужки {}.
                 </p>
@@ -1308,7 +1325,7 @@
                   </ul>
 
                   <p>Для ключа не можна використовувати:</p>
-                  <ul class="">
+                  <ul>
                     <li>
                       <b>індекси масиву</b> унікальні, проте
                       вони не стабільні — при видаленні або
@@ -1785,7 +1802,7 @@
             <h3 class="m-bottom-min">Вбудовані стилі</h3>
             <div class="m-bottom flex">
               <div>
-                <p class="m-bottom-min">
+                <p>
                   Для стилізації за допомогою вбудованих
                   стилів використовується атрибут
                   <b>style</b>, який у React приймає
@@ -2155,52 +2172,118 @@
                 </div>
               </div>
             </section>
+          </section>
 
-            <!-- Бібліотека clsx -->
-            <section class="sub-section new-page">
-              <h4 class="m-bottom-min">Бібліотека clsx</h4>
-              <div class="m-bottom-min flex">
-                <p class="m-bottom-min">
-                  Бібліотека <b>clsx</b> дозволяє виріити
-                  більшість завдань, пов'язаних з безліччю
-                  класів, що задаються згідно з певними
-                  умовами.
-                </p>
-                <div class="bcg-box">
-                  <p>
-                    <i>// у терміналі</i> <br />
-                    <b>npm install clsx</b>
-                  </p>
-                </div>
-              </div>
-
-              <div class="m-bottom-min flex">
+          <!-- Бібліотека clsx -->
+          <section class="section new-page">
+            <h3 class="m-bottom-min">Бібліотека clsx</h3>
+            <div class="m-bottom-min flex">
+              <p class="m-bottom-min">
+                Бібліотека <b>clsx</b> дозволяє виріити
+                більшість завдань, пов'язаних з безліччю
+                класів, що задаються згідно з певними
+                умовами.
+              </p>
+              <div class="bcg-box">
                 <p>
-                  <b>Функції clsx</b> можна передати список
-                  виразів як набір аргументів. Вирази що
-                  приводяться до <b>true</b>, результат яких
-                  це рядок або число, буде додано у
-                  фінальний рядок класів.
+                  <i>// у терміналі</i> <br />
+                  <b>npm install clsx</b>
                 </p>
-                <div class="bcg-box print-fs-12">
-                  <p>
-                    <b>import clsx from "clsx"</b>;<br />
-                    <br />
-                    const className = <b>clsx</b>(<br />
-                    <b>
-                          "first",<br />
-                          10,<br />
-                          undefined && "second",<br />
-                          true && "third",<br />
-                          false ? "fourth" : "fifth"<br />
-                    </b>
-                    );<br />
-                    <br />
-                    console.log(className); <br />
-                        // "first 10 third fifth"
-                  </p>
-                </div>
-                <div class="bcg-box print-fs-12">
+              </div>
+            </div>
+
+            <div class="m-bottom-min flex">
+              <p>
+                <b>Функції clsx</b> можна передати список
+                виразів як набір аргументів. Вирази що
+                приводяться до <b>true</b>, результат яких
+                це рядок або число, буде додано у фінальний
+                рядок класів.
+              </p>
+              <div class="bcg-box print-fs-12">
+                <p>
+                  <b>import clsx from "clsx"</b>;<br />
+                  <br />
+                  const className = <b>clsx</b>(<br />
+                  <b>
+                        "first",<br />
+                        10,<br />
+                        undefined && "second",<br />
+                        true && "third",<br />
+                        false ? "fourth" : "fifth"<br />
+                  </b>
+                  );<br />
+                  <br />
+                  console.log(className); <br />
+                      // "first 10 third fifth"
+                </p>
+              </div>
+              <div class="bcg-box print-fs-12">
+                <i> // src/components/Alert.jsx </i><br />
+                import clsx from "clsx";<br />
+                import "./Alert.css";<br />
+                <br />
+                const Alert = ({ variant, outlined,
+                elevated, children }) => {<br />
+                    return (<br />
+                        &#60;p<br />
+                            className={<b>clsx</b>(<br />
+                <b>
+                                  "alert",<br />
+                                  variant,<br />
+                                  outlined &&
+                  "is-outlined",<br />
+                                  elevated &&
+                  "is-elevated"<br />
+                </b>
+                            )}<br />
+                        ><br />
+                            {children}<br />
+                        &#60;/p><br />
+                    );<br />
+                };
+              </div>
+            </div>
+
+            <div class="flex">
+              <div>
+                <p class="m-bottom-min">
+                  Можна комбінувати варіативну та об'єктну
+                  форму функції clsx. Спочатку передаються
+                  класи, які будуть завжди, після чого в
+                  об'єкті налаштувань перераховуємо
+                  динамічні значення класів залежно від
+                  якихось обчислень.
+                </p>
+                <p class="border-box m-bottom-min">
+                  <b>Важливо!</b> Варто пам'ятати, що класи
+                  з однаковими назвами, в залежності від
+                  підключення компонентів, що на них
+                  посилаються, можуть перевизначати
+                  властивості одне одного.
+                </p>
+
+                <p><b>Підсумок</b>:</p>
+                <ul>
+                  <li>слабка масштабованість;</li>
+                  <li>
+                    обмежене повторне використання стилів;
+                  </li>
+                  <li>
+                    для динамічних значень необхідно
+                    використовувати вбудовані стилі;
+                  </li>
+                  <li>
+                    проблема глобального простору імен;
+                  </li>
+                  <li>
+                    необхідність використовувати якусь
+                    конвенцію іменування селекторів класу.
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box print-fs-12">
+                <p>
                   <i> // src/components/Alert.jsx </i><br />
                   import clsx from "clsx";<br />
                   import "./Alert.css";<br />
@@ -2209,88 +2292,21 @@
                   elevated, children }) => {<br />
                       return (<br />
                           &#60;p<br />
-                              className={<b>clsx</b>(<br />
-                  <b>
-                                    "alert",<br />
-                                    variant,<br />
-                                    outlined &&
-                    "is-outlined",<br />
-                                    elevated &&
-                    "is-elevated"<br />
-                  </b>
-                              )}<br />
+                              className={clsx("alert",
+                  variant, {<br />
+                                  "is-outlined":
+                  outlined,<br />
+                                  "is-elevated":
+                  elevated,<br />
+                              })}<br />
                           ><br />
                               {children}<br />
                           &#60;/p><br />
                       );<br />
-                  };
-                </div>
+                  };<br />
+                </p>
               </div>
-
-              <div class="flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Можна комбінувати варіативну та об'єктну
-                    форму функції clsx. Спочатку передаються
-                    класи, які будуть завжди, після чого в
-                    об'єкті налаштувань перераховуємо
-                    динамічні значення класів залежно від
-                    якихось обчислень.
-                  </p>
-                  <p class="border-box m-bottom-min">
-                    <b>Важливо!</b> Варто пам'ятати, що
-                    класи з однаковими назвами, в залежності
-                    від підключення компонентів, що на них
-                    посилаються, можуть перевизначати
-                    властивості одне одного.
-                  </p>
-
-                  <p><b>Підсумок</b>:</p>
-                  <ul>
-                    <li>слабка масштабованість;</li>
-                    <li>
-                      обмежене повторне використання стилів;
-                    </li>
-                    <li>
-                      для динамічних значень необхідно
-                      використовувати вбудовані стилі;
-                    </li>
-                    <li>
-                      проблема глобального простору імен;
-                    </li>
-                    <li>
-                      необхідність використовувати якусь
-                      конвенцію іменування селекторів класу.
-                    </li>
-                  </ul>
-                </div>
-                <div class="bcg-box print-fs-12">
-                  <p>
-                    <i> // src/components/Alert.jsx </i
-                    ><br />
-                    import clsx from "clsx";<br />
-                    import "./Alert.css";<br />
-                    <br />
-                    const Alert = ({ variant, outlined,
-                    elevated, children }) => {<br />
-                        return (<br />
-                            &#60;p<br />
-                                className={clsx("alert",
-                    variant, {<br />
-                                    "is-outlined":
-                    outlined,<br />
-                                    "is-elevated":
-                    elevated,<br />
-                                })}<br />
-                            ><br />
-                                {children}<br />
-                            &#60;/p><br />
-                        );<br />
-                    };<br />
-                  </p>
-                </div>
-              </div>
-            </section>
+            </div>
 
             <!-- Повторне використання стилів -->
             <section class="sub-section">
@@ -2359,226 +2375,221 @@
                 </div>
               </div>
             </section>
+          </section>
 
-            <!-- CSS-модулі -->
-            <section class="sub-section new-page">
-              <h4 class="m-bottom-min">CSS-модулі</h4>
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    CSS-модулі - це не офіційна
-                    специфікація, вони не імплементовані в
-                    браузери. Це процес, що запускається на
-                    стадії складання проекту, в результаті
-                    виконання якого імена класів замінюються
-                    на унікальні. Це дозволяє
-                    використовувати одне і те ж ім'я класу в
-                    різних CSS-файлах, не турбуючись про
-                    конфлікти імен.
-                  </p>
-                  <p>
-                    Vite за замовчуванням підтримує
-                    CSS-модулі. Необхідно створbти файли
-                    стилів з розширенням
-                    <b>*.module.css</b>.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i
-                      >/* src/components/Alert.module.css */ </i
-                    ><br />
-                    .alert {<br />
-                        margin: 8px;<br />
-                        padding: 12px 16px;<br />
-                        border-radius: 4px;<br />
-                        background-color: gray;<br />
-                        color: white;<br />
-                    }
-                  </p>
-                </div>
-              </div>
-
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    <b>Імпорт CSS-модуля</b> нагадує імпорт
-                    файлу JavaScript модуля. У CSS-модулі є
-                    експорт за замовчуванням - об'єкт
-                    відповідності оригінального та
-                    згенерованих імен класів.
-                  </p>
-                  <p class="border-box">
-                    <b>Важливо!</b> Селектори тегів за
-                    замовчуванням будуть у глобальній
-                    області видимості, CSS-модулі генерують
-                    <b
-                      >лише унікальні імена селекторів
-                      класу</b
-                    >.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i> // src/components/Alert.jsx </i
-                    ><br />
-                    <i>// Синтаксис імпорту CSS-модуля </i
-                    ><br />
-                    <b
-                      >import css from
-                      "./Alert.module.css"</b
-                    >;<br />
-                    <br />
-                    <i
-                      >// Отримуємо об'єкт відповідності
-                      імен класів </i
-                    ><br />
-                    console.log(css); // { alert:
-                    "Alert_alert_ax7yz" }<br />
-                    <br />
-                    const Alert = ({ children }) => {<br />
-                        return &#60;p
-                    className={<b>css.alert</b>}>{children}&#60;/p>;<br />
-                    };
-                  </p>
-                </div>
-              </div>
-
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Композиція селекторів - це одна з
-                    ключових можливостей CSS-модулів, яка
-                    дозволяє створювати клас, наслідуючи
-                    стилі іншого класу, але не дублюючи їх.
-                  </p>
-                  <p class="m-bottom-min border-box">
-                    <b>Важливо!</b> Властивість
-                    <b>composes</b> має передувати іншим
-                    правилам, щоб можна було перевизначити
-                    стилі.
-                  </p>
-                  <p class="m-bottom-min border-box">
-                    <b>Важливо!</b> До властивостей об'єкта
-                    зазвичай звертаються як
-                    <b>css.alert</b>, але можна
-                    використовувати квадратні дужки,
-                    наприклад <b>css["alert"]</b>. Це
-                    корисно у випадку коли ім'я властивості
-                    зберігається у змінній, як у нас у
-                    пропсі variant.
-                  </p>
-                  <p class="border-box">
-                    <b>Важливо!</b> Імена класи, що
-                    складаються з декількох слів записують у
-                    <b>camelCase</b> нотації.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i>
-                      /* src/components/Alert.module.css */ </i
-                    ><br />
-                    .alert {<br />
-                        padding: 12px 16px;<br />
-                        background-color: gray;<br />
-                    }<br />
-                    <br />
-                    .success {<br />
-                        composes: alert;<br />
-                        background-color: green;<br />
-                    }<br />
-                    <br />
-                    .error {<br />
-                        composes: alert;<br />
-                        background-color: red;<br />
-                    }
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- Бібліотека React Icons -->
-            <section class="sub-section">
-              <h4 class="m-bottom-min">
-                Бібліотека React Icons
-              </h4>
-
-              <div class="m-bottom-min flex">
+          <!-- CSS-модулі -->
+          <section class="section new-page">
+            <h3 class="m-bottom-min">CSS-модулі</h3>
+            <div class="m-bottom-min flex">
+              <div>
                 <p class="m-bottom-min">
-                  React Icons
-                  (<i>https://react-icons.github.io/react-icons/</i>)
-                  - це набір іконок, спеціально створений
-                  для використання в React-додатках.
+                  CSS-модулі - це не офіційна специфікація,
+                  вони не імплементовані в браузери. Це
+                  процес, що запускається на стадії
+                  складання проекту, в результаті виконання
+                  якого імена класів замінюються на
+                  унікальні. Це дозволяє використовувати
+                  одне і те ж ім'я класу в різних
+                  CSS-файлах, не турбуючись про конфлікти
+                  імен.
                 </p>
-                <div class="bcg-box">
-                  <p>npm install react-icons</p>
-                </div>
+                <p>
+                  Vite за замовчуванням підтримує
+                  CSS-модулі. Необхідно створbти файли
+                  стилів з розширенням
+                  <b>*.module.css</b>.
+                </p>
               </div>
+              <div class="bcg-box">
+                <p>
+                  <i
+                    >/* src/components/Alert.module.css */ </i
+                  ><br />
+                  .alert {<br />
+                      margin: 8px;<br />
+                      padding: 12px 16px;<br />
+                      border-radius: 4px;<br />
+                      background-color: gray;<br />
+                      color: white;<br />
+                  }
+                </p>
+              </div>
+            </div>
 
-              <div class="m-bottom-min flex">
+            <div class="m-bottom-min flex">
+              <div>
                 <p class="m-bottom-min">
-                  Бібліотеку необхідно імпортувати у
-                  компонент, та підставити назву подтрібної
-                  іконки у код
+                  <b>Імпорт CSS-модуля</b> нагадує імпорт
+                  файлу JavaScript модуля. У CSS-модулі є
+                  експорт за замовчуванням - об'єкт
+                  відповідності оригінального та
+                  згенерованих імен класів.
                 </p>
-                <div class="bcg-box">
-                  <p>
-                    <b
-                      >import { HiUser } from
-                      "react-icons/hi"; </b
-                    ><br />
-                    <br />
-                    const UserMenu = ({ name }) => {<br />
-                        return &#60;p>
-                    <b>&#60;HiUser /></b>
-                    {name}&#60;/p><br />
-                    };
-                  </p>
-                </div>
+                <p class="border-box">
+                  <b>Важливо!</b> Селектори тегів за
+                  замовчуванням будуть у глобальній області
+                  видимості, CSS-модулі генерують
+                  <b
+                    >лише унікальні імена селекторів
+                    класу</b
+                  >.
+                </p>
               </div>
+              <div class="bcg-box">
+                <p>
+                  <i> // src/components/Alert.jsx </i><br />
+                  <i>// Синтаксис імпорту CSS-модуля </i
+                  ><br />
+                  <b>import css from "./Alert.module.css"</b
+                  >;<br />
+                  <br />
+                  <i
+                    >// Отримуємо об'єкт відповідності імен
+                    класів </i
+                  ><br />
+                  console.log(css); // { alert:
+                  "Alert_alert_ax7yz" }<br />
+                  <br />
+                  const Alert = ({ children }) => {<br />
+                      return &#60;p
+                  className={<b>css.alert</b>}>{children}&#60;/p>;<br />
+                  };
+                </p>
+              </div>
+            </div>
 
-              <div class="flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Можна налаштувати зовнішній вигляд
-                    іконок, використовуючи стилі React,
-                    передаючи власні класи або інші
-                    параметри.
-                  </p>
-                  <ul>
-                    <li>
-                      колір іконки вказується в додатковому
-                      класі CSS-властивістю
-                      <b>color</b>;
-                    </li>
-                    <li>
-                      розмір іконки визначається числом в
-                      атрибуті
-                      <b>size</b>, це кількість пікселів (за
-                      замовчуванням - <b>16px</b>).
-                    </li>
-                  </ul>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <b
-                      >import { HiUser } from
-                      "react-icons/hi"; </b
-                    ><br />
-                    <br />
-                    const UserMenu = ({ name }) => {<br />
-                        return <br />
-                            &#60;p><br />
-                                &#60;HiUser
-                    <b>className="my-icon" size="24"</b>
-                    /> {name}<br />
-                            &#60;/p><br />
-                    };
-                  </p>
-                </div>
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  Композиція селекторів - це одна з ключових
+                  можливостей CSS-модулів, яка дозволяє
+                  створювати клас, наслідуючи стилі іншого
+                  класу, але не дублюючи їх.
+                </p>
+                <p class="m-bottom-min border-box">
+                  <b>Важливо!</b> Властивість
+                  <b>composes</b> має передувати іншим
+                  правилам, щоб можна було перевизначити
+                  стилі.
+                </p>
+                <p class="m-bottom-min border-box">
+                  <b>Важливо!</b> До властивостей об'єкта
+                  зазвичай звертаються як <b>css.alert</b>,
+                  але можна використовувати квадратні дужки,
+                  наприклад <b>css["alert"]</b>. Це корисно
+                  у випадку коли ім'я властивості
+                  зберігається у змінній, як у нас у пропсі
+                  variant.
+                </p>
+                <p class="border-box">
+                  <b>Важливо!</b> Імена класи, що
+                  складаються з декількох слів записують у
+                  <b>camelCase</b> нотації.
+                </p>
               </div>
-            </section>
+              <div class="bcg-box">
+                <p>
+                  <i>
+                    /* src/components/Alert.module.css */ </i
+                  ><br />
+                  .alert {<br />
+                      padding: 12px 16px;<br />
+                      background-color: gray;<br />
+                  }<br />
+                  <br />
+                  .success {<br />
+                      composes: alert;<br />
+                      background-color: green;<br />
+                  }<br />
+                  <br />
+                  .error {<br />
+                      composes: alert;<br />
+                      background-color: red;<br />
+                  }
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Бібліотека React Icons -->
+          <section class="section">
+            <h3 class="m-bottom-min">
+              Бібліотека React Icons
+            </h3>
+
+            <div class="m-bottom-min flex">
+              <p>
+                React Icons
+                (<i>https://react-icons.github.io/react-icons/</i>)
+                - це набір іконок, спеціально створений для
+                використання в React-додатках.
+              </p>
+              <div class="bcg-box">
+                <p>npm install react-icons</p>
+              </div>
+            </div>
+
+            <div class="m-bottom-min flex">
+              <p class="m-bottom-min">
+                Бібліотеку необхідно імпортувати у
+                компонент, та підставити назву подтрібної
+                іконки у код
+              </p>
+              <div class="bcg-box">
+                <p>
+                  <b
+                    >import { HiUser } from
+                    "react-icons/hi"; </b
+                  ><br />
+                  <br />
+                  const UserMenu = ({ name }) => {<br />
+                      return &#60;p>
+                  <b>&#60;HiUser /></b>
+                  {name}&#60;/p><br />
+                  };
+                </p>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div>
+                <p class="m-bottom-min">
+                  Можна налаштувати зовнішній вигляд іконок,
+                  використовуючи стилі React, передаючи
+                  власні класи або інші параметри.
+                </p>
+                <ul>
+                  <li>
+                    колір іконки вказується в додатковому
+                    класі CSS-властивістю
+                    <b>color</b>;
+                  </li>
+                  <li>
+                    розмір іконки визначається числом в
+                    атрибуті
+                    <b>size</b>, це кількість пікселів (за
+                    замовчуванням - <b>16px</b>).
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <b
+                    >import { HiUser } from
+                    "react-icons/hi"; </b
+                  ><br />
+                  <br />
+                  const UserMenu = ({ name }) => {<br />
+                      return <br />
+                          &#60;p><br />
+                              &#60;HiUser
+                  <b>className="my-icon" size="24"</b>
+                  /> {name}<br />
+                          &#60;/p><br />
+                  };
+                </p>
+              </div>
+            </div>
           </section>
 
           <!-- Фінальний приклад (приклад від Репети) -->
@@ -2649,7 +2660,7 @@
                 </div>
 
                 <!-- App -->
-                <div class="m-bottom-min">
+                <div>
                   <!-- src/components/App/App.jsx -->
                   <div
                     class="bcg-box m-bottom-min print-m-left-none"
@@ -2753,7 +2764,7 @@
                 </div>
 
                 <!-- PageTitle -->
-                <div class="m-bottom-min">
+                <div>
                   <!-- src/components/PageTitle/PageTitle.jsx -->
                   <div
                     class="bcg-box m-bottom-min print-m-left-none"
@@ -2875,7 +2886,7 @@
                 </div>
 
                 <!-- PaymentList -->
-                <div class="m-bottom-min">
+                <div>
                   <!-- src/components/PaymentList/PaymentList.jsx -->
                   <div
                     class="bcg-box m-bottom-min print-m-left-none"
@@ -2938,7 +2949,7 @@
 
               <div>
                 <!-- PaymentCard -->
-                <div class="m-bottom-min">
+                <div class="">
                   <!-- src/components/PaymentCard/PaymentCard.jsx -->
                   <div
                     class="bcg-box m-bottom-min print-m-left-none"
@@ -3187,7 +3198,7 @@
                   запам'ятати її і викликати лише тоді, коли
                   користувач клікає кнопку.
                 </p>
-                <p class="m-bottom-min">
+                <p>
                   У другому прикладі <b>дужки ()</b> в кінці
                   <b>handleClick()</b>
                   викликає функцію безпосередньо під час
@@ -3398,7 +3409,7 @@
             </h3>
 
             <div class="flex m-bottom-min">
-              <div class="m-bottom-min">
+              <div>
                 <!-- src/components/App/App.jsx -->
                 <div class="bcg-box m-bottom-min">
                   <p>
@@ -3408,7 +3419,8 @@
                     import { useState } from "react";<br />
                     import Reader from
                     "../Reader/Reader";<br />
-                    import ClickCounter from
+                    import ClickCounter<br />
+                        from
                     "../ClickCounter/ClickCounter";<br />
                     import Toggler from
                     "../Toggler/Toggler";<br />
@@ -4111,13 +4123,7 @@
                             "text": "Backend development
                     ..."<br />
                         },<br />
-                        {<br />
-                            "id": 4,<br />
-                            "topic": "Database
-                    Management",<br />
-                            "text": "Database management
-                    i..."<br />
-                        },<br />
+
                     ]
                   </p>
                 </div>
@@ -4181,8 +4187,9 @@
                     ><br />
                     <br />
 
-                    export default function ArticleView({
-                    article: { topic, text } }) {<br />
+                    export default function ArticleView({<br />
+                        article: { topic, text } <br />
+                    }) {<br />
                         return (<br />
                             &#60;article><br />
                                 &#60;h2>{topic}&#60;/h2><br />
@@ -5033,7 +5040,7 @@
               </div>
 
               <div class="flex">
-                <p class="">
+                <p>
                   Ось повний код прикладу форми для входу.
                 </p>
                 <div class="bcg-box">
@@ -5285,7 +5292,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li class="">
+                      <li>
                         <b>Filter.jsx.</b> Приймаємо
                         <i>props</i> <b>value</b> та
                         <b>onFilter</b> та отримуємо текст
@@ -5498,7 +5505,6 @@
 
             <!-- додаток до списку -->
             <ul
-              class=""
               style="
                 margin-left: 80px;
                 list-style-type: square;
@@ -6141,7 +6147,7 @@
               </div>
 
               <div class="flex">
-                <p class="">
+                <p>
                   <i>Якщо форма велика</i>, зручно винести
                   об'єкт початкових значень полів в
                   <b>зовнішню змінну</b>.
@@ -6265,7 +6271,7 @@
               <h4 class="m-bottom-min">Елементи форми</h4>
 
               <div class="flex">
-                <p class="">
+                <p>
                   В бібліотеці <b>Formik</b> немає
                   компонентів для створення <b>label</b>,
                   <b>fieldset</b>, <b>legend</b> та інших
@@ -6312,7 +6318,7 @@
               <h4 class="m-bottom-min">Типи полів</h4>
 
               <div class="m-bottom flex">
-                <p class="">
+                <p>
                   За замовчуванням <i>компонент</i>
                   <b>Field</b> рендерить <i>тег</i>
                   <b>input</b>. Щоб змінити тип поля,
@@ -7264,7 +7270,7 @@
                     окремий файл *.js</i
                   >.
                 </p>
-                <div class="border-box">
+                <div class="border-box m-bottom-min">
                   <p>У новому файлі:</p>
                   <ul>
                     <li>
@@ -7677,7 +7683,9 @@
                 </div>
 
                 <!-- src/components/ArticleList/ArticleList.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div
+                  class="bcg-box m-bottom-min print-fs-14"
+                >
                   <p>
                     <i
                       >//
@@ -7734,6 +7742,8 @@
               <div class="next-page"></div>
             </div>
           </section>
+
+          <div class="new-page"></div>
         </div>
       </section>
 
@@ -8196,7 +8206,7 @@
               <h4 class="m-bottom-min">Підписка на стор</h4>
 
               <div class="m-bottom flex">
-                <p class="">
+                <p>
                   Щоб отримати дані зі стору, компоненти
                   повинні підписатися на необхідні їм
                   частини стану Redux. Для цього у
@@ -8280,7 +8290,7 @@
               <h4 class="m-bottom-min">Екшени (actions)</h4>
 
               <div class="m-bottom-min flex">
-                <p class="">
+                <p>
                   <b>Екшени (actions)</b> - це об'єкти, які
                   передають дані з компонентів у стор, тим
                   самим сигналізуючи про те, яка подія
@@ -8361,7 +8371,7 @@
                 </h5>
 
                 <div class="flex">
-                  <p class="">
+                  <p>
                     Екшени це <i>статичні об'єкти</i>,
                     значення властивості <b>payload</b> яких
                     неможливо задати динамічно.
@@ -8409,7 +8419,7 @@
                 </h5>
 
                 <div class="flex">
-                  <p class="">
+                  <p>
                     Для того щоб сповістити сторінку про те,
                     що в інтерфейсі відбулася якась подія,
                     необхідно відправити екшен за допомогою
@@ -8529,7 +8539,7 @@
                       ><br />
                     </p>
                     <p><b>Правила редюсерів</b></p>
-                    <ul class="">
+                    <ul>
                       <li>
                         Не можна змінювати аргументи (<b
                           >state</b
@@ -8572,7 +8582,7 @@
                   </div>
                 </div>
 
-                <ul class="">
+                <ul>
                   <li>
                     Не можна змінювати стан (<b>state</b>).
                     Натомість редюсери повинні робити
@@ -8750,7 +8760,7 @@
               <h4 class="m-bottom-min">Висновки</h4>
 
               <p>Алгоритм використання Redux</p>
-              <ul class="" style="min-width: max-content">
+              <ul style="min-width: max-content">
                 <li>Створити <b>Store</b></li>
                 <li>Оголосити <b>початковий стан</b></li>
                 <li>
@@ -9059,7 +9069,7 @@
               <div style="display: flex">
                 <div>
                   <p><b>Недоліки ванільного Redux</b></p>
-                  <ul class="">
+                  <ul>
                     <li>
                       Надмірно складний процес налаштування
                       стора.
@@ -9077,7 +9087,7 @@
                 </div>
                 <div>
                   <p><b>Переваги Redux Toolkit</b></p>
-                  <ul class="">
+                  <ul>
                     <li>
                       Дозволяє зосередитися на написанні
                       основної логіки програми, не
@@ -9534,19 +9544,19 @@
                 </div>
               </div>
 
-              <div>
-                <ul class="m-bottom-min">
-                  <li>
-                    <b>initialState</b> - початковий стан
-                    редюсера.
-                  </li>
-                  <li>
-                    <b>builderCallback</b> - функція
-                    зворотнього виклику, за допомогою якої
-                    визначається редюсер для кожного екшена.
-                  </li>
-                </ul>
+              <ul class="m-bottom-min">
+                <li>
+                  <b>initialState</b> - початковий стан
+                  редюсера.
+                </li>
+                <li>
+                  <b>builderCallback</b> - функція
+                  зворотнього виклику, за допомогою якої
+                  визначається редюсер для кожного екшена.
+                </li>
+              </ul>
 
+              <div class="m-bottom-min flex new-page">
                 <p>
                   Функція зворотнього виклику
                   <b>builderCallback</b>
@@ -9559,9 +9569,6 @@
                   <b>addCase</b>, для якого написаний
                   власний міні-редюсер.
                 </p>
-              </div>
-
-              <div class="m-bottom-min flex new-page">
                 <div class="bcg-box print-fs-15">
                   <p>
                     <i>// src/redux/reducers.js</i><br />
@@ -10267,7 +10274,7 @@
             </div>
 
             <div class="m-bottom-min flex">
-              <p class="">
+              <p>
                 Файл <b>store.js</b> імпортуються
                 <b>persistStore</b> та
                 <b>persistReducer</b> та посилання на
@@ -10289,7 +10296,7 @@
             </div>
 
             <div class="m-bottom-min flex">
-              <p class="">
+              <p>
                 Необхідно налаштувати <b>store</b>, за
                 допомогою <b>persistReducer</b>, передавши
                 йому першим аргументом об'єкт конфігурації,
@@ -10310,7 +10317,7 @@
             </div>
 
             <div class="m-bottom-min flex">
-              <p class="">
+              <p>
                 Об'єкт конфігурації
                 (<b>balancePersistConfig</b>) має дві
                 основні властивості <b>key</b> (ім'я ключа у
@@ -10337,7 +10344,7 @@
             </div>
 
             <div class="m-bottom-min flex">
-              <p class="">
+              <p>
                 У слайс, замість старого редьюсера,
                 необхідно повернути новий
               </p>
@@ -10370,7 +10377,7 @@
             </div>
 
             <div class="m-bottom flex">
-              <p class="">
+              <p>
                 Необхідно огорнути додаток за допомогою
                 <b>PersistGate</b> із обов'зковим пропсом
                 <b>persistor</b>. Додатково можна передати
@@ -10537,7 +10544,8 @@
                     "react-dom/client";<br />
                     import { Provider } from
                     "react-redux";<br />
-                    import { PersistGate } from
+                    import { PersistGate } <br />
+                        from
                     "redux-persist/integration/react";<br />
                     import "modern-normalize";<br />
                     import App from
@@ -10546,21 +10554,62 @@
                     "./redux/store";<br />
                     import "./index.css";<br />
                     <br />
-                    ReactDOM.createRoot(document.getElementById("root")).render(<br />
-                        &#60;React.StrictMode><br />
-                            &#60;Provider store={store}><br />
-                                &#60;PersistGate
+                    ReactDOM.createRoot(document.getElementById("root"))<br />
+                        .render(<br />
+                            &#60;React.StrictMode><br />
+                                &#60;Provider
+                    store={store}><br />
+                                    &#60;PersistGate
                     persistor={persistor}><br />
-                                    &#60;App /><br />
-                                &#60;/PersistGate><br />
-                            &#60;/Provider><br />
-                        &#60;/React.StrictMode><br />
-                    );
+                                        &#60;App /><br />
+                                    &#60;/PersistGate><br />
+                                &#60;/Provider><br />
+                            &#60;/React.StrictMode><br />
+                        );
                   </p>
                 </div>
 
-                <!-- src/components/Balance.jsx -->
+                <!-- src/components/App/App.jsx -->
                 <div class="bcg-box">
+                  <p>
+                    <i> // src/components/App/App.jsx </i
+                    ><br />
+                    <br />
+
+                    import { useSelector } from
+                    "react-redux";<br />
+                    import LangSwitcher from
+                    "../LangSwitcher";<br />
+                    import Balance from "../Balance";<br />
+                    import css from "./App.module.css";<br />
+                    <br />
+                    export default function App() {<br />
+                        const lang = useSelector((state) =>
+                    state.locale.lang);<br />
+                        <br />
+                        return (<br />
+                            &#60;div
+                    className={css.container}><br />
+                                &#60;h1
+                    className={css.pageTitle}><br />
+                                    Redux Toolkit<br />
+                    &#60;/h1><br />
+                                &#60;Balance /><br />
+                                &#60;div><br />
+                                    &#60;LangSwitcher /><br />
+                                    &#60;p>Selected lang:
+                    {lang}&#60;/p><br />
+                                &#60;/div><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <!-- src/components/Balance.jsx -->
+                <div class="bcg-box m-bottom-min">
                   <p>
                     <i> // src/components/Balance.jsx </i
                     ><br />
@@ -10597,45 +10646,6 @@
                     dispatch(withdraw(value))}><br />
                                     Withdraw<br />
                                 &#60;/button><br />
-                            &#60;/div><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <!-- src/components/App/App.jsx -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i> // src/components/App/App.jsx </i
-                    ><br />
-                    <br />
-
-                    import { useSelector } from
-                    "react-redux";<br />
-                    import LangSwitcher from
-                    "../LangSwitcher";<br />
-                    import Balance from "../Balance";<br />
-                    import css from "./App.module.css";<br />
-                    <br />
-                    export default function App() {<br />
-                        const lang = useSelector((state) =>
-                    state.locale.lang);<br />
-                        <br />
-                        return (<br />
-                            &#60;div
-                    className={css.container}><br />
-                                &#60;h1
-                    className={css.pageTitle}><br />
-                                    Redux Toolkit<br />
-                    &#60;/h1><br />
-                                &#60;Balance /><br />
-                                &#60;div><br />
-                                    &#60;LangSwitcher /><br />
-                                    &#60;p>Selected lang:
-                    {lang}&#60;/p><br />
-                                &#60;/div><br />
                             &#60;/div><br />
                         );<br />
                     }
@@ -10847,327 +10857,939 @@
       <!-- Асинхронність в Redux -->
       <section id="http-redux" class="main-section">
         <div class="container">
-          <section>
-            <h2 class="center-text">
-              Асинхронність в Redux
-            </h2>
+          <h2 class="center-text">Асинхронність в Redux</h2>
 
-            <p class="m-bottom">
-              <b>HTTP-запити</b> це
-              <i>асинхронні операції</i>, які представлені
-              <i>промісами</i>, тому їх можна розбити на три
-              складові: процес
-              <i>запиту</i> (<b>pending</b>),
-              <i>успішне</i> завершення запиту
-              (<b>fulfilled</b>) та завершення запиту з
-              <i>помилкою</i>
-              (<b>rejected</b>).
-            </p>
+          <p class="m-bottom">
+            <b>HTTP-запити</b> це
+            <i>асинхронні операції</i>, які представлені
+            <i>промісами</i>, тому їх можна розбити на три
+            складові: процес <i>запиту</i> (<b>pending</b>),
+            <i>успішне</i> завершення запиту
+            (<b>fulfilled</b>) та завершення запиту з
+            <i>помилкою</i>
+            (<b>rejected</b>).
+          </p>
 
-            <!-- Операції -->
-            <section class="section">
-              <h3 class="m-bottom-min">Операції</h3>
+          <!-- Операції -->
+          <section class="section">
+            <h3 class="m-bottom-min">Операції</h3>
 
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    <b>Завдання</b>: завантаження даних,
-                    обробки індикатора завантаження та
-                    помилки виконання запиту. Оголосимо
-                    слайс списку завдань, у стані якого
-                    будемо зберігати масив завдань, прапор
-                    статусу завантаження та дані можливої
-                    помилки.
-                  </p>
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  <b>Завдання</b>: завантаження даних,
+                  обробки індикатора завантаження та помилки
+                  виконання запиту. Оголосимо слайс списку
+                  завдань, у стані якого будемо зберігати
+                  масив завдань, прапор статусу завантаження
+                  та дані можливої помилки.
+                </p>
 
-                  <p>
-                    Додамо редюсер для обробки кожного з
-                    можливих станів запиту.
-                  </p>
+                <p>
+                  Додамо редюсер для обробки кожного з
+                  можливих станів запиту.
+                </p>
 
-                  <ul class="m-bottom-min">
-                    <li>
-                      Прапор завантаження
-                      <b>isLoading</b> встановлюємо в
-                      <b>true</b> на старті запиту, та
-                      <b>false</b> у будь-якому іншому
-                      випадку, тому що запит завершено.
-                    </li>
-                    <li>
-                      При виконанні запиту з помилкою
-                      змінюємо значення властивості
-                      <b>error</b>, записавши в нього те, що
-                      прийде в <b>action.payload</b> -
-                      інформація про помилку.
-                    </li>
-                    <li>
-                      У разі успішного виконання запиту,
-                      скидаємо значення помилки та записуємо
-                      в
-                      <b>items</b> отримані дані з
-                      <b>action.payload</b> - масив завдань.
-                    </li>
-                  </ul>
+                <ul class="m-bottom-min">
+                  <li>
+                    Прапор завантаження
+                    <b>isLoading</b> встановлюємо в
+                    <b>true</b> на старті запиту, та
+                    <b>false</b> у будь-якому іншому
+                    випадку, тому що запит завершено.
+                  </li>
+                  <li>
+                    При виконанні запиту з помилкою змінюємо
+                    значення властивості
+                    <b>error</b>, записавши в нього те, що
+                    прийде в <b>action.payload</b> -
+                    інформація про помилку.
+                  </li>
+                  <li>
+                    У разі успішного виконання запиту,
+                    скидаємо значення помилки та записуємо в
+                    <b>items</b> отримані дані з
+                    <b>action.payload</b> - масив завдань.
+                  </li>
+                </ul>
 
-                  <div class="bcg-box print-m-left-none">
-                    <p>
-                      <i>store.js</i><br />
-                      <br />
-
-                      import { configureStore } from
-                      '@reduxjs/toolkit';<br />
-                      import { tasksReducer } from
-                      './tasksSlice';<br />
-                      <br />
-                      export const store =
-                      configureStore({<br />
-                          reducer: {<br />
-                              tasks: tasksReducer,<br />
-                          },<br />
-                      });
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i>tasksSlice.js</i><br />
-                      <br />
-
-                      import { createSlice } from
-                      '@reduxjs/toolkit';<br />
-                      <br />
-                      const tasksInitialState = {<br />
-                          items: [],<br />
-                          isLoading: false,<br />
-                          error: null,<br />
-                      };<br />
-                      <br />
-                      const tasksSlice = createSlice({<br />
-                          name: 'tasks',<br />
-                          initialState:
-                      tasksInitialState,<br />
-                          <b>reducers</b>: {<br />
-                             
-                      <b>fetchingInProgress(state)</b>
-                      {<br />
-                                  state.<b>isLoading</b> =
-                      true;<br />
-                              },<br />
-                             
-                      <b>fetchingSuccess(state, action)</b>
-                      {<br />
-                                  state.<b>isLoading</b> =
-                      false;<br />
-                                  state.<b>error</b> =
-                      null;<br />
-                                  state.<b>items</b> =
-                      <b>action.payload</b>;<br />
-                              },<br />
-                             
-                      <b>fetchingError(state, action)</b>
-                      {<br />
-                                  state.<b>isLoading</b> =
-                      false;<br />
-                                  state.<b>error</b> =
-                      <b>action.payload</b>;<br />
-                              },<br />
-                          },<br />
-                      });<br />
-                      export const { fetchingInProgress,
-                      fetchingSuccess, fetchingError } =<br />
-                          tasksSlice.actions;<br />
-                      export const tasksReducer =
-                      tasksSlice.reducer;
-                    </p>
-                  </div>
-                  <div class="bcg-box">
-                    <p>
-                      <i>selectors.js</i><br />
-                      <br />
-
-                      export const getTasks = (state) =>
-                      state.tasks;
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="m-bottom-min flex">
-                <div>
-                  <p class="m-bottom-min">
-                    Для того, щоб при відправленні екшену
-                    виконати асинхронний код, необхідно
-                    оголосити
-                    <b>«операцію»</b> -
-                    <i>асинхронний генератор екшену</i>, в
-                    <i>тілі</i> якого викликаються інші,
-                    <i>синхронні генератори екшенів</i>.
-                    <i>Операція</i> не повертає екшен
-                    замість цього вона
-                    <i>повертає іншу функцію</i>, яка
-                    <i>аргументом</i> набуває
-                    <b>dispatch</b>. У тілі цієї функції
-                    можна виконувати асинхронні дії,
-                    наприклад, HTTP-запит. Для запитів
-                    використовуємо бібліотеку axios.
-                  </p>
-                  <p class="m-bottom-min">
-                    Усередині операції надсилаємо
-                    <i>синхронні екшени</i> для обробки
-                    трьох ситуацій: встановлення індикатора
-                    завантаження, отримання даних при
-                    успішному запиті та обробка помилки.
-                  </p>
-                  <p class="border-box">
-                    <b>Цікаво!</b> Можливість оголошувати
-                    асинхронні генератори екшенів та
-                    виконувати асинхронні дії надає
-                    розширення стора <b>redux-thunk</b>, яке
-                    за умовчанням включено до Redux Toolkit.
-                  </p>
-                </div>
-                <div class="bcg-box">
-                  <p>
-                    <i>operations.js</i><br />
-                    <br />
-
-                    import axios from 'axios';<br />
-                    import {<br />
-                        fetchingInProgress,<br />
-                        fetchingSuccess,<br />
-                        fetchingError,<br />
-                    } from './tasksSlice';<br />
-                    <br />
-                    axios.defaults.baseURL =<br />
-                       
-                    'https://62584f320c918296a49543e7.mockapi.io';<br />
-                    <br />
-                    export const <b>fetchTasks</b> = () =>
-                    <b>async (dispatch)</b> => {<br />
-                        try {<br />
-                           
-                    <b>dispatch</b
-                    >(fetchingInProgress());<br />
-                            const response = await
-                    axios.get('/tasks');<br />
-                           
-                    <b>dispatch</b
-                    >(fetchingSuccess(response.data));<br />
-                        } catch (e) {<br />
-                           
-                    <b>dispatch</b
-                    >(fetchingError(e.message));<br />
-                        }<br />
-                    };
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex new-page">
                 <div class="bcg-box print-m-left-none">
                   <p>
-                    <i>main.jsx</i><br />
+                    <i>store.js</i><br />
                     <br />
 
-                    import React from 'react';<br />
-                    import ReactDOM from
-                    'react-dom/client';<br />
-                    import { Provider } from
-                    'react-redux';<br />
-                    import { App } from './App.jsx';<br />
-                    import { store } from
-                    './redux/store';<br />
-                    import './index.css';<br />
+                    import { configureStore } from
+                    '@reduxjs/toolkit';<br />
+                    import { tasksReducer } from
+                    './tasksSlice';<br />
                     <br />
-                    ReactDOM.createRoot(document<br />
-                        .getElementById('root')).render(<br />
-                            &#60;React.StrictMode ><br />
-                                &#60;Provider
-                    store="{store}" ><br />
-                                    &#60;App /><br />
-                                &#60;/Provider ><br />
-                            &#60;/React.StrictMode ><br />
-                        );
+                    export const store = configureStore({<br />
+                        reducer: {<br />
+                            tasks: tasksReducer,<br />
+                        },<br />
+                    });
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i>tasksSlice.js</i><br />
+                    <br />
+
+                    import { createSlice } from
+                    '@reduxjs/toolkit';<br />
+                    <br />
+                    const tasksInitialState = {<br />
+                        items: [],<br />
+                        isLoading: false,<br />
+                        error: null,<br />
+                    };<br />
+                    <br />
+                    const tasksSlice = createSlice({<br />
+                        name: 'tasks',<br />
+                        initialState: tasksInitialState,<br />
+                        <b>reducers</b>: {<br />
+                           
+                    <b>fetchingInProgress(state)</b>
+                    {<br />
+                                state.<b>isLoading</b> =
+                    true;<br />
+                            },<br />
+                           
+                    <b>fetchingSuccess(state, action)</b>
+                    {<br />
+                                state.<b>isLoading</b> =
+                    false;<br />
+                                state.<b>error</b> =
+                    null;<br />
+                                state.<b>items</b> =
+                    <b>action.payload</b>;<br />
+                            },<br />
+                           
+                    <b>fetchingError(state, action)</b>
+                    {<br />
+                                state.<b>isLoading</b> =
+                    false;<br />
+                                state.<b>error</b> =
+                    <b>action.payload</b>;<br />
+                            },<br />
+                        },<br />
+                    });<br />
+                    export const { fetchingInProgress,
+                    fetchingSuccess, fetchingError } =<br />
+                        tasksSlice.actions;<br />
+                    export const tasksReducer =
+                    tasksSlice.reducer;
                   </p>
                 </div>
                 <div class="bcg-box">
                   <p>
-                    <i>App.jsx</i><br />
+                    <i>selectors.js</i><br />
                     <br />
-                    import { useEffect } from 'react';<br />
-                    import { useDispatch, useSelector } from
-                    'react-redux';<br />
-                    import { fetchTasks } from
-                    './redux/operations';<br />
-                    import { getTasks } from
-                    './redux/selectors';<br />
+
+                    export const getTasks = (state) =>
+                    state.tasks;
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  Для того, щоб при відправленні екшену
+                  виконати асинхронний код, необхідно
+                  оголосити
+                  <b>«операцію»</b> -
+                  <i>асинхронний генератор екшену</i>, в
+                  <i>тілі</i> якого викликаються інші,
+                  <i>синхронні генератори екшенів</i>.
+                  <i>Операція</i> не повертає екшен замість
+                  цього вона <i>повертає іншу функцію</i>,
+                  яка <i>аргументом</i> набуває
+                  <b>dispatch</b>. У тілі цієї функції можна
+                  виконувати асинхронні дії, наприклад,
+                  HTTP-запит. Для запитів використовуємо
+                  бібліотеку axios.
+                </p>
+                <p class="m-bottom-min">
+                  Усередині операції надсилаємо
+                  <i>синхронні екшени</i> для обробки трьох
+                  ситуацій: встановлення індикатора
+                  завантаження, отримання даних при
+                  успішному запиті та обробка помилки.
+                </p>
+                <p class="border-box">
+                  <b>Цікаво!</b> Можливість оголошувати
+                  асинхронні генератори екшенів та
+                  виконувати асинхронні дії надає розширення
+                  стора <b>redux-thunk</b>, яке за
+                  умовчанням включено до Redux Toolkit.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>operations.js</i><br />
+                  <br />
+
+                  import axios from 'axios';<br />
+                  import {<br />
+                      fetchingInProgress,<br />
+                      fetchingSuccess,<br />
+                      fetchingError,<br />
+                  } from './tasksSlice';<br />
+                  <br />
+                  axios.defaults.baseURL =<br />
+                     
+                  'https://62584f320c918296a49543e7.mockapi.io';<br />
+                  <br />
+                  export const <b>fetchTasks</b> = () =>
+                  <b>async (dispatch)</b> => {<br />
+                      try {<br />
+                         
+                  <b>dispatch</b
+                  >(fetchingInProgress());<br />
+                          const response = await
+                  axios.get('/tasks');<br />
+                         
+                  <b>dispatch</b
+                  >(fetchingSuccess(response.data));<br />
+                      } catch (e) {<br />
+                         
+                  <b>dispatch</b
+                  >(fetchingError(e.message));<br />
+                      }<br />
+                  };
+                </p>
+              </div>
+            </div>
+
+            <div class="flex new-page">
+              <div class="bcg-box print-m-left-none">
+                <p>
+                  <i>main.jsx</i><br />
+                  <br />
+
+                  import React from 'react';<br />
+                  import ReactDOM from
+                  'react-dom/client';<br />
+                  import { Provider } from 'react-redux';<br />
+                  import { App } from './App.jsx';<br />
+                  import { store } from './redux/store';<br />
+                  import './index.css';<br />
+                  <br />
+                  ReactDOM.createRoot(document<br />
+                      .getElementById('root')).render(<br />
+                          &#60;React.StrictMode ><br />
+                              &#60;Provider store="{store}"
+                  ><br />
+                                  &#60;App /><br />
+                              &#60;/Provider ><br />
+                          &#60;/React.StrictMode ><br />
+                      );
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>App.jsx</i><br />
+                  <br />
+                  import { useEffect } from 'react';<br />
+                  import { useDispatch, useSelector } from
+                  'react-redux';<br />
+                  import { fetchTasks } from
+                  './redux/operations';<br />
+                  import { getTasks } from
+                  './redux/selectors';<br />
+                  <br />
+                  export const App = () => {<br />
+                      const dispatch = useDispatch();<br />
+                      const { items, isLoading, error } =<br />
+                          useSelector(getTasks);<br />
+                      <br />
+                      useEffect(() => {<br />
+                          dispatch(fetchTasks());<br />
+                      }, [dispatch]);<br />
+                      <br />
+                      return (<br />
+                          &#60;div><br />
+                              {isLoading &&
+                  <b>Loading tasks...</b>}<br />
+                              {error &&
+                  <b>{error}</b>}<br />
+                              &#60;p><br />
+                                  {items.length > 0 &&<br />
+                                      JSON.stringify(items,
+                  null, 2)}<br />
+                              &#60;/p><br />
+                          &#60;/div><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- createAsyncThunk -->
+          <section class="section">
+            <h3 class="m-bottom-min">createAsyncThunk</h3>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p class="m-bottom-min">
+                  <b>createAsyncThunk()</b> - функція Redux
+                  Toolkit спрощує процес оголошення
+                  асинхронного генератора екшену.
+                  <i>Першим аргументом</i> приймає
+                  <b>тип екшену</b>, а <i>другим</i>
+                  <b>функцію</b>, яка повинна виконати
+                  HTTP-запит і повернути проміс із даними,
+                  які стануть значенням <b>payload</b>.
+                  Повертає
+                  <i
+                    >асинхронний генератор екшену
+                    (операцію)</i
+                  >
+                  при запуску якого виконається функція з
+                  кодом запиту.
+                </p>
+                <p>
+                  Функція <b>createAsyncThunk()</b>
+                  <i>автоматично</i> створює <i>екшени</i>,
+                  що представляють життєвий цикл
+                  HTTP-запиту, і відправляє їх у правильному
+                  порядку, залежно від статусу запиту.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>// src/redux/operations.js</i><br />
+                  <br />
+                  import axios from "axios";<br />
+                  import { createAsyncThunk } from
+                  "@reduxjs/toolkit";<br />
+                  <br />
+                  axios.defaults.baseURL =<br />
+                     
+                  "https://62584f320c918296a49543e7.mockapi.io";<br />
+                  <br />
+                  export const fetchTasks =
+                  createAsyncThunk(<br />
+                      "tasks/fetchAll",<br />
+                      async () => {<br />
+                          const response = await
+                  axios.get("/tasks");<br />
+                          return response.data;<br />
+                      }<br />
+                  );
+                </p>
+              </div>
+            </div>
+
+            <p>
+              <i
+                >Тип створених екшенів складається з рядка,
+                зазначеного першим аргументом
+                (<b>"tasks/fetchAll"</b>), до якого
+                додається постфікси <b>"pending"</b>,
+                <b>"fulfilled"</b> або <b>"rejected"</b></i
+              >, залежно від того, який стан запиту описує
+              екшен.
+            </p>
+            <ul class="m-bottom-min">
+              <li>
+                <b>"tasks/fetchAll/pending"</b> - початок
+                запиту;
+              </li>
+              <li>
+                <b>"tasks/fetchAll/fulfilled"</b> - успішне
+                завершення запиту;
+              </li>
+              <li>
+                <b>"tasks/fetchAll/rejected"</b> -
+                завершення запиту з помилкою.
+              </li>
+            </ul>
+
+            <div class="flex new-page">
+              <div>
+                <p class="m-bottom-min">
+                  Функція <b>createAsyncThunk</b>
+                  <i>не створює</i> <b>редюсер</b>, тому що
+                  не може знати, як ми хочемо відстежувати
+                  стан завантаження, з якими даними
+                  завершиться запит та як їх правильно
+                  обробити. Тому наступним кроком буде зміна
+                  коду слайсу так, щоб він обробляв
+                  <b>нові екшени</b>.
+                </p>
+                <p class="m-bottom-min">
+                  Властивість
+                  <b>extraReducers</b> використовується щоб
+                  оголосити
+                  <i
+                    >редюсери для «зовнішніх» типів
+                    екшенів</i
+                  >, тобто тих, які не згенеровані з
+                  властивості <b>reducers</b>. Оскільки ці
+                  редюсери обробляють «зовнішні» екшени, для
+                  них не буде створено генератори екшенів в
+                  <b>slice.actions</b>,
+                  <i>в цьому немає необхідності</i>.
+                </p>
+                <p>
+                  <i>Генератори екшенів</i>, які мають
+                  життєвий цикл запиту, зберігаються в
+                  об'єкті операції як властивості
+                  <b>pending</b>, <b>fulfilled</b> та
+                  <b>rejected</b>. Вони автоматично
+                  створюються за допомогою
+                  <b>createAction</b> і тому мають
+                  властивість <b>type</b> і перевизначений
+                  метод <b>toString()</b>, який повертає
+                  рядок типу екшену.
+                </p>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <i>// src/redux/tasksSlice.js </i><br />
+                  <br />
+                  import { createSlice } from
+                  "@reduxjs/toolkit";<br />
+                  import { fetchTasks } from
+                  "./operations";<br />
+                  <br />
+                  const tasksSlice = createSlice({<br />
+                      name: "tasks",<br />
+                      initialState: {<br />
+                          items: [],<br />
+                          isLoading: false,<br />
+                          error: null,<br />
+                      },<br />
+                      <b>extraReducers</b>: builder => {<br />
+                          builder<br />
+                             
+                  .addCase(fetchTasks.<b>pending</b>,
+                  (state, action) => {<br />
+                                  state.isLoading = true;<br />
+                              })<br />
+                             
+                  .addCase(fetchTasks.<b>fulfilled</b>,
+                  (state, action) => {<br />
+                                  state.isLoading =
+                  false;<br />
+                                  state.error = null;<br />
+                                  state.items =
+                  action.payload;<br />
+                              })<br />
+                             
+                  .addCase(fetchTasks.<b>rejected</b>,
+                  (state, action) => {<br />
+                                  state.isLoading =
+                  false;<br />
+                                  state.error =
+                  action.payload;<br />
+                              });<br />
+                      },<br />
+                  });<br />
+                  <br />
+                  export const tasksReducer =
+                  tasksSlice.reducer;
+
+                  <br />
+                  export default Product;
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Селектори -->
+          <section class="section">
+            <h3 class="m-bottom-min">Селектори</h3>
+
+            <p class="m-bottom-min">
+              <b>Селектори</b> - функції, які інкапсулюють у
+              собі читання значень із стану Redux.
+            </p>
+
+            <div class="m-bottom-min flex">
+              <p>
+                У компонентах використовуємо хук
+                <b>useSelector(selector)</b>, якому
+                передається посилання на функцію селектор.
+              </p>
+              <div class="bcg-box">
+                <p>
+                  const <b>valueSelector</b> = state =>
+                  state.some.value;<br />
+                  const value =
+                  <b>useSelector(valueSelector)</b>;
+                </p>
+              </div>
+            </div>
+
+            <p class="m-bottom-min">
+              Таким чином компоненти не знають про форму
+              стану Redux та процес обчислення необхідного
+              їм значення. При зміні структури стану
+              необхідно буде оновити лише селектори,
+              компоненти не будуть порушені.
+            </p>
+
+            <p class="m-bottom">
+              По суті селектори це прошарок абстракції, який
+              мінімізує зв'язок між компонентами та стором
+              Redux.
+            </p>
+
+            <!-- Найменування -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">Найменування</h4>
+
+              <p class="m-bottom-min">
+                Рекомендується починати імена
+                <i>функцій селекторів</i> приставкою
+                <b>select</b>, після якої йде опис обраного
+                значення.
+              </p>
+
+              <div class="m-bottom flex">
+                <div class="bcg-box print-m-left-none">
+                  <p>
+                    <i>// src/redux/selectors.js</i><br />
                     <br />
-                    export const App = () => {<br />
-                        const dispatch = useDispatch();<br />
-                        const { items, isLoading, error }
-                    =<br />
-                            useSelector(getTasks);<br />
-                        <br />
-                        useEffect(() => {<br />
-                            dispatch(fetchTasks());<br />
-                        }, [dispatch]);<br />
-                        <br />
-                        return (<br />
-                            &#60;div><br />
-                                {isLoading &&
-                    <b>Loading tasks...</b>}<br />
-                                {error &&
-                    <b>{error}</b>}<br />
-                                &#60;p><br />
-                                    {items.length > 0 &&<br />
-                                       
-                    JSON.stringify(items, null, 2)}<br />
-                                &#60;/p><br />
-                            &#60;/div><br />
-                        );<br />
-                    };
+
+                    <i
+                      >//=============== Before
+                      ===============</i
+                    ><br />
+                    export const getTasks = state =>
+                    state.tasks.items;<br />
+                    export const getStatusFilter = state =>
+                    state.filters.status;<br />
+                    <br />
+                    <i
+                      >//=============== After
+                      ===============</i
+                    ><br />
+                    export const <b>select</b>Tasks = state
+                    => state.tasks.items;<br />
+                    export const
+                    <b>select</b>StatusFilter = state =>
+                    state.filters.status;
+                  </p>
+                </div>
+                <div class="bcg-box">
+                  <p>
+                    <i>//===== Before =====</i><br />
+                    import {<br />
+                        getTasks,<br />
+                        getStatusFilter,<br />
+                    } from "redux/selectors";<br />
+                    <br />
+                    <i>//===== After =====</i><br />
+                    import {<br />
+                        selectTasks,<br />
+                        selectStatusFilter,<br />
+                    } from "redux/selectors";
                   </p>
                 </div>
               </div>
             </section>
 
-            <!-- createAsyncThunk -->
-            <section class="section">
-              <h3 class="m-bottom-min">createAsyncThunk</h3>
+            <!-- Складові селектори -->
+            <section class="sub-section new-page">
+              <h4 class="m-bottom-min">
+                Складові селектори
+              </h4>
+
+              <div class="m-bottom-min flex">
+                <p>
+                  У найпростішому вигляді селектор отримує
+                  поточний стан та повертає його необхідну
+                  частину. Селектори це звичайні функції, а
+                  отже, можуть обчислювати значення
+                  використовуючи частини стану та повертати
+                  результат обчислень.
+                </p>
+                <div class="bcg-box">
+                  <p>
+                    const selectTotalValue = state => {<br />
+                        const a = state.values.a;<br />
+                        const b = state.values.b;<br />
+                        return a + b;<br />
+                    };
+                  </p>
+                </div>
+              </div>
+
+              <p class="m-bottom-min">
+                Селектори, які тільки повертають якусь
+                частину стану, без додаткових обчислень,
+                називатимемо
+                <b>простими</b>. А ті, що повертають якісь
+                значення, що обчислюються -
+                <b>складовими</b>.
+              </p>
+            </section>
+
+            <!-- Функція createSelector -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Функція createSelector
+              </h4>
+
+              <p class="m-bottom-min">
+                Якщо селектор повертає посилальний тип або
+                виконує якісь обчислення, його необхідно
+                оптимізувати так, щоб ці обчислення
+                запускалися тільки за умови зміни тих частин
+                стану, які використовуються в селекторі ы не
+                обчислювались при змінах інших властивостей
+                стану.
+              </p>
 
               <div class="m-bottom-min flex">
                 <div>
                   <p class="m-bottom-min">
-                    <b>createAsyncThunk()</b> - функція
-                    Redux Toolkit спрощує процес оголошення
-                    асинхронного генератора екшену.
-                    <i>Першим аргументом</i> приймає
-                    <b>тип екшену</b>, а <i>другим</i>
-                    <b>функцію</b>, яка повинна виконати
-                    HTTP-запит і повернути проміс із даними,
-                    які стануть значенням <b>payload</b>.
-                    Повертає
-                    <i
-                      >асинхронний генератор екшену
-                      (операцію)</i
-                    >
-                    при запуску якого виконається функція з
-                    кодом запиту.
+                    Процес
+                    <i>оптимізації селекторів</i>
+                    називається <b>мемоізація</b> -
+                    збереження результатів виконання функції
+                    для запобігання повторним обчисленням.
                   </p>
                   <p>
-                    Функція <b>createAsyncThunk()</b>
-                    <i>автоматично</i> створює
-                    <i>екшени</i>, що представляють життєвий
-                    цикл HTTP-запиту, і відправляє їх у
-                    правильному порядку, залежно від статусу
-                    запиту.
+                    Для мемоізації селектора
+                    використовується функція
+                    <b>createSelector</b>, яка приймає масив
+                    селекторів, значення яких необхідні для
+                    наступних обчислень та функцію
+                    перетворювач, в якій виконуватимуться
+                    всі обчислення.
                   </p>
                 </div>
                 <div class="bcg-box">
                   <p>
-                    <i>// src/redux/operations.js</i><br />
+                    import { <b>createSelector</b> } from
+                    "@reduxjs/toolkit";<br />
                     <br />
+                    const selector =
+                    <b>createSelector</b>(<br />
+                       
+                    <i>// Масив вхідних селекторів</i><br />
+                        [inputSelector1, inputSelector2,
+                    inputSelector3],<br />
+                        <i>// Функція перетворювач</i><br />
+                        (result1, result2, result3) => {<br />
+                           
+                    <i
+                      >// Виконуємо обчислення та повертаємо
+                      результат</i
+                    ><br />
+                        }<br />
+                    );
+                  </p>
+                </div>
+              </div>
+
+              <ul class="m-bottom-min">
+                <li>
+                  У <i>масиві селекторів</i> можуть бути
+                  будь-які інші селектори, як
+                  <i>прості</i> так і <i>складові</i>, у
+                  тому числі <i>мемоізовані</i>.
+                </li>
+                <li>
+                  Результати вхідних селекторів передаються
+                  як
+                  <i>аргументи функції</i> перетворення
+                  <i
+                    >в тому самому порядку, в якому вони
+                    перераховані</i
+                  >.
+                </li>
+                <li>
+                  <i>Повторні обчислення</i> виконуються
+                  лише якщо
+                  <i>зміниться значення якогось параметра</i
+                  >, в іншому випадку повертається результат
+                  останнього виклика функції.
+                </li>
+              </ul>
+
+              <div class="flex">
+                <div>
+                  <p class="center-text">Було</p>
+
+                  <div class="bcg-box">
+                    <p>
+                      <i
+                        >//
+                        src/components/TaskCounter/TaskCounter.jsx</i
+                      ><br />
+                      <br />
+                      import { useSelector } from
+                      "react-redux";<br />
+                      import { selectTasks } from
+                      "redux/selectors";<br />
+                      <br />
+                      export const TaskCounter = () => {<br />
+                          const tasks =
+                      useSelector(selectTasks);<br />
+                      <br />
+                          const count = tasks.reduce(<br />
+                              (acc, task) => {<br />
+                                  if (task.completed) {<br />
+                                      acc.completed += 1;<br />
+                                  } else {<br />
+                                      acc.active += 1;<br />
+                                  }<br />
+                                  return acc;<br />
+                              },<br />
+                              { active: 0, completed: 0 }<br />
+                          );<br />
+                      <br />
+                          <i>// Рендер JSX розмітки</i
+                      ><br />
+                      };
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <p class="center-text">Стало</p>
+
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i>// src/redux/selectors.js</i><br />
+                      import { <b>createSelector</b> } from
+                      "@reduxjs/toolkit";<br />
+                      <br />
+                      export const
+                      <b>selectTasks</b> = state =>
+                      state.tasks.items;<br />
+                      <br />
+                      export const
+                      <b>selectTaskCount</b> =
+                      <b>createSelector</b>(<br />
+                          [<b>selectTasks</b>],<br />
+                          tasks => {<br />
+                          return tasks.reduce(<br />
+                              (count, task) => {<br />
+                                  if (task.completed) {<br />
+                                      count.completed +=
+                      1;<br />
+                                  } else {<br />
+                                      count.active += 1;<br />
+                                  }<br />
+                                  return count;<br />
+                              },<br />
+                              { active: 0, completed: 0 }<br />
+                          );<br />
+                      });
+                    </p>
+                  </div>
+                  <div class="bcg-box">
+                    <p>
+                      <i
+                        >//
+                        src/components/TaskCounter/TaskCounter.jsx</i
+                      ><br />
+                      import { useSelector } from
+                      "react-redux";<br />
+                      import { <b>selectTaskCount</b> } from
+                      "redux/selectors";<br />
+                      export const TaskCounter = () => {<br />
+                          const count =
+                      useSelector(<b>selectTaskCount</b>);<br />
+                          <i>// Рендер JSX розмітки</i
+                      ><br />
+                      };
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- Фінальний приклад (приклад від Репети) -->
+          <section class="section">
+            <h3 class="m-bottom-min">
+              Фінальний приклад (приклад від Репети)
+            </h3>
+
+            <div class="flex m-bottom-min">
+              <!-- src/main.jsx -->
+              <div class="bcg-box">
+                <p>
+                  <i>// src/main.jsx</i><br />
+
+                  import React from "react";<br />
+                  import ReactDOM from
+                  "react-dom/client";<br />
+                  import { Provider } from "react-redux";<br />
+                  import App from "./components/App";<br />
+                  import "modern-normalize";<br />
+                  import "./index.css";<br />
+                  import { store } from "./redux/store";<br />
+                  <br />
+                  ReactDOM.createRoot(document.getElementById("root")).render(<br />
+                      &#60;React.StrictMode><br />
+                          &#60;Provider store={store}><br />
+                              &#60;App /><br />
+                          &#60;/Provider><br />
+                      &#60;/React.StrictMode><br />
+                  );
+                </p>
+              </div>
+
+              <!-- src/redux/store.js -->
+              <div class="bcg-box">
+                <p>
+                  <i>// src/redux/store.js</i><br />
+
+                  import { configureStore } from
+                  "@reduxjs/toolkit";<br />
+                  import tasksReducer from
+                  "./tasksSlice";<br />
+                  import filtersReducer from
+                  "./filtersSlice";<br />
+                  <br />
+                  export const store = configureStore({<br />
+                      reducer: {<br />
+                          tasks: tasksReducer,<br />
+                          filters: filtersReducer,<br />
+                      },<br />
+                  });
+                </p>
+              </div>
+            </div>
+
+            <!-- src/redux/tasksSlice.js -->
+            <div class="bcg-box flex m-bottom-min">
+              <p>
+                <i>// src/redux/tasksSlice.js</i><br />
+
+                import { createSlice, createSelector } from
+                "@reduxjs/toolkit";<br />
+                import { fetchTasks, addTask, deleteTask }
+                from "./tasksOps";<br />
+                import { selectTextFilter } from
+                "./filtersSlice";<br />
+                <br />
+                const slice = createSlice({<br />
+                    name: "tasks",<br />
+                    initialState: {<br />
+                        items: [],<br />
+                        loading: false,<br />
+                        error: false,<br />
+                        a: 1,<br />
+                        b: 2,<br />
+                    },<br />
+                    extraReducers: builder =><br />
+                        builder<br />
+                            .addCase(fetchTasks.pending,
+                state => {<br />
+                                state.loading = true;<br />
+                            })<br />
+                            .addCase(fetchTasks.fulfilled,
+                (state, action) => {<br />
+                                state.loading = false;<br />
+                                state.error = null;<br />
+                                state.items =
+                action.payload;<br />
+                            })<br />
+                            .addCase(fetchTasks.rejected,
+                (state, action) => {<br />
+                                state.loading = false;<br />
+                                state.error =
+                action.payload;<br />
+                            })<br />
+                            .addCase(addTask.pending, state
+                => {<br />
+                                state.loading = true;<br />
+                            })<br />
+                            .addCase(addTask.fulfilled,
+                (state, action) => {<br />
+                                state.isLoading = false;<br />
+                                state.error = null;<br />
+                               
+                state.items.push(action.payload);<br />
+                            })<br />
+                            .addCase(addTask.rejected,
+                (state, action) => {<br />
+                                state.loading = false;<br />
+                                state.error =
+                action.payload;<br />
+                            })<br />
+                            .addCase(deleteTask.pending,
+                state => {<br />
+                                state.loading = true;<br />
+                            })<br />
+              </p>
+              <p>
+                            .addCase(deleteTask.fulfilled,
+                (state, action) => {<br />
+                                state.loading = false;<br />
+                                state.error = null;<br />
+                                const index =
+                state.items.findIndex(<br />
+                                    task => task.id ===
+                action.payload.id<br />
+                                );<br />
+                                state.items.splice(index,
+                1);<br />
+                            })<br />
+                            .addCase(deleteTask.rejected,
+                (state, action) => {<br />
+                                state.loading = false;<br />
+                                state.error =
+                action.payload;<br />
+                            }),<br />
+                });<br />
+                <br />
+                export const selectTasks = state =>
+                state.tasks.items;<br />
+                <br />
+                export const selectLoading = state =>
+                state.tasks.loading;<br />
+                <br />
+                export const selectError = state =>
+                state.tasks.error;<br />
+                <br />
+                export const selectVisibleTasks =
+                createSelector(<br />
+                    [selectTasks, selectTextFilter],<br />
+                    (tasks, textFilter) => {<br />
+                       
+                console.log("selectVisibleTasks");<br />
+                        return tasks.filter(task =><br />
+                            task.text.toLowerCase()<br />
+                           
+                .includes(textFilter.toLowerCase())<br />
+                        );<br />
+                    }<br />
+                );<br />
+                <br />
+                export const selectSum = createSelector(<br />
+                    [state => state.tasks.a, state =>
+                state.tasks.b],<br />
+                    (a, b) => {<br />
+                        console.log("selectSum");<br />
+                        return a + b;<br />
+                    }<br />
+                );<br />
+                <br />
+                export default slice.reducer;
+              </p>
+            </div>
+
+            <div class="flex">
+              <div>
+                <!-- src/redux/tasksOps.js -->
+                <div class="bcg-box m-bottom-min new-page">
+                  <p>
+                    <i>// src/redux/tasksOps.js</i><br />
+
                     import axios from "axios";<br />
                     import { createAsyncThunk } from
                     "@reduxjs/toolkit";<br />
@@ -11179,1063 +11801,401 @@
                     export const fetchTasks =
                     createAsyncThunk(<br />
                         "tasks/fetchAll",<br />
-                        async () => {<br />
-                            const response = await
+                        async (_, thunkAPI) => {<br />
+                            try {<br />
+                                const response = await
                     axios.get("/tasks");<br />
-                            return response.data;<br />
+                                return response.data;<br />
+                            } catch (e) {<br />
+                                return
+                    thunkAPI.rejectWithValue(e.message);<br />
+                            }<br />
+                        }<br />
+                    );<br />
+                    <br />
+                    export const addTask =
+                    createAsyncThunk(<br />
+                        "tasks/addTask",<br />
+                        async (text, thunkAPI) => {<br />
+                            try {<br />
+                                const response = await
+                    axios.post("/tasks", { text });<br />
+                                return response.data;<br />
+                            } catch (e) {<br />
+                                return
+                    thunkAPI.rejectWithValue(e.message);<br />
+                            }<br />
+                        }<br />
+                    );<br />
+                    <br />
+                    export const deleteTask =
+                    createAsyncThunk(<br />
+                        "tasks/deleteTask",<br />
+                        async (taskId, thunkAPI) => {<br />
+                            try {<br />
+                                const response = await
+                    axios.delete(`/tasks/${taskId}`);<br />
+                                return response.data;<br />
+                            } catch (e) {<br />
+                                return
+                    thunkAPI.rejectWithValue(e.message);<br />
+                            }<br />
                         }<br />
                     );
                   </p>
                 </div>
-              </div>
 
-              <p>
-                <i
-                  >Тип створених екшенів складається з
-                  рядка, зазначеного першим аргументом
-                  (<b>"tasks/fetchAll"</b>), до якого
-                  додається постфікси <b>"pending"</b>,
-                  <b>"fulfilled"</b> або
-                  <b>"rejected"</b></i
-                >, залежно від того, який стан запиту описує
-                екшен.
-              </p>
-              <ul class="m-bottom-min">
-                <li>
-                  <b>"tasks/fetchAll/pending"</b> - початок
-                  запиту;
-                </li>
-                <li>
-                  <b>"tasks/fetchAll/fulfilled"</b> -
-                  успішне завершення запиту;
-                </li>
-                <li>
-                  <b>"tasks/fetchAll/rejected"</b> -
-                  завершення запиту з помилкою.
-                </li>
-              </ul>
-
-              <div class="flex new-page">
-                <div>
-                  <p class="m-bottom-min">
-                    Функція <b>createAsyncThunk</b>
-                    <i>не створює</i> <b>редюсер</b>, тому
-                    що не може знати, як ми хочемо
-                    відстежувати стан завантаження, з якими
-                    даними завершиться запит та як їх
-                    правильно обробити. Тому наступним
-                    кроком буде зміна коду слайсу так, щоб
-                    він обробляв <b>нові екшени</b>.
-                  </p>
-                  <p class="m-bottom-min">
-                    Властивість
-                    <b>extraReducers</b> використовується
-                    щоб оголосити
-                    <i
-                      >редюсери для «зовнішніх» типів
-                      екшенів</i
-                    >, тобто тих, які не згенеровані з
-                    властивості <b>reducers</b>. Оскільки ці
-                    редюсери обробляють «зовнішні» екшени,
-                    для них не буде створено генератори
-                    екшенів в <b>slice.actions</b>,
-                    <i>в цьому немає необхідності</i>.
-                  </p>
-                  <p>
-                    <i>Генератори екшенів</i>, які мають
-                    життєвий цикл запиту, зберігаються в
-                    об'єкті операції як властивості
-                    <b>pending</b>, <b>fulfilled</b> та
-                    <b>rejected</b>. Вони автоматично
-                    створюються за допомогою
-                    <b>createAction</b> і тому мають
-                    властивість <b>type</b> і перевизначений
-                    метод <b>toString()</b>, який повертає
-                    рядок типу екшену.
-                  </p>
-                </div>
+                <!-- src/redux/filtersSlice.js -->
                 <div class="bcg-box">
                   <p>
-                    <i>// src/redux/tasksSlice.js </i><br />
-                    <br />
+                    <i>// src/redux/filtersSlice.js</i
+                    ><br />
+
                     import { createSlice } from
                     "@reduxjs/toolkit";<br />
-                    import { fetchTasks } from
-                    "./operations";<br />
                     <br />
-                    const tasksSlice = createSlice({<br />
-                        name: "tasks",<br />
+                    const filtersSlice = createSlice({<br />
+                        name: "filters",<br />
                         initialState: {<br />
-                            items: [],<br />
-                            isLoading: false,<br />
-                            error: null,<br />
+                            text: "",<br />
                         },<br />
-                        <b>extraReducers</b>: builder =>
+                        reducers: {<br />
+                            changeTextFilter(state, action)
                     {<br />
-                            builder<br />
-                               
-                    .addCase(fetchTasks.<b>pending</b>,
-                    (state, action) => {<br />
-                                    state.isLoading =
-                    true;<br />
-                                })<br />
-                               
-                    .addCase(fetchTasks.<b>fulfilled</b>,
-                    (state, action) => {<br />
-                                    state.isLoading =
-                    false;<br />
-                                    state.error = null;<br />
-                                    state.items =
+                                state.text =
                     action.payload;<br />
-                                })<br />
-                               
-                    .addCase(fetchTasks.<b>rejected</b>,
-                    (state, action) => {<br />
-                                    state.isLoading =
-                    false;<br />
-                                    state.error =
-                    action.payload;<br />
-                                });<br />
+                            },<br />
                         },<br />
                     });<br />
                     <br />
-                    export const tasksReducer =
-                    tasksSlice.reducer;
-
+                    export const { changeTextFilter } =
+                    filtersSlice.actions;<br />
                     <br />
-                    export default Product;
-                  </p>
-                </div>
-              </div>
-            </section>
-
-            <!-- Селектори -->
-            <section class="section">
-              <h3 class="m-bottom-min">Селектори</h3>
-
-              <p class="m-bottom-min">
-                <b>Селектори</b> - функції, які інкапсулюють
-                у собі читання значень із стану Redux.
-              </p>
-
-              <div class="m-bottom-min flex">
-                <p>
-                  У компонентах використовуємо хук
-                  <b>useSelector(selector)</b>, якому
-                  передається посилання на функцію селектор.
-                </p>
-                <div class="bcg-box">
-                  <p>
-                    const <b>valueSelector</b> = state =>
-                    state.some.value;<br />
-                    const value =
-                    <b>useSelector(valueSelector)</b>;
+                    export const selectTextFilter = state =>
+                    state.filters.text;<br />
+                    <br />
+                    export default filtersSlice.reducer;
                   </p>
                 </div>
               </div>
 
-              <p class="m-bottom-min">
-                Таким чином компоненти не знають про форму
-                стану Redux та процес обчислення необхідного
-                їм значення. При зміні структури стану
-                необхідно буде оновити лише селектори,
-                компоненти не будуть порушені.
-              </p>
-
-              <p class="m-bottom">
-                По суті селектори це прошарок абстракції,
-                який мінімізує зв'язок між компонентами та
-                стором Redux.
-              </p>
-
-              <!-- Найменування -->
-              <section class="sub-section">
-                <h4 class="m-bottom-min">Найменування</h4>
-
-                <p class="m-bottom-min">
-                  Рекомендується починати імена
-                  <i>функцій селекторів</i> приставкою
-                  <b>select</b>, після якої йде опис
-                  обраного значення.
-                </p>
-
-                <div class="m-bottom flex">
-                  <div class="bcg-box print-m-left-none">
-                    <p>
-                      <i>// src/redux/selectors.js</i><br />
-                      <br />
-
-                      <i
-                        >//=============== Before
-                        ===============</i
-                      ><br />
-                      export const getTasks = state =>
-                      state.tasks.items;<br />
-                      export const getStatusFilter = state
-                      => state.filters.status;<br />
-                      <br />
-                      <i
-                        >//=============== After
-                        ===============</i
-                      ><br />
-                      export const <b>select</b>Tasks =
-                      state => state.tasks.items;<br />
-                      export const
-                      <b>select</b>StatusFilter = state =>
-                      state.filters.status;
-                    </p>
-                  </div>
-                  <div class="bcg-box">
-                    <p>
-                      <i>//===== Before =====</i><br />
-                      import {<br />
-                          getTasks,<br />
-                          getStatusFilter,<br />
-                      } from "redux/selectors";<br />
-                      <br />
-                      <i>//===== After =====</i><br />
-                      import {<br />
-                          selectTasks,<br />
-                          selectStatusFilter,<br />
-                      } from "redux/selectors";
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Складові селектори -->
-              <section class="sub-section new-page">
-                <h4 class="m-bottom-min">
-                  Складові селектори
-                </h4>
-
-                <div class="m-bottom-min flex">
-                  <p class="">
-                    У найпростішому вигляді селектор отримує
-                    поточний стан та повертає його необхідну
-                    частину. Селектори це звичайні функції,
-                    а отже, можуть обчислювати значення
-                    використовуючи частини стану та
-                    повертати результат обчислень.
-                  </p>
-                  <div class="bcg-box">
-                    <p>
-                      const selectTotalValue = state => {<br />
-                          const a = state.values.a;<br />
-                          const b = state.values.b;<br />
-                          return a + b;<br />
-                      };
-                    </p>
-                  </div>
-                </div>
-
-                <p class="m-bottom-min">
-                  Селектори, які тільки повертають якусь
-                  частину стану, без додаткових обчислень,
-                  називатимемо
-                  <b>простими</b>. А ті, що повертають якісь
-                  значення, що обчислюються -
-                  <b>складовими</b>.
-                </p>
-              </section>
-
-              <!-- Функція createSelector -->
-              <section class="sub-section">
-                <h4 class="m-bottom-min">
-                  Функція createSelector
-                </h4>
-
-                <p class="m-bottom-min">
-                  Якщо селектор повертає посилальний тип або
-                  виконує якісь обчислення, його необхідно
-                  оптимізувати так, щоб ці обчислення
-                  запускалися тільки за умови зміни тих
-                  частин стану, які використовуються в
-                  селекторі ы не обчислювались при змінах
-                  інших властивостей стану.
-                </p>
-
-                <div class="m-bottom-min flex">
-                  <div>
-                    <p class="m-bottom-min">
-                      Процес
-                      <i>оптимізації селекторів</i>
-                      називається <b>мемоізація</b> -
-                      збереження результатів виконання
-                      функції для запобігання повторним
-                      обчисленням.
-                    </p>
-                    <p>
-                      Для мемоізації селектора
-                      використовується функція
-                      <b>createSelector</b>, яка приймає
-                      масив селекторів, значення яких
-                      необхідні для наступних обчислень та
-                      функцію перетворювач, в якій
-                      виконуватимуться всі обчислення.
-                    </p>
-                  </div>
-                  <div class="bcg-box">
-                    <p>
-                      import { <b>createSelector</b> } from
-                      "@reduxjs/toolkit";<br />
-                      <br />
-                      const selector =
-                      <b>createSelector</b>(<br />
-                         
-                      <i>// Масив вхідних селекторів</i
-                      ><br />
-                          [inputSelector1, inputSelector2,
-                      inputSelector3],<br />
-                          <i>// Функція перетворювач</i
-                      ><br />
-                          (result1, result2, result3) =>
-                      {<br />
-                             
-                      <i
-                        >// Виконуємо обчислення та
-                        повертаємо результат</i
-                      ><br />
-                          }<br />
-                      );
-                    </p>
-                  </div>
-                </div>
-
-                <ul class="m-bottom-min">
-                  <li>
-                    У <i>масиві селекторів</i> можуть бути
-                    будь-які інші селектори, як
-                    <i>прості</i> так і <i>складові</i>, у
-                    тому числі <i>мемоізовані</i>.
-                  </li>
-                  <li>
-                    Результати вхідних селекторів
-                    передаються як
-                    <i>аргументи функції</i> перетворення
-                    <i
-                      >в тому самому порядку, в якому вони
-                      перераховані</i
-                    >.
-                  </li>
-                  <li>
-                    <i>Повторні обчислення</i> виконуються
-                    лише якщо
-                    <i
-                      >зміниться значення якогось
-                      параметра</i
-                    >, в іншому випадку повертається
-                    результат останнього виклика функції.
-                  </li>
-                </ul>
-
-                <div class="flex">
-                  <div>
-                    <p class="center-text">Було</p>
-
-                    <div class="bcg-box">
-                      <p>
-                        <i
-                          >//
-                          src/components/TaskCounter/TaskCounter.jsx</i
-                        ><br />
-                        <br />
-                        import { useSelector } from
-                        "react-redux";<br />
-                        import { selectTasks } from
-                        "redux/selectors";<br />
-                        <br />
-                        export const TaskCounter = () =>
-                        {<br />
-                            const tasks =
-                        useSelector(selectTasks);<br />
-                        <br />
-                            const count = tasks.reduce(<br />
-                                (acc, task) => {<br />
-                                    if (task.completed) {<br />
-                                        acc.completed +=
-                        1;<br />
-                                    } else {<br />
-                                        acc.active += 1;<br />
-                                    }<br />
-                                    return acc;<br />
-                                },<br />
-                                { active: 0, completed: 0
-                        }<br />
-                            );<br />
-                        <br />
-                            <i>// Рендер JSX розмітки</i
-                        ><br />
-                        };
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <p class="center-text">Стало</p>
-
-                    <div class="bcg-box m-bottom-min">
-                      <p>
-                        <i>// src/redux/selectors.js</i
-                        ><br />
-                        import { <b>createSelector</b> }
-                        from "@reduxjs/toolkit";<br />
-                        <br />
-                        export const
-                        <b>selectTasks</b> = state =>
-                        state.tasks.items;<br />
-                        <br />
-                        export const
-                        <b>selectTaskCount</b> =
-                        <b>createSelector</b>(<br />
-                            [<b>selectTasks</b>],<br />
-                            tasks => {<br />
-                            return tasks.reduce(<br />
-                                (count, task) => {<br />
-                                    if (task.completed) {<br />
-                                        count.completed +=
-                        1;<br />
-                                    } else {<br />
-                                        count.active +=
-                        1;<br />
-                                    }<br />
-                                    return count;<br />
-                                },<br />
-                                { active: 0, completed: 0
-                        }<br />
-                            );<br />
-                        });
-                      </p>
-                    </div>
-                    <div class="bcg-box">
-                      <p>
-                        <i
-                          >//
-                          src/components/TaskCounter/TaskCounter.jsx</i
-                        ><br />
-                        import { useSelector } from
-                        "react-redux";<br />
-                        import { <b>selectTaskCount</b> }
-                        from "redux/selectors";<br />
-                        export const TaskCounter = () =>
-                        {<br />
-                            const count =
-                        useSelector(<b>selectTaskCount</b>);<br />
-                            <i>// Рендер JSX розмітки</i
-                        ><br />
-                        };
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </section>
-
-            <!-- Фінальний приклад (приклад від Репети) -->
-            <section class="section">
-              <h3 class="m-bottom-min">
-                Фінальний приклад (приклад від Репети)
-              </h3>
-
-              <div class="flex m-bottom-min">
-                <!-- src/main.jsx -->
-                <div class="bcg-box">
+              <div>
+                <!-- src/components/App.jsx -->
+                <div class="bcg-box m-bottom-min">
                   <p>
-                    <i>// src/main.jsx</i><br />
+                    <i>// src/components/App.jsx</i><br />
 
-                    import React from "react";<br />
-                    import ReactDOM from
-                    "react-dom/client";<br />
-                    import { Provider } from
+                    import { useEffect } from "react";<br />
+                    import { useDispatch, useSelector } from
                     "react-redux";<br />
-                    import App from "./components/App";<br />
-                    import "modern-normalize";<br />
-                    import "./index.css";<br />
-                    import { store } from
-                    "./redux/store";<br />
+                    import Layout from "./Layout/Layout";<br />
+                    import TaskList from
+                    "./TaskList/TaskList";<br />
+                    import Loader from "./Loader/Loader";<br />
+                    import Error from "./Error/Error";<br />
+                    import TaskForm from
+                    "./TaskForm/TaskForm";<br />
+                    import TextFilter from
+                    "./TextFilter/TextFilter";<br />
+                    import { fetchTasks } from
+                    "../redux/tasksOps";<br />
+                    import { selectLoading, selectError,
+                    selectSum }<br />
+                        from "../redux/tasksSlice";<br />
                     <br />
-                    ReactDOM.createRoot(document.getElementById("root")).render(<br />
-                        &#60;React.StrictMode><br />
-                            &#60;Provider store={store}><br />
-                                &#60;App /><br />
-                            &#60;/Provider><br />
-                        &#60;/React.StrictMode><br />
-                    );
+                    export default function App() {<br />
+                        const dispatch = useDispatch();<br />
+                        const loading =
+                    useSelector(selectLoading);<br />
+                        const error =
+                    useSelector(selectError);<br />
+                        const sum =
+                    useSelector(selectSum);<br />
+                        <br />
+                        useEffect(() => {<br />
+                            dispatch(fetchTasks());<br />
+                        }, [dispatch]);<br />
+                        <br />
+                        return (<br />
+                            &#60;Layout><br />
+                                &#60;h1>Selector
+                    memoization: {sum}&#60;/h1><br />
+                                &#60;TaskForm /><br />
+                                &#60;TextFilter /><br />
+                                {loading &&
+                    &#60;Loader>Please wait&#60;/Loader>}<br />
+                                {error && &#60;Error>Error
+                    message&#60;/Error>}<br />
+                                &#60;TaskList /><br />
+                            &#60;/Layout><br />
+                        );<br />
+                    }
                   </p>
                 </div>
 
-                <!-- src/redux/store.js -->
+                <!-- src/components/Layout/Layout.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i
+                      >//
+                      src/components/Layout/Layout.jsx</i
+                    ><br />
+
+                    import css from
+                    "./Layout.module.css";<br />
+                    <br />
+                    export default function Layout({
+                    children }) {<br />
+                        return &#60;main
+                    className={css.container}><br />
+                            {children}<br />
+                    &#60;/main>;<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/Error/Error.jsx -->
                 <div class="bcg-box">
                   <p>
-                    <i>// src/redux/store.js</i><br />
+                    <i>// src/components/Error/Error.jsx</i
+                    ><br />
 
-                    import { configureStore } from
-                    "@reduxjs/toolkit";<br />
-                    import tasksReducer from
-                    "./tasksSlice";<br />
-                    import filtersReducer from
-                    "./filtersSlice";<br />
+                    import css from "./Error.module.css";<br />
                     <br />
-                    export const store = configureStore({<br />
-                        reducer: {<br />
-                            tasks: tasksReducer,<br />
-                            filters: filtersReducer,<br />
-                        },<br />
-                    });
+                    export default function Error({ children
+                    }) {<br />
+                        return (<br />
+                            &#60;p className={css.text}><br />
+                                &#60;b>{children}&#60;/b><br />
+                            &#60;/p><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div>
+                <!-- src/components/Loader/Loader.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i
+                      >//
+                      src/components/Loader/Loader.jsx</i
+                    ><br />
+
+                    import { useState, useEffect } from
+                    "react";<br />
+                    import css from
+                    "./Loader.module.css";<br />
+                    <br />
+                    export default function Loader({
+                    children }) {<br />
+                        const [dots, setDots] =
+                    useState("");<br />
+                        useEffect(() => {<br />
+                            const interval = setInterval(()
+                    => {<br />
+                                setDots((dots) => (<br />
+                                    dots.length &#60; 3 ?
+                    dots + "." : "")<br />
+                                );<br />
+                            }, 250);<br />
+                            <br />
+                            return () =>
+                    clearInterval(interval);<br />
+                        }, []);<br />
+                        <br />
+                        return (<br />
+                            &#60;p className={css.text}><br />
+                                &#60;b><br />
+                                    {children}<br />
+                                    {dots}<br />
+                                &#60;/b><br />
+                            &#60;/p><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/TaskList/TaskList.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i
+                      >//
+                      src/components/TaskList/TaskList.jsx</i
+                    ><br />
+
+                    import { useSelector } from
+                    "react-redux";<br />
+                    import Task from "../Task/Task";<br />
+                    import { selectVisibleTasks } from
+                    "../../redux/tasksSlice";<br />
+                    import css from
+                    "./TaskList.module.css";<br />
+                    <br />
+                    export default function TaskList() {<br />
+                        const tasks =
+                    useSelector(selectVisibleTasks);<br />
+                        <br />
+                        return (<br />
+                            &#60;ul className={css.list}><br />
+                                {tasks.map(task => (<br />
+                                    &#60;li
+                    key={task.id}><br />
+                                        &#60;Task
+                    task={task} /><br />
+                                    &#60;/li><br />
+                                ))}<br />
+                            &#60;/ul><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/Task/Task.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/components/Task/Task.jsx</i
+                    ><br />
+
+                    import { useDispatch } from
+                    "react-redux";<br />
+                    import css from "./Task.module.css";<br />
+                    import { deleteTask } from
+                    "../../redux/tasksOps";<br />
+                    <br />
+                    export default function Task({ task })
+                    {<br />
+                        const dispatch = useDispatch();<br />
+                        const handleDelete = () =>
+                    dispatch(deleteTask(task.id));<br />
+                        <br />
+                        return (<br />
+                            &#60;div
+                    className={css.wrapper}><br />
+                                &#60;p
+                    className={css.text}>{task.text}&#60;/p><br />
+                                &#60;button
+                    className={css.btn}
+                    onClick={handleDelete}><br />
+                                    Delete<br />
+                                &#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
                   </p>
                 </div>
               </div>
 
-              <!-- src/redux/tasksSlice.js -->
-              <div class="bcg-box flex m-bottom-min">
-                <p>
-                  <i>// src/redux/tasksSlice.js</i><br />
+              <div>
+                <!-- src/components/TextFilter/TextFilter.jsx -->
+                <div class="bcg-box m-bottom-min">
+                  <p>
+                    <i
+                      >//
+                      src/components/TextFilter/TextFilter.jsx</i
+                    ><br />
 
-                  import { createSlice, createSelector }
-                  from "@reduxjs/toolkit";<br />
-                  import { fetchTasks, addTask, deleteTask }
-                  from "./tasksOps";<br />
-                  import { selectTextFilter } from
-                  "./filtersSlice";<br />
-                  <br />
-                  const slice = createSlice({<br />
-                      name: "tasks",<br />
-                      initialState: {<br />
-                          items: [],<br />
-                          loading: false,<br />
-                          error: false,<br />
-                          a: 1,<br />
-                          b: 2,<br />
-                      },<br />
-                      extraReducers: builder =><br />
-                          builder<br />
-                              .addCase(fetchTasks.pending,
-                  state => {<br />
-                                  state.loading = true;<br />
-                              })<br />
-                              .addCase(fetchTasks.fulfilled,
-                  (state, action) => {<br />
-                                  state.loading = false;<br />
-                                  state.error = null;<br />
-                                  state.items =
-                  action.payload;<br />
-                              })<br />
-                              .addCase(fetchTasks.rejected,
-                  (state, action) => {<br />
-                                  state.loading = false;<br />
-                                  state.error =
-                  action.payload;<br />
-                              })<br />
-                              .addCase(addTask.pending,
-                  state => {<br />
-                                  state.loading = true;<br />
-                              })<br />
-                              .addCase(addTask.fulfilled,
-                  (state, action) => {<br />
-                                  state.isLoading =
-                  false;<br />
-                                  state.error = null;<br />
-                                 
-                  state.items.push(action.payload);<br />
-                              })<br />
-                              .addCase(addTask.rejected,
-                  (state, action) => {<br />
-                                  state.loading = false;<br />
-                                  state.error =
-                  action.payload;<br />
-                              })<br />
-                              .addCase(deleteTask.pending,
-                  state => {<br />
-                                  state.loading = true;<br />
-                              })<br />
-                </p>
-                <p>
-                              .addCase(deleteTask.fulfilled,
-                  (state, action) => {<br />
-                                  state.loading = false;<br />
-                                  state.error = null;<br />
-                                  const index =
-                  state.items.findIndex(<br />
-                                      task => task.id ===
-                  action.payload.id<br />
-                                  );<br />
-                                  state.items.splice(index,
-                  1);<br />
-                              })<br />
-                              .addCase(deleteTask.rejected,
-                  (state, action) => {<br />
-                                  state.loading = false;<br />
-                                  state.error =
-                  action.payload;<br />
-                              }),<br />
-                  });<br />
-                  <br />
-                  export const selectTasks = state =>
-                  state.tasks.items;<br />
-                  <br />
-                  export const selectLoading = state =>
-                  state.tasks.loading;<br />
-                  <br />
-                  export const selectError = state =>
-                  state.tasks.error;<br />
-                  <br />
-                  export const selectVisibleTasks =
-                  createSelector(<br />
-                      [selectTasks, selectTextFilter],<br />
-                      (tasks, textFilter) => {<br />
-                         
-                  console.log("selectVisibleTasks");<br />
-                          return tasks.filter(task =><br />
-                              task.text.toLowerCase()<br />
-                             
-                  .includes(textFilter.toLowerCase())<br />
-                          );<br />
-                      }<br />
-                  );<br />
-                  <br />
-                  export const selectSum =
-                  createSelector(<br />
-                      [state => state.tasks.a, state =>
-                  state.tasks.b],<br />
-                      (a, b) => {<br />
-                          console.log("selectSum");<br />
-                          return a + b;<br />
-                      }<br />
-                  );<br />
-                  <br />
-                  export default slice.reducer;
-                </p>
-              </div>
-
-              <div class="flex">
-                <div>
-                  <!-- src/redux/tasksOps.js -->
-                  <div
-                    class="bcg-box m-bottom-min new-page"
-                  >
-                    <p>
-                      <i>// src/redux/tasksOps.js</i><br />
-
-                      import axios from "axios";<br />
-                      import { createAsyncThunk } from
-                      "@reduxjs/toolkit";<br />
-                      <br />
-                      axios.defaults.baseURL =<br />
-                         
-                      "https://62584f320c918296a49543e7.mockapi.io";<br />
-                      <br />
-                      export const fetchTasks =
-                      createAsyncThunk(<br />
-                          "tasks/fetchAll",<br />
-                          async (_, thunkAPI) => {<br />
-                              try {<br />
-                                  const response = await
-                      axios.get("/tasks");<br />
-                                  return response.data;<br />
-                              } catch (e) {<br />
-                                  return
-                      thunkAPI.rejectWithValue(e.message);<br />
-                              }<br />
-                          }<br />
-                      );<br />
-                      <br />
-                      export const addTask =
-                      createAsyncThunk(<br />
-                          "tasks/addTask",<br />
-                          async (text, thunkAPI) => {<br />
-                              try {<br />
-                                  const response = await
-                      axios.post("/tasks", { text });<br />
-                                  return response.data;<br />
-                              } catch (e) {<br />
-                                  return
-                      thunkAPI.rejectWithValue(e.message);<br />
-                              }<br />
-                          }<br />
-                      );<br />
-                      <br />
-                      export const deleteTask =
-                      createAsyncThunk(<br />
-                          "tasks/deleteTask",<br />
-                          async (taskId, thunkAPI) => {<br />
-                              try {<br />
-                                  const response = await
-                      axios.delete(`/tasks/${taskId}`);<br />
-                                  return response.data;<br />
-                              } catch (e) {<br />
-                                  return
-                      thunkAPI.rejectWithValue(e.message);<br />
-                              }<br />
-                          }<br />
-                      );
-                    </p>
-                  </div>
-
-                  <!-- src/redux/filtersSlice.js -->
-                  <div class="bcg-box">
-                    <p>
-                      <i>// src/redux/filtersSlice.js</i
-                      ><br />
-
-                      import { createSlice } from
-                      "@reduxjs/toolkit";<br />
-                      <br />
-                      const filtersSlice = createSlice({<br />
-                          name: "filters",<br />
-                          initialState: {<br />
-                              text: "",<br />
-                          },<br />
-                          reducers: {<br />
-                              changeTextFilter(state,
-                      action) {<br />
-                                  state.text =
-                      action.payload;<br />
-                              },<br />
-                          },<br />
-                      });<br />
-                      <br />
-                      export const { changeTextFilter } =
-                      filtersSlice.actions;<br />
-                      <br />
-                      export const selectTextFilter = state
-                      => state.filters.text;<br />
-                      <br />
-                      export default filtersSlice.reducer;
-                    </p>
-                  </div>
+                    import { useId } from "react";<br />
+                    import { useDispatch, useSelector } from
+                    "react-redux";<br />
+                    import { changeTextFilter,
+                    selectTextFilter }<br />
+                        from "../../redux/filtersSlice";<br />
+                    import css from
+                    "./TextFilter.module.css";<br />
+                    <br />
+                    export default function TextFilter()
+                    {<br />
+                        const dispatch = useDispatch();<br />
+                        const id = useId();<br />
+                        const textFilter =
+                    useSelector(selectTextFilter);<br />
+                        <br />
+                        const handleChange = event => {<br />
+                           
+                    dispatch(changeTextFilter(event.target.value));<br />
+                        };<br />
+                        <br />
+                        return (<br />
+                            &#60;div
+                    className={css.wrapper}><br />
+                                &#60;label htmlFor={id}><br />
+                                    &#60;b>Filter by
+                    text&#60;/b><br />
+                                &#60;/label><br />
+                                &#60;input<br />
+                                    className={css.field}<br />
+                                    value={textFilter}<br />
+                                   
+                    onChange={handleChange}<br />
+                                    type="text"<br />
+                                    id={id}<br />
+                                /><br />
+                            &#60;/div><br />
+                        );<br />
+                    }
+                  </p>
                 </div>
 
-                <div>
-                  <!-- src/components/App.jsx -->
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i>// src/components/App.jsx</i><br />
+                <!-- src/components/TaskForm/TaskForm.jsx -->
+                <div class="bcg-box">
+                  <p>
+                    <i
+                      >//
+                      src/components/TaskForm/TaskForm.jsx</i
+                    ><br />
 
-                      import { useEffect } from "react";<br />
-                      import { useDispatch, useSelector }
-                      from "react-redux";<br />
-                      import Layout from
-                      "./Layout/Layout";<br />
-                      import TaskList from
-                      "./TaskList/TaskList";<br />
-                      import Loader from
-                      "./Loader/Loader";<br />
-                      import Error from "./Error/Error";<br />
-                      import TaskForm from
-                      "./TaskForm/TaskForm";<br />
-                      import TextFilter from
-                      "./TextFilter/TextFilter";<br />
-                      import { fetchTasks } from
-                      "../redux/tasksOps";<br />
-                      import { selectLoading, selectError,
-                      selectSum }<br />
-                          from "../redux/tasksSlice";<br />
-                      <br />
-                      export default function App() {<br />
-                          const dispatch = useDispatch();<br />
-                          const loading =
-                      useSelector(selectLoading);<br />
-                          const error =
-                      useSelector(selectError);<br />
-                          const sum =
-                      useSelector(selectSum);<br />
-                          <br />
-                          useEffect(() => {<br />
-                              dispatch(fetchTasks());<br />
-                          }, [dispatch]);<br />
-                          <br />
-                          return (<br />
-                              &#60;Layout><br />
-                                  &#60;h1>Selector
-                      memoization: {sum}&#60;/h1><br />
-                                  &#60;TaskForm /><br />
-                                  &#60;TextFilter /><br />
-                                  {loading &&
-                      &#60;Loader>Please
-                      wait&#60;/Loader>}<br />
-                                  {error && &#60;Error>Error
-                      message&#60;/Error>}<br />
-                                  &#60;TaskList /><br />
-                              &#60;/Layout><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/Layout/Layout.jsx -->
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i
-                        >//
-                        src/components/Layout/Layout.jsx</i
-                      ><br />
-
-                      import css from
-                      "./Layout.module.css";<br />
-                      <br />
-                      export default function Layout({
-                      children }) {<br />
-                          return &#60;main
-                      className={css.container}><br />
-                              {children}<br />
-                      &#60;/main>;<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/Error/Error.jsx -->
-                  <div class="bcg-box">
-                    <p>
-                      <i
-                        >//
-                        src/components/Error/Error.jsx</i
-                      ><br />
-
-                      import css from
-                      "./Error.module.css";<br />
-                      <br />
-                      export default function Error({
-                      children }) {<br />
-                          return (<br />
-                              &#60;p
-                      className={css.text}><br />
-                                 
-                      &#60;b>{children}&#60;/b><br />
-                              &#60;/p><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
+                    import { Formik, Form, Field } from
+                    "formik";<br />
+                    import { useDispatch } from
+                    "react-redux";<br />
+                    import { addTask } from
+                    "../../redux/tasksOps.js";<br />
+                    import css from
+                    "./TaskForm.module.css";<br />
+                    <br />
+                    export default function TaskForm() {<br />
+                        const dispatch = useDispatch();<br />
+                        <br />
+                        const handleSubmit = (values,
+                    actions) => {<br />
+                           
+                    dispatch(addTask(values.text));<br />
+                            actions.resetForm();<br />
+                        };<br />
+                        <br />
+                        return (<br />
+                            &#60;Formik<br />
+                                initialValues={{<br />
+                                    text: "",<br />
+                                }}<br />
+                                onSubmit={handleSubmit}<br />
+                            ><br />
+                                &#60;Form
+                    className={css.form}><br />
+                                    &#60;Field<br />
+                                       
+                    className={css.field}<br />
+                                        name="text"<br />
+                                        placeholder="Enter
+                    task text..."<br />
+                                    /><br />
+                                    &#60;button
+                    type="submit">Add task&#60;/button><br />
+                                &#60;/Form><br />
+                            &#60;/Formik><br />
+                        );<br />
+                    }
+                  </p>
                 </div>
               </div>
-
-              <div class="flex">
-                <div>
-                  <!-- src/components/Loader/Loader.jsx -->
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i
-                        >//
-                        src/components/Loader/Loader.jsx</i
-                      ><br />
-
-                      import { useState, useEffect } from
-                      "react";<br />
-                      import css from
-                      "./Loader.module.css";<br />
-                      <br />
-                      export default function Loader({
-                      children }) {<br />
-                          const [dots, setDots] =
-                      useState("");<br />
-                          useEffect(() => {<br />
-                              const interval =
-                      setInterval(() => {<br />
-                                  setDots((dots) => (<br />
-                                      dots.length &#60; 3 ?
-                      dots + "." : "")<br />
-                                  );<br />
-                              }, 250);<br />
-                              <br />
-                              return () =>
-                      clearInterval(interval);<br />
-                          }, []);<br />
-                          <br />
-                          return (<br />
-                              &#60;p
-                      className={css.text}><br />
-                                  &#60;b><br />
-                                      {children}<br />
-                                      {dots}<br />
-                                  &#60;/b><br />
-                              &#60;/p><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/TaskList/TaskList.jsx -->
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i
-                        >//
-                        src/components/TaskList/TaskList.jsx</i
-                      ><br />
-
-                      import { useSelector } from
-                      "react-redux";<br />
-                      import Task from "../Task/Task";<br />
-                      import { selectVisibleTasks } from
-                      "../../redux/tasksSlice";<br />
-                      import css from
-                      "./TaskList.module.css";<br />
-                      <br />
-                      export default function TaskList()
-                      {<br />
-                          const tasks =
-                      useSelector(selectVisibleTasks);<br />
-                          <br />
-                          return (<br />
-                              &#60;ul
-                      className={css.list}><br />
-                                  {tasks.map(task => (<br />
-                                      &#60;li
-                      key={task.id}><br />
-                                          &#60;Task
-                      task={task} /><br />
-                                      &#60;/li><br />
-                                  ))}<br />
-                              &#60;/ul><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/Task/Task.jsx -->
-                  <div class="bcg-box">
-                    <p>
-                      <i>// src/components/Task/Task.jsx</i
-                      ><br />
-
-                      import { useDispatch } from
-                      "react-redux";<br />
-                      import css from
-                      "./Task.module.css";<br />
-                      import { deleteTask } from
-                      "../../redux/tasksOps";<br />
-                      <br />
-                      export default function Task({ task })
-                      {<br />
-                          const dispatch = useDispatch();<br />
-                          const handleDelete = () =>
-                      dispatch(deleteTask(task.id));<br />
-                          <br />
-                          return (<br />
-                              &#60;div
-                      className={css.wrapper}><br />
-                                  &#60;p
-                      className={css.text}>{task.text}&#60;/p><br />
-                                  &#60;button
-                      className={css.btn}
-                      onClick={handleDelete}><br />
-                                      Delete<br />
-                                  &#60;/button><br />
-                              &#60;/div><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <!-- src/components/TextFilter/TextFilter.jsx -->
-                  <div class="bcg-box m-bottom-min">
-                    <p>
-                      <i
-                        >//
-                        src/components/TextFilter/TextFilter.jsx</i
-                      ><br />
-
-                      import { useId } from "react";<br />
-                      import { useDispatch, useSelector }
-                      from "react-redux";<br />
-                      import { changeTextFilter,
-                      selectTextFilter }<br />
-                          from
-                      "../../redux/filtersSlice";<br />
-                      import css from
-                      "./TextFilter.module.css";<br />
-                      <br />
-                      export default function TextFilter()
-                      {<br />
-                          const dispatch = useDispatch();<br />
-                          const id = useId();<br />
-                          const textFilter =
-                      useSelector(selectTextFilter);<br />
-                          <br />
-                          const handleChange = event => {<br />
-                             
-                      dispatch(changeTextFilter(event.target.value));<br />
-                          };<br />
-                          <br />
-                          return (<br />
-                              &#60;div
-                      className={css.wrapper}><br />
-                                  &#60;label
-                      htmlFor={id}><br />
-                                      &#60;b>Filter by
-                      text&#60;/b><br />
-                                  &#60;/label><br />
-                                  &#60;input<br />
-                                     
-                      className={css.field}<br />
-                                      value={textFilter}<br />
-                                     
-                      onChange={handleChange}<br />
-                                      type="text"<br />
-                                      id={id}<br />
-                                  /><br />
-                              &#60;/div><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-
-                  <!-- src/components/TaskForm/TaskForm.jsx -->
-                  <div class="bcg-box">
-                    <p>
-                      <i
-                        >//
-                        src/components/TaskForm/TaskForm.jsx</i
-                      ><br />
-
-                      import { Formik, Form, Field } from
-                      "formik";<br />
-                      import { useDispatch } from
-                      "react-redux";<br />
-                      import { addTask } from
-                      "../../redux/tasksOps.js";<br />
-                      import css from
-                      "./TaskForm.module.css";<br />
-                      <br />
-                      export default function TaskForm()
-                      {<br />
-                          const dispatch = useDispatch();<br />
-                          <br />
-                          const handleSubmit = (values,
-                      actions) => {<br />
-                             
-                      dispatch(addTask(values.text));<br />
-                              actions.resetForm();<br />
-                          };<br />
-                          <br />
-                          return (<br />
-                              &#60;Formik<br />
-                                  initialValues={{<br />
-                                      text: "",<br />
-                                  }}<br />
-                                  onSubmit={handleSubmit}<br />
-                              ><br />
-                                  &#60;Form
-                      className={css.form}><br />
-                                      &#60;Field<br />
-                                         
-                      className={css.field}<br />
-                                          name="text"<br />
-                                          placeholder="Enter
-                      task text..."<br />
-                                      /><br />
-                                      &#60;button
-                      type="submit">Add task&#60;/button><br />
-                                  &#60;/Form><br />
-                              &#60;/Formik><br />
-                          );<br />
-                      }
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
+            </div>
           </section>
+
+          <div class="new-page"></div>
         </div>
       </section>
 
@@ -13051,7 +13011,7 @@
           <section id="useId" class="section new-page">
             <h3 class="m-bottom-min">Хук useId</h3>
 
-            <div class="">
+            <div>
               <div class="m-bottom flex">
                 <div>
                   <p>
@@ -13141,7 +13101,7 @@
                   Хук <b>useState</b> повідомляє React, щоб
                   цей компонент запам'ятовував щось.
                 </p>
-                <ul class="">
+                <ul>
                   <li>
                     <b
                       >const [clicks, setClicks] =
@@ -14034,7 +13994,7 @@
 
             <!-- Відсутність реактивності -->
             <div class="m-bottom flex">
-              <div class="">
+              <div>
                 <div class="m-bottom-min">
                   <h4 class="m-bottom-min">
                     Відсутність реактивності
@@ -14311,7 +14271,7 @@
             </div>
 
             <div class="m-bottom flex">
-              <p class="">
+              <p>
                 Кожного разу імпортувати посилання на об'єкт
                 контексту може бути не дуже зручно. Тому
                 створюється власний хук для доступу до
@@ -14870,7 +14830,7 @@
             </div>
 
             <div class="flex">
-              <p class="">
+              <p>
                 Хук <b>useToggle</b> можна розширити так,
                 щоб модальне вікно спочатку було відкритим.
                 При цьому, за замовчуванням - закрите.
