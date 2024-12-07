@@ -3819,7 +3819,7 @@
             <section class="section">
               <h4 class="m-bottom-min">Читання</h4>
               <div class="m-bottom-min flex">
-                <p>
+                <p class="m-bottom-min">
                   <b>Ефекти</b> виконуються
                   <b>асинхронно</b>,
                   <i>після монтування компонента</i>. Щоб
@@ -3924,72 +3924,72 @@
                 </div>
               </div>
 
-              <div class="m-bottom-min new-page">
-                <div class="border-box flex">
-                  <p>
-                    <b>Важливо!</b> Якщо необхідно отримати
-                    складні типи даних, такі як об'єкт чи
-                    масив, треба зробити розбір значення за
-                    допомогою <b>JSON.parse</b>. В іншому
-                    випадку, замість об'єкта чи масиву до
-                    стану запишуться їх стрічне
-                    представлення.
-                  </p>
-
-                  <div>
-                    <p class="bcg-box">
-                      <b>JSON.parse(savedObject)</b>
+              <div class="m-bottom-min flex new-page">
+                <div>
+                  <div class="border-box m-bottom-min">
+                    <p class="m-bottom-min">
+                      <b>Важливо!</b> Якщо необхідно
+                      отримати складні типи даних, такі як
+                      об'єкт чи масив, треба зробити розбір
+                      значення за допомогою
+                      <b>JSON.parse</b>. В іншому випадку,
+                      замість об'єкта чи масиву до стану
+                      запишуться їх стрічне представлення.
                     </p>
+
+                    <div>
+                      <p class="bcg-box">
+                        <b>JSON.parse(savedObject)</b>
+                      </p>
+                    </div>
                   </div>
+
+                  <p class="">Повний код прикладу</p>
                 </div>
-              </div>
 
-              <p class="m-bottom-min">
-                Повний код прикладу
-              </p>
-
-              <div class="bcg-box">
-                <p>
-                  const App = () => {<br />
-                     
-                  <b
-                    >const [clicks, setClicks] = useState(()
-                    => {<br />
-                            const savedClicks =
-                    window.localStorage.getItem("saved-clicks");<br />
-                            if (savedClicks !== null) {<br />
-                                return savedClicks;<br />
-                            }<br />
-                            return 0;<br />
-                        })</b
-                  >;<br />
-                  <br />
-                     
-                  <b
-                    >useEffect(() => {<br />
-                           
-                    window.localStorage.setItem("saved-clicks",
-                    clicks);<br />
-                        }, [clicks])</b
-                  >;<br />
-                  <br />
-                      return (<br />
-                          &#60;div><br />
-                              &#60;button onClick={() =>
-                  setClicks(clicks + 1)}> You clicked
-                  {clicks} times &#60;/button><br />
-                              &#60;button onClick={() =>
-                  setClicks(0)}>Reset&#60;/button><br />
-                          &#60;/div><br />
-                      );<br />
-                  };
-                </p>
+                <div class="bcg-box print-fs-13">
+                  <p>
+                    const App = () => {<br />
+                       
+                    <b
+                      >const [clicks, setClicks] =
+                      useState(() => {<br />
+                              const savedClicks =
+                      window.localStorage.getItem("saved-clicks");<br />
+                              if (savedClicks !== null) {<br />
+                                  return savedClicks;<br />
+                              }<br />
+                              return 0;<br />
+                          })</b
+                    >;<br />
+                    <br />
+                       
+                    <b
+                      >useEffect(() => {<br />
+                             
+                      window.localStorage.setItem("saved-clicks",
+                      clicks);<br />
+                          }, [clicks])</b
+                    >;<br />
+                    <br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={() =>
+                    setClicks(clicks + 1)}> You clicked
+                    {clicks} times &#60;/button><br />
+                                &#60;button onClick={() =>
+                    setClicks(0)}>Reset&#60;/button><br />
+                            &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
               </div>
             </section>
           </section>
 
           <!-- Фінальний приклад (приклад від Репети) -->
-          <section class="section new-page">
+          <section class="section">
             <h3 class="m-bottom-min">
               Фінальний приклад (приклад від Репети)
             </h3>
@@ -3997,40 +3997,109 @@
             <div class="flex">
               <div>
                 <!-- src/components/App/App.jsx -->
-                <div class="bcg-box m-bottom-min">
+                <div class="bcg-box m-bottom-min fs-12">
                   <p>
                     <i> // src/components/App/App.jsx </i
                     ><br />
-                    <br />
 
                     import Reader from
                     "../Reader/Reader";<br />
                     import articles from
                     "../../articles.json";<br />
-                    import css from "./App.module.css";<br />
-                    <br />
+
                     export default function App() {<br />
-                    <br />
                         return (<br />
-                            &#60;div
-                    className={css.container}><br />
-                                &#60;h1>Effects in
-                    React&#60;/h1><br />
+
                                 &#60;Reader items={articles}
                     /><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/Controls/Controls.jsx -->
+                <div class="bcg-box m-bottom-min fs-12">
+                  <p>
+                    <i>
+                      //
+                      src/components/Controls/Controls.jsx </i
+                    ><br />
+
+                    export default function Controls({
+                    isFirst, isLast, onPrev, onNext }) {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;button onClick={onPrev}
+                    disabled={isFirst}>Prev&#60;/button><br />
+                                &#60;button onClick={onNext}
+                    disabled={isLast}>Next&#60;/button><br />
                             &#60;/div><br />
                         );<br />
                     }
                   </p>
                 </div>
 
+                <!-- src/components/Progress/Progress.jsx -->
+                <div class="bcg-box m-bottom-min fs-12">
+                  <p>
+                    <i>
+                      //
+                      src/components/Progress/Progress.jsx </i
+                    ><br />
+
+                    export default function Progress({
+                    current, total }) {<br />
+                        return (<br />
+                           
+                    &#60;p>{current}/{total}&#60;/p><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/components/ArticleView/ArticleView.jsx -->
+                <div class="bcg-box m-bottom-min fs-12">
+                  <p>
+                    <i>
+                      //
+                      src/components/ArticleView/ArticleView.jsx </i
+                    ><br />
+
+                    export default function ArticleView({
+                    article: { topic, text } }) {<br />
+                        return (<br />
+                            &#60;article><br />
+                                &#60;h2>{topic}&#60;/h2><br />
+                                &#60;p>{text}&#60;/p><br />
+                            &#60;/article><br />
+                        );<br />
+                    }
+                  </p>
+                </div>
+
+                <!-- src/articles.json -->
+                <div class="bcg-box fs-12">
+                  <p>
+                    <i> // src/articles.json </i><br />
+                    [<br />
+                        {<br />
+                            "id": 1,<br />
+                            "topic": "Web Technologies",<br />
+                            "text": "Web technologies
+                    ..."<br />
+                        },<br />
+                    ]
+                  </p>
+                </div>
+              </div>
+
+              <div>
                 <!-- src/components/Reader/Reader.jsx -->
-                <div class="bcg-box">
+                <div class="bcg-box fs-12">
                   <p>
                     <i>
                       // src/components/Reader/Reader.jsx </i
                     ><br />
-                    <br />
 
                     import { useEffect, useState } from
                     "react";<br />
@@ -4094,116 +4163,38 @@
                   </p>
                 </div>
               </div>
-
-              <div>
-                <!-- src/articles.json -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i> // src/articles.json </i><br />
-                    <br />
-
-                    [<br />
-                        {<br />
-                            "id": 1,<br />
-                            "topic": "Web Technologies",<br />
-                            "text": "Web technologies
-                    ..."<br />
-                        },<br />
-                        {<br />
-                            "id": 2,<br />
-                            "topic": "Frontend
-                    Development",<br />
-                            "text": "Frontend development
-                    ..."<br />
-                        },<br />
-                        {<br />
-                            "id": 3,<br />
-                            "topic": "Backend
-                    Development",<br />
-                            "text": "Backend development
-                    ..."<br />
-                        },<br />
-
-                    ]
-                  </p>
-                </div>
-
-                <!-- src/components/Controls/Controls.jsx -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i>
-                      //
-                      src/components/Controls/Controls.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function Controls({<br />
-                        isFirst,<br />
-                        isLast,<br />
-                        onPrev,<br />
-                        onNext<br />
-                    }) {<br />
-                        return (<br />
-                            &#60;div><br />
-                                &#60;button onClick={onPrev}
-                    disabled={isFirst}><br />
-                                    Prev<br />
-                                &#60;/button><br />
-                                &#60;button onClick={onNext}
-                    disabled={isLast}><br />
-                                    Next<br />
-                                &#60;/button><br />
-                            &#60;/div><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-
-                <!-- src/components/Progress/Progress.jsx -->
-                <div class="bcg-box m-bottom-min">
-                  <p>
-                    <i>
-                      //
-                      src/components/Progress/Progress.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function Progress({
-                    current, total }) {<br />
-                        return (<br />
-                           
-                    &#60;p>{current}/{total}&#60;/p><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-
-                <!-- src/components/ArticleView/ArticleView.jsx -->
-                <div class="bcg-box">
-                  <p>
-                    <i>
-                      //
-                      src/components/ArticleView/ArticleView.jsx </i
-                    ><br />
-                    <br />
-
-                    export default function ArticleView({<br />
-                        article: { topic, text } <br />
-                    }) {<br />
-                        return (<br />
-                            &#60;article><br />
-                                &#60;h2>{topic}&#60;/h2><br />
-                                &#60;p>{text}&#60;/p><br />
-                            &#60;/article><br />
-                        );<br />
-                    }
-                  </p>
-                </div>
-              </div>
             </div>
           </section>
 
-          <div class="new-page"></div>
+          <!-- <div class="new-page"> -->
+          <!-- src/articles.json -->
+          <!-- <div class="bcg-box m-bottom-min">
+              <p>
+                <i> // src/articles.json </i><br />
+                <br />
+
+                [<br />
+                    {<br />
+                        "id": 1,<br />
+                        "topic": "Web Technologies",<br />
+                        "text": "Web technologies ..."<br />
+                    },<br />
+                    {<br />
+                        "id": 2,<br />
+                        "topic": "Frontend Development",<br />
+                        "text": "Frontend development
+                ..."<br />
+                    },<br />
+                    {<br />
+                        "id": 3,<br />
+                        "topic": "Backend Development",<br />
+                        "text": "Backend development ..."<br />
+                    },<br />
+
+                ]
+              </p>
+            </div> -->
+          <!-- </div> -->
         </div>
       </section>
 
@@ -13688,7 +13679,7 @@
                     >.
                   </p>
                 </div>
-                <div class="bcg-box">
+                <div class="bcg-box fs-13">
                   <p>
                     const Modal = () => {<br />
                         useEffect(() => {<br />
@@ -13712,7 +13703,6 @@
                     <b>clearInterval(intervalId);</b><br />
                             <b>}</b>;<br />
                         }, []);<br />
-                        <br />
                         return &#60;div>Modal&#60;/div>;<br />
                     };<br />
                     <br />
@@ -13776,12 +13766,10 @@
                     const App = () => {<br />
                         const [clicks, setClicks] =
                     useState(0);<br />
-                    <br />
                         useEffect(() => {<br />
                             console.log("Clicks updated: ",
                     clicks);<br />
                         }, [<b>clicks</b>]);<br />
-                    <br />
                         return (<br />
                             &#60;button onClick={() =>
                     setClicks(clicks + 1)}><br />
@@ -13797,6 +13785,99 @@
 
             <!-- Декілька ефектів -->
             <section class="sub-section">
+              <h4 class="m-bottom-min">Декілька ефектів</h4>
+              <div>
+                <div class="m-bottom-min flex">
+                  <div>
+                    <p class="m-bottom-min">
+                      У компоненті можна оголошувати стільки
+                      ефектів, скільки потрібно. Це дозволяє
+                      згрупувати логіку, створивши ефект для
+                      кожної незалежної операції.
+                    </p>
+                    <p class="m-bottom-min">
+                      Коли в компоненті є кілька станів,
+                      можна використовувати ефекти, щоб
+                      реагувати на зміни будь-якої
+                      комбінації значень і виконувати певний
+                      код.
+                    </p>
+                    <p class="border-box">
+                      <b>Важливо!</b> Кожен з цих ефектів
+                      виконається також при монтуванні
+                      компонента
+                    </p>
+                  </div>
+                  <div>
+                    <div class="bcg-box m-bottom-min fs-13">
+                      <p>
+                        import { useState, useEffect } from
+                        "react";<br />
+                        const App = () => {<br />
+                            const [clicks, setClicks] =
+                        useState(0);<br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("You can see me
+                        only once!");<br />
+                            }, <b>[]</b>);<br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("Clicks updated:
+                        ", clicks);<br />
+                            }, <b>[clicks]</b>);<br />
+                            <b>useEffect</b>(() => {<br />
+                                document.title = `You
+                        clicked ${clicks}`;<br />
+                            });<br />
+                            return (<br />
+                                &#60;button onClick={ () =>
+                        setClicks(clicks + 1) }> You clicked
+                        {clicks} times&#60;/button><br />
+                            );<br />
+                        };
+                      </p>
+                    </div>
+                    <!-- <div class="bcg-box fs-13">
+                      <p>
+                        const App = () => {<br />
+                            const [first, setFirst] =
+                        useState(0);<br />
+                            const [second, setSecond] =
+                        useState(0);<br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("First updated:
+                        ", first);<br />
+                            }, [<b>first</b>]);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("Second updated:
+                        ", second);<br />
+                            }, [<b>second</b>]);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("First or second
+                        updated: ", first + second);<br />
+                            }, [<b>first, second</b
+                        >]);<br />
+                            return (<br />
+                                &#60;><br />
+                                    &#60;button onClick={()
+                        => setFirst(first + 1)}>First:
+                        {first}&#60;/button><br />
+                                    &#60;button onClick={ ()
+                        => setSecond(second + 1) }>Second:
+                        {second}&#60;/button><br />
+                                &#60;/><br />
+                            );<br />
+                        };
+                      </p>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Декілька ефектів -->
+            <!-- <section class="sub-section">
               <h4 class="m-bottom-min new-page">
                 Декілька ефектів
               </h4>
@@ -13824,84 +13905,80 @@
                       компонента
                     </p>
                   </div>
-                  <div class="bcg-box">
-                    <p>
-                      import { useState, useEffect } from
-                      "react";<br />
-                      <br />
-                      const App = () => {<br />
-                          const [clicks, setClicks] =
-                      useState(0);<br />
-                      <br />
-                          <b>useEffect</b>(() => {<br />
-                              console.log("You can see me
-                      only once!");<br />
-                          }, <b>[]</b>);<br />
-                      <br />
-                          <b>useEffect</b>(() => {<br />
-                              console.log("Clicks updated:
-                      ", clicks);<br />
-                          }, <b>[clicks]</b>);<br />
-                      <br />
-                          <b>useEffect</b>(() => {<br />
-                              document.title = `You clicked
-                      ${clicks}`;<br />
-                          });<br />
-                      <br />
-                          return (<br />
-                              &#60;button onClick={<br />
-                                  () => setClicks(clicks +
-                      1)<br />
-                              }><br />
-                                  You clicked {clicks}
-                      times<br />
-                              &#60;/button><br />
-                          );<br />
-                      };
-                    </p>
-                  </div>
-                  <div class="bcg-box">
-                    <p>
-                      const App = () => {<br />
-                          const [first, setFirst] =
-                      useState(0);<br />
-                          const [second, setSecond] =
-                      useState(0);<br />
-                          <b>useEffect</b>(() => {<br />
-                              console.log("First updated: ",
-                      first);<br />
-                          }, [<b>first</b>]);<br />
-                          <b>useEffect</b>(() => {<br />
-                              console.log("Second updated:
-                      ", second);<br />
-                          }, [<b>second</b>]);<br />
-                          <b>useEffect</b>(() => {<br />
-                              console.log(<br />
-                                  "First or second updated:
-                      ",<br />
-                                  first + second);<br />
-                          }, [<b>first, second</b>]);<br />
-                      <br />
-                          return (<br />
-                              &#60;><br />
-                                  &#60;button onClick={() =>
-                      setFirst(first + 1)}><br />
-                                      First: {first}<br />
-                                  &#60;/button><br />
-                                  &#60;button onClick={<br />
-                                      () => setSecond(second
-                      + 1)<br />
-                                  }><br />
-                                      Second: {second}<br />
-                                  &#60;/button><br />
-                              &#60;/><br />
-                          );<br />
-                      };
-                    </p>
+                  <div>
+                    <div class="bcg-box m-bottom-min">
+                      <p>
+                        import { useState, useEffect } from
+                        "react";<br />
+                        <br />
+                        const App = () => {<br />
+                            const [clicks, setClicks] =
+                        useState(0);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("You can see me
+                        only once!");<br />
+                            }, <b>[]</b>);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("Clicks updated:
+                        ", clicks);<br />
+                            }, <b>[clicks]</b>);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                document.title = `You
+                        clicked ${clicks}`;<br />
+                            });<br />
+                        <br />
+                            return (<br />
+                                &#60;button onClick={ () =>
+                        setClicks(clicks + 1) }> You clicked
+                        {clicks} times&#60;/button><br />
+                            );<br />
+                        };
+                      </p>
+                    </div>
+                    <div class="bcg-box">
+                      <p>
+                        const App = () => {<br />
+                            const [first, setFirst] =
+                        useState(0);<br />
+                            const [second, setSecond] =
+                        useState(0);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("First updated:
+                        ", first);<br />
+                            }, [<b>first</b>]);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("Second updated:
+                        ", second);<br />
+                            }, [<b>second</b>]);<br />
+                        <br />
+                            <b>useEffect</b>(() => {<br />
+                                console.log("First or second
+                        updated: ", first + second);<br />
+                            }, [<b>first, second</b
+                        >]);<br />
+                        <br />
+                            return (<br />
+                                &#60;><br />
+                                    &#60;button onClick={()
+                        => setFirst(first + 1)}>First:
+                        {first}&#60;/button><br />
+                                    &#60;button onClick={ ()
+                        => setSecond(second + 1) }>Second:
+                        {second}&#60;/button><br />
+                                &#60;/><br />
+                            );<br />
+                        };
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </section>
+            </section> -->
           </section>
 
           <!-- Хук useRef -->
@@ -14124,6 +14201,177 @@
                 </div>
               </div>
             </div>
+          </section>
+
+          <!-- Хук useMemo -->
+          <section id="useMemo" class="section new-page">
+            <h3 class="m-bottom-min center-text">
+              Хук useMemo
+            </h3>
+
+            <p class="m-bottom-min">
+              Хук <b>useMemo</b> використовує концепцію
+              мемоізації, метод оптимізації комп'ютерних
+              програм шляхом збереження результатів викликів
+              функції та повернення кешованого результату
+              при повторенні тих самих вхідних даних.
+              Мемоізована функція «запам'ятовує» результат
+              обчислень відповідний набору аргументів.
+              Наступні виклики з такими самими значеннями
+              аргументів повертають запам'ятований
+              результат, а не перераховують його.
+            </p>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p>
+                  Хук useMemo приймає
+                  <b>два аругменти</b>:
+                </p>
+                <ul>
+                  <li>
+                    Першим є анонімна функція, яка повертає
+                    значення, саме вона буде мемоізована.
+                  </li>
+                  <li>
+                    Другим є масив залежностей, при зміні
+                    якоїсь з них, викликається функція
+                    передана першим аргументом.
+                  </li>
+                </ul>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  import { useMemo } from "react";<br />
+                  <br />
+                  const memoizedValue = useMemo(() => {<br />
+                      return a + b;<br />
+                  }, [a, b]);
+                </p>
+              </div>
+            </div>
+
+            <div class="m-bottom-min flex">
+              <div>
+                <p><b>Алгоритм</b> роботи хука useMemo:</p>
+                <ul class="m-bottom-min">
+                  <li>
+                    При першому рендері компонента
+                    викликається функція, результат
+                    запам'ятовується і повертається як
+                    результат роботи хука.
+                  </li>
+                  <li>
+                    Якщо за наступних рендерів залежності не
+                    змінюються, то хук не викликає функцію,
+                    а просто повертає збережений результат
+                    роботи.
+                  </li>
+                  <li>
+                    Якщо будь-яка залежність змінилася, то
+                    хук викликає функцію заново,
+                    запам'ятовує нове значення та повертає
+                    його.
+                  </li>
+                </ul>
+                <div class="border-box">
+                  <p class="m-bottom-min">
+                    <b>Опис прикладу!</b>
+                  </p>
+                  <p class="m-bottom-min">
+                    Кожного разу, коли зміниться значення
+                    <b>planets</b> або <b>query</b>,
+                    компонент буде оновлено.
+                  </p>
+                  <p class="m-bottom-min">
+                    Компонент <b>App</b> містить додатковий
+                    стан <b>clicks</b>, який ніяк
+                    <i>не впливає на планети</i>.
+                  </p>
+                  <p>
+                    Кожного разу, коли змінюється стан
+                    <b>clicks</b>, компонент буде оновлено,
+                    що призведе до обчислення
+                    <b>filteredPlanets</b>, хоча значення
+                    <b>planets</b> та <b>planets</b> не
+                    змінилися! Оскільки метод
+                    <b>filter</b> повертає посилання на
+                    новий масив, React сприймає це як
+                    абсолютно нові дані та список планет
+                    буде відображено заново. У такому разі
+                    варто мемоізувати обчислення
+                    <b>filteredPlanets</b>.
+                  </p>
+                </div>
+              </div>
+              <div class="bcg-box">
+                <p>
+                  <b>import { useMemo } from "react"</b
+                  >;<br />
+                  <br />
+                  const App = () => {<br />
+                      const [<b>planets</b>, setPlanets] =
+                  useState(<br />
+                          ["Earth", "Mars", "Jupiter",
+                  "Venus"]<br />
+                      );<br />
+                      const [<b>query</b>, setQuery] =
+                  useState("");<br />
+                      const [clicks, setClicks] =
+                  useState(0);<br />
+                      <br />
+                     
+                  <b
+                    >const filteredPlanets = useMemo(<br />
+                            () => planets.filter(<br />
+                                planet =>
+                    planet.includes(query)<br />
+                            ),<br />
+                            [planets, query]<br />
+                        )</b
+                  >;<br />
+                      <br />
+                      return (<br />
+                          &#60;><br />
+                              &#60;button onClick={<br />
+                                  () => setClicks(clicks +
+                  1)<br />
+                              }><br />
+                                  Number of clicks:
+                  {clicks}<br />
+                              &#60;/button><br />
+                              &#60;ul><br />
+                                 
+                  {filteredPlanets.map(planet => (<br />
+                                      &#60;li
+                  key={planet}>{planet}&#60;/li><br />
+                                  ))}<br />
+                              &#60;/ul><br />
+                          &#60;/><br />
+                      );<br />
+                  };
+                </p>
+              </div>
+            </div>
+
+            <p class="m-bottom-min">
+              Те ж саме стосується дорогих операцій, таких
+              як використання довгого циклу <b>for</b>.
+              Дорогі обчислення можуть бути витратними за
+              часом, що гарантовано призведе до погіршення
+              роботи інтерфейсу.
+            </p>
+
+            <p>
+              Не потрібно мемоізувати все поспіль, це може
+              призвести до втрат продуктивності, оскільки
+              мемоізація також займає обчислювальні ресурси.
+              Найчастіше повторні прості обчислення
+              обійдуться дешевше, ніж їхня мемоїзація.
+              Використовуйте useMemo() точково, в першу
+              чергу при роботі з масивами та для дорогих
+              обчислень.
+            </p>
           </section>
 
           <!-- Context, useContext -->
@@ -14503,177 +14751,6 @@
                 </div>
               </div>
             </div>
-          </section>
-
-          <!-- Хук useMemo -->
-          <section id="useMemo" class="section new-page">
-            <h3 class="m-bottom-min center-text">
-              Хук useMemo
-            </h3>
-
-            <p class="m-bottom-min">
-              Хук <b>useMemo</b> використовує концепцію
-              мемоізації, метод оптимізації комп'ютерних
-              програм шляхом збереження результатів викликів
-              функції та повернення кешованого результату
-              при повторенні тих самих вхідних даних.
-              Мемоізована функція «запам'ятовує» результат
-              обчислень відповідний набору аргументів.
-              Наступні виклики з такими самими значеннями
-              аргументів повертають запам'ятований
-              результат, а не перераховують його.
-            </p>
-
-            <div class="m-bottom-min flex">
-              <div>
-                <p>
-                  Хук useMemo приймає
-                  <b>два аругменти</b>:
-                </p>
-                <ul>
-                  <li>
-                    Першим є анонімна функція, яка повертає
-                    значення, саме вона буде мемоізована.
-                  </li>
-                  <li>
-                    Другим є масив залежностей, при зміні
-                    якоїсь з них, викликається функція
-                    передана першим аргументом.
-                  </li>
-                </ul>
-              </div>
-              <div class="bcg-box">
-                <p>
-                  import { useMemo } from "react";<br />
-                  <br />
-                  const memoizedValue = useMemo(() => {<br />
-                      return a + b;<br />
-                  }, [a, b]);
-                </p>
-              </div>
-            </div>
-
-            <div class="m-bottom-min flex">
-              <div>
-                <p><b>Алгоритм</b> роботи хука useMemo:</p>
-                <ul class="m-bottom-min">
-                  <li>
-                    При першому рендері компонента
-                    викликається функція, результат
-                    запам'ятовується і повертається як
-                    результат роботи хука.
-                  </li>
-                  <li>
-                    Якщо за наступних рендерів залежності не
-                    змінюються, то хук не викликає функцію,
-                    а просто повертає збережений результат
-                    роботи.
-                  </li>
-                  <li>
-                    Якщо будь-яка залежність змінилася, то
-                    хук викликає функцію заново,
-                    запам'ятовує нове значення та повертає
-                    його.
-                  </li>
-                </ul>
-                <div class="border-box">
-                  <p class="m-bottom-min">
-                    <b>Опис прикладу!</b>
-                  </p>
-                  <p class="m-bottom-min">
-                    Кожного разу, коли зміниться значення
-                    <b>planets</b> або <b>query</b>,
-                    компонент буде оновлено.
-                  </p>
-                  <p class="m-bottom-min">
-                    Компонент <b>App</b> містить додатковий
-                    стан <b>clicks</b>, який ніяк
-                    <i>не впливає на планети</i>.
-                  </p>
-                  <p>
-                    Кожного разу, коли змінюється стан
-                    <b>clicks</b>, компонент буде оновлено,
-                    що призведе до обчислення
-                    <b>filteredPlanets</b>, хоча значення
-                    <b>planets</b> та <b>planets</b> не
-                    змінилися! Оскільки метод
-                    <b>filter</b> повертає посилання на
-                    новий масив, React сприймає це як
-                    абсолютно нові дані та список планет
-                    буде відображено заново. У такому разі
-                    варто мемоізувати обчислення
-                    <b>filteredPlanets</b>.
-                  </p>
-                </div>
-              </div>
-              <div class="bcg-box">
-                <p>
-                  <b>import { useMemo } from "react"</b
-                  >;<br />
-                  <br />
-                  const App = () => {<br />
-                      const [<b>planets</b>, setPlanets] =
-                  useState(<br />
-                          ["Earth", "Mars", "Jupiter",
-                  "Venus"]<br />
-                      );<br />
-                      const [<b>query</b>, setQuery] =
-                  useState("");<br />
-                      const [clicks, setClicks] =
-                  useState(0);<br />
-                      <br />
-                     
-                  <b
-                    >const filteredPlanets = useMemo(<br />
-                            () => planets.filter(<br />
-                                planet =>
-                    planet.includes(query)<br />
-                            ),<br />
-                            [planets, query]<br />
-                        )</b
-                  >;<br />
-                      <br />
-                      return (<br />
-                          &#60;><br />
-                              &#60;button onClick={<br />
-                                  () => setClicks(clicks +
-                  1)<br />
-                              }><br />
-                                  Number of clicks:
-                  {clicks}<br />
-                              &#60;/button><br />
-                              &#60;ul><br />
-                                 
-                  {filteredPlanets.map(planet => (<br />
-                                      &#60;li
-                  key={planet}>{planet}&#60;/li><br />
-                                  ))}<br />
-                              &#60;/ul><br />
-                          &#60;/><br />
-                      );<br />
-                  };
-                </p>
-              </div>
-            </div>
-
-            <p class="m-bottom-min">
-              Те ж саме стосується дорогих операцій, таких
-              як використання довгого циклу <b>for</b>.
-              Дорогі обчислення можуть бути витратними за
-              часом, що гарантовано призведе до погіршення
-              роботи інтерфейсу.
-            </p>
-
-            <p>
-              Не потрібно мемоізувати все поспіль, це може
-              призвести до втрат продуктивності, оскільки
-              мемоізація також займає обчислювальні ресурси.
-              Найчастіше повторні прості обчислення
-              обійдуться дешевше, ніж їхня мемоїзація.
-              Використовуйте useMemo() точково, в першу
-              чергу при роботі з масивами та для дорогих
-              обчислень.
-            </p>
           </section>
 
           <!-- Власні хуки -->
