@@ -34,6 +34,725 @@
         </div>
       </section>
 
+      <!-- React Router -->
+      <section id="routes" class="main-section">
+        <div class="container">
+          <h2 class="m-bottom center-text">React Router</h2>
+          <section class="section">
+            <h3 class="m-bottom-min">Маршрутизація</h3>
+
+            <p class="m-bottom-min">
+              <b>Маршрутизація</b> у React Router — це
+              механізм для створення багатосторінкових
+              інтерфейсів у React-додатках. Дозволяє
+              організувати навігацію між різними частинами
+              додатку, зберігаючи при цьому єдиний DOM (<b
+                >без повного перезавантаження сторінки</b
+              >).
+            </p>
+
+            <div class="bcg-box">
+              <p>
+                https://mysite.com/books/e3q76g9zk?category=adventure&status=unread#comments
+              </p>
+            </div>
+            <ul class="m-bottom-min">
+              <li><b>https://</b> - протокол</li>
+              <li><b>mysite.com/</b> - хост</li>
+              <li>
+                <b>books/e3q76gm9lzk</b> - шлях, то, де ми
+                знаходимося у додатку
+              </li>
+              <li>
+                <b>e3q76gm9lzk</b> - url-параметр. Параметри
+                бувають динамічними або статичними
+              </li>
+              <li>
+                <b>?</b> - символ початку рядка запиту
+              </li>
+              <li>
+                <b>?category=adventure&status=unread</b> -
+                рядок запиту
+              </li>
+              <li>
+                <b>category=adventure</b> - пара
+                параметр=значення
+              </li>
+              <li>
+                <b>&</b> - символ "І", розділяє параметри
+                рядка запиту
+              </li>
+              <li>
+                <b>#comments</b> - якір (хеш), визначає
+                положення на сторінці
+              </li>
+            </ul>
+
+            <div class="flex m-bottom">
+              <p>
+                Бібліотека маршрутизації для - React React
+                Router
+              </p>
+              <div class="bcg-box">
+                <p><b>npm install react-router-dom </b></p>
+              </div>
+            </div>
+
+            <!-- Компонент <BrowserRouter> -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Компонент &#60;BrowserRouter>
+              </h4>
+
+              <div class="flex">
+                <p>
+                  <b>Компонент &#60;BrowserRouter></b> -
+                  Командний центр управління маршрутизацією,
+                  який приховує в собі всю логіку взаємодії
+                  із історією браузера. Створює
+                  маршуртизатор та об'єкт історії навігації,
+                  щоб синхронізувати інтерфейс із
+                  URL-адресою. Використовуючи React контекст
+                  передає інформацію про поточний стан
+                  історії навігації всім нащадкам.
+                </p>
+                <div class="bcg-box">
+                  <p>
+                    <i>index.js <br /></i>
+                    <b
+                      >import { BrowserRouter } from
+                      "react-router-dom";</b
+                    >
+                    <br />
+                    <br />
+                    ReactDOM.createRoot(document.getElementById("root")).render(
+                    <br />
+                        &#60;React.StrictMode> <br />
+                           
+                    <b>&#60;BrowserRouter> <br /></b>      
+                          &#60;App /> <br />
+                           
+                    <b>&#60;/BrowserRouter> <br /></b>    
+                    &#60;/React.StrictMode> <br />
+                    );
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Компоненти <Route> та <Routes> -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">
+                Компоненти &#60;Route> та &#60;Routes>
+              </h4>
+
+              <div class="flex">
+                <p>
+                  <b>&#60;Route></b> дозволяє пов'язати
+                  певний URL з компонентом.
+                </p>
+                <div class="bcg-box">
+                  <p>
+                    &#60;Route path="/about"
+                    element={&#60;About />} />
+                  </p>
+                </div>
+              </div>
+
+              <ul class="m-bottom-min">
+                <li>
+                  <b>path</b> визначення шляху і компонента,
+                  який потрібно рендерити при збігу з цим
+                  шляхом.
+                </li>
+                <li>
+                  <b>element</b> може бути будь-який
+                  валідний JSX, але на практиці
+                  використовують лише компоненти.
+                </li>
+              </ul>
+
+              <div class="flex m-bottom-min">
+                <div>
+                  <p class="m-bottom-min">
+                    Маршрутів може бути
+                    <b>довільна кількість</b>, мінімум -
+                    один на кожну сторінку програми.
+                  </p>
+                  <p class="m-bottom-min">
+                    Групу маршрутів обов'язково має обертати
+                    компонент <b>&#60;Routes></b>, навіть
+                    якщо маршрут лише один. Він виконує
+                    логіку підбору найбільш відповідного
+                    &#60;Route> для поточного значення URL в
+                    адресному рядку браузера.
+                  </p>
+                  <p class="m-bottom-min">
+                    Якщо маршруту не існує, або помилка у
+                    посиланні, необхідно передбачити це та
+                    створити відповідний маршрут
+                  </p>
+                  <p>
+                    Символ <b>*</b> у пропсі path буквально
+                    вказує на те, що цей маршрут може
+                    збігатися з будь-яким значенням URL.
+                    Тому якщо жоден попередній &#60;Route>
+                    не підійде, останній точно відобразить
+                    користувачеві сторінку з якимось
+                    повідомленням про те, що маршруту яким
+                    він перейшов, не існує.
+                  </p>
+                </div>
+                <div class="bcg-box">
+                  <p>
+                    import { Routes, Route } from
+                    "react-router-dom";<br />
+                    import Home from
+                    "path/to/pages/Home";<br />
+                    import About from
+                    "path/to/pages/About";<br />
+                    import Products from
+                    "path/to/pages/Products";<br />
+                    import NotFound from
+                    "path/to/pages/NotFound";<br />
+                    <br />
+                    const App = () => {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;Routes><br />
+                                    &#60;Route path="/"
+                    element={&#60;Home />} /><br />
+                                    &#60;Route path="/about"
+                    element={&#60;About />} /><br />
+                                    &#60;Route
+                    path="/products" element={&#60;Products
+                    />} /><br />
+                                    &#60;Route path="*"
+                    element={&#60;NotFound />} /><br />
+                                &#60;/Routes><br />
+                            &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
+              </div>
+
+              <p class="border-box">
+                <b>Важливо!</b> Компонент сторінки це
+                звичайнісінький React-компонент. Для
+                зручності та структурованості такі
+                компоненти зберігаються окремо від усіх, у
+                папці <b>src/pages</b>.
+              </p>
+            </section>
+
+            <!-- Компоненти <Link> та <NavLink> -->
+            <section class="sub-section new-page">
+              <h4 class="m-bottom-min">
+                Компоненти &#60;Link> та &#60;NavLink>
+              </h4>
+
+              <div class="flex">
+                <div>
+                  <p class="m-bottom-min">
+                    Для створення посилань використовуються
+                    компоненти <b>&#60;Link></b> та
+                    <b>&#60;NavLink></b>. Вони рендерять тег
+                    <b>&#60;a></b>, але стандартна поведінка
+                    посилання змінена так, що при натисканні
+                    просто оновлюється URL в адресному рядку
+                    браузера, без перезавантаження сторінки.
+                  </p>
+
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      &#60;nav> <br />
+                          &#60;Link to="/">Home&#60;/Link>
+                      <br />
+                          &#60;Link
+                      to="/about">About&#60;/Link>
+                      <br />
+                          &#60;Link
+                      to="/products">Products&#60;/Link>
+                      <br />
+                      &#60;/nav>
+                    </p>
+                  </div>
+
+                  <p>
+                    Компонент
+                    <b>&#60;NavLink></b> відрізняється
+                    тільки тим, що може мати додаткові
+                    стилі, якщо поточний URL збігається зі
+                    значенням пропcа <b>to</b>. За
+                    замовчуванням елементу активного
+                    посилання додається клас <b>active</b>.
+                    Це можна використовувати для її
+                    стилізації.
+                  </p>
+                </div>
+
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/components/App.jsx</i><br />
+                    <br />
+                    import { Routes, Route, NavLink } from
+                    "react-router-dom";<br />
+                    import clsx from 'clsx';<br />
+                    import Home from
+                    "path/to/pages/Home";<br />
+
+                    import Products from
+                    "path/to/pages/Products";<br />
+                    import NotFound from
+                    'path/to/pages/NotFound';<br />
+                    import css from './App.module.css';<br />
+                    <br />
+                    const buildLinkClass = ({ isActive }) =>
+                    {<br />
+                          return clsx(css.link, isActive &&
+                    css.active);<br />
+                    };<br />
+                    export const App = () => {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;nav
+                    className={css.nav}><br />
+                                    &#60;NavLink to="/"
+                    className={buildLinkClass}><br />
+                                        Home<br />
+                                    &#60;/NavLink><br />
+
+                                    &#60;NavLink
+                    to="/products"
+                    className={buildLinkClass}><br />
+                                        Products<br />
+                                    &#60;/NavLink><br />
+                                &#60;/nav><br />
+                                &#60;Routes><br />
+                                    &#60;Route path="/"
+                    element={&#60;Home />} /><br />
+
+                                    &#60;Route
+                    path="/products" element={&#60;Products
+                    />} /><br />
+                                    &#60;Route path="*"
+                    element={&#60;NotFound />} /><br />
+                                    &#60;/Routes><br />
+                              &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- URL-параметри -->
+            <section class="sub-section">
+              <h4 class="m-bottom-min">URL-параметри</h4>
+
+              <div class="flex">
+                <div>
+                  <p class="m-bottom-min">
+                    Динамічні параметри схожі на параметри
+                    функції - у них завжди одна назва, але
+                    можуть бути різні значення. Вони
+                    дозволяють оголосити шаблон адреси,
+                    частини якого можуть мати довільне
+                    значення.
+                  </p>
+                  <p class="m-bottom-min">
+                    Для того, щоб вказати, що якась частина
+                    адреси це URL-параметр, використовується
+                    двокрапка <b>":"</b> перед іменем
+                    параметра.
+                  </p>
+                  <p class="m-bottom-min">
+                    Кожного разу, коли користувач буде
+                    відвідувати адресу, що відповідає
+                    шаблону <b>/products/:productId</b>,
+                    наприклад <b>/products/tablet-15</b> або
+                    <b>/products/27</b>, йому
+                    відображатиметься сторінка цього
+                    продукту. Це окрема сторінка, що ніяк не
+                    прив'язана до /products - сторінці
+                    відображення всіх продуктів.
+                  </p>
+                  <p class="border-box">
+                    <b>Важливо!</b> Ім'я URL-параметра може
+                    бути довільним, але воно має значення і
+                    має бути зрозумілим та описовим.
+                  </p>
+                </div>
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/components/App.jsx</i> <br />
+                    <br />
+                    import { Routes, Route, Link } from
+                    "react-router-dom";<br />
+                    import Home from
+                    "path/to/pages/Home";<br />
+
+                    import Products from
+                    "path/to/pages/Products";<br />
+
+                    <b>
+                      import ProductDetails from
+                      "path/to/pages/ProductDetails";</b
+                    >
+                    <br />
+                    import NotFound from
+                    "path/to/pages/NotFound";<br />
+                    <br />
+                    export const App = () => {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;nav><br />
+                                    &#60;Link
+                    to="/">Home&#60;/Link><br />
+                                    &#60;Link
+                    to="/about">About&#60;/Link><br />
+                                    &#60;Link
+                    to="/products">Products&#60;/Link><br />
+                                &#60;/nav><br />
+                                &#60;Routes><br />
+                                    &#60;Route path="/"
+                    element={&#60;Home />} /><br />
+                                    &#60;Route
+                    path="/products" element={&#60;Products
+                    />}<br />
+                                    &#60;Route<br />
+                                       
+                    path="/products/<b>:productId</b>"<br />
+                                        element={<b
+                      >&#60;ProductDetails /></b
+                    >}<br />
+                                    /><br />
+                                    &#60;Route path="*"
+                    element={&#60;NotFound />} /><br />
+                                &#60;/Routes><br />
+                            &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Вкладені маршрути -->
+            <section class="sub-section new-page">
+              <h4 class="m-bottom-min">
+                Вкладені маршрути
+              </h4>
+
+              <div class="flex m-bottom-min">
+                <div>
+                  <p class="m-bottom-min">
+                    <b>Вкладені маршрути</b> дозволяють
+                    описувати логіку «підсторінок», тобто
+                    якийсь URL по якому
+                    <i
+                      >крім батьківського компонента цілої
+                      сторінки</i
+                    >
+                    буде відображатися
+                    <i>ще якийсь дочірній</i>, вкладений
+                    компонент.
+                  </p>
+
+                  <div class="border-box m-bottom-min">
+                    <p><b>Важливо!</b></p>
+                    <ul>
+                      <li>
+                        вкласти дочірні маршрути всередину
+                        батьківського
+                        <b>&#60;Route></b>. Саме такий
+                        синтаксис вказує на вкладений
+                        маршрут, компонент якого буде
+                        відображатися десь усередині
+                        батьківського компонента.
+                      </li>
+                      <li>
+                        значення пропсу <b>path</b> у
+                        вкладеного маршруту вказується
+                        <b>відносно батьківського</b>, саме
+                        тому передається значення
+                        <b>path="mission"</b>, а не повний
+                        шлях <b>path="/about/mission"</b>.
+                      </li>
+                      <li>
+                        відносні шляхи записуються без
+                        провідного символу <b>/</b>, тобто
+                        <b>path="mission"</b>, а не
+                        <b>path="/mission"</b>. Якщо додати
+                        слеш, то навпаки створимо окремий
+                        маршрут <b>/mission</b> та зламаємо
+                        логіку маршрутизації.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="bcg-box">
+                    <p>
+                      <i>// src/pages/About.jsx</i><br />
+                      <br />
+                      import { Link, Outlet } from
+                      "react-router-dom";<br />
+                      <br />
+                      export const About = () => {<br />
+                          return (<br />
+                              &#60;div><br />
+                                  &#60;h1>About
+                      page&#60;/h1><br />
+                                  &#60;ul><br />
+                                      &#60;li><br />
+                                          &#60;Link
+                      <b>to="mission"</b
+                      >>Mission&#60;/Link><br />
+                                      &#60;/li><br />
+                                      &#60;li><br />
+                                          &#60;Link
+                      <b>to="team"</b>>Team&#60;/Link><br />
+                                      &#60;/li><br />
+                                      &#60;li><br />
+                                          &#60;Link
+                      <b>to="reviews"</b
+                      >>Reviews&#60;/Link><br />
+                                      &#60;/li><br />
+                                  &#60;/ul><br />
+                                  <b>&#60;Outlet /></b
+                      ><br />
+                              &#60;/div><br />
+                          );<br />
+                      };
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i>// ❌ Неправильно</i><br />
+                      &#60;Route path="/about"
+                      element={&#60;About />} /><br />
+                      &#60;Route path="/about/mission"
+                      element={&#60;Mission />} /><br />
+                      &#60;Route path="/about/team"
+                      element={&#60;Team />} /><br />
+                      &#60;Route path="/about/reviews"
+                      element={&#60;Reviews />} /><br />
+                      <br />
+                      <i>// ✅ Правильно</i><br />
+                      &#60;Route path="/about"
+                      element={&#60;About />}><br />
+                          &#60;Route path="mission"
+                      element={&#60;Mission />} /><br />
+                          &#60;Route path="team"
+                      element={&#60;Team />} /><br />
+                          &#60;Route path="reviews"
+                      element={&#60;Reviews />} /><br />
+                      &#60;/Route>
+                    </p>
+                  </div>
+
+                  <div class="bcg-box m-bottom-min">
+                    <p>
+                      <i>// src/components/App.jsx</i><br />
+                      <br />
+                      import { Routes, Route, Link } from
+                      "react-router-dom";<br />
+                      import Home from
+                      "path/to/pages/Home";<br />
+                      import About from
+                      "path/to/pages/About";<br />
+                      import Products from
+                      "path/to/pages/Products";<br />
+                      import NotFound from
+                      "path/to/pages/NotFound";<br />
+                      import ProductDetails from
+                      "path/to/pages/ProductDetails";<br />
+                      <b
+                        >import Mission from
+                        "path/to/components/Mission";</b
+                      ><br />
+                      <b
+                        >import Team from
+                        "path/to/components/Team";</b
+                      ><br />
+                      <b
+                        >import Reviews from
+                        "path/to/components/Reviews";</b
+                      ><br />
+                      <br />
+                      export const App = () => {<br />
+                          return (<br />
+                              &#60;div><br />
+                                  &#60;nav><br />
+                                      &#60;Link
+                      to="/">Home&#60;/Link><br />
+                                      &#60;Link
+                      to="/about">About&#60;/Link><br />
+                                      &#60;Link
+                      to="/products">Products&#60;/Link><br />
+                                  &#60;/nav><br />
+                                  &#60;Routes><br />
+                                      &#60;Route path="/"
+                      element={&#60;Home />} /><br />
+                      <b>
+                                        &#60;Route
+                        path="/about" element={&#60;About
+                        />}><br />
+                                            &#60;Route
+                        path="mission" element={&#60;Mission
+                        />} /><br />
+                                            &#60;Route
+                        path="team" element={&#60;Team />}
+                        /><br />
+                                            &#60;Route
+                        path="reviews" element={&#60;Reviews
+                        />} /><br />
+                                        &#60;/Route><br
+                      /></b>
+                                      &#60;Route
+                      path="/products"
+                      element={&#60;Products />} /><br />
+                                      &#60;Route<br />
+
+                                         
+                      path="/products/:productId"<br />
+
+                                         
+                      element={&#60;ProductDetails />}<br />
+                                      /><br />
+                                      &#60;Route path="*"
+                      element={&#60;NotFound />} /><br />
+                                  &#60;/Routes><br />
+                              &#60;/div><br />
+                          );<br />
+                      };
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="m-bottom-min">
+                      Обов'язково необхідно вказати де саме
+                      в компоненті батьківського маршруту
+                      (наприклад,
+                      <b>&#60;About></b>) будемо рендерити
+                      дочірні маршрути. Для цього у React
+                      Router є компонент
+                      <b>&#60;Outlet></b>.
+                    </p>
+                    <p class="m-bottom-min">
+                      Якщо поточний URL в адресному рядку
+                      браузера збігається зі значенням
+                      пропсу path вкладеного маршруту,
+                      <b>&#60;Outlet></b> відрендерить його
+                      компонент, інакше він рендерить null
+                      та не впливає на розмітку
+                      батьківського компонента.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <p class="border-box">
+                <b>Зверніть увагу!</b> на значення пропсу
+                <b>to</b> компонента <b>&#60;Link></b>. Так
+                само, як і <b>path</b> вкладеного маршруту,
+                значення пропсу <b>to</b> вкладених посилань
+                вказується відносно поточного URL. Компонент
+                <b>&#60;About></b> рендериться на адресу
+                <b>/about</b>, тому посилання з
+                <b>to="mission"</b> буде вести на
+                <b>/about/mission</b>. Якщо необхідно
+                зробити посилання на іншу сторінку, тоді
+                вказується шлях повністю, наприклад
+                <b>to="/products"</b>.
+              </p>
+
+              <!-- <div class="flex">
+                <div>
+                  <p class="m-bottom-min">
+                    Обов'язково необхідно вказати де саме в
+                    компоненті батьківського маршруту
+                    (наприклад,
+                    <b>&#60;About></b>) будемо рендерити
+                    дочірні маршрути. Для цього у React
+                    Router є компонент <b>&#60;Outlet></b>.
+                  </p>
+                  <p class="m-bottom-min">
+                    Якщо поточний URL в адресному рядку
+                    браузера збігається зі значенням пропсу
+                    path вкладеного маршруту,
+                    <b>&#60;Outlet></b> відрендерить його
+                    компонент, інакше він рендерить null та
+                    не впливає на розмітку батьківського
+                    компонента.
+                  </p>
+                  <p class="border-box">
+                    <b>Зверніть увагу!</b> на значення
+                    пропсу <b>to</b> компонента
+                    <b>&#60;Link></b>. Так само, як і
+                    <b>path</b> вкладеного маршруту,
+                    значення пропсу <b>to</b> вкладених
+                    посилань вказується відносно поточного
+                    URL. Компонент
+                    <b>&#60;About></b> рендериться на адресу
+                    <b>/about</b>, тому посилання з
+                    <b>to="mission"</b> буде вести на
+                    <b>/about/mission</b>. Якщо необхідно
+                    зробити посилання на іншу сторінку, тоді
+                    вказується шлях повністю, наприклад
+                    <b>to="/products"</b>.
+                  </p>
+                </div>
+
+                <div class="bcg-box">
+                  <p>
+                    <i>// src/pages/About.jsx</i><br />
+                    <br />
+                    import { Link, Outlet } from
+                    "react-router-dom";<br />
+                    <br />
+                    export const About = () => {<br />
+                        return (<br />
+                            &#60;div><br />
+                                &#60;h1>About
+                    page&#60;/h1><br />
+                                &#60;ul><br />
+                                    &#60;li><br />
+                                        &#60;Link
+                    <b>to="mission"</b
+                    >>Mission&#60;/Link><br />
+                                    &#60;/li><br />
+                                    &#60;li><br />
+                                        &#60;Link
+                    <b>to="team"</b>>Team&#60;/Link><br />
+                                    &#60;/li><br />
+                                    &#60;li><br />
+                                        &#60;Link
+                    <b>to="reviews"</b
+                    >>Reviews&#60;/Link><br />
+                                    &#60;/li><br />
+                                &#60;/ul><br />
+                                <b>&#60;Outlet /></b><br />
+                            &#60;/div><br />
+                        );<br />
+                    };
+                  </p>
+                </div>
+              </div> -->
+            </section>
+
+            <!-- Хуки React Routes -->
+            <section class="sub-section">
+              <h4>Хуки React Routes</h4>
+              <p>Хук useParams</p>
+            </section>
+          </section>
+        </div>
+      </section>
+
       <!-- Додаткові бібліотеки -->
       <section class="main-section">
         <div class="container">
